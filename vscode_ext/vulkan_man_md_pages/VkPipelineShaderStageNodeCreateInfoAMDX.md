@@ -1,0 +1,92 @@
+# VkPipelineShaderStageNodeCreateInfoAMDX(3) Manual Page
+
+## Name
+
+VkPipelineShaderStageNodeCreateInfoAMDX - Structure specifying the
+shader name and index with an execution graph
+
+
+
+## <a href="#_c_specification" class="anchor"></a>C Specification
+
+The `VkPipelineShaderStageNodeCreateInfoAMDX` structure is defined as:
+
+``` c
+// Provided by VK_AMDX_shader_enqueue
+typedef struct VkPipelineShaderStageNodeCreateInfoAMDX {
+      VkStructureType    sType;
+    const void*          pNext;
+    const char*          pName;
+    uint32_t             index;
+} VkPipelineShaderStageNodeCreateInfoAMDX;
+```
+
+## <a href="#_members" class="anchor"></a>Members
+
+- `sType` is a [VkStructureType](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkStructureType.html) value identifying
+  this structure.
+
+- `pNext` is `NULL` or a pointer to a structure extending this
+  structure.
+
+- `pName` is the shader name to use when creating a node in an execution
+  graph. If `pName` is `NULL`, the name of the entry point specified in
+  SPIR-V is used as the shader name.
+
+- `index` is the shader index to use when creating a node in an
+  execution graph. If `index` is `VK_SHADER_INDEX_UNUSED_AMDX` then the
+  original index is used, either as specified by the `ShaderIndexAMDX`
+  execution mode, or `0` if that too is not specified.
+
+## <a href="#_description" class="anchor"></a>Description
+
+When included in the `pNext` chain of a
+[VkPipelineShaderStageCreateInfo](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkPipelineShaderStageCreateInfo.html)
+structure, this structure specifies the shader name and shader index of
+a node when creating an execution graph pipeline. If this structure is
+omitted, the shader name is set to the name of the entry point in SPIR-V
+and the shader index is set to `0`.
+
+When dispatching a node from another shader, the name is fixed at
+pipeline creation, but the index **can** be set dynamically. By
+associating multiple shaders with the same name but different indexes,
+applications can dynamically select different nodes to execute.
+Applications **must** ensure each node has a unique name and index.
+
+Valid Usage (Implicit)
+
+- <a href="#VUID-VkPipelineShaderStageNodeCreateInfoAMDX-sType-sType"
+  id="VUID-VkPipelineShaderStageNodeCreateInfoAMDX-sType-sType"></a>
+  VUID-VkPipelineShaderStageNodeCreateInfoAMDX-sType-sType  
+  `sType` **must** be
+  `VK_STRUCTURE_TYPE_PIPELINE_SHADER_STAGE_NODE_CREATE_INFO_AMDX`
+
+- <a href="#VUID-VkPipelineShaderStageNodeCreateInfoAMDX-pName-parameter"
+  id="VUID-VkPipelineShaderStageNodeCreateInfoAMDX-pName-parameter"></a>
+  VUID-VkPipelineShaderStageNodeCreateInfoAMDX-pName-parameter  
+  If `pName` is not `NULL`, `pName` **must** be a null-terminated UTF-8
+  string
+
+## <a href="#_see_also" class="anchor"></a>See Also
+
+[VK_AMDX_shader_enqueue](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_AMDX_shader_enqueue.html),
+[VkStructureType](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkStructureType.html),
+[vkGetExecutionGraphPipelineNodeIndexAMDX](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkGetExecutionGraphPipelineNodeIndexAMDX.html)
+
+## <a href="#_document_notes" class="anchor"></a>Document Notes
+
+For more information, see the <a
+href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#VkPipelineShaderStageNodeCreateInfoAMDX"
+target="_blank" rel="noopener">Vulkan Specification</a>
+
+This page is extracted from the Vulkan Specification. Fixes and changes
+should be made to the Specification, not directly.
+
+## <a href="#_copyright" class="anchor"></a>Copyright
+
+Copyright 2014-2024 The Khronos Group Inc.
+
+SPDX-License-Identifier: CC-BY-4.0
+
+Version 1.3.285  
+Last updated 2024-05-10 01:10:25 -0700

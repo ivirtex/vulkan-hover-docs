@@ -1,0 +1,115 @@
+# VkPhysicalDeviceAccelerationStructureFeaturesKHR(3) Manual Page
+
+## Name
+
+VkPhysicalDeviceAccelerationStructureFeaturesKHR - Structure describing
+the acceleration structure features that can be supported by an
+implementation
+
+
+
+## <a href="#_c_specification" class="anchor"></a>C Specification
+
+The `VkPhysicalDeviceAccelerationStructureFeaturesKHR` structure is
+defined as:
+
+``` c
+// Provided by VK_KHR_acceleration_structure
+typedef struct VkPhysicalDeviceAccelerationStructureFeaturesKHR {
+    VkStructureType    sType;
+    void*              pNext;
+    VkBool32           accelerationStructure;
+    VkBool32           accelerationStructureCaptureReplay;
+    VkBool32           accelerationStructureIndirectBuild;
+    VkBool32           accelerationStructureHostCommands;
+    VkBool32           descriptorBindingAccelerationStructureUpdateAfterBind;
+} VkPhysicalDeviceAccelerationStructureFeaturesKHR;
+```
+
+## <a href="#_members" class="anchor"></a>Members
+
+This structure describes the following features:
+
+- `sType` is a [VkStructureType](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkStructureType.html) value identifying
+  this structure.
+
+- `pNext` is `NULL` or a pointer to a structure extending this
+  structure.
+
+- <span id="features-accelerationStructure"></span>
+  `accelerationStructure` indicates whether the implementation supports
+  the acceleration structure functionality. See <a
+  href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#acceleration-structure"
+  target="_blank" rel="noopener">Acceleration Structures</a>.
+
+- <span id="features-accelerationStructureCaptureReplay"></span>
+  `accelerationStructureCaptureReplay` indicates whether the
+  implementation supports saving and reusing acceleration structure
+  device addresses, e.g. for trace capture and replay.
+
+- <span id="features-accelerationStructureIndirectBuild"></span>
+  `accelerationStructureIndirectBuild` indicates whether the
+  implementation supports indirect acceleration structure build
+  commands, e.g.
+  [vkCmdBuildAccelerationStructuresIndirectKHR](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdBuildAccelerationStructuresIndirectKHR.html).
+
+- <span id="features-accelerationStructureHostCommands"></span>
+  `accelerationStructureHostCommands` indicates whether the
+  implementation supports host side acceleration structure commands,
+  e.g.
+  [vkBuildAccelerationStructuresKHR](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkBuildAccelerationStructuresKHR.html),
+  [vkCopyAccelerationStructureKHR](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCopyAccelerationStructureKHR.html),
+  [vkCopyAccelerationStructureToMemoryKHR](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCopyAccelerationStructureToMemoryKHR.html),
+  [vkCopyMemoryToAccelerationStructureKHR](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCopyMemoryToAccelerationStructureKHR.html),
+  [vkWriteAccelerationStructuresPropertiesKHR](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkWriteAccelerationStructuresPropertiesKHR.html).
+
+- <span id="features-descriptorBindingAccelerationStructureUpdateAfterBind"></span>
+  `descriptorBindingAccelerationStructureUpdateAfterBind` indicates
+  whether the implementation supports updating acceleration structure
+  descriptors after a set is bound. If this feature is not enabled,
+  `VK_DESCRIPTOR_BINDING_UPDATE_AFTER_BIND_BIT` **must** not be used
+  with `VK_DESCRIPTOR_TYPE_ACCELERATION_STRUCTURE_KHR`.
+
+## <a href="#_description" class="anchor"></a>Description
+
+If the `VkPhysicalDeviceAccelerationStructureFeaturesKHR` structure is
+included in the `pNext` chain of the
+[VkPhysicalDeviceFeatures2](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkPhysicalDeviceFeatures2.html) structure
+passed to
+[vkGetPhysicalDeviceFeatures2](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkGetPhysicalDeviceFeatures2.html), it is
+filled in to indicate whether each corresponding feature is supported.
+`VkPhysicalDeviceAccelerationStructureFeaturesKHR` **can** also be used
+in the `pNext` chain of [VkDeviceCreateInfo](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkDeviceCreateInfo.html) to
+selectively enable these features.
+
+Valid Usage (Implicit)
+
+- <a
+  href="#VUID-VkPhysicalDeviceAccelerationStructureFeaturesKHR-sType-sType"
+  id="VUID-VkPhysicalDeviceAccelerationStructureFeaturesKHR-sType-sType"></a>
+  VUID-VkPhysicalDeviceAccelerationStructureFeaturesKHR-sType-sType  
+  `sType` **must** be
+  `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_ACCELERATION_STRUCTURE_FEATURES_KHR`
+
+## <a href="#_see_also" class="anchor"></a>See Also
+
+[VK_KHR_acceleration_structure](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_KHR_acceleration_structure.html),
+[VkBool32](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkBool32.html), [VkStructureType](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkStructureType.html)
+
+## <a href="#_document_notes" class="anchor"></a>Document Notes
+
+For more information, see the <a
+href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#VkPhysicalDeviceAccelerationStructureFeaturesKHR"
+target="_blank" rel="noopener">Vulkan Specification</a>
+
+This page is extracted from the Vulkan Specification. Fixes and changes
+should be made to the Specification, not directly.
+
+## <a href="#_copyright" class="anchor"></a>Copyright
+
+Copyright 2014-2024 The Khronos Group Inc.
+
+SPDX-License-Identifier: CC-BY-4.0
+
+Version 1.3.285  
+Last updated 2024-05-10 01:10:25 -0700
