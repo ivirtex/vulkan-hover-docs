@@ -2,13 +2,14 @@
   "name": "vulkan-hover-docs",
   "displayName": "Vulkan Hover Docs",
   "description": "Vulkan API documentation on hover",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "repository": {
     "url": "https://github.com/ivirtex/vulkan-hover-docs"
   },
   "publisher": "ivirtex",
   "galleryBanner": {
-    "color": "#d8222e"
+    "color": "#d8222e",
+    "theme": "dark"
   },
   "icon": "images/icon.png",
   "engines": {
