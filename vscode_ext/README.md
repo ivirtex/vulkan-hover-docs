@@ -4,7 +4,7 @@ This extension provides hover documentation for Vulkan API based on the official
 
 ## Features
 
-![preview](https://github.com/ivirtex/vulkan-hover-docs/blob/master/vscode_ext/images/screenshot.png)
+![preview](https://github.com/ivirtex/vulkan-hover-docs/blob/master/vscode_ext/images/screenshot.png?raw=true)
 
 ## Known Issues
 

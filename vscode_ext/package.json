@@ -6,8 +6,9 @@
   "repository": {
     "url": "https://github.com/ivirtex/vulkan-hover-docs"
   },
+  "publisher": "ivirtex",
   "galleryBanner": {
-    "color": "#ac162c"
+    "color": "#d8222e"
   },
   "icon": "images/icon.png",
   "engines": {
