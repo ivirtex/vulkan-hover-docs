@@ -49,6 +49,7 @@ fn main() {
         } => {
             if !skip_download {
                 download_vk_man_pages(HTML_PAGES_DIR);
+                remove_unnecessary_files(HTML_PAGES_DIR);
             }
 
             if !skip_md_gen {
@@ -85,7 +86,9 @@ fn download_vk_man_pages(target_dir: &str) {
 
     let message = "Download complete!".bright_green().bold();
     println!("{}", message);
+}
 
+fn remove_unnecessary_files(target_dir: &str) {
     let message = "Removing unnecessary files:".bright_blue().bold();
     println!("{}", message);
 
@@ -121,6 +124,9 @@ fn download_vk_man_pages(target_dir: &str) {
             }
         }
     }
+
+    let message = "Unnecessary files removed!".bright_green().bold();
+    println!("{}", message);
 }
 
 fn generate_md_files(input_dir: &str, output_dir: &str) {
