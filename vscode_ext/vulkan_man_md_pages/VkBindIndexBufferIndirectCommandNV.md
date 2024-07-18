@@ -31,9 +31,8 @@ typedef struct VkBindIndexBufferIndirectCommandNV {
 
 - `indexType` is a [VkIndexType](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkIndexType.html) value specifying how
   indices are treated. Instead of the Vulkan enum values, a custom
-  `uint32_t` value **can** be mapped to an
-  [VkIndexType](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkIndexType.html) by specifying the
-  `VkIndirectCommandsLayoutTokenNV`::`pIndexTypes` and
+  `uint32_t` value **can** be mapped to [VkIndexType](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkIndexType.html)
+  by specifying the `VkIndirectCommandsLayoutTokenNV`::`pIndexTypes` and
   `VkIndirectCommandsLayoutTokenNV`::`pIndexTypeValues` arrays.
 
 ## <a href="#_description" class="anchor"></a>Description
@@ -85,5 +84,5 @@ Copyright 2014-2024 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
 
-Version 1.3.285  
-Last updated 2024-05-10 01:10:25 -0700
+Version 1.3.290  
+Last updated 2024-07-11 23:39:16 -0700

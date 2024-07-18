@@ -20,7 +20,8 @@ VkResult vkCopyImageToImageEXT(
 
 ## <a href="#_parameters" class="anchor"></a>Parameters
 
-- `device` is the device which owns `pCopyImageToMemoryInfo->srcImage`.
+- `device` is the device which owns `pCopyImageToImageInfo->srcImage`
+  and `pCopyImageToImageInfo->dstImage`.
 
 - `pCopyImageToImageInfo` is a pointer to a
   [VkCopyImageToImageInfoEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkCopyImageToImageInfoEXT.html) structure
@@ -30,7 +31,38 @@ VkResult vkCopyImageToImageEXT(
 
 This command is functionally similar to
 [vkCmdCopyImage2](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdCopyImage2.html), except it is executed on the
-host.
+host. The memory of `pCopyImageToImageInfo->srcImage` and
+`pCopyImageToImageInfo->dstImage` is accessed by the host as if <a
+href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#memory-coherent"
+target="_blank" rel="noopener">coherent</a>.
+
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<tbody>
+<tr>
+<td class="icon"><em></em></td>
+<td class="content">Note
+<p>If the device has written to the memory of
+<code>pCopyImageToImageInfo-&gt;srcImage</code>, it is not automatically
+made available to the host. Before this copy command can be called, a
+memory barrier for this image <strong>must</strong> have been issued on
+the device with the second <a
+href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#synchronization-dependencies-scopes"
+target="_blank" rel="noopener">synchronization scope</a> including
+<code>VK_PIPELINE_STAGE_HOST_BIT</code> and
+<code>VK_ACCESS_HOST_READ_BIT</code>.</p>
+<p>Because queue submissions <a
+href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#synchronization-submission-host-writes"
+target="_blank" rel="noopener">automatically make host memory visible to
+the device</a>, there would not be a need for a memory barrier before
+using the results of this copy operation in
+<code>pCopyMemoryToImageInfo-&gt;dstImage</code> on the device.</p></td>
+</tr>
+</tbody>
+</table>
 
 Valid Usage
 
@@ -90,5 +122,5 @@ Copyright 2014-2024 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
 
-Version 1.3.285  
-Last updated 2024-05-10 01:10:25 -0700
+Version 1.3.290  
+Last updated 2024-07-11 23:39:16 -0700

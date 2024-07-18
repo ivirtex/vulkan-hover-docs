@@ -29,8 +29,8 @@ typedef struct VkOpaqueCaptureDescriptorDataCreateInfoEXT {
 - `pNext` is `NULL` or a pointer to a structure extending this
   structure.
 
-- `opaqueCaptureDescriptorData` is a pointer to a user-allocated buffer
-  containing opaque capture data retrieved using
+- `opaqueCaptureDescriptorData` is a pointer to an application-allocated
+  buffer containing opaque capture data retrieved using
   [vkGetBufferOpaqueCaptureDescriptorDataEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkGetBufferOpaqueCaptureDescriptorDataEXT.html),
   [vkGetImageOpaqueCaptureDescriptorDataEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkGetImageOpaqueCaptureDescriptorDataEXT.html),
   [vkGetImageViewOpaqueCaptureDescriptorDataEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkGetImageViewOpaqueCaptureDescriptorDataEXT.html),
@@ -86,5 +86,5 @@ Copyright 2014-2024 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
 
-Version 1.3.285  
-Last updated 2024-05-10 01:10:25 -0700
+Version 1.3.290  
+Last updated 2024-07-11 23:39:16 -0700

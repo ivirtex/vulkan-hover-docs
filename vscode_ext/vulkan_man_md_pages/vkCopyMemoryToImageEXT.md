@@ -29,7 +29,29 @@ VkResult vkCopyMemoryToImageEXT(
 
 This command is functionally similar to
 [vkCmdCopyBufferToImage2](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdCopyBufferToImage2.html), except it is
-executed on the host and reads from host memory instead of a buffer.
+executed on the host and reads from host memory instead of a buffer. The
+memory of `pCopyMemoryToImageInfo->dstImage` is accessed by the host as
+if <a
+href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#memory-coherent"
+target="_blank" rel="noopener">coherent</a>.
+
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<tbody>
+<tr>
+<td class="icon"><em></em></td>
+<td class="content">Note
+<p>Because queue submissions <a
+href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#synchronization-submission-host-writes"
+target="_blank" rel="noopener">automatically make host memory visible to
+the device</a>, there would not be a need for a memory barrier before
+using the results of this copy operation on the device.</p></td>
+</tr>
+</tbody>
+</table>
 
 Valid Usage
 
@@ -90,5 +112,5 @@ Copyright 2014-2024 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
 
-Version 1.3.285  
-Last updated 2024-05-10 01:10:25 -0700
+Version 1.3.290  
+Last updated 2024-07-11 23:39:16 -0700

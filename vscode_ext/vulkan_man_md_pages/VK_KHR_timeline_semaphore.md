@@ -191,8 +191,8 @@ operations.
 signal-before-wait requirement as the existing semaphores do?
 
 **RESOLVED**: No. Timeline semaphores support signaling and waiting
-entirely asynchronously. It is the responsibility of the client to avoid
-deadlock.
+entirely asynchronously. It is the responsibility of the application to
+avoid deadlock.
 
 4\) Does the new synchronization primitive allow resetting its payload?
 
@@ -244,17 +244,17 @@ the workload is ready to be executed.
 ordering requirements of the original `VkSemaphore`?
 
 **RESOLVED**: Prior to calling any command which **may** cause a wait
-operation on a binary semaphore, the client **must** ensure that the
-semaphore signal operation that has been submitted for execution and any
-semaphore signal operations on which it depends (if any) **must** have
-also been submitted for execution.
+operation on a binary semaphore, the application **must** ensure that
+the semaphore signal operation that has been submitted for execution and
+any semaphore signal operations on which it depends (if any) **must**
+have also been submitted for execution.
 
 11\) Should we have separate feature bits for different sub-features of
 timeline semaphores?
 
 **RESOLVED**: No. The only feature which cannot be supported universally
-is timeline semaphore import/export. For import/export, the client is
-already required to query available external handle types via
+is timeline semaphore import/export. For import/export, the application
+is already required to query available external handle types via
 [vkGetPhysicalDeviceExternalSemaphoreProperties](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkGetPhysicalDeviceExternalSemaphoreProperties.html)
 and provide the semaphore type by adding a
 [VkSemaphoreTypeCreateInfoKHR](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkSemaphoreTypeCreateInfoKHR.html)
@@ -291,5 +291,5 @@ Copyright 2014-2024 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
 
-Version 1.3.285  
-Last updated 2024-05-10 01:10:25 -0700
+Version 1.3.290  
+Last updated 2024-07-11 23:39:16 -0700

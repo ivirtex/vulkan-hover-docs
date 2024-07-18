@@ -104,11 +104,11 @@ This extension has been partially promoted. The dynamic state enumerants
 `VK_DYNAMIC_STATE_DEPTH_BIAS_ENABLE_EXT`,
 `VK_DYNAMIC_STATE_PRIMITIVE_RESTART_ENABLE_EXT`, and
 `VK_DYNAMIC_STATE_RASTERIZER_DISCARD_ENABLE_EXT`; and the corresponding
-entry points in this extension are included in core Vulkan 1.3, with the
-EXT suffix omitted. The enumerants and entry points for dynamic logic
-operation and patch control points are not promoted, nor is the feature
-structure. Extension interfaces that were promoted remain available as
-aliases of the core functionality.
+commands in this extension are included in core Vulkan 1.3, with the EXT
+suffix omitted. The enumerants and commands for dynamic logic operation
+and patch control points are not promoted, nor is the feature structure.
+Extension interfaces that were promoted remain available as aliases of
+the core functionality.
 
 ## <a href="#_version_history" class="anchor"></a>Version History
 
@@ -135,5 +135,5 @@ Copyright 2014-2024 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
 
-Version 1.3.285  
-Last updated 2024-05-10 01:10:25 -0700
+Version 1.3.290  
+Last updated 2024-07-11 23:39:16 -0700

@@ -36,7 +36,7 @@ or any other value to use a 64-bit unsigned integer type.
 <col style="width: 50%" />
 </colgroup>
 <tbody>
-<tr class="odd">
+<tr>
 <td class="icon"><em></em></td>
 <td class="content">Note
 <p>The <code>vulkan_core.h</code> header allows the
@@ -55,7 +55,7 @@ identify the desired configuration.</p></td>
 <col style="width: 50%" />
 </colgroup>
 <tbody>
-<tr class="odd">
+<tr>
 <td class="icon"><em></em></td>
 <td class="content">Note
 <p>This macro was introduced starting with the Vulkan 1.2.174 headers,
@@ -71,6 +71,7 @@ with their project in this case.</p></td>
 
 ## <a href="#_see_also" class="anchor"></a>See Also
 
+[VK_NULL_HANDLE](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_NULL_HANDLE.html),
 [VK_VERSION_1_0](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_VERSION_1_0.html)
 
 ## <a href="#_document_notes" class="anchor"></a>Document Notes
@@ -88,5 +89,5 @@ Copyright 2014-2024 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
 
-Version 1.3.285  
-Last updated 2024-05-10 01:10:25 -0700
+Version 1.3.290  
+Last updated 2024-07-11 23:39:16 -0700

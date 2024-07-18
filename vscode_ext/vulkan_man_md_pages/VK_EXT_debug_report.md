@@ -136,7 +136,7 @@ If [Version 1.1](#versions-1.1) is supported:
 `VK_EXT_debug_report` allows an application to register multiple
 callbacks with the validation layers. Some callbacks may log the
 information to a file, others may cause a debug break point or other
-application defined behavior. An application **can** register callbacks
+application-defined behavior. An application **can** register callbacks
 even when no validation layers are enabled, but they will only be called
 for loader and, if implemented, driver events.
 
@@ -200,7 +200,7 @@ happens and the third will log warnings to stdout.
 <col style="width: 50%" />
 </colgroup>
 <tbody>
-<tr class="odd">
+<tr>
 <td class="icon"><em></em></td>
 <td class="content">Note
 <p>In the initial release of the <code>VK_EXT_debug_report</code>
@@ -220,7 +220,7 @@ still available for backwards compatibility.</p></td>
 <col style="width: 50%" />
 </colgroup>
 <tbody>
-<tr class="odd">
+<tr>
 <td class="icon"><em></em></td>
 <td class="content">Note
 <p>In the initial release of the <code>VK_EXT_debug_report</code>
@@ -292,8 +292,8 @@ reinterpret_cast<uint64_t &>(dispatchableHandle)
 (uint64_t)(nondispatchableHandle)
 ```
 
-\+ This does require that the app treat dispatchable and nondispatchable
-handles differently.
+\+ This does require that the application treat dispatchable and
+nondispatchable handles differently.
 
 ## <a href="#_version_history" class="anchor"></a>Version History
 
@@ -366,5 +366,5 @@ Copyright 2014-2024 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
 
-Version 1.3.285  
-Last updated 2024-05-10 01:10:25 -0700
+Version 1.3.290  
+Last updated 2024-07-11 23:39:16 -0700

@@ -56,7 +56,10 @@ typedef struct VkCooperativeMatrixPropertiesKHR {
 
 - `saturatingAccumulation` indicates whether the
   `SaturatingAccumulation` operand to `OpCooperativeMatrixMulAddKHR`
-  **must** be present.
+  **must** be present or not. If it is `VK_TRUE`, the
+  `SaturatingAccumulation` operand **must** be present. If it is
+  `VK_FALSE`, the `SaturatingAccumulation` operand **must** not be
+  present.
 
 - `scope` is the scope of all the matrix types, of type
   [VkScopeKHR](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkScopeKHR.html).
@@ -108,5 +111,5 @@ Copyright 2014-2024 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
 
-Version 1.3.285  
-Last updated 2024-05-10 01:10:25 -0700
+Version 1.3.290  
+Last updated 2024-07-11 23:39:16 -0700

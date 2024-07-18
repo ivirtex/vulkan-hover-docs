@@ -2,7 +2,7 @@
 
 ## Name
 
-VkHdrMetadataEXT - Specify Hdr metadata
+VkHdrMetadataEXT - Specify HDR metadata
 
 
 
@@ -35,33 +35,51 @@ typedef struct VkHdrMetadataEXT {
   structure.
 
 - `displayPrimaryRed` is a [VkXYColorEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkXYColorEXT.html) structure
-  specifying the reference monitor’s red primary in chromaticity
-  coordinates
+  specifying the red primary of the display used to optimize the content
 
 - `displayPrimaryGreen` is a [VkXYColorEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkXYColorEXT.html) structure
-  specifying the reference monitor’s green primary in chromaticity
-  coordinates
+  specifying the green primary of the display used to optimize the
+  content
 
 - `displayPrimaryBlue` is a [VkXYColorEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkXYColorEXT.html) structure
-  specifying the reference monitor’s blue primary in chromaticity
-  coordinates
+  specifying the blue primary of the display used to optimize the
+  content
 
 - `whitePoint` is a [VkXYColorEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkXYColorEXT.html) structure
-  specifying the reference monitor’s white-point in chromaticity
-  coordinates
+  specifying the white-point of the display used to optimize the content
 
-- `maxLuminance` is the maximum luminance of the reference monitor in
-  nits
+- `maxLuminance` is the maximum luminance of the display used to
+  optimize the content in nits
 
-- `minLuminance` is the minimum luminance of the reference monitor in
-  nits
+- `minLuminance` is the minimum luminance of the display used to
+  optimize the content in nits
 
-- `maxContentLightLevel` is content’s maximum luminance in nits
+- `maxContentLightLevel` is the value in nits of the desired luminance
+  for the brightest pixels in the displayed image.
 
-- `maxFrameAverageLightLevel` is the maximum frame average light level
-  in nits
+- `maxFrameAverageLightLevel` is the value in nits of the average
+  luminance of the frame which has the brightest average luminance
+  anywhere in the content.
 
 ## <a href="#_description" class="anchor"></a>Description
+
+If any of the above values are unknown, they **can** be set to 0.
+
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<tbody>
+<tr>
+<td class="icon"><em></em></td>
+<td class="content">Note
+<p>The meta-data provided here is intended to be used as defined in the
+SMPTE 2086, CTA 861.3 and CIE 15:2004 specifications. The validity and
+use of this data is outside the scope of Vulkan.</p></td>
+</tr>
+</tbody>
+</table>
 
 Valid Usage (Implicit)
 
@@ -74,21 +92,6 @@ Valid Usage (Implicit)
   id="VUID-VkHdrMetadataEXT-pNext-pNext"></a>
   VUID-VkHdrMetadataEXT-pNext-pNext  
   `pNext` **must** be `NULL`
-
-<table>
-<colgroup>
-<col style="width: 50%" />
-<col style="width: 50%" />
-</colgroup>
-<tbody>
-<tr class="odd">
-<td class="icon"><em></em></td>
-<td class="content">Note
-<p>The validity and use of this data is outside the scope of
-Vulkan.</p></td>
-</tr>
-</tbody>
-</table>
 
 ## <a href="#_see_also" class="anchor"></a>See Also
 
@@ -112,5 +115,5 @@ Copyright 2014-2024 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
 
-Version 1.3.285  
-Last updated 2024-05-10 01:10:25 -0700
+Version 1.3.290  
+Last updated 2024-07-11 23:39:16 -0700

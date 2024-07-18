@@ -10,7 +10,7 @@ VkColorSpaceKHR - Supported color space of the presentation engine
 
 Possible values of
 [VkSurfaceFormatKHR](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkSurfaceFormatKHR.html)::`colorSpace`, specifying
-supported color spaces of a presentation engine, are:
+the color spaces that a presentation engine can accept, are:
 
 ``` c
 // Provided by VK_KHR_surface
@@ -54,52 +54,58 @@ typedef enum VkColorSpaceKHR {
 
 ## <a href="#_description" class="anchor"></a>Description
 
-- `VK_COLOR_SPACE_SRGB_NONLINEAR_KHR` specifies support for the sRGB
-  color space.
+- `VK_COLOR_SPACE_SRGB_NONLINEAR_KHR` specifies support for the images
+  in sRGB color space, encoded according to the sRGB specification.
 
 - `VK_COLOR_SPACE_DISPLAY_P3_NONLINEAR_EXT` specifies support for the
-  Display-P3 color space to be displayed using an sRGB-like EOTF
-  (defined below).
+  images in Display-P3 color space, encoded using a Display-P3 transfer
+  function.
 
 - `VK_COLOR_SPACE_EXTENDED_SRGB_LINEAR_EXT` specifies support for the
-  extended sRGB color space to be displayed using a linear EOTF.
+  images in extended sRGB color space, encoded using a linear transfer
+  function.
 
 - `VK_COLOR_SPACE_EXTENDED_SRGB_NONLINEAR_EXT` specifies support for the
-  extended sRGB color space to be displayed using an sRGB EOTF.
+  images in extended sRGB color space, encoded according to the scRGB
+  specification.
 
 - `VK_COLOR_SPACE_DISPLAY_P3_LINEAR_EXT` specifies support for the
-  Display-P3 color space to be displayed using a linear EOTF.
+  images in Display-P3 color space, encoded using a linear transfer
+  function.
 
-- `VK_COLOR_SPACE_DCI_P3_NONLINEAR_EXT` specifies support for the DCI-P3
-  color space to be displayed using the DCI-P3 EOTF. Note that values in
-  such an image are interpreted as XYZ encoded color data by the
-  presentation engine.
+- `VK_COLOR_SPACE_DCI_P3_NONLINEAR_EXT` specifies support for the images
+  in DCI-P3 color space, encoded according to the DCI-P3 specification.
+  Note that values in such an image are interpreted as XYZ encoded color
+  data by the presentation engine.
 
-- `VK_COLOR_SPACE_BT709_LINEAR_EXT` specifies support for the BT709
-  color space to be displayed using a linear EOTF.
+- `VK_COLOR_SPACE_BT709_LINEAR_EXT` specifies support for the images in
+  BT709 color space, encoded using a linear transfer function.
 
-- `VK_COLOR_SPACE_BT709_NONLINEAR_EXT` specifies support for the BT709
-  color space to be displayed using the SMPTE 170M EOTF.
+- `VK_COLOR_SPACE_BT709_NONLINEAR_EXT` specifies support for the images
+  in BT709 color space, encoded according to the BT709 specification.
 
-- `VK_COLOR_SPACE_BT2020_LINEAR_EXT` specifies support for the BT2020
-  color space to be displayed using a linear EOTF.
+- `VK_COLOR_SPACE_BT2020_LINEAR_EXT` specifies support for the images in
+  BT2020 color space, encoded using a linear transfer function.
 
-- `VK_COLOR_SPACE_HDR10_ST2084_EXT` specifies support for the HDR10
-  (BT2020 color) space to be displayed using the SMPTE ST2084 Perceptual
-  Quantizer (PQ) EOTF.
+- `VK_COLOR_SPACE_HDR10_ST2084_EXT` specifies support for the images in
+  HDR10 (BT2020) color space, encoded according to SMPTE ST2084
+  Perceptual Quantizer (PQ) specification.
 
-- `VK_COLOR_SPACE_DOLBYVISION_EXT` specifies support for the Dolby
-  Vision (BT2020 color space), proprietary encoding, to be displayed
-  using the SMPTE ST2084 EOTF.
+- `VK_COLOR_SPACE_DOLBYVISION_EXT` specifies support for the images in
+  Dolby Vision (BT2020) color space, encoded according to SMPTE ST2084
+  Perceptual Quantizer (PQ) specification. The presentation engine is
+  expected to use Dolby’s proprietary techniques to display the image.
 
-- `VK_COLOR_SPACE_HDR10_HLG_EXT` specifies support for the HDR10 (BT2020
-  color space) to be displayed using the Hybrid Log Gamma (HLG) EOTF.
+- `VK_COLOR_SPACE_HDR10_HLG_EXT` specifies support for the images in
+  HDR10 (BT2020) color space, encoded according to the Hybrid Log Gamma
+  (HLG) specification.
 
-- `VK_COLOR_SPACE_ADOBERGB_LINEAR_EXT` specifies support for the
-  AdobeRGB color space to be displayed using a linear EOTF.
+- `VK_COLOR_SPACE_ADOBERGB_LINEAR_EXT` specifies support for images in
+  Adobe RGB color space, encoded using a linear transfer function.
 
 - `VK_COLOR_SPACE_ADOBERGB_NONLINEAR_EXT` specifies support for the
-  AdobeRGB color space to be displayed using the Gamma 2.2 EOTF.
+  images in Adobe RGB color space, encoded according to the Adobe RGB
+  specification (approximately Gamma 2.2).
 
 - `VK_COLOR_SPACE_PASS_THROUGH_EXT` specifies that color components are
   used “as is”. This is intended to allow applications to supply data
@@ -115,7 +121,7 @@ typedef enum VkColorSpaceKHR {
 <col style="width: 50%" />
 </colgroup>
 <tbody>
-<tr class="odd">
+<tr>
 <td class="icon"><em></em></td>
 <td class="content">Note
 <p>In the initial release of the <a
@@ -137,7 +143,7 @@ for backwards compatibility.</p></td>
 <col style="width: 50%" />
 </colgroup>
 <tbody>
-<tr class="odd">
+<tr>
 <td class="icon"><em></em></td>
 <td class="content">Note
 <p>In older versions of this extension
@@ -155,7 +161,7 @@ deprecated but is maintained for backwards compatibility.</p></td>
 <col style="width: 50%" />
 </colgroup>
 <tbody>
-<tr class="odd">
+<tr>
 <td class="icon"><em></em></td>
 <td class="content">Note
 <p>For a traditional “Linear” or non-gamma transfer function color space
@@ -164,27 +170,33 @@ use <code>VK_COLOR_SPACE_PASS_THROUGH_EXT</code>.</p></td>
 </tbody>
 </table>
 
-The color components of non-linear color space swapchain images **must**
-have had the appropriate transfer function applied. The color space
-selected for the swapchain image will not affect the processing of data
-written into the image by the implementation. Vulkan requires that all
-implementations support the sRGB transfer function by use of an SRGB
-pixel format. Other transfer functions, such as SMPTE 170M or SMPTE2084,
-**can** be performed by the application shader. This extension defines
-enums for [VkColorSpaceKHR](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkColorSpaceKHR.html) that correspond to the
-following color spaces:
+The presentation engine interprets the pixel values of the R, G, and B
+components as having been encoded using an appropriate transfer
+function. Applications **should** ensure that the appropriate transfer
+function has been applied. <a
+href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#textures-output-format-conversion"
+target="_blank" rel="noopener">Textures Output Format Conversion</a>
+requires that all implementations implicitly apply the sRGB
+EOTF<sup>-1</sup> on R, G, and B components when shaders write to an
+sRGB pixel format image, which is useful for sRGB color spaces. For sRGB
+color spaces with other pixel formats, or other non-linear color spaces,
+applications **can** apply the transfer function explicitly in a shader.
+The A channel is always interpreted as linearly encoded.
 
-| Name          | Red Primary  | Green Primary | Blue Primary | White-point          | Transfer function |
-|---------------|--------------|---------------|--------------|----------------------|-------------------|
-| DCI-P3        | 1.000, 0.000 | 0.000, 1.000  | 0.000, 0.000 | 0.3333, 0.3333       | DCI P3            |
-| Display-P3    | 0.680, 0.320 | 0.265, 0.690  | 0.150, 0.060 | 0.3127, 0.3290 (D65) | Display-P3        |
-| BT709         | 0.640, 0.330 | 0.300, 0.600  | 0.150, 0.060 | 0.3127, 0.3290 (D65) | ITU (SMPTE 170M)  |
-| sRGB          | 0.640, 0.330 | 0.300, 0.600  | 0.150, 0.060 | 0.3127, 0.3290 (D65) | sRGB              |
-| extended sRGB | 0.640, 0.330 | 0.300, 0.600  | 0.150, 0.060 | 0.3127, 0.3290 (D65) | extended sRGB     |
-| HDR10_ST2084  | 0.708, 0.292 | 0.170, 0.797  | 0.131, 0.046 | 0.3127, 0.3290 (D65) | ST2084 PQ         |
-| DOLBYVISION   | 0.708, 0.292 | 0.170, 0.797  | 0.131, 0.046 | 0.3127, 0.3290 (D65) | ST2084 PQ         |
-| HDR10_HLG     | 0.708, 0.292 | 0.170, 0.797  | 0.131, 0.046 | 0.3127, 0.3290 (D65) | HLG               |
-| AdobeRGB      | 0.640, 0.330 | 0.210, 0.710  | 0.150, 0.060 | 0.3127, 0.3290 (D65) | AdobeRGB          |
+This extension defines enums for [VkColorSpaceKHR](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkColorSpaceKHR.html)
+that correspond to the following color spaces:
+
+| Name | Red Primary | Green Primary | Blue Primary | White-point | Transfer function |
+|----|----|----|----|----|----|
+| DCI-P3 | 1.000, 0.000 | 0.000, 1.000 | 0.000, 0.000 | 0.3333, 0.3333 | DCI P3 |
+| Display-P3 | 0.680, 0.320 | 0.265, 0.690 | 0.150, 0.060 | 0.3127, 0.3290 (D65) | Display-P3 |
+| BT709 | 0.640, 0.330 | 0.300, 0.600 | 0.150, 0.060 | 0.3127, 0.3290 (D65) | BT709 |
+| sRGB | 0.640, 0.330 | 0.300, 0.600 | 0.150, 0.060 | 0.3127, 0.3290 (D65) | sRGB |
+| extended sRGB | 0.640, 0.330 | 0.300, 0.600 | 0.150, 0.060 | 0.3127, 0.3290 (D65) | scRGB |
+| HDR10_ST2084 | 0.708, 0.292 | 0.170, 0.797 | 0.131, 0.046 | 0.3127, 0.3290 (D65) | ST2084 PQ |
+| DOLBYVISION | 0.708, 0.292 | 0.170, 0.797 | 0.131, 0.046 | 0.3127, 0.3290 (D65) | ST2084 PQ |
+| HDR10_HLG | 0.708, 0.292 | 0.170, 0.797 | 0.131, 0.046 | 0.3127, 0.3290 (D65) | HLG |
+| Adobe RGB | 0.640, 0.330 | 0.210, 0.710 | 0.150, 0.060 | 0.3127, 0.3290 (D65) | Adobe RGB |
 
 Table 1. Color Spaces and Attributes
 {#VK_EXT_swapchain_colorspace-table}
@@ -207,7 +219,7 @@ value (as stored in the image in memory).
 <col style="width: 50%" />
 </colgroup>
 <tbody>
-<tr class="odd">
+<tr>
 <td class="icon"><em></em></td>
 <td class="content">Note
 <p>For most uses, the sRGB OETF is equivalent.</p></td>
@@ -236,5 +248,5 @@ Copyright 2014-2024 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
 
-Version 1.3.285  
-Last updated 2024-05-10 01:10:25 -0700
+Version 1.3.290  
+Last updated 2024-07-11 23:39:16 -0700

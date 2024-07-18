@@ -70,7 +70,7 @@ used.
 Because [VkFormatProperties2](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkFormatProperties2.html) is already
 defined to extend the Vulkan 1.0
 [vkGetPhysicalDeviceFormatProperties](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkGetPhysicalDeviceFormatProperties.html)
-entry point, this extension defines a new
+command, this extension defines a new
 [VkFormatProperties3KHR](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkFormatProperties3KHR.html) to extend the
 [VkFormatProperties](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkFormatProperties.html).
 
@@ -169,5 +169,5 @@ Copyright 2014-2024 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
 
-Version 1.3.285  
-Last updated 2024-05-10 01:10:25 -0700
+Version 1.3.290  
+Last updated 2024-07-11 23:39:16 -0700

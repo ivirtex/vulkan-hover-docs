@@ -134,10 +134,6 @@ Other miscellaneous changes include:
 - Queue family ownership transfer parameters are simplified in some
   cases.
 
-- Where two synchronization commands need to be matched up (queue
-  transfer operations, events), the dependency information specified in
-  each place must now match completely for consistency.
-
 - Extensions with commands or functions with a
   [VkPipelineStageFlags](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkPipelineStageFlags.html) or
   [VkPipelineStageFlagBits](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkPipelineStageFlagBits.html) parameter have
@@ -452,5 +448,5 @@ Copyright 2014-2024 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
 
-Version 1.3.285  
-Last updated 2024-05-10 01:10:25 -0700
+Version 1.3.290  
+Last updated 2024-07-11 23:39:16 -0700

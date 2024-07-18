@@ -45,14 +45,14 @@ returned in the `vendorBinarySize` member of `pFaultCounts`.
 If `pFaultInfo` is not `NULL`, `pFaultCounts` **must** point to a
 [VkDeviceFaultCountsEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkDeviceFaultCountsEXT.html) structure with
 each structure count or size member (`addressInfoCount`,
-`vendorInfoCount`, `vendorBinarySize`) set by the user to the number of
-elements in the corresponding output array member of `pFaultInfo`
-(`pAddressInfos` and `pVendorInfos`), or to the size of the output
-buffer in bytes (`pVendorBinaryData`). On return, each structure count
-member is overwritten with the number of structures actually written to
-the corresponding output array member of `pFaultInfo`. Similarly,
-`vendorBinarySize` is overwritten with the number of bytes actually
-written to the `pVendorBinaryData` member of `pFaultInfo`.
+`vendorInfoCount`, `vendorBinarySize`) set by the application to the
+number of elements in the corresponding output array member of
+`pFaultInfo` (`pAddressInfos` and `pVendorInfos`), or to the size of the
+output buffer in bytes (`pVendorBinaryData`). On return, each structure
+count member is overwritten with the number of structures actually
+written to the corresponding output array member of `pFaultInfo`.
+Similarly, `vendorBinarySize` is overwritten with the number of bytes
+actually written to the `pVendorBinaryData` member of `pFaultInfo`.
 
 If the <a
 href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#features-deviceFaultVendorBinary"
@@ -186,5 +186,5 @@ Copyright 2014-2024 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
 
-Version 1.3.285  
-Last updated 2024-05-10 01:10:25 -0700
+Version 1.3.290  
+Last updated 2024-07-11 23:39:16 -0700

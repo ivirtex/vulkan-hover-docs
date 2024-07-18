@@ -52,6 +52,31 @@ that is not [VK_NULL_HANDLE](https://registry.khronos.org/vulkan/specs/1.3-exten
 
 Valid Usage
 
+- <a href="#VUID-vkCreateShadersEXT-device-09669"
+  id="VUID-vkCreateShadersEXT-device-09669"></a>
+  VUID-vkCreateShadersEXT-device-09669  
+  `device` **must** support at least one queue family with one of the
+  `VK_QUEUE_COMPUTE_BIT` or `VK_QUEUE_GRAPHICS_BIT` capabilities
+
+- <a href="#VUID-vkCreateShadersEXT-stage-09670"
+  id="VUID-vkCreateShadersEXT-stage-09670"></a>
+  VUID-vkCreateShadersEXT-stage-09670  
+  If the `stage` member of any element of `pCreateInfos` is
+  `VK_SHADER_STAGE_COMPUTE_BIT`, `device` **must** support at least one
+  queue family with the `VK_QUEUE_COMPUTE_BIT` capability
+
+- <a href="#VUID-vkCreateShadersEXT-stage-09671"
+  id="VUID-vkCreateShadersEXT-stage-09671"></a>
+  VUID-vkCreateShadersEXT-stage-09671  
+  If the `stage` member of any element of `pCreateInfos` is
+  `VK_SHADER_STAGE_TASK_BIT_EXT`, `VK_SHADER_STAGE_MESH_BIT_EXT`,
+  `VK_SHADER_STAGE_VERTEX_BIT`,
+  `VK_SHADER_STAGE_TESSELLATION_CONTROL_BIT`,
+  `VK_SHADER_STAGE_TESSELLATION_EVALUATION_BIT`,
+  `VK_SHADER_STAGE_GEOMETRY_BIT`, or `VK_SHADER_STAGE_FRAGMENT_BIT`,
+  `device` **must** support at least one queue family with the
+  `VK_QUEUE_GRAPHICS_BIT` capability
+
 - <a href="#VUID-vkCreateShadersEXT-None-08400"
   id="VUID-vkCreateShadersEXT-None-08400"></a>
   VUID-vkCreateShadersEXT-None-08400  
@@ -272,5 +297,5 @@ Copyright 2014-2024 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
 
-Version 1.3.285  
-Last updated 2024-05-10 01:10:25 -0700
+Version 1.3.290  
+Last updated 2024-07-11 23:39:16 -0700

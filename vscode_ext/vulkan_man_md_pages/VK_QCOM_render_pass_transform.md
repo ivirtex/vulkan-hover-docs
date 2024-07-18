@@ -186,11 +186,11 @@ vulkan_core.h. If the version is less than or equal to 512.468.0, then
 use the alternate values for the two VK_STRUCTURE_TYPEs in the table
 below.
 
-|                                                                                | Adreno Driver Version |                     |
-|--------------------------------------------------------------------------------|-----------------------|---------------------|
-|                                                                                | 512.468.0 and earlier | 512.469.0 and later |
-| VK_STRUCTURE_TYPE\_ RENDER_PASS_TRANSFORM_BEGIN_INFO_QCOM                      | 1000282000            | 1000282001          |
-| VK_STRUCTURE_TYPE\_ COMMAND_BUFFER_INHERITANCE_RENDER_PASS_TRANSFORM_INFO_QCOM | 1000282001            | 1000282000          |
+|  | Adreno Driver Version |  |
+|----|----|----|
+|  | 512.468.0 and earlier | 512.469.0 and later |
+| VK_STRUCTURE_TYPE\_ RENDER_PASS_TRANSFORM_BEGIN_INFO_QCOM | 1000282000 | 1000282001 |
+| VK_STRUCTURE_TYPE\_ COMMAND_BUFFER_INHERITANCE_RENDER_PASS_TRANSFORM_INFO_QCOM | 1000282001 | 1000282000 |
 
 Table 1. `Adreno` Driver Requirements
 
@@ -277,5 +277,5 @@ Copyright 2014-2024 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
 
-Version 1.3.285  
-Last updated 2024-05-10 01:10:25 -0700
+Version 1.3.290  
+Last updated 2024-07-11 23:39:16 -0700

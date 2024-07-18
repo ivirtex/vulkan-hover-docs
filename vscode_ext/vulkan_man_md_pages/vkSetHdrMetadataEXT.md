@@ -2,13 +2,13 @@
 
 ## Name
 
-vkSetHdrMetadataEXT - Set Hdr metadata
+vkSetHdrMetadataEXT - Set HDR metadata
 
 
 
 ## <a href="#_c_specification" class="anchor"></a>C Specification
 
-To provide Hdr metadata to an implementation, call:
+To provide HDR metadata to an implementation, call:
 
 ``` c
 // Provided by VK_EXT_hdr_metadata
@@ -36,7 +36,7 @@ void vkSetHdrMetadataEXT(
 
 The metadata will be applied to the specified
 [VkSwapchainKHR](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkSwapchainKHR.html) objects at the next
-`vkQueuePresentKHR` call using that
+[vkQueuePresentKHR](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkQueuePresentKHR.html) call using that
 [VkSwapchainKHR](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkSwapchainKHR.html) object. The metadata will persist
 until a subsequent `vkSetHdrMetadataEXT` changes it.
 
@@ -92,5 +92,5 @@ Copyright 2014-2024 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
 
-Version 1.3.285  
-Last updated 2024-05-10 01:10:25 -0700
+Version 1.3.290  
+Last updated 2024-07-11 23:39:16 -0700

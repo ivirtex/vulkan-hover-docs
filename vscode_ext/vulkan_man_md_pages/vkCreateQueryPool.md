@@ -36,6 +36,15 @@ VkResult vkCreateQueryPool(
 
 ## <a href="#_description" class="anchor"></a>Description
 
+Valid Usage
+
+- <a href="#VUID-vkCreateQueryPool-device-09663"
+  id="VUID-vkCreateQueryPool-device-09663"></a>
+  VUID-vkCreateQueryPool-device-09663  
+  `device` **must** support at least one queue family with one of the
+  `VK_QUEUE_VIDEO_ENCODE_BIT_KHR`, `VK_QUEUE_VIDEO_DECODE_BIT_KHR`,
+  `VK_QUEUE_COMPUTE_BIT`, or `VK_QUEUE_GRAPHICS_BIT` capabilities
+
 Valid Usage (Implicit)
 
 - <a href="#VUID-vkCreateQueryPool-device-parameter"
@@ -94,5 +103,5 @@ Copyright 2014-2024 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
 
-Version 1.3.285  
-Last updated 2024-05-10 01:10:25 -0700
+Version 1.3.290  
+Last updated 2024-07-11 23:39:16 -0700

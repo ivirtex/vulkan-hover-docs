@@ -44,7 +44,7 @@ typedef struct VkImportMetalTextureInfoEXT {
 ## <a href="#_description" class="anchor"></a>Description
 
 The `pNext` chain **must** include one `VkImportMetalTextureInfoEXT`
-structure for each plane in the [VkImage](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkImage.html). The app
+structure for each plane in the [VkImage](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkImage.html). The application
 **must** ensure that the configuration of the Metal `id<MTLTexture>`
 objects are compatible with the configuration of the
 [VkImage](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkImage.html). Failure to do so results in undefined behavior.
@@ -83,5 +83,5 @@ Copyright 2014-2024 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
 
-Version 1.3.285  
-Last updated 2024-05-10 01:10:25 -0700
+Version 1.3.290  
+Last updated 2024-07-11 23:39:16 -0700

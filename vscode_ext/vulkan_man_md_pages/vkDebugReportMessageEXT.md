@@ -40,9 +40,9 @@ void vkDebugReportMessageEXT(
   be [VK_NULL_HANDLE](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_NULL_HANDLE.html) if there is no object
   associated with the event.
 
-- `location` is an application defined value.
+- `location` is an application-defined value.
 
-- `messageCode` is an application defined value.
+- `messageCode` is an application-defined value.
 
 - `pLayerPrefix` is the abbreviation of the component making this
   event/message.
@@ -132,5 +132,5 @@ Copyright 2014-2024 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
 
-Version 1.3.285  
-Last updated 2024-05-10 01:10:25 -0700
+Version 1.3.290  
+Last updated 2024-07-11 23:39:16 -0700

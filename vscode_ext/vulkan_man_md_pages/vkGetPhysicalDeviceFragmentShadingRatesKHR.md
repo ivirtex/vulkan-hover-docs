@@ -37,14 +37,14 @@ VkResult vkGetPhysicalDeviceFragmentShadingRatesKHR(
 If `pFragmentShadingRates` is `NULL`, then the number of fragment
 shading rates available is returned in `pFragmentShadingRateCount`.
 Otherwise, `pFragmentShadingRateCount` **must** point to a variable set
-by the user to the number of elements in the `pFragmentShadingRates`
-array, and on return the variable is overwritten with the number of
-structures actually written to `pFragmentShadingRates`. If
-`pFragmentShadingRateCount` is less than the number of fragment shading
-rates available, at most `pFragmentShadingRateCount` structures will be
-written, and `VK_INCOMPLETE` will be returned instead of `VK_SUCCESS`,
-to indicate that not all the available fragment shading rates were
-returned.
+by the application to the number of elements in the
+`pFragmentShadingRates` array, and on return the variable is overwritten
+with the number of structures actually written to
+`pFragmentShadingRates`. If `pFragmentShadingRateCount` is less than the
+number of fragment shading rates available, at most
+`pFragmentShadingRateCount` structures will be written, and
+`VK_INCOMPLETE` will be returned instead of `VK_SUCCESS`, to indicate
+that not all the available fragment shading rates were returned.
 
 The returned array of fragment shading rates **must** be ordered from
 largest `fragmentSize.width` value to smallest, and each set of fragment
@@ -107,7 +107,7 @@ rel="noopener"><code>framebufferColorSampleCounts</code></a>, includes
 <col style="width: 50%" />
 </colgroup>
 <tbody>
-<tr class="odd">
+<tr>
 <td class="icon"><em></em></td>
 <td class="content">Note
 <p>Including the {1,1} fragment size is done for completeness; it has no
@@ -131,7 +131,7 @@ that transform.
 <col style="width: 50%" />
 </colgroup>
 <tbody>
-<tr class="odd">
+<tr>
 <td class="icon"><em></em></td>
 <td class="content">Note
 <p>For example, consider an implementation returning support for 4x2,
@@ -200,5 +200,5 @@ Copyright 2014-2024 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
 
-Version 1.3.285  
-Last updated 2024-05-10 01:10:25 -0700
+Version 1.3.290  
+Last updated 2024-07-11 23:39:16 -0700

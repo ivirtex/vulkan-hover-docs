@@ -61,6 +61,12 @@ target="_blank" rel="noopener">Multiple Pipeline Creation</a>.
 
 Valid Usage
 
+- <a href="#VUID-vkCreateGraphicsPipelines-device-09662"
+  id="VUID-vkCreateGraphicsPipelines-device-09662"></a>
+  VUID-vkCreateGraphicsPipelines-device-09662  
+  `device` **must** support at least one queue family with the
+  `VK_QUEUE_GRAPHICS_BIT` capability
+
 - <a href="#VUID-vkCreateGraphicsPipelines-flags-00720"
   id="VUID-vkCreateGraphicsPipelines-flags-00720"></a>
   VUID-vkCreateGraphicsPipelines-flags-00720  
@@ -93,7 +99,7 @@ Valid Usage
 <col style="width: 50%" />
 </colgroup>
 <tbody>
-<tr class="odd">
+<tr>
 <td class="icon"><em></em></td>
 <td class="content">Note
 <p>An implicit cache may be provided by the implementation or a layer.
@@ -189,5 +195,5 @@ Copyright 2014-2024 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
 
-Version 1.3.285  
-Last updated 2024-05-10 01:10:25 -0700
+Version 1.3.290  
+Last updated 2024-07-11 23:39:16 -0700

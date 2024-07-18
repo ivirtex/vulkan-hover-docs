@@ -649,9 +649,20 @@ Valid Usage
 - <a href="#VUID-VkRenderingInfo-pNext-06119"
   id="VUID-VkRenderingInfo-pNext-06119"></a>
   VUID-VkRenderingInfo-pNext-06119  
-  If the `pNext` chain does not contain
+  If <a
+  href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#features-maintenance7"
+  target="_blank" rel="noopener"><code>maintenance7</code></a> is not
+  enabled or the <a
+  href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#limits-robustFragmentShadingRateAttachmentAccess"
+  target="_blank"
+  rel="noopener"><code>robustFragmentShadingRateAttachmentAccess</code></a>
+  limit is `VK_FALSE` or the `imageView` member of a
+  [VkRenderingFragmentShadingRateAttachmentInfoKHR](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkRenderingFragmentShadingRateAttachmentInfoKHR.html)
+  structure was created with
+  [VkImageSubresourceRange](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkImageSubresourceRange.html)::`baseMipLevel`
+  greater than 0, the `pNext` chain does not contain
   [VkDeviceGroupRenderPassBeginInfo](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkDeviceGroupRenderPassBeginInfo.html)
-  or its `deviceRenderAreaCount` member is equal to 0 and the
+  or its `deviceRenderAreaCount` member is equal to 0, and the
   `imageView` member of a
   [VkRenderingFragmentShadingRateAttachmentInfoKHR](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkRenderingFragmentShadingRateAttachmentInfoKHR.html)
   structure included in the `pNext` chain is not
@@ -662,7 +673,18 @@ Valid Usage
 - <a href="#VUID-VkRenderingInfo-pNext-06121"
   id="VUID-VkRenderingInfo-pNext-06121"></a>
   VUID-VkRenderingInfo-pNext-06121  
-  If the `pNext` chain does not contain
+  If <a
+  href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#features-maintenance7"
+  target="_blank" rel="noopener"><code>maintenance7</code></a> is not
+  enabled or the <a
+  href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#limits-robustFragmentShadingRateAttachmentAccess"
+  target="_blank"
+  rel="noopener"><code>robustFragmentShadingRateAttachmentAccess</code></a>
+  limit is `VK_FALSE` or the `imageView` member of a
+  [VkRenderingFragmentShadingRateAttachmentInfoKHR](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkRenderingFragmentShadingRateAttachmentInfoKHR.html)
+  structure was created with
+  [VkImageSubresourceRange](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkImageSubresourceRange.html)::`baseMipLevel`
+  greater than 0, the `pNext` chain does not contain
   [VkDeviceGroupRenderPassBeginInfo](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkDeviceGroupRenderPassBeginInfo.html)
   or its `deviceRenderAreaCount` member is equal to 0 and the
   `imageView` member of a
@@ -675,7 +697,18 @@ Valid Usage
 - <a href="#VUID-VkRenderingInfo-pNext-06120"
   id="VUID-VkRenderingInfo-pNext-06120"></a>
   VUID-VkRenderingInfo-pNext-06120  
-  If the `pNext` chain contains a
+  If <a
+  href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#features-maintenance7"
+  target="_blank" rel="noopener"><code>maintenance7</code></a> is not
+  enabled or the <a
+  href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#limits-robustFragmentShadingRateAttachmentAccess"
+  target="_blank"
+  rel="noopener"><code>robustFragmentShadingRateAttachmentAccess</code></a>
+  limit is `VK_FALSE` or the `imageView` member of a
+  [VkRenderingFragmentShadingRateAttachmentInfoKHR](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkRenderingFragmentShadingRateAttachmentInfoKHR.html)
+  structure was created with
+  [VkImageSubresourceRange](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkImageSubresourceRange.html)::`baseMipLevel`
+  greater than 0, the `pNext` chain contains a
   [VkDeviceGroupRenderPassBeginInfo](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkDeviceGroupRenderPassBeginInfo.html)
   structure, its `deviceRenderAreaCount` member is not 0, and the
   `imageView` member of a
@@ -689,7 +722,18 @@ Valid Usage
 - <a href="#VUID-VkRenderingInfo-pNext-06122"
   id="VUID-VkRenderingInfo-pNext-06122"></a>
   VUID-VkRenderingInfo-pNext-06122  
-  If the `pNext` chain contains a
+  If <a
+  href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#features-maintenance7"
+  target="_blank" rel="noopener"><code>maintenance7</code></a> is not
+  enabled or the <a
+  href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#limits-robustFragmentShadingRateAttachmentAccess"
+  target="_blank"
+  rel="noopener"><code>robustFragmentShadingRateAttachmentAccess</code></a>
+  limit is `VK_FALSE` or the `imageView` member of a
+  [VkRenderingFragmentShadingRateAttachmentInfoKHR](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkRenderingFragmentShadingRateAttachmentInfoKHR.html)
+  structure was created with
+  [VkImageSubresourceRange](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkImageSubresourceRange.html)::`baseMipLevel`
+  greater than 0, the `pNext` chain contains a
   [VkDeviceGroupRenderPassBeginInfo](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkDeviceGroupRenderPassBeginInfo.html)
   structure, its `deviceRenderAreaCount` member is not 0, and the
   `imageView` member of a
@@ -792,13 +836,19 @@ Valid Usage
   memory locations that are bound to any other valid attachments
   specified by this structure
 
-- <a href="#VUID-VkRenderingInfo-flags-09381"
-  id="VUID-VkRenderingInfo-flags-09381"></a>
-  VUID-VkRenderingInfo-flags-09381  
-  If `flags` includes `VK_RENDERING_CONTENTS_INLINE_BIT_EXT` then the <a
-  href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#features-nestedCommandBuffer"
-  target="_blank" rel="noopener"><code>nestedCommandBuffer</code></a>
-  feature **must** be enabled
+- <a href="#VUID-VkRenderingInfo-flags-10012"
+  id="VUID-VkRenderingInfo-flags-10012"></a>
+  VUID-VkRenderingInfo-flags-10012  
+  If `flags` includes `VK_RENDERING_CONTENTS_INLINE_BIT_KHR` then at
+  least one of the following features **must** be enabled
+
+  - <a
+    href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#features-maintenance7"
+    target="_blank" rel="noopener"><code>maintenance7</code></a>
+
+  - <a
+    href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#features-nestedCommandBuffer"
+    target="_blank" rel="noopener"><code>nestedCommandBuffer</code></a>
 
 - <a href="#VUID-VkRenderingInfo-pDepthAttachment-09318"
   id="VUID-VkRenderingInfo-pDepthAttachment-09318"></a>
@@ -1012,5 +1062,5 @@ Copyright 2014-2024 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
 
-Version 1.3.285  
-Last updated 2024-05-10 01:10:25 -0700
+Version 1.3.290  
+Last updated 2024-07-11 23:39:16 -0700

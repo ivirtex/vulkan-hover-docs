@@ -831,9 +831,10 @@ Valid Usage
     - there is no currently bound graphics pipeline or
 
     - the currently bound graphics pipeline was created with
-      `VK_DYNAMIC_STATE_ATTACHMENT_FEEDBACK_LOOP_ENABLE_EXT` it **must**
-      not be accessed in any way other than as an attachment by this
-      command
+      `VK_DYNAMIC_STATE_ATTACHMENT_FEEDBACK_LOOP_ENABLE_EXT`
+
+  it **must** not be accessed in any way other than as an attachment by
+  this command
 
 - <a href="#VUID-vkCmdDrawIndirectCount-None-09001"
   id="VUID-vkCmdDrawIndirectCount-None-09001"></a>
@@ -854,9 +855,10 @@ Valid Usage
     - there is no currently bound graphics pipeline or
 
     - the currently bound graphics pipeline was created with
-      `VK_DYNAMIC_STATE_ATTACHMENT_FEEDBACK_LOOP_ENABLE_EXT` it **must**
-      not be accessed in any way other than as an attachment by this
-      command
+      `VK_DYNAMIC_STATE_ATTACHMENT_FEEDBACK_LOOP_ENABLE_EXT`
+
+  it **must** not be accessed in any way other than as an attachment by
+  this command
 
 - <a href="#VUID-vkCmdDrawIndirectCount-None-09002"
   id="VUID-vkCmdDrawIndirectCount-None-09002"></a>
@@ -878,9 +880,10 @@ Valid Usage
     - there is no currently bound graphics pipeline or
 
     - the currently bound graphics pipeline was created with
-      `VK_DYNAMIC_STATE_ATTACHMENT_FEEDBACK_LOOP_ENABLE_EXT` it **must**
-      not be accessed in any way other than as an attachment by this
-      command
+      `VK_DYNAMIC_STATE_ATTACHMENT_FEEDBACK_LOOP_ENABLE_EXT`
+
+  it **must** not be accessed in any way other than as an attachment by
+  this command
 
 - <a href="#VUID-vkCmdDrawIndirectCount-None-09003"
   id="VUID-vkCmdDrawIndirectCount-None-09003"></a>
@@ -918,16 +921,18 @@ Valid Usage
   VUID-vkCmdDrawIndirectCount-None-07831  
   If the bound graphics pipeline state was created with the
   `VK_DYNAMIC_STATE_VIEWPORT` dynamic state enabled then
-  [vkCmdSetViewport](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdSetViewport.html) **must** have been called in
-  the current command buffer prior to this drawing command
+  [vkCmdSetViewport](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdSetViewport.html) **must** have been called
+  and not subsequently [invalidated](#dynamic-state-lifetime) in the
+  current command buffer prior to this drawing command
 
 - <a href="#VUID-vkCmdDrawIndirectCount-None-07832"
   id="VUID-vkCmdDrawIndirectCount-None-07832"></a>
   VUID-vkCmdDrawIndirectCount-None-07832  
   If the bound graphics pipeline state was created with the
   `VK_DYNAMIC_STATE_SCISSOR` dynamic state enabled then
-  [vkCmdSetScissor](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdSetScissor.html) **must** have been called in
-  the current command buffer prior to this drawing command
+  [vkCmdSetScissor](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdSetScissor.html) **must** have been called and
+  not subsequently [invalidated](#dynamic-state-lifetime) in the current
+  command buffer prior to this drawing command
 
 - <a href="#VUID-vkCmdDrawIndirectCount-None-07833"
   id="VUID-vkCmdDrawIndirectCount-None-07833"></a>
@@ -935,7 +940,8 @@ Valid Usage
   If the bound graphics pipeline state was created with the
   `VK_DYNAMIC_STATE_LINE_WIDTH` dynamic state enabled then
   [vkCmdSetLineWidth](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdSetLineWidth.html) **must** have been called
-  in the current command buffer prior to this drawing command
+  and not subsequently [invalidated](#dynamic-state-lifetime) in the
+  current command buffer prior to this drawing command
 
 - <a href="#VUID-vkCmdDrawIndirectCount-None-08617"
   id="VUID-vkCmdDrawIndirectCount-None-08617"></a>
@@ -948,7 +954,8 @@ Valid Usage
   [vkCmdSetPolygonModeEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdSetPolygonModeEXT.html) in the current
   command buffer set `polygonMode` to `VK_POLYGON_MODE_LINE`,
   [vkCmdSetLineWidth](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdSetLineWidth.html) **must** have been called
-  in the current command buffer prior to this drawing command
+  and not subsequently [invalidated](#dynamic-state-lifetime) in the
+  current command buffer prior to this drawing command
 
 - <a href="#VUID-vkCmdDrawIndirectCount-None-08618"
   id="VUID-vkCmdDrawIndirectCount-None-08618"></a>
@@ -961,7 +968,8 @@ Valid Usage
   [vkCmdSetPrimitiveTopology](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdSetPrimitiveTopology.html) in the
   current command buffer set `primitiveTopology` to any line topology,
   [vkCmdSetLineWidth](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdSetLineWidth.html) **must** have been called
-  in the current command buffer prior to this drawing command
+  and not subsequently [invalidated](#dynamic-state-lifetime) in the
+  current command buffer prior to this drawing command
 
 - <a href="#VUID-vkCmdDrawIndirectCount-None-08619"
   id="VUID-vkCmdDrawIndirectCount-None-08619"></a>
@@ -972,31 +980,23 @@ Valid Usage
   [vkCmdSetRasterizerDiscardEnable](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdSetRasterizerDiscardEnable.html)
   in the current command buffer set `rasterizerDiscardEnable` to
   `VK_FALSE`, [vkCmdSetLineWidth](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdSetLineWidth.html) **must** have
-  been called in the current command buffer prior to this drawing
-  command
+  been called and not subsequently
+  [invalidated](#dynamic-state-lifetime) in the current command buffer
+  prior to this drawing command
 
 - <a href="#VUID-vkCmdDrawIndirectCount-None-07834"
   id="VUID-vkCmdDrawIndirectCount-None-07834"></a>
   VUID-vkCmdDrawIndirectCount-None-07834  
-  If the bound graphics pipeline state was created with the
-  `VK_DYNAMIC_STATE_DEPTH_BIAS` dynamic state enabled then
-  [vkCmdSetDepthBias](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdSetDepthBias.html) or
+  If a shader object is bound to any graphics stage or a graphics
+  pipeline is bound which was created with the
+  `VK_DYNAMIC_STATE_DEPTH_BIAS` dynamic state enabled, the [current
+  value](#dynamic-state-current-value) of `rasterizerDiscardEnable` is
+  `VK_FALSE`, and the [current value](#dynamic-state-current-value) of
+  `depthBiasEnable` is `VK_TRUE`, then
+  [vkCmdSetDepthBounds](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdSetDepthBounds.html) or
   [vkCmdSetDepthBias2EXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdSetDepthBias2EXT.html) **must** have been
-  called in the current command buffer prior to this drawing command
-
-- <a href="#VUID-vkCmdDrawIndirectCount-None-08620"
-  id="VUID-vkCmdDrawIndirectCount-None-08620"></a>
-  VUID-vkCmdDrawIndirectCount-None-08620  
-  If a shader object is bound to any graphics stage, and the most recent
-  call to
-  [vkCmdSetRasterizerDiscardEnable](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdSetRasterizerDiscardEnable.html)
-  in the current command buffer set `rasterizerDiscardEnable` to
-  `VK_FALSE`, and the most recent call to
-  [vkCmdSetDepthBiasEnable](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdSetDepthBiasEnable.html) in the current
-  command buffer set `depthBiasEnable` to `VK_TRUE`,
-  [vkCmdSetDepthBias](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdSetDepthBias.html) or
-  [vkCmdSetDepthBias2EXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdSetDepthBias2EXT.html) **must** have been
-  called in the current command buffer prior to this drawing command
+  called and not subsequently [invalidated](#dynamic-state-lifetime) in
+  the current command buffer prior to this drawing command
 
 - <a href="#VUID-vkCmdDrawIndirectCount-None-07835"
   id="VUID-vkCmdDrawIndirectCount-None-07835"></a>
@@ -1004,8 +1004,9 @@ Valid Usage
   If the bound graphics pipeline state was created with the
   `VK_DYNAMIC_STATE_BLEND_CONSTANTS` dynamic state enabled then
   [vkCmdSetBlendConstants](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdSetBlendConstants.html) **must** have
-  been called in the current command buffer prior to this drawing
-  command
+  been called and not subsequently
+  [invalidated](#dynamic-state-lifetime) in the current command buffer
+  prior to this drawing command
 
 - <a href="#VUID-vkCmdDrawIndirectCount-None-08621"
   id="VUID-vkCmdDrawIndirectCount-None-08621"></a>
@@ -1027,103 +1028,67 @@ Valid Usage
   `VK_BLEND_FACTOR_CONSTANT_ALPHA`, or
   `VK_BLEND_FACTOR_ONE_MINUS_CONSTANT_ALPHA`,
   [vkCmdSetBlendConstants](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdSetBlendConstants.html) **must** have
-  been called in the current command buffer prior to this drawing
-  command
+  been called and not subsequently
+  [invalidated](#dynamic-state-lifetime) in the current command buffer
+  prior to this drawing command
 
 - <a href="#VUID-vkCmdDrawIndirectCount-None-07836"
   id="VUID-vkCmdDrawIndirectCount-None-07836"></a>
   VUID-vkCmdDrawIndirectCount-None-07836  
-  If the bound graphics pipeline state was created with the
-  `VK_DYNAMIC_STATE_DEPTH_BOUNDS` dynamic state enabled, and if the
-  current `depthBoundsTestEnable` state is `VK_TRUE`, then
+  If a shader object is bound to any graphics stage or a graphics
+  pipeline is bound which was created with the
+  `VK_DYNAMIC_STATE_DEPTH_BOUNDS` dynamic state enabled, the [current
+  value](#dynamic-state-current-value) of `rasterizerDiscardEnable` is
+  `VK_FALSE`, and the [current value](#dynamic-state-current-value) of
+  `depthBoundsTestEnable` is `VK_TRUE`, then
   [vkCmdSetDepthBounds](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdSetDepthBounds.html) **must** have been
-  called in the current command buffer prior to this drawing command
-
-- <a href="#VUID-vkCmdDrawIndirectCount-None-08622"
-  id="VUID-vkCmdDrawIndirectCount-None-08622"></a>
-  VUID-vkCmdDrawIndirectCount-None-08622  
-  If a shader object is bound to any graphics stage, and the most recent
-  call to
-  [vkCmdSetRasterizerDiscardEnable](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdSetRasterizerDiscardEnable.html)
-  in the current command buffer set `rasterizerDiscardEnable` to
-  `VK_FALSE`, and the most recent call to
-  [vkCmdSetDepthBoundsTestEnable](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdSetDepthBoundsTestEnable.html) in
-  the current command buffer set `depthBoundsTestEnable` to `VK_TRUE`,
-  then [vkCmdSetDepthBounds](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdSetDepthBounds.html) **must** have
-  been called in the current command buffer prior to this drawing
-  command
+  called and not subsequently [invalidated](#dynamic-state-lifetime) in
+  the current command buffer prior to this drawing command
 
 - <a href="#VUID-vkCmdDrawIndirectCount-None-07837"
   id="VUID-vkCmdDrawIndirectCount-None-07837"></a>
   VUID-vkCmdDrawIndirectCount-None-07837  
-  If the bound graphics pipeline state was created with the
-  `VK_DYNAMIC_STATE_STENCIL_COMPARE_MASK` dynamic state enabled, and if
-  the current `stencilTestEnable` state is `VK_TRUE`, then
+  If a shader object is bound to any graphics stage or a graphics
+  pipeline is bound which was created with the
+  `VK_DYNAMIC_STATE_STENCIL_COMPARE_MASK` dynamic state enabled, the
+  [current value](#dynamic-state-current-value) of
+  `rasterizerDiscardEnable` is `VK_FALSE`, and the [current
+  value](#dynamic-state-current-value) of `stencilTestEnable` is
+  `VK_TRUE`, then
   [vkCmdSetStencilCompareMask](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdSetStencilCompareMask.html) **must**
-  have been called in the current command buffer prior to this drawing
-  command
-
-- <a href="#VUID-vkCmdDrawIndirectCount-None-08623"
-  id="VUID-vkCmdDrawIndirectCount-None-08623"></a>
-  VUID-vkCmdDrawIndirectCount-None-08623  
-  If a shader object is bound to any graphics stage, and the most recent
-  call to
-  [vkCmdSetRasterizerDiscardEnable](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdSetRasterizerDiscardEnable.html)
-  in the current command buffer set `rasterizerDiscardEnable` to
-  `VK_FALSE`, and the most recent call to
-  [vkCmdSetStencilTestEnable](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdSetStencilTestEnable.html) in the
-  current command buffer set `stencilTestEnable` to `VK_TRUE`,
-  [vkCmdSetStencilCompareMask](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdSetStencilCompareMask.html) **must**
-  have been called in the current command buffer prior to this drawing
-  command
+  have been called and not subsequently
+  [invalidated](#dynamic-state-lifetime) in the current command buffer
+  prior to this drawing command
 
 - <a href="#VUID-vkCmdDrawIndirectCount-None-07838"
   id="VUID-vkCmdDrawIndirectCount-None-07838"></a>
   VUID-vkCmdDrawIndirectCount-None-07838  
-  If the bound graphics pipeline state was created with the
-  `VK_DYNAMIC_STATE_STENCIL_WRITE_MASK` dynamic state enabled, and if
-  the current `stencilTestEnable` state is `VK_TRUE`, then
+  If a shader object is bound to any graphics stage or a graphics
+  pipeline is bound which was created with the
+  `VK_DYNAMIC_STATE_STENCIL_WRITE_MASK` dynamic state enabled, the
+  [current value](#dynamic-state-current-value) of
+  `rasterizerDiscardEnable` is `VK_FALSE`, and the [current
+  value](#dynamic-state-current-value) of `stencilTestEnable` is
+  `VK_TRUE`, then
   [vkCmdSetStencilWriteMask](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdSetStencilWriteMask.html) **must**
-  have been called in the current command buffer prior to this drawing
-  command
-
-- <a href="#VUID-vkCmdDrawIndirectCount-None-08624"
-  id="VUID-vkCmdDrawIndirectCount-None-08624"></a>
-  VUID-vkCmdDrawIndirectCount-None-08624  
-  If a shader object is bound to any graphics stage, and the most recent
-  call to
-  [vkCmdSetRasterizerDiscardEnable](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdSetRasterizerDiscardEnable.html)
-  in the current command buffer set `rasterizerDiscardEnable` to
-  `VK_FALSE`, and the most recent call to
-  [vkCmdSetStencilTestEnable](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdSetStencilTestEnable.html) in the
-  current command buffer set `stencilTestEnable` to `VK_TRUE`,
-  [vkCmdSetStencilWriteMask](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdSetStencilWriteMask.html) **must**
-  have been called in the current command buffer prior to this drawing
-  command
+  have been called and not subsequently
+  [invalidated](#dynamic-state-lifetime) in the current command buffer
+  prior to this drawing command
 
 - <a href="#VUID-vkCmdDrawIndirectCount-None-07839"
   id="VUID-vkCmdDrawIndirectCount-None-07839"></a>
   VUID-vkCmdDrawIndirectCount-None-07839  
-  If the bound graphics pipeline state was created with the
-  `VK_DYNAMIC_STATE_STENCIL_REFERENCE` dynamic state enabled, and if the
-  current `stencilTestEnable` state is `VK_TRUE`, then
+  If a shader object is bound to any graphics stage or a graphics
+  pipeline is bound which was created with the
+  `VK_DYNAMIC_STATE_STENCIL_REFERENCE` dynamic state enabled, the
+  [current value](#dynamic-state-current-value) of and
+  `rasterizerDiscardEnable` is `VK_FALSE`, the [current
+  value](#dynamic-state-current-value) of `stencilTestEnable` is
+  `VK_TRUE`, then
   [vkCmdSetStencilReference](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdSetStencilReference.html) **must**
-  have been called in the current command buffer prior to this drawing
-  command
-
-- <a href="#VUID-vkCmdDrawIndirectCount-None-08625"
-  id="VUID-vkCmdDrawIndirectCount-None-08625"></a>
-  VUID-vkCmdDrawIndirectCount-None-08625  
-  If a shader object is bound to any graphics stage, and the most recent
-  call to
-  [vkCmdSetRasterizerDiscardEnable](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdSetRasterizerDiscardEnable.html)
-  in the current command buffer set `rasterizerDiscardEnable` to
-  `VK_FALSE`, and the most recent call to
-  [vkCmdSetStencilTestEnable](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdSetStencilTestEnable.html) in the
-  current command buffer set `stencilTestEnable` to `VK_TRUE`,
-  [vkCmdSetStencilReference](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdSetStencilReference.html) **must**
-  have been called in the current command buffer prior to this drawing
-  command
+  have been called and not subsequently
+  [invalidated](#dynamic-state-lifetime) in the current command buffer
+  prior to this drawing command
 
 - <a href="#VUID-vkCmdDrawIndirectCount-maxMultiviewInstanceIndex-02688"
   id="VUID-vkCmdDrawIndirectCount-maxMultiviewInstanceIndex-02688"></a>
@@ -1144,193 +1109,121 @@ Valid Usage
 - <a href="#VUID-vkCmdDrawIndirectCount-None-06666"
   id="VUID-vkCmdDrawIndirectCount-None-06666"></a>
   VUID-vkCmdDrawIndirectCount-None-06666  
-  If the bound graphics pipeline state was created with the
-  `VK_DYNAMIC_STATE_SAMPLE_LOCATIONS_EXT` dynamic state enabled then
-  [vkCmdSetSampleLocationsEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdSetSampleLocationsEXT.html) **must**
-  have been called in the current command buffer prior to this drawing
-  command
-
-- <a href="#VUID-vkCmdDrawIndirectCount-None-08626"
-  id="VUID-vkCmdDrawIndirectCount-None-08626"></a>
-  VUID-vkCmdDrawIndirectCount-None-08626  
-  If a shader object is bound to any graphics stage, and the most recent
-  call to
-  [vkCmdSetRasterizerDiscardEnable](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdSetRasterizerDiscardEnable.html)
-  in the current command buffer set `rasterizerDiscardEnable` to
-  `VK_FALSE`, and the most recent call to
-  [vkCmdSetSampleLocationsEnableEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdSetSampleLocationsEnableEXT.html)
-  in the current command buffer set `sampleLocationsEnable` to
+  If a shader object is bound to any graphics stage or a graphics
+  pipeline is bound which was created with the
+  `VK_DYNAMIC_STATE_SAMPLE_LOCATIONS_EXT` dynamic state enabled, the
+  [current value](#dynamic-state-current-value) of
+  `rasterizerDiscardEnable` is `VK_FALSE`, and the [current
+  value](#dynamic-state-current-value) of `sampleLocationsEnable` is
   `VK_TRUE`, then
   [vkCmdSetSampleLocationsEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdSetSampleLocationsEXT.html) **must**
-  have been called in the current command buffer prior to this drawing
-  command
+  have been called and not subsequently
+  [invalidated](#dynamic-state-lifetime) in the current command buffer
+  prior to this drawing command
 
 - <a href="#VUID-vkCmdDrawIndirectCount-None-07840"
   id="VUID-vkCmdDrawIndirectCount-None-07840"></a>
   VUID-vkCmdDrawIndirectCount-None-07840  
-  If the bound graphics pipeline state was created with the
-  `VK_DYNAMIC_STATE_CULL_MODE` dynamic state enabled then
-  [vkCmdSetCullMode](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdSetCullMode.html) **must** have been called in
-  the current command buffer prior to this drawing command
-
-- <a href="#VUID-vkCmdDrawIndirectCount-None-08627"
-  id="VUID-vkCmdDrawIndirectCount-None-08627"></a>
-  VUID-vkCmdDrawIndirectCount-None-08627  
-  If a shader object is bound to any graphics stage, and the most recent
-  call to
-  [vkCmdSetRasterizerDiscardEnable](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdSetRasterizerDiscardEnable.html)
-  in the current command buffer set `rasterizerDiscardEnable` to
+  If a shader object is bound to any graphics stage or a graphics
+  pipeline is bound which was created with the
+  `VK_DYNAMIC_STATE_CULL_MODE` dynamic state enabled, and the [current
+  value](#dynamic-state-current-value) of `rasterizerDiscardEnable` is
   `VK_FALSE`, then [vkCmdSetCullMode](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdSetCullMode.html) **must**
-  have been called in the current command buffer prior to this drawing
-  command
+  have been called and not subsequently
+  [invalidated](#dynamic-state-lifetime) in the current command buffer
+  prior to this drawing command
 
 - <a href="#VUID-vkCmdDrawIndirectCount-None-07841"
   id="VUID-vkCmdDrawIndirectCount-None-07841"></a>
   VUID-vkCmdDrawIndirectCount-None-07841  
-  If the bound graphics pipeline state was created with the
-  `VK_DYNAMIC_STATE_FRONT_FACE` dynamic state enabled then
-  [vkCmdSetFrontFace](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdSetFrontFace.html) **must** have been called
-  in the current command buffer prior to this drawing command
-
-- <a href="#VUID-vkCmdDrawIndirectCount-None-08628"
-  id="VUID-vkCmdDrawIndirectCount-None-08628"></a>
-  VUID-vkCmdDrawIndirectCount-None-08628  
-  If a shader object is bound to any graphics stage, and the most recent
-  call to
-  [vkCmdSetRasterizerDiscardEnable](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdSetRasterizerDiscardEnable.html)
-  in the current command buffer set `rasterizerDiscardEnable` to
+  If a shader object is bound to any graphics stage or a graphics
+  pipeline is bound which was created with the
+  `VK_DYNAMIC_STATE_FRONT_FACE` dynamic state enabled, and the [current
+  value](#dynamic-state-current-value) of `rasterizerDiscardEnable` is
   `VK_FALSE`, then [vkCmdSetFrontFace](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdSetFrontFace.html) **must**
-  have been called in the current command buffer prior to this drawing
-  command
+  have been called and not subsequently
+  [invalidated](#dynamic-state-lifetime) in the current command buffer
+  prior to this drawing command
 
 - <a href="#VUID-vkCmdDrawIndirectCount-None-07843"
   id="VUID-vkCmdDrawIndirectCount-None-07843"></a>
   VUID-vkCmdDrawIndirectCount-None-07843  
-  If the bound graphics pipeline state was created with the
-  `VK_DYNAMIC_STATE_DEPTH_TEST_ENABLE` dynamic state enabled then
+  If a shader object is bound to any graphics stage or a graphics
+  pipeline is bound which was created with the
+  `VK_DYNAMIC_STATE_DEPTH_TEST_ENABLE` dynamic state enabled, and the
+  [current value](#dynamic-state-current-value) of
+  `rasterizerDiscardEnable` is `VK_FALSE`,
   [vkCmdSetDepthTestEnable](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdSetDepthTestEnable.html) **must** have
-  been called in the current command buffer prior to this drawing
-  command
-
-- <a href="#VUID-vkCmdDrawIndirectCount-None-08629"
-  id="VUID-vkCmdDrawIndirectCount-None-08629"></a>
-  VUID-vkCmdDrawIndirectCount-None-08629  
-  If a shader object is bound to any graphics stage, and the most recent
-  call to
-  [vkCmdSetRasterizerDiscardEnable](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdSetRasterizerDiscardEnable.html)
-  in the current command buffer set `rasterizerDiscardEnable` to
-  `VK_FALSE`, then
-  [vkCmdSetDepthTestEnable](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdSetDepthTestEnable.html) **must** have
-  been called in the current command buffer prior to this drawing
-  command
+  been called and not subsequently
+  [invalidated](#dynamic-state-lifetime) in the current command buffer
+  prior to this drawing command
 
 - <a href="#VUID-vkCmdDrawIndirectCount-None-07844"
   id="VUID-vkCmdDrawIndirectCount-None-07844"></a>
   VUID-vkCmdDrawIndirectCount-None-07844  
-  If the bound graphics pipeline state was created with the
-  `VK_DYNAMIC_STATE_DEPTH_WRITE_ENABLE` dynamic state enabled then
+  If a shader object is bound to any graphics stage or a graphics
+  pipeline is bound which was created with the
+  `VK_DYNAMIC_STATE_DEPTH_WRITE_ENABLE` dynamic state enabled, and the
+  [current value](#dynamic-state-current-value) of
+  `rasterizerDiscardEnable` is `VK_FALSE`, then
   [vkCmdSetDepthWriteEnable](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdSetDepthWriteEnable.html) **must**
-  have been called in the current command buffer prior to this drawing
-  command
-
-- <a href="#VUID-vkCmdDrawIndirectCount-None-08630"
-  id="VUID-vkCmdDrawIndirectCount-None-08630"></a>
-  VUID-vkCmdDrawIndirectCount-None-08630  
-  If a shader object is bound to any graphics stage, and the most recent
-  call to
-  [vkCmdSetRasterizerDiscardEnable](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdSetRasterizerDiscardEnable.html)
-  in the current command buffer set `rasterizerDiscardEnable` to
-  `VK_FALSE`, then
-  [vkCmdSetDepthWriteEnable](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdSetDepthWriteEnable.html) **must**
-  have been called in the current command buffer prior to this drawing
-  command
+  have been called and not subsequently
+  [invalidated](#dynamic-state-lifetime) in the current command buffer
+  prior to this drawing command
 
 - <a href="#VUID-vkCmdDrawIndirectCount-None-07845"
   id="VUID-vkCmdDrawIndirectCount-None-07845"></a>
   VUID-vkCmdDrawIndirectCount-None-07845  
-  If the bound graphics pipeline state was created with the
-  `VK_DYNAMIC_STATE_DEPTH_COMPARE_OP` dynamic state enabled then
-  [vkCmdSetDepthCompareOp](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdSetDepthCompareOp.html) **must** have
-  been called in the current command buffer prior to this drawing
-  command
-
-- <a href="#VUID-vkCmdDrawIndirectCount-None-08631"
-  id="VUID-vkCmdDrawIndirectCount-None-08631"></a>
-  VUID-vkCmdDrawIndirectCount-None-08631  
-  If a shader object is bound to any graphics stage, and the most recent
-  call to
-  [vkCmdSetRasterizerDiscardEnable](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdSetRasterizerDiscardEnable.html)
-  in the current command buffer set `rasterizerDiscardEnable` to
-  `VK_FALSE`, and the most recent call to
-  [vkCmdSetDepthTestEnable](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdSetDepthTestEnable.html) in the current
-  command buffer set `depthTestEnable` to `VK_TRUE`, then
-  [vkCmdSetDepthCompareOp](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdSetDepthCompareOp.html) **must** have
-  been called in the current command buffer prior to this drawing
-  command
+  If a shader object is bound to any graphics stage or a graphics
+  pipeline is bound which was created with the
+  `VK_DYNAMIC_STATE_DEPTH_COMPARE_OP` dynamic state enabled, the
+  [current value](#dynamic-state-current-value) of
+  `rasterizerDiscardEnable` is `VK_FALSE`, and the [current
+  value](#dynamic-state-current-value) of `depthTestEnable` is
+  `VK_TRUE`, then [vkCmdSetDepthCompareOp](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdSetDepthCompareOp.html)
+  **must** have been called and not subsequently
+  [invalidated](#dynamic-state-lifetime) in the current command buffer
+  prior to this drawing command
 
 - <a href="#VUID-vkCmdDrawIndirectCount-None-07846"
   id="VUID-vkCmdDrawIndirectCount-None-07846"></a>
   VUID-vkCmdDrawIndirectCount-None-07846  
-  If the bound graphics pipeline state was created with the
-  `VK_DYNAMIC_STATE_DEPTH_BOUNDS_TEST_ENABLE` dynamic state enabled then
+  If the [`depthBounds`](#features-depthBounds) feature is enabled, a
+  shader object is bound to any graphics stage or a graphics pipeline is
+  bound which was created with the
+  `VK_DYNAMIC_STATE_DEPTH_BOUNDS_TEST_ENABLE` dynamic state enabled, and
+  the [current value](#dynamic-state-current-value) of
+  `rasterizerDiscardEnable` is `VK_FALSE`, then
   [vkCmdSetDepthBoundsTestEnable](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdSetDepthBoundsTestEnable.html)
-  **must** have been called in the current command buffer prior to this
-  drawing command
-
-- <a href="#VUID-vkCmdDrawIndirectCount-None-08632"
-  id="VUID-vkCmdDrawIndirectCount-None-08632"></a>
-  VUID-vkCmdDrawIndirectCount-None-08632  
-  If a shader object is bound to any graphics stage, and the
-  [`depthBounds`](#features-depthBounds) feature is enabled, and the
-  most recent call to
-  [vkCmdSetRasterizerDiscardEnable](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdSetRasterizerDiscardEnable.html)
-  in the current command buffer set `rasterizerDiscardEnable` to
-  `VK_FALSE`, then the
-  [vkCmdSetDepthBoundsTestEnable](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdSetDepthBoundsTestEnable.html)
-  **must** have been called in the current command buffer prior to this
-  drawing command
+  **must** have been called and not subsequently
+  [invalidated](#dynamic-state-lifetime) in the current command buffer
+  prior to this drawing command
 
 - <a href="#VUID-vkCmdDrawIndirectCount-None-07847"
   id="VUID-vkCmdDrawIndirectCount-None-07847"></a>
   VUID-vkCmdDrawIndirectCount-None-07847  
-  If the bound graphics pipeline state was created with the
-  `VK_DYNAMIC_STATE_STENCIL_TEST_ENABLE` dynamic state enabled then
+  If a shader object is bound to any graphics stage or a graphics
+  pipeline is bound which was created with the
+  `VK_DYNAMIC_STATE_STENCIL_TEST_ENABLE` dynamic state enabled, and the
+  [current value](#dynamic-state-current-value) of
+  `rasterizerDiscardEnable` is `VK_FALSE`, then
   [vkCmdSetStencilTestEnable](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdSetStencilTestEnable.html) **must**
-  have been called in the current command buffer prior to this drawing
-  command
-
-- <a href="#VUID-vkCmdDrawIndirectCount-None-08633"
-  id="VUID-vkCmdDrawIndirectCount-None-08633"></a>
-  VUID-vkCmdDrawIndirectCount-None-08633  
-  If a shader object is bound to any graphics stage, and the most recent
-  call to
-  [vkCmdSetRasterizerDiscardEnable](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdSetRasterizerDiscardEnable.html)
-  in the current command buffer set `rasterizerDiscardEnable` to
-  `VK_FALSE`, then
-  [vkCmdSetStencilTestEnable](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdSetStencilTestEnable.html) **must**
-  have been called in the current command buffer prior to this drawing
-  command
+  have been called and not subsequently
+  [invalidated](#dynamic-state-lifetime) in the current command buffer
+  prior to this drawing command
 
 - <a href="#VUID-vkCmdDrawIndirectCount-None-07848"
   id="VUID-vkCmdDrawIndirectCount-None-07848"></a>
   VUID-vkCmdDrawIndirectCount-None-07848  
-  If the bound graphics pipeline state was created with the
-  `VK_DYNAMIC_STATE_STENCIL_OP` dynamic state enabled then
+  If a shader object is bound to any graphics stage or a graphics
+  pipeline is bound which was created with the
+  `VK_DYNAMIC_STATE_STENCIL_OP` dynamic state enabled, the [current
+  value](#dynamic-state-current-value) of `rasterizerDiscardEnable` is
+  `VK_FALSE`, the [current value](#dynamic-state-current-value) of
+  `stencilTestEnable` is `VK_TRUE`, then
   [vkCmdSetStencilOp](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdSetStencilOp.html) **must** have been called
-  in the current command buffer prior to this drawing command
-
-- <a href="#VUID-vkCmdDrawIndirectCount-None-08634"
-  id="VUID-vkCmdDrawIndirectCount-None-08634"></a>
-  VUID-vkCmdDrawIndirectCount-None-08634  
-  If a shader object is bound to any graphics stage, and the most recent
-  call to
-  [vkCmdSetRasterizerDiscardEnable](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdSetRasterizerDiscardEnable.html)
-  in the current command buffer set `rasterizerDiscardEnable` to
-  `VK_FALSE`, and the most recent call to
-  [vkCmdSetStencilTestEnable](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdSetStencilTestEnable.html) in the
-  current command buffer set `stencilTestEnable` to `VK_TRUE`, then
-  [vkCmdSetStencilOp](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdSetStencilOp.html) **must** have been called
-  in the current command buffer prior to this drawing command
+  and not subsequently [invalidated](#dynamic-state-lifetime) in the
+  current command buffer prior to this drawing command
 
 - <a href="#VUID-vkCmdDrawIndirectCount-viewportCount-03417"
   id="VUID-vkCmdDrawIndirectCount-viewportCount-03417"></a>
@@ -1412,8 +1305,9 @@ Valid Usage
   in the current command buffer set `viewportWScalingEnable` to
   `VK_TRUE`, then
   [vkCmdSetViewportWScalingNV](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdSetViewportWScalingNV.html) **must**
-  have been called in the current command buffer prior to this drawing
-  command
+  have been called and not subsequently
+  [invalidated](#dynamic-state-lifetime) in the current command buffer
+  prior to this drawing command
 
 - <a href="#VUID-vkCmdDrawIndirectCount-None-08636"
   id="VUID-vkCmdDrawIndirectCount-None-08636"></a>
@@ -1462,8 +1356,9 @@ Valid Usage
   in the current command buffer set `rasterizerDiscardEnable` to
   `VK_FALSE`, then
   [vkCmdSetCoarseSampleOrderNV](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdSetCoarseSampleOrderNV.html)
-  **must** have been called in the current command buffer prior to this
-  drawing command
+  **must** have been called and not subsequently
+  [invalidated](#dynamic-state-lifetime) in the current command buffer
+  prior to this drawing command
 
 - <a href="#VUID-vkCmdDrawIndirectCount-shadingRateImage-09234"
   id="VUID-vkCmdDrawIndirectCount-shadingRateImage-09234"></a>
@@ -1478,8 +1373,9 @@ Valid Usage
   in the current command buffer set `shadingRateImageEnable` to
   `VK_TRUE`, then
   [vkCmdSetViewportShadingRatePaletteNV](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdSetViewportShadingRatePaletteNV.html)
-  **must** have been called in the current command buffer prior to this
-  drawing command
+  **must** have been called and not subsequently
+  [invalidated](#dynamic-state-lifetime) in the current command buffer
+  prior to this drawing command
 
 - <a href="#VUID-vkCmdDrawIndirectCount-None-08637"
   id="VUID-vkCmdDrawIndirectCount-None-08637"></a>
@@ -1527,105 +1423,69 @@ Valid Usage
 - <a href="#VUID-vkCmdDrawIndirectCount-None-07878"
   id="VUID-vkCmdDrawIndirectCount-None-07878"></a>
   VUID-vkCmdDrawIndirectCount-None-07878  
-  If the bound graphics pipeline state was created with the
-  `VK_DYNAMIC_STATE_EXCLUSIVE_SCISSOR_ENABLE_NV` dynamic state enabled
+  If the [`exclusiveScissor`](#features-exclusiveScissor) feature is
+  enabled, and a shader object is bound to any graphics stage or a
+  graphics pipeline is bound which was created with the
+  `VK_DYNAMIC_STATE_EXCLUSIVE_SCISSOR_ENABLE_NV` dynamic state enabled,
   then
   [vkCmdSetExclusiveScissorEnableNV](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdSetExclusiveScissorEnableNV.html)
-  **must** have been called in the current command buffer prior to this
-  drawing command
+  **must** have been called and not subsequently
+  [invalidated](#dynamic-state-lifetime) in the current command buffer
+  prior to this drawing command
 
 - <a href="#VUID-vkCmdDrawIndirectCount-None-07879"
   id="VUID-vkCmdDrawIndirectCount-None-07879"></a>
   VUID-vkCmdDrawIndirectCount-None-07879  
-  If the bound graphics pipeline state was created with the
-  `VK_DYNAMIC_STATE_EXCLUSIVE_SCISSOR_NV` dynamic state enabled then
-  [vkCmdSetExclusiveScissorNV](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdSetExclusiveScissorNV.html) **must**
-  have been called in the current command buffer prior to this drawing
-  command
-
-- <a href="#VUID-vkCmdDrawIndirectCount-exclusiveScissor-09235"
-  id="VUID-vkCmdDrawIndirectCount-exclusiveScissor-09235"></a>
-  VUID-vkCmdDrawIndirectCount-exclusiveScissor-09235  
   If the [`exclusiveScissor`](#features-exclusiveScissor) feature is
-  enabled, and a shader object is bound to any graphics stage, then
-  [vkCmdSetExclusiveScissorEnableNV](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdSetExclusiveScissorEnableNV.html)
-  **must** have been called in the current command buffer prior to this
-  drawing command
-
-- <a href="#VUID-vkCmdDrawIndirectCount-None-08638"
-  id="VUID-vkCmdDrawIndirectCount-None-08638"></a>
-  VUID-vkCmdDrawIndirectCount-None-08638  
-  If the [`exclusiveScissor`](#features-exclusiveScissor) feature is
-  enabled, and a shader object is bound to any graphics stage, and the
+  enabled, a shader object is bound to any graphics stage or a graphics
+  pipeline is bound which was created with the
+  `VK_DYNAMIC_STATE_EXCLUSIVE_SCISSOR_NV` dynamic state enabled, and the
   most recent call to
   [vkCmdSetExclusiveScissorEnableNV](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdSetExclusiveScissorEnableNV.html)
   in the current command buffer set any element of
   `pExclusiveScissorEnables` to `VK_TRUE`, then
   [vkCmdSetExclusiveScissorNV](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdSetExclusiveScissorNV.html) **must**
-  have been called in the current command buffer prior to this drawing
-  command
+  have been called and not subsequently
+  [invalidated](#dynamic-state-lifetime) in the current command buffer
+  prior to this drawing command
 
 - <a href="#VUID-vkCmdDrawIndirectCount-None-04876"
   id="VUID-vkCmdDrawIndirectCount-None-04876"></a>
   VUID-vkCmdDrawIndirectCount-None-04876  
-  If the bound graphics pipeline state was created with the
-  `VK_DYNAMIC_STATE_RASTERIZER_DISCARD_ENABLE` dynamic state enabled
+  If a shader object is bound to any graphics stage or a graphics
+  pipeline is bound which was created with the
+  `VK_DYNAMIC_STATE_RASTERIZER_DISCARD_ENABLE` dynamic state enabled,
   then
   [vkCmdSetRasterizerDiscardEnable](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdSetRasterizerDiscardEnable.html)
-  **must** have been called in the current command buffer prior to this
-  drawing command
-
-- <a href="#VUID-vkCmdDrawIndirectCount-None-08639"
-  id="VUID-vkCmdDrawIndirectCount-None-08639"></a>
-  VUID-vkCmdDrawIndirectCount-None-08639  
-  If a shader object is bound to any graphics stage, then
-  [vkCmdSetRasterizerDiscardEnable](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdSetRasterizerDiscardEnable.html)
-  **must** have been called in the current command buffer prior to this
-  drawing command
+  **must** have been called and not subsequently
+  [invalidated](#dynamic-state-lifetime) in the current command buffer
+  prior to this drawing command
 
 - <a href="#VUID-vkCmdDrawIndirectCount-None-04877"
   id="VUID-vkCmdDrawIndirectCount-None-04877"></a>
   VUID-vkCmdDrawIndirectCount-None-04877  
-  If the bound graphics pipeline state was created with the
-  `VK_DYNAMIC_STATE_DEPTH_BIAS_ENABLE` dynamic state enabled then
+  If a shader object is bound to any graphics stage or a graphics
+  pipeline is bound which was created with the
+  `VK_DYNAMIC_STATE_DEPTH_BIAS_ENABLE` dynamic state enabled, and the
+  [current value](#dynamic-state-current-value) of
+  `rasterizerDiscardEnable` is `VK_FALSE`, then
   [vkCmdSetDepthBiasEnable](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdSetDepthBiasEnable.html) **must** have
-  been called in the current command buffer prior to this drawing
-  command
-
-- <a href="#VUID-vkCmdDrawIndirectCount-None-08640"
-  id="VUID-vkCmdDrawIndirectCount-None-08640"></a>
-  VUID-vkCmdDrawIndirectCount-None-08640  
-  If a shader object is bound to any graphics stage, and the most recent
-  call to
-  [vkCmdSetRasterizerDiscardEnable](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdSetRasterizerDiscardEnable.html)
-  in the current command buffer set `rasterizerDiscardEnable` to
-  `VK_FALSE`, then
-  [vkCmdSetDepthBiasEnable](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdSetDepthBiasEnable.html) **must** have
-  been called in the current command buffer prior to this drawing
-  command
+  been called and not subsequently
+  [invalidated](#dynamic-state-lifetime) in the current command buffer
+  prior to this drawing command
 
 - <a href="#VUID-vkCmdDrawIndirectCount-logicOp-04878"
   id="VUID-vkCmdDrawIndirectCount-logicOp-04878"></a>
   VUID-vkCmdDrawIndirectCount-logicOp-04878  
-  If the bound graphics pipeline state was created with the
-  `VK_DYNAMIC_STATE_LOGIC_OP_EXT` dynamic state enabled then
+  If a shader object is bound to the `VK_SHADER_STAGE_FRAGMENT_BIT` or a
+  graphics pipeline is bound which was created with the
+  `VK_DYNAMIC_STATE_LOGIC_OP_EXT` dynamic state enabled, the [current
+  value](#dynamic-state-current-value) of `rasterizerDiscardEnable` is
+  `VK_FALSE`, and the [current value](#dynamic-state-current-value) of
+  `logicOpEnable` is `VK_TRUE`, then
   [vkCmdSetLogicOpEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdSetLogicOpEXT.html) **must** have been
-  called in the current command buffer prior to this drawing command and
-  the `logicOp` **must** be a valid [VkLogicOp](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkLogicOp.html) value
-
-- <a href="#VUID-vkCmdDrawIndirectCount-None-08641"
-  id="VUID-vkCmdDrawIndirectCount-None-08641"></a>
-  VUID-vkCmdDrawIndirectCount-None-08641  
-  If a shader object is bound to the `VK_SHADER_STAGE_FRAGMENT_BIT`
-  stage, and the most recent call to
-  [vkCmdSetRasterizerDiscardEnable](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdSetRasterizerDiscardEnable.html)
-  in the current command buffer set `rasterizerDiscardEnable` to
-  `VK_FALSE`, and the most recent call to
-  [vkCmdSetLogicOpEnableEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdSetLogicOpEnableEXT.html) set
-  `logicOpEnable` to `VK_TRUE`, then
-  [vkCmdSetLogicOpEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdSetLogicOpEXT.html) **must** have been
-  called in the current command buffer prior to this drawing command and
-  the `logicOp` **must** be a valid [VkLogicOp](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkLogicOp.html) value
+  called and not subsequently [invalidated](#dynamic-state-lifetime) in
+  the current command buffer prior to this drawing command
 
 - <a
   href="#VUID-vkCmdDrawIndirectCount-primitiveFragmentShadingRateWithMultipleViewports-04552"
@@ -2016,8 +1876,9 @@ Valid Usage
   If the bound graphics pipeline state was created with the
   `VK_DYNAMIC_STATE_COLOR_WRITE_ENABLE_EXT` dynamic state enabled then
   [vkCmdSetColorWriteEnableEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdSetColorWriteEnableEXT.html)
-  **must** have been called in the current command buffer prior to this
-  drawing command
+  **must** have been called and not subsequently
+  [invalidated](#dynamic-state-lifetime) in the current command buffer
+  prior to this drawing command
 
 - <a href="#VUID-vkCmdDrawIndirectCount-None-08646"
   id="VUID-vkCmdDrawIndirectCount-None-08646"></a>
@@ -2029,8 +1890,9 @@ Valid Usage
   in the current command buffer set `rasterizerDiscardEnable` to
   `VK_FALSE`, then
   [vkCmdSetColorWriteEnableEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdSetColorWriteEnableEXT.html)
-  **must** have been called in the current command buffer prior to this
-  drawing command
+  **must** have been called and not subsequently
+  [invalidated](#dynamic-state-lifetime) in the current command buffer
+  prior to this drawing command
 
 - <a href="#VUID-vkCmdDrawIndirectCount-attachmentCount-07750"
   id="VUID-vkCmdDrawIndirectCount-attachmentCount-07750"></a>
@@ -2061,8 +1923,9 @@ Valid Usage
   If the bound graphics pipeline state was created with the
   `VK_DYNAMIC_STATE_DISCARD_RECTANGLE_EXT` dynamic state enabled then
   [vkCmdSetDiscardRectangleEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdSetDiscardRectangleEXT.html)
-  **must** have been called in the current command buffer prior to this
-  drawing command for each discard rectangle in
+  **must** have been called and not subsequently
+  [invalidated](#dynamic-state-lifetime) in the current command buffer
+  prior to this drawing command for each discard rectangle in
   [VkPipelineDiscardRectangleStateCreateInfoEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkPipelineDiscardRectangleStateCreateInfoEXT.html)::`discardRectangleCount`
 
 - <a href="#VUID-vkCmdDrawIndirectCount-None-07880"
@@ -2072,8 +1935,9 @@ Valid Usage
   `VK_DYNAMIC_STATE_DISCARD_RECTANGLE_ENABLE_EXT` dynamic state enabled
   then
   [vkCmdSetDiscardRectangleEnableEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdSetDiscardRectangleEnableEXT.html)
-  **must** have been called in the current command buffer prior to this
-  drawing command
+  **must** have been called and not subsequently
+  [invalidated](#dynamic-state-lifetime) in the current command buffer
+  prior to this drawing command
 
 - <a href="#VUID-vkCmdDrawIndirectCount-rasterizerDiscardEnable-09236"
   id="VUID-vkCmdDrawIndirectCount-rasterizerDiscardEnable-09236"></a>
@@ -2088,8 +1952,9 @@ Valid Usage
   in the current command buffer set `discardRectangleEnable` to
   `VK_TRUE`, then
   [vkCmdSetDiscardRectangleEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdSetDiscardRectangleEXT.html)
-  **must** have been called in the current command buffer prior to this
-  drawing command
+  **must** have been called and not subsequently
+  [invalidated](#dynamic-state-lifetime) in the current command buffer
+  prior to this drawing command
 
 - <a href="#VUID-vkCmdDrawIndirectCount-None-08648"
   id="VUID-vkCmdDrawIndirectCount-None-08648"></a>
@@ -2101,8 +1966,9 @@ Valid Usage
   in the current command buffer set `rasterizerDiscardEnable` to
   `VK_FALSE`, then
   [vkCmdSetDiscardRectangleEnableEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdSetDiscardRectangleEnableEXT.html)
-  **must** have been called in the current command buffer prior to this
-  drawing command
+  **must** have been called and not subsequently
+  [invalidated](#dynamic-state-lifetime) in the current command buffer
+  prior to this drawing command
 
 - <a href="#VUID-vkCmdDrawIndirectCount-None-07881"
   id="VUID-vkCmdDrawIndirectCount-None-07881"></a>
@@ -2111,8 +1977,9 @@ Valid Usage
   `VK_DYNAMIC_STATE_DISCARD_RECTANGLE_MODE_EXT` dynamic state enabled
   then
   [vkCmdSetDiscardRectangleModeEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdSetDiscardRectangleModeEXT.html)
-  **must** have been called in the current command buffer prior to this
-  drawing command
+  **must** have been called and not subsequently
+  [invalidated](#dynamic-state-lifetime) in the current command buffer
+  prior to this drawing command
 
 - <a href="#VUID-vkCmdDrawIndirectCount-None-08649"
   id="VUID-vkCmdDrawIndirectCount-None-08649"></a>
@@ -2127,8 +1994,9 @@ Valid Usage
   in the current command buffer set `discardRectangleEnable` to
   `VK_TRUE`, then
   [vkCmdSetDiscardRectangleModeEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdSetDiscardRectangleModeEXT.html)
-  **must** have been called in the current command buffer prior to this
-  drawing command
+  **must** have been called and not subsequently
+  [invalidated](#dynamic-state-lifetime) in the current command buffer
+  prior to this drawing command
 
 - <a
   href="#VUID-vkCmdDrawIndirectCount-dynamicRenderingUnusedAttachments-08913"
@@ -2426,114 +2294,67 @@ Valid Usage
 - <a href="#VUID-vkCmdDrawIndirectCount-None-07619"
   id="VUID-vkCmdDrawIndirectCount-None-07619"></a>
   VUID-vkCmdDrawIndirectCount-None-07619  
-  If the bound graphics pipeline state was created with the
+  If a shader object is bound to the
+  `VK_SHADER_STAGE_TESSELLATION_EVALUATION_BIT` stage or a graphics
+  pipeline is bound which was created with the
   `VK_DYNAMIC_STATE_TESSELLATION_DOMAIN_ORIGIN_EXT` dynamic state
-  enabled then
+  enabled, then
   [vkCmdSetTessellationDomainOriginEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdSetTessellationDomainOriginEXT.html)
-  **must** have been called in the current command buffer prior to this
-  drawing command
+  **must** have been called and not subsequently
+  [invalidated](#dynamic-state-lifetime) in the current command buffer
+  prior to this drawing command
 
 - <a href="#VUID-vkCmdDrawIndirectCount-None-07620"
   id="VUID-vkCmdDrawIndirectCount-None-07620"></a>
   VUID-vkCmdDrawIndirectCount-None-07620  
-  If the bound graphics pipeline state was created with the
-  `VK_DYNAMIC_STATE_DEPTH_CLAMP_ENABLE_EXT` dynamic state enabled then
+  If the [`depthClamp`](#features-depthClamp) feature is enabled, a
+  shader object is bound to any graphics stage or a graphics pipeline is
+  bound which was created with the
+  `VK_DYNAMIC_STATE_DEPTH_CLAMP_ENABLE_EXT` dynamic state enabled, and
+  the [current value](#dynamic-state-current-value) of
+  `rasterizerDiscardEnable` is `VK_FALSE`, then
   [vkCmdSetDepthClampEnableEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdSetDepthClampEnableEXT.html)
-  **must** have been called in the current command buffer prior to this
-  drawing command
-
-- <a href="#VUID-vkCmdDrawIndirectCount-None-09237"
-  id="VUID-vkCmdDrawIndirectCount-None-09237"></a>
-  VUID-vkCmdDrawIndirectCount-None-09237  
-  If a shader object is bound to the
-  `VK_SHADER_STAGE_TESSELLATION_EVALUATION_BIT` stage, then
-  [vkCmdSetTessellationDomainOriginEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdSetTessellationDomainOriginEXT.html)
-  **must** have been called in the current command buffer prior to this
-  drawing command
-
-- <a href="#VUID-vkCmdDrawIndirectCount-None-08650"
-  id="VUID-vkCmdDrawIndirectCount-None-08650"></a>
-  VUID-vkCmdDrawIndirectCount-None-08650  
-  If the [`depthClamp`](#features-depthClamp) feature is enabled, and a
-  shader object is bound to any graphics stage, and the most recent call
-  to
-  [vkCmdSetRasterizerDiscardEnable](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdSetRasterizerDiscardEnable.html)
-  in the current command buffer set `rasterizerDiscardEnable` to
-  `VK_FALSE`, then
-  [vkCmdSetDepthClampEnableEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdSetDepthClampEnableEXT.html)
-  **must** have been called in the current command buffer prior to this
-  drawing command
+  **must** have been called and not subsequently
+  [invalidated](#dynamic-state-lifetime) in the current command buffer
+  prior to this drawing command
 
 - <a href="#VUID-vkCmdDrawIndirectCount-None-07621"
   id="VUID-vkCmdDrawIndirectCount-None-07621"></a>
   VUID-vkCmdDrawIndirectCount-None-07621  
-  If the bound graphics pipeline state was created with the
-  `VK_DYNAMIC_STATE_POLYGON_MODE_EXT` dynamic state enabled then
+  If a shader object is bound to any graphics stage or a graphics
+  pipeline is bound which was created with the
+  `VK_DYNAMIC_STATE_POLYGON_MODE_EXT` dynamic state enabled, and the
+  [current value](#dynamic-state-current-value) of
+  `rasterizerDiscardEnable` is `VK_FALSE`, then
   [vkCmdSetPolygonModeEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdSetPolygonModeEXT.html) **must** have
-  been called in the current command buffer prior to this drawing
-  command
-
-- <a href="#VUID-vkCmdDrawIndirectCount-None-08651"
-  id="VUID-vkCmdDrawIndirectCount-None-08651"></a>
-  VUID-vkCmdDrawIndirectCount-None-08651  
-  If a shader object is bound to any graphics stage, and the most recent
-  call to
-  [vkCmdSetRasterizerDiscardEnable](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdSetRasterizerDiscardEnable.html)
-  in the current command buffer set `rasterizerDiscardEnable` to
-  `VK_FALSE`, then [vkCmdSetPolygonModeEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdSetPolygonModeEXT.html)
-  **must** have been called in the current command buffer prior to this
-  drawing command
+  been called and not subsequently
+  [invalidated](#dynamic-state-lifetime) in the current command buffer
+  prior to this drawing command
 
 - <a href="#VUID-vkCmdDrawIndirectCount-None-07622"
   id="VUID-vkCmdDrawIndirectCount-None-07622"></a>
   VUID-vkCmdDrawIndirectCount-None-07622  
-  If the bound graphics pipeline state was created with the
-  `VK_DYNAMIC_STATE_RASTERIZATION_SAMPLES_EXT` dynamic state enabled
-  then
+  If a shader object is bound to any graphics stage or a graphics
+  pipeline is bound which was created with the
+  `VK_DYNAMIC_STATE_RASTERIZATION_SAMPLES_EXT` dynamic state enabled,
+  and the [current value](#dynamic-state-current-value) of
+  `rasterizerDiscardEnable` is `VK_FALSE`, then
   [vkCmdSetRasterizationSamplesEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdSetRasterizationSamplesEXT.html)
-  **must** have been called in the current command buffer prior to this
-  drawing command
-
-- <a href="#VUID-vkCmdDrawIndirectCount-None-08652"
-  id="VUID-vkCmdDrawIndirectCount-None-08652"></a>
-  VUID-vkCmdDrawIndirectCount-None-08652  
-  If a shader object is bound to any graphics stage, and the most recent
-  call to
-  [vkCmdSetRasterizerDiscardEnable](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdSetRasterizerDiscardEnable.html)
-  in the current command buffer set `rasterizerDiscardEnable` to
-  `VK_FALSE`, then
-  [vkCmdSetRasterizationSamplesEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdSetRasterizationSamplesEXT.html)
-  **must** have been called in the current command buffer prior to this
-  drawing command
+  **must** have been called and not subsequently
+  [invalidated](#dynamic-state-lifetime) in the current command buffer
+  prior to this drawing command
 
 - <a href="#VUID-vkCmdDrawIndirectCount-None-07623"
   id="VUID-vkCmdDrawIndirectCount-None-07623"></a>
   VUID-vkCmdDrawIndirectCount-None-07623  
-  If the bound graphics pipeline state was created with the
-  `VK_DYNAMIC_STATE_SAMPLE_MASK_EXT` dynamic state enabled then
+  If a shader object is bound to any graphics stage or a graphics
+  pipeline is bound which was created with the
+  `VK_DYNAMIC_STATE_SAMPLE_MASK_EXT` dynamic state enabled, and the
+  [current value](#dynamic-state-current-value) of
+  `rasterizerDiscardEnable` is `VK_FALSE`, then
   [vkCmdSetSampleMaskEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdSetSampleMaskEXT.html) **must** have been
-  called in the current command buffer prior to this drawing command
-
-- <a href="#VUID-vkCmdDrawIndirectCount-None-08653"
-  id="VUID-vkCmdDrawIndirectCount-None-08653"></a>
-  VUID-vkCmdDrawIndirectCount-None-08653  
-  If a shader object is bound to any graphics stage, and the most recent
-  call to
-  [vkCmdSetRasterizerDiscardEnable](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdSetRasterizerDiscardEnable.html)
-  in the current command buffer set `rasterizerDiscardEnable` to
-  `VK_FALSE`, then [vkCmdSetSampleMaskEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdSetSampleMaskEXT.html)
-  **must** have been called in the current command buffer prior to this
-  drawing command
-
-- <a href="#VUID-vkCmdDrawIndirectCount-None-07624"
-  id="VUID-vkCmdDrawIndirectCount-None-07624"></a>
-  VUID-vkCmdDrawIndirectCount-None-07624  
-  If the bound graphics pipeline state was created with the
-  `VK_DYNAMIC_STATE_ALPHA_TO_COVERAGE_ENABLE_EXT` dynamic state enabled
-  then
-  [vkCmdSetAlphaToCoverageEnableEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdSetAlphaToCoverageEnableEXT.html)
-  **must** have been called in the current command buffer prior to this
-  drawing command
+  called and not subsequently [invalidated](#dynamic-state-lifetime) in
+  the current command buffer prior to this drawing command
 
 - <a href="#VUID-vkCmdDrawIndirectCount-alphaToCoverageEnable-08919"
   id="VUID-vkCmdDrawIndirectCount-alphaToCoverageEnable-08919"></a>
@@ -2546,18 +2367,6 @@ Valid Usage
   **must** contain a variable for the alpha `Component` word in
   `Location` 0 at `Index` 0
 
-- <a href="#VUID-vkCmdDrawIndirectCount-None-08654"
-  id="VUID-vkCmdDrawIndirectCount-None-08654"></a>
-  VUID-vkCmdDrawIndirectCount-None-08654  
-  If a shader object is bound to any graphics stage, and the most recent
-  call to
-  [vkCmdSetRasterizerDiscardEnable](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdSetRasterizerDiscardEnable.html)
-  in the current command buffer set `rasterizerDiscardEnable` to
-  `VK_FALSE`, then
-  [vkCmdSetAlphaToCoverageEnableEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdSetAlphaToCoverageEnableEXT.html)
-  **must** have been called in the current command buffer prior to this
-  drawing command
-
 - <a href="#VUID-vkCmdDrawIndirectCount-alphaToCoverageEnable-08920"
   id="VUID-vkCmdDrawIndirectCount-alphaToCoverageEnable-08920"></a>
   VUID-vkCmdDrawIndirectCount-alphaToCoverageEnable-08920  
@@ -2569,49 +2378,46 @@ Valid Usage
   Interface](#interfaces-fragmentoutput) **must** contain a variable for
   the alpha `Component` word in `Location` 0 at `Index` 0
 
+- <a href="#VUID-vkCmdDrawIndirectCount-None-07624"
+  id="VUID-vkCmdDrawIndirectCount-None-07624"></a>
+  VUID-vkCmdDrawIndirectCount-None-07624  
+  If a shader object is bound to any graphics stage or a graphics
+  pipeline is bound which was created with the
+  `VK_DYNAMIC_STATE_ALPHA_TO_COVERAGE_ENABLE_EXT` dynamic state enabled,
+  and the [current value](#dynamic-state-current-value) of
+  `rasterizerDiscardEnable` is `VK_FALSE`, then
+  [vkCmdSetAlphaToCoverageEnableEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdSetAlphaToCoverageEnableEXT.html)
+  **must** have been called and not subsequently
+  [invalidated](#dynamic-state-lifetime) in the current command buffer
+  prior to this drawing command
+
 - <a href="#VUID-vkCmdDrawIndirectCount-None-07625"
   id="VUID-vkCmdDrawIndirectCount-None-07625"></a>
   VUID-vkCmdDrawIndirectCount-None-07625  
-  If the bound graphics pipeline state was created with the
-  `VK_DYNAMIC_STATE_ALPHA_TO_ONE_ENABLE_EXT` dynamic state enabled then
+  If the [`alphaToOne`](#features-alphaToOne) feature is enabled, a
+  shader object is bound to any graphics stage or a graphics pipeline is
+  bound which was created with the
+  `VK_DYNAMIC_STATE_ALPHA_TO_ONE_ENABLE_EXT` dynamic state enabled, and
+  the [current value](#dynamic-state-current-value) of
+  `rasterizerDiscardEnable` is `VK_FALSE`, then
   [vkCmdSetAlphaToOneEnableEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdSetAlphaToOneEnableEXT.html)
-  **must** have been called in the current command buffer prior to this
-  drawing command
-
-- <a href="#VUID-vkCmdDrawIndirectCount-None-08655"
-  id="VUID-vkCmdDrawIndirectCount-None-08655"></a>
-  VUID-vkCmdDrawIndirectCount-None-08655  
-  If the [`alphaToOne`](#features-alphaToOne) feature is enabled, and a
-  shader object is bound to any graphics stage, and the most recent call
-  to
-  [vkCmdSetRasterizerDiscardEnable](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdSetRasterizerDiscardEnable.html)
-  in the current command buffer set `rasterizerDiscardEnable` to
-  `VK_FALSE`, then
-  [vkCmdSetAlphaToOneEnableEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdSetAlphaToOneEnableEXT.html)
-  **must** have been called in the current command buffer prior to this
-  drawing command
+  **must** have been called and not subsequently
+  [invalidated](#dynamic-state-lifetime) in the current command buffer
+  prior to this drawing command
 
 - <a href="#VUID-vkCmdDrawIndirectCount-None-07626"
   id="VUID-vkCmdDrawIndirectCount-None-07626"></a>
   VUID-vkCmdDrawIndirectCount-None-07626  
-  If the bound graphics pipeline state was created with the
-  `VK_DYNAMIC_STATE_LOGIC_OP_ENABLE_EXT` dynamic state enabled then
+  If the [`logicOp`](#features-logicOp) feature is enabled, a shader
+  object is bound to the `VK_SHADER_STAGE_FRAGMENT_BIT` stage or a
+  graphics pipeline is bound which was created with the
+  `VK_DYNAMIC_STATE_LOGIC_OP_ENABLE_EXT` dynamic state enabled, and the
+  [current value](#dynamic-state-current-value) of
+  `rasterizerDiscardEnable` is `VK_FALSE`, then
   [vkCmdSetLogicOpEnableEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdSetLogicOpEnableEXT.html) **must**
-  have been called in the current command buffer prior to this drawing
-  command
-
-- <a href="#VUID-vkCmdDrawIndirectCount-None-08656"
-  id="VUID-vkCmdDrawIndirectCount-None-08656"></a>
-  VUID-vkCmdDrawIndirectCount-None-08656  
-  If the [`logicOp`](#features-logicOp) feature is enabled, and a shader
-  object is bound to the `VK_SHADER_STAGE_FRAGMENT_BIT` stage, and the
-  most recent call to
-  [vkCmdSetRasterizerDiscardEnable](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdSetRasterizerDiscardEnable.html)
-  in the current command buffer set `rasterizerDiscardEnable` to
-  `VK_FALSE`, then
-  [vkCmdSetLogicOpEnableEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdSetLogicOpEnableEXT.html) **must**
-  have been called in the current command buffer prior to this drawing
-  command
+  have been called and not subsequently
+  [invalidated](#dynamic-state-lifetime) in the current command buffer
+  prior to this drawing command
 
 - <a href="#VUID-vkCmdDrawIndirectCount-None-07627"
   id="VUID-vkCmdDrawIndirectCount-None-07627"></a>
@@ -2619,8 +2425,9 @@ Valid Usage
   If the bound graphics pipeline state was created with the
   `VK_DYNAMIC_STATE_COLOR_BLEND_ENABLE_EXT` dynamic state enabled then
   [vkCmdSetColorBlendEnableEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdSetColorBlendEnableEXT.html)
-  **must** have been called in the current command buffer prior to this
-  drawing command
+  **must** have been called and not subsequently
+  [invalidated](#dynamic-state-lifetime) in the current command buffer
+  prior to this drawing command
 
 - <a href="#VUID-vkCmdDrawIndirectCount-None-08657"
   id="VUID-vkCmdDrawIndirectCount-None-08657"></a>
@@ -2631,8 +2438,9 @@ Valid Usage
   in the current command buffer set `rasterizerDiscardEnable` to
   `VK_FALSE` and there are color attachments bound, then
   [vkCmdSetColorBlendEnableEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdSetColorBlendEnableEXT.html)
-  **must** have been called in the current command buffer prior to this
-  drawing command
+  **must** have been called and not subsequently
+  [invalidated](#dynamic-state-lifetime) in the current command buffer
+  prior to this drawing command
 
 - <a href="#VUID-vkCmdDrawIndirectCount-None-07628"
   id="VUID-vkCmdDrawIndirectCount-None-07628"></a>
@@ -2640,8 +2448,9 @@ Valid Usage
   If the bound graphics pipeline state was created with the
   `VK_DYNAMIC_STATE_COLOR_BLEND_EQUATION_EXT` dynamic state enabled then
   [vkCmdSetColorBlendEquationEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdSetColorBlendEquationEXT.html)
-  **must** have been called in the current command buffer prior to this
-  drawing command
+  **must** have been called and not subsequently
+  [invalidated](#dynamic-state-lifetime) in the current command buffer
+  prior to this drawing command
 
 - <a href="#VUID-vkCmdDrawIndirectCount-None-08658"
   id="VUID-vkCmdDrawIndirectCount-None-08658"></a>
@@ -2655,8 +2464,9 @@ Valid Usage
   any attachment set that attachment’s value in `pColorBlendEnables` to
   `VK_TRUE`, then
   [vkCmdSetColorBlendEquationEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdSetColorBlendEquationEXT.html)
-  **must** have been called in the current command buffer prior to this
-  drawing command
+  **must** have been called and not subsequently
+  [invalidated](#dynamic-state-lifetime) in the current command buffer
+  prior to this drawing command
 
 - <a href="#VUID-vkCmdDrawIndirectCount-None-07629"
   id="VUID-vkCmdDrawIndirectCount-None-07629"></a>
@@ -2664,8 +2474,9 @@ Valid Usage
   If the bound graphics pipeline state was created with the
   `VK_DYNAMIC_STATE_COLOR_WRITE_MASK_EXT` dynamic state enabled then
   [vkCmdSetColorWriteMaskEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdSetColorWriteMaskEXT.html) **must**
-  have been called in the current command buffer prior to this drawing
-  command
+  have been called and not subsequently
+  [invalidated](#dynamic-state-lifetime) in the current command buffer
+  prior to this drawing command
 
 - <a href="#VUID-vkCmdDrawIndirectCount-None-08659"
   id="VUID-vkCmdDrawIndirectCount-None-08659"></a>
@@ -2676,96 +2487,67 @@ Valid Usage
   in the current command buffer set `rasterizerDiscardEnable` to
   `VK_FALSE` and there are color attachments bound, then
   [vkCmdSetColorWriteMaskEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdSetColorWriteMaskEXT.html) **must**
-  have been called in the current command buffer prior to this drawing
-  command
+  have been called and not subsequently
+  [invalidated](#dynamic-state-lifetime) in the current command buffer
+  prior to this drawing command
 
 - <a href="#VUID-vkCmdDrawIndirectCount-None-07630"
   id="VUID-vkCmdDrawIndirectCount-None-07630"></a>
   VUID-vkCmdDrawIndirectCount-None-07630  
-  If the bound graphics pipeline state was created with the
-  `VK_DYNAMIC_STATE_RASTERIZATION_STREAM_EXT` dynamic state enabled then
-  [vkCmdSetRasterizationStreamEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdSetRasterizationStreamEXT.html)
-  **must** have been called in the current command buffer prior to this
-  drawing command
-
-- <a href="#VUID-vkCmdDrawIndirectCount-None-08660"
-  id="VUID-vkCmdDrawIndirectCount-None-08660"></a>
-  VUID-vkCmdDrawIndirectCount-None-08660  
   If the [`geometryStreams`](#features-geometryStreams) feature is
   enabled, and a shader object is bound to the
-  `VK_SHADER_STAGE_GEOMETRY_BIT` stage, then
+  `VK_SHADER_STAGE_GEOMETRY_BIT` stage or a graphics pipeline is bound
+  which was created with the `VK_DYNAMIC_STATE_RASTERIZATION_STREAM_EXT`
+  dynamic state enabled, then
   [vkCmdSetRasterizationStreamEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdSetRasterizationStreamEXT.html)
-  **must** have been called in the current command buffer prior to this
-  drawing command
+  **must** have been called and not subsequently
+  [invalidated](#dynamic-state-lifetime) in the current command buffer
+  prior to this drawing command
 
 - <a href="#VUID-vkCmdDrawIndirectCount-None-07631"
   id="VUID-vkCmdDrawIndirectCount-None-07631"></a>
   VUID-vkCmdDrawIndirectCount-None-07631  
-  If the bound graphics pipeline state was created with the
-  `VK_DYNAMIC_STATE_CONSERVATIVE_RASTERIZATION_MODE_EXT` dynamic state
-  enabled then
-  [vkCmdSetConservativeRasterizationModeEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdSetConservativeRasterizationModeEXT.html)
-  **must** have been called in the current command buffer prior to this
-  drawing command
-
-- <a href="#VUID-vkCmdDrawIndirectCount-None-08661"
-  id="VUID-vkCmdDrawIndirectCount-None-08661"></a>
-  VUID-vkCmdDrawIndirectCount-None-08661  
   If the
   [`VK_EXT_conservative_rasterization`](VK_EXT_conservative_rasterization.html)
-  extension is enabled, and a shader object is bound to any graphics
-  stage, and the most recent call to
-  [vkCmdSetRasterizerDiscardEnable](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdSetRasterizerDiscardEnable.html)
-  in the current command buffer set `rasterizerDiscardEnable` to
-  `VK_FALSE`, then
+  extension is enabled, a shader object is bound to any graphics stage
+  or a graphics pipeline is bound which was created with the
+  `VK_DYNAMIC_STATE_CONSERVATIVE_RASTERIZATION_MODE_EXT` dynamic state
+  enabled, and the [current value](#dynamic-state-current-value) of
+  `rasterizerDiscardEnable` is `VK_FALSE`, then
   [vkCmdSetConservativeRasterizationModeEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdSetConservativeRasterizationModeEXT.html)
-  **must** have been called in the current command buffer prior to this
-  drawing command
+  **must** have been called and not subsequently
+  [invalidated](#dynamic-state-lifetime) in the current command buffer
+  prior to this drawing command
 
 - <a href="#VUID-vkCmdDrawIndirectCount-None-07632"
   id="VUID-vkCmdDrawIndirectCount-None-07632"></a>
   VUID-vkCmdDrawIndirectCount-None-07632  
-  If the bound graphics pipeline state was created with the
-  `VK_DYNAMIC_STATE_EXTRA_PRIMITIVE_OVERESTIMATION_SIZE_EXT` dynamic
-  state enabled then
-  [vkCmdSetExtraPrimitiveOverestimationSizeEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdSetExtraPrimitiveOverestimationSizeEXT.html)
-  **must** have been called in the current command buffer prior to this
-  drawing command
-
-- <a href="#VUID-vkCmdDrawIndirectCount-None-08662"
-  id="VUID-vkCmdDrawIndirectCount-None-08662"></a>
-  VUID-vkCmdDrawIndirectCount-None-08662  
   If the
   [`VK_EXT_conservative_rasterization`](VK_EXT_conservative_rasterization.html)
-  extension is enabled, and a shader object is bound to any graphics
-  stage, and the most recent call to
-  [vkCmdSetRasterizerDiscardEnable](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdSetRasterizerDiscardEnable.html)
-  in the current command buffer set `rasterizerDiscardEnable` to
-  `VK_FALSE`, and the most recent call to
-  [vkCmdSetConservativeRasterizationModeEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdSetConservativeRasterizationModeEXT.html)
-  in the current command buffer set `conservativeRasterizationMode` to
+  extension is enabled, a shader object is bound to any graphics stage
+  or a graphics pipeline is bound which was created with the
+  `VK_DYNAMIC_STATE_EXTRA_PRIMITIVE_OVERESTIMATION_SIZE_EXT` dynamic
+  state enabled, the [current value](#dynamic-state-current-value) of
+  `rasterizerDiscardEnable` is `VK_FALSE`, and the [current
+  value](#dynamic-state-current-value) of
+  `conservativeRasterizationMode` is
   `VK_CONSERVATIVE_RASTERIZATION_MODE_OVERESTIMATE_EXT`, then
   [vkCmdSetExtraPrimitiveOverestimationSizeEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdSetExtraPrimitiveOverestimationSizeEXT.html)
-  **must** have been called in the current command buffer prior to this
-  drawing command
+  **must** have been called and not subsequently
+  [invalidated](#dynamic-state-lifetime) in the current command buffer
+  prior to this drawing command
 
 - <a href="#VUID-vkCmdDrawIndirectCount-None-07633"
   id="VUID-vkCmdDrawIndirectCount-None-07633"></a>
   VUID-vkCmdDrawIndirectCount-None-07633  
-  If the bound graphics pipeline state was created with the
-  `VK_DYNAMIC_STATE_DEPTH_CLIP_ENABLE_EXT` dynamic state enabled then
-  [vkCmdSetDepthClipEnableEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdSetDepthClipEnableEXT.html) **must**
-  have been called in the current command buffer prior to this drawing
-  command
-
-- <a href="#VUID-vkCmdDrawIndirectCount-None-08663"
-  id="VUID-vkCmdDrawIndirectCount-None-08663"></a>
-  VUID-vkCmdDrawIndirectCount-None-08663  
   If the [`depthClipEnable`](#features-depthClipEnable) feature is
-  enabled, and a shader object is bound to any graphics stage, then
+  enabled, and a shader object is bound to any graphics stage or a
+  graphics pipeline is bound which was created with the
+  `VK_DYNAMIC_STATE_DEPTH_CLIP_ENABLE_EXT` dynamic state, then
   [vkCmdSetDepthClipEnableEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdSetDepthClipEnableEXT.html) **must**
-  have been called in the current command buffer prior to this drawing
-  command
+  have been called and not subsequently
+  [invalidated](#dynamic-state-lifetime) in the current command buffer
+  prior to this drawing command
 
 - <a href="#VUID-vkCmdDrawIndirectCount-None-07634"
   id="VUID-vkCmdDrawIndirectCount-None-07634"></a>
@@ -2774,8 +2556,9 @@ Valid Usage
   `VK_DYNAMIC_STATE_SAMPLE_LOCATIONS_ENABLE_EXT` dynamic state enabled
   then
   [vkCmdSetSampleLocationsEnableEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdSetSampleLocationsEnableEXT.html)
-  **must** have been called in the current command buffer prior to this
-  drawing command
+  **must** have been called and not subsequently
+  [invalidated](#dynamic-state-lifetime) in the current command buffer
+  prior to this drawing command
 
 - <a href="#VUID-vkCmdDrawIndirectCount-None-08664"
   id="VUID-vkCmdDrawIndirectCount-None-08664"></a>
@@ -2787,8 +2570,9 @@ Valid Usage
   in the current command buffer set `rasterizerDiscardEnable` to
   `VK_FALSE`, then
   [vkCmdSetSampleLocationsEnableEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdSetSampleLocationsEnableEXT.html)
-  **must** have been called in the current command buffer prior to this
-  drawing command
+  **must** have been called and not subsequently
+  [invalidated](#dynamic-state-lifetime) in the current command buffer
+  prior to this drawing command
 
 - <a href="#VUID-vkCmdDrawIndirectCount-None-07635"
   id="VUID-vkCmdDrawIndirectCount-None-07635"></a>
@@ -2796,8 +2580,9 @@ Valid Usage
   If the bound graphics pipeline state was created with the
   `VK_DYNAMIC_STATE_COLOR_BLEND_ADVANCED_EXT` dynamic state enabled then
   [vkCmdSetColorBlendAdvancedEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdSetColorBlendAdvancedEXT.html)
-  **must** have been called in the current command buffer prior to this
-  drawing command
+  **must** have been called and not subsequently
+  [invalidated](#dynamic-state-lifetime) in the current command buffer
+  prior to this drawing command
 
 - <a href="#VUID-vkCmdDrawIndirectCount-rasterizerDiscardEnable-09416"
   id="VUID-vkCmdDrawIndirectCount-rasterizerDiscardEnable-09416"></a>
@@ -2812,31 +2597,24 @@ Valid Usage
   [vkCmdSetColorBlendEquationEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdSetColorBlendEquationEXT.html)
   and
   [vkCmdSetColorBlendAdvancedEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdSetColorBlendAdvancedEXT.html)
-  **must** have been called in the current command buffer prior to this
-  drawing command
+  **must** have been called and not subsequently
+  [invalidated](#dynamic-state-lifetime) in the current command buffer
+  prior to this drawing command
 
 - <a href="#VUID-vkCmdDrawIndirectCount-None-07636"
   id="VUID-vkCmdDrawIndirectCount-None-07636"></a>
   VUID-vkCmdDrawIndirectCount-None-07636  
-  If the bound graphics pipeline state was created with the
-  `VK_DYNAMIC_STATE_PROVOKING_VERTEX_MODE_EXT` dynamic state enabled
-  then
-  [vkCmdSetProvokingVertexModeEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdSetProvokingVertexModeEXT.html)
-  **must** have been called in the current command buffer prior to this
-  drawing command
-
-- <a href="#VUID-vkCmdDrawIndirectCount-None-08665"
-  id="VUID-vkCmdDrawIndirectCount-None-08665"></a>
-  VUID-vkCmdDrawIndirectCount-None-08665  
   If the [`VK_EXT_provoking_vertex`](VK_EXT_provoking_vertex.html)
-  extension is enabled, and a shader object is bound to the
-  `VK_SHADER_STAGE_VERTEX_BIT` stage, and the most recent call to
-  [vkCmdSetRasterizerDiscardEnable](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdSetRasterizerDiscardEnable.html)
-  in the current command buffer set `rasterizerDiscardEnable` to
-  `VK_FALSE`, then
+  extension is enabled, a shader object is bound to the
+  `VK_SHADER_STAGE_VERTEX_BIT` stage or a graphics pipeline is bound
+  which was created with the
+  `VK_DYNAMIC_STATE_PROVOKING_VERTEX_MODE_EXT` dynamic state enabled,
+  and the [current value](#dynamic-state-current-value) of
+  `rasterizerDiscardEnable` is `VK_FALSE`, then
   [vkCmdSetProvokingVertexModeEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdSetProvokingVertexModeEXT.html)
-  **must** have been called in the current command buffer prior to this
-  drawing command
+  **must** have been called and not subsequently
+  [invalidated](#dynamic-state-lifetime) in the current command buffer
+  prior to this drawing command
 
 - <a href="#VUID-vkCmdDrawIndirectCount-None-07637"
   id="VUID-vkCmdDrawIndirectCount-None-07637"></a>
@@ -2845,8 +2623,9 @@ Valid Usage
   `VK_DYNAMIC_STATE_LINE_RASTERIZATION_MODE_EXT` dynamic state enabled
   then
   [vkCmdSetLineRasterizationModeEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdSetLineRasterizationModeEXT.html)
-  **must** have been called in the current command buffer prior to this
-  drawing command
+  **must** have been called and not subsequently
+  [invalidated](#dynamic-state-lifetime) in the current command buffer
+  prior to this drawing command
 
 - <a href="#VUID-vkCmdDrawIndirectCount-None-08666"
   id="VUID-vkCmdDrawIndirectCount-None-08666"></a>
@@ -2861,8 +2640,9 @@ Valid Usage
   [vkCmdSetPolygonModeEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdSetPolygonModeEXT.html) in the current
   command buffer set `polygonMode` to `VK_POLYGON_MODE_LINE`, then
   [vkCmdSetLineRasterizationModeEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdSetLineRasterizationModeEXT.html)
-  **must** have been called in the current command buffer prior to this
-  drawing command
+  **must** have been called and not subsequently
+  [invalidated](#dynamic-state-lifetime) in the current command buffer
+  prior to this drawing command
 
 - <a href="#VUID-vkCmdDrawIndirectCount-None-08667"
   id="VUID-vkCmdDrawIndirectCount-None-08667"></a>
@@ -2878,8 +2658,9 @@ Valid Usage
   current command buffer set `primitiveTopology` to any line topology,
   then
   [vkCmdSetLineRasterizationModeEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdSetLineRasterizationModeEXT.html)
-  **must** have been called in the current command buffer prior to this
-  drawing command
+  **must** have been called and not subsequently
+  [invalidated](#dynamic-state-lifetime) in the current command buffer
+  prior to this drawing command
 
 - <a href="#VUID-vkCmdDrawIndirectCount-None-08668"
   id="VUID-vkCmdDrawIndirectCount-None-08668"></a>
@@ -2893,8 +2674,9 @@ Valid Usage
   in the current command buffer set `rasterizerDiscardEnable` to
   `VK_FALSE`, then
   [vkCmdSetLineRasterizationModeEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdSetLineRasterizationModeEXT.html)
-  **must** have been called in the current command buffer prior to this
-  drawing command
+  **must** have been called and not subsequently
+  [invalidated](#dynamic-state-lifetime) in the current command buffer
+  prior to this drawing command
 
 - <a href="#VUID-vkCmdDrawIndirectCount-None-07638"
   id="VUID-vkCmdDrawIndirectCount-None-07638"></a>
@@ -2902,8 +2684,9 @@ Valid Usage
   If the bound graphics pipeline state was created with the
   `VK_DYNAMIC_STATE_LINE_STIPPLE_ENABLE_EXT` dynamic state enabled then
   [vkCmdSetLineStippleEnableEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdSetLineStippleEnableEXT.html)
-  **must** have been called in the current command buffer prior to this
-  drawing command
+  **must** have been called and not subsequently
+  [invalidated](#dynamic-state-lifetime) in the current command buffer
+  prior to this drawing command
 
 - <a href="#VUID-vkCmdDrawIndirectCount-None-08669"
   id="VUID-vkCmdDrawIndirectCount-None-08669"></a>
@@ -2918,8 +2701,9 @@ Valid Usage
   [vkCmdSetPolygonModeEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdSetPolygonModeEXT.html) in the current
   command buffer set `polygonMode` to `VK_POLYGON_MODE_LINE`, then
   [vkCmdSetLineStippleEnableEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdSetLineStippleEnableEXT.html)
-  **must** have been called in the current command buffer prior to this
-  drawing command
+  **must** have been called and not subsequently
+  [invalidated](#dynamic-state-lifetime) in the current command buffer
+  prior to this drawing command
 
 - <a href="#VUID-vkCmdDrawIndirectCount-None-08670"
   id="VUID-vkCmdDrawIndirectCount-None-08670"></a>
@@ -2934,8 +2718,9 @@ Valid Usage
   [vkCmdSetPrimitiveTopology](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdSetPrimitiveTopology.html) in the
   current command buffer set `primitiveTopology` to any line topology,
   then [vkCmdSetLineStippleEnableEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdSetLineStippleEnableEXT.html)
-  **must** have been called in the current command buffer prior to this
-  drawing command
+  **must** have been called and not subsequently
+  [invalidated](#dynamic-state-lifetime) in the current command buffer
+  prior to this drawing command
 
 - <a href="#VUID-vkCmdDrawIndirectCount-None-08671"
   id="VUID-vkCmdDrawIndirectCount-None-08671"></a>
@@ -2949,8 +2734,9 @@ Valid Usage
   in the current command buffer set `rasterizerDiscardEnable` to
   `VK_FALSE`, then
   [vkCmdSetLineStippleEnableEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdSetLineStippleEnableEXT.html)
-  **must** have been called in the current command buffer prior to this
-  drawing command
+  **must** have been called and not subsequently
+  [invalidated](#dynamic-state-lifetime) in the current command buffer
+  prior to this drawing command
 
 - <a href="#VUID-vkCmdDrawIndirectCount-None-07849"
   id="VUID-vkCmdDrawIndirectCount-None-07849"></a>
@@ -2958,8 +2744,9 @@ Valid Usage
   If the bound graphics pipeline state was created with the
   `VK_DYNAMIC_STATE_LINE_STIPPLE_KHR` dynamic state enabled then
   [vkCmdSetLineStippleKHR](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdSetLineStippleKHR.html) **must** have
-  been called in the current command buffer prior to this drawing
-  command
+  been called and not subsequently
+  [invalidated](#dynamic-state-lifetime) in the current command buffer
+  prior to this drawing command
 
 - <a href="#VUID-vkCmdDrawIndirectCount-None-08672"
   id="VUID-vkCmdDrawIndirectCount-None-08672"></a>
@@ -2974,279 +2761,189 @@ Valid Usage
   [vkCmdSetLineStippleEnableEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdSetLineStippleEnableEXT.html) in
   the current command buffer set `stippledLineEnable` to `VK_TRUE`, then
   [vkCmdSetLineStippleEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdSetLineStippleEXT.html) **must** have
-  been called in the current command buffer prior to this drawing
-  command
+  been called and not subsequently
+  [invalidated](#dynamic-state-lifetime) in the current command buffer
+  prior to this drawing command
 
 - <a href="#VUID-vkCmdDrawIndirectCount-None-07639"
   id="VUID-vkCmdDrawIndirectCount-None-07639"></a>
   VUID-vkCmdDrawIndirectCount-None-07639  
-  If the bound graphics pipeline state was created with the
-  `VK_DYNAMIC_STATE_DEPTH_CLIP_NEGATIVE_ONE_TO_ONE_EXT` dynamic state
-  enabled then
-  [vkCmdSetDepthClipNegativeOneToOneEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdSetDepthClipNegativeOneToOneEXT.html)
-  **must** have been called in the current command buffer prior to this
-  drawing command
-
-- <a href="#VUID-vkCmdDrawIndirectCount-None-08673"
-  id="VUID-vkCmdDrawIndirectCount-None-08673"></a>
-  VUID-vkCmdDrawIndirectCount-None-08673  
   If the [`depthClipControl`](#features-depthClipControl) feature is
-  enabled, and a shader object is bound to any graphics stage, then
+  enabled, and a shader object is bound to any graphics stage or a
+  graphics pipeline is bound which was created with the
+  `VK_DYNAMIC_STATE_DEPTH_CLIP_NEGATIVE_ONE_TO_ONE_EXT` dynamic state
+  enabled, then
   [vkCmdSetDepthClipNegativeOneToOneEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdSetDepthClipNegativeOneToOneEXT.html)
-  **must** have been called in the current command buffer prior to this
-  drawing command
+  **must** have been called and not subsequently
+  [invalidated](#dynamic-state-lifetime) in the current command buffer
+  prior to this drawing command
 
 - <a href="#VUID-vkCmdDrawIndirectCount-None-07640"
   id="VUID-vkCmdDrawIndirectCount-None-07640"></a>
   VUID-vkCmdDrawIndirectCount-None-07640  
-  If the bound graphics pipeline state was created with the
-  `VK_DYNAMIC_STATE_VIEWPORT_W_SCALING_ENABLE_NV` dynamic state enabled
-  then
-  [vkCmdSetViewportWScalingEnableNV](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdSetViewportWScalingEnableNV.html)
-  **must** have been called in the current command buffer prior to this
-  drawing command
-
-- <a href="#VUID-vkCmdDrawIndirectCount-None-08674"
-  id="VUID-vkCmdDrawIndirectCount-None-08674"></a>
-  VUID-vkCmdDrawIndirectCount-None-08674  
   If the [`VK_NV_clip_space_w_scaling`](VK_NV_clip_space_w_scaling.html)
   extension is enabled, and a shader object is bound to any graphics
-  stage, then
+  stage or a graphics pipeline is bound which was created with the
+  `VK_DYNAMIC_STATE_VIEWPORT_W_SCALING_ENABLE_NV` dynamic state enabled,
+  then
   [vkCmdSetViewportWScalingEnableNV](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdSetViewportWScalingEnableNV.html)
-  **must** have been called in the current command buffer prior to this
-  drawing command
+  **must** have been called and not subsequently
+  [invalidated](#dynamic-state-lifetime) in the current command buffer
+  prior to this drawing command
 
 - <a href="#VUID-vkCmdDrawIndirectCount-None-07641"
   id="VUID-vkCmdDrawIndirectCount-None-07641"></a>
   VUID-vkCmdDrawIndirectCount-None-07641  
-  If the bound graphics pipeline state was created with the
-  `VK_DYNAMIC_STATE_VIEWPORT_SWIZZLE_NV` dynamic state enabled then
-  [vkCmdSetViewportSwizzleNV](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdSetViewportSwizzleNV.html) **must**
-  have been called in the current command buffer prior to this drawing
-  command
-
-- <a href="#VUID-vkCmdDrawIndirectCount-None-08675"
-  id="VUID-vkCmdDrawIndirectCount-None-08675"></a>
-  VUID-vkCmdDrawIndirectCount-None-08675  
   If the [`VK_NV_viewport_swizzle`](VK_NV_viewport_swizzle.html)
   extension is enabled, and a shader object is bound to any graphics
-  stage, then
+  stage or a graphics pipeline is bound which was created with the
+  `VK_DYNAMIC_STATE_VIEWPORT_SWIZZLE_NV` dynamic state enabled, then
   [vkCmdSetViewportSwizzleNV](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdSetViewportSwizzleNV.html) **must**
-  have been called in the current command buffer prior to this drawing
-  command
+  have been called and not subsequently
+  [invalidated](#dynamic-state-lifetime) in the current command buffer
+  prior to this drawing command
 
 - <a href="#VUID-vkCmdDrawIndirectCount-None-07642"
   id="VUID-vkCmdDrawIndirectCount-None-07642"></a>
   VUID-vkCmdDrawIndirectCount-None-07642  
-  If the bound graphics pipeline state was created with the
-  `VK_DYNAMIC_STATE_COVERAGE_TO_COLOR_ENABLE_NV` dynamic state enabled
-  then
-  [vkCmdSetCoverageToColorEnableNV](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdSetCoverageToColorEnableNV.html)
-  **must** have been called in the current command buffer prior to this
-  drawing command
-
-- <a href="#VUID-vkCmdDrawIndirectCount-None-08676"
-  id="VUID-vkCmdDrawIndirectCount-None-08676"></a>
-  VUID-vkCmdDrawIndirectCount-None-08676  
   If the
   [`VK_NV_fragment_coverage_to_color`](VK_NV_fragment_coverage_to_color.html)
-  extension is enabled, and a shader object is bound to the
-  `VK_SHADER_STAGE_FRAGMENT_BIT` stage, and the most recent call to
-  [vkCmdSetRasterizerDiscardEnable](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdSetRasterizerDiscardEnable.html)
-  in the current command buffer set `rasterizerDiscardEnable` to
-  `VK_FALSE`, then
+  extension is enabled, a shader object is bound to the
+  `VK_SHADER_STAGE_FRAGMENT_BIT` stage or a graphics pipeline is bound
+  which was created with the
+  `VK_DYNAMIC_STATE_COVERAGE_TO_COLOR_ENABLE_NV` dynamic state enabled,
+  and the [current value](#dynamic-state-current-value) of
+  `rasterizerDiscardEnable` is `VK_FALSE`, then
   [vkCmdSetCoverageToColorEnableNV](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdSetCoverageToColorEnableNV.html)
-  **must** have been called in the current command buffer prior to this
-  drawing command
+  **must** have been called and not subsequently
+  [invalidated](#dynamic-state-lifetime) in the current command buffer
+  prior to this drawing command
 
 - <a href="#VUID-vkCmdDrawIndirectCount-None-07643"
   id="VUID-vkCmdDrawIndirectCount-None-07643"></a>
   VUID-vkCmdDrawIndirectCount-None-07643  
-  If the bound graphics pipeline state was created with the
-  `VK_DYNAMIC_STATE_COVERAGE_TO_COLOR_LOCATION_NV` dynamic state enabled
-  then
-  [vkCmdSetCoverageToColorLocationNV](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdSetCoverageToColorLocationNV.html)
-  **must** have been called in the current command buffer prior to this
-  drawing command
-
-- <a href="#VUID-vkCmdDrawIndirectCount-None-08677"
-  id="VUID-vkCmdDrawIndirectCount-None-08677"></a>
-  VUID-vkCmdDrawIndirectCount-None-08677  
   If the
   [`VK_NV_fragment_coverage_to_color`](VK_NV_fragment_coverage_to_color.html)
-  extension is enabled, and a shader object is bound to the
-  `VK_SHADER_STAGE_FRAGMENT_BIT` stage, and the most recent call to
-  [vkCmdSetRasterizerDiscardEnable](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdSetRasterizerDiscardEnable.html)
-  in the current command buffer set `rasterizerDiscardEnable` to
-  `VK_FALSE`, and the most recent call to
-  [vkCmdSetCoverageToColorEnableNV](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdSetCoverageToColorEnableNV.html)
-  in the current command buffer set `coverageToColorEnable` to
+  extension is enabled, a shader object is bound to the
+  `VK_SHADER_STAGE_FRAGMENT_BIT` stage or a graphics pipeline is bound
+  which was created with the
+  `VK_DYNAMIC_STATE_COVERAGE_TO_COLOR_LOCATION_NV` dynamic state
+  enabled, the [current value](#dynamic-state-current-value) of
+  `rasterizerDiscardEnable` is `VK_FALSE`, and the [current
+  value](#dynamic-state-current-value) of `coverageToColorEnable` is
   `VK_TRUE`, then
   [vkCmdSetCoverageToColorLocationNV](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdSetCoverageToColorLocationNV.html)
-  **must** have been called in the current command buffer prior to this
-  drawing command
+  **must** have been called and not subsequently
+  [invalidated](#dynamic-state-lifetime) in the current command buffer
+  prior to this drawing command
 
 - <a href="#VUID-vkCmdDrawIndirectCount-None-07644"
   id="VUID-vkCmdDrawIndirectCount-None-07644"></a>
   VUID-vkCmdDrawIndirectCount-None-07644  
-  If the bound graphics pipeline state was created with the
-  `VK_DYNAMIC_STATE_COVERAGE_MODULATION_MODE_NV` dynamic state enabled
-  then
-  [vkCmdSetCoverageModulationModeNV](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdSetCoverageModulationModeNV.html)
-  **must** have been called in the current command buffer prior to this
-  drawing command
-
-- <a href="#VUID-vkCmdDrawIndirectCount-None-08678"
-  id="VUID-vkCmdDrawIndirectCount-None-08678"></a>
-  VUID-vkCmdDrawIndirectCount-None-08678  
   If the
   [`VK_NV_framebuffer_mixed_samples`](VK_NV_framebuffer_mixed_samples.html)
-  extension is enabled, and a shader object is bound to any graphics
-  stage, and the most recent call to
-  [vkCmdSetRasterizerDiscardEnable](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdSetRasterizerDiscardEnable.html)
-  in the current command buffer set `rasterizerDiscardEnable` to
-  `VK_FALSE`, then
+  extension is enabled, a shader object is bound to any graphics stage
+  or a graphics pipeline is bound which was created with the
+  `VK_DYNAMIC_STATE_COVERAGE_MODULATION_MODE_NV` dynamic state enabled,
+  and the [current value](#dynamic-state-current-value) of
+  `rasterizerDiscardEnable` is `VK_FALSE`, then
   [vkCmdSetCoverageModulationModeNV](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdSetCoverageModulationModeNV.html)
-  **must** have been called in the current command buffer prior to this
-  drawing command
+  **must** have been called and not subsequently
+  [invalidated](#dynamic-state-lifetime) in the current command buffer
+  prior to this drawing command
 
 - <a href="#VUID-vkCmdDrawIndirectCount-None-07645"
   id="VUID-vkCmdDrawIndirectCount-None-07645"></a>
   VUID-vkCmdDrawIndirectCount-None-07645  
-  If the bound graphics pipeline state was created with the
-  `VK_DYNAMIC_STATE_COVERAGE_MODULATION_TABLE_ENABLE_NV` dynamic state
-  enabled then
-  [vkCmdSetCoverageModulationTableEnableNV](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdSetCoverageModulationTableEnableNV.html)
-  **must** have been called in the current command buffer prior to this
-  drawing command
-
-- <a href="#VUID-vkCmdDrawIndirectCount-None-08679"
-  id="VUID-vkCmdDrawIndirectCount-None-08679"></a>
-  VUID-vkCmdDrawIndirectCount-None-08679  
   If the
   [`VK_NV_framebuffer_mixed_samples`](VK_NV_framebuffer_mixed_samples.html)
-  extension is enabled, and a shader object is bound to any graphics
-  stage, and the most recent call to
-  [vkCmdSetRasterizerDiscardEnable](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdSetRasterizerDiscardEnable.html)
-  in the current command buffer set `rasterizerDiscardEnable` to
-  `VK_FALSE`, and the most recent call to
-  [vkCmdSetCoverageModulationModeNV](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdSetCoverageModulationModeNV.html)
-  in the current command buffer set coverageModulationMode to any value
-  other than `VK_COVERAGE_MODULATION_MODE_NONE_NV`, then
+  extension is enabled, a shader object is bound to any graphics stage
+  or a graphics pipeline is bound which was created with the
+  `VK_DYNAMIC_STATE_COVERAGE_MODULATION_TABLE_ENABLE_NV` dynamic state
+  enabled, the [current value](#dynamic-state-current-value) of
+  `rasterizerDiscardEnable` is `VK_FALSE`, and the [current
+  value](#dynamic-state-current-value) of `coverageModulationMode` is
+  any value other than `VK_COVERAGE_MODULATION_MODE_NONE_NV`, then
   [vkCmdSetCoverageModulationTableEnableNV](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdSetCoverageModulationTableEnableNV.html)
-  **must** have been called in the current command buffer prior to this
-  drawing command
+  **must** have been called and not subsequently
+  [invalidated](#dynamic-state-lifetime) in the current command buffer
+  prior to this drawing command
 
 - <a href="#VUID-vkCmdDrawIndirectCount-None-07646"
   id="VUID-vkCmdDrawIndirectCount-None-07646"></a>
   VUID-vkCmdDrawIndirectCount-None-07646  
-  If the bound graphics pipeline state was created with the
-  `VK_DYNAMIC_STATE_COVERAGE_MODULATION_TABLE_NV` dynamic state enabled
-  then
-  [vkCmdSetCoverageModulationTableNV](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdSetCoverageModulationTableNV.html)
-  **must** have been called in the current command buffer prior to this
-  drawing command
-
-- <a href="#VUID-vkCmdDrawIndirectCount-None-08680"
-  id="VUID-vkCmdDrawIndirectCount-None-08680"></a>
-  VUID-vkCmdDrawIndirectCount-None-08680  
   If the
   [`VK_NV_framebuffer_mixed_samples`](VK_NV_framebuffer_mixed_samples.html)
-  extension is enabled, and a shader object is bound to any graphics
-  stage, and the most recent call to
-  [vkCmdSetRasterizerDiscardEnable](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdSetRasterizerDiscardEnable.html)
-  in the current command buffer set `rasterizerDiscardEnable` to
-  `VK_FALSE`, and the most recent call to
-  [vkCmdSetCoverageModulationTableEnableNV](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdSetCoverageModulationTableEnableNV.html)
-  in the current command buffer set `coverageModulationTableEnable` to
-  `VK_TRUE`, then
+  extension is enabled, a shader object is bound to any graphics stage
+  or a graphics pipeline is bound which was created with the
+  `VK_DYNAMIC_STATE_COVERAGE_MODULATION_TABLE_NV` dynamic state enabled,
+  the [current value](#dynamic-state-current-value) of
+  `rasterizerDiscardEnable` is `VK_FALSE`, and the [current
+  value](#dynamic-state-current-value) of
+  `coverageModulationTableEnable` is `VK_TRUE`, then
   [vkCmdSetCoverageModulationTableNV](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdSetCoverageModulationTableNV.html)
-  **must** have been called in the current command buffer prior to this
-  drawing command
+  **must** have been called and not subsequently
+  [invalidated](#dynamic-state-lifetime) in the current command buffer
+  prior to this drawing command
 
 - <a href="#VUID-vkCmdDrawIndirectCount-None-07647"
   id="VUID-vkCmdDrawIndirectCount-None-07647"></a>
   VUID-vkCmdDrawIndirectCount-None-07647  
-  If the bound graphics pipeline state was created with the
-  `VK_DYNAMIC_STATE_SHADING_RATE_IMAGE_ENABLE_NV` dynamic state enabled
-  then
+  If the [`shadingRateImage`](#features-shadingRateImage) feature is
+  enabled, a shader object is bound to any graphics stage or a graphics
+  pipeline is bound which was created with the
+  `VK_DYNAMIC_STATE_SHADING_RATE_IMAGE_ENABLE_NV` dynamic state enabled,
+  and the [current value](#dynamic-state-current-value) of
+  `rasterizerDiscardEnable` is `VK_FALSE`, then
   [vkCmdSetShadingRateImageEnableNV](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdSetShadingRateImageEnableNV.html)
-  **must** have been called in the current command buffer prior to this
-  drawing command
+  **must** have been called and not subsequently
+  [invalidated](#dynamic-state-lifetime) in the current command buffer
+  prior to this drawing command
 
 - <a href="#VUID-vkCmdDrawIndirectCount-pipelineFragmentShadingRate-09238"
   id="VUID-vkCmdDrawIndirectCount-pipelineFragmentShadingRate-09238"></a>
   VUID-vkCmdDrawIndirectCount-pipelineFragmentShadingRate-09238  
   If the
   [`pipelineFragmentShadingRate`](#features-pipelineFragmentShadingRate)
-  feature is enabled, and a shader object is bound to the
-  `VK_SHADER_STAGE_FRAGMENT_BIT` stage, and the most recent call to
-  [vkCmdSetRasterizerDiscardEnable](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdSetRasterizerDiscardEnable.html)
-  in the current command buffer set rasterizerDiscardEnable to
-  `VK_FALSE`, then
+  feature is enabled, a shader object is bound to the
+  `VK_SHADER_STAGE_FRAGMENT_BIT` stage or a graphics pipeline is bound
+  which was created with the
+  `VK_DYNAMIC_STATE_FRAGMENT_SHADING_RATE_KHR` dynamic state enabled,
+  and the [current value](#dynamic-state-current-value) of
+  `rasterizerDiscardEnable` is `VK_FALSE`, then
   [vkCmdSetFragmentShadingRateKHR](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdSetFragmentShadingRateKHR.html)
-  **must** have been called in the current command buffer prior to this
-  drawing command
-
-- <a href="#VUID-vkCmdDrawIndirectCount-None-08681"
-  id="VUID-vkCmdDrawIndirectCount-None-08681"></a>
-  VUID-vkCmdDrawIndirectCount-None-08681  
-  If the [`shadingRateImage`](#features-shadingRateImage) feature is
-  enabled, and a shader object is bound to any graphics stage, and the
-  most recent call to
-  [vkCmdSetRasterizerDiscardEnable](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdSetRasterizerDiscardEnable.html)
-  in the current command buffer set `rasterizerDiscardEnable` to
-  `VK_FALSE`, then
-  [vkCmdSetShadingRateImageEnableNV](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdSetShadingRateImageEnableNV.html)
-  **must** have been called in the current command buffer prior to this
-  drawing command
+  **must** have been called and not subsequently
+  [invalidated](#dynamic-state-lifetime) in the current command buffer
+  prior to this drawing command
 
 - <a href="#VUID-vkCmdDrawIndirectCount-None-07648"
   id="VUID-vkCmdDrawIndirectCount-None-07648"></a>
   VUID-vkCmdDrawIndirectCount-None-07648  
-  If the bound graphics pipeline state was created with the
-  `VK_DYNAMIC_STATE_REPRESENTATIVE_FRAGMENT_TEST_ENABLE_NV` dynamic
-  state enabled then
-  [vkCmdSetRepresentativeFragmentTestEnableNV](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdSetRepresentativeFragmentTestEnableNV.html)
-  **must** have been called in the current command buffer prior to this
-  drawing command
-
-- <a href="#VUID-vkCmdDrawIndirectCount-None-08682"
-  id="VUID-vkCmdDrawIndirectCount-None-08682"></a>
-  VUID-vkCmdDrawIndirectCount-None-08682  
   If the
   [`representativeFragmentTest`](#features-representativeFragmentTest)
-  feature is enabled, and a shader object is bound to any graphics
-  stage, and the most recent call to
-  [vkCmdSetRasterizerDiscardEnable](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdSetRasterizerDiscardEnable.html)
-  in the current command buffer set `rasterizerDiscardEnable` to
-  `VK_FALSE`, then
+  feature is enabled, a shader object is bound to any graphics stage or
+  a graphics pipeline is bound which was created with the
+  `VK_DYNAMIC_STATE_REPRESENTATIVE_FRAGMENT_TEST_ENABLE_NV` dynamic
+  state enabled, and the [current value](#dynamic-state-current-value)
+  of `rasterizerDiscardEnable` is `VK_FALSE`, then
   [vkCmdSetRepresentativeFragmentTestEnableNV](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdSetRepresentativeFragmentTestEnableNV.html)
-  **must** have been called in the current command buffer prior to this
-  drawing command
+  **must** have been called and not subsequently
+  [invalidated](#dynamic-state-lifetime) in the current command buffer
+  prior to this drawing command
 
 - <a href="#VUID-vkCmdDrawIndirectCount-None-07649"
   id="VUID-vkCmdDrawIndirectCount-None-07649"></a>
   VUID-vkCmdDrawIndirectCount-None-07649  
-  If the bound graphics pipeline state was created with the
-  `VK_DYNAMIC_STATE_COVERAGE_REDUCTION_MODE_NV` dynamic state enabled
-  then
-  [vkCmdSetCoverageReductionModeNV](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdSetCoverageReductionModeNV.html)
-  **must** have been called in the current command buffer prior to this
-  drawing command
-
-- <a href="#VUID-vkCmdDrawIndirectCount-None-08683"
-  id="VUID-vkCmdDrawIndirectCount-None-08683"></a>
-  VUID-vkCmdDrawIndirectCount-None-08683  
   If the [`coverageReductionMode`](#features-coverageReductionMode)
-  feature is enabled, and a shader object is bound to any graphics
-  stage, and the most recent call to
-  [vkCmdSetRasterizerDiscardEnable](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdSetRasterizerDiscardEnable.html)
-  in the current command buffer set `rasterizerDiscardEnable` to
-  `VK_FALSE`, then
+  feature is enabled, a shader object is bound to any graphics stage or
+  a graphics pipeline is bound which was created with the
+  `VK_DYNAMIC_STATE_COVERAGE_REDUCTION_MODE_NV` dynamic state enabled,
+  and the [current value](#dynamic-state-current-value) of
+  `rasterizerDiscardEnable` is `VK_FALSE`, then
   [vkCmdSetCoverageReductionModeNV](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdSetCoverageReductionModeNV.html)
-  **must** have been called in the current command buffer prior to this
-  drawing command
+  **must** have been called and not subsequently
+  [invalidated](#dynamic-state-lifetime) in the current command buffer
+  prior to this drawing command
 
 - <a href="#VUID-vkCmdDrawIndirectCount-pColorBlendEnables-07470"
   id="VUID-vkCmdDrawIndirectCount-pColorBlendEnables-07470"></a>
@@ -3780,11 +3477,15 @@ Valid Usage
 - <a href="#VUID-vkCmdDrawIndirectCount-None-08877"
   id="VUID-vkCmdDrawIndirectCount-None-08877"></a>
   VUID-vkCmdDrawIndirectCount-None-08877  
-  If the bound graphics pipeline state was created with the
+  If a shader object is bound to the `VK_SHADER_STAGE_FRAGMENT_BIT`
+  stage or a graphics pipeline is bound which was created with the
   `VK_DYNAMIC_STATE_ATTACHMENT_FEEDBACK_LOOP_ENABLE_EXT` dynamic state
+  enabled, and the [current value](#dynamic-state-current-value) of
+  `rasterizerDiscardEnable` is `VK_FALSE`, then
   [vkCmdSetAttachmentFeedbackLoopEnableEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdSetAttachmentFeedbackLoopEnableEXT.html)
-  **must** have been called in the current command buffer prior to this
-  drawing command
+  **must** have been called and not subsequently
+  [invalidated](#dynamic-state-lifetime) in the current command buffer
+  prior to this drawing command
 
 - <a href="#VUID-vkCmdDrawIndirectCount-None-07850"
   id="VUID-vkCmdDrawIndirectCount-None-07850"></a>
@@ -3935,20 +3636,6 @@ Valid Usage
   shader is bound, it **must** not declare the `DepthReplacing` or
   `StencilRefReplacingEXT` execution modes
 
-- <a href="#VUID-vkCmdDrawIndirectCount-None-08880"
-  id="VUID-vkCmdDrawIndirectCount-None-08880"></a>
-  VUID-vkCmdDrawIndirectCount-None-08880  
-  If the
-  [attachmentFeedbackLoopDynamicState](#features-attachmentFeedbackLoopDynamicState)
-  feature is enabled on the device, and a shader object is bound to the
-  `VK_SHADER_STAGE_FRAGMENT_BIT` stage, and the most recent call to
-  [vkCmdSetRasterizerDiscardEnable](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdSetRasterizerDiscardEnable.html)
-  in the current command buffer set `rasterizerDiscardEnable` to
-  `VK_FALSE`, then
-  [vkCmdSetAttachmentFeedbackLoopEnableEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdSetAttachmentFeedbackLoopEnableEXT.html)
-  **must** have been called in the current command buffer prior to this
-  drawing command
-
 - <a href="#VUID-vkCmdDrawIndirectCount-pDynamicStates-08715"
   id="VUID-vkCmdDrawIndirectCount-pDynamicStates-08715"></a>
   VUID-vkCmdDrawIndirectCount-pDynamicStates-08715  
@@ -4074,8 +3761,9 @@ Valid Usage
   stage or the bound graphics pipeline state was created with the
   `VK_DYNAMIC_STATE_PRIMITIVE_TOPOLOGY` dynamic state enabled then
   [vkCmdSetPrimitiveTopology](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdSetPrimitiveTopology.html) **must**
-  have been called in the current command buffer prior to this drawing
-  command
+  have been called and not subsequently
+  [invalidated](#dynamic-state-lifetime) in the current command buffer
+  prior to this drawing command
 
 - <a
   href="#VUID-vkCmdDrawIndirectCount-dynamicPrimitiveTopologyUnrestricted-07500"
@@ -4098,8 +3786,9 @@ Valid Usage
   enabled, but without the `VK_DYNAMIC_STATE_VERTEX_INPUT_EXT` dynamic
   state enabled, then
   [vkCmdBindVertexBuffers2EXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdBindVertexBuffers2EXT.html) **must**
-  have been called in the current command buffer prior to this draw
-  command, and the `pStrides` parameter of
+  have been called and not subsequently
+  [invalidated](#dynamic-state-lifetime) in the current command buffer
+  prior to this draw command, and the `pStrides` parameter of
   [vkCmdBindVertexBuffers2EXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdBindVertexBuffers2EXT.html) **must**
   not be `NULL`
 
@@ -4110,7 +3799,9 @@ Valid Usage
   stage or the bound graphics pipeline state was created with the
   `VK_DYNAMIC_STATE_VERTEX_INPUT_EXT` dynamic state enabled then
   [vkCmdSetVertexInputEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdSetVertexInputEXT.html) **must** have
-  been called in the current command buffer prior to this draw command
+  been called and not subsequently
+  [invalidated](#dynamic-state-lifetime) in the current command buffer
+  prior to this draw command
 
 - <a href="#VUID-vkCmdDrawIndirectCount-Input-07939"
   id="VUID-vkCmdDrawIndirectCount-Input-07939"></a>
@@ -4182,8 +3873,9 @@ Valid Usage
   state was created with the `VK_DYNAMIC_STATE_PATCH_CONTROL_POINTS_EXT`
   dynamic state enabled then
   [vkCmdSetPatchControlPointsEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdSetPatchControlPointsEXT.html)
-  **must** have been called in the current command buffer prior to this
-  drawing command
+  **must** have been called and not subsequently
+  [invalidated](#dynamic-state-lifetime) in the current command buffer
+  prior to this drawing command
 
 - <a href="#VUID-vkCmdDrawIndirectCount-None-04879"
   id="VUID-vkCmdDrawIndirectCount-None-04879"></a>
@@ -4192,8 +3884,9 @@ Valid Usage
   stage or the bound graphics pipeline state was created with the
   `VK_DYNAMIC_STATE_PRIMITIVE_RESTART_ENABLE` dynamic state enabled then
   [vkCmdSetPrimitiveRestartEnable](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdSetPrimitiveRestartEnable.html)
-  **must** have been called in the current command buffer prior to this
-  drawing command
+  **must** have been called and not subsequently
+  [invalidated](#dynamic-state-lifetime) in the current command buffer
+  prior to this drawing command
 
 - <a href="#VUID-vkCmdDrawIndirectCount-None-09637"
   id="VUID-vkCmdDrawIndirectCount-None-09637"></a>
@@ -4381,7 +4074,7 @@ Command Properties
 <col style="width: 20%" />
 </colgroup>
 <thead>
-<tr class="header">
+<tr>
 <th class="tableblock halign-left valign-top"><a
 href="#VkCommandBufferLevel">Command Buffer Levels</a></th>
 <th class="tableblock halign-left valign-top"><a
@@ -4395,7 +4088,7 @@ href="#fundamentals-queueoperation-command-types">Command Type</a></th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td class="tableblock halign-left valign-top"><p>Primary<br />
 Secondary</p></td>
 <td class="tableblock halign-left valign-top"><p>Inside</p></td>
@@ -4429,5 +4122,5 @@ Copyright 2014-2024 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
 
-Version 1.3.285  
-Last updated 2024-05-10 01:10:25 -0700
+Version 1.3.290  
+Last updated 2024-07-11 23:39:16 -0700

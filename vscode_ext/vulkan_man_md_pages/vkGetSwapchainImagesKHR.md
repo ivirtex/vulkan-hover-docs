@@ -37,14 +37,14 @@ VkResult vkGetSwapchainImagesKHR(
 
 If `pSwapchainImages` is `NULL`, then the number of presentable images
 for `swapchain` is returned in `pSwapchainImageCount`. Otherwise,
-`pSwapchainImageCount` **must** point to a variable set by the user to
-the number of elements in the `pSwapchainImages` array, and on return
-the variable is overwritten with the number of structures actually
-written to `pSwapchainImages`. If the value of `pSwapchainImageCount` is
-less than the number of presentable images for `swapchain`, at most
-`pSwapchainImageCount` structures will be written, and `VK_INCOMPLETE`
-will be returned instead of `VK_SUCCESS`, to indicate that not all the
-available presentable images were returned.
+`pSwapchainImageCount` **must** point to a variable set by the
+application to the number of elements in the `pSwapchainImages` array,
+and on return the variable is overwritten with the number of structures
+actually written to `pSwapchainImages`. If the value of
+`pSwapchainImageCount` is less than the number of presentable images for
+`swapchain`, at most `pSwapchainImageCount` structures will be written,
+and `VK_INCOMPLETE` will be returned instead of `VK_SUCCESS`, to
+indicate that not all the available presentable images were returned.
 
 Valid Usage (Implicit)
 
@@ -111,5 +111,5 @@ Copyright 2014-2024 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
 
-Version 1.3.285  
-Last updated 2024-05-10 01:10:25 -0700
+Version 1.3.290  
+Last updated 2024-07-11 23:39:16 -0700

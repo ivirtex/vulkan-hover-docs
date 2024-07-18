@@ -43,7 +43,7 @@ typedef struct VkDeviceQueueCreateInfo {
   the behavior specified by `flags`.
 
 - `pQueuePriorities` is a pointer to an array of `queueCount` normalized
-  floating point values, specifying priorities of work that will be
+  floating-point values, specifying priorities of work that will be
   submitted to each created queue. See <a
   href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#devsandqueues-priority"
   target="_blank" rel="noopener">Queue Priority</a> for more
@@ -161,5 +161,5 @@ Copyright 2014-2024 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
 
-Version 1.3.285  
-Last updated 2024-05-10 01:10:25 -0700
+Version 1.3.290  
+Last updated 2024-07-11 23:39:16 -0700

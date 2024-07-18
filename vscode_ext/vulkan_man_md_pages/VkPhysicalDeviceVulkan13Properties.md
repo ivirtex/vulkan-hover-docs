@@ -80,7 +80,7 @@ typedef struct VkPhysicalDeviceVulkan13Properties {
   `VK_QUEUE_GRAPHICS_BIT` or `VK_QUEUE_COMPUTE_BIT`. `minSubgroupSize`
   is a power-of-two. `minSubgroupSize` is less than or equal to
   `maxSubgroupSize`. `minSubgroupSize` is less than or equal to
-  [`subgroupSize`](#limits-subgroup-size).
+  [`subgroupSize`](#limits-subgroupSize).
 
 - <span id="limits-maxSubgroupSize"></span> `maxSubgroupSize` is the
   maximum subgroup size supported by this device. `maxSubgroupSize` is
@@ -88,7 +88,7 @@ typedef struct VkPhysicalDeviceVulkan13Properties {
   `VK_QUEUE_GRAPHICS_BIT` or `VK_QUEUE_COMPUTE_BIT`. `maxSubgroupSize`
   is a power-of-two. `maxSubgroupSize` is greater than or equal to
   `minSubgroupSize`. `maxSubgroupSize` is greater than or equal to
-  [`subgroupSize`](#limits-subgroup-size).
+  [`subgroupSize`](#limits-subgroupSize).
 
 - <span id="limits-maxComputeWorkgroupSubgroups"></span>
   `maxComputeWorkgroupSubgroups` is the maximum number of subgroups
@@ -385,5 +385,5 @@ Copyright 2014-2024 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
 
-Version 1.3.285  
-Last updated 2024-05-10 01:10:25 -0700
+Version 1.3.290  
+Last updated 2024-07-11 23:39:16 -0700

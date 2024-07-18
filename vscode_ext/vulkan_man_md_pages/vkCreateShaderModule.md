@@ -49,7 +49,7 @@ target="_blank" rel="noopener">Graphics Pipelines</a>.
 <col style="width: 50%" />
 </colgroup>
 <tbody>
-<tr class="odd">
+<tr>
 <td class="icon"><em></em></td>
 <td class="content">Note
 <p>If the <a
@@ -72,9 +72,11 @@ Valid Usage
   id="VUID-vkCreateShaderModule-pCreateInfo-06904"></a>
   VUID-vkCreateShaderModule-pCreateInfo-06904  
   If `pCreateInfo` is not `NULL`, `pCreateInfo->pNext` **must** be
-  `NULL` or a pointer to a
-  [VkShaderModuleValidationCacheCreateInfoEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkShaderModuleValidationCacheCreateInfoEXT.html)
-  structure
+  `NULL` or a pointer to a valid instance of
+
+  - [VkShaderModuleValidationCacheCreateInfoEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkShaderModuleValidationCacheCreateInfoEXT.html)
+
+  - [VkValidationFeaturesEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkValidationFeaturesEXT.html)
 
 Valid Usage (Implicit)
 
@@ -136,5 +138,5 @@ Copyright 2014-2024 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
 
-Version 1.3.285  
-Last updated 2024-05-10 01:10:25 -0700
+Version 1.3.290  
+Last updated 2024-07-11 23:39:16 -0700

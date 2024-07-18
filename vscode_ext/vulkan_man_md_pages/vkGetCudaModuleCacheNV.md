@@ -35,11 +35,11 @@ VkResult vkGetCudaModuleCacheNV(
 
 If `pCacheData` is `NULL`, then the size of the binary cache, in bytes,
 is returned in `pCacheSize`. Otherwise, `pCacheSize` **must** point to a
-variable set by the user to the size of the buffer, in bytes, pointed to
-by `pCacheData`, and on return the variable is overwritten with the
-amount of data actually written to `pCacheData`. If `pCacheSize` is less
-than the size of the binary shader code, nothing is written to
-`pCacheData`, and `VK_INCOMPLETE` will be returned instead of
+variable set by the application to the size of the buffer, in bytes,
+pointed to by `pCacheData`, and on return the variable is overwritten
+with the amount of data actually written to `pCacheData`. If
+`pCacheSize` is less than the size of the binary shader code, nothing is
+written to `pCacheData`, and `VK_INCOMPLETE` will be returned instead of
 `VK_SUCCESS`.
 
 The returned cache **may** then be used later for further initialization
@@ -52,7 +52,7 @@ using [vkCreateCudaModuleNV](https://registry.khronos.org/vulkan/specs/1.3-exten
 <col style="width: 50%" />
 </colgroup>
 <tbody>
-<tr class="odd">
+<tr>
 <td class="icon"><em></em></td>
 <td class="content">Note
 <p>Using the binary cache instead of the original PTX code
@@ -134,5 +134,5 @@ Copyright 2014-2024 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
 
-Version 1.3.285  
-Last updated 2024-05-10 01:10:25 -0700
+Version 1.3.290  
+Last updated 2024-07-11 23:39:16 -0700

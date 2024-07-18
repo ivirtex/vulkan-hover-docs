@@ -38,6 +38,14 @@ VkResult vkCreateBuffer(
 
 Valid Usage
 
+- <a href="#VUID-vkCreateBuffer-device-09664"
+  id="VUID-vkCreateBuffer-device-09664"></a>
+  VUID-vkCreateBuffer-device-09664  
+  `device` **must** support at least one queue family with one of the
+  `VK_QUEUE_VIDEO_ENCODE_BIT_KHR`, `VK_QUEUE_VIDEO_DECODE_BIT_KHR`,
+  `VK_QUEUE_SPARSE_BINDING_BIT`, `VK_QUEUE_TRANSFER_BIT`,
+  `VK_QUEUE_COMPUTE_BIT`, or `VK_QUEUE_GRAPHICS_BIT` capabilities
+
 - <a href="#VUID-vkCreateBuffer-flags-00911"
   id="VUID-vkCreateBuffer-flags-00911"></a>
   VUID-vkCreateBuffer-flags-00911  
@@ -156,5 +164,5 @@ Copyright 2014-2024 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
 
-Version 1.3.285  
-Last updated 2024-05-10 01:10:25 -0700
+Version 1.3.290  
+Last updated 2024-07-11 23:39:16 -0700

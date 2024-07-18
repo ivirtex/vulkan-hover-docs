@@ -53,7 +53,7 @@ No known IP claims.
 
 This extension provides new queries for memory requirements of images
 and buffers that can be easily extended by other extensions, without
-introducing any further entry points. The Vulkan 1.0
+introducing any additional commands. The Vulkan 1.0
 [VkMemoryRequirements](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkMemoryRequirements.html) and
 [VkSparseImageMemoryRequirements](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkSparseImageMemoryRequirements.html)
 structures do not include `sType` and `pNext` members. This extension
@@ -131,5 +131,5 @@ Copyright 2014-2024 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
 
-Version 1.3.285  
-Last updated 2024-05-10 01:10:25 -0700
+Version 1.3.290  
+Last updated 2024-07-11 23:39:16 -0700

@@ -67,7 +67,7 @@ Implementations that support Vulkan 1.1 or later **must** not return
 <col style="width: 50%" />
 </colgroup>
 <tbody>
-<tr class="odd">
+<tr>
 <td class="icon"><em></em></td>
 <td class="content">Note
 <p>Because Vulkan 1.0 implementations <strong>may</strong> fail with
@@ -95,7 +95,7 @@ with a device or physical device.
 <col style="width: 50%" />
 </colgroup>
 <tbody>
-<tr class="odd">
+<tr>
 <td class="icon"><em></em></td>
 <td class="content">Note
 <p>The Khronos validation layers will treat <code>apiVersion</code> as
@@ -132,7 +132,7 @@ device that supports Vulkan 1.2.</p></td>
 <col style="width: 50%" />
 </colgroup>
 <tbody>
-<tr class="odd">
+<tr>
 <td class="icon"><em></em></td>
 <td class="content">Note
 <p>Providing a <code>NULL</code> <a
@@ -197,5 +197,5 @@ Copyright 2014-2024 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
 
-Version 1.3.285  
-Last updated 2024-05-10 01:10:25 -0700
+Version 1.3.290  
+Last updated 2024-07-11 23:39:16 -0700

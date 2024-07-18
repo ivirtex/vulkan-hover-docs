@@ -215,7 +215,7 @@ potentially which location within a [VkQueue](https://registry.khronos.org/vulka
 `VK_EXT_debug_utils` allows an application to register multiple
 callbacks with any Vulkan component wishing to report debug information.
 Some callbacks may log the information to a file, others may cause a
-debug break point or other application defined behavior. An application
+debug break point or other application-defined behavior. An application
 **can** register callbacks even when no validation layers are enabled,
 but they will only be called for loader and, if implemented, driver
 events.
@@ -499,5 +499,5 @@ Copyright 2014-2024 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
 
-Version 1.3.285  
-Last updated 2024-05-10 01:10:25 -0700
+Version 1.3.290  
+Last updated 2024-07-11 23:39:16 -0700

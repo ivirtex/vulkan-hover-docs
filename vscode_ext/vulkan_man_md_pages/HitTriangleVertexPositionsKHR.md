@@ -13,9 +13,9 @@ A variable decorated with the `HitTriangleVertexPositionsKHR` decoration
 will specify the object space vertices of the triangle at the current
 intersection in application-provided order. The positions returned are
 transformed by the geometry transform, which is performed at standard <a
-href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#fundamentals-floatingpoint"
-target="_blank" rel="noopener">floating point</a> precision, but without
-a specifically defined order of floating point operations to perform the
+href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#fundamentals-floating-point"
+target="_blank" rel="noopener">floating-point</a> precision, but without
+a specifically defined order of floating-point operations to perform the
 matrix multiplication.
 
 Valid Usage
@@ -75,5 +75,5 @@ Copyright 2014-2024 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
 
-Version 1.3.285  
-Last updated 2024-05-10 01:10:25 -0700
+Version 1.3.290  
+Last updated 2024-07-11 23:39:16 -0700

@@ -123,6 +123,23 @@ by `pStdReferenceInfo` are interpreted as follows:
   href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#aomedia-av1"
   target="_blank" rel="noopener">AV1 Specification</a>;
 
+  <table>
+  <colgroup>
+  <col style="width: 50%" />
+  <col style="width: 50%" />
+  </colgroup>
+  <tbody>
+  <tr>
+  <td class="icon"><em></em></td>
+  <td class="content">Note
+  <p>The <code>frame_type</code> member is defined with the type
+  <code>uint8_t</code>, but it takes the same values defined in the
+  <code>StdVideoAV1FrameType</code> enumeration type as
+  <code>StdVideoDecodeAV1PictureInfo</code>::<code>frame_type</code>.</p></td>
+  </tr>
+  </tbody>
+  </table>
+
 - `RefFrameSignBias` is a bitmask where bit index i corresponds to
   `RefFrameSignBias[i]` as defined in section 6.8.2 of the <a
   href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#aomedia-av1"
@@ -142,7 +159,7 @@ by `pStdReferenceInfo` are interpreted as follows:
   <col style="width: 50%" />
   </colgroup>
   <tbody>
-  <tr class="odd">
+  <tr>
   <td class="icon"><em></em></td>
   <td class="content">Note
   <p>When the AV1 reference information is provided for the reconstructed
@@ -206,5 +223,5 @@ Copyright 2014-2024 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
 
-Version 1.3.285  
-Last updated 2024-05-10 01:10:25 -0700
+Version 1.3.290  
+Last updated 2024-07-11 23:39:16 -0700

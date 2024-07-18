@@ -91,7 +91,7 @@ vice-versa.
 <col style="width: 50%" />
 </colgroup>
 <tbody>
-<tr class="odd">
+<tr>
 <td class="icon"><em></em></td>
 <td class="content">Note
 <p>How exported and imported memory is isolated is left to the
@@ -126,8 +126,8 @@ parameters define an export operation and the external handle type is
 implementations **should** not strictly follow `memoryTypeIndex`.
 Instead, they **should** modify the allocation internally to use the
 required memory type for the application’s given usage. This is because
-for an export operation, there is currently no way for the client to
-know the memory type index before allocating.
+for an export operation, there is currently no way for the application
+to know the memory type index before allocating.
 
 Valid Usage
 
@@ -736,5 +736,5 @@ Copyright 2014-2024 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
 
-Version 1.3.285  
-Last updated 2024-05-10 01:10:25 -0700
+Version 1.3.290  
+Last updated 2024-07-11 23:39:16 -0700

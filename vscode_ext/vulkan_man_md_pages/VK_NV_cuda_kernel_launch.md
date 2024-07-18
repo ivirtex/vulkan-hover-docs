@@ -76,7 +76,7 @@ this, a first query for the required cache size is made with
 [vkGetCudaModuleCacheNV](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkGetCudaModuleCacheNV.html) with a `NULL`
 pointer to a buffer and with a valid pointer receiving the size; then
 another call of the same function with a valid pointer to a buffer to
-retrieve the data. The resulting cache could then be user later for
+retrieve the data. The resulting cache could then be used later for
 further runs of this application by sending this cache instead of the
 PTX code (using the same
 [vkCreateCudaModuleNV](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCreateCudaModuleNV.html)), thus significantly
@@ -191,5 +191,5 @@ Copyright 2014-2024 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
 
-Version 1.3.285  
-Last updated 2024-05-10 01:10:25 -0700
+Version 1.3.290  
+Last updated 2024-07-11 23:39:16 -0700

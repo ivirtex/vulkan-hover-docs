@@ -61,7 +61,9 @@ typedef struct VkPhysicalDeviceVulkan11Properties {
   `deviceLUID` contains a valid LUID and `deviceNodeMask` contains a
   valid node mask, and `VK_FALSE` if they do not.
 
-- <span id="limits-subgroup-size"></span> `subgroupSize` is the default
+<!-- -->
+
+- <span id="limits-subgroupSize"></span> `subgroupSize` is the default
   number of invocations in each subgroup. `subgroupSize` is at least 1
   if any of the physical device’s queues support `VK_QUEUE_GRAPHICS_BIT`
   or `VK_QUEUE_COMPUTE_BIT`. `subgroupSize` is a power-of-two.
@@ -69,32 +71,26 @@ typedef struct VkPhysicalDeviceVulkan11Properties {
 - <span id="limits-subgroupSupportedStages"></span>
   `subgroupSupportedStages` is a bitfield of
   [VkShaderStageFlagBits](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkShaderStageFlagBits.html) describing the
-  shader stages that <a
-  href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#shaders-group-operations"
-  target="_blank" rel="noopener">group operations</a> with <a
-  href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#shaders-scope-subgroup"
-  target="_blank" rel="noopener">subgroup scope</a> are supported in.
+  shader stages that [group operations](#shaders-group-operations) with
+  [subgroup scope](#shaders-scope-subgroup) are supported in.
   `subgroupSupportedStages` will have the `VK_SHADER_STAGE_COMPUTE_BIT`
   bit set if any of the physical device’s queues support
   `VK_QUEUE_COMPUTE_BIT`.
 
-- `subgroupSupportedOperations` is a bitmask of
+- <span id="limits-subgroupSupportedOperations"></span>
+  `subgroupSupportedOperations` is a bitmask of
   [VkSubgroupFeatureFlagBits](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkSubgroupFeatureFlagBits.html) specifying
-  the sets of <a
-  href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#shaders-group-operations"
-  target="_blank" rel="noopener">group operations</a> with <a
-  href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#shaders-scope-subgroup"
-  target="_blank" rel="noopener">subgroup scope</a> supported on this
-  device. `subgroupSupportedOperations` will have the
+  the sets of [group operations](#shaders-group-operations) with
+  [subgroup scope](#shaders-scope-subgroup) supported on this device.
+  `subgroupSupportedOperations` will have the
   `VK_SUBGROUP_FEATURE_BASIC_BIT` bit set if any of the physical
   device’s queues support `VK_QUEUE_GRAPHICS_BIT` or
   `VK_QUEUE_COMPUTE_BIT`.
 
 - <span id="limits-subgroupQuadOperationsInAllStages"></span>
-  `subgroupQuadOperationsInAllStages` is a boolean specifying whether <a
-  href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#shaders-quad-operations"
-  target="_blank" rel="noopener">quad group operations</a> are available
-  in all stages, or are restricted to fragment and compute stages.
+  `subgroupQuadOperationsInAllStages` is a boolean specifying whether
+  [quad group operations](#shaders-quad-operations) are available in all
+  stages, or are restricted to fragment and compute stages.
 
 - <span id="limits-pointClipping"></span> `pointClippingBehavior` is a
   [VkPointClippingBehavior](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkPointClippingBehavior.html) value
@@ -154,6 +150,30 @@ as the corresponding members of
 and
 [VkPhysicalDeviceMaintenance3Properties](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkPhysicalDeviceMaintenance3Properties.html).
 
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<tbody>
+<tr>
+<td class="icon"><em></em></td>
+<td class="content">Note
+<p>The <code>subgroupSupportedStages</code>,
+<code>subgroupSupportedOperations</code>, and
+<code>subgroupQuadOperationsInAllStages</code> members of this structure
+correspond respectively to the <a
+href="https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkPhysicalDeviceSubgroupProperties.html">VkPhysicalDeviceSubgroupProperties</a>::<code>supportedStages</code>,
+<a
+href="https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkPhysicalDeviceSubgroupProperties.html">VkPhysicalDeviceSubgroupProperties</a>::<code>supportedOperations</code>,
+and <a
+href="https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkPhysicalDeviceSubgroupProperties.html">VkPhysicalDeviceSubgroupProperties</a>::<code>quadOperationsInAllStages</code>
+members, but add the <code>subgroup</code> prefix to the member
+name.</p></td>
+</tr>
+</tbody>
+</table>
+
 Valid Usage (Implicit)
 
 - <a href="#VUID-VkPhysicalDeviceVulkan11Properties-sType-sType"
@@ -186,5 +206,5 @@ Copyright 2014-2024 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
 
-Version 1.3.285  
-Last updated 2024-05-10 01:10:25 -0700
+Version 1.3.290  
+Last updated 2024-07-11 23:39:16 -0700

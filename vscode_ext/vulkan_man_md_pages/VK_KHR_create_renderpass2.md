@@ -50,8 +50,8 @@ or
 
 ## <a href="#_description" class="anchor"></a>Description
 
-This extension provides a new entry point to create render passes in a
-way that can be easily extended by other extensions through the
+This extension provides a new command to create render passes in a way
+that can be easily extended by other extensions through the
 substructures of render pass creation. The Vulkan 1.0 render pass
 creation sub-structures do not include `sType`/`pNext` members.
 Additionally, the render pass begin/next/end commands have been
@@ -168,5 +168,5 @@ Copyright 2014-2024 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
 
-Version 1.3.285  
-Last updated 2024-05-10 01:10:25 -0700
+Version 1.3.290  
+Last updated 2024-07-11 23:39:16 -0700

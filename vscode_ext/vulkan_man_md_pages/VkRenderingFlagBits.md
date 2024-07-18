@@ -19,13 +19,15 @@ typedef enum VkRenderingFlagBits {
     VK_RENDERING_CONTENTS_SECONDARY_COMMAND_BUFFERS_BIT = 0x00000001,
     VK_RENDERING_SUSPENDING_BIT = 0x00000002,
     VK_RENDERING_RESUMING_BIT = 0x00000004,
-  // Provided by VK_EXT_nested_command_buffer
-    VK_RENDERING_CONTENTS_INLINE_BIT_EXT = 0x00000010,
   // Provided by VK_EXT_legacy_dithering with (VK_KHR_dynamic_rendering or VK_VERSION_1_3) and VK_KHR_maintenance5
     VK_RENDERING_ENABLE_LEGACY_DITHERING_BIT_EXT = 0x00000008,
+  // Provided by VK_KHR_maintenance7
+    VK_RENDERING_CONTENTS_INLINE_BIT_KHR = 0x00000010,
     VK_RENDERING_CONTENTS_SECONDARY_COMMAND_BUFFERS_BIT_KHR = VK_RENDERING_CONTENTS_SECONDARY_COMMAND_BUFFERS_BIT,
     VK_RENDERING_SUSPENDING_BIT_KHR = VK_RENDERING_SUSPENDING_BIT,
     VK_RENDERING_RESUMING_BIT_KHR = VK_RENDERING_RESUMING_BIT,
+  // Provided by VK_EXT_nested_command_buffer
+    VK_RENDERING_CONTENTS_INLINE_BIT_EXT = VK_RENDERING_CONTENTS_INLINE_BIT_KHR,
 } VkRenderingFlagBits;
 ```
 
@@ -57,12 +59,9 @@ typedef VkRenderingFlagBits VkRenderingFlagBitsKHR;
   target="_blank" rel="noopener">Legacy Dithering</a> is enabled for the
   render pass instance.
 
-- `VK_RENDERING_CONTENTS_INLINE_BIT_EXT` specifies that draw calls for
+- `VK_RENDERING_CONTENTS_INLINE_BIT_KHR` specifies that draw calls for
   the render pass instance **can** be recorded inline within the current
-  command buffer. When the <a
-  href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#features-nestedCommandBuffer"
-  target="_blank" rel="noopener"><code>nestedCommandBuffer</code></a>
-  feature is enabled this **can** be combined with the
+  command buffer. This **can** be combined with the
   `VK_RENDERING_CONTENTS_SECONDARY_COMMAND_BUFFERS_BIT` bit to allow
   draw calls to be recorded both inline and in secondary command
   buffers.
@@ -96,5 +95,5 @@ Copyright 2014-2024 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
 
-Version 1.3.285  
-Last updated 2024-05-10 01:10:25 -0700
+Version 1.3.290  
+Last updated 2024-07-11 23:39:16 -0700

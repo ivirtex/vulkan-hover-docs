@@ -8,8 +8,8 @@ vkGetPrivateData - Retrieve data associated with a Vulkan object
 
 ## <a href="#_c_specification" class="anchor"></a>C Specification
 
-To retrieve user defined data from a slot associated with a Vulkan
-object, call:
+To retrieve application-defined data from a slot associated with a
+Vulkan object, call:
 
 ``` c
 // Provided by VK_VERSION_1_3
@@ -46,9 +46,9 @@ void vkGetPrivateDataEXT(
   [VkPrivateDataSlot](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkPrivateDataSlot.html) specifying location of
   private data pointer storage.
 
-- `pData` is a pointer to specify where user data is returned. `0` will
-  be written in the absence of a previous call to `vkSetPrivateData`
-  using the object specified by `objectHandle`.
+- `pData` is a pointer to specify where application-defined data is
+  returned. `0` will be written in the absence of a previous call to
+  `vkSetPrivateData` using the object specified by `objectHandle`.
 
 ## <a href="#_description" class="anchor"></a>Description
 
@@ -58,7 +58,7 @@ void vkGetPrivateDataEXT(
 <col style="width: 50%" />
 </colgroup>
 <tbody>
-<tr class="odd">
+<tr>
 <td class="icon"><em></em></td>
 <td class="content">Note
 <p>Due to platform details on Android, implementations might not be able
@@ -137,5 +137,5 @@ Copyright 2014-2024 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
 
-Version 1.3.285  
-Last updated 2024-05-10 01:10:25 -0700
+Version 1.3.290  
+Last updated 2024-07-11 23:39:16 -0700

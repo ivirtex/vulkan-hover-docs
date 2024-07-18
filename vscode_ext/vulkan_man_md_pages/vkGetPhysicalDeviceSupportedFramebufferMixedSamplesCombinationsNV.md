@@ -40,8 +40,8 @@ VkResult vkGetPhysicalDeviceSupportedFramebufferMixedSamplesCombinationsNV(
 If `pCombinations` is `NULL`, then the number of supported combinations
 for the given `physicalDevice` is returned in `pCombinationCount`.
 Otherwise, `pCombinationCount` **must** point to a variable set by the
-user to the number of elements in the `pCombinations` array, and on
-return the variable is overwritten with the number of values actually
+application to the number of elements in the `pCombinations` array, and
+on return the variable is overwritten with the number of values actually
 written to `pCombinations`. If the value of `pCombinationCount` is less
 than the number of combinations supported for the given
 `physicalDevice`, at most `pCombinationCount` values will be written to
@@ -107,5 +107,5 @@ Copyright 2014-2024 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
 
-Version 1.3.285  
-Last updated 2024-05-10 01:10:25 -0700
+Version 1.3.290  
+Last updated 2024-07-11 23:39:16 -0700

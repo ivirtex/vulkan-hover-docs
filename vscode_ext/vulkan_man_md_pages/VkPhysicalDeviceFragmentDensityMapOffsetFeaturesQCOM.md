@@ -32,8 +32,8 @@ This structure describes the following feature:
 - `pNext` is `NULL` or a pointer to a structure extending this
   structure.
 
-- <span id="features-fragmentDensityMapOffsets"></span>
-  `fragmentDensityMapOffsets` specifies whether the implementation
+- <span id="features-fragmentDensityMapOffset"></span>
+  `fragmentDensityMapOffset` specifies whether the implementation
   supports <a
   href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#renderpass-fragmentdensitymapoffsets"
   target="_blank" rel="noopener">fragment density map offsets</a>
@@ -80,5 +80,5 @@ Copyright 2014-2024 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
 
-Version 1.3.285  
-Last updated 2024-05-10 01:10:25 -0700
+Version 1.3.290  
+Last updated 2024-07-11 23:39:16 -0700

@@ -35,7 +35,7 @@ VkResult vkQueuePresentKHR(
 <col style="width: 50%" />
 </colgroup>
 <tbody>
-<tr class="odd">
+<tr>
 <td class="icon"><em></em></td>
 <td class="content">Note
 <p>There is no requirement for an application to present images in the
@@ -51,7 +51,7 @@ present any image that is currently acquired.</p></td>
 <col style="width: 50%" />
 </colgroup>
 <tbody>
-<tr class="odd">
+<tr>
 <td class="icon"><em></em></td>
 <td class="content">Note
 <p>The origin of the native orientation of the surface coordinate system
@@ -167,7 +167,7 @@ does not alter the queue family ownership, but the presented images
 <col style="width: 50%" />
 </colgroup>
 <tbody>
-<tr class="odd">
+<tr>
 <td class="icon"><em></em></td>
 <td class="content">Note
 <p>The application <strong>can</strong> continue to present any acquired
@@ -247,8 +247,8 @@ Host Synchronization
 Command Properties
 
 | [Command Buffer Levels](#VkCommandBufferLevel) | [Render Pass Scope](#vkCmdBeginRenderPass) | [Video Coding Scope](#vkCmdBeginVideoCodingKHR) | [Supported Queue Types](#VkQueueFlagBits) | [Command Type](#fundamentals-queueoperation-command-types) |
-|------------------------------------------------|--------------------------------------------|-------------------------------------------------|-------------------------------------------|------------------------------------------------------------|
-| \-                                             | \-                                         | \-                                              | Any                                       | \-                                                         |
+|----|----|----|----|----|
+| \- | \- | \- | Any | \- |
 
 Return Codes
 
@@ -290,5 +290,5 @@ Copyright 2014-2024 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
 
-Version 1.3.285  
-Last updated 2024-05-10 01:10:25 -0700
+Version 1.3.290  
+Last updated 2024-07-11 23:39:16 -0700

@@ -40,27 +40,27 @@ typedef enum VkBlendFactor {
 
 The semantics of the enum values are described in the table below:
 
-| [VkBlendFactor](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkBlendFactor.html)        | RGB Blend Factors (S<sub>r</sub>,S<sub>g</sub>,S<sub>b</sub>) or (D<sub>r</sub>,D<sub>g</sub>,D<sub>b</sub>) | Alpha Blend Factor (S<sub>a</sub> or D<sub>a</sub>) |
-|--------------------------------------------|--------------------------------------------------------------------------------------------------------------|-----------------------------------------------------|
-| `VK_BLEND_FACTOR_ZERO`                     | (0,0,0)                                                                                                      | 0                                                   |
-| `VK_BLEND_FACTOR_ONE`                      | (1,1,1)                                                                                                      | 1                                                   |
-| `VK_BLEND_FACTOR_SRC_COLOR`                | (R<sub>s0</sub>,G<sub>s0</sub>,B<sub>s0</sub>)                                                               | A<sub>s0</sub>                                      |
-| `VK_BLEND_FACTOR_ONE_MINUS_SRC_COLOR`      | (1-R<sub>s0</sub>,1-G<sub>s0</sub>,1-B<sub>s0</sub>)                                                         | 1-A<sub>s0</sub>                                    |
-| `VK_BLEND_FACTOR_DST_COLOR`                | (R<sub>d</sub>,G<sub>d</sub>,B<sub>d</sub>)                                                                  | A<sub>d</sub>                                       |
-| `VK_BLEND_FACTOR_ONE_MINUS_DST_COLOR`      | (1-R<sub>d</sub>,1-G<sub>d</sub>,1-B<sub>d</sub>)                                                            | 1-A<sub>d</sub>                                     |
-| `VK_BLEND_FACTOR_SRC_ALPHA`                | (A<sub>s0</sub>,A<sub>s0</sub>,A<sub>s0</sub>)                                                               | A<sub>s0</sub>                                      |
-| `VK_BLEND_FACTOR_ONE_MINUS_SRC_ALPHA`      | (1-A<sub>s0</sub>,1-A<sub>s0</sub>,1-A<sub>s0</sub>)                                                         | 1-A<sub>s0</sub>                                    |
-| `VK_BLEND_FACTOR_DST_ALPHA`                | (A<sub>d</sub>,A<sub>d</sub>,A<sub>d</sub>)                                                                  | A<sub>d</sub>                                       |
-| `VK_BLEND_FACTOR_ONE_MINUS_DST_ALPHA`      | (1-A<sub>d</sub>,1-A<sub>d</sub>,1-A<sub>d</sub>)                                                            | 1-A<sub>d</sub>                                     |
-| `VK_BLEND_FACTOR_CONSTANT_COLOR`           | (R<sub>c</sub>,G<sub>c</sub>,B<sub>c</sub>)                                                                  | A<sub>c</sub>                                       |
-| `VK_BLEND_FACTOR_ONE_MINUS_CONSTANT_COLOR` | (1-R<sub>c</sub>,1-G<sub>c</sub>,1-B<sub>c</sub>)                                                            | 1-A<sub>c</sub>                                     |
-| `VK_BLEND_FACTOR_CONSTANT_ALPHA`           | (A<sub>c</sub>,A<sub>c</sub>,A<sub>c</sub>)                                                                  | A<sub>c</sub>                                       |
-| `VK_BLEND_FACTOR_ONE_MINUS_CONSTANT_ALPHA` | (1-A<sub>c</sub>,1-A<sub>c</sub>,1-A<sub>c</sub>)                                                            | 1-A<sub>c</sub>                                     |
-| `VK_BLEND_FACTOR_SRC_ALPHA_SATURATE`       | (f,f,f); f = min(A<sub>s0</sub>,1-A<sub>d</sub>)                                                             | 1                                                   |
-| `VK_BLEND_FACTOR_SRC1_COLOR`               | (R<sub>s1</sub>,G<sub>s1</sub>,B<sub>s1</sub>)                                                               | A<sub>s1</sub>                                      |
-| `VK_BLEND_FACTOR_ONE_MINUS_SRC1_COLOR`     | (1-R<sub>s1</sub>,1-G<sub>s1</sub>,1-B<sub>s1</sub>)                                                         | 1-A<sub>s1</sub>                                    |
-| `VK_BLEND_FACTOR_SRC1_ALPHA`               | (A<sub>s1</sub>,A<sub>s1</sub>,A<sub>s1</sub>)                                                               | A<sub>s1</sub>                                      |
-| `VK_BLEND_FACTOR_ONE_MINUS_SRC1_ALPHA`     | (1-A<sub>s1</sub>,1-A<sub>s1</sub>,1-A<sub>s1</sub>)                                                         | 1-A<sub>s1</sub>                                    |
+| [VkBlendFactor](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkBlendFactor.html) | RGB Blend Factors (S<sub>r</sub>,S<sub>g</sub>,S<sub>b</sub>) or (D<sub>r</sub>,D<sub>g</sub>,D<sub>b</sub>) | Alpha Blend Factor (S<sub>a</sub> or D<sub>a</sub>) |
+|----|----|----|
+| `VK_BLEND_FACTOR_ZERO` | (0,0,0) | 0 |
+| `VK_BLEND_FACTOR_ONE` | (1,1,1) | 1 |
+| `VK_BLEND_FACTOR_SRC_COLOR` | (R<sub>s0</sub>,G<sub>s0</sub>,B<sub>s0</sub>) | A<sub>s0</sub> |
+| `VK_BLEND_FACTOR_ONE_MINUS_SRC_COLOR` | (1-R<sub>s0</sub>,1-G<sub>s0</sub>,1-B<sub>s0</sub>) | 1-A<sub>s0</sub> |
+| `VK_BLEND_FACTOR_DST_COLOR` | (R<sub>d</sub>,G<sub>d</sub>,B<sub>d</sub>) | A<sub>d</sub> |
+| `VK_BLEND_FACTOR_ONE_MINUS_DST_COLOR` | (1-R<sub>d</sub>,1-G<sub>d</sub>,1-B<sub>d</sub>) | 1-A<sub>d</sub> |
+| `VK_BLEND_FACTOR_SRC_ALPHA` | (A<sub>s0</sub>,A<sub>s0</sub>,A<sub>s0</sub>) | A<sub>s0</sub> |
+| `VK_BLEND_FACTOR_ONE_MINUS_SRC_ALPHA` | (1-A<sub>s0</sub>,1-A<sub>s0</sub>,1-A<sub>s0</sub>) | 1-A<sub>s0</sub> |
+| `VK_BLEND_FACTOR_DST_ALPHA` | (A<sub>d</sub>,A<sub>d</sub>,A<sub>d</sub>) | A<sub>d</sub> |
+| `VK_BLEND_FACTOR_ONE_MINUS_DST_ALPHA` | (1-A<sub>d</sub>,1-A<sub>d</sub>,1-A<sub>d</sub>) | 1-A<sub>d</sub> |
+| `VK_BLEND_FACTOR_CONSTANT_COLOR` | (R<sub>c</sub>,G<sub>c</sub>,B<sub>c</sub>) | A<sub>c</sub> |
+| `VK_BLEND_FACTOR_ONE_MINUS_CONSTANT_COLOR` | (1-R<sub>c</sub>,1-G<sub>c</sub>,1-B<sub>c</sub>) | 1-A<sub>c</sub> |
+| `VK_BLEND_FACTOR_CONSTANT_ALPHA` | (A<sub>c</sub>,A<sub>c</sub>,A<sub>c</sub>) | A<sub>c</sub> |
+| `VK_BLEND_FACTOR_ONE_MINUS_CONSTANT_ALPHA` | (1-A<sub>c</sub>,1-A<sub>c</sub>,1-A<sub>c</sub>) | 1-A<sub>c</sub> |
+| `VK_BLEND_FACTOR_SRC_ALPHA_SATURATE` | (f,f,f); f = min(A<sub>s0</sub>,1-A<sub>d</sub>) | 1 |
+| `VK_BLEND_FACTOR_SRC1_COLOR` | (R<sub>s1</sub>,G<sub>s1</sub>,B<sub>s1</sub>) | A<sub>s1</sub> |
+| `VK_BLEND_FACTOR_ONE_MINUS_SRC1_COLOR` | (1-R<sub>s1</sub>,1-G<sub>s1</sub>,1-B<sub>s1</sub>) | 1-A<sub>s1</sub> |
+| `VK_BLEND_FACTOR_SRC1_ALPHA` | (A<sub>s1</sub>,A<sub>s1</sub>,A<sub>s1</sub>) | A<sub>s1</sub> |
+| `VK_BLEND_FACTOR_ONE_MINUS_SRC1_ALPHA` | (1-A<sub>s1</sub>,1-A<sub>s1</sub>,1-A<sub>s1</sub>) | 1-A<sub>s1</sub> |
 
 Table 1. Blend Factors
 
@@ -105,5 +105,5 @@ Copyright 2014-2024 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
 
-Version 1.3.285  
-Last updated 2024-05-10 01:10:25 -0700
+Version 1.3.290  
+Last updated 2024-07-11 23:39:16 -0700

@@ -78,7 +78,7 @@ image processing. It exposes the following new imaging operations
 
 - The `OpImageBoxFilterQCOM` instruction takes 3 operands: *sampled
   image*, *box size*, and texture coordinates. Note that *box size*
-  specifies a floating point width and height in texels. The instruction
+  specifies a floating-point width and height in texels. The instruction
   computes a weighted average of all texels in the *sampled image* that
   are covered (either partially or fully) by a box with the specified
   size and centered at the specified texture coordinates.
@@ -184,5 +184,5 @@ Copyright 2014-2024 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
 
-Version 1.3.285  
-Last updated 2024-05-10 01:10:25 -0700
+Version 1.3.290  
+Last updated 2024-07-11 23:39:16 -0700

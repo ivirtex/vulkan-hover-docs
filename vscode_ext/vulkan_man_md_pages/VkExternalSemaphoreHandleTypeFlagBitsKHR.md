@@ -102,7 +102,7 @@ typedef VkExternalSemaphoreHandleTypeFlagBits VkExternalSemaphoreHandleTypeFlagB
 <col style="width: 50%" />
 </colgroup>
 <tbody>
-<tr class="odd">
+<tr>
 <td class="icon"><em></em></td>
 <td class="content">Note
 <p>Handles of type
@@ -121,15 +121,15 @@ Some external semaphore handle types can only be shared within the same
 underlying physical device and/or the same driver version, as defined in
 the following table:
 
-|                                                              |                                              |                                              |
-|--------------------------------------------------------------|----------------------------------------------|----------------------------------------------|
-| Handle type                                                  | `VkPhysicalDeviceIDProperties`::`driverUUID` | `VkPhysicalDeviceIDProperties`::`deviceUUID` |
-| `VK_EXTERNAL_SEMAPHORE_HANDLE_TYPE_OPAQUE_FD_BIT`            | Must match                                   | Must match                                   |
-| `VK_EXTERNAL_SEMAPHORE_HANDLE_TYPE_OPAQUE_WIN32_BIT`         | Must match                                   | Must match                                   |
-| `VK_EXTERNAL_SEMAPHORE_HANDLE_TYPE_OPAQUE_WIN32_KMT_BIT`     | Must match                                   | Must match                                   |
-| `VK_EXTERNAL_SEMAPHORE_HANDLE_TYPE_D3D12_FENCE_BIT`          | Must match                                   | Must match                                   |
-| `VK_EXTERNAL_SEMAPHORE_HANDLE_TYPE_SYNC_FD_BIT`              | No restriction                               | No restriction                               |
-| `VK_EXTERNAL_SEMAPHORE_HANDLE_TYPE_ZIRCON_EVENT_BIT_FUCHSIA` | No restriction                               | No restriction                               |
+|  |  |  |
+|----|----|----|
+| Handle type | `VkPhysicalDeviceIDProperties`::`driverUUID` | `VkPhysicalDeviceIDProperties`::`deviceUUID` |
+| `VK_EXTERNAL_SEMAPHORE_HANDLE_TYPE_OPAQUE_FD_BIT` | Must match | Must match |
+| `VK_EXTERNAL_SEMAPHORE_HANDLE_TYPE_OPAQUE_WIN32_BIT` | Must match | Must match |
+| `VK_EXTERNAL_SEMAPHORE_HANDLE_TYPE_OPAQUE_WIN32_KMT_BIT` | Must match | Must match |
+| `VK_EXTERNAL_SEMAPHORE_HANDLE_TYPE_D3D12_FENCE_BIT` | Must match | Must match |
+| `VK_EXTERNAL_SEMAPHORE_HANDLE_TYPE_SYNC_FD_BIT` | No restriction | No restriction |
+| `VK_EXTERNAL_SEMAPHORE_HANDLE_TYPE_ZIRCON_EVENT_BIT_FUCHSIA` | No restriction | No restriction |
 
 Table 1. External semaphore handle types compatibility
 {#external-semaphore-handle-types-compatibility}
@@ -161,5 +161,5 @@ Copyright 2014-2024 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
 
-Version 1.3.285  
-Last updated 2024-05-10 01:10:25 -0700
+Version 1.3.290  
+Last updated 2024-07-11 23:39:16 -0700

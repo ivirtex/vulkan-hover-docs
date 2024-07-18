@@ -127,11 +127,11 @@ sRGB transfer function and while sRGB and ITU define similar curves, the
 difference is significant. Performing the “sRGB degamma” prior to range
 expansion can introduce artifacts if the content uses
 `VK_SAMPLER_YCBCR_RANGE_ITU_NARROW` encoding. Nevertheless, using sRGB
-can make sense for certain use-cases where camera YCbCr images are known
+can make sense for certain use cases where camera YCbCr images are known
 to be encoded with sRGB (or a pure gamma 2.2) transfer function and are
 known to use full-range encoding.
 
-For those use-cases, this extension leverages the GPU ability to enable
+For those use cases, this extension leverages the GPU ability to enable
 sRGB degamma at little cost, and can improve quality because texture
 filtering is able to occur in linear space.
 
@@ -158,5 +158,5 @@ Copyright 2014-2024 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
 
-Version 1.3.285  
-Last updated 2024-05-10 01:10:25 -0700
+Version 1.3.290  
+Last updated 2024-07-11 23:39:16 -0700

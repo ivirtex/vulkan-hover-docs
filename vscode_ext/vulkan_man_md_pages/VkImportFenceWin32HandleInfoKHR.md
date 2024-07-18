@@ -50,10 +50,10 @@ typedef struct VkImportFenceWin32HandleInfoKHR {
 
 The handle types supported by `handleType` are:
 
-| Handle Type                                          | Transference | Permanence Supported |
-|------------------------------------------------------|--------------|----------------------|
-| `VK_EXTERNAL_FENCE_HANDLE_TYPE_OPAQUE_WIN32_BIT`     | Reference    | Temporary,Permanent  |
-| `VK_EXTERNAL_FENCE_HANDLE_TYPE_OPAQUE_WIN32_KMT_BIT` | Reference    | Temporary,Permanent  |
+| Handle Type | Transference | Permanence Supported |
+|----|----|----|
+| `VK_EXTERNAL_FENCE_HANDLE_TYPE_OPAQUE_WIN32_BIT` | Reference | Temporary,Permanent |
+| `VK_EXTERNAL_FENCE_HANDLE_TYPE_OPAQUE_WIN32_KMT_BIT` | Reference | Temporary,Permanent |
 
 Table 1. Handle Types Supported by `VkImportFenceWin32HandleInfoKHR`
 {#synchronization-fence-handletypes-win32}
@@ -161,5 +161,5 @@ Copyright 2014-2024 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
 
-Version 1.3.285  
-Last updated 2024-05-10 01:10:25 -0700
+Version 1.3.290  
+Last updated 2024-07-11 23:39:16 -0700

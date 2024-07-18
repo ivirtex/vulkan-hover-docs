@@ -44,13 +44,13 @@ VkResult vkGetShaderInfoAMD(
 If `pInfo` is `NULL`, then the maximum size of the information that
 **can** be retrieved about the shader, in bytes, is returned in
 `pInfoSize`. Otherwise, `pInfoSize` **must** point to a variable set by
-the user to the size of the buffer, in bytes, pointed to by `pInfo`, and
-on return the variable is overwritten with the amount of data actually
-written to `pInfo`. If `pInfoSize` is less than the maximum size that
-**can** be retrieved by the pipeline cache, then at most `pInfoSize`
-bytes will be written to `pInfo`, and `VK_INCOMPLETE` will be returned,
-instead of `VK_SUCCESS`, to indicate that not all required of the
-pipeline cache was returned.
+the application to the size of the buffer, in bytes, pointed to by
+`pInfo`, and on return the variable is overwritten with the amount of
+data actually written to `pInfo`. If `pInfoSize` is less than the
+maximum size that **can** be retrieved by the pipeline cache, then at
+most `pInfoSize` bytes will be written to `pInfo`, and `VK_INCOMPLETE`
+will be returned, instead of `VK_SUCCESS`, to indicate that not all
+required of the pipeline cache was returned.
 
 Not all information is available for every shader and implementations
 may not support all kinds of information for any shader. When a certain
@@ -152,5 +152,5 @@ Copyright 2014-2024 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
 
-Version 1.3.285  
-Last updated 2024-05-10 01:10:25 -0700
+Version 1.3.290  
+Last updated 2024-07-11 23:39:16 -0700

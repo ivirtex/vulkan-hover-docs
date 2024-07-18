@@ -93,7 +93,7 @@ The new features are as follows:
   Vulkan. This extension provides access to built-in `CullMaskKHR`
   shader variable which contains the value of the `OpTrace*` `Cull Mask`
   parameter. This new shader variable is accessible in the intersection,
-  any-hit, closest-hit and miss shader stages.
+  any-hit, closest hit and miss shader stages.
 
 - Adds support for a new pipeline stage and access mask built on top of
   [`VK_KHR_synchronization2`](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_KHR_synchronization2.html):
@@ -163,6 +163,15 @@ supported:
   - `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_RAY_TRACING_MAINTENANCE_1_FEATURES_KHR`
 
 If [VK_KHR_synchronization2](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_KHR_synchronization2.html) or [Version
+1.3](#versions-1.3) and
+[VK_KHR_ray_tracing_pipeline](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_KHR_ray_tracing_pipeline.html) is
+supported:
+
+- Extending [VkAccessFlagBits2](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkAccessFlagBits2.html):
+
+  - `VK_ACCESS_2_SHADER_BINDING_TABLE_READ_BIT_KHR`
+
+If [VK_KHR_synchronization2](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_KHR_synchronization2.html) or [Version
 1.3](#versions-1.3) is supported:
 
 - Extending [VkPipelineStageFlagBits2](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkPipelineStageFlagBits2.html):
@@ -210,5 +219,5 @@ Copyright 2014-2024 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
 
-Version 1.3.285  
-Last updated 2024-05-10 01:10:25 -0700
+Version 1.3.290  
+Last updated 2024-07-11 23:39:16 -0700

@@ -59,7 +59,7 @@ constraint:
 <col style="width: 50%" />
 </colgroup>
 <tbody>
-<tr class="odd">
+<tr>
 <td class="icon"><em></em></td>
 <td class="content">Note
 <p>The contents of memory allocated by one application
@@ -84,7 +84,7 @@ simultaneously before encountering these internal limits.
 <col style="width: 50%" />
 </colgroup>
 <tbody>
-<tr class="odd">
+<tr>
 <td class="icon"><em></em></td>
 <td class="content">Note
 <p>For historical reasons, if <code>maxMemoryAllocationCount</code> is
@@ -103,7 +103,7 @@ reached.</p></td>
 <col style="width: 50%" />
 </colgroup>
 <tbody>
-<tr class="odd">
+<tr>
 <td class="icon"><em></em></td>
 <td class="content">Note
 <p>Many protected memory implementations involve complex hardware and
@@ -168,7 +168,7 @@ Valid Usage
   id="VUID-vkAllocateMemory-pAllocateInfo-01713"></a>
   VUID-vkAllocateMemory-pAllocateInfo-01713  
   `pAllocateInfo->allocationSize` **must** be less than or equal to
-  [VkPhysicalDeviceMemoryProperties](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkPhysicalDeviceMemoryProperties.html)::`memoryHeaps`\[`memindex`\].`size`
+  [VkPhysicalDeviceMemoryProperties](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkPhysicalDeviceMemoryProperties.html)::`memoryHeaps`\[memindex\].`size`
   where `memindex` =
   [VkPhysicalDeviceMemoryProperties](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkPhysicalDeviceMemoryProperties.html)::`memoryTypes`\[`pAllocateInfo->memoryTypeIndex`\].`heapIndex`
   as returned by
@@ -265,5 +265,5 @@ Copyright 2014-2024 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
 
-Version 1.3.285  
-Last updated 2024-05-10 01:10:25 -0700
+Version 1.3.290  
+Last updated 2024-07-11 23:39:16 -0700

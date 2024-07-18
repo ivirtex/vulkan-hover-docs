@@ -58,7 +58,7 @@ No known IP claims.
 
 ## <a href="#_description" class="anchor"></a>Description
 
-This extension allows a client to request that
+This extension allows an application to request that
 [vkMapMemory2KHR](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkMapMemory2KHR.html) attempt to place the memory map
 at a particular virtual address.
 
@@ -125,5 +125,5 @@ Copyright 2014-2024 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
 
-Version 1.3.285  
-Last updated 2024-05-10 01:10:25 -0700
+Version 1.3.290  
+Last updated 2024-07-11 23:39:16 -0700

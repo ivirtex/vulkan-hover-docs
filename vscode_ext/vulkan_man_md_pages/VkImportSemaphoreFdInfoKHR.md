@@ -47,10 +47,10 @@ typedef struct VkImportSemaphoreFdInfoKHR {
 
 The handle types supported by `handleType` are:
 
-| Handle Type                                       | Transference | Permanence Supported |
-|---------------------------------------------------|--------------|----------------------|
-| `VK_EXTERNAL_SEMAPHORE_HANDLE_TYPE_OPAQUE_FD_BIT` | Reference    | Temporary,Permanent  |
-| `VK_EXTERNAL_SEMAPHORE_HANDLE_TYPE_SYNC_FD_BIT`   | Copy         | Temporary            |
+| Handle Type | Transference | Permanence Supported |
+|----|----|----|
+| `VK_EXTERNAL_SEMAPHORE_HANDLE_TYPE_OPAQUE_FD_BIT` | Reference | Temporary,Permanent |
+| `VK_EXTERNAL_SEMAPHORE_HANDLE_TYPE_SYNC_FD_BIT` | Copy | Temporary |
 
 Table 1. Handle Types Supported by `VkImportSemaphoreFdInfoKHR`
 {#synchronization-semaphore-handletypes-fd}
@@ -116,7 +116,7 @@ payload as if a valid file descriptor had been provided.
 <col style="width: 50%" />
 </colgroup>
 <tbody>
-<tr class="odd">
+<tr>
 <td class="icon"><em></em></td>
 <td class="content">Note
 <p>This special behavior for importing an invalid sync file descriptor
@@ -189,5 +189,5 @@ Copyright 2014-2024 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
 
-Version 1.3.285  
-Last updated 2024-05-10 01:10:25 -0700
+Version 1.3.290  
+Last updated 2024-07-11 23:39:16 -0700

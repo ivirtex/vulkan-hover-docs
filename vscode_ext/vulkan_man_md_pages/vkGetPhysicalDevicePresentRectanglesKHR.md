@@ -43,8 +43,8 @@ VkResult vkGetPhysicalDevicePresentRectanglesKHR(
 
 If `pRects` is `NULL`, then the number of rectangles used when
 presenting the given `surface` is returned in `pRectCount`. Otherwise,
-`pRectCount` **must** point to a variable set by the user to the number
-of elements in the `pRects` array, and on return the variable is
+`pRectCount` **must** point to a variable set by the application to the
+number of elements in the `pRects` array, and on return the variable is
 overwritten with the number of structures actually written to `pRects`.
 If the value of `pRectCount` is less than the number of rectangles, at
 most `pRectCount` structures will be written, and `VK_INCOMPLETE` will
@@ -144,5 +144,5 @@ Copyright 2014-2024 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
 
-Version 1.3.285  
-Last updated 2024-05-10 01:10:25 -0700
+Version 1.3.290  
+Last updated 2024-07-11 23:39:16 -0700

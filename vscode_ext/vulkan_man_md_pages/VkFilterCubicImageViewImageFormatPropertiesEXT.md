@@ -32,11 +32,12 @@ typedef struct VkFilterCubicImageViewImageFormatPropertiesEXT {
 
 - `filterCubic` tells if image format, image type and image view type
   **can** be used with cubic filtering. This field is set by the
-  implementation. User-specified value is ignored.
+  implementation. An application-specified value is ignored.
 
 - `filterCubicMinmax` tells if image format, image type and image view
   type **can** be used with cubic filtering and minmax filtering. This
-  field is set by the implementation. User-specified value is ignored.
+  field is set by the implementation. An application-specified value is
+  ignored.
 
 ## <a href="#_description" class="anchor"></a>Description
 
@@ -85,5 +86,5 @@ Copyright 2014-2024 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
 
-Version 1.3.285  
-Last updated 2024-05-10 01:10:25 -0700
+Version 1.3.290  
+Last updated 2024-07-11 23:39:16 -0700

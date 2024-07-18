@@ -43,7 +43,8 @@ typedef enum VkMemoryPropertyFlagBits {
   allocated with this type **can** be mapped for host access using
   [vkMapMemory](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkMapMemory.html).
 
-- `VK_MEMORY_PROPERTY_HOST_COHERENT_BIT` bit specifies that the host
+- <span id="memory-coherent"></span>
+  `VK_MEMORY_PROPERTY_HOST_COHERENT_BIT` bit specifies that the host
   cache management commands
   [vkFlushMappedMemoryRanges](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkFlushMappedMemoryRanges.html) and
   [vkInvalidateMappedMemoryRanges](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkInvalidateMappedMemoryRanges.html)
@@ -96,7 +97,7 @@ device memory domains.
 <col style="width: 50%" />
 </colgroup>
 <tbody>
-<tr class="odd">
+<tr>
 <td class="icon"><em></em></td>
 <td class="content">Note
 <p>Device coherence is a useful property for certain debugging use cases
@@ -133,5 +134,5 @@ Copyright 2014-2024 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
 
-Version 1.3.285  
-Last updated 2024-05-10 01:10:25 -0700
+Version 1.3.290  
+Last updated 2024-07-11 23:39:16 -0700

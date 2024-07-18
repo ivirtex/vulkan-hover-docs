@@ -8,8 +8,7 @@ vkSubmitDebugUtilsMessageEXT - Inject a message into a debug stream
 
 ## <a href="#_c_specification" class="anchor"></a>C Specification
 
-There may be times that a user wishes to intentionally submit a debug
-message. To do this, call:
+To intentionally submit a debug message, call:
 
 ``` c
 // Provided by VK_EXT_debug_utils
@@ -108,5 +107,5 @@ Copyright 2014-2024 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
 
-Version 1.3.285  
-Last updated 2024-05-10 01:10:25 -0700
+Version 1.3.290  
+Last updated 2024-07-11 23:39:16 -0700

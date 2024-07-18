@@ -58,7 +58,7 @@ typedef struct VkPipelineLayoutCreateInfo {
   <col style="width: 50%" />
   </colgroup>
   <tbody>
-  <tr class="odd">
+  <tr>
   <td class="icon"><em></em></td>
   <td class="content">Note
   <p>Push constants represent a high speed path to modify constant data in
@@ -259,13 +259,32 @@ Valid Usage
 - <a href="#VUID-VkPipelineLayoutCreateInfo-descriptorType-03030"
   id="VUID-VkPipelineLayoutCreateInfo-descriptorType-03030"></a>
   VUID-VkPipelineLayoutCreateInfo-descriptorType-03030  
-  The total number of descriptors in descriptor set layouts created
-  without the
+  If the <a
+  href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#features-maintenance7"
+  target="_blank" rel="noopener"><code>maintenance7</code></a> feature
+  is not enabled, the total number of descriptors in descriptor set
+  layouts created without the
   `VK_DESCRIPTOR_SET_LAYOUT_CREATE_UPDATE_AFTER_BIND_POOL_BIT` bit set
   with a `descriptorType` of `VK_DESCRIPTOR_TYPE_UNIFORM_BUFFER_DYNAMIC`
   accessible across all shader stages and across all elements of
   `pSetLayouts` **must** be less than or equal to
   `VkPhysicalDeviceLimits`::`maxDescriptorSetUniformBuffersDynamic`
+
+- <a href="#VUID-VkPipelineLayoutCreateInfo-maintenance7-10003"
+  id="VUID-VkPipelineLayoutCreateInfo-maintenance7-10003"></a>
+  VUID-VkPipelineLayoutCreateInfo-maintenance7-10003  
+  If the <a
+  href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#features-maintenance7"
+  target="_blank" rel="noopener"><code>maintenance7</code></a> feature
+  is enabled, the total number of descriptors in descriptor set layouts
+  created without the
+  `VK_DESCRIPTOR_SET_LAYOUT_CREATE_UPDATE_AFTER_BIND_POOL_BIT` bit set
+  with a `descriptorType` of `VK_DESCRIPTOR_TYPE_UNIFORM_BUFFER_DYNAMIC`
+  accessible across all shader stages and across all elements of
+  `pSetLayouts` **must** be less than or equal to <a
+  href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#limits-maxDescriptorSetTotalUniformBuffersDynamic"
+  target="_blank"
+  rel="noopener"><code>VkPhysicalDeviceMaintenance7PropertiesKHR</code>::<code>maxDescriptorSetTotalUniformBuffersDynamic</code></a>
 
 - <a href="#VUID-VkPipelineLayoutCreateInfo-descriptorType-03031"
   id="VUID-VkPipelineLayoutCreateInfo-descriptorType-03031"></a>
@@ -281,13 +300,58 @@ Valid Usage
 - <a href="#VUID-VkPipelineLayoutCreateInfo-descriptorType-03032"
   id="VUID-VkPipelineLayoutCreateInfo-descriptorType-03032"></a>
   VUID-VkPipelineLayoutCreateInfo-descriptorType-03032  
-  The total number of descriptors in descriptor set layouts created
-  without the
+  If the <a
+  href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#features-maintenance7"
+  target="_blank" rel="noopener"><code>maintenance7</code></a> feature
+  is not enabled, the total number of descriptors in descriptor set
+  layouts created without the
   `VK_DESCRIPTOR_SET_LAYOUT_CREATE_UPDATE_AFTER_BIND_POOL_BIT` bit set
   with a `descriptorType` of `VK_DESCRIPTOR_TYPE_STORAGE_BUFFER_DYNAMIC`
   accessible across all shader stages and across all elements of
   `pSetLayouts` **must** be less than or equal to
   `VkPhysicalDeviceLimits`::`maxDescriptorSetStorageBuffersDynamic`
+
+- <a href="#VUID-VkPipelineLayoutCreateInfo-maintenance7-10004"
+  id="VUID-VkPipelineLayoutCreateInfo-maintenance7-10004"></a>
+  VUID-VkPipelineLayoutCreateInfo-maintenance7-10004  
+  If the <a
+  href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#features-maintenance7"
+  target="_blank" rel="noopener"><code>maintenance7</code></a> feature
+  is enabled, the total number of descriptors in descriptor set layouts
+  created without the
+  `VK_DESCRIPTOR_SET_LAYOUT_CREATE_UPDATE_AFTER_BIND_POOL_BIT` bit set
+  with a `descriptorType` of `VK_DESCRIPTOR_TYPE_STORAGE_BUFFER_DYNAMIC`
+  accessible across all shader stages and across all elements of
+  `pSetLayouts` **must** be less than or equal to <a
+  href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#limits-maxDescriptorSetTotalStorageBuffersDynamic"
+  target="_blank"
+  rel="noopener"><code>VkPhysicalDeviceMaintenance7PropertiesKHR</code>::<code>maxDescriptorSetTotalStorageBuffersDynamic</code></a>
+
+- <a href="#VUID-VkPipelineLayoutCreateInfo-None-10005"
+  id="VUID-VkPipelineLayoutCreateInfo-None-10005"></a>
+  VUID-VkPipelineLayoutCreateInfo-None-10005  
+  The total number of descriptors in descriptor set layouts created
+  without the
+  `VK_DESCRIPTOR_SET_LAYOUT_CREATE_UPDATE_AFTER_BIND_POOL_BIT` bit set
+  with a `descriptorType` of `VK_DESCRIPTOR_TYPE_UNIFORM_BUFFER_DYNAMIC`
+  or `VK_DESCRIPTOR_TYPE_STORAGE_BUFFER_DYNAMIC` accessible across all
+  shader stages and across all elements of `pSetLayouts` **must** be
+  less than or equal to <a
+  href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#limits-maxDescriptorSetTotalBuffersDynamic"
+  target="_blank"
+  rel="noopener"><code>VkPhysicalDeviceMaintenance7PropertiesKHR</code>::<code>maxDescriptorSetTotalBuffersDynamic</code></a>
+
+- <a href="#VUID-VkPipelineLayoutCreateInfo-pSetLayouts-10006"
+  id="VUID-VkPipelineLayoutCreateInfo-pSetLayouts-10006"></a>
+  VUID-VkPipelineLayoutCreateInfo-pSetLayouts-10006  
+  The total number of descriptors of the type
+  `VK_DESCRIPTOR_TYPE_UNIFORM_BUFFER_DYNAMIC` or
+  `VK_DESCRIPTOR_TYPE_STORAGE_BUFFER_DYNAMIC` accessible across all
+  shader stages and across all elements of `pSetLayouts` **must** be
+  less than or equal to <a
+  href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#limits-maxDescriptorSetUpdateAfterBindTotalBuffersDynamic"
+  target="_blank"
+  rel="noopener"><code>VkPhysicalDeviceMaintenance7PropertiesKHR</code>::<code>maxDescriptorSetUpdateAfterBindTotalBuffersDynamic</code></a>
 
 - <a href="#VUID-VkPipelineLayoutCreateInfo-descriptorType-03033"
   id="VUID-VkPipelineLayoutCreateInfo-descriptorType-03033"></a>
@@ -357,11 +421,28 @@ Valid Usage
 - <a href="#VUID-VkPipelineLayoutCreateInfo-pSetLayouts-03038"
   id="VUID-VkPipelineLayoutCreateInfo-pSetLayouts-03038"></a>
   VUID-VkPipelineLayoutCreateInfo-pSetLayouts-03038  
-  The total number of descriptors of the type
+  If the <a
+  href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#features-maintenance7"
+  target="_blank" rel="noopener"><code>maintenance7</code></a> feature
+  is not enabled, the total number of descriptors of the type
   `VK_DESCRIPTOR_TYPE_UNIFORM_BUFFER_DYNAMIC` accessible across all
   shader stages and across all elements of `pSetLayouts` **must** be
   less than or equal to
-  `VkPhysicalDeviceDescriptorIndexingProperties`::`maxDescriptorSetUpdateAfterBindUniformBuffersDynamic`
+  `VkPhysicalDeviceLimits`::`maxDescriptorSetUpdateAfterBindUniformBuffersDynamic`
+
+- <a href="#VUID-VkPipelineLayoutCreateInfo-maintenance7-10007"
+  id="VUID-VkPipelineLayoutCreateInfo-maintenance7-10007"></a>
+  VUID-VkPipelineLayoutCreateInfo-maintenance7-10007  
+  If the <a
+  href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#features-maintenance7"
+  target="_blank" rel="noopener"><code>maintenance7</code></a> feature
+  is enabled, the total number of descriptors of the type
+  `VK_DESCRIPTOR_TYPE_UNIFORM_BUFFER_DYNAMIC` accessible across all
+  shader stages and across all elements of `pSetLayouts` **must** be
+  less than or equal to <a
+  href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#limits-maxDescriptorSetUpdateAfterBindTotalUniformBuffersDynamic"
+  target="_blank"
+  rel="noopener"><code>VkPhysicalDeviceMaintenance7PropertiesKHR</code>::<code>maxDescriptorSetUpdateAfterBindTotalUniformBuffersDynamic</code></a>
 
 - <a href="#VUID-VkPipelineLayoutCreateInfo-pSetLayouts-03039"
   id="VUID-VkPipelineLayoutCreateInfo-pSetLayouts-03039"></a>
@@ -375,11 +456,28 @@ Valid Usage
 - <a href="#VUID-VkPipelineLayoutCreateInfo-pSetLayouts-03040"
   id="VUID-VkPipelineLayoutCreateInfo-pSetLayouts-03040"></a>
   VUID-VkPipelineLayoutCreateInfo-pSetLayouts-03040  
-  The total number of descriptors of the type
+  If the <a
+  href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#features-maintenance7"
+  target="_blank" rel="noopener"><code>maintenance7</code></a> feature
+  is not enabled, the total number of descriptors of the type
   `VK_DESCRIPTOR_TYPE_STORAGE_BUFFER_DYNAMIC` accessible across all
   shader stages and across all elements of `pSetLayouts` **must** be
   less than or equal to
-  `VkPhysicalDeviceDescriptorIndexingProperties`::`maxDescriptorSetUpdateAfterBindStorageBuffersDynamic`
+  `VkPhysicalDeviceLimits`::`maxDescriptorSetUpdateAfterBindStorageBuffersDynamic`
+
+- <a href="#VUID-VkPipelineLayoutCreateInfo-maintenance7-10008"
+  id="VUID-VkPipelineLayoutCreateInfo-maintenance7-10008"></a>
+  VUID-VkPipelineLayoutCreateInfo-maintenance7-10008  
+  If the <a
+  href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#features-maintenance7"
+  target="_blank" rel="noopener"><code>maintenance7</code></a> feature
+  is enabled, the total number of descriptors of the type
+  `VK_DESCRIPTOR_TYPE_STORAGE_BUFFER_DYNAMIC` accessible across all
+  shader stages and across all elements of `pSetLayouts` **must** be
+  less than or equal to <a
+  href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#limits-maxDescriptorSetUpdateAfterBindTotalStorageBuffersDynamic"
+  target="_blank"
+  rel="noopener"><code>VkPhysicalDeviceMaintenance7PropertiesKHR</code>::<code>maxDescriptorSetUpdateAfterBindTotalStorageBuffersDynamic</code></a>
 
 - <a href="#VUID-VkPipelineLayoutCreateInfo-pSetLayouts-03041"
   id="VUID-VkPipelineLayoutCreateInfo-pSetLayouts-03041"></a>
@@ -579,5 +677,5 @@ Copyright 2014-2024 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
 
-Version 1.3.285  
-Last updated 2024-05-10 01:10:25 -0700
+Version 1.3.290  
+Last updated 2024-07-11 23:39:16 -0700

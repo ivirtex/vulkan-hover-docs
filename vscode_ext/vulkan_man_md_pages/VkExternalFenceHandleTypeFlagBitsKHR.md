@@ -82,13 +82,13 @@ Some external fence handle types can only be shared within the same
 underlying physical device and/or the same driver version, as defined in
 the following table:
 
-|                                                      |                                              |                                              |
-|------------------------------------------------------|----------------------------------------------|----------------------------------------------|
-| Handle type                                          | `VkPhysicalDeviceIDProperties`::`driverUUID` | `VkPhysicalDeviceIDProperties`::`deviceUUID` |
-| `VK_EXTERNAL_FENCE_HANDLE_TYPE_OPAQUE_FD_BIT`        | Must match                                   | Must match                                   |
-| `VK_EXTERNAL_FENCE_HANDLE_TYPE_OPAQUE_WIN32_BIT`     | Must match                                   | Must match                                   |
-| `VK_EXTERNAL_FENCE_HANDLE_TYPE_OPAQUE_WIN32_KMT_BIT` | Must match                                   | Must match                                   |
-| `VK_EXTERNAL_FENCE_HANDLE_TYPE_SYNC_FD_BIT`          | No restriction                               | No restriction                               |
+|  |  |  |
+|----|----|----|
+| Handle type | `VkPhysicalDeviceIDProperties`::`driverUUID` | `VkPhysicalDeviceIDProperties`::`deviceUUID` |
+| `VK_EXTERNAL_FENCE_HANDLE_TYPE_OPAQUE_FD_BIT` | Must match | Must match |
+| `VK_EXTERNAL_FENCE_HANDLE_TYPE_OPAQUE_WIN32_BIT` | Must match | Must match |
+| `VK_EXTERNAL_FENCE_HANDLE_TYPE_OPAQUE_WIN32_KMT_BIT` | Must match | Must match |
+| `VK_EXTERNAL_FENCE_HANDLE_TYPE_SYNC_FD_BIT` | No restriction | No restriction |
 
 Table 1. External fence handle types compatibility
 {#external-fence-handle-types-compatibility}
@@ -118,5 +118,5 @@ Copyright 2014-2024 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
 
-Version 1.3.285  
-Last updated 2024-05-10 01:10:25 -0700
+Version 1.3.290  
+Last updated 2024-07-11 23:39:16 -0700

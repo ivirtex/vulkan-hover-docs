@@ -24,7 +24,7 @@ typedef enum VkMemoryMapFlagBits {
 ## <a href="#_description" class="anchor"></a>Description
 
 - `VK_MEMORY_MAP_PLACED_BIT_EXT` requests that the implementation place
-  the memory map at the virtual address specified by the client via
+  the memory map at the virtual address specified by the application via
   [VkMemoryMapPlacedInfoEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkMemoryMapPlacedInfoEXT.html)::`pPlacedAddress`,
   replacing any existing mapping at that address. This flag **must** not
   be used with [vkMapMemory](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkMapMemory.html) as there is no way to
@@ -50,5 +50,5 @@ Copyright 2014-2024 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
 
-Version 1.3.285  
-Last updated 2024-05-10 01:10:25 -0700
+Version 1.3.290  
+Last updated 2024-07-11 23:39:16 -0700

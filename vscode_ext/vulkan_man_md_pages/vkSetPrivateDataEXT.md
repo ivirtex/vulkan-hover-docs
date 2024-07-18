@@ -8,8 +8,8 @@ vkSetPrivateData - Associate data with a Vulkan object
 
 ## <a href="#_c_specification" class="anchor"></a>C Specification
 
-To store user defined data in a slot associated with a Vulkan object,
-call:
+To store application-defined data in a slot associated with a Vulkan
+object, call:
 
 ``` c
 // Provided by VK_VERSION_1_3
@@ -46,8 +46,8 @@ VkResult vkSetPrivateDataEXT(
   [VkPrivateDataSlot](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkPrivateDataSlot.html) specifying location of
   private data storage.
 
-- `data` is user defined data to associate the object with. This data
-  will be stored at `privateDataSlot`.
+- `data` is application-defined data to associate the object with. This
+  data will be stored at `privateDataSlot`.
 
 ## <a href="#_description" class="anchor"></a>Description
 
@@ -119,5 +119,5 @@ Copyright 2014-2024 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
 
-Version 1.3.285  
-Last updated 2024-05-10 01:10:25 -0700
+Version 1.3.290  
+Last updated 2024-07-11 23:39:16 -0700

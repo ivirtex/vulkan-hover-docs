@@ -12,7 +12,7 @@ VK_QCOM_fragment_density_map_offset - device extension
 
 ## <a href="#_revision" class="anchor"></a>Revision
 
-1
+2
 
 ## <a href="#_ratification_status" class="anchor"></a>Ratification Status
 
@@ -36,7 +36,7 @@ and
 ## <a href="#_other_extension_metadata" class="anchor"></a>Other Extension Metadata
 
 **Last Modified Date**  
-2021-09-03
+2024-06-17
 
 **Contributors**  
 - Matthew Netsch, Qualcomm Technologies, Inc.
@@ -46,6 +46,8 @@ and
 - Jonathan Tinkham, Qualcomm Technologies, Inc.
 
 - Jeff Leger, Qualcomm Technologies, Inc.
+
+- Manan Katwala, Qualcomm Technologies, Inc.
 
 ## <a href="#_description" class="anchor"></a>Description
 
@@ -159,6 +161,10 @@ vkCmdEndRenderPass2(VkCommandBuffer commandBuffer, &subpassEndInfo);
 
 ## <a href="#_version_history" class="anchor"></a>Version History
 
+- Revision 2, 2024-06-17 (Matthew Netsch)
+
+  - Fix typo in spec regarding fragmentDensityMapOffset feature
+
 - Revision 1, 2021-09-03 (Matthew Netsch)
 
   - Initial version
@@ -182,5 +188,5 @@ Copyright 2014-2024 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
 
-Version 1.3.285  
-Last updated 2024-05-10 01:10:25 -0700
+Version 1.3.290  
+Last updated 2024-07-11 23:39:16 -0700

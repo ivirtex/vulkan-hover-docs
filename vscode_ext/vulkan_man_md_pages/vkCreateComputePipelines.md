@@ -54,6 +54,12 @@ target="_blank" rel="noopener">Multiple Pipeline Creation</a>.
 
 Valid Usage
 
+- <a href="#VUID-vkCreateComputePipelines-device-09661"
+  id="VUID-vkCreateComputePipelines-device-09661"></a>
+  VUID-vkCreateComputePipelines-device-09661  
+  `device` **must** support at least one queue family with the
+  `VK_QUEUE_COMPUTE_BIT` capability
+
 - <a href="#VUID-vkCreateComputePipelines-flags-00695"
   id="VUID-vkCreateComputePipelines-flags-00695"></a>
   VUID-vkCreateComputePipelines-flags-00695  
@@ -163,5 +169,5 @@ Copyright 2014-2024 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
 
-Version 1.3.285  
-Last updated 2024-05-10 01:10:25 -0700
+Version 1.3.290  
+Last updated 2024-07-11 23:39:16 -0700

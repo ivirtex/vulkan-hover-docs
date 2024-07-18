@@ -27,8 +27,8 @@ VkResult vkGetImageViewOpaqueCaptureDescriptorDataEXT(
   [VkImageViewCaptureDescriptorDataInfoEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkImageViewCaptureDescriptorDataInfoEXT.html)
   structure specifying the image view.
 
-- `pData` is a pointer to a user-allocated buffer where the data will be
-  written.
+- `pData` is a pointer to an application-allocated buffer where the data
+  will be written.
 
 ## <a href="#_description" class="anchor"></a>Description
 
@@ -113,5 +113,5 @@ Copyright 2014-2024 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
 
-Version 1.3.285  
-Last updated 2024-05-10 01:10:25 -0700
+Version 1.3.290  
+Last updated 2024-07-11 23:39:16 -0700

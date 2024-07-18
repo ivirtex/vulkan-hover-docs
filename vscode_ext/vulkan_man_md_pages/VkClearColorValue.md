@@ -25,7 +25,7 @@ typedef union VkClearColorValue {
   attachment is one of the <a
   href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#formats-numericformat"
   target="_blank" rel="noopener">numeric formats</a> with a numeric type
-  that is floating-point. Floating point values are automatically
+  that is floating-point. Floating-point values are automatically
   converted to the format of the image, with the clear value being
   treated as linear if the image is sRGB.
 
@@ -50,6 +50,18 @@ components of image formats, in order.
 If the image has more than one sample, the same value is written to all
 samples for any pixels being cleared.
 
+If the image or attachment format has a 64-bit component width, the
+first 2 array elements of each of the arrays above are reinterpreted as
+a single 64-bit element for the R component. The next 2 array elements
+are used in the same way for the G component. In other words, the union
+behaves as if it had the following additional members:
+
+``` c
+double float64[2];
+int64_t int64[2];
+uint64_t uint64[2];
+```
+
 ## <a href="#_see_also" class="anchor"></a>See Also
 
 [VK_VERSION_1_0](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_VERSION_1_0.html),
@@ -72,5 +84,5 @@ Copyright 2014-2024 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
 
-Version 1.3.285  
-Last updated 2024-05-10 01:10:25 -0700
+Version 1.3.290  
+Last updated 2024-07-11 23:39:16 -0700

@@ -9,8 +9,8 @@ objects that can be exported from Vulkan objects
 
 ## <a href="#_c_specification" class="anchor"></a>C Specification
 
-To export Metal objects from Vulkan objects, the app **must** first
-indicate the intention to do so during the creation of the Vulkan
+To export Metal objects from Vulkan objects, the application **must**
+first indicate the intention to do so during the creation of the Vulkan
 object, by including one or more
 [VkExportMetalObjectCreateInfoEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkExportMetalObjectCreateInfoEXT.html)
 structures in the `pNext` chain of the
@@ -87,5 +87,5 @@ Copyright 2014-2024 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
 
-Version 1.3.285  
-Last updated 2024-05-10 01:10:25 -0700
+Version 1.3.290  
+Last updated 2024-07-11 23:39:16 -0700

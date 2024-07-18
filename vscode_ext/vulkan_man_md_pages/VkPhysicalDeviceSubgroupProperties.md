@@ -33,15 +33,16 @@ typedef struct VkPhysicalDeviceSubgroupProperties {
 
 ## <a href="#_description" class="anchor"></a>Description
 
-- <span id="extension-limits-subgroup-size"></span> `subgroupSize` is
-  the default number of invocations in each subgroup. `subgroupSize` is
-  at least 1 if any of the physical device’s queues support
+- <span id="extension-limits-subgroupSize"></span> `subgroupSize` is the
+  default number of invocations in each subgroup. `subgroupSize` is at
+  least 1 if any of the physical device’s queues support
   `VK_QUEUE_GRAPHICS_BIT` or `VK_QUEUE_COMPUTE_BIT`. `subgroupSize` is a
   power-of-two.
 
-- <span id="limits-subgroup-supportedStages"></span> `supportedStages`
-  is a bitfield of [VkShaderStageFlagBits](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkShaderStageFlagBits.html)
-  describing the shader stages that <a
+- <span id="extension-limits-subgroupSupportedStages"></span>
+  `supportedStages` is a bitfield of
+  [VkShaderStageFlagBits](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkShaderStageFlagBits.html) describing the
+  shader stages that <a
   href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#shaders-group-operations"
   target="_blank" rel="noopener">group operations</a> with <a
   href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#shaders-scope-subgroup"
@@ -49,7 +50,7 @@ typedef struct VkPhysicalDeviceSubgroupProperties {
   `supportedStages` will have the `VK_SHADER_STAGE_COMPUTE_BIT` bit set
   if any of the physical device’s queues support `VK_QUEUE_COMPUTE_BIT`.
 
-- <span id="limits-subgroupSupportedOperations"></span>
+- <span id="extension-limits-subgroupSupportedOperations"></span>
   `supportedOperations` is a bitmask of
   [VkSubgroupFeatureFlagBits](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkSubgroupFeatureFlagBits.html) specifying
   the sets of <a
@@ -62,7 +63,7 @@ typedef struct VkPhysicalDeviceSubgroupProperties {
   device’s queues support `VK_QUEUE_GRAPHICS_BIT` or
   `VK_QUEUE_COMPUTE_BIT`.
 
-- <span id="limits-subgroup-quadOperationsInAllStages"></span>
+- <span id="extension-limits-subgroupQuadOperationsInAllStages"></span>
   `quadOperationsInAllStages` is a boolean specifying whether <a
   href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#shaders-quad-operations"
   target="_blank" rel="noopener">quad group operations</a> are available
@@ -100,7 +101,7 @@ greater than or equal to 2, and <a
 href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#features-shaderSubgroupRotate"
 target="_blank" rel="noopener"><code>shaderSubgroupRotate</code></a> is
 supported, `VK_SUBGROUP_FEATURE_ROTATE_BIT_KHR` **must** be returned in
-`subgroupSupportedOperations`. If
+`supportedOperations`. If
 [VK_KHR_shader_subgroup_rotate](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_KHR_shader_subgroup_rotate.html) is
 supported, and the implementation advertises support with a
 [VkExtensionProperties](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkExtensionProperties.html)::`specVersion`
@@ -109,7 +110,7 @@ href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#
 target="_blank"
 rel="noopener"><code>shaderSubgroupRotateClustered</code></a> is
 supported, `VK_SUBGROUP_FEATURE_ROTATE_CLUSTERED_BIT_KHR` **must** be
-returned in `subgroupSupportedOperations`.
+returned in `supportedOperations`.
 
 <table>
 <colgroup>
@@ -117,7 +118,7 @@ returned in `subgroupSupportedOperations`.
 <col style="width: 50%" />
 </colgroup>
 <tbody>
-<tr class="odd">
+<tr>
 <td class="icon"><em></em></td>
 <td class="content">Note
 <p><code>VK_SUBGROUP_FEATURE_ROTATE_BIT_KHR</code> and
@@ -168,5 +169,5 @@ Copyright 2014-2024 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
 
-Version 1.3.285  
-Last updated 2024-05-10 01:10:25 -0700
+Version 1.3.290  
+Last updated 2024-07-11 23:39:16 -0700

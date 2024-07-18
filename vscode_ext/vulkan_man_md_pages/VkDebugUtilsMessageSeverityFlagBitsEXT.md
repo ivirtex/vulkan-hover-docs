@@ -35,7 +35,7 @@ typedef enum VkDebugUtilsMessageSeverityFlagBitsEXT {
   debugging an application.
 
 - `VK_DEBUG_UTILS_MESSAGE_SEVERITY_WARNING_BIT_EXT` specifies use of
-  Vulkan that **may** expose an app bug. Such cases may not be
+  Vulkan that **may** expose an application bug. Such cases may not be
   immediately harmful, such as a fragment shader outputting to a
   location with no attachment. Other cases **may** point to behavior
   that is almost certainly bad when unintended such as using an image
@@ -52,7 +52,7 @@ typedef enum VkDebugUtilsMessageSeverityFlagBitsEXT {
 <col style="width: 50%" />
 </colgroup>
 <tbody>
-<tr class="odd">
+<tr>
 <td class="icon"><em></em></td>
 <td class="content">Note
 <p>The values of <a
@@ -74,6 +74,7 @@ addition of new severities in between the existing values.</p></td>
 
 ## <a href="#_see_also" class="anchor"></a>See Also
 
+[PFN_vkDebugUtilsMessengerCallbackEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/PFN_vkDebugUtilsMessengerCallbackEXT.html),
 [VK_EXT_debug_utils](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_EXT_debug_utils.html),
 [VkDebugUtilsMessageSeverityFlagsEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkDebugUtilsMessageSeverityFlagsEXT.html),
 [vkSubmitDebugUtilsMessageEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkSubmitDebugUtilsMessageEXT.html)
@@ -93,5 +94,5 @@ Copyright 2014-2024 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
 
-Version 1.3.285  
-Last updated 2024-05-10 01:10:25 -0700
+Version 1.3.290  
+Last updated 2024-07-11 23:39:16 -0700

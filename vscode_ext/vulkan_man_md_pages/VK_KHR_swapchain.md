@@ -450,10 +450,10 @@ transforms.
 
 **RESOLVED**: In the advent of UHD and HDR display devices, proper color
 space information is vital to the display pipeline represented by the
-swapchain. The app can discover the supported format/color-space pairs
-and select a pair most suited to its rendering needs. Currently only the
-sRGB color space is supported, future extensions may provide support for
-more color spaces. See issues 23 and 24.
+swapchain. The application can discover the supported format/color-space
+pairs and select a pair most suited to its rendering needs. Currently
+only the sRGB color space is supported, future extensions may provide
+support for more color spaces. See issues 23 and 24.
 
 20\) Is there a mechanism to modify or replace an existing swapchain
 with one targeting the same surface?
@@ -529,10 +529,11 @@ related?
 [VkSurfaceKHR](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkSurfaceKHR.html) owns the binding of the native window
 to the Vulkan driver.
 
-26\) How can the client control the way the alpha component of swapchain
-images is treated by the presentation engine during compositing?
+26\) How can the application control the way the alpha component of
+swapchain images is treated by the presentation engine during
+compositing?
 
-**RESOLVED**: We should add new enum values to allow the client to
+**RESOLVED**: We should add new enum values to allow the application to
 negotiate with the presentation engine on how to treat image alpha
 values during the compositing process. Since not all platforms can
 practically control this through the Vulkan driver, a value of
@@ -572,7 +573,7 @@ level.
 <col style="width: 50%" />
 </colgroup>
 <tbody>
-<tr class="odd">
+<tr>
 <td class="icon"><em></em></td>
 <td class="content">Note
 <p>The example code for the <a
@@ -1074,5 +1075,5 @@ Copyright 2014-2024 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
 
-Version 1.3.285  
-Last updated 2024-05-10 01:10:25 -0700
+Version 1.3.290  
+Last updated 2024-07-11 23:39:16 -0700

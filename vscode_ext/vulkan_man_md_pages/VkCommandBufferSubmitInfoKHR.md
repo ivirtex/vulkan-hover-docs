@@ -63,7 +63,8 @@ Valid Usage
   VUID-VkCommandBufferSubmitInfo-commandBuffer-09445  
   If any render pass instance in `commandBuffer` was recorded with a
   [VkRenderPassStripeBeginInfoARM](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkRenderPassStripeBeginInfoARM.html)
-  structure in its pNext chain, a
+  structure in its pNext chain and did not specify the
+  `VK_RENDERING_RESUMING_BIT` flag, a
   [VkRenderPassStripeSubmitInfoARM](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkRenderPassStripeSubmitInfoARM.html)
   **must** be included in the `pNext` chain
 
@@ -77,7 +78,8 @@ Valid Usage
   **must** be equal to the sum of the
   [VkRenderPassStripeBeginInfoARM](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkRenderPassStripeBeginInfoARM.html)::`stripeInfoCount`
   parameters provided to render pass instances recorded in
-  `commandBuffer`
+  `commandBuffer` that did not specify the `VK_RENDERING_RESUMING_BIT`
+  flag
 
 Valid Usage (Implicit)
 
@@ -127,5 +129,5 @@ Copyright 2014-2024 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
 
-Version 1.3.285  
-Last updated 2024-05-10 01:10:25 -0700
+Version 1.3.290  
+Last updated 2024-07-11 23:39:16 -0700

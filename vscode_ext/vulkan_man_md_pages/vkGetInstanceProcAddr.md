@@ -42,17 +42,17 @@ The returned function pointer is of type
 [PFN_vkVoidFunction](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/PFN_vkVoidFunction.html), and **must** be cast to
 the type of the command being queried before use.
 
-| `instance`                        | `pName`                                                                    | return value   |
-|-----------------------------------|----------------------------------------------------------------------------|----------------|
-| \*<sup>1</sup>                    | `NULL`                                                                     | undefined      |
-| invalid non-`NULL` instance       | \*<sup>1</sup>                                                             | undefined      |
-| `NULL`                            | *global command*<sup>2</sup>                                               | fp             |
-| `NULL`                            | [vkGetInstanceProcAddr](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkGetInstanceProcAddr.html)                        | fp<sup>5</sup> |
-| instance                          | [vkGetInstanceProcAddr](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkGetInstanceProcAddr.html)                        | fp             |
-| instance                          | core *dispatchable command*                                                | fp<sup>3</sup> |
-| instance                          | enabled instance extension dispatchable command for `instance`             | fp<sup>3</sup> |
-| instance                          | available device extension<sup>4</sup> dispatchable command for `instance` | fp<sup>3</sup> |
-| any other case, not covered above |                                                                            | `NULL`         |
+| `instance` | `pName` | return value |
+|----|----|----|
+| \*<sup>1</sup> | `NULL` | undefined |
+| invalid non-`NULL` instance | \*<sup>1</sup> | undefined |
+| `NULL` | *global command*<sup>2</sup> | fp |
+| `NULL` | [vkGetInstanceProcAddr](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkGetInstanceProcAddr.html) | fp<sup>5</sup> |
+| instance | [vkGetInstanceProcAddr](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkGetInstanceProcAddr.html) | fp |
+| instance | core *dispatchable command* | fp<sup>3</sup> |
+| instance | enabled instance extension dispatchable command for `instance` | fp<sup>3</sup> |
+| instance | available device extension<sup>4</sup> dispatchable command for `instance` | fp<sup>3</sup> |
+| any other case, not covered above |  | `NULL` |
 
 Table 1. `vkGetInstanceProcAddr` behavior
 
@@ -116,5 +116,5 @@ Copyright 2014-2024 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
 
-Version 1.3.285  
-Last updated 2024-05-10 01:10:25 -0700
+Version 1.3.290  
+Last updated 2024-07-11 23:39:16 -0700

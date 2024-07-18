@@ -37,6 +37,13 @@ VkResult vkCreateImageView(
 
 Valid Usage
 
+- <a href="#VUID-vkCreateImageView-device-09667"
+  id="VUID-vkCreateImageView-device-09667"></a>
+  VUID-vkCreateImageView-device-09667  
+  `device` **must** support at least one queue family with one of the
+  `VK_QUEUE_VIDEO_ENCODE_BIT_KHR`, `VK_QUEUE_VIDEO_DECODE_BIT_KHR`,
+  `VK_QUEUE_COMPUTE_BIT`, or `VK_QUEUE_GRAPHICS_BIT` capabilities
+
 - <a href="#VUID-vkCreateImageView-image-09179"
   id="VUID-vkCreateImageView-image-09179"></a>
   VUID-vkCreateImageView-image-09179  
@@ -103,5 +110,5 @@ Copyright 2014-2024 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
 
-Version 1.3.285  
-Last updated 2024-05-10 01:10:25 -0700
+Version 1.3.290  
+Last updated 2024-07-11 23:39:16 -0700

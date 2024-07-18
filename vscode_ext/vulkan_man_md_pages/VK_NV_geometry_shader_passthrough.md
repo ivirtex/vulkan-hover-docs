@@ -121,7 +121,7 @@ explicitly emit them in the SPIR-V according to the following table.
 **RESOLVED**: This is described in <a
 href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#geometry-passthrough-interface"
 target="_blank" rel="noopener">Passthrough Interface Matching</a>. In GL
-when using passthough geometry shaders in separable mode, all inputs
+when using passthrough geometry shaders in separable mode, all inputs
 must also be explicitly assigned location layout qualifiers. In Vulkan
 all SPIR-V shader inputs (except built-ins) must also have location
 decorations specified. Redeclarations of built-in variables that add the
@@ -220,5 +220,5 @@ Copyright 2014-2024 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
 
-Version 1.3.285  
-Last updated 2024-05-10 01:10:25 -0700
+Version 1.3.290  
+Last updated 2024-07-11 23:39:16 -0700

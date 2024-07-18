@@ -258,21 +258,23 @@ Valid Usage
   `renderPass` **must** have a `layerCount` that is either `1`, or
   greater than `layers`
 
-- <a href="#VUID-VkFramebufferCreateInfo-renderPass-08921"
-  id="VUID-VkFramebufferCreateInfo-renderPass-08921"></a>
-  VUID-VkFramebufferCreateInfo-renderPass-08921  
-  If `renderPass` was specified with non-zero view masks, each element
-  of `pAttachments` that is used as a <a
-  href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#primsrast-fragment-shading-rate-attachment"
-  target="_blank" rel="noopener">fragment shading rate attachment</a>
-  **must** have a `layerCount` equal to `1` or greater than the index of
-  the most significant bit set in any of those view masks
-
 - <a href="#VUID-VkFramebufferCreateInfo-flags-04539"
   id="VUID-VkFramebufferCreateInfo-flags-04539"></a>
   VUID-VkFramebufferCreateInfo-flags-04539  
-  If `flags` does not include `VK_FRAMEBUFFER_CREATE_IMAGELESS_BIT`, an
-  element of `pAttachments` that is used as a <a
+  If <a
+  href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#features-maintenance7"
+  target="_blank" rel="noopener"><code>maintenance7</code></a> is not
+  enabled or the <a
+  href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#limits-robustFragmentShadingRateAttachmentAccess"
+  target="_blank"
+  rel="noopener"><code>robustFragmentShadingRateAttachmentAccess</code></a>
+  limit is `VK_FALSE` or the `imageView` member of a
+  [VkRenderingFragmentShadingRateAttachmentInfoKHR](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkRenderingFragmentShadingRateAttachmentInfoKHR.html)
+  structure was created with
+  [VkImageSubresourceRange](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkImageSubresourceRange.html)::`baseMipLevel`
+  greater than 0, `flags` does not include
+  `VK_FRAMEBUFFER_CREATE_IMAGELESS_BIT`, an element of `pAttachments`
+  that is used as a <a
   href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#primsrast-fragment-shading-rate-attachment"
   target="_blank" rel="noopener">fragment shading rate attachment</a>
   **must** have a width at least as large as ⌈`width` / `texelWidth`⌉,
@@ -284,8 +286,20 @@ Valid Usage
 - <a href="#VUID-VkFramebufferCreateInfo-flags-04540"
   id="VUID-VkFramebufferCreateInfo-flags-04540"></a>
   VUID-VkFramebufferCreateInfo-flags-04540  
-  If `flags` does not include `VK_FRAMEBUFFER_CREATE_IMAGELESS_BIT`, an
-  element of `pAttachments` that is used as a <a
+  If <a
+  href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#features-maintenance7"
+  target="_blank" rel="noopener"><code>maintenance7</code></a> is not
+  enabled or the <a
+  href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#limits-robustFragmentShadingRateAttachmentAccess"
+  target="_blank"
+  rel="noopener"><code>robustFragmentShadingRateAttachmentAccess</code></a>
+  limit is `VK_FALSE` or the `imageView` member of a
+  [VkRenderingFragmentShadingRateAttachmentInfoKHR](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkRenderingFragmentShadingRateAttachmentInfoKHR.html)
+  structure was created with
+  [VkImageSubresourceRange](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkImageSubresourceRange.html)::`baseMipLevel`
+  greater than 0, `flags` does not include
+  `VK_FRAMEBUFFER_CREATE_IMAGELESS_BIT`, an element of `pAttachments`
+  that is used as a <a
   href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#primsrast-fragment-shading-rate-attachment"
   target="_blank" rel="noopener">fragment shading rate attachment</a>
   **must** have a height at least as large as ⌈`height` /
@@ -430,8 +444,20 @@ Valid Usage
 - <a href="#VUID-VkFramebufferCreateInfo-flags-04543"
   id="VUID-VkFramebufferCreateInfo-flags-04543"></a>
   VUID-VkFramebufferCreateInfo-flags-04543  
-  If `flags` includes `VK_FRAMEBUFFER_CREATE_IMAGELESS_BIT`, the `width`
-  member of any element of the `pAttachmentImageInfos` member of a
+  If <a
+  href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#features-maintenance7"
+  target="_blank" rel="noopener"><code>maintenance7</code></a> is not
+  enabled or the <a
+  href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#limits-robustFragmentShadingRateAttachmentAccess"
+  target="_blank"
+  rel="noopener"><code>robustFragmentShadingRateAttachmentAccess</code></a>
+  limit is `VK_FALSE` or the `imageView` member of a
+  [VkRenderingFragmentShadingRateAttachmentInfoKHR](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkRenderingFragmentShadingRateAttachmentInfoKHR.html)
+  structure was created with
+  [VkImageSubresourceRange](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkImageSubresourceRange.html)::`baseMipLevel`
+  greater than 0, and `flags` includes
+  `VK_FRAMEBUFFER_CREATE_IMAGELESS_BIT`, the `width` member of any
+  element of the `pAttachmentImageInfos` member of a
   [VkFramebufferAttachmentsCreateInfo](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkFramebufferAttachmentsCreateInfo.html)
   structure in the `pNext` chain that is used as a <a
   href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#primsrast-fragment-shading-rate-attachment"
@@ -445,9 +471,20 @@ Valid Usage
 - <a href="#VUID-VkFramebufferCreateInfo-flags-04544"
   id="VUID-VkFramebufferCreateInfo-flags-04544"></a>
   VUID-VkFramebufferCreateInfo-flags-04544  
-  If `flags` includes `VK_FRAMEBUFFER_CREATE_IMAGELESS_BIT`, the
-  `height` member of any element of the `pAttachmentImageInfos` member
-  of a
+  If <a
+  href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#features-maintenance7"
+  target="_blank" rel="noopener"><code>maintenance7</code></a> is not
+  enabled or the <a
+  href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#limits-robustFragmentShadingRateAttachmentAccess"
+  target="_blank"
+  rel="noopener"><code>robustFragmentShadingRateAttachmentAccess</code></a>
+  limit is `VK_FALSE` or the `imageView` member of a
+  [VkRenderingFragmentShadingRateAttachmentInfoKHR](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkRenderingFragmentShadingRateAttachmentInfoKHR.html)
+  structure was created with
+  [VkImageSubresourceRange](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkImageSubresourceRange.html)::`baseMipLevel`
+  greater than 0, and `flags` includes
+  `VK_FRAMEBUFFER_CREATE_IMAGELESS_BIT`, the `height` member of any
+  element of the `pAttachmentImageInfos` member of a
   [VkFramebufferAttachmentsCreateInfo](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkFramebufferAttachmentsCreateInfo.html)
   structure in the `pNext` chain that is used as a <a
   href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#primsrast-fragment-shading-rate-attachment"
@@ -474,13 +511,14 @@ Valid Usage
   id="VUID-VkFramebufferCreateInfo-flags-04587"></a>
   VUID-VkFramebufferCreateInfo-flags-04587  
   If `flags` includes `VK_FRAMEBUFFER_CREATE_IMAGELESS_BIT` and
-  `renderPass` was specified with non-zero view masks, each element of
-  `pAttachments` that is used as a <a
+  `renderPass` was specified with non-zero view masks, the `layerCount`
+  member of any element of the `pAttachmentImageInfos` member of a
+  [VkFramebufferAttachmentsCreateInfo](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkFramebufferAttachmentsCreateInfo.html)
+  structure in the `pNext` chain that is used as a <a
   href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#primsrast-fragment-shading-rate-attachment"
-  target="_blank" rel="noopener">fragment shading rate attachment</a> by
-  `renderPass` **must** have a `layerCount` that is either `1`, or
-  greater than the index of the most significant bit set in any of those
-  view masks
+  target="_blank" rel="noopener">fragment shading rate attachment</a>
+  **must** be either `1`, or greater than the index of the most
+  significant bit set in any of those view masks
 
 - <a href="#VUID-VkFramebufferCreateInfo-renderPass-03198"
   id="VUID-VkFramebufferCreateInfo-renderPass-03198"></a>
@@ -704,5 +742,5 @@ Copyright 2014-2024 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
 
-Version 1.3.285  
-Last updated 2024-05-10 01:10:25 -0700
+Version 1.3.290  
+Last updated 2024-07-11 23:39:16 -0700

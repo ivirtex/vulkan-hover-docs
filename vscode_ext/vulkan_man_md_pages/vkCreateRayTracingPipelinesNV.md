@@ -55,6 +55,12 @@ target="_blank" rel="noopener">Multiple Pipeline Creation</a>.
 
 Valid Usage
 
+- <a href="#VUID-vkCreateRayTracingPipelinesNV-device-09677"
+  id="VUID-vkCreateRayTracingPipelinesNV-device-09677"></a>
+  VUID-vkCreateRayTracingPipelinesNV-device-09677  
+  `device` **must** support at least one queue family with the
+  `VK_QUEUE_COMPUTE_BIT` capability
+
 - <a href="#VUID-vkCreateRayTracingPipelinesNV-flags-03415"
   id="VUID-vkCreateRayTracingPipelinesNV-flags-03415"></a>
   VUID-vkCreateRayTracingPipelinesNV-flags-03415  
@@ -170,5 +176,5 @@ Copyright 2014-2024 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
 
-Version 1.3.285  
-Last updated 2024-05-10 01:10:25 -0700
+Version 1.3.290  
+Last updated 2024-07-11 23:39:16 -0700

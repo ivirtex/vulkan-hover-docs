@@ -126,10 +126,11 @@ Valid Usage
   id="VUID-VkDescriptorSetLayoutCreateInfo-pBindings-07303"></a>
   VUID-VkDescriptorSetLayoutCreateInfo-pBindings-07303  
   If any element `pBindings`\[i\] has a `descriptorType` of
-  `VK_DESCRIPTOR_TYPE_MUTABLE_EXT`, then a
+  `VK_DESCRIPTOR_TYPE_MUTABLE_EXT`, then the `pNext` chain **must**
+  include a
   [VkMutableDescriptorTypeCreateInfoEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkMutableDescriptorTypeCreateInfoEXT.html)
-  **must** be present in the `pNext` chain, and
-  `mutableDescriptorTypeListCount` **must** be greater than i
+  structure, and `mutableDescriptorTypeListCount` **must** be greater
+  than i
 
 - <a href="#VUID-VkDescriptorSetLayoutCreateInfo-descriptorType-04594"
   id="VUID-VkDescriptorSetLayoutCreateInfo-descriptorType-04594"></a>
@@ -273,5 +274,5 @@ Copyright 2014-2024 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
 
-Version 1.3.285  
-Last updated 2024-05-10 01:10:25 -0700
+Version 1.3.290  
+Last updated 2024-07-11 23:39:16 -0700

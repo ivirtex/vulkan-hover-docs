@@ -46,16 +46,16 @@ VkResult vkGetPhysicalDeviceOpticalFlowImageFormatsNV(
 If `pImageFormatProperties` is `NULL`, then the number of optical flow
 properties supported for the given `physicalDevice` is returned in
 `pFormatCount`. Otherwise, `pFormatCount` must point to a variable set
-by the user to the number of elements in the `pImageFormatProperties`
-array, and on return the variable is overwritten with the number of
-values actually written to `pImageFormatProperties`. If the value of
-`pFormatCount` is less than the number of optical flow properties
-supported, at most `pFormatCount` values will be written to
-`pImageFormatProperties`, and `VK_INCOMPLETE` will be returned instead
-of `VK_SUCCESS`, to indicate that not all the available values were
-returned.
+by the application to the number of elements in the
+`pImageFormatProperties` array, and on return the variable is
+overwritten with the number of values actually written to
+`pImageFormatProperties`. If the value of `pFormatCount` is less than
+the number of optical flow properties supported, at most `pFormatCount`
+values will be written to `pImageFormatProperties`, and `VK_INCOMPLETE`
+will be returned instead of `VK_SUCCESS`, to indicate that not all the
+available values were returned.
 
-Before creating an image to be used as a optical flow frame, obtain the
+Before creating an image to be used as an optical flow frame, obtain the
 supported image creation parameters by querying with
 [vkGetPhysicalDeviceFormatProperties2](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkGetPhysicalDeviceFormatProperties2.html)
 and
@@ -125,7 +125,7 @@ On failure, this command returns
 <col style="width: 50%" />
 </colgroup>
 <tbody>
-<tr class="odd">
+<tr>
 <td class="icon"><em></em></td>
 <td class="content">Note
 <p><code>VK_FORMAT_B8G8R8A8_UNORM</code>,
@@ -174,5 +174,5 @@ Copyright 2014-2024 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
 
-Version 1.3.285  
-Last updated 2024-05-10 01:10:25 -0700
+Version 1.3.290  
+Last updated 2024-07-11 23:39:16 -0700

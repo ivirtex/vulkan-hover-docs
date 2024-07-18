@@ -130,7 +130,7 @@ below:
 <col style="width: 25%" />
 </colgroup>
 <thead>
-<tr class="header">
+<tr>
 <th class="tableblock halign-left valign-top"><a
 href="https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkBlendOp.html">VkBlendOp</a></th>
 <th class="tableblock halign-left valign-top">RGB Components</th>
@@ -138,7 +138,7 @@ href="https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkBlendO
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td
 class="tableblock halign-left valign-top"><p><code>VK_BLEND_OP_ADD</code></p></td>
 <td class="tableblock halign-left valign-top"><p>R = R<sub>s0</sub> ×
@@ -149,7 +149,7 @@ D<sub>b</sub></p></td>
 <td class="tableblock halign-left valign-top"><p>A = A<sub>s0</sub> ×
 S<sub>a</sub> + A<sub>d</sub> × D<sub>a</sub></p></td>
 </tr>
-<tr class="even">
+<tr>
 <td
 class="tableblock halign-left valign-top"><p><code>VK_BLEND_OP_SUBTRACT</code></p></td>
 <td class="tableblock halign-left valign-top"><p>R = R<sub>s0</sub> ×
@@ -160,7 +160,7 @@ D<sub>b</sub></p></td>
 <td class="tableblock halign-left valign-top"><p>A = A<sub>s0</sub> ×
 S<sub>a</sub> - A<sub>d</sub> × D<sub>a</sub></p></td>
 </tr>
-<tr class="odd">
+<tr>
 <td
 class="tableblock halign-left valign-top"><p><code>VK_BLEND_OP_REVERSE_SUBTRACT</code></p></td>
 <td class="tableblock halign-left valign-top"><p>R = R<sub>d</sub> ×
@@ -171,7 +171,7 @@ S<sub>b</sub></p></td>
 <td class="tableblock halign-left valign-top"><p>A = A<sub>d</sub> ×
 D<sub>a</sub> - A<sub>s0</sub> × S<sub>a</sub></p></td>
 </tr>
-<tr class="even">
+<tr>
 <td
 class="tableblock halign-left valign-top"><p><code>VK_BLEND_OP_MIN</code></p></td>
 <td class="tableblock halign-left valign-top"><p>R =
@@ -181,7 +181,7 @@ B = min(B<sub>s0</sub>,B<sub>d</sub>)</p></td>
 <td class="tableblock halign-left valign-top"><p>A =
 min(A<sub>s0</sub>,A<sub>d</sub>)</p></td>
 </tr>
-<tr class="odd">
+<tr>
 <td
 class="tableblock halign-left valign-top"><p><code>VK_BLEND_OP_MAX</code></p></td>
 <td class="tableblock halign-left valign-top"><p>R =
@@ -248,5 +248,5 @@ Copyright 2014-2024 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
 
-Version 1.3.285  
-Last updated 2024-05-10 01:10:25 -0700
+Version 1.3.290  
+Last updated 2024-07-11 23:39:16 -0700

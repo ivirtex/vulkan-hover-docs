@@ -54,7 +54,7 @@ class="tableblock frame-all grid-all stretch">
 <col style="width: 50%" />
 </colgroup>
 <thead>
-<tr class="header">
+<tr>
 <th
 class="tableblock halign-left valign-top"><code>VkImageCreateInfo</code>
 Field</th>
@@ -62,7 +62,7 @@ Field</th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td
 class="tableblock halign-left valign-top"><p><code>flags</code></p></td>
 <td
@@ -77,19 +77,19 @@ set</p>
 <code>VK_SWAPCHAIN_CREATE_MUTABLE_FORMAT_BIT_KHR</code> is set</p>
 <p>all other bits are unset</p></td>
 </tr>
-<tr class="even">
+<tr>
 <td
 class="tableblock halign-left valign-top"><p><code>imageType</code></p></td>
 <td
 class="tableblock halign-left valign-top"><p><code>VK_IMAGE_TYPE_2D</code></p></td>
 </tr>
-<tr class="odd">
+<tr>
 <td
 class="tableblock halign-left valign-top"><p><code>format</code></p></td>
 <td
 class="tableblock halign-left valign-top"><p><code>pCreateInfo-&gt;imageFormat</code></p></td>
 </tr>
-<tr class="even">
+<tr>
 <td
 class="tableblock halign-left valign-top"><p><code>extent</code></p></td>
 <td
@@ -97,54 +97,54 @@ class="tableblock halign-left valign-top"><p>{<code>pCreateInfo-&gt;imageExtent.
 <code>pCreateInfo-&gt;imageExtent.height</code>,
 <code>1</code>}</p></td>
 </tr>
-<tr class="odd">
+<tr>
 <td
 class="tableblock halign-left valign-top"><p><code>mipLevels</code></p></td>
 <td class="tableblock halign-left valign-top"><p>1</p></td>
 </tr>
-<tr class="even">
+<tr>
 <td
 class="tableblock halign-left valign-top"><p><code>arrayLayers</code></p></td>
 <td
 class="tableblock halign-left valign-top"><p><code>pCreateInfo-&gt;imageArrayLayers</code></p></td>
 </tr>
-<tr class="odd">
+<tr>
 <td
 class="tableblock halign-left valign-top"><p><code>samples</code></p></td>
 <td
 class="tableblock halign-left valign-top"><p><code>VK_SAMPLE_COUNT_1_BIT</code></p></td>
 </tr>
-<tr class="even">
+<tr>
 <td
 class="tableblock halign-left valign-top"><p><code>tiling</code></p></td>
 <td
 class="tableblock halign-left valign-top"><p><code>VK_IMAGE_TILING_OPTIMAL</code></p></td>
 </tr>
-<tr class="odd">
+<tr>
 <td
 class="tableblock halign-left valign-top"><p><code>usage</code></p></td>
 <td
 class="tableblock halign-left valign-top"><p><code>pCreateInfo-&gt;imageUsage</code></p></td>
 </tr>
-<tr class="even">
+<tr>
 <td
 class="tableblock halign-left valign-top"><p><code>sharingMode</code></p></td>
 <td
 class="tableblock halign-left valign-top"><p><code>pCreateInfo-&gt;imageSharingMode</code></p></td>
 </tr>
-<tr class="odd">
+<tr>
 <td
 class="tableblock halign-left valign-top"><p><code>queueFamilyIndexCount</code></p></td>
 <td
 class="tableblock halign-left valign-top"><p><code>pCreateInfo-&gt;queueFamilyIndexCount</code></p></td>
 </tr>
-<tr class="even">
+<tr>
 <td
 class="tableblock halign-left valign-top"><p><code>pQueueFamilyIndices</code></p></td>
 <td
 class="tableblock halign-left valign-top"><p><code>pCreateInfo-&gt;pQueueFamilyIndices</code></p></td>
 </tr>
-<tr class="odd">
+<tr>
 <td
 class="tableblock halign-left valign-top"><p><code>initialLayout</code></p></td>
 <td
@@ -189,7 +189,7 @@ access from `pCreateInfo->oldSwapchain`.
 <col style="width: 50%" />
 </colgroup>
 <tbody>
-<tr class="odd">
+<tr>
 <td class="icon"><em></em></td>
 <td class="content">Note
 <p>This implicit transfer is intended to avoid exiting and entering
@@ -211,14 +211,14 @@ this occurs, `VK_ERROR_INITIALIZATION_FAILED` will be returned.
 <col style="width: 50%" />
 </colgroup>
 <tbody>
-<tr class="odd">
+<tr>
 <td class="icon"><em></em></td>
 <td class="content">Note
 <p>In particular, it will fail if the <code>imageExtent</code> member of
 <code>pCreateInfo</code> does not match the extents of the monitor.
-Other reasons for failure may include the app not being set as high-dpi
-aware, or if the physical device and monitor are not compatible in this
-mode.</p></td>
+Other reasons for failure may include the application not being set as
+high-dpi aware, or if the physical device and monitor are not compatible
+in this mode.</p></td>
 </tr>
 </tbody>
 </table>
@@ -321,5 +321,5 @@ Copyright 2014-2024 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
 
-Version 1.3.285  
-Last updated 2024-05-10 01:10:25 -0700
+Version 1.3.290  
+Last updated 2024-07-11 23:39:16 -0700

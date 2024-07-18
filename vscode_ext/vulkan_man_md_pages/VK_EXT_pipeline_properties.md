@@ -113,7 +113,7 @@ Vulkan SC as well?
 \(2\) This is intended to be a general pipeline properties query, but is
 currently only retrieving the pipeline identifier. Should the pipeline
 identifier query be mandatory for this extension and for all queries
-using this entry point?
+using this command?
 
 **RESOLVED**: Use [VkBaseOutStructure](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkBaseOutStructure.html) for the
 return parameter. Currently this is required to actually be a
@@ -154,5 +154,5 @@ Copyright 2014-2024 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
 
-Version 1.3.285  
-Last updated 2024-05-10 01:10:25 -0700
+Version 1.3.290  
+Last updated 2024-07-11 23:39:16 -0700

@@ -90,6 +90,19 @@ to OpenGL applications.
 
   - `VK_SUBPASS_DESCRIPTION_ENABLE_LEGACY_DITHERING_BIT_EXT`
 
+If [VK_KHR_dynamic_rendering](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_KHR_dynamic_rendering.html) or [Version
+1.3](#versions-1.3) and [VK_KHR_maintenance5](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_KHR_maintenance5.html)
+is supported:
+
+- Extending
+  [VkPipelineCreateFlagBits2KHR](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkPipelineCreateFlagBits2KHR.html):
+
+  - `VK_PIPELINE_CREATE_2_ENABLE_LEGACY_DITHERING_BIT_EXT`
+
+- Extending [VkRenderingFlagBits](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkRenderingFlagBits.html):
+
+  - `VK_RENDERING_ENABLE_LEGACY_DITHERING_BIT_EXT`
+
 ## <a href="#_version_history" class="anchor"></a>Version History
 
 - Revision 1, 2022-03-31 (Shahbaz Youssefi)
@@ -134,5 +147,5 @@ Copyright 2014-2024 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
 
-Version 1.3.285  
-Last updated 2024-05-10 01:10:25 -0700
+Version 1.3.290  
+Last updated 2024-07-11 23:39:16 -0700

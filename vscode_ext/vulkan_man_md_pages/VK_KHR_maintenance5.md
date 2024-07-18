@@ -140,7 +140,7 @@ The new features are as follows:
 - Relax VkBufferView creation requirements by allowing subsets of the
   associated VkBuffer usage using `VkBufferUsageFlags2CreateInfoKHR`
 
-- A new entry point
+- A new command
   [vkCmdBindIndexBuffer2KHR](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdBindIndexBuffer2KHR.html), allowing a
   range of memory to be bound as an index buffer
 
@@ -289,6 +289,26 @@ The new features are as follows:
   - `VK_STRUCTURE_TYPE_RENDERING_AREA_INFO_KHR`
 
   - `VK_STRUCTURE_TYPE_SUBRESOURCE_LAYOUT_2_KHR`
+
+If [VK_KHR_dynamic_rendering](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_KHR_dynamic_rendering.html) or [Version
+1.3](#versions-1.3) and
+[VK_EXT_fragment_density_map](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_EXT_fragment_density_map.html) is
+supported:
+
+- Extending
+  [VkPipelineCreateFlagBits2KHR](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkPipelineCreateFlagBits2KHR.html):
+
+  - `VK_PIPELINE_CREATE_2_RENDERING_FRAGMENT_DENSITY_MAP_ATTACHMENT_BIT_EXT`
+
+If [VK_KHR_dynamic_rendering](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_KHR_dynamic_rendering.html) or [Version
+1.3](#versions-1.3) and
+[VK_KHR_fragment_shading_rate](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_KHR_fragment_shading_rate.html) is
+supported:
+
+- Extending
+  [VkPipelineCreateFlagBits2KHR](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkPipelineCreateFlagBits2KHR.html):
+
+  - `VK_PIPELINE_CREATE_2_RENDERING_FRAGMENT_SHADING_RATE_ATTACHMENT_BIT_KHR`
 
 If
 [VK_EXT_attachment_feedback_loop_layout](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_EXT_attachment_feedback_loop_layout.html)
@@ -532,5 +552,5 @@ Copyright 2014-2024 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
 
-Version 1.3.285  
-Last updated 2024-05-10 01:10:25 -0700
+Version 1.3.290  
+Last updated 2024-07-11 23:39:16 -0700

@@ -48,10 +48,9 @@ None
 ## <a href="#_description" class="anchor"></a>Description
 
 This extension provides extensible versions of the Vulkan memory map and
-unmap entry points. The new entry points are functionally identical to
-the core entry points, except that their parameters are specified using
-extensible structures that can be used to pass extension-specific
-information.
+unmap commands. The new commands are functionally identical to the core
+commands, except that their parameters are specified using extensible
+structures that can be used to pass extension-specific information.
 
 ## <a href="#_new_commands" class="anchor"></a>New Commands
 
@@ -114,5 +113,5 @@ Copyright 2014-2024 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
 
-Version 1.3.285  
-Last updated 2024-05-10 01:10:25 -0700
+Version 1.3.290  
+Last updated 2024-07-11 23:39:16 -0700

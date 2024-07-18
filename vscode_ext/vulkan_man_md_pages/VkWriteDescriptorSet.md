@@ -143,7 +143,7 @@ immutable samplers references. In addition, if the
 <col style="width: 50%" />
 </colgroup>
 <tbody>
-<tr class="odd">
+<tr>
 <td class="icon"><em></em></td>
 <td class="content">Note
 <p>The same behavior applies to bindings with a descriptor type of
@@ -173,6 +173,12 @@ Valid Usage
   id="VUID-VkWriteDescriptorSet-dstBinding-00316"></a>
   VUID-VkWriteDescriptorSet-dstBinding-00316  
   `dstBinding` **must** be a binding with a non-zero `descriptorCount`
+
+- <a href="#VUID-VkWriteDescriptorSet-dstBinding-10009"
+  id="VUID-VkWriteDescriptorSet-dstBinding-10009"></a>
+  VUID-VkWriteDescriptorSet-dstBinding-10009  
+  `dstBinding` **must** be a binding with a non-zero
+  [VkDescriptorSetLayoutCreateInfo](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkDescriptorSetLayoutCreateInfo.html)::`bindingCount`
 
 - <a href="#VUID-VkWriteDescriptorSet-descriptorCount-00317"
   id="VUID-VkWriteDescriptorSet-descriptorCount-00317"></a>
@@ -622,5 +628,5 @@ Copyright 2014-2024 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
 
-Version 1.3.285  
-Last updated 2024-05-10 01:10:25 -0700
+Version 1.3.290  
+Last updated 2024-07-11 23:39:16 -0700

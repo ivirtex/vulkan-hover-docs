@@ -149,11 +149,11 @@ believe there are interesting cases for tracking how populated that VA
 region is.
 
 The callbacks are clearly specified as only callable within the context
-of a call from the app into Vulkan. We believe there are some cases
-where drivers can allocate device memory asynchronously. This was one of
-the sticky issues that derailed the internal device memory allocation
-reporting design (which is essentially what this extension is trying to
-do) leading up to 1.0.
+of a call from the application into Vulkan. We believe there are some
+cases where drivers can allocate device memory asynchronously. This was
+one of the sticky issues that derailed the internal device memory
+allocation reporting design (which is essentially what this extension is
+trying to do) leading up to 1.0.
 
 [VkAllocationCallbacks](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkAllocationCallbacks.html) is described in a
 section called “Host memory” and the intro to it is very explicitly
@@ -212,9 +212,9 @@ things like size and heap index reported?
 **RESOLVED** Yes. This fits in well with the callback infrastructure
 added in this extension, and implementation touches the same code and
 has the same overheads as the rest of the extension. It could help
-debugging things like getting an `VK_ERROR_OUT_OF_HOST_MEMORY` error
-when ending a command buffer. Right now the allocation failure could
-have happened anywhere during recording, and a callback would be really
+debugging things like getting a `VK_ERROR_OUT_OF_HOST_MEMORY` error when
+ending a command buffer. Right now the allocation failure could have
+happened anywhere during recording, and a callback would be really
 useful to understand where and why.
 
 ## <a href="#_version_history" class="anchor"></a>Version History
@@ -246,5 +246,5 @@ Copyright 2014-2024 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
 
-Version 1.3.285  
-Last updated 2024-05-10 01:10:25 -0700
+Version 1.3.290  
+Last updated 2024-07-11 23:39:16 -0700

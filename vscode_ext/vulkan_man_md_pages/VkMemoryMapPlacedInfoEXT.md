@@ -16,10 +16,10 @@ If `VK_MEMORY_MAP_PLACED_BIT_EXT` is set in
 placement address of the memory map. The implementation will place the
 memory map at the specified address, replacing any existing maps in the
 specified memory range. Replacing memory maps in this way does not
-implicitly unmap Vulkan memory objects. Instead, the client **must**
-ensure no other Vulkan memory objects are mapped anywhere in the
-specified virtual address range. If successful, `ppData` will be set to
-the same value as `VkMemoryMapPlacedInfoEXT`::`pPlacedAddress` and
+implicitly unmap Vulkan memory objects. Instead, the application
+**must** ensure no other Vulkan memory objects are mapped anywhere in
+the specified virtual address range. If successful, `ppData` will be set
+to the same value as `VkMemoryMapPlacedInfoEXT`::`pPlacedAddress` and
 `vkMapMemory2KHR` will return `VK_SUCCESS`. If it cannot place the map
 at the requested address for any reason, the memory object is left
 unmapped and `vkMapMemory2KHR` will return `VK_ERROR_MEMORY_MAP_FAILED`.
@@ -98,5 +98,5 @@ Copyright 2014-2024 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
 
-Version 1.3.285  
-Last updated 2024-05-10 01:10:25 -0700
+Version 1.3.290  
+Last updated 2024-07-11 23:39:16 -0700

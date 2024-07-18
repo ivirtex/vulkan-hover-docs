@@ -71,7 +71,7 @@ extensions. SPIR-V 1.4 shader modules do not need to enable those
 extensions with the `OpExtension` opcode, since they are integral parts
 of SPIR-V 1.4.
 
-SPIR-V 1.4 introduces new floating point execution mode capabilities,
+SPIR-V 1.4 introduces new floating-point execution mode capabilities,
 also available via `SPV_KHR_float_controls`. Implementations are not
 required to support all of these new capabilities; support can be
 queried using
@@ -183,5 +183,5 @@ Copyright 2014-2024 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
 
-Version 1.3.285  
-Last updated 2024-05-10 01:10:25 -0700
+Version 1.3.290  
+Last updated 2024-07-11 23:39:16 -0700

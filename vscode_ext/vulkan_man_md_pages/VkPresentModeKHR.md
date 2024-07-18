@@ -95,13 +95,13 @@ presentable images of a swapchain created for a surface **may** differ
 depending on the presentation mode, and can be determined as per the
 table below:
 
-| Presentation mode                               | Image usage flags                                                                                                       |
-|-------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------|
-| `VK_PRESENT_MODE_IMMEDIATE_KHR`                 | [VkSurfaceCapabilitiesKHR](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkSurfaceCapabilitiesKHR.html)::`supportedUsageFlags`                                        |
-| `VK_PRESENT_MODE_MAILBOX_KHR`                   | [VkSurfaceCapabilitiesKHR](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkSurfaceCapabilitiesKHR.html)::`supportedUsageFlags`                                        |
-| `VK_PRESENT_MODE_FIFO_KHR`                      | [VkSurfaceCapabilitiesKHR](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkSurfaceCapabilitiesKHR.html)::`supportedUsageFlags`                                        |
-| `VK_PRESENT_MODE_FIFO_RELAXED_KHR`              | [VkSurfaceCapabilitiesKHR](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkSurfaceCapabilitiesKHR.html)::`supportedUsageFlags`                                        |
-| `VK_PRESENT_MODE_SHARED_DEMAND_REFRESH_KHR`     | [VkSharedPresentSurfaceCapabilitiesKHR](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkSharedPresentSurfaceCapabilitiesKHR.html)::`sharedPresentSupportedUsageFlags` |
+| Presentation mode | Image usage flags |
+|----|----|
+| `VK_PRESENT_MODE_IMMEDIATE_KHR` | [VkSurfaceCapabilitiesKHR](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkSurfaceCapabilitiesKHR.html)::`supportedUsageFlags` |
+| `VK_PRESENT_MODE_MAILBOX_KHR` | [VkSurfaceCapabilitiesKHR](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkSurfaceCapabilitiesKHR.html)::`supportedUsageFlags` |
+| `VK_PRESENT_MODE_FIFO_KHR` | [VkSurfaceCapabilitiesKHR](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkSurfaceCapabilitiesKHR.html)::`supportedUsageFlags` |
+| `VK_PRESENT_MODE_FIFO_RELAXED_KHR` | [VkSurfaceCapabilitiesKHR](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkSurfaceCapabilitiesKHR.html)::`supportedUsageFlags` |
+| `VK_PRESENT_MODE_SHARED_DEMAND_REFRESH_KHR` | [VkSharedPresentSurfaceCapabilitiesKHR](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkSharedPresentSurfaceCapabilitiesKHR.html)::`sharedPresentSupportedUsageFlags` |
 | `VK_PRESENT_MODE_SHARED_CONTINUOUS_REFRESH_KHR` | [VkSharedPresentSurfaceCapabilitiesKHR](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkSharedPresentSurfaceCapabilitiesKHR.html)::`sharedPresentSupportedUsageFlags` |
 
 Table 1. Presentable image usage queries
@@ -112,7 +112,7 @@ Table 1. Presentable image usage queries
 <col style="width: 50%" />
 </colgroup>
 <tbody>
-<tr class="odd">
+<tr>
 <td class="icon"><em></em></td>
 <td class="content">Note
 <p>For reference, the mode indicated by
@@ -152,5 +152,5 @@ Copyright 2014-2024 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
 
-Version 1.3.285  
-Last updated 2024-05-10 01:10:25 -0700
+Version 1.3.290  
+Last updated 2024-07-11 23:39:16 -0700

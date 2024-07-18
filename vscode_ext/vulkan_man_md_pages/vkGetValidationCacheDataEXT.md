@@ -36,13 +36,14 @@ VkResult vkGetValidationCacheDataEXT(
 If `pData` is `NULL`, then the maximum size of the data that **can** be
 retrieved from the validation cache, in bytes, is returned in
 `pDataSize`. Otherwise, `pDataSize` **must** point to a variable set by
-the user to the size of the buffer, in bytes, pointed to by `pData`, and
-on return the variable is overwritten with the amount of data actually
-written to `pData`. If `pDataSize` is less than the maximum size that
-**can** be retrieved by the validation cache, at most `pDataSize` bytes
-will be written to `pData`, and `vkGetValidationCacheDataEXT` will
-return `VK_INCOMPLETE` instead of `VK_SUCCESS`, to indicate that not all
-of the validation cache was returned.
+the application to the size of the buffer, in bytes, pointed to by
+`pData`, and on return the variable is overwritten with the amount of
+data actually written to `pData`. If `pDataSize` is less than the
+maximum size that **can** be retrieved by the validation cache, at most
+`pDataSize` bytes will be written to `pData`, and
+`vkGetValidationCacheDataEXT` will return `VK_INCOMPLETE` instead of
+`VK_SUCCESS`, to indicate that not all of the validation cache was
+returned.
 
 Any data written to `pData` is valid and **can** be provided as the
 `pInitialData` member of the
@@ -62,11 +63,11 @@ previously retrieved data is incompatible with the device, the initial
 bytes written to `pData` **must** be a header consisting of the
 following members:
 
-| Offset | Size           | Meaning                                                                                                                                                 |
-|--------|----------------|---------------------------------------------------------------------------------------------------------------------------------------------------------|
-| 0      | 4              | length in bytes of the entire validation cache header written as a stream of bytes, with the least significant byte first                               |
-| 4      | 4              | a [VkValidationCacheHeaderVersionEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkValidationCacheHeaderVersionEXT.html) value written as a stream of bytes, with the least significant byte first |
-| 8      | `VK_UUID_SIZE` | a layer commit ID expressed as a UUID, which uniquely identifies the version of the validation layers used to generate these validation results         |
+| Offset | Size | Meaning |
+|----|----|----|
+| 0 | 4 | length in bytes of the entire validation cache header written as a stream of bytes, with the least significant byte first |
+| 4 | 4 | a [VkValidationCacheHeaderVersionEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkValidationCacheHeaderVersionEXT.html) value written as a stream of bytes, with the least significant byte first |
+| 8 | `VK_UUID_SIZE` | a layer commit ID expressed as a UUID, which uniquely identifies the version of the validation layers used to generate these validation results |
 
 Table 1. Layout for validation cache header version
 `VK_VALIDATION_CACHE_HEADER_VERSION_ONE_EXT`
@@ -149,5 +150,5 @@ Copyright 2014-2024 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
 
-Version 1.3.285  
-Last updated 2024-05-10 01:10:25 -0700
+Version 1.3.290  
+Last updated 2024-07-11 23:39:16 -0700

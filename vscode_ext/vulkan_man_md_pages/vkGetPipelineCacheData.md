@@ -35,14 +35,14 @@ VkResult vkGetPipelineCacheData(
 
 If `pData` is `NULL`, then the maximum size of the data that **can** be
 retrieved from the pipeline cache, in bytes, is returned in `pDataSize`.
-Otherwise, `pDataSize` **must** point to a variable set by the user to
-the size of the buffer, in bytes, pointed to by `pData`, and on return
-the variable is overwritten with the amount of data actually written to
-`pData`. If `pDataSize` is less than the maximum size that **can** be
-retrieved by the pipeline cache, at most `pDataSize` bytes will be
-written to `pData`, and `VK_INCOMPLETE` will be returned instead of
-`VK_SUCCESS`, to indicate that not all of the pipeline cache was
-returned.
+Otherwise, `pDataSize` **must** point to a variable set by the
+application to the size of the buffer, in bytes, pointed to by `pData`,
+and on return the variable is overwritten with the amount of data
+actually written to `pData`. If `pDataSize` is less than the maximum
+size that **can** be retrieved by the pipeline cache, at most
+`pDataSize` bytes will be written to `pData`, and `VK_INCOMPLETE` will
+be returned instead of `VK_SUCCESS`, to indicate that not all of the
+pipeline cache was returned.
 
 Any data written to `pData` is valid and **can** be provided as the
 `pInitialData` member of the
@@ -125,5 +125,5 @@ Copyright 2014-2024 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
 
-Version 1.3.285  
-Last updated 2024-05-10 01:10:25 -0700
+Version 1.3.290  
+Last updated 2024-07-11 23:39:16 -0700

@@ -76,12 +76,13 @@ This structure describes the following feature:
 
   - `VK_FORMAT_ASTC_12x12_SFLOAT_BLOCK`
 
-  To query for additional properties, or if the feature is not enabled,
-  [vkGetPhysicalDeviceFormatProperties](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkGetPhysicalDeviceFormatProperties.html)
-  and
-  [vkGetPhysicalDeviceImageFormatProperties](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkGetPhysicalDeviceImageFormatProperties.html)
-  **can** be used to check for supported properties of individual
-  formats as normal.
+    To query for additional properties, or if the feature is not
+    enabled,
+    [vkGetPhysicalDeviceFormatProperties](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkGetPhysicalDeviceFormatProperties.html)
+    and
+    [vkGetPhysicalDeviceImageFormatProperties](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkGetPhysicalDeviceImageFormatProperties.html)
+    **can** be used to check for supported properties of individual
+    formats as normal.
 
 If the `VkPhysicalDeviceTextureCompressionASTCHDRFeatures` structure is
 included in the `pNext` chain of the
@@ -123,5 +124,5 @@ Copyright 2014-2024 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
 
-Version 1.3.285  
-Last updated 2024-05-10 01:10:25 -0700
+Version 1.3.290  
+Last updated 2024-07-11 23:39:16 -0700

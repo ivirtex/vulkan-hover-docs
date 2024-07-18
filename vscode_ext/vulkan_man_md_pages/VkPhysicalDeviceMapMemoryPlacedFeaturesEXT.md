@@ -29,12 +29,12 @@ This structure describes the following features:
 
 - <span id="features-memoryMapPlaced"></span> `memoryMapPlaced`
   indicates that the implementation supports placing memory maps at
-  client-specified virtual addresses.
+  application-specified virtual addresses.
 
 - <span id="features-memoryMapRangePlaced"></span>
   `memoryMapRangePlaced` indicates that the implementation supports
   placing memory maps of a subrange of a memory object at
-  client-specified virtual addresses.
+  application-specified virtual addresses.
 
 - <span id="features-memoryUnmapReserve"></span> `memoryUnmapReserve`
   indicates that the implementation supports leaving the memory range
@@ -80,5 +80,5 @@ Copyright 2014-2024 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
 
-Version 1.3.285  
-Last updated 2024-05-10 01:10:25 -0700
+Version 1.3.290  
+Last updated 2024-07-11 23:39:16 -0700

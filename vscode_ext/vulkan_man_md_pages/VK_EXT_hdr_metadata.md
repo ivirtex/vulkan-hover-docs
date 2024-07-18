@@ -12,7 +12,7 @@ VK_EXT_hdr_metadata - device extension
 
 ## <a href="#_revision" class="anchor"></a>Revision
 
-2
+3
 
 ## <a href="#_ratification_status" class="anchor"></a>Ratification Status
 
@@ -31,7 +31,7 @@ Ratified
 ## <a href="#_other_extension_metadata" class="anchor"></a>Other Extension Metadata
 
 **Last Modified Date**  
-2018-12-19
+2024-03-26
 
 **IP Status**  
 No known IP claims.
@@ -39,30 +39,37 @@ No known IP claims.
 **Contributors**  
 - Courtney Goeltzenleuchter, Google
 
+- Sebastian Wick, Red Hat Inc.
+
+- Tobias Hector, AMD
+
 ## <a href="#_description" class="anchor"></a>Description
 
 This extension defines two new structures and a function to assign SMPTE
 (the Society of Motion Picture and Television Engineers) 2086 metadata
 and CTA (Consumer Technology Association) 861.3 metadata to a swapchain.
-The metadata includes the color primaries, white point, and luminance
-range of the reference monitor, which all together define the color
-volume containing all the possible colors the reference monitor can
-produce. The reference monitor is the display where creative work is
-done and creative intent is established. To preserve such creative
-intent as much as possible and achieve consistent color reproduction on
-different viewing displays, it is useful for the display pipeline to
-know the color volume of the original reference monitor where content
-was created or tuned. This avoids performing unnecessary mapping of
-colors that are not displayable on the original reference monitor. The
-metadata also includes the `maxContentLightLevel` and
-`maxFrameAverageLightLevel` as defined by CTA 861.3.
 
-While the intended purpose of the metadata is to assist in the
-transformation between different color volumes of different displays and
-help achieve better color reproduction, it is not in the scope of this
-extension to define how exactly the metadata should be used in such a
-process. It is up to the implementation to determine how to make use of
-the metadata.
+SMPTE 2086 metadata defines the color volume of the display on which the
+content was optimized for viewing and includes the color primaries,
+white point, and luminance range. When such content is reproduced on
+another display, this metadata can be used by the presentation engine to
+improve processing of images. For instance, values in the image can
+first be clamped to the color volume described in the metadata, and then
+what remains can be remapped to the color volume of the presentation
+engine.
+
+CTA 861.3 metadata additionally includes the maximum intended luminance
+for the content and the maximum average light level across frames.
+
+This extension does not define exactly how this metadata is used,
+however, it simply provides a mechanism to provide it to the
+presentation engine. Presentation engines may process the image based on
+the metadata before displaying it, resulting in the image being modified
+outside of Vulkan. For example, the clamping of colors in the image to
+the color volume may change those values in the image itself.
+
+The metadata does not override or otherwise influence the color space
+and color encoding.
 
 ## <a href="#_new_commands" class="anchor"></a>New Commands
 
@@ -86,14 +93,16 @@ the metadata.
 
 ## <a href="#_issues" class="anchor"></a>Issues
 
-1\) Do we need a query function?
+1\) Do we need a query function for the currently specified metadata?
 
-**PROPOSED**: No, Vulkan does not provide queries for state that the
-application can track on its own.
+No, Vulkan does not provide queries for state that the application can
+track on its own.
 
-2\) Should we specify default if not specified by the application?
+2\) Should we specify default metadata if not specified by the
+application?
 
-**PROPOSED**: No, that leaves the default up to the display.
+No, the metadata is optional and the absence of the metadata is
+well-defined.
 
 ## <a href="#_version_history" class="anchor"></a>Version History
 
@@ -104,6 +113,10 @@ application can track on its own.
 - Revision 2, 2018-12-19 (Courtney Goeltzenleuchter)
 
   - Correct implicit validity for VkHdrMetadataEXT structure
+
+- Revision 3, 2024-03-26 (Tobias Hector & Sebastian Wick)
+
+  - Clarifications and removal of erroneous "reference monitor" term
 
 ## <a href="#_see_also" class="anchor"></a>See Also
 
@@ -124,5 +137,5 @@ Copyright 2014-2024 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
 
-Version 1.3.285  
-Last updated 2024-05-10 01:10:25 -0700
+Version 1.3.290  
+Last updated 2024-07-11 23:39:16 -0700

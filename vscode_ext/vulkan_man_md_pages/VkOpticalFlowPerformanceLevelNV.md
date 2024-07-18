@@ -8,8 +8,8 @@ VkOpticalFlowPerformanceLevelNV - Optical flow performance level types
 
 ## <a href="#_c_specification" class="anchor"></a>C Specification
 
-Optical flow exposes performance levels which the user can choose based
-on the desired performance and quality requirement.
+Optical flow exposes performance levels which the application **can**
+choose based on the desired performance and quality requirement.
 
 The optical flow performance level types are defined with the following:
 
@@ -54,5 +54,5 @@ Copyright 2014-2024 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
 
-Version 1.3.285  
-Last updated 2024-05-10 01:10:25 -0700
+Version 1.3.290  
+Last updated 2024-07-11 23:39:16 -0700

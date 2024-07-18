@@ -390,7 +390,7 @@ typedef VkPipelineStageFlagBits2 VkPipelineStageFlagBits2KHR;
 <col style="width: 50%" />
 </colgroup>
 <tbody>
-<tr class="odd">
+<tr>
 <td class="icon"><em></em></td>
 <td class="content">Note
 <p>The <code>TOP</code> and <code>BOTTOM</code> pipeline stages are
@@ -407,7 +407,7 @@ deprecated, and applications should prefer
 <col style="width: 50%" />
 </colgroup>
 <tbody>
-<tr class="odd">
+<tr>
 <td class="icon"><em></em></td>
 <td class="content">Note
 <p>The <code>VkPipelineStageFlags2</code> bitmask goes beyond the 31
@@ -422,7 +422,8 @@ interchangeable.</p></td>
 ## <a href="#_see_also" class="anchor"></a>See Also
 
 [VK_KHR_synchronization2](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_KHR_synchronization2.html),
-[VK_VERSION_1_3](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_VERSION_1_3.html)
+[VK_VERSION_1_3](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_VERSION_1_3.html),
+[VkPipelineStageFlags2](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkPipelineStageFlags2.html)
 
 ## <a href="#_document_notes" class="anchor"></a>Document Notes
 
@@ -439,5 +440,5 @@ Copyright 2014-2024 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
 
-Version 1.3.285  
-Last updated 2024-05-10 01:10:25 -0700
+Version 1.3.290  
+Last updated 2024-07-11 23:39:16 -0700

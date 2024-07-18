@@ -54,6 +54,13 @@ render pass instance that has multiview enabled, the stripe includes all
 views in the view mask. In a render pass instance with `layerCount`
 greater than 1, the stripe includes all layers.
 
+Render pass instances that specify the `VK_RENDERING_RESUMING_BIT` will
+not have any elements of `pStripeSemaphoreInfos` mapped to them.
+Instead, for suspending and resuming render pass instances, this mapping
+is done for the first suspending render pass instance, and the
+per-stripe semaphores are only signaled for the last resuming render
+pass instance.
+
 Valid Usage
 
 - <a href="#VUID-VkRenderPassStripeSubmitInfoARM-semaphore-09447"
@@ -106,5 +113,5 @@ Copyright 2014-2024 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
 
-Version 1.3.285  
-Last updated 2024-05-10 01:10:25 -0700
+Version 1.3.290  
+Last updated 2024-07-11 23:39:16 -0700

@@ -336,7 +336,7 @@ typedef VkAccessFlagBits2 VkAccessFlagBits2KHR;
   pipeline stage.
 
 - `VK_ACCESS_2_INVOCATION_MASK_READ_BIT_HUAWEI` specifies read access to
-  a invocation mask image in the
+  an invocation mask image in the
   `VK_PIPELINE_STAGE_2_INVOCATION_MASK_BIT_HUAWEI` pipeline stage.
 
 - `VK_ACCESS_2_ACCELERATION_STRUCTURE_READ_BIT_KHR` specifies read
@@ -443,7 +443,7 @@ typedef VkAccessFlagBits2 VkAccessFlagBits2KHR;
 <col style="width: 50%" />
 </colgroup>
 <tbody>
-<tr class="odd">
+<tr>
 <td class="icon"><em></em></td>
 <td class="content">Note
 <p>In situations where an application wishes to select all access types
@@ -462,7 +462,7 @@ access type.</p></td>
 <col style="width: 50%" />
 </colgroup>
 <tbody>
-<tr class="odd">
+<tr>
 <td class="icon"><em></em></td>
 <td class="content">Note
 <p>The <code>VkAccessFlags2</code> bitmask goes beyond the 31 individual
@@ -476,7 +476,8 @@ href="VkAccessFlagBits.html">VkAccessFlagBits</a> is defined. The first
 ## <a href="#_see_also" class="anchor"></a>See Also
 
 [VK_KHR_synchronization2](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_KHR_synchronization2.html),
-[VK_VERSION_1_3](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_VERSION_1_3.html)
+[VK_VERSION_1_3](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_VERSION_1_3.html),
+[VkAccessFlags2](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkAccessFlags2.html)
 
 ## <a href="#_document_notes" class="anchor"></a>Document Notes
 
@@ -493,5 +494,5 @@ Copyright 2014-2024 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
 
-Version 1.3.285  
-Last updated 2024-05-10 01:10:25 -0700
+Version 1.3.290  
+Last updated 2024-07-11 23:39:16 -0700

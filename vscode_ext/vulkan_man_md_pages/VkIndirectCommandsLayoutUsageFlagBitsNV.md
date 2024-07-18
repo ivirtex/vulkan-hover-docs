@@ -34,8 +34,8 @@ typedef enum VkIndirectCommandsLayoutUsageFlagBitsNV {
 
 - `VK_INDIRECT_COMMANDS_LAYOUT_USAGE_INDEXED_SEQUENCES_BIT_NV` specifies
   that the input data for the sequences is not implicitly indexed from
-  0..sequencesUsed but a user provided `VkBuffer` encoding the index is
-  provided.
+  0..sequencesUsed, but an application-provided `VkBuffer` encoding the
+  index is provided.
 
 - `VK_INDIRECT_COMMANDS_LAYOUT_USAGE_UNORDERED_SEQUENCES_BIT_NV`
   specifies that the processing of sequences **can** happen at an
@@ -64,5 +64,5 @@ Copyright 2014-2024 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
 
-Version 1.3.285  
-Last updated 2024-05-10 01:10:25 -0700
+Version 1.3.290  
+Last updated 2024-07-11 23:39:16 -0700

@@ -113,14 +113,27 @@ Valid Usage
   `VkFramebuffer` **must** match the `VkFramebuffer` used in the current
   render pass instance
 
-- <a href="#VUID-vkCmdExecuteCommands-contents-06018"
-  id="VUID-vkCmdExecuteCommands-contents-06018"></a>
-  VUID-vkCmdExecuteCommands-contents-06018  
+- <a href="#VUID-vkCmdExecuteCommands-contents-09680"
+  id="VUID-vkCmdExecuteCommands-contents-09680"></a>
+  VUID-vkCmdExecuteCommands-contents-09680  
   If `vkCmdExecuteCommands` is being called within a render pass
   instance begun with [vkCmdBeginRenderPass](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdBeginRenderPass.html),
-  its `contents` parameter **must** have been set to
-  `VK_SUBPASS_CONTENTS_SECONDARY_COMMAND_BUFFERS` , or
+  and [vkCmdNextSubpass](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdNextSubpass.html) has not been called in
+  the current render pass instance, the `contents` parameter of
+  [vkCmdBeginRenderPass](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdBeginRenderPass.html) **must** have been
+  set to `VK_SUBPASS_CONTENTS_SECONDARY_COMMAND_BUFFERS` , or
   `VK_SUBPASS_CONTENTS_INLINE_AND_SECONDARY_COMMAND_BUFFERS_EXT`
+
+- <a href="#VUID-vkCmdExecuteCommands-None-09681"
+  id="VUID-vkCmdExecuteCommands-None-09681"></a>
+  VUID-vkCmdExecuteCommands-None-09681  
+  If `vkCmdExecuteCommands` is being called within a render pass
+  instance begun with [vkCmdBeginRenderPass](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdBeginRenderPass.html),
+  and [vkCmdNextSubpass](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdNextSubpass.html) has been called in the
+  current render pass instance, the `contents` parameter of the last
+  call to [vkCmdNextSubpass](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdNextSubpass.html) **must** have been
+  set to `VK_SUBPASS_CONTENTS_SECONDARY_COMMAND_BUFFERS` , or
+  `VK_SUBPASS_CONTENTS_INLINE_AND_SECONDARY_COMMAND_BUFFERS_KHR`
 
 - <a href="#VUID-vkCmdExecuteCommands-pCommandBuffers-06019"
   id="VUID-vkCmdExecuteCommands-pCommandBuffers-06019"></a>
@@ -782,7 +795,7 @@ Command Properties
 <col style="width: 20%" />
 </colgroup>
 <thead>
-<tr class="header">
+<tr>
 <th class="tableblock halign-left valign-top"><a
 href="#VkCommandBufferLevel">Command Buffer Levels</a></th>
 <th class="tableblock halign-left valign-top"><a
@@ -796,7 +809,7 @@ href="#fundamentals-queueoperation-command-types">Command Type</a></th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td class="tableblock halign-left valign-top"><p>Primary<br />
 Secondary</p></td>
 <td class="tableblock halign-left valign-top"><p>Both</p></td>
@@ -829,5 +842,5 @@ Copyright 2014-2024 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
 
-Version 1.3.285  
-Last updated 2024-05-10 01:10:25 -0700
+Version 1.3.290  
+Last updated 2024-07-11 23:39:16 -0700

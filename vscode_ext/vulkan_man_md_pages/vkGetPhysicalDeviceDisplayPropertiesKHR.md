@@ -35,8 +35,8 @@ VkResult vkGetPhysicalDeviceDisplayPropertiesKHR(
 
 If `pProperties` is `NULL`, then the number of display devices available
 for `physicalDevice` is returned in `pPropertyCount`. Otherwise,
-`pPropertyCount` **must** point to a variable set by the user to the
-number of elements in the `pProperties` array, and on return the
+`pPropertyCount` **must** point to a variable set by the application to
+the number of elements in the `pProperties` array, and on return the
 variable is overwritten with the number of structures actually written
 to `pProperties`. If the value of `pPropertyCount` is less than the
 number of display devices for `physicalDevice`, at most `pPropertyCount`
@@ -101,5 +101,5 @@ Copyright 2014-2024 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
 
-Version 1.3.285  
-Last updated 2024-05-10 01:10:25 -0700
+Version 1.3.290  
+Last updated 2024-07-11 23:39:16 -0700

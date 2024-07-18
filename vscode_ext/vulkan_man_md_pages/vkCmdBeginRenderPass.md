@@ -229,11 +229,16 @@ Valid Usage
   id="VUID-vkCmdBeginRenderPass-contents-09640"></a>
   VUID-vkCmdBeginRenderPass-contents-09640  
   If `contents` is
-  `VK_SUBPASS_CONTENTS_INLINE_AND_SECONDARY_COMMAND_BUFFERS_EXT`, then
-  <a
-  href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#features-nestedCommandBuffer"
-  target="_blank" rel="noopener"><code>nestedCommandBuffer</code></a>
-  **must** be enabled
+  `VK_SUBPASS_CONTENTS_INLINE_AND_SECONDARY_COMMAND_BUFFERS_KHR`, then
+  at least one of the following features **must** be enabled:
+
+  - <a
+    href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#features-maintenance7"
+    target="_blank" rel="noopener"><code>maintenance7</code></a>
+
+  - <a
+    href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#features-nestedCommandBuffer"
+    target="_blank" rel="noopener"><code>nestedCommandBuffer</code></a>
 
 Valid Usage (Implicit)
 
@@ -300,7 +305,7 @@ Command Properties
 <col style="width: 20%" />
 </colgroup>
 <thead>
-<tr class="header">
+<tr>
 <th class="tableblock halign-left valign-top"><a
 href="#VkCommandBufferLevel">Command Buffer Levels</a></th>
 <th class="tableblock halign-left valign-top"><a
@@ -314,7 +319,7 @@ href="#fundamentals-queueoperation-command-types">Command Type</a></th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td class="tableblock halign-left valign-top"><p>Primary</p></td>
 <td class="tableblock halign-left valign-top"><p>Outside</p></td>
 <td class="tableblock halign-left valign-top"><p>Outside</p></td>
@@ -348,5 +353,5 @@ Copyright 2014-2024 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
 
-Version 1.3.285  
-Last updated 2024-05-10 01:10:25 -0700
+Version 1.3.290  
+Last updated 2024-07-11 23:39:16 -0700

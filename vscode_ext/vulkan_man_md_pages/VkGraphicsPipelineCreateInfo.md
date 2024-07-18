@@ -66,7 +66,8 @@ typedef struct VkGraphicsPipelineCreateInfo {
   structure which determines input assembly behavior for vertex shading,
   as described in <a
   href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#drawing"
-  target="_blank" rel="noopener">Drawing Commands</a>. If the
+  target="_blank" rel="noopener">Drawing Commands</a>.
+  <span id="pipelines-pInputAssemblyState-null"></span> If the
   [`VK_EXT_extended_dynamic_state3`](VK_EXT_extended_dynamic_state3.html)
   extension is enabled, it **can** be `NULL` if the pipeline is created
   with both `VK_DYNAMIC_STATE_PRIMITIVE_RESTART_ENABLE`, and
@@ -86,7 +87,7 @@ typedef struct VkGraphicsPipelineCreateInfo {
 - `pViewportState` is a pointer to a
   [VkPipelineViewportStateCreateInfo](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkPipelineViewportStateCreateInfo.html)
   structure defining viewport state used when rasterization is enabled.
-  If the
+  <span id="pipelines-pViewportState-null"></span> If the
   [`VK_EXT_extended_dynamic_state3`](VK_EXT_extended_dynamic_state3.html)
   extension is enabled, it **can** be `NULL` if the pipeline is created
   with both `VK_DYNAMIC_STATE_VIEWPORT_WITH_COUNT`, and
@@ -94,7 +95,8 @@ typedef struct VkGraphicsPipelineCreateInfo {
 
 - `pRasterizationState` is a pointer to a
   [VkPipelineRasterizationStateCreateInfo](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkPipelineRasterizationStateCreateInfo.html)
-  structure defining rasterization state. If the
+  structure defining rasterization state.
+  <span id="pipelines-pRasterizationState-null"></span> If the
   [`VK_EXT_extended_dynamic_state3`](VK_EXT_extended_dynamic_state3.html)
   extension is enabled, it **can** be `NULL` if the pipeline is created
   with all of `VK_DYNAMIC_STATE_DEPTH_CLAMP_ENABLE_EXT`,
@@ -107,7 +109,7 @@ typedef struct VkGraphicsPipelineCreateInfo {
 - `pMultisampleState` is a pointer to a
   [VkPipelineMultisampleStateCreateInfo](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkPipelineMultisampleStateCreateInfo.html)
   structure defining multisample state used when rasterization is
-  enabled. If the
+  enabled. <span id="pipelines-pMultisampleState-null"></span> If the
   [`VK_EXT_extended_dynamic_state3`](VK_EXT_extended_dynamic_state3.html)
   extension is enabled, it **can** be `NULL` if the pipeline is created
   with all of `VK_DYNAMIC_STATE_RASTERIZATION_SAMPLES_EXT`,
@@ -124,8 +126,8 @@ typedef struct VkGraphicsPipelineCreateInfo {
 - `pDepthStencilState` is a pointer to a
   [VkPipelineDepthStencilStateCreateInfo](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkPipelineDepthStencilStateCreateInfo.html)
   structure defining depth/stencil state used when rasterization is
-  enabled for depth or stencil attachments accessed during rendering. If
-  the
+  enabled for depth or stencil attachments accessed during rendering.
+  <span id="pipelines-pDepthStencilState-null"></span> If the
   [`VK_EXT_extended_dynamic_state3`](VK_EXT_extended_dynamic_state3.html)
   extension is enabled, it **can** be `NULL` if the pipeline is created
   with all of `VK_DYNAMIC_STATE_DEPTH_TEST_ENABLE`,
@@ -138,7 +140,8 @@ typedef struct VkGraphicsPipelineCreateInfo {
 - `pColorBlendState` is a pointer to a
   [VkPipelineColorBlendStateCreateInfo](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkPipelineColorBlendStateCreateInfo.html)
   structure defining color blend state used when rasterization is
-  enabled for any color attachments accessed during rendering. If the
+  enabled for any color attachments accessed during rendering.
+  <span id="pipelines-pColorBlendState-null"></span> If the
   [`VK_EXT_extended_dynamic_state3`](VK_EXT_extended_dynamic_state3.html)
   extension is enabled, it **can** be `NULL` if the pipeline is created
   with all of `VK_DYNAMIC_STATE_LOGIC_OP_ENABLE_EXT`,
@@ -191,7 +194,7 @@ generated.
 <col style="width: 50%" />
 </colgroup>
 <tbody>
-<tr class="odd">
+<tr>
 <td class="icon"><em></em></td>
 <td class="content">Note
 <p>With <a
@@ -457,9 +460,9 @@ a [VkPipelineLayout](https://registry.khronos.org/vulkan/specs/1.3-extensions/ma
 href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#descriptorsets-compatibility"
 target="_blank" rel="noopener">compatible</a> with this union.
 
-If a
+If the `pNext` chain includes a
 [VkPipelineCreateFlags2CreateInfoKHR](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkPipelineCreateFlags2CreateInfoKHR.html)
-structure is present in the `pNext` chain,
+structure,
 [VkPipelineCreateFlags2CreateInfoKHR](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkPipelineCreateFlags2CreateInfoKHR.html)::`flags`
 from that structure is used instead of `flags` from this structure.
 
@@ -928,11 +931,9 @@ Valid Usage
   target="_blank" rel="noopener">pre-rasterization shader state</a>, and
   the `VK_DYNAMIC_STATE_RASTERIZER_DISCARD_ENABLE` dynamic state is
   enabled or the `rasterizerDiscardEnable` member of
-  `pRasterizationState` is `VK_FALSE`, and either the
-  [`VK_EXT_extended_dynamic_state3`](VK_EXT_extended_dynamic_state3.html)
-  extension is not enabled, or either the
-  `VK_DYNAMIC_STATE_VIEWPORT_WITH_COUNT` or
-  `VK_DYNAMIC_STATE_SCISSOR_WITH_COUNT` dynamic states are not set,
+  `pRasterizationState` is `VK_FALSE`, and <a
+  href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#pipelines-pViewportState-null"
+  target="_blank" rel="noopener">related dynamic state is not set</a>,
   `pViewportState` **must** be a valid pointer to a valid
   [VkPipelineViewportStateCreateInfo](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkPipelineViewportStateCreateInfo.html)
   structure
@@ -993,15 +994,9 @@ Valid Usage
   pipeline is being created with <a
   href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#pipelines-graphics-subsets-fragment-shader"
   target="_blank" rel="noopener">fragment shader state</a>, and
-  `subpass` uses a depth/stencil attachment, and the
-  [`VK_EXT_extended_dynamic_state3`](VK_EXT_extended_dynamic_state3.html)
-  extension is not enabled or, any of the
-  `VK_DYNAMIC_STATE_DEPTH_TEST_ENABLE`,
-  `VK_DYNAMIC_STATE_DEPTH_WRITE_ENABLE`,
-  `VK_DYNAMIC_STATE_DEPTH_COMPARE_OP`,
-  `VK_DYNAMIC_STATE_DEPTH_BOUNDS_TEST_ENABLE`,
-  `VK_DYNAMIC_STATE_STENCIL_TEST_ENABLE`, `VK_DYNAMIC_STATE_STENCIL_OP`,
-  or `VK_DYNAMIC_STATE_DEPTH_BOUNDS` dynamic states are not set,
+  `subpass` uses a depth/stencil attachment, and <a
+  href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#pipelines-pDepthStencilState-null"
+  target="_blank" rel="noopener">related dynamic state is not set</a>,
   `pDepthStencilState` **must** be a valid pointer to a valid
   [VkPipelineDepthStencilStateCreateInfo](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkPipelineDepthStencilStateCreateInfo.html)
   structure
@@ -1021,15 +1016,9 @@ Valid Usage
   pipeline is being created with <a
   href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#pipelines-graphics-subsets-fragment-output"
   target="_blank" rel="noopener">fragment output interface state</a>,
-  and `subpass` uses color attachments, and
-  [`VK_EXT_extended_dynamic_state3`](VK_EXT_extended_dynamic_state3.html)
-  extension is not enabled, or any of the
-  `VK_DYNAMIC_STATE_LOGIC_OP_ENABLE_EXT`,
-  `VK_DYNAMIC_STATE_LOGIC_OP_EXT`,
-  `VK_DYNAMIC_STATE_COLOR_BLEND_ENABLE_EXT`,
-  `VK_DYNAMIC_STATE_COLOR_BLEND_EQUATION_EXT`,
-  `VK_DYNAMIC_STATE_COLOR_WRITE_MASK_EXT`, or
-  `VK_DYNAMIC_STATE_BLEND_CONSTANTS` dynamic states are not set,
+  and `subpass` uses color attachments, and <a
+  href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#pipelines-pColorBlendState-null"
+  target="_blank" rel="noopener">related dynamic state is not set</a>,
   `pColorBlendState` **must** be a valid pointer to a valid
   [VkPipelineColorBlendStateCreateInfo](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkPipelineColorBlendStateCreateInfo.html)
   structure
@@ -1463,17 +1452,10 @@ Valid Usage
   VUID-VkGraphicsPipelineCreateInfo-dynamicPrimitiveTopologyUnrestricted-09031  
   If the pipeline requires <a
   href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#pipelines-graphics-subsets-vertex-input"
-  target="_blank" rel="noopener">vertex input state</a>, and the
-  [`VK_EXT_extended_dynamic_state3`](VK_EXT_extended_dynamic_state3.html)
-  extension is not enabled, or either
-  `VK_DYNAMIC_STATE_PRIMITIVE_RESTART_ENABLE`, or
-  `VK_DYNAMIC_STATE_PRIMITIVE_TOPOLOGY` dynamic states are not set, or
-  <a
-  href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#limits-dynamicPrimitiveTopologyUnrestricted"
-  target="_blank"
-  rel="noopener"><code>dynamicPrimitiveTopologyUnrestricted</code></a>
-  is `VK_FALSE`, `pInputAssemblyState` **must** be a valid pointer to a
-  valid
+  target="_blank" rel="noopener">vertex input state</a>, and <a
+  href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#pipelines-pInputAssemblyState-null"
+  target="_blank" rel="noopener">related dynamic state is not set</a>,
+  `pInputAssemblyState` **must** be a valid pointer to a valid
   [VkPipelineInputAssemblyStateCreateInfo](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkPipelineInputAssemblyStateCreateInfo.html)
   structure
 
@@ -2892,6 +2874,19 @@ Valid Usage
   target="_blank" rel="noopener">fragment shader state</a>, `stageCount`
   **must** be zero
 
+- <a href="#VUID-VkGraphicsPipelineCreateInfo-pRasterizationState-06601"
+  id="VUID-VkGraphicsPipelineCreateInfo-pRasterizationState-06601"></a>
+  VUID-VkGraphicsPipelineCreateInfo-pRasterizationState-06601  
+  If the pipeline requires <a
+  href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#pipelines-graphics-subsets-pre-rasterization"
+  target="_blank" rel="noopener">pre-rasterization shader state</a>, and
+  <a
+  href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#pipelines-pRasterizationState-null"
+  target="_blank" rel="noopener">related dynamic state is not set</a>,
+  `pRasterizationState` **must** be a valid pointer to a valid
+  [VkPipelineRasterizationStateCreateInfo](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkPipelineRasterizationStateCreateInfo.html)
+  structure
+
 - <a href="#VUID-VkGraphicsPipelineCreateInfo-pRasterizationState-09039"
   id="VUID-VkGraphicsPipelineCreateInfo-pRasterizationState-09039"></a>
   VUID-VkGraphicsPipelineCreateInfo-pRasterizationState-09039  
@@ -2899,17 +2894,10 @@ Valid Usage
   [VkGraphicsPipelineLibraryCreateInfoEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkGraphicsPipelineLibraryCreateInfoEXT.html)::`flags`
   includes
   `VK_GRAPHICS_PIPELINE_LIBRARY_PRE_RASTERIZATION_SHADERS_BIT_EXT`, and
-  the
-  [`VK_EXT_extended_dynamic_state3`](VK_EXT_extended_dynamic_state3.html)
-  extension is not enabled, or any of the
-  `VK_DYNAMIC_STATE_RASTERIZATION_SAMPLES_EXT`,
-  `VK_DYNAMIC_STATE_SAMPLE_MASK_EXT`, or
-  `VK_DYNAMIC_STATE_ALPHA_TO_COVERAGE_ENABLE_EXT` dynamic states are not
-  set, or <a
-  href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#features-alphaToOne"
-  target="_blank" rel="noopener">alphaToOne</a> is enabled on the device
-  and `VK_DYNAMIC_STATE_ALPHA_TO_ONE_ENABLE_EXT` is not set, then
-  `pMultisampleState` **must** be a valid pointer to a valid
+  <a
+  href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#pipelines-pMultisampleState-null"
+  target="_blank" rel="noopener">related dynamic state is not set</a>,
+  then `pMultisampleState` **must** be a valid pointer to a valid
   [VkPipelineMultisampleStateCreateInfo](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkPipelineMultisampleStateCreateInfo.html)
   structure
 
@@ -4714,5 +4702,5 @@ Copyright 2014-2024 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
 
-Version 1.3.285  
-Last updated 2024-05-10 01:10:25 -0700
+Version 1.3.290  
+Last updated 2024-07-11 23:39:16 -0700

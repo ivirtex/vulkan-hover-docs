@@ -10,7 +10,7 @@ handle
 ## <a href="#_c_specification" class="anchor"></a>C Specification
 
 To allow constructing geometry instances with device code if desired, we
-need to be able to query a opaque handle for an acceleration structure.
+need to be able to query an opaque handle for an acceleration structure.
 This handle is a value of 8 bytes. To get this handle, call:
 
 ``` c
@@ -30,8 +30,8 @@ VkResult vkGetAccelerationStructureHandleNV(
 
 - `dataSize` is the size in bytes of the buffer pointed to by `pData`.
 
-- `pData` is a pointer to a user-allocated buffer where the results will
-  be written.
+- `pData` is a pointer to an application-allocated buffer where the
+  results will be written.
 
 ## <a href="#_description" class="anchor"></a>Description
 
@@ -113,5 +113,5 @@ Copyright 2014-2024 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
 
-Version 1.3.285  
-Last updated 2024-05-10 01:10:25 -0700
+Version 1.3.290  
+Last updated 2024-07-11 23:39:16 -0700

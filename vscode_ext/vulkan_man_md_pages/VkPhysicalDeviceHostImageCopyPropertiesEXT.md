@@ -76,7 +76,7 @@ are supported in
 and
 [VkCopyImageToImageInfoEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkCopyImageToImageInfoEXT.html)::`dstImageLayout`
 is returned in `copyDstLayoutCount`. Otherwise, `copyDstLayoutCount`
-**must** be set by the user to the number of elements in the
+**must** be set by the application to the number of elements in the
 `pCopyDstLayouts` array, and on return the variable is overwritten with
 the number of values actually written to `pCopyDstLayouts`. If the value
 of `copyDstLayoutCount` is less than the number of image layouts that
@@ -90,7 +90,7 @@ are supported in
 and
 [VkCopyImageToImageInfoEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkCopyImageToImageInfoEXT.html)::`srcImageLayout`
 is returned in `copySrcLayoutCount`. Otherwise, `copySrcLayoutCount`
-**must** be set by the user to the number of elements in the
+**must** be set by the application to the number of elements in the
 `pCopySrcLayouts` array, and on return the variable is overwritten with
 the number of values actually written to `pCopySrcLayouts`. If the value
 of `copySrcLayoutCount` is less than the number of image layouts that
@@ -148,5 +148,5 @@ Copyright 2014-2024 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
 
-Version 1.3.285  
-Last updated 2024-05-10 01:10:25 -0700
+Version 1.3.290  
+Last updated 2024-07-11 23:39:16 -0700

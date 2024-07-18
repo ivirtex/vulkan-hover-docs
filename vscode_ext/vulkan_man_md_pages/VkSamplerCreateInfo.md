@@ -121,8 +121,9 @@ typedef struct VkSamplerCreateInfo {
 
   - The image view **must** have a single layer and a single mip level.
 
-  When `unnormalizedCoordinates` is `VK_TRUE`, image built-in functions
-  in the shader that use the sampler have the following requirements:
+    When `unnormalizedCoordinates` is `VK_TRUE`, image built-in
+    functions in the shader that use the sampler have the following
+    requirements:
 
   - The functions **must** not use projection.
 
@@ -136,7 +137,7 @@ typedef struct VkSamplerCreateInfo {
 <col style="width: 50%" />
 </colgroup>
 <tbody>
-<tr class="odd">
+<tr>
 <td class="icon"><em></em></td>
 <td class="content">Mapping of OpenGL to Vulkan filter modes
 <p><code>magFilter</code> values of <code>VK_FILTER_NEAREST</code> and
@@ -181,7 +182,7 @@ rel="noopener"><code>maxSamplerAllocationCount</code></a> member of the
 <col style="width: 50%" />
 </colgroup>
 <tbody>
-<tr class="odd">
+<tr>
 <td class="icon"><em></em></td>
 <td class="content">Note
 <p>For historical reasons, if <code>maxSamplerAllocationCount</code> is
@@ -356,7 +357,7 @@ Valid Usage
   VUID-VkSamplerCreateInfo-magFilter-07911  
   If the [VK_EXT_filter_cubic](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_EXT_filter_cubic.html) extension is
   not enabled and either `magFilter` or `minFilter` is
-  `VK_FILTER_CUBIC_EXT`, the `reductionMode` member of
+  `VK_FILTER_CUBIC_IMG`, the `reductionMode` member of
   [VkSamplerReductionModeCreateInfo](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkSamplerReductionModeCreateInfo.html)
   **must** be `VK_SAMPLER_REDUCTION_MODE_WEIGHTED_AVERAGE`
 
@@ -617,5 +618,5 @@ Copyright 2014-2024 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
 
-Version 1.3.285  
-Last updated 2024-05-10 01:10:25 -0700
+Version 1.3.290  
+Last updated 2024-07-11 23:39:16 -0700

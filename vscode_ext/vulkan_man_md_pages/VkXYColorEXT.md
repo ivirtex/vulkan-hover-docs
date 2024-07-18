@@ -28,7 +28,7 @@ typedef struct VkXYColorEXT {
 
 Chromaticity coordinates are as specified in CIE 15:2004 “Calculation of
 chromaticity coordinates” (Section 7.3) and are limited to between 0 and
-1 for real colors for the reference monitor.
+1 for real colors.
 
 ## <a href="#_see_also" class="anchor"></a>See Also
 
@@ -50,5 +50,5 @@ Copyright 2014-2024 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
 
-Version 1.3.285  
-Last updated 2024-05-10 01:10:25 -0700
+Version 1.3.290  
+Last updated 2024-07-11 23:39:16 -0700

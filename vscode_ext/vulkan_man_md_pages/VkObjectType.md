@@ -103,55 +103,55 @@ typedef enum VkObjectType {
 
 ## <a href="#_description" class="anchor"></a>Description
 
-| [VkObjectType](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkObjectType.html)                | Vulkan Handle Type                                                      |
-|--------------------------------------------------|-------------------------------------------------------------------------|
-| `VK_OBJECT_TYPE_UNKNOWN`                         | Unknown/Undefined Handle                                                |
-| `VK_OBJECT_TYPE_INSTANCE`                        | [VkInstance](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkInstance.html)                                           |
-| `VK_OBJECT_TYPE_PHYSICAL_DEVICE`                 | [VkPhysicalDevice](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkPhysicalDevice.html)                               |
-| `VK_OBJECT_TYPE_DEVICE`                          | [VkDevice](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkDevice.html)                                               |
-| `VK_OBJECT_TYPE_QUEUE`                           | [VkQueue](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkQueue.html)                                                 |
-| `VK_OBJECT_TYPE_SEMAPHORE`                       | [VkSemaphore](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkSemaphore.html)                                         |
-| `VK_OBJECT_TYPE_COMMAND_BUFFER`                  | [VkCommandBuffer](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkCommandBuffer.html)                                 |
-| `VK_OBJECT_TYPE_FENCE`                           | [VkFence](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkFence.html)                                                 |
-| `VK_OBJECT_TYPE_DEVICE_MEMORY`                   | [VkDeviceMemory](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkDeviceMemory.html)                                   |
-| `VK_OBJECT_TYPE_BUFFER`                          | [VkBuffer](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkBuffer.html)                                               |
-| `VK_OBJECT_TYPE_IMAGE`                           | [VkImage](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkImage.html)                                                 |
-| `VK_OBJECT_TYPE_EVENT`                           | [VkEvent](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkEvent.html)                                                 |
-| `VK_OBJECT_TYPE_QUERY_POOL`                      | [VkQueryPool](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkQueryPool.html)                                         |
-| `VK_OBJECT_TYPE_BUFFER_VIEW`                     | [VkBufferView](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkBufferView.html)                                       |
-| `VK_OBJECT_TYPE_IMAGE_VIEW`                      | [VkImageView](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkImageView.html)                                         |
-| `VK_OBJECT_TYPE_SHADER_MODULE`                   | [VkShaderModule](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkShaderModule.html)                                   |
-| `VK_OBJECT_TYPE_PIPELINE_CACHE`                  | [VkPipelineCache](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkPipelineCache.html)                                 |
-| `VK_OBJECT_TYPE_PIPELINE_LAYOUT`                 | [VkPipelineLayout](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkPipelineLayout.html)                               |
-| `VK_OBJECT_TYPE_RENDER_PASS`                     | [VkRenderPass](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkRenderPass.html)                                       |
-| `VK_OBJECT_TYPE_PIPELINE`                        | [VkPipeline](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkPipeline.html)                                           |
-| `VK_OBJECT_TYPE_DESCRIPTOR_SET_LAYOUT`           | [VkDescriptorSetLayout](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkDescriptorSetLayout.html)                     |
-| `VK_OBJECT_TYPE_SAMPLER`                         | [VkSampler](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkSampler.html)                                             |
-| `VK_OBJECT_TYPE_DESCRIPTOR_POOL`                 | [VkDescriptorPool](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkDescriptorPool.html)                               |
-| `VK_OBJECT_TYPE_DESCRIPTOR_SET`                  | [VkDescriptorSet](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkDescriptorSet.html)                                 |
-| `VK_OBJECT_TYPE_FRAMEBUFFER`                     | [VkFramebuffer](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkFramebuffer.html)                                     |
-| `VK_OBJECT_TYPE_COMMAND_POOL`                    | [VkCommandPool](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkCommandPool.html)                                     |
-| `VK_OBJECT_TYPE_SAMPLER_YCBCR_CONVERSION`        | [VkSamplerYcbcrConversion](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkSamplerYcbcrConversion.html)               |
-| `VK_OBJECT_TYPE_DESCRIPTOR_UPDATE_TEMPLATE`      | [VkDescriptorUpdateTemplate](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkDescriptorUpdateTemplate.html)           |
-| `VK_OBJECT_TYPE_PRIVATE_DATA_SLOT`               | [VkPrivateDataSlot](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkPrivateDataSlot.html)                             |
-| `VK_OBJECT_TYPE_SURFACE_KHR`                     | [VkSurfaceKHR](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkSurfaceKHR.html)                                       |
-| `VK_OBJECT_TYPE_SWAPCHAIN_KHR`                   | [VkSwapchainKHR](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkSwapchainKHR.html)                                   |
-| `VK_OBJECT_TYPE_DISPLAY_KHR`                     | [VkDisplayKHR](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkDisplayKHR.html)                                       |
-| `VK_OBJECT_TYPE_DISPLAY_MODE_KHR`                | [VkDisplayModeKHR](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkDisplayModeKHR.html)                               |
-| `VK_OBJECT_TYPE_DEBUG_REPORT_CALLBACK_EXT`       | [VkDebugReportCallbackEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkDebugReportCallbackEXT.html)               |
-| `VK_OBJECT_TYPE_VIDEO_SESSION_KHR`               | [VkVideoSessionKHR](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkVideoSessionKHR.html)                             |
-| `VK_OBJECT_TYPE_VIDEO_SESSION_PARAMETERS_KHR`    | [VkVideoSessionParametersKHR](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkVideoSessionParametersKHR.html)         |
-| `VK_OBJECT_TYPE_DEBUG_UTILS_MESSENGER_EXT`       | [VkDebugUtilsMessengerEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkDebugUtilsMessengerEXT.html)               |
-| `VK_OBJECT_TYPE_ACCELERATION_STRUCTURE_KHR`      | [VkAccelerationStructureKHR](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkAccelerationStructureKHR.html)           |
-| `VK_OBJECT_TYPE_VALIDATION_CACHE_EXT`            | [VkValidationCacheEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkValidationCacheEXT.html)                       |
-| `VK_OBJECT_TYPE_ACCELERATION_STRUCTURE_NV`       | [VkAccelerationStructureNV](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkAccelerationStructureNV.html)             |
+| [VkObjectType](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkObjectType.html) | Vulkan Handle Type |
+|----|----|
+| `VK_OBJECT_TYPE_UNKNOWN` | Unknown/Undefined Handle |
+| `VK_OBJECT_TYPE_INSTANCE` | [VkInstance](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkInstance.html) |
+| `VK_OBJECT_TYPE_PHYSICAL_DEVICE` | [VkPhysicalDevice](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkPhysicalDevice.html) |
+| `VK_OBJECT_TYPE_DEVICE` | [VkDevice](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkDevice.html) |
+| `VK_OBJECT_TYPE_QUEUE` | [VkQueue](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkQueue.html) |
+| `VK_OBJECT_TYPE_SEMAPHORE` | [VkSemaphore](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkSemaphore.html) |
+| `VK_OBJECT_TYPE_COMMAND_BUFFER` | [VkCommandBuffer](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkCommandBuffer.html) |
+| `VK_OBJECT_TYPE_FENCE` | [VkFence](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkFence.html) |
+| `VK_OBJECT_TYPE_DEVICE_MEMORY` | [VkDeviceMemory](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkDeviceMemory.html) |
+| `VK_OBJECT_TYPE_BUFFER` | [VkBuffer](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkBuffer.html) |
+| `VK_OBJECT_TYPE_IMAGE` | [VkImage](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkImage.html) |
+| `VK_OBJECT_TYPE_EVENT` | [VkEvent](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkEvent.html) |
+| `VK_OBJECT_TYPE_QUERY_POOL` | [VkQueryPool](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkQueryPool.html) |
+| `VK_OBJECT_TYPE_BUFFER_VIEW` | [VkBufferView](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkBufferView.html) |
+| `VK_OBJECT_TYPE_IMAGE_VIEW` | [VkImageView](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkImageView.html) |
+| `VK_OBJECT_TYPE_SHADER_MODULE` | [VkShaderModule](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkShaderModule.html) |
+| `VK_OBJECT_TYPE_PIPELINE_CACHE` | [VkPipelineCache](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkPipelineCache.html) |
+| `VK_OBJECT_TYPE_PIPELINE_LAYOUT` | [VkPipelineLayout](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkPipelineLayout.html) |
+| `VK_OBJECT_TYPE_RENDER_PASS` | [VkRenderPass](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkRenderPass.html) |
+| `VK_OBJECT_TYPE_PIPELINE` | [VkPipeline](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkPipeline.html) |
+| `VK_OBJECT_TYPE_DESCRIPTOR_SET_LAYOUT` | [VkDescriptorSetLayout](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkDescriptorSetLayout.html) |
+| `VK_OBJECT_TYPE_SAMPLER` | [VkSampler](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkSampler.html) |
+| `VK_OBJECT_TYPE_DESCRIPTOR_POOL` | [VkDescriptorPool](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkDescriptorPool.html) |
+| `VK_OBJECT_TYPE_DESCRIPTOR_SET` | [VkDescriptorSet](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkDescriptorSet.html) |
+| `VK_OBJECT_TYPE_FRAMEBUFFER` | [VkFramebuffer](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkFramebuffer.html) |
+| `VK_OBJECT_TYPE_COMMAND_POOL` | [VkCommandPool](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkCommandPool.html) |
+| `VK_OBJECT_TYPE_SAMPLER_YCBCR_CONVERSION` | [VkSamplerYcbcrConversion](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkSamplerYcbcrConversion.html) |
+| `VK_OBJECT_TYPE_DESCRIPTOR_UPDATE_TEMPLATE` | [VkDescriptorUpdateTemplate](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkDescriptorUpdateTemplate.html) |
+| `VK_OBJECT_TYPE_PRIVATE_DATA_SLOT` | [VkPrivateDataSlot](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkPrivateDataSlot.html) |
+| `VK_OBJECT_TYPE_SURFACE_KHR` | [VkSurfaceKHR](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkSurfaceKHR.html) |
+| `VK_OBJECT_TYPE_SWAPCHAIN_KHR` | [VkSwapchainKHR](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkSwapchainKHR.html) |
+| `VK_OBJECT_TYPE_DISPLAY_KHR` | [VkDisplayKHR](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkDisplayKHR.html) |
+| `VK_OBJECT_TYPE_DISPLAY_MODE_KHR` | [VkDisplayModeKHR](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkDisplayModeKHR.html) |
+| `VK_OBJECT_TYPE_DEBUG_REPORT_CALLBACK_EXT` | [VkDebugReportCallbackEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkDebugReportCallbackEXT.html) |
+| `VK_OBJECT_TYPE_VIDEO_SESSION_KHR` | [VkVideoSessionKHR](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkVideoSessionKHR.html) |
+| `VK_OBJECT_TYPE_VIDEO_SESSION_PARAMETERS_KHR` | [VkVideoSessionParametersKHR](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkVideoSessionParametersKHR.html) |
+| `VK_OBJECT_TYPE_DEBUG_UTILS_MESSENGER_EXT` | [VkDebugUtilsMessengerEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkDebugUtilsMessengerEXT.html) |
+| `VK_OBJECT_TYPE_ACCELERATION_STRUCTURE_KHR` | [VkAccelerationStructureKHR](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkAccelerationStructureKHR.html) |
+| `VK_OBJECT_TYPE_VALIDATION_CACHE_EXT` | [VkValidationCacheEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkValidationCacheEXT.html) |
+| `VK_OBJECT_TYPE_ACCELERATION_STRUCTURE_NV` | [VkAccelerationStructureNV](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkAccelerationStructureNV.html) |
 | `VK_OBJECT_TYPE_PERFORMANCE_CONFIGURATION_INTEL` | [VkPerformanceConfigurationINTEL](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkPerformanceConfigurationINTEL.html) |
-| `VK_OBJECT_TYPE_DEFERRED_OPERATION_KHR`          | [VkDeferredOperationKHR](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkDeferredOperationKHR.html)                   |
-| `VK_OBJECT_TYPE_INDIRECT_COMMANDS_LAYOUT_NV`     | [VkIndirectCommandsLayoutNV](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkIndirectCommandsLayoutNV.html)           |
-| `VK_OBJECT_TYPE_BUFFER_COLLECTION_FUCHSIA`       | [VkBufferCollectionFUCHSIA](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkBufferCollectionFUCHSIA.html)             |
-| `VK_OBJECT_TYPE_MICROMAP_EXT`                    | [VkMicromapEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkMicromapEXT.html)                                     |
-| `VK_OBJECT_TYPE_OPTICAL_FLOW_SESSION_NV`         | [VkOpticalFlowSessionNV](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkOpticalFlowSessionNV.html)                   |
-| `VK_OBJECT_TYPE_SHADER_EXT`                      | [VkShaderEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkShaderEXT.html)                                         |
+| `VK_OBJECT_TYPE_DEFERRED_OPERATION_KHR` | [VkDeferredOperationKHR](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkDeferredOperationKHR.html) |
+| `VK_OBJECT_TYPE_INDIRECT_COMMANDS_LAYOUT_NV` | [VkIndirectCommandsLayoutNV](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkIndirectCommandsLayoutNV.html) |
+| `VK_OBJECT_TYPE_BUFFER_COLLECTION_FUCHSIA` | [VkBufferCollectionFUCHSIA](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkBufferCollectionFUCHSIA.html) |
+| `VK_OBJECT_TYPE_MICROMAP_EXT` | [VkMicromapEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkMicromapEXT.html) |
+| `VK_OBJECT_TYPE_OPTICAL_FLOW_SESSION_NV` | [VkOpticalFlowSessionNV](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkOpticalFlowSessionNV.html) |
+| `VK_OBJECT_TYPE_SHADER_EXT` | [VkShaderEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkShaderEXT.html) |
 
 Table 1. `VkObjectType` and Vulkan Handle Relationship
 {#debugging-object-types}
@@ -182,5 +182,5 @@ Copyright 2014-2024 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
 
-Version 1.3.285  
-Last updated 2024-05-10 01:10:25 -0700
+Version 1.3.290  
+Last updated 2024-07-11 23:39:16 -0700

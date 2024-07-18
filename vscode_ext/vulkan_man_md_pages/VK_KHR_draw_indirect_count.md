@@ -70,7 +70,7 @@ number of drawing commands and execute them without host intervention.
 
 All functionality in this extension is included in core Vulkan 1.2, with
 the KHR suffix omitted. However, if Vulkan 1.2 is supported and this
-extension is not, the entry points
+extension is not, the commands
 [vkCmdDrawIndirectCount](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdDrawIndirectCount.html) and
 [vkCmdDrawIndexedIndirectCount](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdDrawIndexedIndirectCount.html) are
 optional. The original type, enum and command names are still available
@@ -113,5 +113,5 @@ Copyright 2014-2024 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
 
-Version 1.3.285  
-Last updated 2024-05-10 01:10:25 -0700
+Version 1.3.290  
+Last updated 2024-07-11 23:39:16 -0700

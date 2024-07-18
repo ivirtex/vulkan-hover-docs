@@ -30,12 +30,12 @@ typedef enum VkDebugReportFlagBitsEXT {
   violated a valid usage condition of the specification.
 
 - `VK_DEBUG_REPORT_WARNING_BIT_EXT` specifies use of Vulkan that **may**
-  expose an app bug. Such cases may not be immediately harmful, such as
-  a fragment shader outputting to a location with no attachment. Other
-  cases **may** point to behavior that is almost certainly bad when
-  unintended such as using an image whose memory has not been filled. In
-  general if you see a warning but you know that the behavior is
-  intended/desired, then simply ignore the warning.
+  expose an application bug. Such cases may not be immediately harmful,
+  such as a fragment shader outputting to a location with no attachment.
+  Other cases **may** point to behavior that is almost certainly bad
+  when unintended such as using an image whose memory has not been
+  filled. In general if you see a warning but you know that the behavior
+  is intended/desired, then simply ignore the warning.
 
 - `VK_DEBUG_REPORT_PERFORMANCE_WARNING_BIT_EXT` specifies a potentially
   non-optimal use of Vulkan, e.g. using
@@ -70,5 +70,5 @@ Copyright 2014-2024 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
 
-Version 1.3.285  
-Last updated 2024-05-10 01:10:25 -0700
+Version 1.3.290  
+Last updated 2024-07-11 23:39:16 -0700

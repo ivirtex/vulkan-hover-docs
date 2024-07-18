@@ -16,7 +16,7 @@ call:
 // Provided by VK_KHR_dynamic_rendering_local_read
 void vkCmdSetRenderingInputAttachmentIndicesKHR(
     VkCommandBuffer                             commandBuffer,
-    const VkRenderingInputAttachmentIndexInfoKHR* pLocationInfo);
+    const VkRenderingInputAttachmentIndexInfoKHR* pInputAttachmentIndexInfo);
 ```
 
 ## <a href="#_parameters" class="anchor"></a>Parameters
@@ -85,10 +85,10 @@ Valid Usage (Implicit)
   [VkCommandBuffer](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkCommandBuffer.html) handle
 
 - <a
-  href="#VUID-vkCmdSetRenderingInputAttachmentIndicesKHR-pLocationInfo-parameter"
-  id="VUID-vkCmdSetRenderingInputAttachmentIndicesKHR-pLocationInfo-parameter"></a>
-  VUID-vkCmdSetRenderingInputAttachmentIndicesKHR-pLocationInfo-parameter  
-  `pLocationInfo` **must** be a valid pointer to a valid
+  href="#VUID-vkCmdSetRenderingInputAttachmentIndicesKHR-pInputAttachmentIndexInfo-parameter"
+  id="VUID-vkCmdSetRenderingInputAttachmentIndicesKHR-pInputAttachmentIndexInfo-parameter"></a>
+  VUID-vkCmdSetRenderingInputAttachmentIndicesKHR-pInputAttachmentIndexInfo-parameter  
+  `pInputAttachmentIndexInfo` **must** be a valid pointer to a valid
   [VkRenderingInputAttachmentIndexInfoKHR](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkRenderingInputAttachmentIndexInfoKHR.html)
   structure
 
@@ -134,7 +134,7 @@ Command Properties
 <col style="width: 20%" />
 </colgroup>
 <thead>
-<tr class="header">
+<tr>
 <th class="tableblock halign-left valign-top"><a
 href="#VkCommandBufferLevel">Command Buffer Levels</a></th>
 <th class="tableblock halign-left valign-top"><a
@@ -148,7 +148,7 @@ href="#fundamentals-queueoperation-command-types">Command Type</a></th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td class="tableblock halign-left valign-top"><p>Primary<br />
 Secondary</p></td>
 <td class="tableblock halign-left valign-top"><p>Inside</p></td>
@@ -180,5 +180,5 @@ Copyright 2014-2024 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
 
-Version 1.3.285  
-Last updated 2024-05-10 01:10:25 -0700
+Version 1.3.290  
+Last updated 2024-07-11 23:39:16 -0700

@@ -38,7 +38,7 @@ typedef VkShaderFloatControlsIndependence VkShaderFloatControlsIndependenceKHR;
 ## <a href="#_description" class="anchor"></a>Description
 
 - `VK_SHADER_FLOAT_CONTROLS_INDEPENDENCE_32_BIT_ONLY` specifies that
-  shader float controls for 32-bit floating point **can** be set
+  shader float controls for 32-bit floating-point **can** be set
   independently; other bit widths **must** be set identically to each
   other.
 
@@ -70,5 +70,5 @@ Copyright 2014-2024 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
 
-Version 1.3.285  
-Last updated 2024-05-10 01:10:25 -0700
+Version 1.3.290  
+Last updated 2024-07-11 23:39:16 -0700

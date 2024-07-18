@@ -159,7 +159,7 @@ target="_blank" rel="noopener">Resource Memory Association</a>.
 <col style="width: 50%" />
 </colgroup>
 <tbody>
-<tr class="odd">
+<tr>
 <td class="icon"><em></em></td>
 <td class="content">Note
 <p>For images created without
@@ -704,7 +704,7 @@ Valid Usage
   id="VUID-VkImageCreateInfo-fragmentDensityMapOffset-06514"></a>
   VUID-VkImageCreateInfo-fragmentDensityMapOffset-06514  
   If the <a
-  href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#features-fragmentDensityMapOffsets"
+  href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#features-fragmentDensityMapOffset"
   target="_blank" rel="noopener"><code>fragmentDensityMapOffset</code></a>
   feature is not enabled and `usage` includes
   `VK_IMAGE_USAGE_FRAGMENT_DENSITY_MAP_BIT_EXT`, `extent.width` **must**
@@ -715,7 +715,7 @@ Valid Usage
   id="VUID-VkImageCreateInfo-fragmentDensityMapOffset-06515"></a>
   VUID-VkImageCreateInfo-fragmentDensityMapOffset-06515  
   If the <a
-  href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#features-fragmentDensityMapOffsets"
+  href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#features-fragmentDensityMapOffset"
   target="_blank" rel="noopener"><code>fragmentDensityMapOffset</code></a>
   feature is not enabled and `usage` includes
   `VK_IMAGE_USAGE_FRAGMENT_DENSITY_MAP_BIT_EXT`, `extent.height`
@@ -1689,5 +1689,5 @@ Copyright 2014-2024 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
 
-Version 1.3.285  
-Last updated 2024-05-10 01:10:25 -0700
+Version 1.3.290  
+Last updated 2024-07-11 23:39:16 -0700

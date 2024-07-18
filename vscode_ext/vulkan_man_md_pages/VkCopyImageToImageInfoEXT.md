@@ -201,16 +201,48 @@ Valid Usage
 - <a href="#VUID-VkCopyImageToImageInfoEXT-srcImage-07274"
   id="VUID-VkCopyImageToImageInfoEXT-srcImage-07274"></a>
   VUID-VkCopyImageToImageInfoEXT-srcImage-07274  
-  For each element of `pRegions`, `srcOffset.x` **must** be a multiple
-  of the [texel block extent width](#formats-compatibility-classes) of
-  the [VkFormat](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkFormat.html) of `srcImage`
+  For each element of `pRegions`, if
+  [VkCopyCommandTransformInfoQCOM](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkCopyCommandTransformInfoQCOM.html)::`transform`
+  is equal to `VK_SURFACE_TRANSFORM_IDENTITY_BIT_KHR` or
+  `VK_SURFACE_TRANSFORM_ROTATE_270_BIT_KHR`, `srcOffset.x` **must** be a
+  multiple of the [texel block extent
+  width](#formats-compatibility-classes) of the
+  [VkFormat](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkFormat.html) of `srcImage`
+
+- <a href="#VUID-VkCopyImageToImageInfoEXT-srcOffset-10051"
+  id="VUID-VkCopyImageToImageInfoEXT-srcOffset-10051"></a>
+  VUID-VkCopyImageToImageInfoEXT-srcOffset-10051  
+  For each element of `pRegions`, if
+  [VkCopyCommandTransformInfoQCOM](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkCopyCommandTransformInfoQCOM.html)::`transform`
+  is equal to `VK_SURFACE_TRANSFORM_ROTATE_180_BIT_KHR` or
+  `VK_SURFACE_TRANSFORM_ROTATE_90_BIT_KHR`, and `srcOffset.x` does not
+  equal the width of the subresource specified by `srcSubresource`,
+  `srcOffset.x` **must** be a multiple of the [texel block extent
+  width](#formats-compatibility-classes) of the
+  [VkFormat](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkFormat.html) of `srcImage`
 
 - <a href="#VUID-VkCopyImageToImageInfoEXT-srcImage-07275"
   id="VUID-VkCopyImageToImageInfoEXT-srcImage-07275"></a>
   VUID-VkCopyImageToImageInfoEXT-srcImage-07275  
-  For each element of `pRegions`, `srcOffset.y` **must** be a multiple
-  of the [texel block extent height](#formats-compatibility-classes) of
-  the [VkFormat](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkFormat.html) of `srcImage`
+  For each element of `pRegions`, if
+  [VkCopyCommandTransformInfoQCOM](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkCopyCommandTransformInfoQCOM.html)::`transform`
+  is equal to `VK_SURFACE_TRANSFORM_IDENTITY_BIT_KHR` or
+  `VK_SURFACE_TRANSFORM_ROTATE_90_BIT_KHR`, `srcOffset.y` **must** be a
+  multiple of the [texel block extent
+  height](#formats-compatibility-classes) of the
+  [VkFormat](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkFormat.html) of `srcImage`
+
+- <a href="#VUID-VkCopyImageToImageInfoEXT-srcOffset-10052"
+  id="VUID-VkCopyImageToImageInfoEXT-srcOffset-10052"></a>
+  VUID-VkCopyImageToImageInfoEXT-srcOffset-10052  
+  For each element of `pRegions`, if
+  [VkCopyCommandTransformInfoQCOM](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkCopyCommandTransformInfoQCOM.html)::`transform`
+  is equal to `VK_SURFACE_TRANSFORM_ROTATE_270_BIT_KHR` or
+  `VK_SURFACE_TRANSFORM_ROTATE_180_BIT_KHR`, and `srcOffset.y` does not
+  equal the height of the subresource specified by `srcSubresource`,
+  `srcOffset.y` **must** be a multiple of the [texel block extent
+  height](#formats-compatibility-classes) of the
+  [VkFormat](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkFormat.html) of `srcImage`
 
 - <a href="#VUID-VkCopyImageToImageInfoEXT-srcImage-07276"
   id="VUID-VkCopyImageToImageInfoEXT-srcImage-07276"></a>
@@ -222,18 +254,88 @@ Valid Usage
 - <a href="#VUID-VkCopyImageToImageInfoEXT-srcImage-00207"
   id="VUID-VkCopyImageToImageInfoEXT-srcImage-00207"></a>
   VUID-VkCopyImageToImageInfoEXT-srcImage-00207  
-  For each element of `pRegions`, if the sum of `srcOffset.x` and
-  `extent.width` does not equal the width of the subresource specified
-  by `srcSubresource`, `extent.width` **must** be a multiple of the
+  For each element of `pRegions`, if
+  [VkCopyCommandTransformInfoQCOM](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkCopyCommandTransformInfoQCOM.html)::`transform`
+  is equal to `VK_SURFACE_TRANSFORM_IDENTITY_BIT_KHR`, the sum of
+  `srcOffset.x` and `extent.width` does not equal the width of the
+  subresource specified by `srcSubresource`, `extent.width` **must** be
+  a multiple of the [texel block extent
+  width](#formats-compatibility-classes) of the
+  [VkFormat](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkFormat.html) of `srcImage`
+
+- <a href="#VUID-VkCopyImageToImageInfoEXT-srcOffset-10053"
+  id="VUID-VkCopyImageToImageInfoEXT-srcOffset-10053"></a>
+  VUID-VkCopyImageToImageInfoEXT-srcOffset-10053  
+  For each element of `pRegions`, if
+  [VkCopyCommandTransformInfoQCOM](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkCopyCommandTransformInfoQCOM.html)::`transform`
+  is equal to `VK_SURFACE_TRANSFORM_ROTATE_90_BIT_KHR`, the difference
+  of `srcOffset.x` and `extent.height` **must** be a multiple of the
   [texel block extent width](#formats-compatibility-classes) of the
+  [VkFormat](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkFormat.html) of `srcImage`
+
+- <a href="#VUID-VkCopyImageToImageInfoEXT-srcOffset-10054"
+  id="VUID-VkCopyImageToImageInfoEXT-srcOffset-10054"></a>
+  VUID-VkCopyImageToImageInfoEXT-srcOffset-10054  
+  For each element of `pRegions`, if
+  [VkCopyCommandTransformInfoQCOM](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkCopyCommandTransformInfoQCOM.html)::`transform`
+  is equal to `VK_SURFACE_TRANSFORM_ROTATE_180_BIT_KHR`, the difference
+  of `srcOffset.x` and `extent.width` **must** be a multiple of the
+  [texel block extent width](#formats-compatibility-classes) of the
+  [VkFormat](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkFormat.html) of `srcImage`
+
+- <a href="#VUID-VkCopyImageToImageInfoEXT-srcOffset-10055"
+  id="VUID-VkCopyImageToImageInfoEXT-srcOffset-10055"></a>
+  VUID-VkCopyImageToImageInfoEXT-srcOffset-10055  
+  For each element of `pRegions`, if
+  [VkCopyCommandTransformInfoQCOM](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkCopyCommandTransformInfoQCOM.html)::`transform`
+  is equal to `VK_SURFACE_TRANSFORM_ROTATE_270_BIT_KHR`, the sum of
+  `srcOffset.x` and `extent.height` does not equal the width of the
+  subresource specified by `srcSubresource`, `extent.height` **must** be
+  a multiple of the [texel block extent
+  width](#formats-compatibility-classes) of the
   [VkFormat](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkFormat.html) of `srcImage`
 
 - <a href="#VUID-VkCopyImageToImageInfoEXT-srcImage-00208"
   id="VUID-VkCopyImageToImageInfoEXT-srcImage-00208"></a>
   VUID-VkCopyImageToImageInfoEXT-srcImage-00208  
-  For each element of `pRegions`, if the sum of `srcOffset.y` and
-  `extent.height` does not equal the height of the subresource specified
-  by `srcSubresource`, `extent.height` **must** be a multiple of the
+  For each element of `pRegions`, if
+  [VkCopyCommandTransformInfoQCOM](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkCopyCommandTransformInfoQCOM.html)::`transform`
+  is equal to `VK_SURFACE_TRANSFORM_IDENTITY_BIT_KHR`, and the sum of
+  `srcOffset.y` and `extent.height` does not equal the height of the
+  subresource specified by `srcSubresource`, `extent.height` **must** be
+  a multiple of the [texel block extent
+  height](#formats-compatibility-classes) of the
+  [VkFormat](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkFormat.html) of `srcImage`
+
+- <a href="#VUID-VkCopyImageToImageInfoEXT-srcOffset-10056"
+  id="VUID-VkCopyImageToImageInfoEXT-srcOffset-10056"></a>
+  VUID-VkCopyImageToImageInfoEXT-srcOffset-10056  
+  For each element of `pRegions`, if
+  [VkCopyCommandTransformInfoQCOM](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkCopyCommandTransformInfoQCOM.html)::`transform`
+  is equal to `VK_SURFACE_TRANSFORM_ROTATE_90_BIT_KHR`, the sum of
+  `srcOffset.y` and `extent.width` does not equal the height of the
+  subresource specified by `srcSubresource`, `extent.width` **must** be
+  a multiple of the [texel block extent
+  height](#formats-compatibility-classes) of the
+  [VkFormat](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkFormat.html) of `srcImage`
+
+- <a href="#VUID-VkCopyImageToImageInfoEXT-srcOffset-10057"
+  id="VUID-VkCopyImageToImageInfoEXT-srcOffset-10057"></a>
+  VUID-VkCopyImageToImageInfoEXT-srcOffset-10057  
+  For each element of `pRegions`, if
+  [VkCopyCommandTransformInfoQCOM](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkCopyCommandTransformInfoQCOM.html)::`transform`
+  is equal to `VK_SURFACE_TRANSFORM_ROTATE_180_BIT_KHR`, the difference
+  of `srcOffset.y` and `extent.height` **must** be a multiple of the
+  [texel block extent height](#formats-compatibility-classes) of the
+  [VkFormat](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkFormat.html) of `srcImage`
+
+- <a href="#VUID-VkCopyImageToImageInfoEXT-srcOffset-10058"
+  id="VUID-VkCopyImageToImageInfoEXT-srcOffset-10058"></a>
+  VUID-VkCopyImageToImageInfoEXT-srcOffset-10058  
+  For each element of `pRegions`, if
+  [VkCopyCommandTransformInfoQCOM](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkCopyCommandTransformInfoQCOM.html)::`transform`
+  is equal to `VK_SURFACE_TRANSFORM_ROTATE_270_BIT_KHR`, the difference
+  of `srcOffset.y` and `extent.width` **must** be a multiple of the
   [texel block extent height](#formats-compatibility-classes) of the
   [VkFormat](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkFormat.html) of `srcImage`
 
@@ -399,16 +501,48 @@ Valid Usage
 - <a href="#VUID-VkCopyImageToImageInfoEXT-dstImage-07274"
   id="VUID-VkCopyImageToImageInfoEXT-dstImage-07274"></a>
   VUID-VkCopyImageToImageInfoEXT-dstImage-07274  
-  For each element of `pRegions`, `dstOffset.x` **must** be a multiple
-  of the [texel block extent width](#formats-compatibility-classes) of
-  the [VkFormat](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkFormat.html) of `dstImage`
+  For each element of `pRegions`, if
+  [VkCopyCommandTransformInfoQCOM](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkCopyCommandTransformInfoQCOM.html)::`transform`
+  is equal to `VK_SURFACE_TRANSFORM_IDENTITY_BIT_KHR` or
+  `VK_SURFACE_TRANSFORM_ROTATE_270_BIT_KHR`, `dstOffset.x` **must** be a
+  multiple of the [texel block extent
+  width](#formats-compatibility-classes) of the
+  [VkFormat](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkFormat.html) of `dstImage`
+
+- <a href="#VUID-VkCopyImageToImageInfoEXT-dstOffset-10051"
+  id="VUID-VkCopyImageToImageInfoEXT-dstOffset-10051"></a>
+  VUID-VkCopyImageToImageInfoEXT-dstOffset-10051  
+  For each element of `pRegions`, if
+  [VkCopyCommandTransformInfoQCOM](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkCopyCommandTransformInfoQCOM.html)::`transform`
+  is equal to `VK_SURFACE_TRANSFORM_ROTATE_180_BIT_KHR` or
+  `VK_SURFACE_TRANSFORM_ROTATE_90_BIT_KHR`, and `dstOffset.x` does not
+  equal the width of the subresource specified by `dstSubresource`,
+  `dstOffset.x` **must** be a multiple of the [texel block extent
+  width](#formats-compatibility-classes) of the
+  [VkFormat](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkFormat.html) of `dstImage`
 
 - <a href="#VUID-VkCopyImageToImageInfoEXT-dstImage-07275"
   id="VUID-VkCopyImageToImageInfoEXT-dstImage-07275"></a>
   VUID-VkCopyImageToImageInfoEXT-dstImage-07275  
-  For each element of `pRegions`, `dstOffset.y` **must** be a multiple
-  of the [texel block extent height](#formats-compatibility-classes) of
-  the [VkFormat](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkFormat.html) of `dstImage`
+  For each element of `pRegions`, if
+  [VkCopyCommandTransformInfoQCOM](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkCopyCommandTransformInfoQCOM.html)::`transform`
+  is equal to `VK_SURFACE_TRANSFORM_IDENTITY_BIT_KHR` or
+  `VK_SURFACE_TRANSFORM_ROTATE_90_BIT_KHR`, `dstOffset.y` **must** be a
+  multiple of the [texel block extent
+  height](#formats-compatibility-classes) of the
+  [VkFormat](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkFormat.html) of `dstImage`
+
+- <a href="#VUID-VkCopyImageToImageInfoEXT-dstOffset-10052"
+  id="VUID-VkCopyImageToImageInfoEXT-dstOffset-10052"></a>
+  VUID-VkCopyImageToImageInfoEXT-dstOffset-10052  
+  For each element of `pRegions`, if
+  [VkCopyCommandTransformInfoQCOM](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkCopyCommandTransformInfoQCOM.html)::`transform`
+  is equal to `VK_SURFACE_TRANSFORM_ROTATE_270_BIT_KHR` or
+  `VK_SURFACE_TRANSFORM_ROTATE_180_BIT_KHR`, and `dstOffset.y` does not
+  equal the height of the subresource specified by `dstSubresource`,
+  `dstOffset.y` **must** be a multiple of the [texel block extent
+  height](#formats-compatibility-classes) of the
+  [VkFormat](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkFormat.html) of `dstImage`
 
 - <a href="#VUID-VkCopyImageToImageInfoEXT-dstImage-07276"
   id="VUID-VkCopyImageToImageInfoEXT-dstImage-07276"></a>
@@ -420,18 +554,88 @@ Valid Usage
 - <a href="#VUID-VkCopyImageToImageInfoEXT-dstImage-00207"
   id="VUID-VkCopyImageToImageInfoEXT-dstImage-00207"></a>
   VUID-VkCopyImageToImageInfoEXT-dstImage-00207  
-  For each element of `pRegions`, if the sum of `dstOffset.x` and
-  `extent.width` does not equal the width of the subresource specified
-  by `srcSubresource`, `extent.width` **must** be a multiple of the
+  For each element of `pRegions`, if
+  [VkCopyCommandTransformInfoQCOM](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkCopyCommandTransformInfoQCOM.html)::`transform`
+  is equal to `VK_SURFACE_TRANSFORM_IDENTITY_BIT_KHR`, the sum of
+  `dstOffset.x` and `extent.width` does not equal the width of the
+  subresource specified by `dstSubresource`, `extent.width` **must** be
+  a multiple of the [texel block extent
+  width](#formats-compatibility-classes) of the
+  [VkFormat](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkFormat.html) of `dstImage`
+
+- <a href="#VUID-VkCopyImageToImageInfoEXT-dstOffset-10053"
+  id="VUID-VkCopyImageToImageInfoEXT-dstOffset-10053"></a>
+  VUID-VkCopyImageToImageInfoEXT-dstOffset-10053  
+  For each element of `pRegions`, if
+  [VkCopyCommandTransformInfoQCOM](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkCopyCommandTransformInfoQCOM.html)::`transform`
+  is equal to `VK_SURFACE_TRANSFORM_ROTATE_90_BIT_KHR`, the difference
+  of `dstOffset.x` and `extent.height` **must** be a multiple of the
   [texel block extent width](#formats-compatibility-classes) of the
+  [VkFormat](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkFormat.html) of `dstImage`
+
+- <a href="#VUID-VkCopyImageToImageInfoEXT-dstOffset-10054"
+  id="VUID-VkCopyImageToImageInfoEXT-dstOffset-10054"></a>
+  VUID-VkCopyImageToImageInfoEXT-dstOffset-10054  
+  For each element of `pRegions`, if
+  [VkCopyCommandTransformInfoQCOM](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkCopyCommandTransformInfoQCOM.html)::`transform`
+  is equal to `VK_SURFACE_TRANSFORM_ROTATE_180_BIT_KHR`, the difference
+  of `dstOffset.x` and `extent.width` **must** be a multiple of the
+  [texel block extent width](#formats-compatibility-classes) of the
+  [VkFormat](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkFormat.html) of `dstImage`
+
+- <a href="#VUID-VkCopyImageToImageInfoEXT-dstOffset-10055"
+  id="VUID-VkCopyImageToImageInfoEXT-dstOffset-10055"></a>
+  VUID-VkCopyImageToImageInfoEXT-dstOffset-10055  
+  For each element of `pRegions`, if
+  [VkCopyCommandTransformInfoQCOM](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkCopyCommandTransformInfoQCOM.html)::`transform`
+  is equal to `VK_SURFACE_TRANSFORM_ROTATE_270_BIT_KHR`, the sum of
+  `dstOffset.x` and `extent.height` does not equal the width of the
+  subresource specified by `dstSubresource`, `extent.height` **must** be
+  a multiple of the [texel block extent
+  width](#formats-compatibility-classes) of the
   [VkFormat](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkFormat.html) of `dstImage`
 
 - <a href="#VUID-VkCopyImageToImageInfoEXT-dstImage-00208"
   id="VUID-VkCopyImageToImageInfoEXT-dstImage-00208"></a>
   VUID-VkCopyImageToImageInfoEXT-dstImage-00208  
-  For each element of `pRegions`, if the sum of `dstOffset.y` and
-  `extent.height` does not equal the height of the subresource specified
-  by `srcSubresource`, `extent.height` **must** be a multiple of the
+  For each element of `pRegions`, if
+  [VkCopyCommandTransformInfoQCOM](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkCopyCommandTransformInfoQCOM.html)::`transform`
+  is equal to `VK_SURFACE_TRANSFORM_IDENTITY_BIT_KHR`, and the sum of
+  `dstOffset.y` and `extent.height` does not equal the height of the
+  subresource specified by `dstSubresource`, `extent.height` **must** be
+  a multiple of the [texel block extent
+  height](#formats-compatibility-classes) of the
+  [VkFormat](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkFormat.html) of `dstImage`
+
+- <a href="#VUID-VkCopyImageToImageInfoEXT-dstOffset-10056"
+  id="VUID-VkCopyImageToImageInfoEXT-dstOffset-10056"></a>
+  VUID-VkCopyImageToImageInfoEXT-dstOffset-10056  
+  For each element of `pRegions`, if
+  [VkCopyCommandTransformInfoQCOM](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkCopyCommandTransformInfoQCOM.html)::`transform`
+  is equal to `VK_SURFACE_TRANSFORM_ROTATE_90_BIT_KHR`, the sum of
+  `dstOffset.y` and `extent.width` does not equal the height of the
+  subresource specified by `dstSubresource`, `extent.width` **must** be
+  a multiple of the [texel block extent
+  height](#formats-compatibility-classes) of the
+  [VkFormat](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkFormat.html) of `dstImage`
+
+- <a href="#VUID-VkCopyImageToImageInfoEXT-dstOffset-10057"
+  id="VUID-VkCopyImageToImageInfoEXT-dstOffset-10057"></a>
+  VUID-VkCopyImageToImageInfoEXT-dstOffset-10057  
+  For each element of `pRegions`, if
+  [VkCopyCommandTransformInfoQCOM](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkCopyCommandTransformInfoQCOM.html)::`transform`
+  is equal to `VK_SURFACE_TRANSFORM_ROTATE_180_BIT_KHR`, the difference
+  of `dstOffset.y` and `extent.height` **must** be a multiple of the
+  [texel block extent height](#formats-compatibility-classes) of the
+  [VkFormat](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkFormat.html) of `dstImage`
+
+- <a href="#VUID-VkCopyImageToImageInfoEXT-dstOffset-10058"
+  id="VUID-VkCopyImageToImageInfoEXT-dstOffset-10058"></a>
+  VUID-VkCopyImageToImageInfoEXT-dstOffset-10058  
+  For each element of `pRegions`, if
+  [VkCopyCommandTransformInfoQCOM](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkCopyCommandTransformInfoQCOM.html)::`transform`
+  is equal to `VK_SURFACE_TRANSFORM_ROTATE_270_BIT_KHR`, the difference
+  of `dstOffset.y` and `extent.width` **must** be a multiple of the
   [texel block extent height](#formats-compatibility-classes) of the
   [VkFormat](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkFormat.html) of `dstImage`
 
@@ -571,5 +775,5 @@ Copyright 2014-2024 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
 
-Version 1.3.285  
-Last updated 2024-05-10 01:10:25 -0700
+Version 1.3.290  
+Last updated 2024-07-11 23:39:16 -0700

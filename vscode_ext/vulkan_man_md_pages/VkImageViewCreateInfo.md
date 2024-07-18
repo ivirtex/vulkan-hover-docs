@@ -118,15 +118,15 @@ view’s aspect mask is considered to be equivalent to
 <col style="width: 50%" />
 </colgroup>
 <tbody>
-<tr class="odd">
+<tr>
 <td class="icon"><em></em></td>
 <td class="content">Note
 <p>Values intended to be used with one view format <strong>may</strong>
 not be exactly preserved when written or read through a different
 format. For example, an integer value that happens to have the bit
-pattern of a floating point denorm or NaN <strong>may</strong> be
+pattern of a floating-point denorm or NaN <strong>may</strong> be
 flushed or canonicalized when written or read through a view with a
-floating point format. Similarly, a value written through a signed
+floating-point format. Similarly, a value written through a signed
 normalized format that has a bit pattern exactly equal to -2<sup>b</sup>
 <strong>may</strong> be changed to -2<sup>b</sup> + 1 as described in <a
 href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#fundamentals-fixedfpconv"
@@ -1189,5 +1189,5 @@ Copyright 2014-2024 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
 
-Version 1.3.285  
-Last updated 2024-05-10 01:10:25 -0700
+Version 1.3.290  
+Last updated 2024-07-11 23:39:16 -0700

@@ -36,6 +36,14 @@ VkResult vkCreateRenderPass(
 
 ## <a href="#_description" class="anchor"></a>Description
 
+Valid Usage
+
+- <a href="#VUID-vkCreateRenderPass-device-10000"
+  id="VUID-vkCreateRenderPass-device-10000"></a>
+  VUID-vkCreateRenderPass-device-10000  
+  `device` **must** support at least one queue family with the
+  `VK_QUEUE_GRAPHICS_BIT` capability
+
 Valid Usage (Implicit)
 
 - <a href="#VUID-vkCreateRenderPass-device-parameter"
@@ -94,5 +102,5 @@ Copyright 2014-2024 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
 
-Version 1.3.285  
-Last updated 2024-05-10 01:10:25 -0700
+Version 1.3.290  
+Last updated 2024-07-11 23:39:16 -0700

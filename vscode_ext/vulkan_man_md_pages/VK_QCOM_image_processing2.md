@@ -190,7 +190,7 @@ vec4 textureBlockMatchGatherSAD( sampler2D target,
 1\) What is the precision of the min/max comparison checks?
 
 **RESOLVED**: Intermediate computations for the new operations are
-performed at 16-bit floating point precision. If the value of
+performed at 16-bit floating-point precision. If the value of
 `"float SAD"` in the above code sample is a 16-bit denorm value, then
 behavior of the MIN/MAX comparison is undefined.
 
@@ -217,5 +217,5 @@ Copyright 2014-2024 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
 
-Version 1.3.285  
-Last updated 2024-05-10 01:10:25 -0700
+Version 1.3.290  
+Last updated 2024-07-11 23:39:16 -0700

@@ -2,7 +2,7 @@
 
 ## Name
 
-vkCreateWin32SurfaceKHR - Create a VkSurfaceKHR object for an Win32
+vkCreateWin32SurfaceKHR - Create a VkSurfaceKHR object for a Win32
 native window
 
 
@@ -79,8 +79,8 @@ On failure, this command returns
 Some Vulkan functions **may** call the `SendMessage` system API when
 interacting with a `VkSurfaceKHR` through a `VkSwapchainKHR`. In a
 multithreaded environment, calling `SendMessage` from a thread that is
-not the thread associated with `pCreateInfo`::`hwnd` will block until
-the application has processed the window message. Thus, applications
+not the thread associated with `pCreateInfo->hwnd` will block until the
+application has processed the window message. Thus, applications
 **should** either call these Vulkan functions on the message pump
 thread, or make sure their message pump is actively running. Failing to
 do so **may** result in deadlocks.
@@ -126,5 +126,5 @@ Copyright 2014-2024 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
 
-Version 1.3.285  
-Last updated 2024-05-10 01:10:25 -0700
+Version 1.3.290  
+Last updated 2024-07-11 23:39:16 -0700

@@ -194,7 +194,7 @@ structures).
 This extension can also be used to hardcode a dedicated debug channel
 into all shaders without impacting other descriptor limits by querying a
 buffer device address at startup and pushing that into shaders as a
-run-time constant (e.g. specialization constant).
+runtime constant (e.g. specialization constant).
 
 There are examples of usage in the
 [`GL_EXT_buffer_reference`](https://github.com/KhronosGroup/GLSL/blob/main/extensions/ext/GLSL_EXT_buffer_reference.txt)
@@ -231,5 +231,5 @@ Copyright 2014-2024 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
 
-Version 1.3.285  
-Last updated 2024-05-10 01:10:25 -0700
+Version 1.3.290  
+Last updated 2024-07-11 23:39:16 -0700

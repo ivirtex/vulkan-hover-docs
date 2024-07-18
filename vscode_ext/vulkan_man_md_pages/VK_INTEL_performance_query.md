@@ -57,7 +57,7 @@ Such a library is available at :
 class="bare">https://github.com/intel/metrics-discovery</a>
 
 Performance analysis tools such as [Graphics Performance
-Analyzers](https://software.intel.com/content/www/us/en/develop/tools/graphics-performance-analyzers.html)
+Analyzers](https://www.intel.com/content/www/us/en/developer/tools/graphics-performance-analyzers/overview.html)
 make use of this extension and the metrics-discovery library to present
 the data in a human readable way.
 
@@ -316,5 +316,5 @@ Copyright 2014-2024 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
 
-Version 1.3.285  
-Last updated 2024-05-10 01:10:25 -0700
+Version 1.3.290  
+Last updated 2024-07-11 23:39:16 -0700

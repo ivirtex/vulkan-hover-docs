@@ -61,19 +61,21 @@ Valid Usage
 - <a href="#VUID-VkAllocationCallbacks-pfnAllocation-00632"
   id="VUID-VkAllocationCallbacks-pfnAllocation-00632"></a>
   VUID-VkAllocationCallbacks-pfnAllocation-00632  
-  `pfnAllocation` **must** be a valid pointer to a valid user-defined
+  `pfnAllocation` **must** be a valid pointer to a valid
+  application-defined
   [PFN_vkAllocationFunction](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/PFN_vkAllocationFunction.html)
 
 - <a href="#VUID-VkAllocationCallbacks-pfnReallocation-00633"
   id="VUID-VkAllocationCallbacks-pfnReallocation-00633"></a>
   VUID-VkAllocationCallbacks-pfnReallocation-00633  
-  `pfnReallocation` **must** be a valid pointer to a valid user-defined
+  `pfnReallocation` **must** be a valid pointer to a valid
+  application-defined
   [PFN_vkReallocationFunction](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/PFN_vkReallocationFunction.html)
 
 - <a href="#VUID-VkAllocationCallbacks-pfnFree-00634"
   id="VUID-VkAllocationCallbacks-pfnFree-00634"></a>
   VUID-VkAllocationCallbacks-pfnFree-00634  
-  `pfnFree` **must** be a valid pointer to a valid user-defined
+  `pfnFree` **must** be a valid pointer to a valid application-defined
   [PFN_vkFreeFunction](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/PFN_vkFreeFunction.html)
 
 - <a href="#VUID-VkAllocationCallbacks-pfnInternalAllocation-00635"
@@ -222,5 +224,5 @@ Copyright 2014-2024 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
 
-Version 1.3.285  
-Last updated 2024-05-10 01:10:25 -0700
+Version 1.3.290  
+Last updated 2024-07-11 23:39:16 -0700

@@ -52,6 +52,14 @@ This command is functionally identical to
 sub-structures that include `sType` and `pNext` parameters, allowing
 them to be more easily extended.
 
+Valid Usage
+
+- <a href="#VUID-vkCreateRenderPass2-device-10001"
+  id="VUID-vkCreateRenderPass2-device-10001"></a>
+  VUID-vkCreateRenderPass2-device-10001  
+  `device` **must** support at least one queue family with the
+  `VK_QUEUE_GRAPHICS_BIT` capability
+
 Valid Usage (Implicit)
 
 - <a href="#VUID-vkCreateRenderPass2-device-parameter"
@@ -111,5 +119,5 @@ Copyright 2014-2024 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
 
-Version 1.3.285  
-Last updated 2024-05-10 01:10:25 -0700
+Version 1.3.290  
+Last updated 2024-07-11 23:39:16 -0700

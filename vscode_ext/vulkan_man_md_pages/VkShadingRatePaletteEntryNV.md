@@ -38,20 +38,20 @@ fragment. When processing regions of a primitive that have a shading
 rate of `VK_SHADING_RATE_PALETTE_ENTRY_NO_INVOCATIONS_NV`, no fragments
 will be generated in that region.
 
-| Shading Rate                                                   | Width | Height | Invocations |
-|----------------------------------------------------------------|-------|--------|-------------|
-| `VK_SHADING_RATE_PALETTE_ENTRY_NO_INVOCATIONS_NV`              | 0     | 0      | 0           |
-| `VK_SHADING_RATE_PALETTE_ENTRY_16_INVOCATIONS_PER_PIXEL_NV`    | 1     | 1      | 16          |
-| `VK_SHADING_RATE_PALETTE_ENTRY_8_INVOCATIONS_PER_PIXEL_NV`     | 1     | 1      | 8           |
-| `VK_SHADING_RATE_PALETTE_ENTRY_4_INVOCATIONS_PER_PIXEL_NV`     | 1     | 1      | 4           |
-| `VK_SHADING_RATE_PALETTE_ENTRY_2_INVOCATIONS_PER_PIXEL_NV`     | 1     | 1      | 2           |
-| `VK_SHADING_RATE_PALETTE_ENTRY_1_INVOCATION_PER_PIXEL_NV`      | 1     | 1      | 1           |
-| `VK_SHADING_RATE_PALETTE_ENTRY_1_INVOCATION_PER_2X1_PIXELS_NV` | 2     | 1      | 1           |
-| `VK_SHADING_RATE_PALETTE_ENTRY_1_INVOCATION_PER_1X2_PIXELS_NV` | 1     | 2      | 1           |
-| `VK_SHADING_RATE_PALETTE_ENTRY_1_INVOCATION_PER_2X2_PIXELS_NV` | 2     | 2      | 1           |
-| `VK_SHADING_RATE_PALETTE_ENTRY_1_INVOCATION_PER_4X2_PIXELS_NV` | 4     | 2      | 1           |
-| `VK_SHADING_RATE_PALETTE_ENTRY_1_INVOCATION_PER_2X4_PIXELS_NV` | 2     | 4      | 1           |
-| `VK_SHADING_RATE_PALETTE_ENTRY_1_INVOCATION_PER_4X4_PIXELS_NV` | 4     | 4      | 1           |
+| Shading Rate | Width | Height | Invocations |
+|----|----|----|----|
+| `VK_SHADING_RATE_PALETTE_ENTRY_NO_INVOCATIONS_NV` | 0 | 0 | 0 |
+| `VK_SHADING_RATE_PALETTE_ENTRY_16_INVOCATIONS_PER_PIXEL_NV` | 1 | 1 | 16 |
+| `VK_SHADING_RATE_PALETTE_ENTRY_8_INVOCATIONS_PER_PIXEL_NV` | 1 | 1 | 8 |
+| `VK_SHADING_RATE_PALETTE_ENTRY_4_INVOCATIONS_PER_PIXEL_NV` | 1 | 1 | 4 |
+| `VK_SHADING_RATE_PALETTE_ENTRY_2_INVOCATIONS_PER_PIXEL_NV` | 1 | 1 | 2 |
+| `VK_SHADING_RATE_PALETTE_ENTRY_1_INVOCATION_PER_PIXEL_NV` | 1 | 1 | 1 |
+| `VK_SHADING_RATE_PALETTE_ENTRY_1_INVOCATION_PER_2X1_PIXELS_NV` | 2 | 1 | 1 |
+| `VK_SHADING_RATE_PALETTE_ENTRY_1_INVOCATION_PER_1X2_PIXELS_NV` | 1 | 2 | 1 |
+| `VK_SHADING_RATE_PALETTE_ENTRY_1_INVOCATION_PER_2X2_PIXELS_NV` | 2 | 2 | 1 |
+| `VK_SHADING_RATE_PALETTE_ENTRY_1_INVOCATION_PER_4X2_PIXELS_NV` | 4 | 2 | 1 |
+| `VK_SHADING_RATE_PALETTE_ENTRY_1_INVOCATION_PER_2X4_PIXELS_NV` | 2 | 4 | 1 |
+| `VK_SHADING_RATE_PALETTE_ENTRY_1_INVOCATION_PER_4X4_PIXELS_NV` | 4 | 4 | 1 |
 
 ## <a href="#_see_also" class="anchor"></a>See Also
 
@@ -74,5 +74,5 @@ Copyright 2014-2024 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
 
-Version 1.3.285  
-Last updated 2024-05-10 01:10:25 -0700
+Version 1.3.290  
+Last updated 2024-07-11 23:39:16 -0700

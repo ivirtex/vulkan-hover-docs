@@ -67,11 +67,10 @@ Valid Usage
   id="VUID-VkSubpassFragmentDensityMapOffsetEndInfoQCOM-fragmentDensityMapOffsets-06503"></a>
   VUID-VkSubpassFragmentDensityMapOffsetEndInfoQCOM-fragmentDensityMapOffsets-06503  
   If the <a
-  href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#features-fragmentDensityMapOffsets"
-  target="_blank"
-  rel="noopener"><code>fragmentDensityMapOffsets</code></a> feature is
-  not enabled or fragment density map is not enabled in the render pass,
-  `fragmentDensityOffsetCount` **must** equal `0`
+  href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#features-fragmentDensityMapOffset"
+  target="_blank" rel="noopener"><code>fragmentDensityMapOffset</code></a>
+  feature is not enabled or fragment density map is not enabled in the
+  render pass, `fragmentDensityOffsetCount` **must** equal `0`
 
 - <a
   href="#VUID-VkSubpassFragmentDensityMapOffsetEndInfoQCOM-fragmentDensityMapAttachment-06504"
@@ -194,5 +193,5 @@ Copyright 2014-2024 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
 
-Version 1.3.285  
-Last updated 2024-05-10 01:10:25 -0700
+Version 1.3.290  
+Last updated 2024-07-11 23:39:16 -0700

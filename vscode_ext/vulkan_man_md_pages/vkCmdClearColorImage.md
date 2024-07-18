@@ -170,6 +170,12 @@ Valid Usage
   target="_blank" rel="noopener"><code>protectedNoFault</code></a> is
   not supported, **must** not be an unprotected image
 
+- <a href="#VUID-vkCmdClearColorImage-image-09678"
+  id="VUID-vkCmdClearColorImage-image-09678"></a>
+  VUID-vkCmdClearColorImage-image-09678  
+  If `image`’s format has components other than R and G, it **must** not
+  have a 64-bit component width
+
 Valid Usage (Implicit)
 
 - <a href="#VUID-vkCmdClearColorImage-commandBuffer-parameter"
@@ -247,7 +253,7 @@ Command Properties
 <col style="width: 20%" />
 </colgroup>
 <thead>
-<tr class="header">
+<tr>
 <th class="tableblock halign-left valign-top"><a
 href="#VkCommandBufferLevel">Command Buffer Levels</a></th>
 <th class="tableblock halign-left valign-top"><a
@@ -261,7 +267,7 @@ href="#fundamentals-queueoperation-command-types">Command Type</a></th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td class="tableblock halign-left valign-top"><p>Primary<br />
 Secondary</p></td>
 <td class="tableblock halign-left valign-top"><p>Outside</p></td>
@@ -296,5 +302,5 @@ Copyright 2014-2024 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
 
-Version 1.3.285  
-Last updated 2024-05-10 01:10:25 -0700
+Version 1.3.290  
+Last updated 2024-07-11 23:39:16 -0700

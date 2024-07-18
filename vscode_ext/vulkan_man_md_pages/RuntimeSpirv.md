@@ -65,9 +65,9 @@ Valid Usage
 - <a href="#VUID-RuntimeSpirv-OpTypeImage-09644"
   id="VUID-RuntimeSpirv-OpTypeImage-09644"></a>
   VUID-RuntimeSpirv-OpTypeImage-09644  
-  Any variable created with a “Type” of `OpTypeImage` that has a “Dim”
-  operand of `SubpassData` and `Arrayed`=1 **must** be decorated with
-  `InputAttachmentIndex`
+  Any variable declared as an `OpTypeArray` where the `Element` `Type`
+  is an `OpTypeImage` with a “Dim” operand of `SubpassData` **must** be
+  decorated with `InputAttachmentIndex`
 
 - <a href="#VUID-RuntimeSpirv-apiVersion-07954"
   id="VUID-RuntimeSpirv-apiVersion-07954"></a>
@@ -625,51 +625,52 @@ Valid Usage
   of the supported
   [VkCooperativeMatrixPropertiesNV](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkCooperativeMatrixPropertiesNV.html)
 
-- <a href="#VUID-RuntimeSpirv-OpCooperativeMatrixMulAddNV-06317"
-  id="VUID-RuntimeSpirv-OpCooperativeMatrixMulAddNV-06317"></a>
-  VUID-RuntimeSpirv-OpCooperativeMatrixMulAddNV-06317  
-  For `OpCooperativeMatrixMulAddNV`, the type of `A` **must** have
-  [VkCooperativeMatrixPropertiesNV](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkCooperativeMatrixPropertiesNV.html)::`MSize`
-  rows and
-  [VkCooperativeMatrixPropertiesNV](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkCooperativeMatrixPropertiesNV.html)::`KSize`
-  columns and have a component type that matches
-  [VkCooperativeMatrixPropertiesNV](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkCooperativeMatrixPropertiesNV.html)::`AType`
+- <a href="#VUID-RuntimeSpirv-OpTypeCooperativeMatrixMulAddNV-10059"
+  id="VUID-RuntimeSpirv-OpTypeCooperativeMatrixMulAddNV-10059"></a>
+  VUID-RuntimeSpirv-OpTypeCooperativeMatrixMulAddNV-10059  
+  For `OpTypeCooperativeMatrixMulAddNV`, the operands **must** match a
+  supported
+  [VkCooperativeMatrixPropertiesNV](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkCooperativeMatrixPropertiesNV.html),
+  such that:
 
-- <a href="#VUID-RuntimeSpirv-OpCooperativeMatrixMulAddNV-06318"
-  id="VUID-RuntimeSpirv-OpCooperativeMatrixMulAddNV-06318"></a>
-  VUID-RuntimeSpirv-OpCooperativeMatrixMulAddNV-06318  
-  For `OpCooperativeMatrixMulAddNV`, the type of `B` **must** have
-  [VkCooperativeMatrixPropertiesNV](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkCooperativeMatrixPropertiesNV.html)::`KSize`
-  rows and
-  [VkCooperativeMatrixPropertiesNV](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkCooperativeMatrixPropertiesNV.html)::`NSize`
-  columns and have a component type that matches
-  [VkCooperativeMatrixPropertiesNV](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkCooperativeMatrixPropertiesNV.html)::`BType`
+  - The type of `A` **must** have `Rows` match
+    [VkCooperativeMatrixPropertiesNV](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkCooperativeMatrixPropertiesNV.html)::`MSize`,
+    `Columns` match
+    [VkCooperativeMatrixPropertiesNV](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkCooperativeMatrixPropertiesNV.html)::`KSize`,
+    and `ComponentType` match
+    [VkCooperativeMatrixPropertiesNV](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkCooperativeMatrixPropertiesNV.html)::`AType`.
 
-- <a href="#VUID-RuntimeSpirv-OpCooperativeMatrixMulAddNV-06319"
-  id="VUID-RuntimeSpirv-OpCooperativeMatrixMulAddNV-06319"></a>
-  VUID-RuntimeSpirv-OpCooperativeMatrixMulAddNV-06319  
-  For `OpCooperativeMatrixMulAddNV`, the type of `C` **must** have
-  [VkCooperativeMatrixPropertiesNV](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkCooperativeMatrixPropertiesNV.html)::`MSize`
-  rows and
-  [VkCooperativeMatrixPropertiesNV](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkCooperativeMatrixPropertiesNV.html)::`NSize`
-  columns and have a component type that matches
-  [VkCooperativeMatrixPropertiesNV](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkCooperativeMatrixPropertiesNV.html)::`CType`
+  - The type of `B` **must** have `Rows` match
+    [VkCooperativeMatrixPropertiesNV](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkCooperativeMatrixPropertiesNV.html)::`KSize`,
+    `Columns` match
+    [VkCooperativeMatrixPropertiesNV](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkCooperativeMatrixPropertiesNV.html)::`NSize`,
+    and `ComponentType` match
+    [VkCooperativeMatrixPropertiesNV](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkCooperativeMatrixPropertiesNV.html)::`BType`.
 
-- <a href="#VUID-RuntimeSpirv-OpCooperativeMatrixMulAddNV-06320"
-  id="VUID-RuntimeSpirv-OpCooperativeMatrixMulAddNV-06320"></a>
-  VUID-RuntimeSpirv-OpCooperativeMatrixMulAddNV-06320  
-  For `OpCooperativeMatrixMulAddNV`, the type of `Result` **must** have
-  [VkCooperativeMatrixPropertiesNV](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkCooperativeMatrixPropertiesNV.html)::`MSize`
-  rows and
-  [VkCooperativeMatrixPropertiesNV](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkCooperativeMatrixPropertiesNV.html)::`NSize`
-  columns and have a component type that matches
-  [VkCooperativeMatrixPropertiesNV](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkCooperativeMatrixPropertiesNV.html)::`DType`
+  - The type of `C` **must** have `Rows` match
+    [VkCooperativeMatrixPropertiesNV](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkCooperativeMatrixPropertiesNV.html)::`MSize`,
+    `Columns` match
+    [VkCooperativeMatrixPropertiesNV](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkCooperativeMatrixPropertiesNV.html)::`NSize`,
+    and `ComponentType` match
+    [VkCooperativeMatrixPropertiesNV](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkCooperativeMatrixPropertiesNV.html)::`CType`.
 
-- <a href="#VUID-RuntimeSpirv-OpCooperativeMatrixMulAddNV-06321"
-  id="VUID-RuntimeSpirv-OpCooperativeMatrixMulAddNV-06321"></a>
-  VUID-RuntimeSpirv-OpCooperativeMatrixMulAddNV-06321  
-  For `OpCooperativeMatrixMulAddNV`, the type of `A`, `B`, `C`, and
-  `Result` **must** all have a scope of `scope`
+  - The type of `Result` **must** have `Rows` match
+    [VkCooperativeMatrixPropertiesNV](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkCooperativeMatrixPropertiesNV.html)::`MSize`,
+    `Columns` match
+    [VkCooperativeMatrixPropertiesNV](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkCooperativeMatrixPropertiesNV.html)::`NSize`,
+    and `ComponentType` match
+    [VkCooperativeMatrixPropertiesNV](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkCooperativeMatrixPropertiesNV.html)::`DType`.
+
+  - The scope of all cooperative matrix operands **must** be
+    [VkScopeNV](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkScopeNV.html)::`VK_SCOPE_SUBGROUP_NV`.
+
+  - If `ComponentType` of `A`, `B`, `C`, or `Result` is a signed
+    integral type, the `Signedness` operand of the `OpTypeInt` must be
+    1.
+
+  - If `ComponentType` of `A`, `B`, `C`, or `Result` is an unsigned
+    integral type, the `Signedness` operand of the `OpTypeInt` must be
+    0.
 
 - <a href="#VUID-RuntimeSpirv-OpTypeCooperativeMatrixNV-06322"
   id="VUID-RuntimeSpirv-OpTypeCooperativeMatrixNV-06322"></a>
@@ -684,89 +685,74 @@ Valid Usage
   For `OpTypeCooperativeMatrixKHR`, the component type, scope, number of
   rows, and number of columns **must** match one of the matrices in any
   of the supported
-  [VkCooperativeMatrixPropertiesKHR](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkCooperativeMatrixPropertiesKHR.html)
+  [VkCooperativeMatrixPropertiesKHR](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkCooperativeMatrixPropertiesKHR.html).
 
-- <a href="#VUID-RuntimeSpirv-MSize-08975"
-  id="VUID-RuntimeSpirv-MSize-08975"></a>
-  VUID-RuntimeSpirv-MSize-08975  
-  For `OpCooperativeMatrixMulAddKHR`, the type of `A` **must** have
-  [VkCooperativeMatrixPropertiesKHR](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkCooperativeMatrixPropertiesKHR.html)::`MSize`
-  rows and
-  [VkCooperativeMatrixPropertiesKHR](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkCooperativeMatrixPropertiesKHR.html)::`KSize`
-  columns and have a component type that matches
-  [VkCooperativeMatrixPropertiesKHR](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkCooperativeMatrixPropertiesKHR.html)::`AType`
+- <a href="#VUID-RuntimeSpirv-OpCooperativeMatrixMulAddKHR-10060"
+  id="VUID-RuntimeSpirv-OpCooperativeMatrixMulAddKHR-10060"></a>
+  VUID-RuntimeSpirv-OpCooperativeMatrixMulAddKHR-10060  
+  For `OpCooperativeMatrixMulAddKHR`, the operands **must** match a
+  supported
+  [VkCooperativeMatrixPropertiesKHR](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkCooperativeMatrixPropertiesKHR.html),
+  such that:
 
-- <a href="#VUID-RuntimeSpirv-OpCooperativeMatrixMulAddKHR-08976"
-  id="VUID-RuntimeSpirv-OpCooperativeMatrixMulAddKHR-08976"></a>
-  VUID-RuntimeSpirv-OpCooperativeMatrixMulAddKHR-08976  
-  For `OpCooperativeMatrixMulAddKHR`, when the component type of `A` is
-  a signed integer type, the `MatrixASignedComponents` cooperative
-  matrix operand **must** be present
+  - The type of `A` **must** have `Rows` match
+    [VkCooperativeMatrixPropertiesKHR](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkCooperativeMatrixPropertiesKHR.html)::`MSize`,
+    `Columns` match
+    [VkCooperativeMatrixPropertiesKHR](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkCooperativeMatrixPropertiesKHR.html)::`KSize`,
+    `Use` be `MatrixAKHR`, and `ComponentType` match
+    [VkCooperativeMatrixPropertiesKHR](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkCooperativeMatrixPropertiesKHR.html)::`AType`.
 
-- <a href="#VUID-RuntimeSpirv-KSize-08977"
-  id="VUID-RuntimeSpirv-KSize-08977"></a>
-  VUID-RuntimeSpirv-KSize-08977  
-  For `OpCooperativeMatrixMulAddKHR`, the type of `B` **must** have
-  [VkCooperativeMatrixPropertiesKHR](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkCooperativeMatrixPropertiesKHR.html)::`KSize`
-  rows and
-  [VkCooperativeMatrixPropertiesKHR](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkCooperativeMatrixPropertiesKHR.html)::`NSize`
-  columns and have a component type that matches
-  [VkCooperativeMatrixPropertiesKHR](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkCooperativeMatrixPropertiesKHR.html)::`BType`
+  - The type of `B` **must** have `Rows` match
+    [VkCooperativeMatrixPropertiesKHR](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkCooperativeMatrixPropertiesKHR.html)::`KSize`,
+    `Columns` match
+    [VkCooperativeMatrixPropertiesKHR](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkCooperativeMatrixPropertiesKHR.html)::`NSize`,
+    `Use` be `MatrixBKHR`, and `ComponentType` match
+    [VkCooperativeMatrixPropertiesKHR](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkCooperativeMatrixPropertiesKHR.html)::`BType`.
 
-- <a href="#VUID-RuntimeSpirv-OpCooperativeMatrixMulAddKHR-08978"
-  id="VUID-RuntimeSpirv-OpCooperativeMatrixMulAddKHR-08978"></a>
-  VUID-RuntimeSpirv-OpCooperativeMatrixMulAddKHR-08978  
-  For `OpCooperativeMatrixMulAddKHR`, when the component type of `B` is
-  a signed integer type, the `MatrixBSignedComponents` cooperative
-  matrix operand **must** be present
+  - The type of `C` **must** have `Rows` match
+    [VkCooperativeMatrixPropertiesKHR](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkCooperativeMatrixPropertiesKHR.html)::`MSize`,
+    `Columns` match
+    [VkCooperativeMatrixPropertiesKHR](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkCooperativeMatrixPropertiesKHR.html)::`NSize`,
+    `Use` be `MatrixAccumulatorKHR`, and `ComponentType` match
+    [VkCooperativeMatrixPropertiesKHR](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkCooperativeMatrixPropertiesKHR.html)::`CType`.
 
-- <a href="#VUID-RuntimeSpirv-MSize-08979"
-  id="VUID-RuntimeSpirv-MSize-08979"></a>
-  VUID-RuntimeSpirv-MSize-08979  
-  For `OpCooperativeMatrixMulAddKHR`, the type of `C` **must** have
-  [VkCooperativeMatrixPropertiesKHR](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkCooperativeMatrixPropertiesKHR.html)::`MSize`
-  rows and
-  [VkCooperativeMatrixPropertiesKHR](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkCooperativeMatrixPropertiesKHR.html)::`NSize`
-  columns and have a component type that matches
-  [VkCooperativeMatrixPropertiesKHR](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkCooperativeMatrixPropertiesKHR.html)::`CType`
+  - The type of `Result` **must** have `Rows` match
+    [VkCooperativeMatrixPropertiesKHR](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkCooperativeMatrixPropertiesKHR.html)::`MSize`,
+    `Columns` match
+    [VkCooperativeMatrixPropertiesKHR](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkCooperativeMatrixPropertiesKHR.html)::`NSize`,
+    `Use` be `MatrixAccumulatorKHR`, and `ComponentType` match
+    [VkCooperativeMatrixPropertiesKHR](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkCooperativeMatrixPropertiesKHR.html)::`ResultType`.
 
-- <a href="#VUID-RuntimeSpirv-OpCooperativeMatrixMulAddKHR-08980"
-  id="VUID-RuntimeSpirv-OpCooperativeMatrixMulAddKHR-08980"></a>
-  VUID-RuntimeSpirv-OpCooperativeMatrixMulAddKHR-08980  
-  For `OpCooperativeMatrixMulAddKHR`, when the component type of `C` is
-  a signed integer type, the `MatrixCSignedComponents` cooperative
-  matrix operand **must** be present
+  - If and only if
+    [VkCooperativeMatrixPropertiesKHR](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkCooperativeMatrixPropertiesKHR.html)::`AType`
+    is a signed integer type, `MatrixASignedComponents` **must** be
+    used.
 
-- <a href="#VUID-RuntimeSpirv-MSize-08981"
-  id="VUID-RuntimeSpirv-MSize-08981"></a>
-  VUID-RuntimeSpirv-MSize-08981  
-  For `OpCooperativeMatrixMulAddKHR`, the type of `Result` **must** have
-  [VkCooperativeMatrixPropertiesKHR](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkCooperativeMatrixPropertiesKHR.html)::`MSize`
-  rows and
-  [VkCooperativeMatrixPropertiesKHR](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkCooperativeMatrixPropertiesKHR.html)::`NSize`
-  columns and have a component type that matches
-  [VkCooperativeMatrixPropertiesKHR](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkCooperativeMatrixPropertiesKHR.html)::`ResultType`
+  - If and only if
+    [VkCooperativeMatrixPropertiesKHR](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkCooperativeMatrixPropertiesKHR.html)::`BType`
+    is a signed integer type, `MatrixBSignedComponents` **must** be
+    used.
 
-- <a href="#VUID-RuntimeSpirv-OpCooperativeMatrixMulAddKHR-08982"
-  id="VUID-RuntimeSpirv-OpCooperativeMatrixMulAddKHR-08982"></a>
-  VUID-RuntimeSpirv-OpCooperativeMatrixMulAddKHR-08982  
-  For `OpCooperativeMatrixMulAddKHR`, when the component type of
-  `Result` is a signed integer type, the `MatrixResultSignedComponents`
-  cooperative matrix operand **must** be present
+  - If and only if
+    [VkCooperativeMatrixPropertiesKHR](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkCooperativeMatrixPropertiesKHR.html)::`CType`
+    is a signed integer type, `MatrixCSignedComponents` **must** be
+    used.
 
-- <a href="#VUID-RuntimeSpirv-saturatingAccumulation-08983"
-  id="VUID-RuntimeSpirv-saturatingAccumulation-08983"></a>
-  VUID-RuntimeSpirv-saturatingAccumulation-08983  
-  For `OpCooperativeMatrixMulAddKHR`, the `SaturatingAccumulation`
-  cooperative matrix operand **must** be present if and only if
-  [VkCooperativeMatrixPropertiesKHR](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkCooperativeMatrixPropertiesKHR.html)::`saturatingAccumulation`
-  is `VK_TRUE`
+  - If and only if
+    [VkCooperativeMatrixPropertiesKHR](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkCooperativeMatrixPropertiesKHR.html)::`ResultType`
+    is a signed integer type, `MatrixResultSignedComponents` **must** be
+    used.
 
-- <a href="#VUID-RuntimeSpirv-scope-08984"
-  id="VUID-RuntimeSpirv-scope-08984"></a>
-  VUID-RuntimeSpirv-scope-08984  
-  For `OpCooperativeMatrixMulAddKHR`, the type of `A`, `B`, `C`, and
-  `Result` **must** all have a scope of `scope`
+  - If and only if
+    [VkCooperativeMatrixPropertiesKHR](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkCooperativeMatrixPropertiesKHR.html)::`saturatingAccumulation`
+    is `VK_TRUE`, `SaturatingAccumulationKHR` **must** be used.
+
+  - If and only if
+    [VkCooperativeMatrixPropertiesKHR](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkCooperativeMatrixPropertiesKHR.html)::`saturatingAccumulation`
+    is `VK_FALSE`, `SaturatingAccumulationKHR` **must** not be used.
+
+  - The scope of all cooperative matrix operands **must** be
+    [VkScopeKHR](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkScopeKHR.html)::`VK_SCOPE_SUBGROUP_KHR`.
 
 - <a href="#VUID-RuntimeSpirv-cooperativeMatrixSupportedStages-08985"
   id="VUID-RuntimeSpirv-cooperativeMatrixSupportedStages-08985"></a>
@@ -1160,7 +1146,7 @@ Valid Usage
   href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#features-shaderSharedFloat16AtomicMinMax"
   target="_blank"
   rel="noopener"><code>shaderSharedFloat16AtomicMinMax</code></a>
-  **must** be enabled for 16-bit floating point atomic operations
+  **must** be enabled for 16-bit floating-point atomic operations
 
 - <a href="#VUID-RuntimeSpirv-None-06338"
   id="VUID-RuntimeSpirv-None-06338"></a> VUID-RuntimeSpirv-None-06338  
@@ -1192,7 +1178,7 @@ Valid Usage
   href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#features-shaderImageFloat32AtomicMinMax"
   target="_blank"
   rel="noopener"><code>shaderImageFloat32AtomicMinMax</code></a>
-  **must** be enabled for 32-bit floating point atomic operations
+  **must** be enabled for 32-bit floating-point atomic operations
 
 - <a href="#VUID-RuntimeSpirv-None-06339"
   id="VUID-RuntimeSpirv-None-06339"></a> VUID-RuntimeSpirv-None-06339  
@@ -1215,7 +1201,7 @@ Valid Usage
   href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#features-shaderSharedFloat64AtomicMinMax"
   target="_blank"
   rel="noopener"><code>shaderSharedFloat64AtomicMinMax</code></a>,
-  **must** be enabled for 64-bit floating point atomic operations
+  **must** be enabled for 64-bit floating-point atomic operations
 
 - <a href="#VUID-RuntimeSpirv-shaderFloat16VectorAtomics-09581"
   id="VUID-RuntimeSpirv-shaderFloat16VectorAtomics-09581"></a>
@@ -1785,10 +1771,10 @@ Valid Usage
   href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#features-shaderSubgroupUniformControlFlow"
   target="_blank"
   rel="noopener"><code>shaderSubgroupUniformControlFlow</code></a> is
-  enabled and the corresponding shader stage bit is set in subgroup <a
-  href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#limits-subgroup-supportedStages"
-  target="_blank" rel="noopener"><code>supportedStages</code></a> and
-  the entry point does not execute any <a
+  enabled, the corresponding shader stage bit is set in <a
+  href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#limits-subgroupSupportedStages"
+  target="_blank" rel="noopener"><code>subgroupSupportedStages</code></a>,
+  and the entry point does not execute any <a
   href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#ray-tracing-repack"
   target="_blank" rel="noopener"><em>invocation repack
   instructions</em></a>
@@ -2213,5 +2199,5 @@ Copyright 2014-2024 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
 
-Version 1.3.285  
-Last updated 2024-05-10 01:10:25 -0700
+Version 1.3.290  
+Last updated 2024-07-11 23:39:16 -0700

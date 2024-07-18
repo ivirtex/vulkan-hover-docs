@@ -84,7 +84,7 @@ for any reason.
 <col style="width: 50%" />
 </colgroup>
 <tbody>
-<tr class="odd">
+<tr>
 <td class="icon"><em></em></td>
 <td class="content">Note
 <p>The rationale for the relaxed requirement on implementations to
@@ -364,7 +364,7 @@ Valid Usage
   [VkPipelineShaderStageRequiredSubgroupSizeCreateInfo](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkPipelineShaderStageRequiredSubgroupSizeCreateInfo.html)
   structure is included in the `pNext` chain, the local workgroup size
   in the X dimension of the pipeline **must** be a multiple of <a
-  href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#limits-subgroup-size"
+  href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#limits-subgroupSize"
   target="_blank" rel="noopener"><code>subgroupSize</code></a>
 
 - <a href="#VUID-VkPipelineShaderStageCreateInfo-module-08987"
@@ -373,7 +373,7 @@ Valid Usage
   If `module` uses the `OpTypeCooperativeMatrixKHR` instruction with a
   `Scope` equal to `Subgroup`, then the local workgroup size in the X
   dimension of the pipeline **must** be a multiple of <a
-  href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#limits-subgroup-size"
+  href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#limits-subgroupSize"
   target="_blank" rel="noopener"><code>subgroupSize</code></a>
 
 - <a href="#VUID-VkPipelineShaderStageCreateInfo-stage-08771"
@@ -403,9 +403,9 @@ Valid Usage
 - <a href="#VUID-VkPipelineShaderStageCreateInfo-stage-06844"
   id="VUID-VkPipelineShaderStageCreateInfo-stage-06844"></a>
   VUID-VkPipelineShaderStageCreateInfo-stage-06844  
-  If a shader module identifier is specified for this `stage`, a
+  If a shader module identifier is specified for this `stage`, the
+  `pNext` chain **must** not include a
   [VkShaderModuleCreateInfo](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkShaderModuleCreateInfo.html) structure
-  **must** not be present in the `pNext` chain
 
 - <a href="#VUID-VkPipelineShaderStageCreateInfo-stage-06848"
   id="VUID-VkPipelineShaderStageCreateInfo-stage-06848"></a>
@@ -515,5 +515,5 @@ Copyright 2014-2024 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
 
-Version 1.3.285  
-Last updated 2024-05-10 01:10:25 -0700
+Version 1.3.290  
+Last updated 2024-07-11 23:39:16 -0700

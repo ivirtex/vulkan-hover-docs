@@ -64,8 +64,8 @@ phase or if it is required to rebuild descriptor sets for each frame.
 For those cases it is also not unlikely that all information required to
 update a single descriptor set is stored in a single struct. This
 extension provides a way to update a fixed set of descriptors in a
-single [VkDescriptorSet](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkDescriptorSet.html) with a pointer to a user
-defined data structure describing the new descriptors.
+single [VkDescriptorSet](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkDescriptorSet.html) with a pointer to an
+application-defined data structure describing the new descriptors.
 
 ## <a href="#_promotion_to_vulkan_1_1" class="anchor"></a>Promotion to Vulkan 1.1
 
@@ -167,5 +167,5 @@ Copyright 2014-2024 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
 
-Version 1.3.285  
-Last updated 2024-05-10 01:10:25 -0700
+Version 1.3.290  
+Last updated 2024-07-11 23:39:16 -0700

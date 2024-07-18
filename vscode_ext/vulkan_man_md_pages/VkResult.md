@@ -16,8 +16,8 @@ their status via return codes that are in one of two categories:
   communicate success or status information. All successful completion
   codes are non-negative values.
 
-- Run time error codes are returned when a command needs to communicate
-  a failure that could only be detected at runtime. All runtime error
+- Runtime error codes are returned when a command needs to communicate a
+  failure that could only be detected at runtime. All runtime error
   codes are negative values.
 
 All return codes in Vulkan are reported via [VkResult](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkResult.html)
@@ -167,7 +167,7 @@ Success Codes
   <col style="width: 50%" />
   </colgroup>
   <tbody>
-  <tr class="odd">
+  <tr>
   <td class="icon"><em></em></td>
   <td class="content">Note
   <p>In the initial version of the <a
@@ -305,6 +305,11 @@ Error codes
   do not adhere to the capabilities of the video compression standard or
   the implementation.
 
+- `VK_ERROR_NOT_PERMITTED_KHR` The driver implementation has denied a
+  request to acquire a priority above the default priority
+  (`VK_QUEUE_GLOBAL_PRIORITY_MEDIUM_EXT`) because the application does
+  not have sufficient privileges.
+
 - `VK_ERROR_UNKNOWN` An unknown error has occurred; either the
   application has provided invalid input, or an implementation failure
   has occurred.
@@ -326,7 +331,7 @@ Vulkan objects. Objects that have already been successfully created
 <col style="width: 50%" />
 </colgroup>
 <tbody>
-<tr class="odd">
+<tr>
 <td class="icon"><em></em></td>
 <td class="content">Note
 <p>As a general rule, <code>Free</code>, <code>Release</code>, and
@@ -349,7 +354,7 @@ be returned from any command returning a [VkResult](https://registry.khronos.org
 <col style="width: 50%" />
 </colgroup>
 <tbody>
-<tr class="odd">
+<tr>
 <td class="icon"><em></em></td>
 <td class="content">Note
 <p><code>VK_ERROR_UNKNOWN</code> is not expected to ever be returned if
@@ -395,5 +400,5 @@ Copyright 2014-2024 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
 
-Version 1.3.285  
-Last updated 2024-05-10 01:10:25 -0700
+Version 1.3.290  
+Last updated 2024-07-11 23:39:16 -0700

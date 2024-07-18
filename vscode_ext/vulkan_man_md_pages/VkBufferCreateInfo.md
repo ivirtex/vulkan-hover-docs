@@ -56,9 +56,9 @@ typedef struct VkBufferCreateInfo {
 
 ## <a href="#_description" class="anchor"></a>Description
 
-If a
+If the `pNext` chain includes a
 [VkBufferUsageFlags2CreateInfoKHR](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkBufferUsageFlags2CreateInfoKHR.html)
-structure is present in the `pNext` chain,
+structure,
 [VkBufferUsageFlags2CreateInfoKHR](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkBufferUsageFlags2CreateInfoKHR.html)::`usage`
 from that structure is used instead of `usage` from this structure.
 
@@ -414,5 +414,5 @@ Copyright 2014-2024 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
 
-Version 1.3.285  
-Last updated 2024-05-10 01:10:25 -0700
+Version 1.3.290  
+Last updated 2024-07-11 23:39:16 -0700

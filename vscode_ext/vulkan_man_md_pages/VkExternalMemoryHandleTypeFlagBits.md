@@ -148,23 +148,23 @@ Some external memory handle types can only be shared within the same
 underlying physical device and/or the same driver version, as defined in
 the following table:
 
-|                                                                      |                                              |                                              |
-|----------------------------------------------------------------------|----------------------------------------------|----------------------------------------------|
-| Handle type                                                          | `VkPhysicalDeviceIDProperties`::`driverUUID` | `VkPhysicalDeviceIDProperties`::`deviceUUID` |
-| `VK_EXTERNAL_MEMORY_HANDLE_TYPE_OPAQUE_FD_BIT`                       | Must match                                   | Must match                                   |
-| `VK_EXTERNAL_MEMORY_HANDLE_TYPE_OPAQUE_WIN32_BIT`                    | Must match                                   | Must match                                   |
-| `VK_EXTERNAL_MEMORY_HANDLE_TYPE_OPAQUE_WIN32_KMT_BIT`                | Must match                                   | Must match                                   |
-| `VK_EXTERNAL_MEMORY_HANDLE_TYPE_D3D11_TEXTURE_BIT`                   | Must match                                   | Must match                                   |
-| `VK_EXTERNAL_MEMORY_HANDLE_TYPE_D3D11_TEXTURE_KMT_BIT`               | Must match                                   | Must match                                   |
-| `VK_EXTERNAL_MEMORY_HANDLE_TYPE_D3D12_HEAP_BIT`                      | Must match                                   | Must match                                   |
-| `VK_EXTERNAL_MEMORY_HANDLE_TYPE_D3D12_RESOURCE_BIT`                  | Must match                                   | Must match                                   |
-| `VK_EXTERNAL_MEMORY_HANDLE_TYPE_HOST_ALLOCATION_BIT_EXT`             | No restriction                               | No restriction                               |
-| `VK_EXTERNAL_MEMORY_HANDLE_TYPE_HOST_MAPPED_FOREIGN_MEMORY_BIT_EXT`  | No restriction                               | No restriction                               |
-| `VK_EXTERNAL_MEMORY_HANDLE_TYPE_DMA_BUF_BIT_EXT`                     | No restriction                               | No restriction                               |
-| `VK_EXTERNAL_MEMORY_HANDLE_TYPE_ANDROID_HARDWARE_BUFFER_BIT_ANDROID` | No restriction                               | No restriction                               |
-| `VK_EXTERNAL_MEMORY_HANDLE_TYPE_ZIRCON_VMO_BIT_FUCHSIA`              | No restriction                               | No restriction                               |
-| `VK_EXTERNAL_MEMORY_HANDLE_TYPE_RDMA_ADDRESS_BIT_NV`                 | No restriction                               | No restriction                               |
-| `VK_EXTERNAL_MEMORY_HANDLE_TYPE_SCREEN_BUFFER_BIT_QNX`               | No restriction                               | No restriction                               |
+|  |  |  |
+|----|----|----|
+| Handle type | `VkPhysicalDeviceIDProperties`::`driverUUID` | `VkPhysicalDeviceIDProperties`::`deviceUUID` |
+| `VK_EXTERNAL_MEMORY_HANDLE_TYPE_OPAQUE_FD_BIT` | Must match | Must match |
+| `VK_EXTERNAL_MEMORY_HANDLE_TYPE_OPAQUE_WIN32_BIT` | Must match | Must match |
+| `VK_EXTERNAL_MEMORY_HANDLE_TYPE_OPAQUE_WIN32_KMT_BIT` | Must match | Must match |
+| `VK_EXTERNAL_MEMORY_HANDLE_TYPE_D3D11_TEXTURE_BIT` | Must match | Must match |
+| `VK_EXTERNAL_MEMORY_HANDLE_TYPE_D3D11_TEXTURE_KMT_BIT` | Must match | Must match |
+| `VK_EXTERNAL_MEMORY_HANDLE_TYPE_D3D12_HEAP_BIT` | Must match | Must match |
+| `VK_EXTERNAL_MEMORY_HANDLE_TYPE_D3D12_RESOURCE_BIT` | Must match | Must match |
+| `VK_EXTERNAL_MEMORY_HANDLE_TYPE_HOST_ALLOCATION_BIT_EXT` | No restriction | No restriction |
+| `VK_EXTERNAL_MEMORY_HANDLE_TYPE_HOST_MAPPED_FOREIGN_MEMORY_BIT_EXT` | No restriction | No restriction |
+| `VK_EXTERNAL_MEMORY_HANDLE_TYPE_DMA_BUF_BIT_EXT` | No restriction | No restriction |
+| `VK_EXTERNAL_MEMORY_HANDLE_TYPE_ANDROID_HARDWARE_BUFFER_BIT_ANDROID` | No restriction | No restriction |
+| `VK_EXTERNAL_MEMORY_HANDLE_TYPE_ZIRCON_VMO_BIT_FUCHSIA` | No restriction | No restriction |
+| `VK_EXTERNAL_MEMORY_HANDLE_TYPE_RDMA_ADDRESS_BIT_NV` | No restriction | No restriction |
+| `VK_EXTERNAL_MEMORY_HANDLE_TYPE_SCREEN_BUFFER_BIT_QNX` | No restriction | No restriction |
 
 Table 1. External memory handle types compatibility
 {#external-memory-handle-types-compatibility}
@@ -175,7 +175,7 @@ Table 1. External memory handle types compatibility
 <col style="width: 50%" />
 </colgroup>
 <tbody>
-<tr class="odd">
+<tr>
 <td class="icon"><em></em></td>
 <td class="content">Note
 <p>The above table does not restrict the drivers and devices with which
@@ -194,7 +194,7 @@ from the host or a foreign device, respectively.</p></td>
 <col style="width: 50%" />
 </colgroup>
 <tbody>
-<tr class="odd">
+<tr>
 <td class="icon"><em></em></td>
 <td class="content">Note
 <p>Even though the above table does not restrict the drivers and devices
@@ -244,5 +244,5 @@ Copyright 2014-2024 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
 
-Version 1.3.285  
-Last updated 2024-05-10 01:10:25 -0700
+Version 1.3.290  
+Last updated 2024-07-11 23:39:16 -0700

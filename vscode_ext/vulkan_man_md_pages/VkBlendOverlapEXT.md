@@ -44,11 +44,11 @@ typedef enum VkBlendOverlapEXT {
 - `VK_BLEND_OVERLAP_DISJOINT_EXT` specifies that the source and
   destination coverage are considered to have minimal overlap.
 
-| Overlap Mode                        | Weighting Equations                                                  |
-|-------------------------------------|----------------------------------------------------------------------|
-| `VK_BLEND_OVERLAP_UNCORRELATED_EXT` | p0​(As​,Ad​)p1​(As​,Ad​)p2​(As​,Ad​)​=As​Ad​=As​(1−Ad​)=Ad​(1−As​)​                   |
-| `VK_BLEND_OVERLAP_CONJOINT_EXT`     | p0​(As​,Ad​)p1​(As​,Ad​)p2​(As​,Ad​)​=min(As​,Ad​)=max(As​−Ad​,0)=max(Ad​−As​,0)​     |
-| `VK_BLEND_OVERLAP_DISJOINT_EXT`     | p0​(As​,Ad​)p1​(As​,Ad​)p2​(As​,Ad​)​=max(As​+Ad​−1,0)=min(As​,1−Ad​)=min(Ad​,1−As​)​ |
+| Overlap Mode | Weighting Equations |
+|----|----|
+| `VK_BLEND_OVERLAP_UNCORRELATED_EXT` | p0​(As​,Ad​)p1​(As​,Ad​)p2​(As​,Ad​)​=As​Ad​=As​(1−Ad​)=Ad​(1−As​)​ |
+| `VK_BLEND_OVERLAP_CONJOINT_EXT` | p0​(As​,Ad​)p1​(As​,Ad​)p2​(As​,Ad​)​=min(As​,Ad​)=max(As​−Ad​,0)=max(Ad​−As​,0)​ |
+| `VK_BLEND_OVERLAP_DISJOINT_EXT` | p0​(As​,Ad​)p1​(As​,Ad​)p2​(As​,Ad​)​=max(As​+Ad​−1,0)=min(As​,1−Ad​)=min(Ad​,1−As​)​ |
 
 Table 1. Advanced Blend Overlap Modes
 {#framebuffer-blend-advanced-overlap-modes}
@@ -74,5 +74,5 @@ Copyright 2014-2024 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
 
-Version 1.3.285  
-Last updated 2024-05-10 01:10:25 -0700
+Version 1.3.290  
+Last updated 2024-07-11 23:39:16 -0700

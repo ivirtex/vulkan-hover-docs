@@ -37,14 +37,14 @@ the type of the command being queried before use. The function pointer
 **must** only be called with a dispatchable object (the first parameter)
 that is `device` or a child of `device`.
 
-| `device`                          | `pName`                                                                          | return value   |
-|-----------------------------------|----------------------------------------------------------------------------------|----------------|
-| `NULL`                            | \*<sup>1</sup>                                                                   | undefined      |
-| invalid device                    | \*<sup>1</sup>                                                                   | undefined      |
-| device                            | `NULL`                                                                           | undefined      |
-| device                            | requested core version<sup>2</sup> device-level dispatchable command<sup>3</sup> | fp<sup>4</sup> |
-| device                            | enabled extension device-level dispatchable command<sup>3</sup>                  | fp<sup>4</sup> |
-| any other case, not covered above |                                                                                  | `NULL`         |
+| `device` | `pName` | return value |
+|----|----|----|
+| `NULL` | \*<sup>1</sup> | undefined |
+| invalid device | \*<sup>1</sup> | undefined |
+| device | `NULL` | undefined |
+| device | requested core version<sup>2</sup> device-level dispatchable command<sup>3</sup> | fp<sup>4</sup> |
+| device | enabled extension device-level dispatchable command<sup>3</sup> | fp<sup>4</sup> |
+| any other case, not covered above |  | `NULL` |
 
 Table 1. `vkGetDeviceProcAddr` behavior
 
@@ -105,5 +105,5 @@ Copyright 2014-2024 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
 
-Version 1.3.285  
-Last updated 2024-05-10 01:10:25 -0700
+Version 1.3.290  
+Last updated 2024-07-11 23:39:16 -0700

@@ -98,7 +98,7 @@ typedef struct VkVideoEncodeH265CapabilitiesKHR {
   <col style="width: 50%" />
   </colgroup>
   <tbody>
-  <tr class="odd">
+  <tr>
   <td class="icon"><em></em></td>
   <td class="content">Note
   <p>As implementations <strong>may</strong> <a
@@ -108,9 +108,9 @@ typedef struct VkVideoEncodeH265CapabilitiesKHR {
   elements that the application <strong>can</strong> specify in the L0
   reference list for P pictures. However, if
   <code>maxPPictureL0ReferenceCount</code> is zero, then the use of P
-  pictures is not allowed. In case of H.265 encoding, backward-only
-  predictive pictures <strong>can</strong> be encoded even if P pictures
-  are not supported, as the <a
+  pictures is not allowed. In case of H.265 encoding, pictures
+  <strong>can</strong> be encoded using only forward prediction even if P
+  pictures are not supported, as the <a
   href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#itu-t-h265"
   target="_blank" rel="noopener">ITU-T H.265 Specification</a> supports
   <em>generalized P &amp; B frames</em> (also known as low delay B frames)
@@ -138,7 +138,7 @@ typedef struct VkVideoEncodeH265CapabilitiesKHR {
   <col style="width: 50%" />
   </colgroup>
   <tbody>
-  <tr class="odd">
+  <tr>
   <td class="icon"><em></em></td>
   <td class="content">Note
   <p>As implementations <strong>may</strong> <a
@@ -230,5 +230,5 @@ Copyright 2014-2024 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
 
-Version 1.3.285  
-Last updated 2024-05-10 01:10:25 -0700
+Version 1.3.290  
+Last updated 2024-07-11 23:39:16 -0700

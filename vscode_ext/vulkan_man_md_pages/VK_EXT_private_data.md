@@ -57,7 +57,7 @@ No known IP claims.
 
 This extension is a device extension which enables attaching arbitrary
 payloads to Vulkan objects. It introduces the idea of private data slots
-as a means of storing a 64-bit unsigned integer of application defined
+as a means of storing a 64-bit unsigned integer of application-defined
 data. Private data slots can be created or destroyed any time an
 associated device is available. Private data slots can be reserved at
 device creation time, and limiting use to the amount reserved will allow
@@ -172,5 +172,5 @@ Copyright 2014-2024 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
 
-Version 1.3.285  
-Last updated 2024-05-10 01:10:25 -0700
+Version 1.3.290  
+Last updated 2024-07-11 23:39:16 -0700

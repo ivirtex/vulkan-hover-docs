@@ -11,7 +11,7 @@ SubgroupSize - Size of a subgroup
 `SubgroupSize`  
 Decorating a variable with the `SubgroupSize` builtin decoration will
 make that variable contain the implementation-dependent <a
-href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#limits-subgroup-size"
+href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#limits-subgroupSize"
 target="_blank" rel="noopener">number of invocations in a subgroup</a>.
 This value **must** be a power-of-two integer.
 
@@ -53,7 +53,7 @@ structure was chained, and the shader was not created with the
 [VkShaderRequiredSubgroupSizeCreateInfoEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkShaderRequiredSubgroupSizeCreateInfoEXT.html)
 structure was chained, the variable decorated with `SubgroupSize` will
 match <a
-href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#limits-subgroup-size"
+href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#limits-subgroupSize"
 target="_blank" rel="noopener"><code>subgroupSize</code></a>.
 
 The maximum number of invocations that an implementation can support per
@@ -65,7 +65,7 @@ subgroup is 128.
 <col style="width: 50%" />
 </colgroup>
 <tbody>
-<tr class="odd">
+<tr>
 <td class="icon"><em></em></td>
 <td class="content">Note
 <p>The old behavior for <code>SubgroupSize</code> is considered
@@ -111,5 +111,5 @@ Copyright 2014-2024 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
 
-Version 1.3.285  
-Last updated 2024-05-10 01:10:25 -0700
+Version 1.3.290  
+Last updated 2024-07-11 23:39:16 -0700

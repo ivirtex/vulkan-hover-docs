@@ -37,10 +37,10 @@ describe the following features:
   `_screen_buffer` from applications. In this case, the application is
   responsible for the resource management of the `_screen_buffer`.
 
-|                              |                                                                                                                                                                                                                                                                      |
-|------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Features                     | Functionality                                                                                                                                                                                                                                                        |
-| `screenBufferImport`         | [VkImportScreenBufferInfoQNX](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkImportScreenBufferInfoQNX.html)                                                                                                                                                                                                      |
+|  |  |
+|----|----|
+| Features | Functionality |
+| `screenBufferImport` | [VkImportScreenBufferInfoQNX](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkImportScreenBufferInfoQNX.html) |
 | Always supported<sup>1</sup> | [vkGetScreenBufferPropertiesQNX](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkGetScreenBufferPropertiesQNX.html), [VkScreenBufferPropertiesQNX](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkScreenBufferPropertiesQNX.html), [VkScreenBufferFormatPropertiesQNX](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkScreenBufferFormatPropertiesQNX.html), [VkExternalFormatQNX](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkExternalFormatQNX.html) |
 
 Table 1. Functionality supported for QNX Screen Buffer features
@@ -99,5 +99,5 @@ Copyright 2014-2024 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
 
-Version 1.3.285  
-Last updated 2024-05-10 01:10:25 -0700
+Version 1.3.290  
+Last updated 2024-07-11 23:39:16 -0700

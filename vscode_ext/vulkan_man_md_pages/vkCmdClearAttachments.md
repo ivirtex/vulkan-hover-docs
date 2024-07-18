@@ -77,7 +77,7 @@ target="_blank" rel="noopener">stencil writes</a> by the
 <col style="width: 50%" />
 </colgroup>
 <tbody>
-<tr class="odd">
+<tr>
 <td class="icon"><em></em></td>
 <td class="content">Note
 <p>It is generally preferable to clear attachments by using the
@@ -202,6 +202,12 @@ Valid Usage
   **must** not include `VK_IMAGE_ASPECT_PLANE`*`_i_`*`BIT` for any index
   *i*
 
+- <a href="#VUID-vkCmdClearAttachments-None-09679"
+  id="VUID-vkCmdClearAttachments-None-09679"></a>
+  VUID-vkCmdClearAttachments-None-09679  
+  If the attachment format has components other than R and G, it
+  **must** not have a 64-bit component width
+
 Valid Usage (Implicit)
 
 - <a href="#VUID-vkCmdClearAttachments-commandBuffer-parameter"
@@ -273,7 +279,7 @@ Command Properties
 <col style="width: 20%" />
 </colgroup>
 <thead>
-<tr class="header">
+<tr>
 <th class="tableblock halign-left valign-top"><a
 href="#VkCommandBufferLevel">Command Buffer Levels</a></th>
 <th class="tableblock halign-left valign-top"><a
@@ -287,7 +293,7 @@ href="#fundamentals-queueoperation-command-types">Command Type</a></th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td class="tableblock halign-left valign-top"><p>Primary<br />
 Secondary</p></td>
 <td class="tableblock halign-left valign-top"><p>Inside</p></td>
@@ -319,5 +325,5 @@ Copyright 2014-2024 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
 
-Version 1.3.285  
-Last updated 2024-05-10 01:10:25 -0700
+Version 1.3.290  
+Last updated 2024-07-11 23:39:16 -0700

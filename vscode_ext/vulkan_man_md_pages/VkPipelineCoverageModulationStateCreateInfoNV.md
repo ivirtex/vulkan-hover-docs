@@ -85,7 +85,7 @@ The values of `pCoverageModulationTable` **may** be rounded to an
 implementation-dependent precision, which is at least as fine as 1 / N,
 and clamped to \[0,1\].
 
-For each color attachment with a floating point or normalized color
+For each color attachment with a floating-point or normalized color
 format, each fragment output color value is replicated to M values which
 **can** each be modulated (multiplied) by that color sample’s associated
 value of R. Which components are modulated is controlled by
@@ -157,5 +157,5 @@ Copyright 2014-2024 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
 
-Version 1.3.285  
-Last updated 2024-05-10 01:10:25 -0700
+Version 1.3.290  
+Last updated 2024-07-11 23:39:16 -0700

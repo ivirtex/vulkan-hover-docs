@@ -132,7 +132,7 @@ resources such as buffers and images?
 **RESOLVED**: The extension covers all Vulkan objects, and is not
 restricted to objects backed by VkDeviceMemory objects.
 
-3.) Should reallocation be identified explicitly, or as a unbind/bind
+3.) Should reallocation be identified explicitly, or as an unbind/bind
 pair?
 
 **RESOLVED**: Reallocation should be represented as an unbind/bind pair.
@@ -233,5 +233,5 @@ Copyright 2014-2024 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
 
-Version 1.3.285  
-Last updated 2024-05-10 01:10:25 -0700
+Version 1.3.290  
+Last updated 2024-07-11 23:39:16 -0700

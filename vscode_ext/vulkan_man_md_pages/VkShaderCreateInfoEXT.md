@@ -242,7 +242,7 @@ Valid Usage
   [VkShaderRequiredSubgroupSizeCreateInfoEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkShaderRequiredSubgroupSizeCreateInfoEXT.html)
   structure is included in the `pNext` chain, the local workgroup size
   in the X dimension of the shader **must** be a multiple of <a
-  href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#limits-subgroup-size"
+  href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#limits-subgroupSize"
   target="_blank" rel="noopener"><code>subgroupSize</code></a>
 
 - <a href="#VUID-VkShaderCreateInfoEXT-stage-08418"
@@ -543,8 +543,11 @@ Valid Usage (Implicit)
 - <a href="#VUID-VkShaderCreateInfoEXT-pNext-pNext"
   id="VUID-VkShaderCreateInfoEXT-pNext-pNext"></a>
   VUID-VkShaderCreateInfoEXT-pNext-pNext  
-  `pNext` **must** be `NULL` or a pointer to a valid instance of
+  Each `pNext` member of any structure (including this one) in the
+  `pNext` chain **must** be either `NULL` or a pointer to a valid
+  instance of
   [VkPipelineShaderStageRequiredSubgroupSizeCreateInfo](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkPipelineShaderStageRequiredSubgroupSizeCreateInfo.html)
+  or [VkValidationFeaturesEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkValidationFeaturesEXT.html)
 
 - <a href="#VUID-VkShaderCreateInfoEXT-sType-unique"
   id="VUID-VkShaderCreateInfoEXT-sType-unique"></a>
@@ -643,5 +646,5 @@ Copyright 2014-2024 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
 
-Version 1.3.285  
-Last updated 2024-05-10 01:10:25 -0700
+Version 1.3.290  
+Last updated 2024-07-11 23:39:16 -0700

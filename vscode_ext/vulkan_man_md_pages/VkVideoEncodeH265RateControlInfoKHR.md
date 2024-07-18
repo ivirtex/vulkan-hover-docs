@@ -58,7 +58,7 @@ typedef struct VkVideoEncodeH265RateControlInfoKHR {
   href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#encode-h265-gop"
   target="_blank" rel="noopener">GOP</a>.
 
-- `temporalLayerCount` specifies the number of H.265 sub-layers that the
+- `subLayerCount` specifies the number of H.265 sub-layers that the
   application intends to use.
 
 ## <a href="#_description" class="anchor"></a>Description
@@ -88,7 +88,7 @@ specified rate control parameters.
 <col style="width: 50%" />
 </colgroup>
 <tbody>
-<tr class="odd">
+<tr>
 <td class="icon"><em></em></td>
 <td class="content">Note
 <p>It would be possible to infer the picture type to be used when
@@ -188,5 +188,5 @@ Copyright 2014-2024 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
 
-Version 1.3.285  
-Last updated 2024-05-10 01:10:25 -0700
+Version 1.3.290  
+Last updated 2024-07-11 23:39:16 -0700

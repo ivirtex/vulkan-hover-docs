@@ -143,8 +143,8 @@ bind.
 ## <a href="#_promotion_to_vulkan_1_3" class="anchor"></a>Promotion to Vulkan 1.3
 
 This extension has been partially promoted. All dynamic state enumerants
-and entry points in this extension are included in core Vulkan 1.3, with
-the EXT suffix omitted. The feature structure is not promoted. Extension
+and commands in this extension are included in core Vulkan 1.3, with the
+EXT suffix omitted. The feature structure is not promoted. Extension
 interfaces that were promoted remain available as aliases of the core
 functionality.
 
@@ -188,5 +188,5 @@ Copyright 2014-2024 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
 
-Version 1.3.285  
-Last updated 2024-05-10 01:10:25 -0700
+Version 1.3.290  
+Last updated 2024-07-11 23:39:16 -0700

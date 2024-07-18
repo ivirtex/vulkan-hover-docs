@@ -53,7 +53,9 @@ associated with an image is currently in use before performing the
 layout transition. The application **must** guarantee that any
 previously submitted command that reads from or writes to this
 subresource has completed before the host performs the layout
-transition.
+transition. The memory of `image` is accessed by the host as if <a
+href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#memory-coherent"
+target="_blank" rel="noopener">coherent</a>.
 
 <table>
 <colgroup>
@@ -61,13 +63,39 @@ transition.
 <col style="width: 50%" />
 </colgroup>
 <tbody>
-<tr class="odd">
+<tr>
 <td class="icon"><em></em></td>
 <td class="content">Note
 <p>Image layout transitions performed on the host do not require queue
 family ownership transfers as the physical layout of the image will not
 vary between queue families for the layouts supported by this
 function.</p></td>
+</tr>
+</tbody>
+</table>
+
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<tbody>
+<tr>
+<td class="icon"><em></em></td>
+<td class="content">Note
+<p>If the device has written to the image memory, it is not
+automatically made available to the host. Before this command can be
+called, a memory barrier for this image <strong>must</strong> have been
+issued on the device with the second <a
+href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#synchronization-dependencies-scopes"
+target="_blank" rel="noopener">synchronization scope</a> including
+<code>VK_PIPELINE_STAGE_HOST_BIT</code> and
+<code>VK_ACCESS_HOST_READ_BIT</code>.</p>
+<p>Because queue submissions <a
+href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#synchronization-submission-host-writes"
+target="_blank" rel="noopener">automatically make host memory visible to
+the device</a>, there would not be a need for a memory barrier before
+using the results of this layout transition on the device.</p></td>
 </tr>
 </tbody>
 </table>
@@ -267,5 +295,5 @@ Copyright 2014-2024 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
 
-Version 1.3.285  
-Last updated 2024-05-10 01:10:25 -0700
+Version 1.3.290  
+Last updated 2024-07-11 23:39:16 -0700

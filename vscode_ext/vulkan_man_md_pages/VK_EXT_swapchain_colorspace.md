@@ -12,7 +12,7 @@ VK_EXT_swapchain_colorspace - instance extension
 
 ## <a href="#_revision" class="anchor"></a>Revision
 
-4
+5
 
 ## <a href="#_ratification_status" class="anchor"></a>Ratification Status
 
@@ -92,7 +92,7 @@ color spaces not explicitly enumerated in
 the color spaces?
 
 **RESOLVED**: Pixel format is independent of color space (though some
-color spaces really want / need floating point color components to be
+color spaces really want / need floating-point color components to be
 useful). Therefore, do not plan on documenting what formats support
 which color spaces. An application **can** call
 [vkGetPhysicalDeviceSurfaceFormatsKHR](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkGetPhysicalDeviceSurfaceFormatsKHR.html)
@@ -130,6 +130,12 @@ an implementation can be described by separate extension.
 
   - Clarify DCI-P3 and Display P3 usage.
 
+- Revision 5, 2024-03-16 (Zehui Lin)
+
+  - Fix interchanged concepts of EOTF and OETF.
+
+  - Clarify that the presentation engine can accept the color spaces.
+
 ## <a href="#_see_also" class="anchor"></a>See Also
 
 No cross-references are available
@@ -149,5 +155,5 @@ Copyright 2014-2024 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
 
-Version 1.3.285  
-Last updated 2024-05-10 01:10:25 -0700
+Version 1.3.290  
+Last updated 2024-07-11 23:39:16 -0700

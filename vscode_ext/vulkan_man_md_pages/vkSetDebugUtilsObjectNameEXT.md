@@ -2,11 +2,14 @@
 
 ## Name
 
-vkSetDebugUtilsObjectNameEXT - Give a user-friendly name to an object
+vkSetDebugUtilsObjectNameEXT - Give an application-defined name to an
+object
 
 
 
 ## <a href="#_c_specification" class="anchor"></a>C Specification
+
+An object can be given an application-defined name by calling:
 
 ``` c
 // Provided by VK_EXT_debug_utils
@@ -113,5 +116,5 @@ Copyright 2014-2024 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
 
-Version 1.3.285  
-Last updated 2024-05-10 01:10:25 -0700
+Version 1.3.290  
+Last updated 2024-07-11 23:39:16 -0700

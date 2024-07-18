@@ -37,8 +37,8 @@ VkResult vkGetQueryPoolResults(
 
 - `dataSize` is the size in bytes of the buffer pointed to by `pData`.
 
-- `pData` is a pointer to a user-allocated buffer where the results will
-  be written
+- `pData` is a pointer to an application-allocated buffer where the
+  results will be written
 
 - `stride` is the stride in bytes between results for individual queries
   within `pData`.
@@ -93,7 +93,7 @@ of the results of the used query type.
 <col style="width: 50%" />
 </colgroup>
 <tbody>
-<tr class="odd">
+<tr>
 <td class="icon"><em></em></td>
 <td class="content">Note
 <p>If <code>VK_QUERY_RESULT_WITH_AVAILABILITY_BIT</code> or
@@ -121,8 +121,13 @@ written as an array of the type indicated by
 the counter being queried. Otherwise, results and availability or status
 values are written as an array of 32-bit values. If an unsigned integer
 query’s value overflows the result type, the value **may** either wrap
-or saturate. If a signed integer query’s value overflows the result
-type, the value is undefined. If a floating point query’s value is not
+or saturate. If the <a
+href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#features-maintenance7"
+target="_blank" rel="noopener"><code>maintenance7</code></a> feature is
+enabled, for an unsigned integer query, the 32-bit result value **must**
+be equal to the 32 least significant bits of the equivalent 64-bit
+result value. If a signed integer query’s value overflows the result
+type, the value is undefined. If a floating-point query’s value is not
 representable as the result type, the value is undefined.
 
 If `VK_QUERY_RESULT_WAIT_BIT` is set, this command defines an execution
@@ -149,7 +154,7 @@ state.
 <col style="width: 50%" />
 </colgroup>
 <tbody>
-<tr class="odd">
+<tr>
 <td class="icon"><em></em></td>
 <td class="content">Note
 <p>Applications <strong>must</strong> take care to ensure that use of
@@ -184,7 +189,7 @@ since the last use of the query.</p>
 <col style="width: 50%" />
 </colgroup>
 <tbody>
-<tr class="odd">
+<tr>
 <td class="icon"><em></em></td>
 <td class="content">Note
 <p>Applications <strong>can</strong> double-buffer query pool usage,
@@ -375,5 +380,5 @@ Copyright 2014-2024 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
 
-Version 1.3.285  
-Last updated 2024-05-10 01:10:25 -0700
+Version 1.3.290  
+Last updated 2024-07-11 23:39:16 -0700
