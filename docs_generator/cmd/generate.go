@@ -5,7 +5,9 @@ import (
 	"io"
 	"net/http"
 	"os"
+	"regexp"
 	"strings"
+	"time"
 
 	htmltomarkdown "github.com/JohannesKaufmann/html-to-markdown/v2"
 	"github.com/charmbracelet/log"
@@ -25,38 +27,50 @@ var generateCmd = &cobra.Command{
 	Short: "Generate Markdown documentation from provided URL link",
 	Args:  cobra.ExactArgs(1),
 	Run: func(cmd *cobra.Command, args []string) {
-		// Set up logging
 		verbose, _ := cmd.Flags().GetBool("verbose")
-		if verbose {
-			log.SetLevel(log.DebugLevel)
-		} else {
-			log.SetLevel(log.InfoLevel)
-		}
-
-		// Get path from flags
 		path, _ := cmd.Flags().GetString("path")
-
 		url := RemoveSlashes(args[0])
-		if url == "" {
-			log.Fatal("URL cannot be empty")
-			return
-		}
 
-		pages, err := ExtractPages(url)
-		if err != nil {
-			log.Fatalf("Error extracting pages: %v", err)
-			return
-		}
-
-		totalProcessedPages, totalSize := DownloadAndProcessPages(pages, path)
-		log.Infof("Generated %d/%d pages", totalProcessedPages, len(pages))
-		log.Infof("Total size of generated documentation: %2.f MB", float32(totalSize)/1024.0/1024.0)
+		Generate(url, path, verbose)
 	},
 }
 
 type Page struct {
 	URL   string
 	Title string
+}
+
+var postprocessPattern = `\[[^\]]+\]\((\w+.\w+)\)`
+var re = regexp.MustCompile(postprocessPattern)
+
+func Generate(url string, savePath string, verbose bool) {
+	if url == "" {
+		log.Fatal("URL cannot be empty")
+		return
+	}
+
+	if verbose {
+		log.SetLevel(log.DebugLevel)
+	} else {
+		log.SetLevel(log.InfoLevel)
+	}
+
+	// Start timer
+	start := time.Now()
+
+	pages, err := ExtractPages(url)
+	if err != nil {
+		log.Fatalf("Error extracting pages: %v", err)
+		return
+	}
+
+	totalProcessedPages, totalSize := DownloadAndProcessPages(pages, url, savePath)
+
+	elapsed := time.Since(start)
+	log.Infof("Documentation generation completed in %s", elapsed)
+
+	log.Infof("Generated %d/%d pages", totalProcessedPages, len(pages))
+	log.Infof("Total size: %f MB", float32(totalSize)/1024.0/1024.0)
 }
 
 func ExtractPages(url string) ([]Page, error) {
@@ -105,7 +119,7 @@ const MaxConcurrentDownloads = 30
 
 // Downloads and converts provided pages to Markdown concurrently
 // Returns a map of Page to Markdown content
-func DownloadAndProcessPages(pages []Page, save_path string) (totalProcessedPages, totalSize int) {
+func DownloadAndProcessPages(pages []Page, originURL string, save_path string) (totalProcessedPages, totalSize int) {
 	sem := make(chan struct{}, MaxConcurrentDownloads)
 
 	for _, page := range pages {
@@ -113,32 +127,32 @@ func DownloadAndProcessPages(pages []Page, save_path string) (totalProcessedPage
 		go func(p Page) {
 			defer func() { <-sem }() // Release the token when done
 
-			log.Infof("Processing page: %s", p.Title)
+			log.Infof("Processing page: %s", p.URL)
 
-			log.Debugf("Downloading page: %s", p.Title)
+			log.Debugf("Downloading page: %s", p.URL)
 			htmlContent, err := DownloadPage(p.URL)
 			if err != nil {
 				log.Errorf("Error downloading page %s: %v\n", p.URL, err)
 				return
 			}
 
-			log.Debugf("Converting page %s to Markdown", p.Title)
+			log.Debugf("Converting page %s to Markdown", p.URL)
 			mdContent, err := ConvertPage(htmlContent)
 			if err != nil {
-				log.Errorf("Error converting page %s to Markdown: %v\n", p.Title, err)
+				log.Errorf("Error converting page %s to Markdown: %v\n", p.URL, err)
 				return
 			}
 
-			log.Debugf("Post-processing page %s", p.Title)
-			mdContent, err = PostProcessPage(p, mdContent)
+			log.Debugf("Post-processing page %s", p.Title+".md")
+			mdContent, err = PostProcessPage(originURL, mdContent)
 			if err != nil {
-				log.Errorf("Error post-processing page %s: %v\n", p.Title, err)
+				log.Errorf("Error post-processing page %s: %v\n", p.Title+".md", err)
 				return
 			}
 
-			log.Debugf("Saving page %s to %s", p.Title, save_path)
+			log.Debugf("Saving page %s to %s", p.Title+".md", save_path)
 			if err := SavePage(p, mdContent, save_path); err != nil {
-				log.Errorf("Error saving page %s: %v\n", p.Title, err)
+				log.Errorf("Error saving page %s: %v\n", p.Title+".md", err)
 				return
 			}
 
@@ -186,13 +200,24 @@ func ConvertPage(content string) (string, error) {
 }
 
 // Removes unnecessary content and fixes links in the Markdown content
-func PostProcessPage(page Page, content string) (string, error) {
+func PostProcessPage(originURL string, content string) (string, error) {
 	// Remove "Loading... please wait." from the content
 	content = strings.ReplaceAll(content, "Loading… please wait.", "")
 
 	// Prepend main URL to the HTML links like:
-	// regex "\[\w+\]\((\w+.html)\)"
-	content = strings.ReplaceAll(content, "](./", fmt.Sprintf("](%s/", page.URL))
+	content = re.ReplaceAllStringFunc(content, func(match string) string {
+		// Extract the link from the group
+		referencedPage := re.FindStringSubmatch(match)[1]
+		referencedPageWithURL := ""
+
+		// Prepend the main URL to the link
+		if !strings.HasPrefix(referencedPage, "http") {
+			referencedPageWithURL = originURL + "/" + referencedPage
+		}
+
+		// Return the modified match
+		return strings.Replace(match, referencedPage, referencedPageWithURL, 1)
+	})
 
 	return content, nil
 }
