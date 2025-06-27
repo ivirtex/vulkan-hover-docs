@@ -7,7 +7,7 @@ This repo consists of 2 projects:
 
 ### Example
 
-![preview](https://github.com/ivirtex/vulkan-hover-docs/blob/master/vscode_ext/images/screenshot.png?raw=true)
+![preview](https://github.com/ivirtex/vulkan-hover-docs/blob/master/vscode_extension/images/screenshot.png?raw=true)
 
 ## Motivation
 
