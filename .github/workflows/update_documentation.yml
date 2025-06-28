@@ -9,16 +9,20 @@ jobs:
   check_for_updates:
     name: Check for Vulkan-Docs updates
     runs-on: ubuntu-latest
+    outputs:
+      should_run_gen: ${{ steps.sha_compare.outputs.should_run_gen }}
     steps:
       - name: Checkout Vulkan-Docs repository
         uses: actions/checkout@v4
         with:
           repository: KhronosGroup/Vulkan-Docs
-          
-      - name: Get latest commit SHA in Vulkan-Docs
+      
+      - id: get_latest_commit
+        name: Get latest commit SHA in Vulkan-Docs
         run: echo "latest_commit=$(git rev-parse HEAD)" >> $GITHUB_ENV
-
-      - name: Compare with stored SHA
+      
+      - id: sha_compare
+        name: Compare with stored SHA
         run: |
           if [ -f vscode_extension/docs/.last_update ]; then
             last_commit=$(cat vscode_extension/docs/.last_update)
