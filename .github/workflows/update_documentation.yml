@@ -73,6 +73,7 @@ jobs:
       - name: Create pull request
         run: gh pr create
           --title "Update Vulkan documentation to SHA ${{ github.env.LATEST_COMMIT }}"
+          --body "This PR updates the Vulkan documentation to the latest commit in the Vulkan-Docs repository."
           --base main
           --head update-vulkan-docs
           --label "documentation"
