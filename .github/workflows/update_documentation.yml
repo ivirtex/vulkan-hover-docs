@@ -1,4 +1,4 @@
-name: Vulkan Spec Update Check
+name: Update documentation
 on:
   workflow_dispatch:
   schedule:
@@ -7,6 +7,7 @@ on:
 jobs:
   # Check for latest commit SHA in https://github.com/KhronosGroup/Vulkan-Docs
   check_for_updates:
+    name: Check for Vulkan-Docs updates
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Vulkan-Docs repository
@@ -27,16 +28,17 @@ jobs:
 
           if [ "$last_commit" != "$latest_commit" ]; then
             echo "New Vulkan-Docs commit found: $latest_commit"
-            echo "new_commit=true" >> $GITHUB_ENV
+            echo "should_run_gen=true" >> $GITHUB_OUTPUT
           else
             echo "No new Vulkan-Docs commit found."
-            echo "new_commit=false" >> $GITHUB_ENV
+            echo "should_run_gen=false" >> $GITHUB_OUTPUT
           fi
         
   run_docs_generator:
+    name: Run docs_generator
     runs-on: ubuntu-latest
     needs: check_for_updates
-    if: github.env.new_commit == 'true'
+    if: needs.check_for_updates.outputs.should_run_gen == 'true'
     steps:
       - name: Checkout docs_generator repository
         uses: actions/checkout@v4
