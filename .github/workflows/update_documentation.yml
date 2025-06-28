@@ -83,7 +83,7 @@ jobs:
           git switch -c update-vulkan-docs
           git add .
           git commit -m "Update Vulkan documentation to SHA ${{ env.LATEST_COMMIT }}" || echo "No changes to commit"
-          git push origin update-vulkan-docs
+          git push origin update-vulkan-docs --force
 
       - name: Create pull request
         run: gh pr create
