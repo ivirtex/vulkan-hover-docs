@@ -1,0 +1,95 @@
+name: Weekly check
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '0 0 * * 0'  # Every Sunday at midnight
+
+jobs:
+  # Check for latest commit SHA in https://github.com/KhronosGroup/Vulkan-Docs
+  check_for_updates:
+    name: Check for Vulkan-Docs updates
+    runs-on: ubuntu-latest
+    outputs:
+      should_run_gen: ${{ steps.sha_compare.outputs.should_run_gen }}
+      latest_commit: ${{ steps.sha_compare.outputs.latest_commit }}
+    steps:
+      - name: Checkout Vulkan-Docs repository
+        uses: actions/checkout@v4
+        with:
+          repository: KhronosGroup/Vulkan-Docs
+      
+      - id: get_latest_commit
+        name: Get latest commit SHA in Vulkan-Docs
+        run: echo "latest_commit=$(git rev-parse HEAD)" >> $GITHUB_ENV
+      
+      - id: sha_compare
+        name: Compare with stored SHA
+        run: |
+          if [ -f vscode_extension/docs/.last_update ]; then
+            last_commit=$(cat vscode_extension/docs/.last_update)
+          else
+            last_commit=""
+          fi
+
+          if [ "$last_commit" != "$latest_commit" ]; then
+            echo "New Vulkan-Docs commit found: $latest_commit"
+            echo "should_run_gen=true" >> $GITHUB_OUTPUT
+            echo "latest_commit=$latest_commit" >> $GITHUB_OUTPUT
+          else
+            echo "No new Vulkan-Docs commit found."
+            echo "should_run_gen=false" >> $GITHUB_OUTPUT
+          fi
+        
+  run_docs_generator:
+    name: Run docs_generator
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write  # Allow writing to the repository
+      pull-requests: write  # Allow creating pull requests
+    needs: check_for_updates
+    if: needs.check_for_updates.outputs.should_run_gen == 'true'
+    env:
+      LATEST_COMMIT: ${{ needs.check_for_updates.outputs.latest_commit }}
+      GH_TOKEN: ${{ github.token }}
+    defaults:
+      run:
+        working-directory: docs_generator
+    steps:
+      - name: Checkout docs_generator repository
+        uses: actions/checkout@v4
+
+      - name: Setup Go
+        uses: actions/setup-go@v5
+        with:
+          go-version: '1.24.4'
+          cache-dependency-path: docs_generator/go.sum
+
+      - name: Install dependencies
+        run: go get .
+
+      - name: Install executable
+        run: go install 
+
+      - name: Run docs_generator
+        run: docs_generator generate https://registry.khronos.org/vulkan/specs/latest/man/html/ --path ../vscode_extension/docs
+
+      - name: Save latest commit SHA
+        run: echo "${{ env.LATEST_COMMIT }}" > ../vscode_extension/docs/.last_update
+
+      - name: Commit changes
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email 'github-actions[bot]@users.noreply.github.com'
+          git switch -c update-vulkan-docs
+          git add --all
+          git commit -m "Update Vulkan documentation to SHA ${{ env.LATEST_COMMIT }}" || echo "No changes to commit"
+          git push origin update-vulkan-docs --force
+
+      - name: Create pull request
+        run: gh pr create
+          --title "Update Vulkan documentation to SHA ${{ env.LATEST_COMMIT }}"
+          --body "This PR updates the Vulkan documentation to the latest commit in the Vulkan-Docs repository."
+          --base master
+          --head update-vulkan-docs
+          --label "documentation"
+      
