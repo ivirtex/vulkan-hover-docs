@@ -6,13 +6,11 @@ VkPhysicalDeviceType - Supported physical device types
 
 
 
-## <a href="#_c_specification" class="anchor"></a>C Specification
+## [](#_c_specification)C Specification
 
-The physical device types which **may** be returned in
-[VkPhysicalDeviceProperties](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkPhysicalDeviceProperties.html)::`deviceType`
-are:
+The physical device types which **may** be returned in [VkPhysicalDeviceProperties](https://registry.khronos.org/vulkan/specs/latest/man/html/VkPhysicalDeviceProperties.html)::`deviceType` are:
 
-``` c
+```c++
 // Provided by VK_VERSION_1_0
 typedef enum VkPhysicalDeviceType {
     VK_PHYSICAL_DEVICE_TYPE_OTHER = 0,
@@ -23,47 +21,28 @@ typedef enum VkPhysicalDeviceType {
 } VkPhysicalDeviceType;
 ```
 
-## <a href="#_description" class="anchor"></a>Description
+## [](#_description)Description
 
-- `VK_PHYSICAL_DEVICE_TYPE_OTHER` - the device does not match any other
-  available types.
+- `VK_PHYSICAL_DEVICE_TYPE_OTHER` - the device does not match any other available types.
+- `VK_PHYSICAL_DEVICE_TYPE_INTEGRATED_GPU` - the device is typically one embedded in or tightly coupled with the host.
+- `VK_PHYSICAL_DEVICE_TYPE_DISCRETE_GPU` - the device is typically a separate processor connected to the host via an interlink.
+- `VK_PHYSICAL_DEVICE_TYPE_VIRTUAL_GPU` - the device is typically a virtual node in a virtualization environment.
+- `VK_PHYSICAL_DEVICE_TYPE_CPU` - the device is typically running on the same processors as the host.
 
-- `VK_PHYSICAL_DEVICE_TYPE_INTEGRATED_GPU` - the device is typically one
-  embedded in or tightly coupled with the host.
+The physical device type is advertised for informational purposes only, and does not directly affect the operation of the system. However, the device type **may** correlate with other advertised properties or capabilities of the system, such as how many memory heaps there are.
 
-- `VK_PHYSICAL_DEVICE_TYPE_DISCRETE_GPU` - the device is typically a
-  separate processor connected to the host via an interlink.
+## [](#_see_also)See Also
 
-- `VK_PHYSICAL_DEVICE_TYPE_VIRTUAL_GPU` - the device is typically a
-  virtual node in a virtualization environment.
+[VK\_VERSION\_1\_0](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_VERSION_1_0.html), [VkPhysicalDeviceProperties](https://registry.khronos.org/vulkan/specs/latest/man/html/VkPhysicalDeviceProperties.html)
 
-- `VK_PHYSICAL_DEVICE_TYPE_CPU` - the device is typically running on the
-  same processors as the host.
+## [](#_document_notes)Document Notes
 
-The physical device type is advertised for informational purposes only,
-and does not directly affect the operation of the system. However, the
-device type **may** correlate with other advertised properties or
-capabilities of the system, such as how many memory heaps there are.
+For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#VkPhysicalDeviceType)
 
-## <a href="#_see_also" class="anchor"></a>See Also
+This page is extracted from the Vulkan Specification. Fixes and changes should be made to the Specification, not directly.
 
-[VK_VERSION_1_0](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_VERSION_1_0.html),
-[VkPhysicalDeviceProperties](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkPhysicalDeviceProperties.html)
+## [](#_copyright)Copyright
 
-## <a href="#_document_notes" class="anchor"></a>Document Notes
-
-For more information, see the <a
-href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#VkPhysicalDeviceType"
-target="_blank" rel="noopener">Vulkan Specification</a>
-
-This page is extracted from the Vulkan Specification. Fixes and changes
-should be made to the Specification, not directly.
-
-## <a href="#_copyright" class="anchor"></a>Copyright
-
-Copyright 2014-2024 The Khronos Group Inc.
+Copyright 2014-2025 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
-
-Version 1.3.290  
-Last updated 2024-07-11 23:39:16 -0700

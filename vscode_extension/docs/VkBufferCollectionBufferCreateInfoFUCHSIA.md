@@ -2,16 +2,15 @@
 
 ## Name
 
-VkBufferCollectionBufferCreateInfoFUCHSIA - Create a
-VkBufferCollectionFUCHSIA-compatible VkBuffer
+VkBufferCollectionBufferCreateInfoFUCHSIA - Create a VkBufferCollectionFUCHSIA-compatible VkBuffer
 
 
 
-## <a href="#_c_specification" class="anchor"></a>C Specification
+## [](#_c_specification)C Specification
 
 The `VkBufferCollectionBufferCreateInfoFUCHSIA` structure is defined as:
 
-``` c
+```c++
 // Provided by VK_FUCHSIA_buffer_collection
 typedef struct VkBufferCollectionBufferCreateInfoFUCHSIA {
     VkStructureType              sType;
@@ -21,64 +20,39 @@ typedef struct VkBufferCollectionBufferCreateInfoFUCHSIA {
 } VkBufferCollectionBufferCreateInfoFUCHSIA;
 ```
 
-## <a href="#_members" class="anchor"></a>Members
+## [](#_members)Members
 
-- `sType` is a [VkStructureType](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkStructureType.html) value identifying
-  this structure.
-
+- `sType` is a [VkStructureType](https://registry.khronos.org/vulkan/specs/latest/man/html/VkStructureType.html) value identifying this structure.
 - `pNext` is `NULL` or a pointer to a structure extending this structure
+- `collection` is the [VkBufferCollectionFUCHSIA](https://registry.khronos.org/vulkan/specs/latest/man/html/VkBufferCollectionFUCHSIA.html) handle
+- `index` is the index of the buffer in the buffer collection from which the memory will be imported
 
-- `collection` is the
-  [VkBufferCollectionFUCHSIA](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkBufferCollectionFUCHSIA.html) handle
-
-- `index` is the index of the buffer in the buffer collection from which
-  the memory will be imported
-
-## <a href="#_description" class="anchor"></a>Description
+## [](#_description)Description
 
 Valid Usage
 
-- <a href="#VUID-VkBufferCollectionBufferCreateInfoFUCHSIA-index-06388"
-  id="VUID-VkBufferCollectionBufferCreateInfoFUCHSIA-index-06388"></a>
-  VUID-VkBufferCollectionBufferCreateInfoFUCHSIA-index-06388  
-  `index` **must** be less than
-  [VkBufferCollectionPropertiesFUCHSIA](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkBufferCollectionPropertiesFUCHSIA.html)::`bufferCount`
+- [](#VUID-VkBufferCollectionBufferCreateInfoFUCHSIA-index-06388)VUID-VkBufferCollectionBufferCreateInfoFUCHSIA-index-06388  
+  `index` **must** be less than [VkBufferCollectionPropertiesFUCHSIA](https://registry.khronos.org/vulkan/specs/latest/man/html/VkBufferCollectionPropertiesFUCHSIA.html)::`bufferCount`
 
 Valid Usage (Implicit)
 
-- <a href="#VUID-VkBufferCollectionBufferCreateInfoFUCHSIA-sType-sType"
-  id="VUID-VkBufferCollectionBufferCreateInfoFUCHSIA-sType-sType"></a>
-  VUID-VkBufferCollectionBufferCreateInfoFUCHSIA-sType-sType  
-  `sType` **must** be
-  `VK_STRUCTURE_TYPE_BUFFER_COLLECTION_BUFFER_CREATE_INFO_FUCHSIA`
+- [](#VUID-VkBufferCollectionBufferCreateInfoFUCHSIA-sType-sType)VUID-VkBufferCollectionBufferCreateInfoFUCHSIA-sType-sType  
+  `sType` **must** be `VK_STRUCTURE_TYPE_BUFFER_COLLECTION_BUFFER_CREATE_INFO_FUCHSIA`
+- [](#VUID-VkBufferCollectionBufferCreateInfoFUCHSIA-collection-parameter)VUID-VkBufferCollectionBufferCreateInfoFUCHSIA-collection-parameter  
+  `collection` **must** be a valid [VkBufferCollectionFUCHSIA](https://registry.khronos.org/vulkan/specs/latest/man/html/VkBufferCollectionFUCHSIA.html) handle
 
-- <a
-  href="#VUID-VkBufferCollectionBufferCreateInfoFUCHSIA-collection-parameter"
-  id="VUID-VkBufferCollectionBufferCreateInfoFUCHSIA-collection-parameter"></a>
-  VUID-VkBufferCollectionBufferCreateInfoFUCHSIA-collection-parameter  
-  `collection` **must** be a valid
-  [VkBufferCollectionFUCHSIA](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkBufferCollectionFUCHSIA.html) handle
+## [](#_see_also)See Also
 
-## <a href="#_see_also" class="anchor"></a>See Also
+[VK\_FUCHSIA\_buffer\_collection](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_FUCHSIA_buffer_collection.html), [VkBufferCollectionFUCHSIA](https://registry.khronos.org/vulkan/specs/latest/man/html/VkBufferCollectionFUCHSIA.html), [VkStructureType](https://registry.khronos.org/vulkan/specs/latest/man/html/VkStructureType.html)
 
-[VK_FUCHSIA_buffer_collection](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_FUCHSIA_buffer_collection.html),
-[VkBufferCollectionFUCHSIA](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkBufferCollectionFUCHSIA.html),
-[VkStructureType](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkStructureType.html)
+## [](#_document_notes)Document Notes
 
-## <a href="#_document_notes" class="anchor"></a>Document Notes
+For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#VkBufferCollectionBufferCreateInfoFUCHSIA)
 
-For more information, see the <a
-href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#VkBufferCollectionBufferCreateInfoFUCHSIA"
-target="_blank" rel="noopener">Vulkan Specification</a>
+This page is extracted from the Vulkan Specification. Fixes and changes should be made to the Specification, not directly.
 
-This page is extracted from the Vulkan Specification. Fixes and changes
-should be made to the Specification, not directly.
+## [](#_copyright)Copyright
 
-## <a href="#_copyright" class="anchor"></a>Copyright
-
-Copyright 2014-2024 The Khronos Group Inc.
+Copyright 2014-2025 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
-
-Version 1.3.290  
-Last updated 2024-07-11 23:39:16 -0700

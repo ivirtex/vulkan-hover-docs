@@ -6,11 +6,11 @@ VkClearValue - Structure specifying a clear value
 
 
 
-## <a href="#_c_specification" class="anchor"></a>C Specification
+## [](#_c_specification)C Specification
 
 The `VkClearValue` union is defined as:
 
-``` c
+```c++
 // Provided by VK_VERSION_1_0
 typedef union VkClearValue {
     VkClearColorValue           color;
@@ -18,44 +18,27 @@ typedef union VkClearValue {
 } VkClearValue;
 ```
 
-## <a href="#_members" class="anchor"></a>Members
+## [](#_members)Members
 
-- `color` specifies the color image clear values to use when clearing a
-  color image or attachment.
+- `color` specifies the color image clear values to use when clearing a color image or attachment.
+- `depthStencil` specifies the depth and stencil clear values to use when clearing a depth/stencil image or attachment.
 
-- `depthStencil` specifies the depth and stencil clear values to use
-  when clearing a depth/stencil image or attachment.
+## [](#_description)Description
 
-## <a href="#_description" class="anchor"></a>Description
+This union is used where part of the API requires either color or depth/stencil clear values, depending on the attachment, and defines the initial clear values in the [VkRenderPassBeginInfo](https://registry.khronos.org/vulkan/specs/latest/man/html/VkRenderPassBeginInfo.html) structure.
 
-This union is used where part of the API requires either color or
-depth/stencil clear values, depending on the attachment, and defines the
-initial clear values in the
-[VkRenderPassBeginInfo](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkRenderPassBeginInfo.html) structure.
+## [](#_see_also)See Also
 
-## <a href="#_see_also" class="anchor"></a>See Also
+[VK\_VERSION\_1\_0](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_VERSION_1_0.html), [VkClearAttachment](https://registry.khronos.org/vulkan/specs/latest/man/html/VkClearAttachment.html), [VkClearColorValue](https://registry.khronos.org/vulkan/specs/latest/man/html/VkClearColorValue.html), [VkClearDepthStencilValue](https://registry.khronos.org/vulkan/specs/latest/man/html/VkClearDepthStencilValue.html), [VkRenderPassBeginInfo](https://registry.khronos.org/vulkan/specs/latest/man/html/VkRenderPassBeginInfo.html), [VkRenderingAttachmentInfo](https://registry.khronos.org/vulkan/specs/latest/man/html/VkRenderingAttachmentInfo.html)
 
-[VK_VERSION_1_0](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_VERSION_1_0.html),
-[VkClearAttachment](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkClearAttachment.html),
-[VkClearColorValue](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkClearColorValue.html),
-[VkClearDepthStencilValue](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkClearDepthStencilValue.html),
-[VkRenderPassBeginInfo](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkRenderPassBeginInfo.html),
-[VkRenderingAttachmentInfo](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkRenderingAttachmentInfo.html)
+## [](#_document_notes)Document Notes
 
-## <a href="#_document_notes" class="anchor"></a>Document Notes
+For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#VkClearValue)
 
-For more information, see the <a
-href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#VkClearValue"
-target="_blank" rel="noopener">Vulkan Specification</a>
+This page is extracted from the Vulkan Specification. Fixes and changes should be made to the Specification, not directly.
 
-This page is extracted from the Vulkan Specification. Fixes and changes
-should be made to the Specification, not directly.
+## [](#_copyright)Copyright
 
-## <a href="#_copyright" class="anchor"></a>Copyright
-
-Copyright 2014-2024 The Khronos Group Inc.
+Copyright 2014-2025 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
-
-Version 1.3.290  
-Last updated 2024-07-11 23:39:16 -0700

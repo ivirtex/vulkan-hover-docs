@@ -2,17 +2,15 @@
 
 ## Name
 
-VkGeometryDataNV - Structure specifying geometry in a bottom-level
-acceleration structure
+VkGeometryDataNV - Structure specifying geometry in a bottom-level acceleration structure
 
 
 
-## <a href="#_c_specification" class="anchor"></a>C Specification
+## [](#_c_specification)C Specification
 
-The `VkGeometryDataNV` structure specifies geometry in a bottom-level
-acceleration structure and is defined as:
+The `VkGeometryDataNV` structure specifies geometry in a bottom-level acceleration structure and is defined as:
 
-``` c
+```c++
 // Provided by VK_NV_ray_tracing
 typedef struct VkGeometryDataNV {
     VkGeometryTrianglesNV    triangles;
@@ -20,53 +18,32 @@ typedef struct VkGeometryDataNV {
 } VkGeometryDataNV;
 ```
 
-## <a href="#_members" class="anchor"></a>Members
+## [](#_members)Members
 
-- `triangles` contains triangle data if
-  [VkGeometryNV](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkGeometryNV.html)::`geometryType` is
-  `VK_GEOMETRY_TYPE_TRIANGLES_NV`.
+- `triangles` contains triangle data if [VkGeometryNV](https://registry.khronos.org/vulkan/specs/latest/man/html/VkGeometryNV.html)::`geometryType` is `VK_GEOMETRY_TYPE_TRIANGLES_NV`.
+- `aabbs` contains axis-aligned bounding box data if [VkGeometryNV](https://registry.khronos.org/vulkan/specs/latest/man/html/VkGeometryNV.html)::`geometryType` is `VK_GEOMETRY_TYPE_AABBS_NV`.
 
-- `aabbs` contains axis-aligned bounding box data if
-  [VkGeometryNV](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkGeometryNV.html)::`geometryType` is
-  `VK_GEOMETRY_TYPE_AABBS_NV`.
-
-## <a href="#_description" class="anchor"></a>Description
+## [](#_description)Description
 
 Valid Usage (Implicit)
 
-- <a href="#VUID-VkGeometryDataNV-triangles-parameter"
-  id="VUID-VkGeometryDataNV-triangles-parameter"></a>
-  VUID-VkGeometryDataNV-triangles-parameter  
-  `triangles` **must** be a valid
-  [VkGeometryTrianglesNV](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkGeometryTrianglesNV.html) structure
+- [](#VUID-VkGeometryDataNV-triangles-parameter)VUID-VkGeometryDataNV-triangles-parameter  
+  `triangles` **must** be a valid [VkGeometryTrianglesNV](https://registry.khronos.org/vulkan/specs/latest/man/html/VkGeometryTrianglesNV.html) structure
+- [](#VUID-VkGeometryDataNV-aabbs-parameter)VUID-VkGeometryDataNV-aabbs-parameter  
+  `aabbs` **must** be a valid [VkGeometryAABBNV](https://registry.khronos.org/vulkan/specs/latest/man/html/VkGeometryAABBNV.html) structure
 
-- <a href="#VUID-VkGeometryDataNV-aabbs-parameter"
-  id="VUID-VkGeometryDataNV-aabbs-parameter"></a>
-  VUID-VkGeometryDataNV-aabbs-parameter  
-  `aabbs` **must** be a valid [VkGeometryAABBNV](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkGeometryAABBNV.html)
-  structure
+## [](#_see_also)See Also
 
-## <a href="#_see_also" class="anchor"></a>See Also
+[VK\_NV\_ray\_tracing](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_NV_ray_tracing.html), [VkGeometryAABBNV](https://registry.khronos.org/vulkan/specs/latest/man/html/VkGeometryAABBNV.html), [VkGeometryNV](https://registry.khronos.org/vulkan/specs/latest/man/html/VkGeometryNV.html), [VkGeometryTrianglesNV](https://registry.khronos.org/vulkan/specs/latest/man/html/VkGeometryTrianglesNV.html)
 
-[VK_NV_ray_tracing](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_NV_ray_tracing.html),
-[VkGeometryAABBNV](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkGeometryAABBNV.html),
-[VkGeometryNV](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkGeometryNV.html),
-[VkGeometryTrianglesNV](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkGeometryTrianglesNV.html)
+## [](#_document_notes)Document Notes
 
-## <a href="#_document_notes" class="anchor"></a>Document Notes
+For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#VkGeometryDataNV)
 
-For more information, see the <a
-href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#VkGeometryDataNV"
-target="_blank" rel="noopener">Vulkan Specification</a>
+This page is extracted from the Vulkan Specification. Fixes and changes should be made to the Specification, not directly.
 
-This page is extracted from the Vulkan Specification. Fixes and changes
-should be made to the Specification, not directly.
+## [](#_copyright)Copyright
 
-## <a href="#_copyright" class="anchor"></a>Copyright
-
-Copyright 2014-2024 The Khronos Group Inc.
+Copyright 2014-2025 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
-
-Version 1.3.290  
-Last updated 2024-07-11 23:39:16 -0700

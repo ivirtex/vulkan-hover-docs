@@ -2,18 +2,15 @@
 
 ## Name
 
-VkExternalFenceFeatureFlagBits - Bitfield describing features of an
-external fence handle type
+VkExternalFenceFeatureFlagBits - Bitfield describing features of an external fence handle type
 
 
 
-## <a href="#_c_specification" class="anchor"></a>C Specification
+## [](#_c_specification)C Specification
 
-Bits which **may** be set in
-[VkExternalFenceProperties](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkExternalFenceProperties.html)::`externalFenceFeatures`,
-indicating features of a fence external handle type, are:
+Bits which **may** be set in [VkExternalFenceProperties](https://registry.khronos.org/vulkan/specs/latest/man/html/VkExternalFenceProperties.html)::`externalFenceFeatures`, indicating features of a fence external handle type, are:
 
-``` c
+```c++
 // Provided by VK_VERSION_1_1
 typedef enum VkExternalFenceFeatureFlagBits {
     VK_EXTERNAL_FENCE_FEATURE_EXPORTABLE_BIT = 0x00000001,
@@ -27,38 +24,28 @@ typedef enum VkExternalFenceFeatureFlagBits {
 
 or the equivalent
 
-``` c
+```c++
 // Provided by VK_KHR_external_fence_capabilities
 typedef VkExternalFenceFeatureFlagBits VkExternalFenceFeatureFlagBitsKHR;
 ```
 
-## <a href="#_description" class="anchor"></a>Description
+## [](#_description)Description
 
-- `VK_EXTERNAL_FENCE_FEATURE_EXPORTABLE_BIT` specifies handles of this
-  type **can** be exported from Vulkan fence objects.
+- `VK_EXTERNAL_FENCE_FEATURE_EXPORTABLE_BIT` specifies handles of this type **can** be exported from Vulkan fence objects.
+- `VK_EXTERNAL_FENCE_FEATURE_IMPORTABLE_BIT` specifies handles of this type **can** be imported to Vulkan fence objects.
 
-- `VK_EXTERNAL_FENCE_FEATURE_IMPORTABLE_BIT` specifies handles of this
-  type **can** be imported to Vulkan fence objects.
+## [](#_see_also)See Also
 
-## <a href="#_see_also" class="anchor"></a>See Also
+[VK\_VERSION\_1\_1](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_VERSION_1_1.html), [VkExternalFenceFeatureFlags](https://registry.khronos.org/vulkan/specs/latest/man/html/VkExternalFenceFeatureFlags.html)
 
-[VK_VERSION_1_1](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_VERSION_1_1.html),
-[VkExternalFenceFeatureFlags](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkExternalFenceFeatureFlags.html)
+## [](#_document_notes)Document Notes
 
-## <a href="#_document_notes" class="anchor"></a>Document Notes
+For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#VkExternalFenceFeatureFlagBits)
 
-For more information, see the <a
-href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#VkExternalFenceFeatureFlagBits"
-target="_blank" rel="noopener">Vulkan Specification</a>
+This page is extracted from the Vulkan Specification. Fixes and changes should be made to the Specification, not directly.
 
-This page is extracted from the Vulkan Specification. Fixes and changes
-should be made to the Specification, not directly.
+## [](#_copyright)Copyright
 
-## <a href="#_copyright" class="anchor"></a>Copyright
-
-Copyright 2014-2024 The Khronos Group Inc.
+Copyright 2014-2025 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
-
-Version 1.3.290  
-Last updated 2024-07-11 23:39:16 -0700

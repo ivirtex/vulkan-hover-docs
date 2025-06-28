@@ -6,12 +6,11 @@ vkGetPhysicalDeviceSurfaceCapabilitiesKHR - Query surface capabilities
 
 
 
-## <a href="#_c_specification" class="anchor"></a>C Specification
+## [](#_c_specification)C Specification
 
-To query the basic capabilities of a surface, needed in order to create
-a swapchain, call:
+To query the basic capabilities of a surface, needed in order to create a swapchain, call:
 
-``` c
+```c++
 // Provided by VK_KHR_surface
 VkResult vkGetPhysicalDeviceSurfaceCapabilitiesKHR(
     VkPhysicalDevice                            physicalDevice,
@@ -19,95 +18,54 @@ VkResult vkGetPhysicalDeviceSurfaceCapabilitiesKHR(
     VkSurfaceCapabilitiesKHR*                   pSurfaceCapabilities);
 ```
 
-## <a href="#_parameters" class="anchor"></a>Parameters
+## [](#_parameters)Parameters
 
-- `physicalDevice` is the physical device that will be associated with
-  the swapchain to be created, as described for
-  [vkCreateSwapchainKHR](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCreateSwapchainKHR.html).
-
+- `physicalDevice` is the physical device that will be associated with the swapchain to be created, as described for [vkCreateSwapchainKHR](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCreateSwapchainKHR.html).
 - `surface` is the surface that will be associated with the swapchain.
+- `pSurfaceCapabilities` is a pointer to a [VkSurfaceCapabilitiesKHR](https://registry.khronos.org/vulkan/specs/latest/man/html/VkSurfaceCapabilitiesKHR.html) structure in which the capabilities are returned.
 
-- `pSurfaceCapabilities` is a pointer to a
-  [VkSurfaceCapabilitiesKHR](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkSurfaceCapabilitiesKHR.html) structure in
-  which the capabilities are returned.
-
-## <a href="#_description" class="anchor"></a>Description
+## [](#_description)Description
 
 Valid Usage
 
-- <a href="#VUID-vkGetPhysicalDeviceSurfaceCapabilitiesKHR-surface-06523"
-  id="VUID-vkGetPhysicalDeviceSurfaceCapabilitiesKHR-surface-06523"></a>
-  VUID-vkGetPhysicalDeviceSurfaceCapabilitiesKHR-surface-06523  
-  `surface` **must** be a valid [VkSurfaceKHR](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkSurfaceKHR.html) handle
-
-- <a href="#VUID-vkGetPhysicalDeviceSurfaceCapabilitiesKHR-surface-06211"
-  id="VUID-vkGetPhysicalDeviceSurfaceCapabilitiesKHR-surface-06211"></a>
-  VUID-vkGetPhysicalDeviceSurfaceCapabilitiesKHR-surface-06211  
-  `surface` **must** be supported by `physicalDevice`, as reported by
-  [vkGetPhysicalDeviceSurfaceSupportKHR](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkGetPhysicalDeviceSurfaceSupportKHR.html)
-  or an equivalent platform-specific mechanism
+- [](#VUID-vkGetPhysicalDeviceSurfaceCapabilitiesKHR-surface-06211)VUID-vkGetPhysicalDeviceSurfaceCapabilitiesKHR-surface-06211  
+  `surface` **must** be supported by `physicalDevice`, as reported by [vkGetPhysicalDeviceSurfaceSupportKHR](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetPhysicalDeviceSurfaceSupportKHR.html) or an equivalent platform-specific mechanism
 
 Valid Usage (Implicit)
 
-- <a
-  href="#VUID-vkGetPhysicalDeviceSurfaceCapabilitiesKHR-physicalDevice-parameter"
-  id="VUID-vkGetPhysicalDeviceSurfaceCapabilitiesKHR-physicalDevice-parameter"></a>
-  VUID-vkGetPhysicalDeviceSurfaceCapabilitiesKHR-physicalDevice-parameter  
-  `physicalDevice` **must** be a valid
-  [VkPhysicalDevice](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkPhysicalDevice.html) handle
-
-- <a
-  href="#VUID-vkGetPhysicalDeviceSurfaceCapabilitiesKHR-surface-parameter"
-  id="VUID-vkGetPhysicalDeviceSurfaceCapabilitiesKHR-surface-parameter"></a>
-  VUID-vkGetPhysicalDeviceSurfaceCapabilitiesKHR-surface-parameter  
-  `surface` **must** be a valid [VkSurfaceKHR](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkSurfaceKHR.html) handle
-
-- <a
-  href="#VUID-vkGetPhysicalDeviceSurfaceCapabilitiesKHR-pSurfaceCapabilities-parameter"
-  id="VUID-vkGetPhysicalDeviceSurfaceCapabilitiesKHR-pSurfaceCapabilities-parameter"></a>
-  VUID-vkGetPhysicalDeviceSurfaceCapabilitiesKHR-pSurfaceCapabilities-parameter  
-  `pSurfaceCapabilities` **must** be a valid pointer to a
-  [VkSurfaceCapabilitiesKHR](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkSurfaceCapabilitiesKHR.html) structure
-
-- <a href="#VUID-vkGetPhysicalDeviceSurfaceCapabilitiesKHR-commonparent"
-  id="VUID-vkGetPhysicalDeviceSurfaceCapabilitiesKHR-commonparent"></a>
-  VUID-vkGetPhysicalDeviceSurfaceCapabilitiesKHR-commonparent  
-  Both of `physicalDevice`, and `surface` **must** have been created,
-  allocated, or retrieved from the same [VkInstance](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkInstance.html)
+- [](#VUID-vkGetPhysicalDeviceSurfaceCapabilitiesKHR-physicalDevice-parameter)VUID-vkGetPhysicalDeviceSurfaceCapabilitiesKHR-physicalDevice-parameter  
+  `physicalDevice` **must** be a valid [VkPhysicalDevice](https://registry.khronos.org/vulkan/specs/latest/man/html/VkPhysicalDevice.html) handle
+- [](#VUID-vkGetPhysicalDeviceSurfaceCapabilitiesKHR-surface-parameter)VUID-vkGetPhysicalDeviceSurfaceCapabilitiesKHR-surface-parameter  
+  `surface` **must** be a valid [VkSurfaceKHR](https://registry.khronos.org/vulkan/specs/latest/man/html/VkSurfaceKHR.html) handle
+- [](#VUID-vkGetPhysicalDeviceSurfaceCapabilitiesKHR-pSurfaceCapabilities-parameter)VUID-vkGetPhysicalDeviceSurfaceCapabilitiesKHR-pSurfaceCapabilities-parameter  
+  `pSurfaceCapabilities` **must** be a valid pointer to a [VkSurfaceCapabilitiesKHR](https://registry.khronos.org/vulkan/specs/latest/man/html/VkSurfaceCapabilitiesKHR.html) structure
+- [](#VUID-vkGetPhysicalDeviceSurfaceCapabilitiesKHR-commonparent)VUID-vkGetPhysicalDeviceSurfaceCapabilitiesKHR-commonparent  
+  Both of `physicalDevice`, and `surface` **must** have been created, allocated, or retrieved from the same [VkInstance](https://registry.khronos.org/vulkan/specs/latest/man/html/VkInstance.html)
 
 Return Codes
 
-On success, this command returns  
+On success, this command returns
+
 - `VK_SUCCESS`
 
-On failure, this command returns  
+On failure, this command returns
+
 - `VK_ERROR_OUT_OF_HOST_MEMORY`
-
 - `VK_ERROR_OUT_OF_DEVICE_MEMORY`
-
 - `VK_ERROR_SURFACE_LOST_KHR`
 
-## <a href="#_see_also" class="anchor"></a>See Also
+## [](#_see_also)See Also
 
-[VK_KHR_surface](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_KHR_surface.html),
-[VkPhysicalDevice](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkPhysicalDevice.html),
-[VkSurfaceCapabilitiesKHR](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkSurfaceCapabilitiesKHR.html),
-[VkSurfaceKHR](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkSurfaceKHR.html)
+[VK\_KHR\_surface](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_KHR_surface.html), [VkPhysicalDevice](https://registry.khronos.org/vulkan/specs/latest/man/html/VkPhysicalDevice.html), [VkSurfaceCapabilitiesKHR](https://registry.khronos.org/vulkan/specs/latest/man/html/VkSurfaceCapabilitiesKHR.html), [VkSurfaceKHR](https://registry.khronos.org/vulkan/specs/latest/man/html/VkSurfaceKHR.html)
 
-## <a href="#_document_notes" class="anchor"></a>Document Notes
+## [](#_document_notes)Document Notes
 
-For more information, see the <a
-href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#vkGetPhysicalDeviceSurfaceCapabilitiesKHR"
-target="_blank" rel="noopener">Vulkan Specification</a>
+For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#vkGetPhysicalDeviceSurfaceCapabilitiesKHR)
 
-This page is extracted from the Vulkan Specification. Fixes and changes
-should be made to the Specification, not directly.
+This page is extracted from the Vulkan Specification. Fixes and changes should be made to the Specification, not directly.
 
-## <a href="#_copyright" class="anchor"></a>Copyright
+## [](#_copyright)Copyright
 
-Copyright 2014-2024 The Khronos Group Inc.
+Copyright 2014-2025 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
-
-Version 1.3.290  
-Last updated 2024-07-11 23:39:16 -0700

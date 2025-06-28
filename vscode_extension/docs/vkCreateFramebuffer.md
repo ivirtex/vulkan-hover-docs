@@ -6,11 +6,15 @@ vkCreateFramebuffer - Create a new framebuffer object
 
 
 
-## <a href="#_c_specification" class="anchor"></a>C Specification
+## [](#_c_specification)C Specification
 
 To create a framebuffer, call:
 
-``` c
+Warning
+
+This functionality is deprecated by [Vulkan Version 1.4](#versions-1.4). See [Deprecated Functionality](#deprecation-dynamicrendering) for more information.
+
+```c++
 // Provided by VK_VERSION_1_0
 VkResult vkCreateFramebuffer(
     VkDevice                                    device,
@@ -19,96 +23,58 @@ VkResult vkCreateFramebuffer(
     VkFramebuffer*                              pFramebuffer);
 ```
 
-## <a href="#_parameters" class="anchor"></a>Parameters
+## [](#_parameters)Parameters
 
 - `device` is the logical device that creates the framebuffer.
+- `pCreateInfo` is a pointer to a [VkFramebufferCreateInfo](https://registry.khronos.org/vulkan/specs/latest/man/html/VkFramebufferCreateInfo.html) structure describing additional information about framebuffer creation.
+- `pAllocator` controls host memory allocation as described in the [Memory Allocation](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#memory-allocation) chapter.
+- `pFramebuffer` is a pointer to a [VkFramebuffer](https://registry.khronos.org/vulkan/specs/latest/man/html/VkFramebuffer.html) handle in which the resulting framebuffer object is returned.
 
-- `pCreateInfo` is a pointer to a
-  [VkFramebufferCreateInfo](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkFramebufferCreateInfo.html) structure
-  describing additional information about framebuffer creation.
-
-- `pAllocator` controls host memory allocation as described in the <a
-  href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#memory-allocation"
-  target="_blank" rel="noopener">Memory Allocation</a> chapter.
-
-- `pFramebuffer` is a pointer to a [VkFramebuffer](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkFramebuffer.html)
-  handle in which the resulting framebuffer object is returned.
-
-## <a href="#_description" class="anchor"></a>Description
+## [](#_description)Description
 
 Valid Usage
 
-- <a href="#VUID-vkCreateFramebuffer-device-10002"
-  id="VUID-vkCreateFramebuffer-device-10002"></a>
-  VUID-vkCreateFramebuffer-device-10002  
-  `device` **must** support at least one queue family with the
-  `VK_QUEUE_GRAPHICS_BIT` capability
-
-- <a href="#VUID-vkCreateFramebuffer-pCreateInfo-02777"
-  id="VUID-vkCreateFramebuffer-pCreateInfo-02777"></a>
-  VUID-vkCreateFramebuffer-pCreateInfo-02777  
-  If `pCreateInfo->flags` does not include
-  `VK_FRAMEBUFFER_CREATE_IMAGELESS_BIT`, and `attachmentCount` is not
-  `0`, each element of `pCreateInfo->pAttachments` **must** have been
-  created on `device`
+- [](#VUID-vkCreateFramebuffer-device-10002)VUID-vkCreateFramebuffer-device-10002  
+  `device` **must** support at least one queue family with the `VK_QUEUE_GRAPHICS_BIT` capability
+- [](#VUID-vkCreateFramebuffer-pCreateInfo-02777)VUID-vkCreateFramebuffer-pCreateInfo-02777  
+  If `pCreateInfo->flags` does not include `VK_FRAMEBUFFER_CREATE_IMAGELESS_BIT`, and `attachmentCount` is not `0`, each element of `pCreateInfo->pAttachments` **must** have been created on `device`
 
 Valid Usage (Implicit)
 
-- <a href="#VUID-vkCreateFramebuffer-device-parameter"
-  id="VUID-vkCreateFramebuffer-device-parameter"></a>
-  VUID-vkCreateFramebuffer-device-parameter  
-  `device` **must** be a valid [VkDevice](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkDevice.html) handle
-
-- <a href="#VUID-vkCreateFramebuffer-pCreateInfo-parameter"
-  id="VUID-vkCreateFramebuffer-pCreateInfo-parameter"></a>
-  VUID-vkCreateFramebuffer-pCreateInfo-parameter  
-  `pCreateInfo` **must** be a valid pointer to a valid
-  [VkFramebufferCreateInfo](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkFramebufferCreateInfo.html) structure
-
-- <a href="#VUID-vkCreateFramebuffer-pAllocator-parameter"
-  id="VUID-vkCreateFramebuffer-pAllocator-parameter"></a>
-  VUID-vkCreateFramebuffer-pAllocator-parameter  
-  If `pAllocator` is not `NULL`, `pAllocator` **must** be a valid
-  pointer to a valid [VkAllocationCallbacks](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkAllocationCallbacks.html)
-  structure
-
-- <a href="#VUID-vkCreateFramebuffer-pFramebuffer-parameter"
-  id="VUID-vkCreateFramebuffer-pFramebuffer-parameter"></a>
-  VUID-vkCreateFramebuffer-pFramebuffer-parameter  
-  `pFramebuffer` **must** be a valid pointer to a
-  [VkFramebuffer](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkFramebuffer.html) handle
+- [](#VUID-vkCreateFramebuffer-device-parameter)VUID-vkCreateFramebuffer-device-parameter  
+  `device` **must** be a valid [VkDevice](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDevice.html) handle
+- [](#VUID-vkCreateFramebuffer-pCreateInfo-parameter)VUID-vkCreateFramebuffer-pCreateInfo-parameter  
+  `pCreateInfo` **must** be a valid pointer to a valid [VkFramebufferCreateInfo](https://registry.khronos.org/vulkan/specs/latest/man/html/VkFramebufferCreateInfo.html) structure
+- [](#VUID-vkCreateFramebuffer-pAllocator-parameter)VUID-vkCreateFramebuffer-pAllocator-parameter  
+  If `pAllocator` is not `NULL`, `pAllocator` **must** be a valid pointer to a valid [VkAllocationCallbacks](https://registry.khronos.org/vulkan/specs/latest/man/html/VkAllocationCallbacks.html) structure
+- [](#VUID-vkCreateFramebuffer-pFramebuffer-parameter)VUID-vkCreateFramebuffer-pFramebuffer-parameter  
+  `pFramebuffer` **must** be a valid pointer to a [VkFramebuffer](https://registry.khronos.org/vulkan/specs/latest/man/html/VkFramebuffer.html) handle
+- [](#VUID-vkCreateFramebuffer-device-queuecount)VUID-vkCreateFramebuffer-device-queuecount  
+  The device **must** have been created with at least `1` queue
 
 Return Codes
 
-On success, this command returns  
+On success, this command returns
+
 - `VK_SUCCESS`
 
-On failure, this command returns  
-- `VK_ERROR_OUT_OF_HOST_MEMORY`
+On failure, this command returns
 
+- `VK_ERROR_OUT_OF_HOST_MEMORY`
 - `VK_ERROR_OUT_OF_DEVICE_MEMORY`
 
-## <a href="#_see_also" class="anchor"></a>See Also
+## [](#_see_also)See Also
 
-[VK_VERSION_1_0](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_VERSION_1_0.html),
-[VkAllocationCallbacks](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkAllocationCallbacks.html),
-[VkDevice](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkDevice.html), [VkFramebuffer](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkFramebuffer.html),
-[VkFramebufferCreateInfo](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkFramebufferCreateInfo.html)
+[VK\_VERSION\_1\_0](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_VERSION_1_0.html), [VkAllocationCallbacks](https://registry.khronos.org/vulkan/specs/latest/man/html/VkAllocationCallbacks.html), [VkDevice](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDevice.html), [VkFramebuffer](https://registry.khronos.org/vulkan/specs/latest/man/html/VkFramebuffer.html), [VkFramebufferCreateInfo](https://registry.khronos.org/vulkan/specs/latest/man/html/VkFramebufferCreateInfo.html)
 
-## <a href="#_document_notes" class="anchor"></a>Document Notes
+## [](#_document_notes)Document Notes
 
-For more information, see the <a
-href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#vkCreateFramebuffer"
-target="_blank" rel="noopener">Vulkan Specification</a>
+For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#vkCreateFramebuffer)
 
-This page is extracted from the Vulkan Specification. Fixes and changes
-should be made to the Specification, not directly.
+This page is extracted from the Vulkan Specification. Fixes and changes should be made to the Specification, not directly.
 
-## <a href="#_copyright" class="anchor"></a>Copyright
+## [](#_copyright)Copyright
 
-Copyright 2014-2024 The Khronos Group Inc.
+Copyright 2014-2025 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
-
-Version 1.3.290  
-Last updated 2024-07-11 23:39:16 -0700

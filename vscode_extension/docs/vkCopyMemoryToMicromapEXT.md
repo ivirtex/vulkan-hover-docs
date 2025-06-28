@@ -6,11 +6,11 @@ vkCopyMemoryToMicromapEXT - Deserialize a micromap on the host
 
 
 
-## <a href="#_c_specification" class="anchor"></a>C Specification
+## [](#_c_specification)C Specification
 
 To copy host accessible memory to a micromap, call:
 
-``` c
+```c++
 // Provided by VK_EXT_opacity_micromap
 VkResult vkCopyMemoryToMicromapEXT(
     VkDevice                                    device,
@@ -18,130 +18,69 @@ VkResult vkCopyMemoryToMicromapEXT(
     const VkCopyMemoryToMicromapInfoEXT*        pInfo);
 ```
 
-## <a href="#_parameters" class="anchor"></a>Parameters
+## [](#_parameters)Parameters
 
 - `device` is the device which owns `pInfo->dst`.
+- `deferredOperation` is an optional [VkDeferredOperationKHR](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDeferredOperationKHR.html) to [request deferral](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#deferred-host-operations-requesting) for this command.
+- `pInfo` is a pointer to a [VkCopyMemoryToMicromapInfoEXT](https://registry.khronos.org/vulkan/specs/latest/man/html/VkCopyMemoryToMicromapInfoEXT.html) structure defining the copy operation.
 
-- `deferredOperation` is an optional
-  [VkDeferredOperationKHR](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkDeferredOperationKHR.html) to <a
-  href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#deferred-host-operations-requesting"
-  target="_blank" rel="noopener">request deferral</a> for this command.
+## [](#_description)Description
 
-- `pInfo` is a pointer to a
-  [VkCopyMemoryToMicromapInfoEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkCopyMemoryToMicromapInfoEXT.html)
-  structure defining the copy operation.
+This command fulfills the same task as [vkCmdCopyMemoryToMicromapEXT](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdCopyMemoryToMicromapEXT.html) but is executed by the host.
 
-## <a href="#_description" class="anchor"></a>Description
-
-This command fulfills the same task as
-[vkCmdCopyMemoryToMicromapEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdCopyMemoryToMicromapEXT.html) but is
-executed by the host.
-
-This command can accept micromaps produced by either
-[vkCmdCopyMicromapToMemoryEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdCopyMicromapToMemoryEXT.html) or
-[vkCopyMicromapToMemoryEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCopyMicromapToMemoryEXT.html).
+This command can accept micromaps produced by either [vkCmdCopyMicromapToMemoryEXT](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdCopyMicromapToMemoryEXT.html) or [vkCopyMicromapToMemoryEXT](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCopyMicromapToMemoryEXT.html).
 
 Valid Usage
 
-- <a href="#VUID-vkCopyMemoryToMicromapEXT-deferredOperation-03678"
-  id="VUID-vkCopyMemoryToMicromapEXT-deferredOperation-03678"></a>
-  VUID-vkCopyMemoryToMicromapEXT-deferredOperation-03678  
-  Any previous deferred operation that was associated with
-  `deferredOperation` **must** be complete
-
-- <a href="#VUID-vkCopyMemoryToMicromapEXT-pInfo-07563"
-  id="VUID-vkCopyMemoryToMicromapEXT-pInfo-07563"></a>
-  VUID-vkCopyMemoryToMicromapEXT-pInfo-07563  
+- [](#VUID-vkCopyMemoryToMicromapEXT-deferredOperation-03678)VUID-vkCopyMemoryToMicromapEXT-deferredOperation-03678  
+  Any previous deferred operation that was associated with `deferredOperation` **must** be complete
+- [](#VUID-vkCopyMemoryToMicromapEXT-pInfo-07563)VUID-vkCopyMemoryToMicromapEXT-pInfo-07563  
   `pInfo->src.hostAddress` **must** be a valid host pointer
-
-- <a href="#VUID-vkCopyMemoryToMicromapEXT-pInfo-07564"
-  id="VUID-vkCopyMemoryToMicromapEXT-pInfo-07564"></a>
-  VUID-vkCopyMemoryToMicromapEXT-pInfo-07564  
+- [](#VUID-vkCopyMemoryToMicromapEXT-pInfo-07564)VUID-vkCopyMemoryToMicromapEXT-pInfo-07564  
   `pInfo->src.hostAddress` **must** be aligned to 16 bytes
-
-- <a href="#VUID-vkCopyMemoryToMicromapEXT-buffer-07565"
-  id="VUID-vkCopyMemoryToMicromapEXT-buffer-07565"></a>
-  VUID-vkCopyMemoryToMicromapEXT-buffer-07565  
-  The `buffer` used to create `pInfo->dst` **must** be bound to
-  host-visible device memory
-
-- <a href="#VUID-vkCopyMemoryToMicromapEXT-micromapHostCommands-07566"
-  id="VUID-vkCopyMemoryToMicromapEXT-micromapHostCommands-07566"></a>
-  VUID-vkCopyMemoryToMicromapEXT-micromapHostCommands-07566  
-  The <a
-  href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#features-micromapHostCommands"
-  target="_blank"
-  rel="noopener"><code>VkPhysicalDeviceOpacityMicromapFeaturesEXT</code>::<code>micromapHostCommands</code></a>
-  feature **must** be enabled
-
-- <a href="#VUID-vkCopyMemoryToMicromapEXT-buffer-07567"
-  id="VUID-vkCopyMemoryToMicromapEXT-buffer-07567"></a>
-  VUID-vkCopyMemoryToMicromapEXT-buffer-07567  
-  The `buffer` used to create `pInfo->dst` **must** be bound to memory
-  that was not allocated with multiple instances
+- [](#VUID-vkCopyMemoryToMicromapEXT-buffer-07565)VUID-vkCopyMemoryToMicromapEXT-buffer-07565  
+  The `buffer` used to create `pInfo->dst` **must** be bound to host-visible device memory
+- [](#VUID-vkCopyMemoryToMicromapEXT-micromapHostCommands-07566)VUID-vkCopyMemoryToMicromapEXT-micromapHostCommands-07566  
+  The [`VkPhysicalDeviceOpacityMicromapFeaturesEXT`::`micromapHostCommands`](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#features-micromapHostCommands) feature **must** be enabled
+- [](#VUID-vkCopyMemoryToMicromapEXT-buffer-07567)VUID-vkCopyMemoryToMicromapEXT-buffer-07567  
+  The `buffer` used to create `pInfo->dst` **must** be bound to memory that was not allocated with multiple instances
 
 Valid Usage (Implicit)
 
-- <a href="#VUID-vkCopyMemoryToMicromapEXT-device-parameter"
-  id="VUID-vkCopyMemoryToMicromapEXT-device-parameter"></a>
-  VUID-vkCopyMemoryToMicromapEXT-device-parameter  
-  `device` **must** be a valid [VkDevice](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkDevice.html) handle
-
-- <a href="#VUID-vkCopyMemoryToMicromapEXT-deferredOperation-parameter"
-  id="VUID-vkCopyMemoryToMicromapEXT-deferredOperation-parameter"></a>
-  VUID-vkCopyMemoryToMicromapEXT-deferredOperation-parameter  
-  If `deferredOperation` is not [VK_NULL_HANDLE](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_NULL_HANDLE.html),
-  `deferredOperation` **must** be a valid
-  [VkDeferredOperationKHR](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkDeferredOperationKHR.html) handle
-
-- <a href="#VUID-vkCopyMemoryToMicromapEXT-pInfo-parameter"
-  id="VUID-vkCopyMemoryToMicromapEXT-pInfo-parameter"></a>
-  VUID-vkCopyMemoryToMicromapEXT-pInfo-parameter  
-  `pInfo` **must** be a valid pointer to a valid
-  [VkCopyMemoryToMicromapInfoEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkCopyMemoryToMicromapInfoEXT.html)
-  structure
-
-- <a href="#VUID-vkCopyMemoryToMicromapEXT-deferredOperation-parent"
-  id="VUID-vkCopyMemoryToMicromapEXT-deferredOperation-parent"></a>
-  VUID-vkCopyMemoryToMicromapEXT-deferredOperation-parent  
-  If `deferredOperation` is a valid handle, it **must** have been
-  created, allocated, or retrieved from `device`
+- [](#VUID-vkCopyMemoryToMicromapEXT-device-parameter)VUID-vkCopyMemoryToMicromapEXT-device-parameter  
+  `device` **must** be a valid [VkDevice](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDevice.html) handle
+- [](#VUID-vkCopyMemoryToMicromapEXT-deferredOperation-parameter)VUID-vkCopyMemoryToMicromapEXT-deferredOperation-parameter  
+  If `deferredOperation` is not [VK\_NULL\_HANDLE](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_NULL_HANDLE.html), `deferredOperation` **must** be a valid [VkDeferredOperationKHR](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDeferredOperationKHR.html) handle
+- [](#VUID-vkCopyMemoryToMicromapEXT-pInfo-parameter)VUID-vkCopyMemoryToMicromapEXT-pInfo-parameter  
+  `pInfo` **must** be a valid pointer to a valid [VkCopyMemoryToMicromapInfoEXT](https://registry.khronos.org/vulkan/specs/latest/man/html/VkCopyMemoryToMicromapInfoEXT.html) structure
+- [](#VUID-vkCopyMemoryToMicromapEXT-deferredOperation-parent)VUID-vkCopyMemoryToMicromapEXT-deferredOperation-parent  
+  If `deferredOperation` is a valid handle, it **must** have been created, allocated, or retrieved from `device`
 
 Return Codes
 
-On success, this command returns  
+On success, this command returns
+
 - `VK_SUCCESS`
-
 - `VK_OPERATION_DEFERRED_KHR`
-
 - `VK_OPERATION_NOT_DEFERRED_KHR`
 
-On failure, this command returns  
-- `VK_ERROR_OUT_OF_HOST_MEMORY`
+On failure, this command returns
 
+- `VK_ERROR_OUT_OF_HOST_MEMORY`
 - `VK_ERROR_OUT_OF_DEVICE_MEMORY`
 
-## <a href="#_see_also" class="anchor"></a>See Also
+## [](#_see_also)See Also
 
-[VK_EXT_opacity_micromap](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_EXT_opacity_micromap.html),
-[VkCopyMemoryToMicromapInfoEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkCopyMemoryToMicromapInfoEXT.html),
-[VkDeferredOperationKHR](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkDeferredOperationKHR.html),
-[VkDevice](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkDevice.html)
+[VK\_EXT\_opacity\_micromap](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_EXT_opacity_micromap.html), [VkCopyMemoryToMicromapInfoEXT](https://registry.khronos.org/vulkan/specs/latest/man/html/VkCopyMemoryToMicromapInfoEXT.html), [VkDeferredOperationKHR](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDeferredOperationKHR.html), [VkDevice](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDevice.html)
 
-## <a href="#_document_notes" class="anchor"></a>Document Notes
+## [](#_document_notes)Document Notes
 
-For more information, see the <a
-href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#vkCopyMemoryToMicromapEXT"
-target="_blank" rel="noopener">Vulkan Specification</a>
+For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#vkCopyMemoryToMicromapEXT)
 
-This page is extracted from the Vulkan Specification. Fixes and changes
-should be made to the Specification, not directly.
+This page is extracted from the Vulkan Specification. Fixes and changes should be made to the Specification, not directly.
 
-## <a href="#_copyright" class="anchor"></a>Copyright
+## [](#_copyright)Copyright
 
-Copyright 2014-2024 The Khronos Group Inc.
+Copyright 2014-2025 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
-
-Version 1.3.290  
-Last updated 2024-07-11 23:39:16 -0700

@@ -2,22 +2,15 @@
 
 ## Name
 
-VkAccessFlagBits - Bitmask specifying memory access types that will
-participate in a memory dependency
+VkAccessFlagBits - Bitmask specifying memory access types that will participate in a memory dependency
 
 
 
-## <a href="#_c_specification" class="anchor"></a>C Specification
+## [](#_c_specification)C Specification
 
-Bits which **can** be set in the `srcAccessMask` and `dstAccessMask`
-members of [VkSubpassDependency](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkSubpassDependency.html),
-[VkSubpassDependency2](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkSubpassDependency2.html),
-[VkMemoryBarrier](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkMemoryBarrier.html),
-[VkBufferMemoryBarrier](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkBufferMemoryBarrier.html), and
-[VkImageMemoryBarrier](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkImageMemoryBarrier.html), specifying access
-behavior, are:
+Bits which **can** be set in the `srcAccessMask` and `dstAccessMask` members of [VkSubpassDependency](https://registry.khronos.org/vulkan/specs/latest/man/html/VkSubpassDependency.html), [VkSubpassDependency2](https://registry.khronos.org/vulkan/specs/latest/man/html/VkSubpassDependency2.html), [VkMemoryBarrier](https://registry.khronos.org/vulkan/specs/latest/man/html/VkMemoryBarrier.html), [VkBufferMemoryBarrier](https://registry.khronos.org/vulkan/specs/latest/man/html/VkBufferMemoryBarrier.html), and [VkImageMemoryBarrier](https://registry.khronos.org/vulkan/specs/latest/man/html/VkImageMemoryBarrier.html), specifying access behavior, are:
 
-``` c
+```c++
 // Provided by VK_VERSION_1_0
 typedef enum VkAccessFlagBits {
     VK_ACCESS_INDIRECT_COMMAND_READ_BIT = 0x00000001,
@@ -57,338 +50,263 @@ typedef enum VkAccessFlagBits {
     VK_ACCESS_FRAGMENT_DENSITY_MAP_READ_BIT_EXT = 0x01000000,
   // Provided by VK_KHR_fragment_shading_rate
     VK_ACCESS_FRAGMENT_SHADING_RATE_ATTACHMENT_READ_BIT_KHR = 0x00800000,
-  // Provided by VK_NV_device_generated_commands
-    VK_ACCESS_COMMAND_PREPROCESS_READ_BIT_NV = 0x00020000,
-  // Provided by VK_NV_device_generated_commands
-    VK_ACCESS_COMMAND_PREPROCESS_WRITE_BIT_NV = 0x00040000,
+  // Provided by VK_EXT_device_generated_commands
+    VK_ACCESS_COMMAND_PREPROCESS_READ_BIT_EXT = 0x00020000,
+  // Provided by VK_EXT_device_generated_commands
+    VK_ACCESS_COMMAND_PREPROCESS_WRITE_BIT_EXT = 0x00040000,
   // Provided by VK_NV_shading_rate_image
     VK_ACCESS_SHADING_RATE_IMAGE_READ_BIT_NV = VK_ACCESS_FRAGMENT_SHADING_RATE_ATTACHMENT_READ_BIT_KHR,
   // Provided by VK_NV_ray_tracing
     VK_ACCESS_ACCELERATION_STRUCTURE_READ_BIT_NV = VK_ACCESS_ACCELERATION_STRUCTURE_READ_BIT_KHR,
   // Provided by VK_NV_ray_tracing
     VK_ACCESS_ACCELERATION_STRUCTURE_WRITE_BIT_NV = VK_ACCESS_ACCELERATION_STRUCTURE_WRITE_BIT_KHR,
+  // Provided by VK_NV_device_generated_commands
+    VK_ACCESS_COMMAND_PREPROCESS_READ_BIT_NV = VK_ACCESS_COMMAND_PREPROCESS_READ_BIT_EXT,
+  // Provided by VK_NV_device_generated_commands
+    VK_ACCESS_COMMAND_PREPROCESS_WRITE_BIT_NV = VK_ACCESS_COMMAND_PREPROCESS_WRITE_BIT_EXT,
   // Provided by VK_KHR_synchronization2
     VK_ACCESS_NONE_KHR = VK_ACCESS_NONE,
 } VkAccessFlagBits;
 ```
 
-## <a href="#_description" class="anchor"></a>Description
+## [](#_description)Description
 
-These values all have the same meaning as the equivalently named values
-for [VkAccessFlags2](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkAccessFlags2.html).
+These values all have the same meaning as the equivalently named values for [VkAccessFlags2](https://registry.khronos.org/vulkan/specs/latest/man/html/VkAccessFlags2.html).
 
 - `VK_ACCESS_NONE` specifies no accesses.
+- `VK_ACCESS_MEMORY_READ_BIT` specifies all read accesses. It is always valid in any access mask, and is treated as equivalent to setting all `READ` access flags that are valid where it is used.
+- `VK_ACCESS_MEMORY_WRITE_BIT` specifies all write accesses. It is always valid in any access mask, and is treated as equivalent to setting all `WRITE` access flags that are valid where it is used.
+- `VK_ACCESS_INDIRECT_COMMAND_READ_BIT` specifies read access to indirect command data read as part of an indirect build, trace, drawing or dispatching command. Such access occurs in the `VK_PIPELINE_STAGE_DRAW_INDIRECT_BIT` pipeline stage.
+- `VK_ACCESS_INDEX_READ_BIT` specifies read access to an index buffer as part of an indexed drawing command, bound by [vkCmdBindIndexBuffer2](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdBindIndexBuffer2.html) and [vkCmdBindIndexBuffer](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdBindIndexBuffer.html). Such access occurs in the `VK_PIPELINE_STAGE_VERTEX_INPUT_BIT` pipeline stage.
+- `VK_ACCESS_VERTEX_ATTRIBUTE_READ_BIT` specifies read access to a vertex buffer as part of a drawing command, bound by [vkCmdBindVertexBuffers](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdBindVertexBuffers.html). Such access occurs in the `VK_PIPELINE_STAGE_VERTEX_INPUT_BIT` pipeline stage.
+- `VK_ACCESS_UNIFORM_READ_BIT` specifies read access to a [uniform buffer](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#descriptorsets-uniformbuffer) in any shader pipeline stage.
+- `VK_ACCESS_INPUT_ATTACHMENT_READ_BIT` specifies read access to an [input attachment](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#renderpass) within a render pass during subpass shading or fragment shading. Such access occurs in the `VK_PIPELINE_STAGE_2_SUBPASS_SHADER_BIT_HUAWEI` or `VK_PIPELINE_STAGE_FRAGMENT_SHADER_BIT` pipeline stage.
+- `VK_ACCESS_SHADER_READ_BIT` specifies read access to a [uniform texel buffer](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#descriptorsets-uniformtexelbuffer), [sampled image](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#descriptorsets-sampledimage), [storage buffer](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#descriptorsets-storagebuffer), [physical storage buffer](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#descriptorsets-physical-storage-buffer), [shader binding table](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#shader-binding-table), [storage tensor](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#descriptorsets-storagetensor), [storage texel buffer](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#descriptorsets-storagetexelbuffer), or [storage image](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#descriptorsets-storageimage) in any shader pipeline stage.
+- `VK_ACCESS_SHADER_WRITE_BIT` specifies write access to a [storage buffer](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#descriptorsets-storagebuffer), [physical storage buffer](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#descriptorsets-physical-storage-buffer), [storage tensor](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#descriptorsets-storagetensor), [storage texel buffer](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#descriptorsets-storagetexelbuffer), or [storage image](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#descriptorsets-storageimage) in any shader pipeline stage.
+- `VK_ACCESS_COLOR_ATTACHMENT_READ_BIT` specifies read access to a [color attachment](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#renderpass), such as via [blending](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#framebuffer-blending) (other than [advanced blend operations](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#framebuffer-blend-advanced)), [logic operations](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#framebuffer-logicop) or certain [render pass load operations](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#renderpass-load-operations) in the `VK_PIPELINE_STAGE_COLOR_ATTACHMENT_OUTPUT_BIT` pipeline stage or via [fragment shader tile image reads](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#fragops-shader-tileimage-reads) in the `VK_PIPELINE_STAGE_FRAGMENT_SHADER_BIT` pipeline stage.
+- `VK_ACCESS_COLOR_ATTACHMENT_WRITE_BIT` specifies write access to a [color, resolve, or depth/stencil resolve attachment](#renderpass) during a [render pass](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#renderpass) or via certain render pass [load](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#renderpass-load-operations) and [store](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#renderpass-store-operations) operations. Such access occurs in the `VK_PIPELINE_STAGE_COLOR_ATTACHMENT_OUTPUT_BIT` pipeline stage.
+- `VK_ACCESS_DEPTH_STENCIL_ATTACHMENT_READ_BIT` specifies read access to a [depth/stencil attachment](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#renderpass), via [depth or stencil operations](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#fragops-ds-state) or certain [render pass load operations](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#renderpass-load-operations) in the `VK_PIPELINE_STAGE_EARLY_FRAGMENT_TESTS_BIT` or `VK_PIPELINE_STAGE_LATE_FRAGMENT_TESTS_BIT` pipeline stages or via [fragment shader tile image reads](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#fragops-shader-tileimage-reads) in the `VK_PIPELINE_STAGE_FRAGMENT_SHADER_BIT` pipeline stage.
+- `VK_ACCESS_DEPTH_STENCIL_ATTACHMENT_WRITE_BIT` specifies write access to a [depth/stencil attachment](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#renderpass), via [depth or stencil operations](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#fragops-ds-state) or certain render pass [load](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#renderpass-load-operations) and [store](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#renderpass-store-operations) operations. Such access occurs in the `VK_PIPELINE_STAGE_EARLY_FRAGMENT_TESTS_BIT` or `VK_PIPELINE_STAGE_LATE_FRAGMENT_TESTS_BIT` pipeline stages.
+- `VK_ACCESS_TRANSFER_READ_BIT` specifies read access to an image, tensor, or buffer in a [copy](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#copies) operation. Such access occurs in the `VK_PIPELINE_STAGE_2_ALL_TRANSFER_BIT` pipeline stage.
+- `VK_ACCESS_TRANSFER_WRITE_BIT` specifies write access to an image, tensor, or buffer in a [clear](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#clears) or [copy](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#copies) operation. Such access occurs in the `VK_PIPELINE_STAGE_2_ALL_TRANSFER_BIT` pipeline stage.
+- `VK_ACCESS_HOST_READ_BIT` specifies read access by a host operation. Accesses of this type are not performed through a resource, but directly on memory. Such access occurs in the `VK_PIPELINE_STAGE_HOST_BIT` pipeline stage.
+- `VK_ACCESS_HOST_WRITE_BIT` specifies write access by a host operation. Accesses of this type are not performed through a resource, but directly on memory. Such access occurs in the `VK_PIPELINE_STAGE_HOST_BIT` pipeline stage.
+- `VK_ACCESS_CONDITIONAL_RENDERING_READ_BIT_EXT` specifies read access to a predicate as part of conditional rendering. Such access occurs in the `VK_PIPELINE_STAGE_CONDITIONAL_RENDERING_BIT_EXT` pipeline stage.
+- `VK_ACCESS_TRANSFORM_FEEDBACK_WRITE_BIT_EXT` specifies write access to a transform feedback buffer made when transform feedback is active. Such access occurs in the `VK_PIPELINE_STAGE_TRANSFORM_FEEDBACK_BIT_EXT` pipeline stage.
+- `VK_ACCESS_TRANSFORM_FEEDBACK_COUNTER_READ_BIT_EXT` specifies read access to a transform feedback counter buffer which is read when `vkCmdBeginTransformFeedbackEXT` executes. Such access occurs in the `VK_PIPELINE_STAGE_TRANSFORM_FEEDBACK_BIT_EXT` pipeline stage.
+- `VK_ACCESS_TRANSFORM_FEEDBACK_COUNTER_WRITE_BIT_EXT` specifies write access to a transform feedback counter buffer which is written when `vkCmdEndTransformFeedbackEXT` executes. Such access occurs in the `VK_PIPELINE_STAGE_TRANSFORM_FEEDBACK_BIT_EXT` pipeline stage.
+- `VK_ACCESS_COMMAND_PREPROCESS_READ_BIT_NV` specifies reads from buffer inputs to [vkCmdPreprocessGeneratedCommandsNV](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdPreprocessGeneratedCommandsNV.html). Such access occurs in the `VK_PIPELINE_STAGE_COMMAND_PREPROCESS_BIT_NV` pipeline stage.
+- `VK_ACCESS_COMMAND_PREPROCESS_WRITE_BIT_NV` specifies writes to the target command buffer preprocess outputs in [vkCmdPreprocessGeneratedCommandsNV](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdPreprocessGeneratedCommandsNV.html). Such access occurs in the `VK_PIPELINE_STAGE_COMMAND_PREPROCESS_BIT_NV` pipeline stage.
+- `VK_ACCESS_COMMAND_PREPROCESS_READ_BIT_EXT` specifies reads from buffer inputs to [vkCmdPreprocessGeneratedCommandsEXT](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdPreprocessGeneratedCommandsEXT.html). Such access occurs in the `VK_PIPELINE_STAGE_COMMAND_PREPROCESS_BIT_EXT` pipeline stage.
+- `VK_ACCESS_COMMAND_PREPROCESS_WRITE_BIT_EXT` specifies writes to the target command buffer preprocess outputs in [vkCmdPreprocessGeneratedCommandsEXT](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdPreprocessGeneratedCommandsEXT.html). Such access occurs in the `VK_PIPELINE_STAGE_COMMAND_PREPROCESS_BIT_EXT` pipeline stage.
+- `VK_ACCESS_COLOR_ATTACHMENT_READ_NONCOHERENT_BIT_EXT` specifies read access to [color attachments](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#renderpass), including [advanced blend operations](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#framebuffer-blend-advanced). Such access occurs in the `VK_PIPELINE_STAGE_COLOR_ATTACHMENT_OUTPUT_BIT` pipeline stage.
+- `VK_ACCESS_2_INVOCATION_MASK_READ_BIT_HUAWEI` specifies read access to an invocation mask image in the `VK_PIPELINE_STAGE_2_INVOCATION_MASK_BIT_HUAWEI` pipeline stage.
+- `VK_ACCESS_ACCELERATION_STRUCTURE_READ_BIT_KHR` specifies read access to an acceleration structure as part of a trace, build, or copy command, or to an [acceleration structure scratch buffer](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#acceleration-structure-scratch) as part of a build command. Such access occurs in the `VK_PIPELINE_STAGE_RAY_TRACING_SHADER_BIT_KHR` pipeline stage or `VK_PIPELINE_STAGE_ACCELERATION_STRUCTURE_BUILD_BIT_KHR` pipeline stage.
+- `VK_ACCESS_ACCELERATION_STRUCTURE_WRITE_BIT_KHR` specifies write access to an acceleration structure or [acceleration structure scratch buffer](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#acceleration-structure-scratch) as part of a build or copy command. Such access occurs in the `VK_PIPELINE_STAGE_ACCELERATION_STRUCTURE_BUILD_BIT_KHR` pipeline stage.
+- `VK_ACCESS_FRAGMENT_DENSITY_MAP_READ_BIT_EXT` specifies read access to a [fragment density map attachment](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#renderpass-fragmentdensitymapattachment) during dynamic [fragment density map operations](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#fragmentdensitymapops) Such access occurs in the `VK_PIPELINE_STAGE_FRAGMENT_DENSITY_PROCESS_BIT_EXT` pipeline stage.
+- `VK_ACCESS_FRAGMENT_SHADING_RATE_ATTACHMENT_READ_BIT_KHR` specifies read access to a fragment shading rate attachment during rasterization. Such access occurs in the `VK_PIPELINE_STAGE_FRAGMENT_SHADING_RATE_ATTACHMENT_BIT_KHR` pipeline stage.
+- `VK_ACCESS_SHADING_RATE_IMAGE_READ_BIT_NV` specifies read access to a shading rate image during rasterization. Such access occurs in the `VK_PIPELINE_STAGE_SHADING_RATE_IMAGE_BIT_NV` pipeline stage. It is equivalent to `VK_PIPELINE_STAGE_FRAGMENT_SHADING_RATE_ATTACHMENT_BIT_KHR`.
 
-- `VK_ACCESS_MEMORY_READ_BIT` specifies all read accesses. It is always
-  valid in any access mask, and is treated as equivalent to setting all
-  `READ` access flags that are valid where it is used.
+Certain access types are only performed by a subset of pipeline stages. Any synchronization command that takes both stage masks and access masks uses both to define the [access scopes](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#synchronization-dependencies-access-scopes) - only the specified access types performed by the specified stages are included in the access scope. An application **must** not specify an access flag in a synchronization command if it does not include a pipeline stage in the corresponding stage mask that is able to perform accesses of that type. The following table lists, for each access flag, which pipeline stages **can** perform that type of access.
 
-- `VK_ACCESS_MEMORY_WRITE_BIT` specifies all write accesses. It is
-  always valid in any access mask, and is treated as equivalent to
-  setting all `WRITE` access flags that are valid where it is used.
+Table 1. Supported Access Types   Access flag Supported pipeline stages
 
-- `VK_ACCESS_INDIRECT_COMMAND_READ_BIT` specifies read access to
-  indirect command data read as part of an indirect build, trace,
-  drawing or dispatching command. Such access occurs in the
-  `VK_PIPELINE_STAGE_DRAW_INDIRECT_BIT` pipeline stage.
+`VK_ACCESS_2_NONE`
 
-- `VK_ACCESS_INDEX_READ_BIT` specifies read access to an index buffer as
-  part of an indexed drawing command, bound by
-  [vkCmdBindIndexBuffer2KHR](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdBindIndexBuffer2KHR.html) and
-  [vkCmdBindIndexBuffer](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdBindIndexBuffer.html). Such access occurs
-  in the `VK_PIPELINE_STAGE_VERTEX_INPUT_BIT` pipeline stage.
+Any
 
-- `VK_ACCESS_VERTEX_ATTRIBUTE_READ_BIT` specifies read access to a
-  vertex buffer as part of a drawing command, bound by
-  [vkCmdBindVertexBuffers](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdBindVertexBuffers.html). Such access
-  occurs in the `VK_PIPELINE_STAGE_VERTEX_INPUT_BIT` pipeline stage.
+`VK_ACCESS_2_INDIRECT_COMMAND_READ_BIT`
 
-- `VK_ACCESS_UNIFORM_READ_BIT` specifies read access to a <a
-  href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#descriptorsets-uniformbuffer"
-  target="_blank" rel="noopener">uniform buffer</a> in any shader
-  pipeline stage.
+`VK_PIPELINE_STAGE_2_DRAW_INDIRECT_BIT`, `VK_PIPELINE_STAGE_2_ACCELERATION_STRUCTURE_BUILD_BIT_KHR`
 
-- `VK_ACCESS_INPUT_ATTACHMENT_READ_BIT` specifies read access to an <a
-  href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#renderpass"
-  target="_blank" rel="noopener">input attachment</a> within a render
-  pass during subpass shading or fragment shading. Such access occurs in
-  the `VK_PIPELINE_STAGE_2_SUBPASS_SHADER_BIT_HUAWEI` or
-  `VK_PIPELINE_STAGE_FRAGMENT_SHADER_BIT` pipeline stage.
+`VK_ACCESS_2_INDEX_READ_BIT`
 
-- `VK_ACCESS_SHADER_READ_BIT` specifies read access to a <a
-  href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#descriptorsets-uniformtexelbuffer"
-  target="_blank" rel="noopener">uniform texel buffer</a>, <a
-  href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#descriptorsets-sampledimage"
-  target="_blank" rel="noopener">sampled image</a>, <a
-  href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#descriptorsets-storagebuffer"
-  target="_blank" rel="noopener">storage buffer</a>, <a
-  href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#descriptorsets-physical-storage-buffer"
-  target="_blank" rel="noopener">physical storage buffer</a>, <a
-  href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#shader-binding-table"
-  target="_blank" rel="noopener">shader binding table</a>, <a
-  href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#descriptorsets-storagetexelbuffer"
-  target="_blank" rel="noopener">storage texel buffer</a>, or <a
-  href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#descriptorsets-storageimage"
-  target="_blank" rel="noopener">storage image</a> in any shader
-  pipeline stage.
+`VK_PIPELINE_STAGE_2_VERTEX_INPUT_BIT`, `VK_PIPELINE_STAGE_2_INDEX_INPUT_BIT`
 
-- `VK_ACCESS_SHADER_WRITE_BIT` specifies write access to a <a
-  href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#descriptorsets-storagebuffer"
-  target="_blank" rel="noopener">storage buffer</a>, <a
-  href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#descriptorsets-physical-storage-buffer"
-  target="_blank" rel="noopener">physical storage buffer</a>, <a
-  href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#descriptorsets-storagetexelbuffer"
-  target="_blank" rel="noopener">storage texel buffer</a>, or <a
-  href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#descriptorsets-storageimage"
-  target="_blank" rel="noopener">storage image</a> in any shader
-  pipeline stage.
+`VK_ACCESS_2_VERTEX_ATTRIBUTE_READ_BIT`
 
-- `VK_ACCESS_COLOR_ATTACHMENT_READ_BIT` specifies read access to a <a
-  href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#renderpass"
-  target="_blank" rel="noopener">color attachment</a>, such as via <a
-  href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#framebuffer-blending"
-  target="_blank" rel="noopener">blending</a> (other than <a
-  href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#framebuffer-blend-advanced"
-  target="_blank" rel="noopener">advanced blend operations</a>), <a
-  href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#framebuffer-logicop"
-  target="_blank" rel="noopener">logic operations</a> or certain <a
-  href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#renderpass-load-operations"
-  target="_blank" rel="noopener">render pass load operations</a> in the
-  `VK_PIPELINE_STAGE_COLOR_ATTACHMENT_OUTPUT_BIT` pipeline stage or via
-  <a
-  href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#fragops-shader-tileimage-reads"
-  target="_blank" rel="noopener">fragment shader tile image reads</a> in
-  the `VK_PIPELINE_STAGE_FRAGMENT_SHADER_BIT` pipeline stage.
+`VK_PIPELINE_STAGE_2_VERTEX_INPUT_BIT`, `VK_PIPELINE_STAGE_2_VERTEX_ATTRIBUTE_INPUT_BIT`
 
-- `VK_ACCESS_COLOR_ATTACHMENT_WRITE_BIT` specifies write access to a
-  [color, resolve, or depth/stencil resolve attachment](#renderpass)
-  during a <a
-  href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#renderpass"
-  target="_blank" rel="noopener">render pass</a> or via certain render
-  pass <a
-  href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#renderpass-load-operations"
-  target="_blank" rel="noopener">load</a> and <a
-  href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#renderpass-store-operations"
-  target="_blank" rel="noopener">store</a> operations. Such access
-  occurs in the `VK_PIPELINE_STAGE_COLOR_ATTACHMENT_OUTPUT_BIT` pipeline
-  stage.
+`VK_ACCESS_2_UNIFORM_READ_BIT`
 
-- `VK_ACCESS_DEPTH_STENCIL_ATTACHMENT_READ_BIT` specifies read access to
-  a <a
-  href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#renderpass"
-  target="_blank" rel="noopener">depth/stencil attachment</a>, via <a
-  href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#fragops-ds-state"
-  target="_blank" rel="noopener">depth or stencil operations</a> or
-  certain <a
-  href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#renderpass-load-operations"
-  target="_blank" rel="noopener">render pass load operations</a> in the
-  `VK_PIPELINE_STAGE_EARLY_FRAGMENT_TESTS_BIT` or
-  `VK_PIPELINE_STAGE_LATE_FRAGMENT_TESTS_BIT` pipeline stages or via <a
-  href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#fragops-shader-tileimage-reads"
-  target="_blank" rel="noopener">fragment shader tile image reads</a> in
-  the `VK_PIPELINE_STAGE_FRAGMENT_SHADER_BIT` pipeline stage.
+`VK_PIPELINE_STAGE_2_VERTEX_SHADER_BIT`, `VK_PIPELINE_STAGE_2_TESSELLATION_CONTROL_SHADER_BIT`, `VK_PIPELINE_STAGE_2_TESSELLATION_EVALUATION_SHADER_BIT`, `VK_PIPELINE_STAGE_2_GEOMETRY_SHADER_BIT`, `VK_PIPELINE_STAGE_2_FRAGMENT_SHADER_BIT`, `VK_PIPELINE_STAGE_2_COMPUTE_SHADER_BIT`, `VK_PIPELINE_STAGE_2_RAY_TRACING_SHADER_BIT_KHR`, `VK_PIPELINE_STAGE_2_TASK_SHADER_BIT_EXT`, `VK_PIPELINE_STAGE_2_MESH_SHADER_BIT_EXT`, `VK_PIPELINE_STAGE_2_SUBPASS_SHADER_BIT_HUAWEI`, `VK_PIPELINE_STAGE_2_CLUSTER_CULLING_SHADER_BIT_HUAWEI`
 
-- `VK_ACCESS_DEPTH_STENCIL_ATTACHMENT_WRITE_BIT` specifies write access
-  to a <a
-  href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#renderpass"
-  target="_blank" rel="noopener">depth/stencil attachment</a>, via <a
-  href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#fragops-ds-state"
-  target="_blank" rel="noopener">depth or stencil operations</a> or
-  certain render pass <a
-  href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#renderpass-load-operations"
-  target="_blank" rel="noopener">load</a> and <a
-  href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#renderpass-store-operations"
-  target="_blank" rel="noopener">store</a> operations. Such access
-  occurs in the `VK_PIPELINE_STAGE_EARLY_FRAGMENT_TESTS_BIT` or
-  `VK_PIPELINE_STAGE_LATE_FRAGMENT_TESTS_BIT` pipeline stages.
+`VK_ACCESS_2_INPUT_ATTACHMENT_READ_BIT`
 
-- `VK_ACCESS_TRANSFER_READ_BIT` specifies read access to an image or
-  buffer in a <a
-  href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#copies"
-  target="_blank" rel="noopener">copy</a> operation. Such access occurs
-  in the `VK_PIPELINE_STAGE_2_ALL_TRANSFER_BIT` pipeline stage.
+`VK_PIPELINE_STAGE_2_FRAGMENT_SHADER_BIT`, `VK_PIPELINE_STAGE_2_SUBPASS_SHADER_BIT_HUAWEI`
 
-- `VK_ACCESS_TRANSFER_WRITE_BIT` specifies write access to an image or
-  buffer in a <a
-  href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#clears"
-  target="_blank" rel="noopener">clear</a> or <a
-  href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#copies"
-  target="_blank" rel="noopener">copy</a> operation. Such access occurs
-  in the `VK_PIPELINE_STAGE_2_ALL_TRANSFER_BIT` pipeline stage.
+`VK_ACCESS_2_SHADER_READ_BIT`
 
-- `VK_ACCESS_HOST_READ_BIT` specifies read access by a host operation.
-  Accesses of this type are not performed through a resource, but
-  directly on memory. Such access occurs in the
-  `VK_PIPELINE_STAGE_HOST_BIT` pipeline stage.
+`VK_PIPELINE_STAGE_2_ACCELERATION_STRUCTURE_BUILD_BIT_KHR`, `VK_PIPELINE_STAGE_2_MICROMAP_BUILD_BIT_EXT`, `VK_PIPELINE_STAGE_2_VERTEX_SHADER_BIT`, `VK_PIPELINE_STAGE_2_TESSELLATION_CONTROL_SHADER_BIT`, `VK_PIPELINE_STAGE_2_TESSELLATION_EVALUATION_SHADER_BIT`, `VK_PIPELINE_STAGE_2_GEOMETRY_SHADER_BIT`, `VK_PIPELINE_STAGE_2_FRAGMENT_SHADER_BIT`, `VK_PIPELINE_STAGE_2_COMPUTE_SHADER_BIT`, `VK_PIPELINE_STAGE_2_RAY_TRACING_SHADER_BIT_KHR`, `VK_PIPELINE_STAGE_2_TASK_SHADER_BIT_EXT`, `VK_PIPELINE_STAGE_2_MESH_SHADER_BIT_EXT`, `VK_PIPELINE_STAGE_2_SUBPASS_SHADER_BIT_HUAWEI`, `VK_PIPELINE_STAGE_2_CLUSTER_CULLING_SHADER_BIT_HUAWEI`
 
-- `VK_ACCESS_HOST_WRITE_BIT` specifies write access by a host operation.
-  Accesses of this type are not performed through a resource, but
-  directly on memory. Such access occurs in the
-  `VK_PIPELINE_STAGE_HOST_BIT` pipeline stage.
+`VK_ACCESS_2_SHADER_WRITE_BIT`
 
-- `VK_ACCESS_CONDITIONAL_RENDERING_READ_BIT_EXT` specifies read access
-  to a predicate as part of conditional rendering. Such access occurs in
-  the `VK_PIPELINE_STAGE_CONDITIONAL_RENDERING_BIT_EXT` pipeline stage.
+`VK_PIPELINE_STAGE_2_VERTEX_SHADER_BIT`, `VK_PIPELINE_STAGE_2_TESSELLATION_CONTROL_SHADER_BIT`, `VK_PIPELINE_STAGE_2_TESSELLATION_EVALUATION_SHADER_BIT`, `VK_PIPELINE_STAGE_2_GEOMETRY_SHADER_BIT`, `VK_PIPELINE_STAGE_2_FRAGMENT_SHADER_BIT`, `VK_PIPELINE_STAGE_2_COMPUTE_SHADER_BIT`, `VK_PIPELINE_STAGE_2_RAY_TRACING_SHADER_BIT_KHR`, `VK_PIPELINE_STAGE_2_TASK_SHADER_BIT_EXT`, `VK_PIPELINE_STAGE_2_MESH_SHADER_BIT_EXT`, `VK_PIPELINE_STAGE_2_SUBPASS_SHADER_BIT_HUAWEI`, `VK_PIPELINE_STAGE_2_CLUSTER_CULLING_SHADER_BIT_HUAWEI`
 
-- `VK_ACCESS_TRANSFORM_FEEDBACK_WRITE_BIT_EXT` specifies write access to
-  a transform feedback buffer made when transform feedback is active.
-  Such access occurs in the
-  `VK_PIPELINE_STAGE_TRANSFORM_FEEDBACK_BIT_EXT` pipeline stage.
+`VK_ACCESS_2_COLOR_ATTACHMENT_READ_BIT`
 
-- `VK_ACCESS_TRANSFORM_FEEDBACK_COUNTER_READ_BIT_EXT` specifies read
-  access to a transform feedback counter buffer which is read when
-  `vkCmdBeginTransformFeedbackEXT` executes. Such access occurs in the
-  `VK_PIPELINE_STAGE_TRANSFORM_FEEDBACK_BIT_EXT` pipeline stage.
+`VK_PIPELINE_STAGE_2_FRAGMENT_SHADER_BIT`, `VK_PIPELINE_STAGE_2_COLOR_ATTACHMENT_OUTPUT_BIT`
 
-- `VK_ACCESS_TRANSFORM_FEEDBACK_COUNTER_WRITE_BIT_EXT` specifies write
-  access to a transform feedback counter buffer which is written when
-  `vkCmdEndTransformFeedbackEXT` executes. Such access occurs in the
-  `VK_PIPELINE_STAGE_TRANSFORM_FEEDBACK_BIT_EXT` pipeline stage.
+`VK_ACCESS_2_COLOR_ATTACHMENT_WRITE_BIT`
 
-- `VK_ACCESS_COMMAND_PREPROCESS_READ_BIT_NV` specifies reads from buffer
-  inputs to
-  [vkCmdPreprocessGeneratedCommandsNV](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdPreprocessGeneratedCommandsNV.html).
-  Such access occurs in the
-  `VK_PIPELINE_STAGE_COMMAND_PREPROCESS_BIT_NV` pipeline stage.
+`VK_PIPELINE_STAGE_2_COLOR_ATTACHMENT_OUTPUT_BIT`
 
-- `VK_ACCESS_COMMAND_PREPROCESS_WRITE_BIT_NV` specifies writes to the
-  target command buffer preprocess outputs in
-  [vkCmdPreprocessGeneratedCommandsNV](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdPreprocessGeneratedCommandsNV.html).
-  Such access occurs in the
-  `VK_PIPELINE_STAGE_COMMAND_PREPROCESS_BIT_NV` pipeline stage.
+`VK_ACCESS_2_DEPTH_STENCIL_ATTACHMENT_READ_BIT`
 
-- `VK_ACCESS_COLOR_ATTACHMENT_READ_NONCOHERENT_BIT_EXT` specifies read
-  access to <a
-  href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#renderpass"
-  target="_blank" rel="noopener">color attachments</a>, including <a
-  href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#framebuffer-blend-advanced"
-  target="_blank" rel="noopener">advanced blend operations</a>. Such
-  access occurs in the `VK_PIPELINE_STAGE_COLOR_ATTACHMENT_OUTPUT_BIT`
-  pipeline stage.
+`VK_PIPELINE_STAGE_2_FRAGMENT_SHADER_BIT`, `VK_PIPELINE_STAGE_2_EARLY_FRAGMENT_TESTS_BIT`, `VK_PIPELINE_STAGE_2_LATE_FRAGMENT_TESTS_BIT`
 
-- `VK_ACCESS_2_INVOCATION_MASK_READ_BIT_HUAWEI` specifies read access to
-  an invocation mask image in the
-  `VK_PIPELINE_STAGE_2_INVOCATION_MASK_BIT_HUAWEI` pipeline stage.
+`VK_ACCESS_2_DEPTH_STENCIL_ATTACHMENT_WRITE_BIT`
 
-- `VK_ACCESS_ACCELERATION_STRUCTURE_READ_BIT_KHR` specifies read access
-  to an acceleration structure as part of a trace, build, or copy
-  command, or to an <a
-  href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#acceleration-structure-scratch"
-  target="_blank" rel="noopener">acceleration structure scratch buffer</a>
-  as part of a build command. Such access occurs in the
-  `VK_PIPELINE_STAGE_RAY_TRACING_SHADER_BIT_KHR` pipeline stage or
-  `VK_PIPELINE_STAGE_ACCELERATION_STRUCTURE_BUILD_BIT_KHR` pipeline
-  stage.
+`VK_PIPELINE_STAGE_2_EARLY_FRAGMENT_TESTS_BIT`, `VK_PIPELINE_STAGE_2_LATE_FRAGMENT_TESTS_BIT`
 
-- `VK_ACCESS_ACCELERATION_STRUCTURE_WRITE_BIT_KHR` specifies write
-  access to an acceleration structure or <a
-  href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#acceleration-structure-scratch"
-  target="_blank" rel="noopener">acceleration structure scratch buffer</a>
-  as part of a build or copy command. Such access occurs in the
-  `VK_PIPELINE_STAGE_ACCELERATION_STRUCTURE_BUILD_BIT_KHR` pipeline
-  stage.
+`VK_ACCESS_2_TRANSFER_READ_BIT`
 
-- `VK_ACCESS_FRAGMENT_DENSITY_MAP_READ_BIT_EXT` specifies read access to
-  a <a
-  href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#renderpass-fragmentdensitymapattachment"
-  target="_blank" rel="noopener">fragment density map attachment</a>
-  during dynamic <a
-  href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#fragmentdensitymapops"
-  target="_blank" rel="noopener">fragment density map operations</a>
-  Such access occurs in the
-  `VK_PIPELINE_STAGE_FRAGMENT_DENSITY_PROCESS_BIT_EXT` pipeline stage.
+`VK_PIPELINE_STAGE_2_ALL_TRANSFER_BIT`, `VK_PIPELINE_STAGE_2_COPY_BIT`, `VK_PIPELINE_STAGE_2_RESOLVE_BIT`, `VK_PIPELINE_STAGE_2_BLIT_BIT`, `VK_PIPELINE_STAGE_2_ACCELERATION_STRUCTURE_BUILD_BIT_KHR`, `VK_PIPELINE_STAGE_2_ACCELERATION_STRUCTURE_COPY_BIT_KHR`, `VK_PIPELINE_STAGE_2_MICROMAP_BUILD_BIT_EXT`, `VK_PIPELINE_STAGE_2_CONVERT_COOPERATIVE_VECTOR_MATRIX_BIT_NV`
 
-- `VK_ACCESS_FRAGMENT_SHADING_RATE_ATTACHMENT_READ_BIT_KHR` specifies
-  read access to a fragment shading rate attachment during
-  rasterization. Such access occurs in the
-  `VK_PIPELINE_STAGE_FRAGMENT_SHADING_RATE_ATTACHMENT_BIT_KHR` pipeline
-  stage.
+`VK_ACCESS_2_TRANSFER_WRITE_BIT`
 
-- `VK_ACCESS_SHADING_RATE_IMAGE_READ_BIT_NV` specifies read access to a
-  shading rate image during rasterization. Such access occurs in the
-  `VK_PIPELINE_STAGE_SHADING_RATE_IMAGE_BIT_NV` pipeline stage. It is
-  equivalent to
-  `VK_PIPELINE_STAGE_FRAGMENT_SHADING_RATE_ATTACHMENT_BIT_KHR`.
+`VK_PIPELINE_STAGE_2_ALL_TRANSFER_BIT`, `VK_PIPELINE_STAGE_2_COPY_BIT`, `VK_PIPELINE_STAGE_2_RESOLVE_BIT`, `VK_PIPELINE_STAGE_2_BLIT_BIT`, `VK_PIPELINE_STAGE_2_CLEAR_BIT`, `VK_PIPELINE_STAGE_2_ACCELERATION_STRUCTURE_BUILD_BIT_KHR`, `VK_PIPELINE_STAGE_2_ACCELERATION_STRUCTURE_COPY_BIT_KHR`, `VK_PIPELINE_STAGE_2_MICROMAP_BUILD_BIT_EXT`, `VK_PIPELINE_STAGE_2_CONVERT_COOPERATIVE_VECTOR_MATRIX_BIT_NV`
 
-Certain access types are only performed by a subset of pipeline stages.
-Any synchronization command that takes both stage masks and access masks
-uses both to define the <a
-href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#synchronization-dependencies-access-scopes"
-target="_blank" rel="noopener">access scopes</a> - only the specified
-access types performed by the specified stages are included in the
-access scope. An application **must** not specify an access flag in a
-synchronization command if it does not include a pipeline stage in the
-corresponding stage mask that is able to perform accesses of that type.
-The following table lists, for each access flag, which pipeline stages
-**can** perform that type of access.
+`VK_ACCESS_2_HOST_READ_BIT`
 
-| Access flag | Supported pipeline stages |
-|----|----|
-| `VK_ACCESS_2_NONE` | Any |
-| `VK_ACCESS_2_INDIRECT_COMMAND_READ_BIT` | `VK_PIPELINE_STAGE_2_DRAW_INDIRECT_BIT`, `VK_PIPELINE_STAGE_2_ACCELERATION_STRUCTURE_BUILD_BIT_KHR` |
-| `VK_ACCESS_2_INDEX_READ_BIT` | `VK_PIPELINE_STAGE_2_VERTEX_INPUT_BIT`, `VK_PIPELINE_STAGE_2_INDEX_INPUT_BIT` |
-| `VK_ACCESS_2_VERTEX_ATTRIBUTE_READ_BIT` | `VK_PIPELINE_STAGE_2_VERTEX_INPUT_BIT`, `VK_PIPELINE_STAGE_2_VERTEX_ATTRIBUTE_INPUT_BIT` |
-| `VK_ACCESS_2_UNIFORM_READ_BIT` | `VK_PIPELINE_STAGE_2_VERTEX_SHADER_BIT`, `VK_PIPELINE_STAGE_2_TESSELLATION_CONTROL_SHADER_BIT`, `VK_PIPELINE_STAGE_2_TESSELLATION_EVALUATION_SHADER_BIT`, `VK_PIPELINE_STAGE_2_GEOMETRY_SHADER_BIT`, `VK_PIPELINE_STAGE_2_FRAGMENT_SHADER_BIT`, `VK_PIPELINE_STAGE_2_COMPUTE_SHADER_BIT`, `VK_PIPELINE_STAGE_2_RAY_TRACING_SHADER_BIT_KHR`, `VK_PIPELINE_STAGE_2_TASK_SHADER_BIT_EXT`, `VK_PIPELINE_STAGE_2_MESH_SHADER_BIT_EXT`, `VK_PIPELINE_STAGE_2_SUBPASS_SHADER_BIT_HUAWEI`, `VK_PIPELINE_STAGE_2_CLUSTER_CULLING_SHADER_BIT_HUAWEI` |
-| `VK_ACCESS_2_INPUT_ATTACHMENT_READ_BIT` | `VK_PIPELINE_STAGE_2_FRAGMENT_SHADER_BIT`, `VK_PIPELINE_STAGE_2_SUBPASS_SHADER_BIT_HUAWEI` |
-| `VK_ACCESS_2_SHADER_READ_BIT` | `VK_PIPELINE_STAGE_2_ACCELERATION_STRUCTURE_BUILD_BIT_KHR`, `VK_PIPELINE_STAGE_2_MICROMAP_BUILD_BIT_EXT`, `VK_PIPELINE_STAGE_2_VERTEX_SHADER_BIT`, `VK_PIPELINE_STAGE_2_TESSELLATION_CONTROL_SHADER_BIT`, `VK_PIPELINE_STAGE_2_TESSELLATION_EVALUATION_SHADER_BIT`, `VK_PIPELINE_STAGE_2_GEOMETRY_SHADER_BIT`, `VK_PIPELINE_STAGE_2_FRAGMENT_SHADER_BIT`, `VK_PIPELINE_STAGE_2_COMPUTE_SHADER_BIT`, `VK_PIPELINE_STAGE_2_RAY_TRACING_SHADER_BIT_KHR`, `VK_PIPELINE_STAGE_2_TASK_SHADER_BIT_EXT`, `VK_PIPELINE_STAGE_2_MESH_SHADER_BIT_EXT`, `VK_PIPELINE_STAGE_2_SUBPASS_SHADER_BIT_HUAWEI`, `VK_PIPELINE_STAGE_2_CLUSTER_CULLING_SHADER_BIT_HUAWEI` |
-| `VK_ACCESS_2_SHADER_WRITE_BIT` | `VK_PIPELINE_STAGE_2_VERTEX_SHADER_BIT`, `VK_PIPELINE_STAGE_2_TESSELLATION_CONTROL_SHADER_BIT`, `VK_PIPELINE_STAGE_2_TESSELLATION_EVALUATION_SHADER_BIT`, `VK_PIPELINE_STAGE_2_GEOMETRY_SHADER_BIT`, `VK_PIPELINE_STAGE_2_FRAGMENT_SHADER_BIT`, `VK_PIPELINE_STAGE_2_COMPUTE_SHADER_BIT`, `VK_PIPELINE_STAGE_2_RAY_TRACING_SHADER_BIT_KHR`, `VK_PIPELINE_STAGE_2_TASK_SHADER_BIT_EXT`, `VK_PIPELINE_STAGE_2_MESH_SHADER_BIT_EXT`, `VK_PIPELINE_STAGE_2_SUBPASS_SHADER_BIT_HUAWEI`, `VK_PIPELINE_STAGE_2_CLUSTER_CULLING_SHADER_BIT_HUAWEI` |
-| `VK_ACCESS_2_COLOR_ATTACHMENT_READ_BIT` | `VK_PIPELINE_STAGE_2_FRAGMENT_SHADER_BIT`, `VK_PIPELINE_STAGE_2_COLOR_ATTACHMENT_OUTPUT_BIT` |
-| `VK_ACCESS_2_COLOR_ATTACHMENT_WRITE_BIT` | `VK_PIPELINE_STAGE_2_COLOR_ATTACHMENT_OUTPUT_BIT` |
-| `VK_ACCESS_2_DEPTH_STENCIL_ATTACHMENT_READ_BIT` | `VK_PIPELINE_STAGE_2_FRAGMENT_SHADER_BIT`, `VK_PIPELINE_STAGE_2_EARLY_FRAGMENT_TESTS_BIT`, `VK_PIPELINE_STAGE_2_LATE_FRAGMENT_TESTS_BIT` |
-| `VK_ACCESS_2_DEPTH_STENCIL_ATTACHMENT_WRITE_BIT` | `VK_PIPELINE_STAGE_2_EARLY_FRAGMENT_TESTS_BIT`, `VK_PIPELINE_STAGE_2_LATE_FRAGMENT_TESTS_BIT` |
-| `VK_ACCESS_2_TRANSFER_READ_BIT` | `VK_PIPELINE_STAGE_2_ALL_TRANSFER_BIT`, `VK_PIPELINE_STAGE_2_COPY_BIT`, `VK_PIPELINE_STAGE_2_RESOLVE_BIT`, `VK_PIPELINE_STAGE_2_BLIT_BIT`, `VK_PIPELINE_STAGE_2_ACCELERATION_STRUCTURE_BUILD_BIT_KHR`, `VK_PIPELINE_STAGE_2_ACCELERATION_STRUCTURE_COPY_BIT_KHR`, `VK_PIPELINE_STAGE_2_MICROMAP_BUILD_BIT_EXT` |
-| `VK_ACCESS_2_TRANSFER_WRITE_BIT` | `VK_PIPELINE_STAGE_2_ALL_TRANSFER_BIT`, `VK_PIPELINE_STAGE_2_COPY_BIT`, `VK_PIPELINE_STAGE_2_RESOLVE_BIT`, `VK_PIPELINE_STAGE_2_BLIT_BIT`, `VK_PIPELINE_STAGE_2_CLEAR_BIT`, `VK_PIPELINE_STAGE_2_ACCELERATION_STRUCTURE_BUILD_BIT_KHR`, `VK_PIPELINE_STAGE_2_ACCELERATION_STRUCTURE_COPY_BIT_KHR`, `VK_PIPELINE_STAGE_2_MICROMAP_BUILD_BIT_EXT` |
-| `VK_ACCESS_2_HOST_READ_BIT` | `VK_PIPELINE_STAGE_2_HOST_BIT` |
-| `VK_ACCESS_2_HOST_WRITE_BIT` | `VK_PIPELINE_STAGE_2_HOST_BIT` |
-| `VK_ACCESS_2_MEMORY_READ_BIT` | Any |
-| `VK_ACCESS_2_MEMORY_WRITE_BIT` | Any |
-| `VK_ACCESS_2_SHADER_SAMPLED_READ_BIT` | `VK_PIPELINE_STAGE_2_VERTEX_SHADER_BIT`, `VK_PIPELINE_STAGE_2_TESSELLATION_CONTROL_SHADER_BIT`, `VK_PIPELINE_STAGE_2_TESSELLATION_EVALUATION_SHADER_BIT`, `VK_PIPELINE_STAGE_2_GEOMETRY_SHADER_BIT`, `VK_PIPELINE_STAGE_2_FRAGMENT_SHADER_BIT`, `VK_PIPELINE_STAGE_2_COMPUTE_SHADER_BIT`, `VK_PIPELINE_STAGE_2_RAY_TRACING_SHADER_BIT_KHR`, `VK_PIPELINE_STAGE_2_TASK_SHADER_BIT_EXT`, `VK_PIPELINE_STAGE_2_MESH_SHADER_BIT_EXT`, `VK_PIPELINE_STAGE_2_SUBPASS_SHADER_BIT_HUAWEI`, `VK_PIPELINE_STAGE_2_CLUSTER_CULLING_SHADER_BIT_HUAWEI` |
-| `VK_ACCESS_2_SHADER_STORAGE_READ_BIT` | `VK_PIPELINE_STAGE_2_VERTEX_SHADER_BIT`, `VK_PIPELINE_STAGE_2_TESSELLATION_CONTROL_SHADER_BIT`, `VK_PIPELINE_STAGE_2_TESSELLATION_EVALUATION_SHADER_BIT`, `VK_PIPELINE_STAGE_2_GEOMETRY_SHADER_BIT`, `VK_PIPELINE_STAGE_2_FRAGMENT_SHADER_BIT`, `VK_PIPELINE_STAGE_2_COMPUTE_SHADER_BIT`, `VK_PIPELINE_STAGE_2_RAY_TRACING_SHADER_BIT_KHR`, `VK_PIPELINE_STAGE_2_TASK_SHADER_BIT_EXT`, `VK_PIPELINE_STAGE_2_MESH_SHADER_BIT_EXT`, `VK_PIPELINE_STAGE_2_SUBPASS_SHADER_BIT_HUAWEI`, `VK_PIPELINE_STAGE_2_CLUSTER_CULLING_SHADER_BIT_HUAWEI` |
-| `VK_ACCESS_2_SHADER_STORAGE_WRITE_BIT` | `VK_PIPELINE_STAGE_2_VERTEX_SHADER_BIT`, `VK_PIPELINE_STAGE_2_TESSELLATION_CONTROL_SHADER_BIT`, `VK_PIPELINE_STAGE_2_TESSELLATION_EVALUATION_SHADER_BIT`, `VK_PIPELINE_STAGE_2_GEOMETRY_SHADER_BIT`, `VK_PIPELINE_STAGE_2_FRAGMENT_SHADER_BIT`, `VK_PIPELINE_STAGE_2_COMPUTE_SHADER_BIT`, `VK_PIPELINE_STAGE_2_RAY_TRACING_SHADER_BIT_KHR`, `VK_PIPELINE_STAGE_2_TASK_SHADER_BIT_EXT`, `VK_PIPELINE_STAGE_2_MESH_SHADER_BIT_EXT`, `VK_PIPELINE_STAGE_2_SUBPASS_SHADER_BIT_HUAWEI`, `VK_PIPELINE_STAGE_2_CLUSTER_CULLING_SHADER_BIT_HUAWEI` |
-| `VK_ACCESS_2_VIDEO_DECODE_READ_BIT_KHR` | `VK_PIPELINE_STAGE_2_VIDEO_DECODE_BIT_KHR` |
-| `VK_ACCESS_2_VIDEO_DECODE_WRITE_BIT_KHR` | `VK_PIPELINE_STAGE_2_VIDEO_DECODE_BIT_KHR` |
-| `VK_ACCESS_2_VIDEO_ENCODE_READ_BIT_KHR` | `VK_PIPELINE_STAGE_2_VIDEO_ENCODE_BIT_KHR` |
-| `VK_ACCESS_2_VIDEO_ENCODE_WRITE_BIT_KHR` | `VK_PIPELINE_STAGE_2_VIDEO_ENCODE_BIT_KHR` |
-| `VK_ACCESS_2_TRANSFORM_FEEDBACK_WRITE_BIT_EXT` | `VK_PIPELINE_STAGE_2_TRANSFORM_FEEDBACK_BIT_EXT` |
-| `VK_ACCESS_2_TRANSFORM_FEEDBACK_COUNTER_READ_BIT_EXT` | `VK_PIPELINE_STAGE_2_DRAW_INDIRECT_BIT`, `VK_PIPELINE_STAGE_2_TRANSFORM_FEEDBACK_BIT_EXT` |
-| `VK_ACCESS_2_TRANSFORM_FEEDBACK_COUNTER_WRITE_BIT_EXT` | `VK_PIPELINE_STAGE_2_TRANSFORM_FEEDBACK_BIT_EXT` |
-| `VK_ACCESS_2_CONDITIONAL_RENDERING_READ_BIT_EXT` | `VK_PIPELINE_STAGE_2_CONDITIONAL_RENDERING_BIT_EXT` |
-| `VK_ACCESS_2_COMMAND_PREPROCESS_READ_BIT_NV` | `VK_PIPELINE_STAGE_2_COMMAND_PREPROCESS_BIT_NV` |
-| `VK_ACCESS_2_COMMAND_PREPROCESS_WRITE_BIT_NV` | `VK_PIPELINE_STAGE_2_COMMAND_PREPROCESS_BIT_NV` |
-| `VK_ACCESS_2_FRAGMENT_SHADING_RATE_ATTACHMENT_READ_BIT_KHR` | `VK_PIPELINE_STAGE_2_FRAGMENT_SHADING_RATE_ATTACHMENT_BIT_KHR` |
-| `VK_ACCESS_2_ACCELERATION_STRUCTURE_READ_BIT_KHR` | `VK_PIPELINE_STAGE_2_VERTEX_SHADER_BIT`, `VK_PIPELINE_STAGE_2_TESSELLATION_CONTROL_SHADER_BIT`, `VK_PIPELINE_STAGE_2_TESSELLATION_EVALUATION_SHADER_BIT`, `VK_PIPELINE_STAGE_2_GEOMETRY_SHADER_BIT`, `VK_PIPELINE_STAGE_2_FRAGMENT_SHADER_BIT`, `VK_PIPELINE_STAGE_2_COMPUTE_SHADER_BIT`, `VK_PIPELINE_STAGE_2_RAY_TRACING_SHADER_BIT_KHR`, `VK_PIPELINE_STAGE_2_TASK_SHADER_BIT_EXT`, `VK_PIPELINE_STAGE_2_MESH_SHADER_BIT_EXT`, `VK_PIPELINE_STAGE_2_CLUSTER_CULLING_SHADER_BIT_HUAWEI`, `VK_PIPELINE_STAGE_2_ACCELERATION_STRUCTURE_BUILD_BIT_KHR`, `VK_PIPELINE_STAGE_2_ACCELERATION_STRUCTURE_COPY_BIT_KHR`, `VK_PIPELINE_STAGE_2_SUBPASS_SHADER_BIT_HUAWEI` |
-| `VK_ACCESS_2_ACCELERATION_STRUCTURE_WRITE_BIT_KHR` | `VK_PIPELINE_STAGE_2_ACCELERATION_STRUCTURE_BUILD_BIT_KHR`, `VK_PIPELINE_STAGE_2_ACCELERATION_STRUCTURE_COPY_BIT_KHR` |
-| `VK_ACCESS_2_FRAGMENT_DENSITY_MAP_READ_BIT_EXT` | `VK_PIPELINE_STAGE_2_FRAGMENT_DENSITY_PROCESS_BIT_EXT` |
-| `VK_ACCESS_2_COLOR_ATTACHMENT_READ_NONCOHERENT_BIT_EXT` | `VK_PIPELINE_STAGE_2_COLOR_ATTACHMENT_OUTPUT_BIT` |
-| `VK_ACCESS_2_DESCRIPTOR_BUFFER_READ_BIT_EXT` | `VK_PIPELINE_STAGE_2_VERTEX_SHADER_BIT`, `VK_PIPELINE_STAGE_2_TESSELLATION_CONTROL_SHADER_BIT`, `VK_PIPELINE_STAGE_2_TESSELLATION_EVALUATION_SHADER_BIT`, `VK_PIPELINE_STAGE_2_GEOMETRY_SHADER_BIT`, `VK_PIPELINE_STAGE_2_FRAGMENT_SHADER_BIT`, `VK_PIPELINE_STAGE_2_COMPUTE_SHADER_BIT`, `VK_PIPELINE_STAGE_2_RAY_TRACING_SHADER_BIT_KHR`, `VK_PIPELINE_STAGE_2_TASK_SHADER_BIT_EXT`, `VK_PIPELINE_STAGE_2_MESH_SHADER_BIT_EXT`, `VK_PIPELINE_STAGE_2_SUBPASS_SHADER_BIT_HUAWEI`, `VK_PIPELINE_STAGE_2_CLUSTER_CULLING_SHADER_BIT_HUAWEI` |
-| `VK_ACCESS_2_INVOCATION_MASK_READ_BIT_HUAWEI` | `VK_PIPELINE_STAGE_2_INVOCATION_MASK_BIT_HUAWEI` |
-| `VK_ACCESS_2_MICROMAP_READ_BIT_EXT` | `VK_PIPELINE_STAGE_2_MICROMAP_BUILD_BIT_EXT`, `VK_PIPELINE_STAGE_2_ACCELERATION_STRUCTURE_BUILD_BIT_KHR` |
-| `VK_ACCESS_2_MICROMAP_WRITE_BIT_EXT` | `VK_PIPELINE_STAGE_2_MICROMAP_BUILD_BIT_EXT` |
-| `VK_ACCESS_2_OPTICAL_FLOW_READ_BIT_NV` | `VK_PIPELINE_STAGE_2_OPTICAL_FLOW_BIT_NV` |
-| `VK_ACCESS_2_OPTICAL_FLOW_WRITE_BIT_NV` | `VK_PIPELINE_STAGE_2_OPTICAL_FLOW_BIT_NV` |
+`VK_PIPELINE_STAGE_2_HOST_BIT`
 
-Table 1. Supported access types
-{#synchronization-access-types-supported}
+`VK_ACCESS_2_HOST_WRITE_BIT`
 
-## <a href="#_see_also" class="anchor"></a>See Also
+`VK_PIPELINE_STAGE_2_HOST_BIT`
 
-[VK_VERSION_1_0](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_VERSION_1_0.html),
-[VkAccessFlags](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkAccessFlags.html)
+`VK_ACCESS_2_MEMORY_READ_BIT`
 
-## <a href="#_document_notes" class="anchor"></a>Document Notes
+Any
 
-For more information, see the <a
-href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#VkAccessFlagBits"
-target="_blank" rel="noopener">Vulkan Specification</a>
+`VK_ACCESS_2_MEMORY_WRITE_BIT`
 
-This page is extracted from the Vulkan Specification. Fixes and changes
-should be made to the Specification, not directly.
+Any
 
-## <a href="#_copyright" class="anchor"></a>Copyright
+`VK_ACCESS_2_SHADER_SAMPLED_READ_BIT`
 
-Copyright 2014-2024 The Khronos Group Inc.
+`VK_PIPELINE_STAGE_2_VERTEX_SHADER_BIT`, `VK_PIPELINE_STAGE_2_TESSELLATION_CONTROL_SHADER_BIT`, `VK_PIPELINE_STAGE_2_TESSELLATION_EVALUATION_SHADER_BIT`, `VK_PIPELINE_STAGE_2_GEOMETRY_SHADER_BIT`, `VK_PIPELINE_STAGE_2_FRAGMENT_SHADER_BIT`, `VK_PIPELINE_STAGE_2_COMPUTE_SHADER_BIT`, `VK_PIPELINE_STAGE_2_RAY_TRACING_SHADER_BIT_KHR`, `VK_PIPELINE_STAGE_2_TASK_SHADER_BIT_EXT`, `VK_PIPELINE_STAGE_2_MESH_SHADER_BIT_EXT`, `VK_PIPELINE_STAGE_2_SUBPASS_SHADER_BIT_HUAWEI`, `VK_PIPELINE_STAGE_2_CLUSTER_CULLING_SHADER_BIT_HUAWEI`
+
+`VK_ACCESS_2_SHADER_STORAGE_READ_BIT`
+
+`VK_PIPELINE_STAGE_2_VERTEX_SHADER_BIT`, `VK_PIPELINE_STAGE_2_TESSELLATION_CONTROL_SHADER_BIT`, `VK_PIPELINE_STAGE_2_TESSELLATION_EVALUATION_SHADER_BIT`, `VK_PIPELINE_STAGE_2_GEOMETRY_SHADER_BIT`, `VK_PIPELINE_STAGE_2_FRAGMENT_SHADER_BIT`, `VK_PIPELINE_STAGE_2_COMPUTE_SHADER_BIT`, `VK_PIPELINE_STAGE_2_RAY_TRACING_SHADER_BIT_KHR`, `VK_PIPELINE_STAGE_2_TASK_SHADER_BIT_EXT`, `VK_PIPELINE_STAGE_2_MESH_SHADER_BIT_EXT`, `VK_PIPELINE_STAGE_2_SUBPASS_SHADER_BIT_HUAWEI`, `VK_PIPELINE_STAGE_2_CLUSTER_CULLING_SHADER_BIT_HUAWEI`
+
+`VK_ACCESS_2_SHADER_STORAGE_WRITE_BIT`
+
+`VK_PIPELINE_STAGE_2_VERTEX_SHADER_BIT`, `VK_PIPELINE_STAGE_2_TESSELLATION_CONTROL_SHADER_BIT`, `VK_PIPELINE_STAGE_2_TESSELLATION_EVALUATION_SHADER_BIT`, `VK_PIPELINE_STAGE_2_GEOMETRY_SHADER_BIT`, `VK_PIPELINE_STAGE_2_FRAGMENT_SHADER_BIT`, `VK_PIPELINE_STAGE_2_COMPUTE_SHADER_BIT`, `VK_PIPELINE_STAGE_2_RAY_TRACING_SHADER_BIT_KHR`, `VK_PIPELINE_STAGE_2_TASK_SHADER_BIT_EXT`, `VK_PIPELINE_STAGE_2_MESH_SHADER_BIT_EXT`, `VK_PIPELINE_STAGE_2_SUBPASS_SHADER_BIT_HUAWEI`, `VK_PIPELINE_STAGE_2_CLUSTER_CULLING_SHADER_BIT_HUAWEI`
+
+`VK_ACCESS_2_VIDEO_DECODE_READ_BIT_KHR`
+
+`VK_PIPELINE_STAGE_2_VIDEO_DECODE_BIT_KHR`
+
+`VK_ACCESS_2_VIDEO_DECODE_WRITE_BIT_KHR`
+
+`VK_PIPELINE_STAGE_2_VIDEO_DECODE_BIT_KHR`
+
+`VK_ACCESS_2_VIDEO_ENCODE_READ_BIT_KHR`
+
+`VK_PIPELINE_STAGE_2_VIDEO_ENCODE_BIT_KHR`
+
+`VK_ACCESS_2_VIDEO_ENCODE_WRITE_BIT_KHR`
+
+`VK_PIPELINE_STAGE_2_VIDEO_ENCODE_BIT_KHR`
+
+`VK_ACCESS_2_TRANSFORM_FEEDBACK_WRITE_BIT_EXT`
+
+`VK_PIPELINE_STAGE_2_TRANSFORM_FEEDBACK_BIT_EXT`
+
+`VK_ACCESS_2_TRANSFORM_FEEDBACK_COUNTER_READ_BIT_EXT`
+
+`VK_PIPELINE_STAGE_2_DRAW_INDIRECT_BIT`, `VK_PIPELINE_STAGE_2_TRANSFORM_FEEDBACK_BIT_EXT`
+
+`VK_ACCESS_2_TRANSFORM_FEEDBACK_COUNTER_WRITE_BIT_EXT`
+
+`VK_PIPELINE_STAGE_2_TRANSFORM_FEEDBACK_BIT_EXT`
+
+`VK_ACCESS_2_CONDITIONAL_RENDERING_READ_BIT_EXT`
+
+`VK_PIPELINE_STAGE_2_CONDITIONAL_RENDERING_BIT_EXT`
+
+`VK_ACCESS_2_COMMAND_PREPROCESS_READ_BIT_EXT`
+
+`VK_PIPELINE_STAGE_2_COMMAND_PREPROCESS_BIT_EXT`
+
+`VK_ACCESS_2_COMMAND_PREPROCESS_WRITE_BIT_EXT`
+
+`VK_PIPELINE_STAGE_2_COMMAND_PREPROCESS_BIT_EXT`
+
+`VK_ACCESS_2_FRAGMENT_SHADING_RATE_ATTACHMENT_READ_BIT_KHR`
+
+`VK_PIPELINE_STAGE_2_FRAGMENT_SHADING_RATE_ATTACHMENT_BIT_KHR`
+
+`VK_ACCESS_2_ACCELERATION_STRUCTURE_READ_BIT_KHR`
+
+`VK_PIPELINE_STAGE_2_VERTEX_SHADER_BIT`, `VK_PIPELINE_STAGE_2_TESSELLATION_CONTROL_SHADER_BIT`, `VK_PIPELINE_STAGE_2_TESSELLATION_EVALUATION_SHADER_BIT`, `VK_PIPELINE_STAGE_2_GEOMETRY_SHADER_BIT`, `VK_PIPELINE_STAGE_2_FRAGMENT_SHADER_BIT`, `VK_PIPELINE_STAGE_2_COMPUTE_SHADER_BIT`, `VK_PIPELINE_STAGE_2_RAY_TRACING_SHADER_BIT_KHR`, `VK_PIPELINE_STAGE_2_TASK_SHADER_BIT_EXT`, `VK_PIPELINE_STAGE_2_MESH_SHADER_BIT_EXT`, `VK_PIPELINE_STAGE_2_CLUSTER_CULLING_SHADER_BIT_HUAWEI`, `VK_PIPELINE_STAGE_2_ACCELERATION_STRUCTURE_BUILD_BIT_KHR`, `VK_PIPELINE_STAGE_2_ACCELERATION_STRUCTURE_COPY_BIT_KHR`, `VK_PIPELINE_STAGE_2_SUBPASS_SHADER_BIT_HUAWEI`
+
+`VK_ACCESS_2_ACCELERATION_STRUCTURE_WRITE_BIT_KHR`
+
+`VK_PIPELINE_STAGE_2_ACCELERATION_STRUCTURE_BUILD_BIT_KHR`, `VK_PIPELINE_STAGE_2_ACCELERATION_STRUCTURE_COPY_BIT_KHR`
+
+`VK_ACCESS_2_FRAGMENT_DENSITY_MAP_READ_BIT_EXT`
+
+`VK_PIPELINE_STAGE_2_FRAGMENT_DENSITY_PROCESS_BIT_EXT`
+
+`VK_ACCESS_2_COLOR_ATTACHMENT_READ_NONCOHERENT_BIT_EXT`
+
+`VK_PIPELINE_STAGE_2_COLOR_ATTACHMENT_OUTPUT_BIT`
+
+`VK_ACCESS_2_DESCRIPTOR_BUFFER_READ_BIT_EXT`
+
+`VK_PIPELINE_STAGE_2_VERTEX_SHADER_BIT`, `VK_PIPELINE_STAGE_2_TESSELLATION_CONTROL_SHADER_BIT`, `VK_PIPELINE_STAGE_2_TESSELLATION_EVALUATION_SHADER_BIT`, `VK_PIPELINE_STAGE_2_GEOMETRY_SHADER_BIT`, `VK_PIPELINE_STAGE_2_FRAGMENT_SHADER_BIT`, `VK_PIPELINE_STAGE_2_COMPUTE_SHADER_BIT`, `VK_PIPELINE_STAGE_2_RAY_TRACING_SHADER_BIT_KHR`, `VK_PIPELINE_STAGE_2_TASK_SHADER_BIT_EXT`, `VK_PIPELINE_STAGE_2_MESH_SHADER_BIT_EXT`, `VK_PIPELINE_STAGE_2_SUBPASS_SHADER_BIT_HUAWEI`, `VK_PIPELINE_STAGE_2_CLUSTER_CULLING_SHADER_BIT_HUAWEI`
+
+`VK_ACCESS_2_INVOCATION_MASK_READ_BIT_HUAWEI`
+
+`VK_PIPELINE_STAGE_2_INVOCATION_MASK_BIT_HUAWEI`
+
+`VK_ACCESS_2_MICROMAP_READ_BIT_EXT`
+
+`VK_PIPELINE_STAGE_2_MICROMAP_BUILD_BIT_EXT`, `VK_PIPELINE_STAGE_2_ACCELERATION_STRUCTURE_BUILD_BIT_KHR`
+
+`VK_ACCESS_2_MICROMAP_WRITE_BIT_EXT`
+
+`VK_PIPELINE_STAGE_2_MICROMAP_BUILD_BIT_EXT`
+
+`VK_ACCESS_2_OPTICAL_FLOW_READ_BIT_NV`
+
+`VK_PIPELINE_STAGE_2_OPTICAL_FLOW_BIT_NV`
+
+`VK_ACCESS_2_OPTICAL_FLOW_WRITE_BIT_NV`
+
+`VK_PIPELINE_STAGE_2_OPTICAL_FLOW_BIT_NV`
+
+`VK_ACCESS_2_SHADER_TILE_ATTACHMENT_READ_BIT_QCOM`
+
+`VK_PIPELINE_STAGE_2_FRAGMENT_SHADER_BIT`, `VK_PIPELINE_STAGE_2_COMPUTE_SHADER_BIT`
+
+`VK_ACCESS_2_SHADER_TILE_ATTACHMENT_WRITE_BIT_QCOM`
+
+`VK_PIPELINE_STAGE_2_FRAGMENT_SHADER_BIT`, `VK_PIPELINE_STAGE_2_COMPUTE_SHADER_BIT`
+
+`VK_ACCESS_2_DATA_GRAPH_READ_BIT_ARM`
+
+`VK_PIPELINE_STAGE_2_DATA_GRAPH_BIT_ARM`
+
+`VK_ACCESS_2_DATA_GRAPH_WRITE_BIT_ARM`
+
+`VK_PIPELINE_STAGE_2_DATA_GRAPH_BIT_ARM`
+
+## [](#_see_also)See Also
+
+[VK\_VERSION\_1\_0](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_VERSION_1_0.html), [VkAccessFlags](https://registry.khronos.org/vulkan/specs/latest/man/html/VkAccessFlags.html)
+
+## [](#_document_notes)Document Notes
+
+For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#VkAccessFlagBits)
+
+This page is extracted from the Vulkan Specification. Fixes and changes should be made to the Specification, not directly.
+
+## [](#_copyright)Copyright
+
+Copyright 2014-2025 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
-
-Version 1.3.290  
-Last updated 2024-07-11 23:39:16 -0700

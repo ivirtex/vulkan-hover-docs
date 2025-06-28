@@ -6,13 +6,11 @@ VkVideoCodingControlFlagBitsKHR - Video coding control flags
 
 
 
-## <a href="#_c_specification" class="anchor"></a>C Specification
+## [](#_c_specification)C Specification
 
-Bits which **can** be set in
-[VkVideoCodingControlInfoKHR](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkVideoCodingControlInfoKHR.html)::`flags`,
-specifying the video coding control parameters to be modified, are:
+Bits which **can** be set in [VkVideoCodingControlInfoKHR](https://registry.khronos.org/vulkan/specs/latest/man/html/VkVideoCodingControlInfoKHR.html)::`flags`, specifying the video coding control parameters to be modified, are:
 
-``` c
+```c++
 // Provided by VK_KHR_video_queue
 typedef enum VkVideoCodingControlFlagBitsKHR {
     VK_VIDEO_CODING_CONTROL_RESET_BIT_KHR = 0x00000001,
@@ -23,41 +21,24 @@ typedef enum VkVideoCodingControlFlagBitsKHR {
 } VkVideoCodingControlFlagBitsKHR;
 ```
 
-## <a href="#_description" class="anchor"></a>Description
+## [](#_description)Description
 
-- `VK_VIDEO_CODING_CONTROL_RESET_BIT_KHR` indicates a request for the
-  bound video session to be reset before other coding control parameters
-  are applied.
+- `VK_VIDEO_CODING_CONTROL_RESET_BIT_KHR` specifies a request for the bound video session to be reset before other coding control parameters are applied.
+- `VK_VIDEO_CODING_CONTROL_ENCODE_RATE_CONTROL_BIT_KHR` specifies that the coding control parameters include video encode rate control parameters (see [VkVideoEncodeRateControlInfoKHR](https://registry.khronos.org/vulkan/specs/latest/man/html/VkVideoEncodeRateControlInfoKHR.html)).
+- `VK_VIDEO_CODING_CONTROL_ENCODE_QUALITY_LEVEL_BIT_KHR` specifies that the coding control parameters include video encode quality level parameters (see [VkVideoEncodeQualityLevelInfoKHR](https://registry.khronos.org/vulkan/specs/latest/man/html/VkVideoEncodeQualityLevelInfoKHR.html)).
 
-- `VK_VIDEO_CODING_CONTROL_ENCODE_RATE_CONTROL_BIT_KHR` indicates that
-  the coding control parameters include video encode rate control
-  parameters (see
-  [VkVideoEncodeRateControlInfoKHR](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkVideoEncodeRateControlInfoKHR.html)).
+## [](#_see_also)See Also
 
-- `VK_VIDEO_CODING_CONTROL_ENCODE_QUALITY_LEVEL_BIT_KHR` indicates that
-  the coding control parameters include video encode quality level
-  parameters (see
-  [VkVideoEncodeQualityLevelInfoKHR](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkVideoEncodeQualityLevelInfoKHR.html)).
+[VK\_KHR\_video\_queue](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_KHR_video_queue.html), [VkVideoCodingControlFlagsKHR](https://registry.khronos.org/vulkan/specs/latest/man/html/VkVideoCodingControlFlagsKHR.html)
 
-## <a href="#_see_also" class="anchor"></a>See Also
+## [](#_document_notes)Document Notes
 
-[VK_KHR_video_queue](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_KHR_video_queue.html),
-[VkVideoCodingControlFlagsKHR](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkVideoCodingControlFlagsKHR.html)
+For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#VkVideoCodingControlFlagBitsKHR)
 
-## <a href="#_document_notes" class="anchor"></a>Document Notes
+This page is extracted from the Vulkan Specification. Fixes and changes should be made to the Specification, not directly.
 
-For more information, see the <a
-href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#VkVideoCodingControlFlagBitsKHR"
-target="_blank" rel="noopener">Vulkan Specification</a>
+## [](#_copyright)Copyright
 
-This page is extracted from the Vulkan Specification. Fixes and changes
-should be made to the Specification, not directly.
-
-## <a href="#_copyright" class="anchor"></a>Copyright
-
-Copyright 2014-2024 The Khronos Group Inc.
+Copyright 2014-2025 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
-
-Version 1.3.290  
-Last updated 2024-07-11 23:39:16 -0700

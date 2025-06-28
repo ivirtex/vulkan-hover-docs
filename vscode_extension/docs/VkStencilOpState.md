@@ -6,11 +6,11 @@ VkStencilOpState - Structure specifying stencil operation state
 
 
 
-## <a href="#_c_specification" class="anchor"></a>C Specification
+## [](#_c_specification)C Specification
 
 The `VkStencilOpState` structure is defined as:
 
-``` c
+```c++
 // Provided by VK_VERSION_1_0
 typedef struct VkStencilOpState {
     VkStencilOp    failOp;
@@ -23,76 +23,41 @@ typedef struct VkStencilOpState {
 } VkStencilOpState;
 ```
 
-## <a href="#_members" class="anchor"></a>Members
+## [](#_members)Members
 
-- `failOp` is a [VkStencilOp](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkStencilOp.html) value specifying the
-  action performed on samples that fail the stencil test.
+- `failOp` is a [VkStencilOp](https://registry.khronos.org/vulkan/specs/latest/man/html/VkStencilOp.html) value specifying the action performed on samples that fail the stencil test.
+- `passOp` is a [VkStencilOp](https://registry.khronos.org/vulkan/specs/latest/man/html/VkStencilOp.html) value specifying the action performed on samples that pass both the depth and stencil tests.
+- `depthFailOp` is a [VkStencilOp](https://registry.khronos.org/vulkan/specs/latest/man/html/VkStencilOp.html) value specifying the action performed on samples that pass the stencil test and fail the depth test.
+- `compareOp` is a [VkCompareOp](https://registry.khronos.org/vulkan/specs/latest/man/html/VkCompareOp.html) value specifying the comparison operator used in the stencil test.
+- `compareMask` selects the bits of the unsigned integer stencil values participating in the stencil test.
+- `writeMask` selects the bits of the unsigned integer stencil values updated by the stencil test in the stencil framebuffer attachment.
+- `reference` is an integer stencil reference value that is used in the unsigned stencil comparison.
 
-- `passOp` is a [VkStencilOp](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkStencilOp.html) value specifying the
-  action performed on samples that pass both the depth and stencil
-  tests.
-
-- `depthFailOp` is a [VkStencilOp](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkStencilOp.html) value specifying
-  the action performed on samples that pass the stencil test and fail
-  the depth test.
-
-- `compareOp` is a [VkCompareOp](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkCompareOp.html) value specifying the
-  comparison operator used in the stencil test.
-
-- `compareMask` selects the bits of the unsigned integer stencil values
-  participating in the stencil test.
-
-- `writeMask` selects the bits of the unsigned integer stencil values
-  updated by the stencil test in the stencil framebuffer attachment.
-
-- `reference` is an integer stencil reference value that is used in the
-  unsigned stencil comparison.
-
-## <a href="#_description" class="anchor"></a>Description
+## [](#_description)Description
 
 Valid Usage (Implicit)
 
-- <a href="#VUID-VkStencilOpState-failOp-parameter"
-  id="VUID-VkStencilOpState-failOp-parameter"></a>
-  VUID-VkStencilOpState-failOp-parameter  
-  `failOp` **must** be a valid [VkStencilOp](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkStencilOp.html) value
+- [](#VUID-VkStencilOpState-failOp-parameter)VUID-VkStencilOpState-failOp-parameter  
+  `failOp` **must** be a valid [VkStencilOp](https://registry.khronos.org/vulkan/specs/latest/man/html/VkStencilOp.html) value
+- [](#VUID-VkStencilOpState-passOp-parameter)VUID-VkStencilOpState-passOp-parameter  
+  `passOp` **must** be a valid [VkStencilOp](https://registry.khronos.org/vulkan/specs/latest/man/html/VkStencilOp.html) value
+- [](#VUID-VkStencilOpState-depthFailOp-parameter)VUID-VkStencilOpState-depthFailOp-parameter  
+  `depthFailOp` **must** be a valid [VkStencilOp](https://registry.khronos.org/vulkan/specs/latest/man/html/VkStencilOp.html) value
+- [](#VUID-VkStencilOpState-compareOp-parameter)VUID-VkStencilOpState-compareOp-parameter  
+  `compareOp` **must** be a valid [VkCompareOp](https://registry.khronos.org/vulkan/specs/latest/man/html/VkCompareOp.html) value
 
-- <a href="#VUID-VkStencilOpState-passOp-parameter"
-  id="VUID-VkStencilOpState-passOp-parameter"></a>
-  VUID-VkStencilOpState-passOp-parameter  
-  `passOp` **must** be a valid [VkStencilOp](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkStencilOp.html) value
+## [](#_see_also)See Also
 
-- <a href="#VUID-VkStencilOpState-depthFailOp-parameter"
-  id="VUID-VkStencilOpState-depthFailOp-parameter"></a>
-  VUID-VkStencilOpState-depthFailOp-parameter  
-  `depthFailOp` **must** be a valid [VkStencilOp](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkStencilOp.html)
-  value
+[VK\_VERSION\_1\_0](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_VERSION_1_0.html), [VkCompareOp](https://registry.khronos.org/vulkan/specs/latest/man/html/VkCompareOp.html), [VkPipelineDepthStencilStateCreateInfo](https://registry.khronos.org/vulkan/specs/latest/man/html/VkPipelineDepthStencilStateCreateInfo.html), [VkStencilOp](https://registry.khronos.org/vulkan/specs/latest/man/html/VkStencilOp.html)
 
-- <a href="#VUID-VkStencilOpState-compareOp-parameter"
-  id="VUID-VkStencilOpState-compareOp-parameter"></a>
-  VUID-VkStencilOpState-compareOp-parameter  
-  `compareOp` **must** be a valid [VkCompareOp](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkCompareOp.html) value
+## [](#_document_notes)Document Notes
 
-## <a href="#_see_also" class="anchor"></a>See Also
+For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#VkStencilOpState)
 
-[VK_VERSION_1_0](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_VERSION_1_0.html), [VkCompareOp](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkCompareOp.html),
-[VkPipelineDepthStencilStateCreateInfo](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkPipelineDepthStencilStateCreateInfo.html),
-[VkStencilOp](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkStencilOp.html)
+This page is extracted from the Vulkan Specification. Fixes and changes should be made to the Specification, not directly.
 
-## <a href="#_document_notes" class="anchor"></a>Document Notes
+## [](#_copyright)Copyright
 
-For more information, see the <a
-href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#VkStencilOpState"
-target="_blank" rel="noopener">Vulkan Specification</a>
-
-This page is extracted from the Vulkan Specification. Fixes and changes
-should be made to the Specification, not directly.
-
-## <a href="#_copyright" class="anchor"></a>Copyright
-
-Copyright 2014-2024 The Khronos Group Inc.
+Copyright 2014-2025 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
-
-Version 1.3.290  
-Last updated 2024-07-11 23:39:16 -0700

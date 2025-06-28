@@ -2,16 +2,15 @@
 
 ## Name
 
-VkPhysicalDeviceShaderCorePropertiesARM - Structure describing shader
-core properties that can be supported by an implementation
+VkPhysicalDeviceShaderCorePropertiesARM - Structure describing shader core properties that can be supported by an implementation
 
 
 
-## <a href="#_c_specification" class="anchor"></a>C Specification
+## [](#_c_specification)C Specification
 
 The `VkPhysicalDeviceShaderCorePropertiesARM` structure is defined as:
 
-``` c
+```c++
 // Provided by VK_ARM_shader_core_properties
 typedef struct VkPhysicalDeviceShaderCorePropertiesARM {
     VkStructureType    sType;
@@ -22,64 +21,37 @@ typedef struct VkPhysicalDeviceShaderCorePropertiesARM {
 } VkPhysicalDeviceShaderCorePropertiesARM;
 ```
 
-## <a href="#_members" class="anchor"></a>Members
+## [](#_members)Members
 
-- `sType` is a [VkStructureType](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkStructureType.html) value identifying
-  this structure.
+- `sType` is a [VkStructureType](https://registry.khronos.org/vulkan/specs/latest/man/html/VkStructureType.html) value identifying this structure.
+- `pNext` is `NULL` or a pointer to a structure extending this structure.
+- `pixelRate` is an unsigned integer value indicating the maximum number of pixels output per clock per shader core.
+- `texelRate` is an unsigned integer value indicating the maximum number of texels per clock per shader core.
+- `fmaRate` is an unsigned integer value indicating the maximum number of single-precision fused multiply-add operations per clock per shader core.
 
-- `pNext` is `NULL` or a pointer to a structure extending this
-  structure.
+## [](#_description)Description
 
-- `pixelRate` is an unsigned integer value indicating the maximum number
-  of pixels output per clock per shader core.
+If a throughput rate cannot be determined on the physical device, the value `0` will be returned for that rate.
 
-- `texelRate` is an unsigned integer value indicating the maximum number
-  of texels per clock per shader core.
-
-- `fmaRate` is an unsigned integer value indicating the maximum number
-  of single-precision fused multiply-add operations per clock per shader
-  core.
-
-## <a href="#_description" class="anchor"></a>Description
-
-If a throughput rate cannot be determined on the physical device, the
-value `0` will be returned for that rate.
-
-If the `VkPhysicalDeviceShaderCorePropertiesARM` structure is included
-in the `pNext` chain of the
-[VkPhysicalDeviceProperties2](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkPhysicalDeviceProperties2.html)
-structure passed to
-[vkGetPhysicalDeviceProperties2](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkGetPhysicalDeviceProperties2.html),
-it is filled in with each corresponding implementation-dependent
-property.
+If the `VkPhysicalDeviceShaderCorePropertiesARM` structure is included in the `pNext` chain of the [VkPhysicalDeviceProperties2](https://registry.khronos.org/vulkan/specs/latest/man/html/VkPhysicalDeviceProperties2.html) structure passed to [vkGetPhysicalDeviceProperties2](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetPhysicalDeviceProperties2.html), it is filled in with each corresponding implementation-dependent property.
 
 Valid Usage (Implicit)
 
-- <a href="#VUID-VkPhysicalDeviceShaderCorePropertiesARM-sType-sType"
-  id="VUID-VkPhysicalDeviceShaderCorePropertiesARM-sType-sType"></a>
-  VUID-VkPhysicalDeviceShaderCorePropertiesARM-sType-sType  
-  `sType` **must** be
-  `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SHADER_CORE_PROPERTIES_ARM`
+- [](#VUID-VkPhysicalDeviceShaderCorePropertiesARM-sType-sType)VUID-VkPhysicalDeviceShaderCorePropertiesARM-sType-sType  
+  `sType` **must** be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SHADER_CORE_PROPERTIES_ARM`
 
-## <a href="#_see_also" class="anchor"></a>See Also
+## [](#_see_also)See Also
 
-[VK_ARM_shader_core_properties](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_ARM_shader_core_properties.html),
-[VkStructureType](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkStructureType.html)
+[VK\_ARM\_shader\_core\_properties](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_ARM_shader_core_properties.html), [VkStructureType](https://registry.khronos.org/vulkan/specs/latest/man/html/VkStructureType.html)
 
-## <a href="#_document_notes" class="anchor"></a>Document Notes
+## [](#_document_notes)Document Notes
 
-For more information, see the <a
-href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#VkPhysicalDeviceShaderCorePropertiesARM"
-target="_blank" rel="noopener">Vulkan Specification</a>
+For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#VkPhysicalDeviceShaderCorePropertiesARM)
 
-This page is extracted from the Vulkan Specification. Fixes and changes
-should be made to the Specification, not directly.
+This page is extracted from the Vulkan Specification. Fixes and changes should be made to the Specification, not directly.
 
-## <a href="#_copyright" class="anchor"></a>Copyright
+## [](#_copyright)Copyright
 
-Copyright 2014-2024 The Khronos Group Inc.
+Copyright 2014-2025 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
-
-Version 1.3.290  
-Last updated 2024-07-11 23:39:16 -0700

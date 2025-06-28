@@ -2,19 +2,15 @@
 
 ## Name
 
-vkCmdSetViewportShadingRatePaletteNV - Set shading rate image palettes
-dynamically for a command buffer
+vkCmdSetViewportShadingRatePaletteNV - Set shading rate image palettes dynamically for a command buffer
 
 
 
-## <a href="#_c_specification" class="anchor"></a>C Specification
+## [](#_c_specification)C Specification
 
-To <a
-href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#pipelines-dynamic-state"
-target="_blank" rel="noopener">dynamically set</a> the per-viewport
-shading rate image palettes, call:
+To [dynamically set](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#pipelines-dynamic-state) the per-viewport shading rate image palettes, call:
 
-``` c
+```c++
 // Provided by VK_NV_shading_rate_image
 void vkCmdSetViewportShadingRatePaletteNV(
     VkCommandBuffer                             commandBuffer,
@@ -23,171 +19,75 @@ void vkCmdSetViewportShadingRatePaletteNV(
     const VkShadingRatePaletteNV*               pShadingRatePalettes);
 ```
 
-## <a href="#_parameters" class="anchor"></a>Parameters
+## [](#_parameters)Parameters
 
-- `commandBuffer` is the command buffer into which the command will be
-  recorded.
+- `commandBuffer` is the command buffer into which the command will be recorded.
+- `firstViewport` is the index of the first viewport whose shading rate palette is updated by the command.
+- `viewportCount` is the number of viewports whose shading rate palettes are updated by the command.
+- `pShadingRatePalettes` is a pointer to an array of [VkShadingRatePaletteNV](https://registry.khronos.org/vulkan/specs/latest/man/html/VkShadingRatePaletteNV.html) structures defining the palette for each viewport.
 
-- `firstViewport` is the index of the first viewport whose shading rate
-  palette is updated by the command.
+## [](#_description)Description
 
-- `viewportCount` is the number of viewports whose shading rate palettes
-  are updated by the command.
-
-- `pShadingRatePalettes` is a pointer to an array of
-  [VkShadingRatePaletteNV](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkShadingRatePaletteNV.html) structures
-  defining the palette for each viewport.
-
-## <a href="#_description" class="anchor"></a>Description
-
-This command sets the per-viewport shading rate image palettes for
-subsequent drawing commands when drawing using <a
-href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#shaders-objects"
-target="_blank" rel="noopener">shader objects</a>, or when the graphics
-pipeline is created with
-`VK_DYNAMIC_STATE_VIEWPORT_SHADING_RATE_PALETTE_NV` set in
-[VkPipelineDynamicStateCreateInfo](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkPipelineDynamicStateCreateInfo.html)::`pDynamicStates`.
-Otherwise, this state is specified by the
-[VkPipelineViewportShadingRateImageStateCreateInfoNV](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkPipelineViewportShadingRateImageStateCreateInfoNV.html)::`pShadingRatePalettes`
-values used to create the currently active pipeline.
+This command sets the per-viewport shading rate image palettes for subsequent drawing commands when drawing using [shader objects](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#shaders-objects), or when the graphics pipeline is created with `VK_DYNAMIC_STATE_VIEWPORT_SHADING_RATE_PALETTE_NV` set in [VkPipelineDynamicStateCreateInfo](https://registry.khronos.org/vulkan/specs/latest/man/html/VkPipelineDynamicStateCreateInfo.html)::`pDynamicStates`. Otherwise, this state is specified by the [VkPipelineViewportShadingRateImageStateCreateInfoNV](https://registry.khronos.org/vulkan/specs/latest/man/html/VkPipelineViewportShadingRateImageStateCreateInfoNV.html)::`pShadingRatePalettes` values used to create the currently active pipeline.
 
 Valid Usage
 
-- <a href="#VUID-vkCmdSetViewportShadingRatePaletteNV-None-02064"
-  id="VUID-vkCmdSetViewportShadingRatePaletteNV-None-02064"></a>
-  VUID-vkCmdSetViewportShadingRatePaletteNV-None-02064  
-  The <a
-  href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#features-shadingRateImage"
-  target="_blank" rel="noopener"><code>shadingRateImage</code></a>
-  feature **must** be enabled
-
-- <a href="#VUID-vkCmdSetViewportShadingRatePaletteNV-firstViewport-02067"
-  id="VUID-vkCmdSetViewportShadingRatePaletteNV-firstViewport-02067"></a>
-  VUID-vkCmdSetViewportShadingRatePaletteNV-firstViewport-02067  
-  The sum of `firstViewport` and `viewportCount` **must** be between `1`
-  and `VkPhysicalDeviceLimits`::`maxViewports`, inclusive
-
-- <a href="#VUID-vkCmdSetViewportShadingRatePaletteNV-firstViewport-02068"
-  id="VUID-vkCmdSetViewportShadingRatePaletteNV-firstViewport-02068"></a>
-  VUID-vkCmdSetViewportShadingRatePaletteNV-firstViewport-02068  
-  If the <a
-  href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#features-multiViewport"
-  target="_blank" rel="noopener"><code>multiViewport</code></a> feature
-  is not enabled, `firstViewport` **must** be `0`
-
-- <a href="#VUID-vkCmdSetViewportShadingRatePaletteNV-viewportCount-02069"
-  id="VUID-vkCmdSetViewportShadingRatePaletteNV-viewportCount-02069"></a>
-  VUID-vkCmdSetViewportShadingRatePaletteNV-viewportCount-02069  
-  If the <a
-  href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#features-multiViewport"
-  target="_blank" rel="noopener"><code>multiViewport</code></a> feature
-  is not enabled, `viewportCount` **must** be `1`
+- [](#VUID-vkCmdSetViewportShadingRatePaletteNV-None-02064)VUID-vkCmdSetViewportShadingRatePaletteNV-None-02064  
+  The [`shadingRateImage`](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#features-shadingRateImage) feature **must** be enabled
+- [](#VUID-vkCmdSetViewportShadingRatePaletteNV-firstViewport-02067)VUID-vkCmdSetViewportShadingRatePaletteNV-firstViewport-02067  
+  The sum of `firstViewport` and `viewportCount` **must** be between `1` and `VkPhysicalDeviceLimits`::`maxViewports`, inclusive
+- [](#VUID-vkCmdSetViewportShadingRatePaletteNV-firstViewport-02068)VUID-vkCmdSetViewportShadingRatePaletteNV-firstViewport-02068  
+  If the [`multiViewport`](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#features-multiViewport) feature is not enabled, `firstViewport` **must** be `0`
+- [](#VUID-vkCmdSetViewportShadingRatePaletteNV-viewportCount-02069)VUID-vkCmdSetViewportShadingRatePaletteNV-viewportCount-02069  
+  If the [`multiViewport`](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#features-multiViewport) feature is not enabled, `viewportCount` **must** be `1`
 
 Valid Usage (Implicit)
 
-- <a
-  href="#VUID-vkCmdSetViewportShadingRatePaletteNV-commandBuffer-parameter"
-  id="VUID-vkCmdSetViewportShadingRatePaletteNV-commandBuffer-parameter"></a>
-  VUID-vkCmdSetViewportShadingRatePaletteNV-commandBuffer-parameter  
-  `commandBuffer` **must** be a valid
-  [VkCommandBuffer](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkCommandBuffer.html) handle
-
-- <a
-  href="#VUID-vkCmdSetViewportShadingRatePaletteNV-pShadingRatePalettes-parameter"
-  id="VUID-vkCmdSetViewportShadingRatePaletteNV-pShadingRatePalettes-parameter"></a>
-  VUID-vkCmdSetViewportShadingRatePaletteNV-pShadingRatePalettes-parameter  
-  `pShadingRatePalettes` **must** be a valid pointer to an array of
-  `viewportCount` valid
-  [VkShadingRatePaletteNV](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkShadingRatePaletteNV.html) structures
-
-- <a
-  href="#VUID-vkCmdSetViewportShadingRatePaletteNV-commandBuffer-recording"
-  id="VUID-vkCmdSetViewportShadingRatePaletteNV-commandBuffer-recording"></a>
-  VUID-vkCmdSetViewportShadingRatePaletteNV-commandBuffer-recording  
-  `commandBuffer` **must** be in the [recording
-  state](#commandbuffers-lifecycle)
-
-- <a
-  href="#VUID-vkCmdSetViewportShadingRatePaletteNV-commandBuffer-cmdpool"
-  id="VUID-vkCmdSetViewportShadingRatePaletteNV-commandBuffer-cmdpool"></a>
-  VUID-vkCmdSetViewportShadingRatePaletteNV-commandBuffer-cmdpool  
-  The `VkCommandPool` that `commandBuffer` was allocated from **must**
-  support graphics operations
-
-- <a href="#VUID-vkCmdSetViewportShadingRatePaletteNV-videocoding"
-  id="VUID-vkCmdSetViewportShadingRatePaletteNV-videocoding"></a>
-  VUID-vkCmdSetViewportShadingRatePaletteNV-videocoding  
+- [](#VUID-vkCmdSetViewportShadingRatePaletteNV-commandBuffer-parameter)VUID-vkCmdSetViewportShadingRatePaletteNV-commandBuffer-parameter  
+  `commandBuffer` **must** be a valid [VkCommandBuffer](https://registry.khronos.org/vulkan/specs/latest/man/html/VkCommandBuffer.html) handle
+- [](#VUID-vkCmdSetViewportShadingRatePaletteNV-pShadingRatePalettes-parameter)VUID-vkCmdSetViewportShadingRatePaletteNV-pShadingRatePalettes-parameter  
+  `pShadingRatePalettes` **must** be a valid pointer to an array of `viewportCount` valid [VkShadingRatePaletteNV](https://registry.khronos.org/vulkan/specs/latest/man/html/VkShadingRatePaletteNV.html) structures
+- [](#VUID-vkCmdSetViewportShadingRatePaletteNV-commandBuffer-recording)VUID-vkCmdSetViewportShadingRatePaletteNV-commandBuffer-recording  
+  `commandBuffer` **must** be in the [recording state](#commandbuffers-lifecycle)
+- [](#VUID-vkCmdSetViewportShadingRatePaletteNV-commandBuffer-cmdpool)VUID-vkCmdSetViewportShadingRatePaletteNV-commandBuffer-cmdpool  
+  The `VkCommandPool` that `commandBuffer` was allocated from **must** support graphics operations
+- [](#VUID-vkCmdSetViewportShadingRatePaletteNV-videocoding)VUID-vkCmdSetViewportShadingRatePaletteNV-videocoding  
   This command **must** only be called outside of a video coding scope
-
-- <a
-  href="#VUID-vkCmdSetViewportShadingRatePaletteNV-viewportCount-arraylength"
-  id="VUID-vkCmdSetViewportShadingRatePaletteNV-viewportCount-arraylength"></a>
-  VUID-vkCmdSetViewportShadingRatePaletteNV-viewportCount-arraylength  
+- [](#VUID-vkCmdSetViewportShadingRatePaletteNV-viewportCount-arraylength)VUID-vkCmdSetViewportShadingRatePaletteNV-viewportCount-arraylength  
   `viewportCount` **must** be greater than `0`
 
 Host Synchronization
 
 - Host access to `commandBuffer` **must** be externally synchronized
-
-- Host access to the `VkCommandPool` that `commandBuffer` was allocated
-  from **must** be externally synchronized
+- Host access to the `VkCommandPool` that `commandBuffer` was allocated from **must** be externally synchronized
 
 Command Properties
 
-<table class="tableblock frame-all grid-all stretch">
-<colgroup>
-<col style="width: 20%" />
-<col style="width: 20%" />
-<col style="width: 20%" />
-<col style="width: 20%" />
-<col style="width: 20%" />
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-top"><a
-href="#VkCommandBufferLevel">Command Buffer Levels</a></th>
-<th class="tableblock halign-left valign-top"><a
-href="#vkCmdBeginRenderPass">Render Pass Scope</a></th>
-<th class="tableblock halign-left valign-top"><a
-href="#vkCmdBeginVideoCodingKHR">Video Coding Scope</a></th>
-<th class="tableblock halign-left valign-top"><a
-href="#VkQueueFlagBits">Supported Queue Types</a></th>
-<th class="tableblock halign-left valign-top"><a
-href="#fundamentals-queueoperation-command-types">Command Type</a></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p>Primary<br />
-Secondary</p></td>
-<td class="tableblock halign-left valign-top"><p>Both</p></td>
-<td class="tableblock halign-left valign-top"><p>Outside</p></td>
-<td class="tableblock halign-left valign-top"><p>Graphics</p></td>
-<td class="tableblock halign-left valign-top"><p>State</p></td>
-</tr>
-</tbody>
-</table>
+     [Command Buffer Levels](#VkCommandBufferLevel) [Render Pass Scope](#vkCmdBeginRenderPass) [Video Coding Scope](#vkCmdBeginVideoCodingKHR) [Supported Queue Types](#VkQueueFlagBits) [Command Type](#fundamentals-queueoperation-command-types)
 
-## <a href="#_see_also" class="anchor"></a>See Also
+Primary  
+Secondary
 
-[VK_NV_shading_rate_image](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_NV_shading_rate_image.html),
-[VkCommandBuffer](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkCommandBuffer.html),
-[VkShadingRatePaletteNV](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkShadingRatePaletteNV.html)
+Both
 
-## <a href="#_document_notes" class="anchor"></a>Document Notes
+Outside
 
-For more information, see the <a
-href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#vkCmdSetViewportShadingRatePaletteNV"
-target="_blank" rel="noopener">Vulkan Specification</a>
+Graphics
 
-This page is extracted from the Vulkan Specification. Fixes and changes
-should be made to the Specification, not directly.
+State
 
-## <a href="#_copyright" class="anchor"></a>Copyright
+## [](#_see_also)See Also
 
-Copyright 2014-2024 The Khronos Group Inc.
+[VK\_NV\_shading\_rate\_image](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_NV_shading_rate_image.html), [VkCommandBuffer](https://registry.khronos.org/vulkan/specs/latest/man/html/VkCommandBuffer.html), [VkShadingRatePaletteNV](https://registry.khronos.org/vulkan/specs/latest/man/html/VkShadingRatePaletteNV.html)
+
+## [](#_document_notes)Document Notes
+
+For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#vkCmdSetViewportShadingRatePaletteNV)
+
+This page is extracted from the Vulkan Specification. Fixes and changes should be made to the Specification, not directly.
+
+## [](#_copyright)Copyright
+
+Copyright 2014-2025 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
-
-Version 1.3.290  
-Last updated 2024-07-11 23:39:16 -0700

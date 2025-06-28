@@ -2,17 +2,15 @@
 
 ## Name
 
-VkSparseImageOpaqueMemoryBindInfo - Structure specifying sparse image
-opaque memory bind information
+VkSparseImageOpaqueMemoryBindInfo - Structure specifying sparse image opaque memory bind information
 
 
 
-## <a href="#_c_specification" class="anchor"></a>C Specification
+## [](#_c_specification)C Specification
 
-Memory is bound to opaque regions of `VkImage` objects created with the
-`VK_IMAGE_CREATE_SPARSE_BINDING_BIT` flag using the following structure:
+Memory is bound to opaque regions of `VkImage` objects created with the `VK_IMAGE_CREATE_SPARSE_BINDING_BIT` flag using the following structure:
 
-``` c
+```c++
 // Provided by VK_VERSION_1_0
 typedef struct VkSparseImageOpaqueMemoryBindInfo {
     VkImage                      image;
@@ -21,67 +19,48 @@ typedef struct VkSparseImageOpaqueMemoryBindInfo {
 } VkSparseImageOpaqueMemoryBindInfo;
 ```
 
-## <a href="#_members" class="anchor"></a>Members
+## [](#_members)Members
 
-- `image` is the [VkImage](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkImage.html) object to be bound.
+- `image` is the [VkImage](https://registry.khronos.org/vulkan/specs/latest/man/html/VkImage.html) object to be bound.
+- `bindCount` is the number of [VkSparseMemoryBind](https://registry.khronos.org/vulkan/specs/latest/man/html/VkSparseMemoryBind.html) structures in the `pBinds` array.
+- `pBinds` is a pointer to an array of [VkSparseMemoryBind](https://registry.khronos.org/vulkan/specs/latest/man/html/VkSparseMemoryBind.html) structures.
 
-- `bindCount` is the number of
-  [VkSparseMemoryBind](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkSparseMemoryBind.html) structures in the
-  `pBinds` array.
+## [](#_description)Description
 
-- `pBinds` is a pointer to an array of
-  [VkSparseMemoryBind](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkSparseMemoryBind.html) structures.
+Note
 
-## <a href="#_description" class="anchor"></a>Description
+This structure is normally used to bind memory to fully-resident sparse images or for mip tail regions of partially resident images. However, it **can** also be used to bind memory for the entire binding range of partially resident images.
+
+If the `pBinds`\[i].flags of an element *i* of `pBinds` does not contain `VK_SPARSE_MEMORY_BIND_METADATA_BIT`, the `resourceOffset` is in the range \[0, [VkMemoryRequirements](https://registry.khronos.org/vulkan/specs/latest/man/html/VkMemoryRequirements.html)::`size`), This range includes data from all aspects of the image, including metadata. For most implementations this will probably mean that the `resourceOffset` is a simple device address offset within the resource. It is possible for an application to bind a range of memory that includes both resource data and metadata. However, the application would not know what part of the image the memory is used for, or if any range is being used for metadata.
+
+If the `pBinds`\[i].flags of an element *i* of `pBinds` contains `VK_SPARSE_MEMORY_BIND_METADATA_BIT`, the binding range specified **must** be within the mip tail region of the metadata aspect. In this case the `resourceOffset` is not **required** to be a simple device address offset within the resource. However, it *is* defined to be within \[`imageMipTailOffset`, `imageMipTailOffset` + `imageMipTailSize`) for the metadata aspect. See [VkSparseMemoryBind](https://registry.khronos.org/vulkan/specs/latest/man/html/VkSparseMemoryBind.html) for the full constraints on binding region with this flag present.
 
 Valid Usage
 
-- <a href="#VUID-VkSparseImageOpaqueMemoryBindInfo-pBinds-01103"
-  id="VUID-VkSparseImageOpaqueMemoryBindInfo-pBinds-01103"></a>
-  VUID-VkSparseImageOpaqueMemoryBindInfo-pBinds-01103  
-  If the `flags` member of any element of `pBinds` contains
-  `VK_SPARSE_MEMORY_BIND_METADATA_BIT`, the binding range defined
-  **must** be within the mip tail region of the metadata aspect of
-  `image`
+- [](#VUID-VkSparseImageOpaqueMemoryBindInfo-pBinds-01103)VUID-VkSparseImageOpaqueMemoryBindInfo-pBinds-01103  
+  If the `flags` member of any element of `pBinds` contains `VK_SPARSE_MEMORY_BIND_METADATA_BIT`, the binding range defined **must** be within the mip tail region of the metadata aspect of `image`
 
 Valid Usage (Implicit)
 
-- <a href="#VUID-VkSparseImageOpaqueMemoryBindInfo-image-parameter"
-  id="VUID-VkSparseImageOpaqueMemoryBindInfo-image-parameter"></a>
-  VUID-VkSparseImageOpaqueMemoryBindInfo-image-parameter  
-  `image` **must** be a valid [VkImage](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkImage.html) handle
-
-- <a href="#VUID-VkSparseImageOpaqueMemoryBindInfo-pBinds-parameter"
-  id="VUID-VkSparseImageOpaqueMemoryBindInfo-pBinds-parameter"></a>
-  VUID-VkSparseImageOpaqueMemoryBindInfo-pBinds-parameter  
-  `pBinds` **must** be a valid pointer to an array of `bindCount` valid
-  [VkSparseMemoryBind](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkSparseMemoryBind.html) structures
-
-- <a href="#VUID-VkSparseImageOpaqueMemoryBindInfo-bindCount-arraylength"
-  id="VUID-VkSparseImageOpaqueMemoryBindInfo-bindCount-arraylength"></a>
-  VUID-VkSparseImageOpaqueMemoryBindInfo-bindCount-arraylength  
+- [](#VUID-VkSparseImageOpaqueMemoryBindInfo-image-parameter)VUID-VkSparseImageOpaqueMemoryBindInfo-image-parameter  
+  `image` **must** be a valid [VkImage](https://registry.khronos.org/vulkan/specs/latest/man/html/VkImage.html) handle
+- [](#VUID-VkSparseImageOpaqueMemoryBindInfo-pBinds-parameter)VUID-VkSparseImageOpaqueMemoryBindInfo-pBinds-parameter  
+  `pBinds` **must** be a valid pointer to an array of `bindCount` valid [VkSparseMemoryBind](https://registry.khronos.org/vulkan/specs/latest/man/html/VkSparseMemoryBind.html) structures
+- [](#VUID-VkSparseImageOpaqueMemoryBindInfo-bindCount-arraylength)VUID-VkSparseImageOpaqueMemoryBindInfo-bindCount-arraylength  
   `bindCount` **must** be greater than `0`
 
-## <a href="#_see_also" class="anchor"></a>See Also
+## [](#_see_also)See Also
 
-[VK_VERSION_1_0](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_VERSION_1_0.html),
-[VkBindSparseInfo](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkBindSparseInfo.html), [VkImage](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkImage.html),
-[VkSparseMemoryBind](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkSparseMemoryBind.html)
+[VK\_VERSION\_1\_0](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_VERSION_1_0.html), [VkBindSparseInfo](https://registry.khronos.org/vulkan/specs/latest/man/html/VkBindSparseInfo.html), [VkImage](https://registry.khronos.org/vulkan/specs/latest/man/html/VkImage.html), [VkSparseMemoryBind](https://registry.khronos.org/vulkan/specs/latest/man/html/VkSparseMemoryBind.html)
 
-## <a href="#_document_notes" class="anchor"></a>Document Notes
+## [](#_document_notes)Document Notes
 
-For more information, see the <a
-href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#VkSparseImageOpaqueMemoryBindInfo"
-target="_blank" rel="noopener">Vulkan Specification</a>
+For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#VkSparseImageOpaqueMemoryBindInfo)
 
-This page is extracted from the Vulkan Specification. Fixes and changes
-should be made to the Specification, not directly.
+This page is extracted from the Vulkan Specification. Fixes and changes should be made to the Specification, not directly.
 
-## <a href="#_copyright" class="anchor"></a>Copyright
+## [](#_copyright)Copyright
 
-Copyright 2014-2024 The Khronos Group Inc.
+Copyright 2014-2025 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
-
-Version 1.3.290  
-Last updated 2024-07-11 23:39:16 -0700

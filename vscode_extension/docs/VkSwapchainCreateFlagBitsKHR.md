@@ -6,13 +6,11 @@ VkSwapchainCreateFlagBitsKHR - Bitmask controlling swapchain creation
 
 
 
-## <a href="#_c_specification" class="anchor"></a>C Specification
+## [](#_c_specification)C Specification
 
-Bits which **can** be set in
-[VkSwapchainCreateInfoKHR](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkSwapchainCreateInfoKHR.html)::`flags`,
-specifying parameters of swapchain creation, are:
+Bits which **can** be set in [VkSwapchainCreateInfoKHR](https://registry.khronos.org/vulkan/specs/latest/man/html/VkSwapchainCreateInfoKHR.html)::`flags`, specifying parameters of swapchain creation, are:
 
-``` c
+```c++
 // Provided by VK_KHR_swapchain
 typedef enum VkSwapchainCreateFlagBitsKHR {
   // Provided by VK_VERSION_1_1 with VK_KHR_swapchain, VK_KHR_device_group with VK_KHR_swapchain
@@ -23,59 +21,34 @@ typedef enum VkSwapchainCreateFlagBitsKHR {
     VK_SWAPCHAIN_CREATE_MUTABLE_FORMAT_BIT_KHR = 0x00000004,
   // Provided by VK_EXT_swapchain_maintenance1
     VK_SWAPCHAIN_CREATE_DEFERRED_MEMORY_ALLOCATION_BIT_EXT = 0x00000008,
+  // Provided by VK_KHR_present_id2
+    VK_SWAPCHAIN_CREATE_PRESENT_ID_2_BIT_KHR = 0x00000040,
+  // Provided by VK_KHR_present_wait2
+    VK_SWAPCHAIN_CREATE_PRESENT_WAIT_2_BIT_KHR = 0x00000080,
 } VkSwapchainCreateFlagBitsKHR;
 ```
 
-## <a href="#_description" class="anchor"></a>Description
+## [](#_description)Description
 
-- `VK_SWAPCHAIN_CREATE_SPLIT_INSTANCE_BIND_REGIONS_BIT_KHR` specifies
-  that images created from the swapchain (i.e. with the `swapchain`
-  member of
-  [VkImageSwapchainCreateInfoKHR](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkImageSwapchainCreateInfoKHR.html)
-  set to this swapchain’s handle) **must** use
-  `VK_IMAGE_CREATE_SPLIT_INSTANCE_BIND_REGIONS_BIT`.
+- `VK_SWAPCHAIN_CREATE_SPLIT_INSTANCE_BIND_REGIONS_BIT_KHR` specifies that images created from the swapchain (i.e. with the `swapchain` member of [VkImageSwapchainCreateInfoKHR](https://registry.khronos.org/vulkan/specs/latest/man/html/VkImageSwapchainCreateInfoKHR.html) set to this swapchain’s handle) **must** use `VK_IMAGE_CREATE_SPLIT_INSTANCE_BIND_REGIONS_BIT`.
+- `VK_SWAPCHAIN_CREATE_PROTECTED_BIT_KHR` specifies that images created from the swapchain are protected images.
+- `VK_SWAPCHAIN_CREATE_MUTABLE_FORMAT_BIT_KHR` specifies that the images of the swapchain **can** be used to create a `VkImageView` with a different format than what the swapchain was created with. The list of allowed image view formats is specified by adding a [VkImageFormatListCreateInfo](https://registry.khronos.org/vulkan/specs/latest/man/html/VkImageFormatListCreateInfo.html) structure to the `pNext` chain of [VkSwapchainCreateInfoKHR](https://registry.khronos.org/vulkan/specs/latest/man/html/VkSwapchainCreateInfoKHR.html). In addition, this flag also specifies that the swapchain **can** be created with usage flags that are not supported for the format the swapchain is created with but are supported for at least one of the allowed image view formats.
+- `VK_SWAPCHAIN_CREATE_DEFERRED_MEMORY_ALLOCATION_BIT_EXT` specifies that the implementation **may** defer allocation of memory associated with each swapchain image until its index is to be returned from [vkAcquireNextImageKHR](https://registry.khronos.org/vulkan/specs/latest/man/html/vkAcquireNextImageKHR.html) or [vkAcquireNextImage2KHR](https://registry.khronos.org/vulkan/specs/latest/man/html/vkAcquireNextImage2KHR.html) for the first time.
+- `VK_SWAPCHAIN_CREATE_PRESENT_ID_2_BIT_KHR` specifies that applications **can** include the `VkPresentId2KHR` structure in the `pNext` chain of the [VkPresentInfoKHR](https://registry.khronos.org/vulkan/specs/latest/man/html/VkPresentInfoKHR.html) structure to associate an identifier with each presentation request.
+- `VK_SWAPCHAIN_CREATE_PRESENT_WAIT_2_BIT_KHR` specifies that applications **can** use `vkWaitForPresent2KHR` to wait for the presentation engine to have begun presentation of the presentation request associated with [VkPresentWait2InfoKHR](https://registry.khronos.org/vulkan/specs/latest/man/html/VkPresentWait2InfoKHR.html)::`presentId` on `swapchain`.
 
-- `VK_SWAPCHAIN_CREATE_PROTECTED_BIT_KHR` specifies that images created
-  from the swapchain are protected images.
+## [](#_see_also)See Also
 
-- `VK_SWAPCHAIN_CREATE_MUTABLE_FORMAT_BIT_KHR` specifies that the images
-  of the swapchain **can** be used to create a `VkImageView` with a
-  different format than what the swapchain was created with. The list of
-  allowed image view formats is specified by adding a
-  [VkImageFormatListCreateInfo](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkImageFormatListCreateInfo.html)
-  structure to the `pNext` chain of
-  [VkSwapchainCreateInfoKHR](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkSwapchainCreateInfoKHR.html). In
-  addition, this flag also specifies that the swapchain **can** be
-  created with usage flags that are not supported for the format the
-  swapchain is created with but are supported for at least one of the
-  allowed image view formats.
+[VK\_KHR\_swapchain](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_KHR_swapchain.html), [VkSwapchainCreateFlagsKHR](https://registry.khronos.org/vulkan/specs/latest/man/html/VkSwapchainCreateFlagsKHR.html)
 
-- `VK_SWAPCHAIN_CREATE_DEFERRED_MEMORY_ALLOCATION_BIT_EXT` specifies
-  that the implementation **may** defer allocation of memory associated
-  with each swapchain image until its index is to be returned from
-  [vkAcquireNextImageKHR](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkAcquireNextImageKHR.html) or
-  [vkAcquireNextImage2KHR](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkAcquireNextImage2KHR.html) for the first
-  time.
+## [](#_document_notes)Document Notes
 
-## <a href="#_see_also" class="anchor"></a>See Also
+For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#VkSwapchainCreateFlagBitsKHR)
 
-[VK_KHR_swapchain](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_KHR_swapchain.html),
-[VkSwapchainCreateFlagsKHR](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkSwapchainCreateFlagsKHR.html)
+This page is extracted from the Vulkan Specification. Fixes and changes should be made to the Specification, not directly.
 
-## <a href="#_document_notes" class="anchor"></a>Document Notes
+## [](#_copyright)Copyright
 
-For more information, see the <a
-href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#VkSwapchainCreateFlagBitsKHR"
-target="_blank" rel="noopener">Vulkan Specification</a>
-
-This page is extracted from the Vulkan Specification. Fixes and changes
-should be made to the Specification, not directly.
-
-## <a href="#_copyright" class="anchor"></a>Copyright
-
-Copyright 2014-2024 The Khronos Group Inc.
+Copyright 2014-2025 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
-
-Version 1.3.290  
-Last updated 2024-07-11 23:39:16 -0700

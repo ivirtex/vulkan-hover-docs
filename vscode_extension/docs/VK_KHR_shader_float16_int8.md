@@ -1,144 +1,110 @@
-# VK_KHR_shader_float16_int8(3) Manual Page
+# VK\_KHR\_shader\_float16\_int8(3) Manual Page
 
 ## Name
 
-VK_KHR_shader_float16_int8 - device extension
+VK\_KHR\_shader\_float16\_int8 - device extension
 
 
 
-## <a href="#_registered_extension_number" class="anchor"></a>Registered Extension Number
+## [](#_registered_extension_number)Registered Extension Number
 
 83
 
-## <a href="#_revision" class="anchor"></a>Revision
+## [](#_revision)Revision
 
 1
 
-## <a href="#_ratification_status" class="anchor"></a>Ratification Status
+## [](#_ratification_status)Ratification Status
 
 Ratified
 
-## <a href="#_extension_and_version_dependencies" class="anchor"></a>Extension and Version Dependencies
+## [](#_extension_and_version_dependencies)Extension and Version Dependencies
 
-[VK_KHR_get_physical_device_properties2](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_KHR_get_physical_device_properties2.html)  
+[VK\_KHR\_get\_physical\_device\_properties2](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_KHR_get_physical_device_properties2.html)  
 or  
-[Version 1.1](#versions-1.1)  
+[Vulkan Version 1.1](#versions-1.1)
 
-## <a href="#_deprecation_state" class="anchor"></a>Deprecation State
+## [](#_deprecation_state)Deprecation State
 
-- *Promoted* to <a
-  href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#versions-1.2-promotions"
-  target="_blank" rel="noopener">Vulkan 1.2</a>
+- *Promoted* to [Vulkan 1.2](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#versions-1.2-promotions)
 
-## <a href="#_contact" class="anchor"></a>Contact
+## [](#_contact)Contact
 
-- Alexander Galazin <a
-  href="https://github.com/KhronosGroup/Vulkan-Docs/issues/new?body=%5BVK_KHR_shader_float16_int8%5D%20@alegal-arm%0A*Here%20describe%20the%20issue%20or%20question%20you%20have%20about%20the%20VK_KHR_shader_float16_int8%20extension*"
-  target="_blank" rel="nofollow noopener"><em></em>alegal-arm</a>
+- Alexander Galazin [\[GitHub\]alegal-arm](https://github.com/KhronosGroup/Vulkan-Docs/issues/new?body=%5BVK_KHR_shader_float16_int8%5D%20%40alegal-arm%0A%2AHere%20describe%20the%20issue%20or%20question%20you%20have%20about%20the%20VK_KHR_shader_float16_int8%20extension%2A)
 
-## <a href="#_other_extension_metadata" class="anchor"></a>Other Extension Metadata
+## [](#_other_extension_metadata)Other Extension Metadata
 
-**Last Modified Date**  
+**Last Modified Date**
+
 2018-03-07
 
-**Interactions and External Dependencies**  
-- This extension interacts with
-  [`VK_KHR_8bit_storage`](VK_KHR_8bit_storage.html)
+**Interactions and External Dependencies**
 
-- This extension interacts with
-  [`VK_KHR_16bit_storage`](VK_KHR_16bit_storage.html)
+- This extension interacts with `VK_KHR_8bit_storage`
+- This extension interacts with `VK_KHR_16bit_storage`
+- This extension interacts with `VK_KHR_shader_float_controls`
+- This extension provides API support for [`GL_EXT_shader_explicit_arithmetic_types`](https://github.com/KhronosGroup/GLSL/blob/main/extensions/ext/GL_EXT_shader_explicit_arithmetic_types.txt)
 
-- This extension interacts with
-  [`VK_KHR_shader_float_controls`](VK_KHR_shader_float_controls.html)
+**IP Status**
 
-- This extension provides API support for
-  [`GL_EXT_shader_explicit_arithmetic_types`](https://github.com/KhronosGroup/GLSL/blob/main/extensions/ext/GL_EXT_shader_explicit_arithmetic_types.txt)
-
-**IP Status**  
 No known IP claims.
 
-**Contributors**  
+**Contributors**
+
 - Alexander Galazin, Arm
-
 - Jan-Harald Fredriksen, Arm
-
 - Jeff Bolz, NVIDIA
-
 - Graeme Leese, Broadcom
-
 - Daniel Rakos, AMD
 
-## <a href="#_description" class="anchor"></a>Description
+## [](#_description)Description
 
-The `VK_KHR_shader_float16_int8` extension allows use of 16-bit
-floating-point types and 8-bit integer types in shaders for arithmetic
-operations.
+The `VK_KHR_shader_float16_int8` extension allows use of 16-bit floating-point types and 8-bit integer types in shaders for arithmetic operations.
 
-It introduces two new optional features `shaderFloat16` and `shaderInt8`
-which directly map to the `Float16` and the `Int8` SPIR-V capabilities.
-The `VK_KHR_shader_float16_int8` extension also specifies precision
-requirements for half-precision floating-point SPIR-V operations. This
-extension does not enable use of 8-bit integer types or 16-bit
-floating-point types in any <a
-href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#interfaces-iointerfaces"
-target="_blank" rel="noopener">shader input and output interfaces</a>
-and therefore does not supersede the
-[`VK_KHR_8bit_storage`](VK_KHR_8bit_storage.html) or
-[`VK_KHR_16bit_storage`](VK_KHR_16bit_storage.html) extensions.
+It introduces two new optional features `shaderFloat16` and `shaderInt8` which directly map to the `Float16` and the `Int8` SPIR-V capabilities. The `VK_KHR_shader_float16_int8` extension also specifies precision requirements for half-precision floating-point SPIR-V operations. This extension does not enable use of 8-bit integer types or 16-bit floating-point types in any [shader input and output interfaces](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#interfaces-iointerfaces) and therefore does not supersede the `VK_KHR_8bit_storage` or `VK_KHR_16bit_storage` extensions.
 
-## <a href="#_promotion_to_vulkan_1_2" class="anchor"></a>Promotion to Vulkan 1.2
+## [](#_promotion_to_vulkan_1_2)Promotion to Vulkan 1.2
 
-All functionality in this extension is included in core Vulkan 1.2, with
-the KHR suffix omitted. However, if Vulkan 1.2 is supported and this
-extension is not, both the `shaderFloat16` and `shaderInt8` capabilities
-are optional. The original type, enum and command names are still
-available as aliases of the core functionality.
+All functionality in this extension is included in core Vulkan 1.2, with the KHR suffix omitted. However, if Vulkan 1.2 is supported and this extension is not, both the `shaderFloat16` and `shaderInt8` capabilities are optional. The original type, enum, and command names are still available as aliases of the core functionality.
 
-## <a href="#_new_structures" class="anchor"></a>New Structures
+## [](#_promotion_to_vulkan_1_4)Promotion to Vulkan 1.4
 
-- Extending [VkPhysicalDeviceFeatures2](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkPhysicalDeviceFeatures2.html),
-  [VkDeviceCreateInfo](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkDeviceCreateInfo.html):
+If Vulkan 1.4 is supported, support for the `shaderInt8` capability is required.
 
-  - [VkPhysicalDeviceFloat16Int8FeaturesKHR](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkPhysicalDeviceFloat16Int8FeaturesKHR.html)
+## [](#_new_structures)New Structures
 
-  - [VkPhysicalDeviceShaderFloat16Int8FeaturesKHR](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkPhysicalDeviceShaderFloat16Int8FeaturesKHR.html)
+- Extending [VkPhysicalDeviceFeatures2](https://registry.khronos.org/vulkan/specs/latest/man/html/VkPhysicalDeviceFeatures2.html), [VkDeviceCreateInfo](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDeviceCreateInfo.html):
+  
+  - [VkPhysicalDeviceFloat16Int8FeaturesKHR](https://registry.khronos.org/vulkan/specs/latest/man/html/VkPhysicalDeviceFloat16Int8FeaturesKHR.html)
+  - [VkPhysicalDeviceShaderFloat16Int8FeaturesKHR](https://registry.khronos.org/vulkan/specs/latest/man/html/VkPhysicalDeviceShaderFloat16Int8FeaturesKHR.html)
 
-## <a href="#_new_enum_constants" class="anchor"></a>New Enum Constants
+## [](#_new_enum_constants)New Enum Constants
 
 - `VK_KHR_SHADER_FLOAT16_INT8_EXTENSION_NAME`
-
 - `VK_KHR_SHADER_FLOAT16_INT8_SPEC_VERSION`
-
-- Extending [VkStructureType](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkStructureType.html):
-
+- Extending [VkStructureType](https://registry.khronos.org/vulkan/specs/latest/man/html/VkStructureType.html):
+  
   - `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_FLOAT16_INT8_FEATURES_KHR`
-
   - `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SHADER_FLOAT16_INT8_FEATURES_KHR`
 
-## <a href="#_version_history" class="anchor"></a>Version History
+## [](#_version_history)Version History
 
 - Revision 1, 2018-03-07 (Alexander Galazin)
-
+  
   - Initial draft
 
-## <a href="#_see_also" class="anchor"></a>See Also
+## [](#_see_also)See Also
 
 No cross-references are available
 
-## <a href="#_document_notes" class="anchor"></a>Document Notes
+## [](#_document_notes)Document Notes
 
-For more information, see the <a
-href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#VK_KHR_shader_float16_int8"
-target="_blank" rel="noopener">Vulkan Specification</a>
+For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#VK_KHR_shader_float16_int8)
 
-This page is a generated document. Fixes and changes should be made to
-the generator scripts, not directly.
+This page is a generated document. Fixes and changes should be made to the generator scripts, not directly.
 
-## <a href="#_copyright" class="anchor"></a>Copyright
+## [](#_copyright)Copyright
 
-Copyright 2014-2024 The Khronos Group Inc.
+Copyright 2014-2025 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
-
-Version 1.3.290  
-Last updated 2024-07-11 23:39:16 -0700

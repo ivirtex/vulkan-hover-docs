@@ -2,16 +2,15 @@
 
 ## Name
 
-vkGetPhysicalDeviceMemoryProperties2 - Reports memory information for
-the specified physical device
+vkGetPhysicalDeviceMemoryProperties2 - Reports memory information for the specified physical device
 
 
 
-## <a href="#_c_specification" class="anchor"></a>C Specification
+## [](#_c_specification)C Specification
 
 To query memory properties, call:
 
-``` c
+```c++
 // Provided by VK_VERSION_1_1
 void vkGetPhysicalDeviceMemoryProperties2(
     VkPhysicalDevice                            physicalDevice,
@@ -20,65 +19,41 @@ void vkGetPhysicalDeviceMemoryProperties2(
 
 or the equivalent command
 
-``` c
+```c++
 // Provided by VK_KHR_get_physical_device_properties2
 void vkGetPhysicalDeviceMemoryProperties2KHR(
     VkPhysicalDevice                            physicalDevice,
     VkPhysicalDeviceMemoryProperties2*          pMemoryProperties);
 ```
 
-## <a href="#_parameters" class="anchor"></a>Parameters
+## [](#_parameters)Parameters
 
 - `physicalDevice` is the handle to the device to query.
+- `pMemoryProperties` is a pointer to a [VkPhysicalDeviceMemoryProperties2](https://registry.khronos.org/vulkan/specs/latest/man/html/VkPhysicalDeviceMemoryProperties2.html) structure in which the properties are returned.
 
-- `pMemoryProperties` is a pointer to a
-  [VkPhysicalDeviceMemoryProperties2](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkPhysicalDeviceMemoryProperties2.html)
-  structure in which the properties are returned.
+## [](#_description)Description
 
-## <a href="#_description" class="anchor"></a>Description
-
-`vkGetPhysicalDeviceMemoryProperties2` behaves similarly to
-[vkGetPhysicalDeviceMemoryProperties](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkGetPhysicalDeviceMemoryProperties.html),
-with the ability to return extended information in a `pNext` chain of
-output structures.
+`vkGetPhysicalDeviceMemoryProperties2` behaves similarly to [vkGetPhysicalDeviceMemoryProperties](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetPhysicalDeviceMemoryProperties.html), with the ability to return extended information in a `pNext` chain of output structures.
 
 Valid Usage (Implicit)
 
-- <a
-  href="#VUID-vkGetPhysicalDeviceMemoryProperties2-physicalDevice-parameter"
-  id="VUID-vkGetPhysicalDeviceMemoryProperties2-physicalDevice-parameter"></a>
-  VUID-vkGetPhysicalDeviceMemoryProperties2-physicalDevice-parameter  
-  `physicalDevice` **must** be a valid
-  [VkPhysicalDevice](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkPhysicalDevice.html) handle
+- [](#VUID-vkGetPhysicalDeviceMemoryProperties2-physicalDevice-parameter)VUID-vkGetPhysicalDeviceMemoryProperties2-physicalDevice-parameter  
+  `physicalDevice` **must** be a valid [VkPhysicalDevice](https://registry.khronos.org/vulkan/specs/latest/man/html/VkPhysicalDevice.html) handle
+- [](#VUID-vkGetPhysicalDeviceMemoryProperties2-pMemoryProperties-parameter)VUID-vkGetPhysicalDeviceMemoryProperties2-pMemoryProperties-parameter  
+  `pMemoryProperties` **must** be a valid pointer to a [VkPhysicalDeviceMemoryProperties2](https://registry.khronos.org/vulkan/specs/latest/man/html/VkPhysicalDeviceMemoryProperties2.html) structure
 
-- <a
-  href="#VUID-vkGetPhysicalDeviceMemoryProperties2-pMemoryProperties-parameter"
-  id="VUID-vkGetPhysicalDeviceMemoryProperties2-pMemoryProperties-parameter"></a>
-  VUID-vkGetPhysicalDeviceMemoryProperties2-pMemoryProperties-parameter  
-  `pMemoryProperties` **must** be a valid pointer to a
-  [VkPhysicalDeviceMemoryProperties2](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkPhysicalDeviceMemoryProperties2.html)
-  structure
+## [](#_see_also)See Also
 
-## <a href="#_see_also" class="anchor"></a>See Also
+[VK\_VERSION\_1\_1](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_VERSION_1_1.html), [VkPhysicalDevice](https://registry.khronos.org/vulkan/specs/latest/man/html/VkPhysicalDevice.html), [VkPhysicalDeviceMemoryProperties2](https://registry.khronos.org/vulkan/specs/latest/man/html/VkPhysicalDeviceMemoryProperties2.html)
 
-[VK_VERSION_1_1](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_VERSION_1_1.html),
-[VkPhysicalDevice](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkPhysicalDevice.html),
-[VkPhysicalDeviceMemoryProperties2](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkPhysicalDeviceMemoryProperties2.html)
+## [](#_document_notes)Document Notes
 
-## <a href="#_document_notes" class="anchor"></a>Document Notes
+For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#vkGetPhysicalDeviceMemoryProperties2)
 
-For more information, see the <a
-href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#vkGetPhysicalDeviceMemoryProperties2"
-target="_blank" rel="noopener">Vulkan Specification</a>
+This page is extracted from the Vulkan Specification. Fixes and changes should be made to the Specification, not directly.
 
-This page is extracted from the Vulkan Specification. Fixes and changes
-should be made to the Specification, not directly.
+## [](#_copyright)Copyright
 
-## <a href="#_copyright" class="anchor"></a>Copyright
-
-Copyright 2014-2024 The Khronos Group Inc.
+Copyright 2014-2025 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
-
-Version 1.3.290  
-Last updated 2024-07-11 23:39:16 -0700

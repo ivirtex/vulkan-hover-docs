@@ -2,16 +2,15 @@
 
 ## Name
 
-VkVideoChromaSubsamplingFlagBitsKHR - Video format chroma subsampling
-bits
+VkVideoChromaSubsamplingFlagBitsKHR - Video format chroma subsampling bits
 
 
 
-## <a href="#_c_specification" class="anchor"></a>C Specification
+## [](#_c_specification)C Specification
 
 The video format chroma subsampling is defined with the following enums:
 
-``` c
+```c++
 // Provided by VK_KHR_video_queue
 typedef enum VkVideoChromaSubsamplingFlagBitsKHR {
     VK_VIDEO_CHROMA_SUBSAMPLING_INVALID_KHR = 0,
@@ -22,44 +21,25 @@ typedef enum VkVideoChromaSubsamplingFlagBitsKHR {
 } VkVideoChromaSubsamplingFlagBitsKHR;
 ```
 
-## <a href="#_description" class="anchor"></a>Description
+## [](#_description)Description
 
-- `VK_VIDEO_CHROMA_SUBSAMPLING_MONOCHROME_BIT_KHR` specifies that the
-  format is monochrome.
+- `VK_VIDEO_CHROMA_SUBSAMPLING_MONOCHROME_BIT_KHR` specifies that the format is monochrome.
+- `VK_VIDEO_CHROMA_SUBSAMPLING_420_BIT_KHR` specified that the format is 4:2:0 chroma subsampled, i.e. the two chroma components are sampled horizontally and vertically at half the sample rate of the luma component.
+- `VK_VIDEO_CHROMA_SUBSAMPLING_422_BIT_KHR` - the format is 4:2:2 chroma subsampled, i.e. the two chroma components are sampled horizontally at half the sample rate of luma component.
+- `VK_VIDEO_CHROMA_SUBSAMPLING_444_BIT_KHR` - the format is 4:4:4 chroma sampled, i.e. all three components of the Y′CBCR format are sampled at the same rate, thus there is no chroma subsampling.
 
-- `VK_VIDEO_CHROMA_SUBSAMPLING_420_BIT_KHR` specified that the format is
-  4:2:0 chroma subsampled, i.e. the two chroma components are sampled
-  horizontally and vertically at half the sample rate of the luma
-  component.
+## [](#_see_also)See Also
 
-- `VK_VIDEO_CHROMA_SUBSAMPLING_422_BIT_KHR` - the format is 4:2:2 chroma
-  subsampled, i.e. the two chroma components are sampled horizontally at
-  half the sample rate of luma component.
+[VK\_KHR\_video\_queue](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_KHR_video_queue.html), [VkVideoChromaSubsamplingFlagsKHR](https://registry.khronos.org/vulkan/specs/latest/man/html/VkVideoChromaSubsamplingFlagsKHR.html)
 
-- `VK_VIDEO_CHROMA_SUBSAMPLING_444_BIT_KHR` - the format is 4:4:4 chroma
-  sampled, i.e. all three components of the Y′C<sub>B</sub>C<sub>R</sub>
-  format are sampled at the same rate, thus there is no chroma
-  subsampling.
+## [](#_document_notes)Document Notes
 
-## <a href="#_see_also" class="anchor"></a>See Also
+For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#VkVideoChromaSubsamplingFlagBitsKHR)
 
-[VK_KHR_video_queue](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_KHR_video_queue.html),
-[VkVideoChromaSubsamplingFlagsKHR](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkVideoChromaSubsamplingFlagsKHR.html)
+This page is extracted from the Vulkan Specification. Fixes and changes should be made to the Specification, not directly.
 
-## <a href="#_document_notes" class="anchor"></a>Document Notes
+## [](#_copyright)Copyright
 
-For more information, see the <a
-href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#VkVideoChromaSubsamplingFlagBitsKHR"
-target="_blank" rel="noopener">Vulkan Specification</a>
-
-This page is extracted from the Vulkan Specification. Fixes and changes
-should be made to the Specification, not directly.
-
-## <a href="#_copyright" class="anchor"></a>Copyright
-
-Copyright 2014-2024 The Khronos Group Inc.
+Copyright 2014-2025 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
-
-Version 1.3.290  
-Last updated 2024-07-11 23:39:16 -0700

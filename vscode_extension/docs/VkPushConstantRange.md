@@ -6,11 +6,11 @@ VkPushConstantRange - Structure specifying a push constant range
 
 
 
-## <a href="#_c_specification" class="anchor"></a>C Specification
+## [](#_c_specification)C Specification
 
 The `VkPushConstantRange` structure is defined as:
 
-``` c
+```c++
 // Provided by VK_VERSION_1_0
 typedef struct VkPushConstantRange {
     VkShaderStageFlags    stageFlags;
@@ -19,84 +19,45 @@ typedef struct VkPushConstantRange {
 } VkPushConstantRange;
 ```
 
-## <a href="#_members" class="anchor"></a>Members
+## [](#_members)Members
 
-- `stageFlags` is a set of stage flags describing the shader stages that
-  will access a range of push constants. If a particular stage is not
-  included in the range, then accessing members of that range of push
-  constants from the corresponding shader stage will return undefined
-  values.
+- `stageFlags` is a set of stage flags describing the shader stages that will access a range of push constants. If a particular stage is not included in the range, then accessing members of that range of push constants from the corresponding shader stage will return undefined values.
+- `offset` and `size` are the start offset and size, respectively, consumed by the range. Both `offset` and `size` are in units of bytes and **must** be a multiple of 4. The layout of the push constant variables is specified in the shader.
 
-- `offset` and `size` are the start offset and size, respectively,
-  consumed by the range. Both `offset` and `size` are in units of bytes
-  and **must** be a multiple of 4. The layout of the push constant
-  variables is specified in the shader.
-
-## <a href="#_description" class="anchor"></a>Description
+## [](#_description)Description
 
 Valid Usage
 
-- <a href="#VUID-VkPushConstantRange-offset-00294"
-  id="VUID-VkPushConstantRange-offset-00294"></a>
-  VUID-VkPushConstantRange-offset-00294  
-  `offset` **must** be less than
-  `VkPhysicalDeviceLimits`::`maxPushConstantsSize`
-
-- <a href="#VUID-VkPushConstantRange-offset-00295"
-  id="VUID-VkPushConstantRange-offset-00295"></a>
-  VUID-VkPushConstantRange-offset-00295  
+- [](#VUID-VkPushConstantRange-offset-00294)VUID-VkPushConstantRange-offset-00294  
+  `offset` **must** be less than `VkPhysicalDeviceLimits`::`maxPushConstantsSize`
+- [](#VUID-VkPushConstantRange-offset-00295)VUID-VkPushConstantRange-offset-00295  
   `offset` **must** be a multiple of `4`
-
-- <a href="#VUID-VkPushConstantRange-size-00296"
-  id="VUID-VkPushConstantRange-size-00296"></a>
-  VUID-VkPushConstantRange-size-00296  
+- [](#VUID-VkPushConstantRange-size-00296)VUID-VkPushConstantRange-size-00296  
   `size` **must** be greater than `0`
-
-- <a href="#VUID-VkPushConstantRange-size-00297"
-  id="VUID-VkPushConstantRange-size-00297"></a>
-  VUID-VkPushConstantRange-size-00297  
+- [](#VUID-VkPushConstantRange-size-00297)VUID-VkPushConstantRange-size-00297  
   `size` **must** be a multiple of `4`
-
-- <a href="#VUID-VkPushConstantRange-size-00298"
-  id="VUID-VkPushConstantRange-size-00298"></a>
-  VUID-VkPushConstantRange-size-00298  
-  `size` **must** be less than or equal to
-  `VkPhysicalDeviceLimits`::`maxPushConstantsSize` minus `offset`
+- [](#VUID-VkPushConstantRange-size-00298)VUID-VkPushConstantRange-size-00298  
+  `size` **must** be less than or equal to `VkPhysicalDeviceLimits`::`maxPushConstantsSize` minus `offset`
 
 Valid Usage (Implicit)
 
-- <a href="#VUID-VkPushConstantRange-stageFlags-parameter"
-  id="VUID-VkPushConstantRange-stageFlags-parameter"></a>
-  VUID-VkPushConstantRange-stageFlags-parameter  
-  `stageFlags` **must** be a valid combination of
-  [VkShaderStageFlagBits](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkShaderStageFlagBits.html) values
-
-- <a href="#VUID-VkPushConstantRange-stageFlags-requiredbitmask"
-  id="VUID-VkPushConstantRange-stageFlags-requiredbitmask"></a>
-  VUID-VkPushConstantRange-stageFlags-requiredbitmask  
+- [](#VUID-VkPushConstantRange-stageFlags-parameter)VUID-VkPushConstantRange-stageFlags-parameter  
+  `stageFlags` **must** be a valid combination of [VkShaderStageFlagBits](https://registry.khronos.org/vulkan/specs/latest/man/html/VkShaderStageFlagBits.html) values
+- [](#VUID-VkPushConstantRange-stageFlags-requiredbitmask)VUID-VkPushConstantRange-stageFlags-requiredbitmask  
   `stageFlags` **must** not be `0`
 
-## <a href="#_see_also" class="anchor"></a>See Also
+## [](#_see_also)See Also
 
-[VK_VERSION_1_0](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_VERSION_1_0.html),
-[VkPipelineLayoutCreateInfo](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkPipelineLayoutCreateInfo.html),
-[VkShaderCreateInfoEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkShaderCreateInfoEXT.html),
-[VkShaderStageFlags](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkShaderStageFlags.html)
+[VK\_VERSION\_1\_0](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_VERSION_1_0.html), [VkIndirectCommandsPushConstantTokenEXT](https://registry.khronos.org/vulkan/specs/latest/man/html/VkIndirectCommandsPushConstantTokenEXT.html), [VkIndirectExecutionSetShaderInfoEXT](https://registry.khronos.org/vulkan/specs/latest/man/html/VkIndirectExecutionSetShaderInfoEXT.html), [VkPipelineLayoutCreateInfo](https://registry.khronos.org/vulkan/specs/latest/man/html/VkPipelineLayoutCreateInfo.html), [VkShaderCreateInfoEXT](https://registry.khronos.org/vulkan/specs/latest/man/html/VkShaderCreateInfoEXT.html), [VkShaderStageFlags](https://registry.khronos.org/vulkan/specs/latest/man/html/VkShaderStageFlags.html)
 
-## <a href="#_document_notes" class="anchor"></a>Document Notes
+## [](#_document_notes)Document Notes
 
-For more information, see the <a
-href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#VkPushConstantRange"
-target="_blank" rel="noopener">Vulkan Specification</a>
+For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#VkPushConstantRange)
 
-This page is extracted from the Vulkan Specification. Fixes and changes
-should be made to the Specification, not directly.
+This page is extracted from the Vulkan Specification. Fixes and changes should be made to the Specification, not directly.
 
-## <a href="#_copyright" class="anchor"></a>Copyright
+## [](#_copyright)Copyright
 
-Copyright 2014-2024 The Khronos Group Inc.
+Copyright 2014-2025 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
-
-Version 1.3.290  
-Last updated 2024-07-11 23:39:16 -0700

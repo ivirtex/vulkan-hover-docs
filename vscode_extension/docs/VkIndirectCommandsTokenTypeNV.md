@@ -6,14 +6,11 @@ VkIndirectCommandsTokenTypeNV - Enum specifying token commands
 
 
 
-## <a href="#_c_specification" class="anchor"></a>C Specification
+## [](#_c_specification)C Specification
 
-Possible values of those elements of the
-[VkIndirectCommandsLayoutCreateInfoNV](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkIndirectCommandsLayoutCreateInfoNV.html)::`pTokens`
-array specifying command tokens (other elements of the array specify
-command parameters) are:
+Possible values of those elements of the [VkIndirectCommandsLayoutCreateInfoNV](https://registry.khronos.org/vulkan/specs/latest/man/html/VkIndirectCommandsLayoutCreateInfoNV.html)::`pTokens` array specifying command tokens (other elements of the array specify command parameters) are:
 
-``` c
+```c++
 // Provided by VK_NV_device_generated_commands
 typedef enum VkIndirectCommandsTokenTypeNV {
     VK_INDIRECT_COMMANDS_TOKEN_TYPE_SHADER_GROUP_NV = 0,
@@ -33,43 +30,66 @@ typedef enum VkIndirectCommandsTokenTypeNV {
 } VkIndirectCommandsTokenTypeNV;
 ```
 
-## <a href="#_description" class="anchor"></a>Description
+## [](#_description)Description
 
-| Token type | Equivalent command |
-|----|----|
-| `VK_INDIRECT_COMMANDS_TOKEN_TYPE_SHADER_GROUP_NV` | [vkCmdBindPipelineShaderGroupNV](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdBindPipelineShaderGroupNV.html) |
-| `VK_INDIRECT_COMMANDS_TOKEN_TYPE_STATE_FLAGS_NV` | \- |
-| `VK_INDIRECT_COMMANDS_TOKEN_TYPE_INDEX_BUFFER_NV` | [vkCmdBindIndexBuffer](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdBindIndexBuffer.html) |
-| `VK_INDIRECT_COMMANDS_TOKEN_TYPE_VERTEX_BUFFER_NV` | [vkCmdBindVertexBuffers](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdBindVertexBuffers.html) |
-| `VK_INDIRECT_COMMANDS_TOKEN_TYPE_PUSH_CONSTANT_NV` | [vkCmdPushConstants](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdPushConstants.html) |
-| `VK_INDIRECT_COMMANDS_TOKEN_TYPE_DRAW_INDEXED_NV` | [vkCmdDrawIndexedIndirect](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdDrawIndexedIndirect.html) |
-| `VK_INDIRECT_COMMANDS_TOKEN_TYPE_DRAW_NV` | [vkCmdDrawIndirect](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdDrawIndirect.html) |
-| `VK_INDIRECT_COMMANDS_TOKEN_TYPE_DRAW_TASKS_NV` | [vkCmdDrawMeshTasksIndirectNV](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdDrawMeshTasksIndirectNV.html) |
-| `VK_INDIRECT_COMMANDS_TOKEN_TYPE_DRAW_MESH_TASKS_NV` | [vkCmdDrawMeshTasksIndirectEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdDrawMeshTasksIndirectEXT.html) |
-| `VK_INDIRECT_COMMANDS_TOKEN_TYPE_PIPELINE_NV` | [vkCmdBindPipeline](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdBindPipeline.html) |
-| `VK_INDIRECT_COMMANDS_TOKEN_TYPE_DISPATCH_NV` | [vkCmdDispatchIndirect](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdDispatchIndirect.html) |
+Table 1. Supported Indirect Command Tokens   Token type Equivalent command
 
-Table 1. Supported indirect command tokens
+`VK_INDIRECT_COMMANDS_TOKEN_TYPE_SHADER_GROUP_NV`
 
-## <a href="#_see_also" class="anchor"></a>See Also
+[vkCmdBindPipelineShaderGroupNV](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdBindPipelineShaderGroupNV.html)
 
-[VK_NV_device_generated_commands](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_NV_device_generated_commands.html),
-[VkIndirectCommandsLayoutTokenNV](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkIndirectCommandsLayoutTokenNV.html)
+`VK_INDIRECT_COMMANDS_TOKEN_TYPE_STATE_FLAGS_NV`
 
-## <a href="#_document_notes" class="anchor"></a>Document Notes
+\-
 
-For more information, see the <a
-href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#VkIndirectCommandsTokenTypeNV"
-target="_blank" rel="noopener">Vulkan Specification</a>
+`VK_INDIRECT_COMMANDS_TOKEN_TYPE_INDEX_BUFFER_NV`
 
-This page is extracted from the Vulkan Specification. Fixes and changes
-should be made to the Specification, not directly.
+[vkCmdBindIndexBuffer](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdBindIndexBuffer.html)
 
-## <a href="#_copyright" class="anchor"></a>Copyright
+`VK_INDIRECT_COMMANDS_TOKEN_TYPE_VERTEX_BUFFER_NV`
 
-Copyright 2014-2024 The Khronos Group Inc.
+[vkCmdBindVertexBuffers](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdBindVertexBuffers.html)
+
+`VK_INDIRECT_COMMANDS_TOKEN_TYPE_PUSH_CONSTANT_NV`
+
+[vkCmdPushConstants](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdPushConstants.html)
+
+`VK_INDIRECT_COMMANDS_TOKEN_TYPE_DRAW_INDEXED_NV`
+
+[vkCmdDrawIndexedIndirect](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdDrawIndexedIndirect.html)
+
+`VK_INDIRECT_COMMANDS_TOKEN_TYPE_DRAW_NV`
+
+[vkCmdDrawIndirect](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdDrawIndirect.html)
+
+`VK_INDIRECT_COMMANDS_TOKEN_TYPE_DRAW_TASKS_NV`
+
+[vkCmdDrawMeshTasksIndirectNV](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdDrawMeshTasksIndirectNV.html)
+
+`VK_INDIRECT_COMMANDS_TOKEN_TYPE_DRAW_MESH_TASKS_NV`
+
+[vkCmdDrawMeshTasksIndirectEXT](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdDrawMeshTasksIndirectEXT.html)
+
+`VK_INDIRECT_COMMANDS_TOKEN_TYPE_PIPELINE_NV`
+
+[vkCmdBindPipeline](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdBindPipeline.html)
+
+`VK_INDIRECT_COMMANDS_TOKEN_TYPE_DISPATCH_NV`
+
+[vkCmdDispatchIndirect](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdDispatchIndirect.html)
+
+## [](#_see_also)See Also
+
+[VK\_NV\_device\_generated\_commands](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_NV_device_generated_commands.html), [VkIndirectCommandsLayoutTokenNV](https://registry.khronos.org/vulkan/specs/latest/man/html/VkIndirectCommandsLayoutTokenNV.html)
+
+## [](#_document_notes)Document Notes
+
+For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#VkIndirectCommandsTokenTypeNV)
+
+This page is extracted from the Vulkan Specification. Fixes and changes should be made to the Specification, not directly.
+
+## [](#_copyright)Copyright
+
+Copyright 2014-2025 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
-
-Version 1.3.290  
-Last updated 2024-07-11 23:39:16 -0700

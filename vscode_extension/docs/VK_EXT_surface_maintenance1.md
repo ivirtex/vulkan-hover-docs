@@ -1,143 +1,114 @@
-# VK_EXT_surface_maintenance1(3) Manual Page
+# VK\_EXT\_surface\_maintenance1(3) Manual Page
 
 ## Name
 
-VK_EXT_surface_maintenance1 - instance extension
+VK\_EXT\_surface\_maintenance1 - instance extension
 
 
 
-## <a href="#_registered_extension_number" class="anchor"></a>Registered Extension Number
+## [](#_registered_extension_number)Registered Extension Number
 
 275
 
-## <a href="#_revision" class="anchor"></a>Revision
+## [](#_revision)Revision
 
 1
 
-## <a href="#_ratification_status" class="anchor"></a>Ratification Status
+## [](#_ratification_status)Ratification Status
 
-Not ratified
+Ratified
 
-## <a href="#_extension_and_version_dependencies" class="anchor"></a>Extension and Version Dependencies
+## [](#_extension_and_version_dependencies)Extension and Version Dependencies
 
-[VK_KHR_surface](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_KHR_surface.html)  
+[VK\_KHR\_surface](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_KHR_surface.html)  
 and  
-[VK_KHR_get_surface_capabilities2](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_KHR_get_surface_capabilities2.html)  
+[VK\_KHR\_get\_surface\_capabilities2](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_KHR_get_surface_capabilities2.html)
 
-## <a href="#_contact" class="anchor"></a>Contact
+## [](#_contact)Contact
 
-- Shahbaz Youssefi <a
-  href="https://github.com/KhronosGroup/Vulkan-Docs/issues/new?body=%5BVK_EXT_surface_maintenance1%5D%20@syoussefi%0A*Here%20describe%20the%20issue%20or%20question%20you%20have%20about%20the%20VK_EXT_surface_maintenance1%20extension*"
-  target="_blank" rel="nofollow noopener"><em></em>syoussefi</a>
+- Shahbaz Youssefi [\[GitHub\]syoussefi](https://github.com/KhronosGroup/Vulkan-Docs/issues/new?body=%5BVK_EXT_surface_maintenance1%5D%20%40syoussefi%0A%2AHere%20describe%20the%20issue%20or%20question%20you%20have%20about%20the%20VK_EXT_surface_maintenance1%20extension%2A)
 
-## <a href="#_extension_proposal" class="anchor"></a>Extension Proposal
+## [](#_extension_proposal)Extension Proposal
 
-[VK_EXT_surface_maintenance1](https://github.com/KhronosGroup/Vulkan-Docs/tree/main/proposals/VK_EXT_surface_maintenance1.adoc)
+[VK\_EXT\_surface\_maintenance1](https://github.com/KhronosGroup/Vulkan-Docs/tree/main/proposals/VK_EXT_surface_maintenance1.adoc)
 
-## <a href="#_other_extension_metadata" class="anchor"></a>Other Extension Metadata
+## [](#_other_extension_metadata)Other Extension Metadata
 
-**Last Modified Date**  
+**Last Modified Date**
+
 2022-11-09
 
-**Contributors**  
+**Contributors**
+
 - Jeff Juliano, NVIDIA
-
 - Lionel Landwerlin, Intel
-
 - Shahbaz Youssefi, Google
-
 - Chris Forbes, Google
-
 - Ian Elliott, Google
-
 - Hans-Kristian Arntzen, Valve
-
 - Daniel Stone, Collabora
 
-## <a href="#_description" class="anchor"></a>Description
+## [](#_description)Description
 
-[`VK_EXT_surface_maintenance1`](VK_EXT_surface_maintenance1.html) adds a
-collection of window system integration features that were intentionally
-left out or overlooked in the original
-[`VK_KHR_surface`](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_KHR_surface.html) extension.
+`VK_EXT_surface_maintenance1` adds a collection of window system integration features that were intentionally left out or overlooked in the original `VK_KHR_surface` extension.
 
 The new features are as follows:
 
-- Allow querying number of min/max images from a surface for a
-  particular presentation mode.
-
+- Allow querying number of min/max images from a surface for a particular presentation mode.
 - Allow querying a surface’s scaled presentation capabilities.
+- Allow querying a surface for the set of presentation modes which can be easily switched between without requiring swapchain recreation.
 
-- Allow querying a surface for the set of presentation modes which can
-  be easily switched between without requiring swapchain recreation.
+## [](#_new_structures)New Structures
 
-## <a href="#_new_structures" class="anchor"></a>New Structures
+- Extending [VkPhysicalDeviceSurfaceInfo2KHR](https://registry.khronos.org/vulkan/specs/latest/man/html/VkPhysicalDeviceSurfaceInfo2KHR.html):
+  
+  - [VkSurfacePresentModeEXT](https://registry.khronos.org/vulkan/specs/latest/man/html/VkSurfacePresentModeEXT.html)
+- Extending [VkSurfaceCapabilities2KHR](https://registry.khronos.org/vulkan/specs/latest/man/html/VkSurfaceCapabilities2KHR.html):
+  
+  - [VkSurfacePresentModeCompatibilityEXT](https://registry.khronos.org/vulkan/specs/latest/man/html/VkSurfacePresentModeCompatibilityEXT.html)
+  - [VkSurfacePresentScalingCapabilitiesEXT](https://registry.khronos.org/vulkan/specs/latest/man/html/VkSurfacePresentScalingCapabilitiesEXT.html)
 
-- Extending
-  [VkPhysicalDeviceSurfaceInfo2KHR](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkPhysicalDeviceSurfaceInfo2KHR.html):
+## [](#_new_enums)New Enums
 
-  - [VkSurfacePresentModeEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkSurfacePresentModeEXT.html)
+- [VkPresentGravityFlagBitsEXT](https://registry.khronos.org/vulkan/specs/latest/man/html/VkPresentGravityFlagBitsEXT.html)
+- [VkPresentScalingFlagBitsEXT](https://registry.khronos.org/vulkan/specs/latest/man/html/VkPresentScalingFlagBitsEXT.html)
 
-- Extending [VkSurfaceCapabilities2KHR](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkSurfaceCapabilities2KHR.html):
+## [](#_new_bitmasks)New Bitmasks
 
-  - [VkSurfacePresentModeCompatibilityEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkSurfacePresentModeCompatibilityEXT.html)
+- [VkPresentGravityFlagsEXT](https://registry.khronos.org/vulkan/specs/latest/man/html/VkPresentGravityFlagsEXT.html)
+- [VkPresentScalingFlagsEXT](https://registry.khronos.org/vulkan/specs/latest/man/html/VkPresentScalingFlagsEXT.html)
 
-  - [VkSurfacePresentScalingCapabilitiesEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkSurfacePresentScalingCapabilitiesEXT.html)
-
-## <a href="#_new_enums" class="anchor"></a>New Enums
-
-- [VkPresentGravityFlagBitsEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkPresentGravityFlagBitsEXT.html)
-
-- [VkPresentScalingFlagBitsEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkPresentScalingFlagBitsEXT.html)
-
-## <a href="#_new_bitmasks" class="anchor"></a>New Bitmasks
-
-- [VkPresentGravityFlagsEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkPresentGravityFlagsEXT.html)
-
-- [VkPresentScalingFlagsEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkPresentScalingFlagsEXT.html)
-
-## <a href="#_new_enum_constants" class="anchor"></a>New Enum Constants
+## [](#_new_enum_constants)New Enum Constants
 
 - `VK_EXT_SURFACE_MAINTENANCE_1_EXTENSION_NAME`
-
 - `VK_EXT_SURFACE_MAINTENANCE_1_SPEC_VERSION`
-
-- Extending [VkStructureType](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkStructureType.html):
-
+- Extending [VkStructureType](https://registry.khronos.org/vulkan/specs/latest/man/html/VkStructureType.html):
+  
   - `VK_STRUCTURE_TYPE_SURFACE_PRESENT_MODE_COMPATIBILITY_EXT`
-
   - `VK_STRUCTURE_TYPE_SURFACE_PRESENT_MODE_EXT`
-
   - `VK_STRUCTURE_TYPE_SURFACE_PRESENT_SCALING_CAPABILITIES_EXT`
 
-## <a href="#_version_history" class="anchor"></a>Version History
+## [](#_version_history)Version History
 
 - Revision 0, 2019-02-27 (Lionel Landwerlin)
-
+  
   - Internal revisions
-
 - Revision 1, 2022-11-09 (Shahbaz Youssefi)
-
+  
   - Add functionality and complete spec
 
-## <a href="#_see_also" class="anchor"></a>See Also
+## [](#_see_also)See Also
 
 No cross-references are available
 
-## <a href="#_document_notes" class="anchor"></a>Document Notes
+## [](#_document_notes)Document Notes
 
-For more information, see the <a
-href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#VK_EXT_surface_maintenance1"
-target="_blank" rel="noopener">Vulkan Specification</a>
+For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#VK_EXT_surface_maintenance1)
 
-This page is a generated document. Fixes and changes should be made to
-the generator scripts, not directly.
+This page is a generated document. Fixes and changes should be made to the generator scripts, not directly.
 
-## <a href="#_copyright" class="anchor"></a>Copyright
+## [](#_copyright)Copyright
 
-Copyright 2014-2024 The Khronos Group Inc.
+Copyright 2014-2025 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
-
-Version 1.3.290  
-Last updated 2024-07-11 23:39:16 -0700

@@ -1,159 +1,122 @@
-# VK_INTEL_performance_query(3) Manual Page
+# VK\_INTEL\_performance\_query(3) Manual Page
 
 ## Name
 
-VK_INTEL_performance_query - device extension
+VK\_INTEL\_performance\_query - device extension
 
 
 
-## <a href="#_registered_extension_number" class="anchor"></a>Registered Extension Number
+## [](#_registered_extension_number)Registered Extension Number
 
 211
 
-## <a href="#_revision" class="anchor"></a>Revision
+## [](#_revision)Revision
 
 2
 
-## <a href="#_ratification_status" class="anchor"></a>Ratification Status
+## [](#_ratification_status)Ratification Status
 
 Not ratified
 
-## <a href="#_extension_and_version_dependencies" class="anchor"></a>Extension and Version Dependencies
+## [](#_extension_and_version_dependencies)Extension and Version Dependencies
 
 None
 
-## <a href="#_special_use" class="anchor"></a>Special Use
+## [](#_special_use)Special Use
 
-- <a
-  href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#extendingvulkan-compatibility-specialuse"
-  target="_blank" rel="noopener">Developer tools</a>
+- [Developer tools](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#extendingvulkan-compatibility-specialuse)
 
-## <a href="#_contact" class="anchor"></a>Contact
+## [](#_contact)Contact
 
-- Lionel Landwerlin <a
-  href="https://github.com/KhronosGroup/Vulkan-Docs/issues/new?body=%5BVK_INTEL_performance_query%5D%20@llandwerlin%0A*Here%20describe%20the%20issue%20or%20question%20you%20have%20about%20the%20VK_INTEL_performance_query%20extension*"
-  target="_blank" rel="nofollow noopener"><em></em>llandwerlin</a>
+- Lionel Landwerlin [\[GitHub\]llandwerlin](https://github.com/KhronosGroup/Vulkan-Docs/issues/new?body=%5BVK_INTEL_performance_query%5D%20%40llandwerlin%0A%2AHere%20describe%20the%20issue%20or%20question%20you%20have%20about%20the%20VK_INTEL_performance_query%20extension%2A)
 
-## <a href="#_other_extension_metadata" class="anchor"></a>Other Extension Metadata
+## [](#_other_extension_metadata)Other Extension Metadata
 
-**Last Modified Date**  
+**Last Modified Date**
+
 2018-05-16
 
-**IP Status**  
+**IP Status**
+
 No known IP claims.
 
-**Contributors**  
-- Lionel Landwerlin, Intel
+**Contributors**
 
+- Lionel Landwerlin, Intel
 - Piotr Maciejewski, Intel
 
-## <a href="#_description" class="anchor"></a>Description
+## [](#_description)Description
 
-This extension allows an application to capture performance data to be
-interpreted by an external application or library.
+This extension allows an application to capture performance data to be interpreted by an external application or library.
 
-Such a library is available at :
-<a href="https://github.com/intel/metrics-discovery"
-class="bare">https://github.com/intel/metrics-discovery</a>
+Such a library is available at : [https://github.com/intel/metrics-discovery](https://github.com/intel/metrics-discovery)
 
-Performance analysis tools such as [Graphics Performance
-Analyzers](https://www.intel.com/content/www/us/en/developer/tools/graphics-performance-analyzers/overview.html)
-make use of this extension and the metrics-discovery library to present
-the data in a human readable way.
+Performance analysis tools such as [Graphics Performance Analyzers](https://www.intel.com/content/www/us/en/developer/tools/graphics-performance-analyzers/overview.html) make use of this extension and the metrics-discovery library to present the data in a human readable way.
 
-## <a href="#_new_object_types" class="anchor"></a>New Object Types
+## [](#_new_object_types)New Object Types
 
-- [VkPerformanceConfigurationINTEL](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkPerformanceConfigurationINTEL.html)
+- [VkPerformanceConfigurationINTEL](https://registry.khronos.org/vulkan/specs/latest/man/html/VkPerformanceConfigurationINTEL.html)
 
-## <a href="#_new_commands" class="anchor"></a>New Commands
+## [](#_new_commands)New Commands
 
-- [vkAcquirePerformanceConfigurationINTEL](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkAcquirePerformanceConfigurationINTEL.html)
+- [vkAcquirePerformanceConfigurationINTEL](https://registry.khronos.org/vulkan/specs/latest/man/html/vkAcquirePerformanceConfigurationINTEL.html)
+- [vkCmdSetPerformanceMarkerINTEL](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdSetPerformanceMarkerINTEL.html)
+- [vkCmdSetPerformanceOverrideINTEL](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdSetPerformanceOverrideINTEL.html)
+- [vkCmdSetPerformanceStreamMarkerINTEL](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdSetPerformanceStreamMarkerINTEL.html)
+- [vkGetPerformanceParameterINTEL](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetPerformanceParameterINTEL.html)
+- [vkInitializePerformanceApiINTEL](https://registry.khronos.org/vulkan/specs/latest/man/html/vkInitializePerformanceApiINTEL.html)
+- [vkQueueSetPerformanceConfigurationINTEL](https://registry.khronos.org/vulkan/specs/latest/man/html/vkQueueSetPerformanceConfigurationINTEL.html)
+- [vkReleasePerformanceConfigurationINTEL](https://registry.khronos.org/vulkan/specs/latest/man/html/vkReleasePerformanceConfigurationINTEL.html)
+- [vkUninitializePerformanceApiINTEL](https://registry.khronos.org/vulkan/specs/latest/man/html/vkUninitializePerformanceApiINTEL.html)
 
-- [vkCmdSetPerformanceMarkerINTEL](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdSetPerformanceMarkerINTEL.html)
+## [](#_new_structures)New Structures
 
-- [vkCmdSetPerformanceOverrideINTEL](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdSetPerformanceOverrideINTEL.html)
+- [VkInitializePerformanceApiInfoINTEL](https://registry.khronos.org/vulkan/specs/latest/man/html/VkInitializePerformanceApiInfoINTEL.html)
+- [VkPerformanceConfigurationAcquireInfoINTEL](https://registry.khronos.org/vulkan/specs/latest/man/html/VkPerformanceConfigurationAcquireInfoINTEL.html)
+- [VkPerformanceMarkerInfoINTEL](https://registry.khronos.org/vulkan/specs/latest/man/html/VkPerformanceMarkerInfoINTEL.html)
+- [VkPerformanceOverrideInfoINTEL](https://registry.khronos.org/vulkan/specs/latest/man/html/VkPerformanceOverrideInfoINTEL.html)
+- [VkPerformanceStreamMarkerInfoINTEL](https://registry.khronos.org/vulkan/specs/latest/man/html/VkPerformanceStreamMarkerInfoINTEL.html)
+- [VkPerformanceValueINTEL](https://registry.khronos.org/vulkan/specs/latest/man/html/VkPerformanceValueINTEL.html)
+- Extending [VkQueryPoolCreateInfo](https://registry.khronos.org/vulkan/specs/latest/man/html/VkQueryPoolCreateInfo.html):
+  
+  - [VkQueryPoolCreateInfoINTEL](https://registry.khronos.org/vulkan/specs/latest/man/html/VkQueryPoolCreateInfoINTEL.html)
+  - [VkQueryPoolPerformanceQueryCreateInfoINTEL](https://registry.khronos.org/vulkan/specs/latest/man/html/VkQueryPoolPerformanceQueryCreateInfoINTEL.html)
 
-- [vkCmdSetPerformanceStreamMarkerINTEL](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdSetPerformanceStreamMarkerINTEL.html)
+## [](#_new_unions)New Unions
 
-- [vkGetPerformanceParameterINTEL](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkGetPerformanceParameterINTEL.html)
+- [VkPerformanceValueDataINTEL](https://registry.khronos.org/vulkan/specs/latest/man/html/VkPerformanceValueDataINTEL.html)
 
-- [vkInitializePerformanceApiINTEL](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkInitializePerformanceApiINTEL.html)
+## [](#_new_enums)New Enums
 
-- [vkQueueSetPerformanceConfigurationINTEL](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkQueueSetPerformanceConfigurationINTEL.html)
+- [VkPerformanceConfigurationTypeINTEL](https://registry.khronos.org/vulkan/specs/latest/man/html/VkPerformanceConfigurationTypeINTEL.html)
+- [VkPerformanceOverrideTypeINTEL](https://registry.khronos.org/vulkan/specs/latest/man/html/VkPerformanceOverrideTypeINTEL.html)
+- [VkPerformanceParameterTypeINTEL](https://registry.khronos.org/vulkan/specs/latest/man/html/VkPerformanceParameterTypeINTEL.html)
+- [VkPerformanceValueTypeINTEL](https://registry.khronos.org/vulkan/specs/latest/man/html/VkPerformanceValueTypeINTEL.html)
+- [VkQueryPoolSamplingModeINTEL](https://registry.khronos.org/vulkan/specs/latest/man/html/VkQueryPoolSamplingModeINTEL.html)
 
-- [vkReleasePerformanceConfigurationINTEL](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkReleasePerformanceConfigurationINTEL.html)
-
-- [vkUninitializePerformanceApiINTEL](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkUninitializePerformanceApiINTEL.html)
-
-## <a href="#_new_structures" class="anchor"></a>New Structures
-
-- [VkInitializePerformanceApiInfoINTEL](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkInitializePerformanceApiInfoINTEL.html)
-
-- [VkPerformanceConfigurationAcquireInfoINTEL](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkPerformanceConfigurationAcquireInfoINTEL.html)
-
-- [VkPerformanceMarkerInfoINTEL](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkPerformanceMarkerInfoINTEL.html)
-
-- [VkPerformanceOverrideInfoINTEL](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkPerformanceOverrideInfoINTEL.html)
-
-- [VkPerformanceStreamMarkerInfoINTEL](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkPerformanceStreamMarkerInfoINTEL.html)
-
-- [VkPerformanceValueINTEL](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkPerformanceValueINTEL.html)
-
-- Extending [VkQueryPoolCreateInfo](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkQueryPoolCreateInfo.html):
-
-  - [VkQueryPoolCreateInfoINTEL](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkQueryPoolCreateInfoINTEL.html)
-
-  - [VkQueryPoolPerformanceQueryCreateInfoINTEL](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkQueryPoolPerformanceQueryCreateInfoINTEL.html)
-
-## <a href="#_new_unions" class="anchor"></a>New Unions
-
-- [VkPerformanceValueDataINTEL](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkPerformanceValueDataINTEL.html)
-
-## <a href="#_new_enums" class="anchor"></a>New Enums
-
-- [VkPerformanceConfigurationTypeINTEL](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkPerformanceConfigurationTypeINTEL.html)
-
-- [VkPerformanceOverrideTypeINTEL](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkPerformanceOverrideTypeINTEL.html)
-
-- [VkPerformanceParameterTypeINTEL](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkPerformanceParameterTypeINTEL.html)
-
-- [VkPerformanceValueTypeINTEL](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkPerformanceValueTypeINTEL.html)
-
-- [VkQueryPoolSamplingModeINTEL](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkQueryPoolSamplingModeINTEL.html)
-
-## <a href="#_new_enum_constants" class="anchor"></a>New Enum Constants
+## [](#_new_enum_constants)New Enum Constants
 
 - `VK_INTEL_PERFORMANCE_QUERY_EXTENSION_NAME`
-
 - `VK_INTEL_PERFORMANCE_QUERY_SPEC_VERSION`
-
-- Extending [VkObjectType](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkObjectType.html):
-
+- Extending [VkObjectType](https://registry.khronos.org/vulkan/specs/latest/man/html/VkObjectType.html):
+  
   - `VK_OBJECT_TYPE_PERFORMANCE_CONFIGURATION_INTEL`
-
-- Extending [VkQueryType](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkQueryType.html):
-
+- Extending [VkQueryType](https://registry.khronos.org/vulkan/specs/latest/man/html/VkQueryType.html):
+  
   - `VK_QUERY_TYPE_PERFORMANCE_QUERY_INTEL`
-
-- Extending [VkStructureType](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkStructureType.html):
-
+- Extending [VkStructureType](https://registry.khronos.org/vulkan/specs/latest/man/html/VkStructureType.html):
+  
   - `VK_STRUCTURE_TYPE_INITIALIZE_PERFORMANCE_API_INFO_INTEL`
-
   - `VK_STRUCTURE_TYPE_PERFORMANCE_CONFIGURATION_ACQUIRE_INFO_INTEL`
-
   - `VK_STRUCTURE_TYPE_PERFORMANCE_MARKER_INFO_INTEL`
-
   - `VK_STRUCTURE_TYPE_PERFORMANCE_OVERRIDE_INFO_INTEL`
-
   - `VK_STRUCTURE_TYPE_PERFORMANCE_STREAM_MARKER_INFO_INTEL`
-
   - `VK_STRUCTURE_TYPE_QUERY_POOL_CREATE_INFO_INTEL`
-
   - `VK_STRUCTURE_TYPE_QUERY_POOL_PERFORMANCE_QUERY_CREATE_INFO_INTEL`
 
-## <a href="#_example_code" class="anchor"></a>Example Code
+## [](#_example_code)Example Code
 
-``` c
+```c
 // A previously created device
 VkDevice device;
 
@@ -286,35 +249,27 @@ assert(VK_SUCCESS == result);
 // human readable values can be queried.
 ```
 
-## <a href="#_version_history" class="anchor"></a>Version History
+## [](#_version_history)Version History
 
 - Revision 2, 2020-03-06 (Lionel Landwerlin)
-
-  - Rename VkQueryPoolCreateInfoINTEL in
-    VkQueryPoolPerformanceQueryCreateInfoINTEL
-
+  
+  - Rename VkQueryPoolCreateInfoINTEL in VkQueryPoolPerformanceQueryCreateInfoINTEL
 - Revision 1, 2018-05-16 (Lionel Landwerlin)
-
+  
   - Initial revision
 
-## <a href="#_see_also" class="anchor"></a>See Also
+## [](#_see_also)See Also
 
 No cross-references are available
 
-## <a href="#_document_notes" class="anchor"></a>Document Notes
+## [](#_document_notes)Document Notes
 
-For more information, see the <a
-href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#VK_INTEL_performance_query"
-target="_blank" rel="noopener">Vulkan Specification</a>
+For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#VK_INTEL_performance_query)
 
-This page is a generated document. Fixes and changes should be made to
-the generator scripts, not directly.
+This page is a generated document. Fixes and changes should be made to the generator scripts, not directly.
 
-## <a href="#_copyright" class="anchor"></a>Copyright
+## [](#_copyright)Copyright
 
-Copyright 2014-2024 The Khronos Group Inc.
+Copyright 2014-2025 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
-
-Version 1.3.290  
-Last updated 2024-07-11 23:39:16 -0700

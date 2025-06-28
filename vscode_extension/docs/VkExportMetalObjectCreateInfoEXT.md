@@ -2,30 +2,17 @@
 
 ## Name
 
-VkExportMetalObjectCreateInfoEXT - Structure that identifies the Metal
-objects that can be exported from Vulkan objects
+VkExportMetalObjectCreateInfoEXT - Structure that identifies the Metal objects that can be exported from Vulkan objects
 
 
 
-## <a href="#_c_specification" class="anchor"></a>C Specification
+## [](#_c_specification)C Specification
 
-To export Metal objects from Vulkan objects, the application **must**
-first indicate the intention to do so during the creation of the Vulkan
-object, by including one or more
-[VkExportMetalObjectCreateInfoEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkExportMetalObjectCreateInfoEXT.html)
-structures in the `pNext` chain of the
-[VkInstanceCreateInfo](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkInstanceCreateInfo.html),
-[VkMemoryAllocateInfo](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkMemoryAllocateInfo.html),
-[VkImageCreateInfo](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkImageCreateInfo.html),
-[VkImageViewCreateInfo](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkImageViewCreateInfo.html),
-[VkBufferViewCreateInfo](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkBufferViewCreateInfo.html),
-[VkSemaphoreCreateInfo](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkSemaphoreCreateInfo.html), or
-[VkEventCreateInfo](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkEventCreateInfo.html), in the corresponding Vulkan
-object creation command.
+To export Metal objects from Vulkan objects, the application **must** first indicate the intention to do so during the creation of the Vulkan object, by including one or more [VkExportMetalObjectCreateInfoEXT](https://registry.khronos.org/vulkan/specs/latest/man/html/VkExportMetalObjectCreateInfoEXT.html) structures in the `pNext` chain of the [VkInstanceCreateInfo](https://registry.khronos.org/vulkan/specs/latest/man/html/VkInstanceCreateInfo.html), [VkMemoryAllocateInfo](https://registry.khronos.org/vulkan/specs/latest/man/html/VkMemoryAllocateInfo.html), [VkImageCreateInfo](https://registry.khronos.org/vulkan/specs/latest/man/html/VkImageCreateInfo.html), [VkImageViewCreateInfo](https://registry.khronos.org/vulkan/specs/latest/man/html/VkImageViewCreateInfo.html), [VkBufferViewCreateInfo](https://registry.khronos.org/vulkan/specs/latest/man/html/VkBufferViewCreateInfo.html), [VkSemaphoreCreateInfo](https://registry.khronos.org/vulkan/specs/latest/man/html/VkSemaphoreCreateInfo.html), or [VkEventCreateInfo](https://registry.khronos.org/vulkan/specs/latest/man/html/VkEventCreateInfo.html), in the corresponding Vulkan object creation command.
 
 The `VkExportMetalObjectCreateInfoEXT` structure is defined as:
 
-``` c
+```c++
 // Provided by VK_EXT_metal_objects
 typedef struct VkExportMetalObjectCreateInfoEXT {
     VkStructureType                       sType;
@@ -34,58 +21,33 @@ typedef struct VkExportMetalObjectCreateInfoEXT {
 } VkExportMetalObjectCreateInfoEXT;
 ```
 
-## <a href="#_members" class="anchor"></a>Members
+## [](#_members)Members
 
-- `sType` is a [VkStructureType](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkStructureType.html) value identifying
-  this structure.
+- `sType` is a [VkStructureType](https://registry.khronos.org/vulkan/specs/latest/man/html/VkStructureType.html) value identifying this structure.
+- `pNext` is `NULL` or a pointer to a structure extending this structure.
+- `exportObjectType` is a [VkExportMetalObjectTypeFlagBitsEXT](https://registry.khronos.org/vulkan/specs/latest/man/html/VkExportMetalObjectTypeFlagBitsEXT.html) indicating the type of Metal object that the application may request to be exported from the Vulkan object.
 
-- `pNext` is `NULL` or a pointer to a structure extending this
-  structure.
-
-- `exportObjectType` is a
-  [VkExportMetalObjectTypeFlagBitsEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkExportMetalObjectTypeFlagBitsEXT.html)
-  indicating the type of Metal object that the application may request
-  to be exported from the Vulkan object.
-
-## <a href="#_description" class="anchor"></a>Description
+## [](#_description)Description
 
 Valid Usage (Implicit)
 
-- <a href="#VUID-VkExportMetalObjectCreateInfoEXT-sType-sType"
-  id="VUID-VkExportMetalObjectCreateInfoEXT-sType-sType"></a>
-  VUID-VkExportMetalObjectCreateInfoEXT-sType-sType  
-  `sType` **must** be
-  `VK_STRUCTURE_TYPE_EXPORT_METAL_OBJECT_CREATE_INFO_EXT`
+- [](#VUID-VkExportMetalObjectCreateInfoEXT-sType-sType)VUID-VkExportMetalObjectCreateInfoEXT-sType-sType  
+  `sType` **must** be `VK_STRUCTURE_TYPE_EXPORT_METAL_OBJECT_CREATE_INFO_EXT`
+- [](#VUID-VkExportMetalObjectCreateInfoEXT-exportObjectType-parameter)VUID-VkExportMetalObjectCreateInfoEXT-exportObjectType-parameter  
+  If `exportObjectType` is not `0`, `exportObjectType` **must** be a valid [VkExportMetalObjectTypeFlagBitsEXT](https://registry.khronos.org/vulkan/specs/latest/man/html/VkExportMetalObjectTypeFlagBitsEXT.html) value
 
-- <a
-  href="#VUID-VkExportMetalObjectCreateInfoEXT-exportObjectType-parameter"
-  id="VUID-VkExportMetalObjectCreateInfoEXT-exportObjectType-parameter"></a>
-  VUID-VkExportMetalObjectCreateInfoEXT-exportObjectType-parameter  
-  If `exportObjectType` is not `0`, `exportObjectType` **must** be a
-  valid
-  [VkExportMetalObjectTypeFlagBitsEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkExportMetalObjectTypeFlagBitsEXT.html)
-  value
+## [](#_see_also)See Also
 
-## <a href="#_see_also" class="anchor"></a>See Also
+[VK\_EXT\_metal\_objects](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_EXT_metal_objects.html), [VkExportMetalObjectTypeFlagBitsEXT](https://registry.khronos.org/vulkan/specs/latest/man/html/VkExportMetalObjectTypeFlagBitsEXT.html), [VkStructureType](https://registry.khronos.org/vulkan/specs/latest/man/html/VkStructureType.html)
 
-[VK_EXT_metal_objects](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_EXT_metal_objects.html),
-[VkExportMetalObjectTypeFlagBitsEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkExportMetalObjectTypeFlagBitsEXT.html),
-[VkStructureType](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkStructureType.html)
+## [](#_document_notes)Document Notes
 
-## <a href="#_document_notes" class="anchor"></a>Document Notes
+For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#VkExportMetalObjectCreateInfoEXT)
 
-For more information, see the <a
-href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#VkExportMetalObjectCreateInfoEXT"
-target="_blank" rel="noopener">Vulkan Specification</a>
+This page is extracted from the Vulkan Specification. Fixes and changes should be made to the Specification, not directly.
 
-This page is extracted from the Vulkan Specification. Fixes and changes
-should be made to the Specification, not directly.
+## [](#_copyright)Copyright
 
-## <a href="#_copyright" class="anchor"></a>Copyright
-
-Copyright 2014-2024 The Khronos Group Inc.
+Copyright 2014-2025 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
-
-Version 1.3.290  
-Last updated 2024-07-11 23:39:16 -0700

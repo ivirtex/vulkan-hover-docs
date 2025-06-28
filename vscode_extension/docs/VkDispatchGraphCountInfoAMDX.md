@@ -2,16 +2,15 @@
 
 ## Name
 
-VkDispatchGraphCountInfoAMDX - Structure specifying count parameters for
-execution graph dispatch
+VkDispatchGraphCountInfoAMDX - Structure specifying count parameters for execution graph dispatch
 
 
 
-## <a href="#_c_specification" class="anchor"></a>C Specification
+## [](#_c_specification)C Specification
 
 The `VkDispatchGraphCountInfoAMDX` structure is defined as:
 
-``` c
+```c++
 // Provided by VK_AMDX_shader_enqueue
 typedef struct VkDispatchGraphCountInfoAMDX {
     uint32_t                          count;
@@ -20,44 +19,28 @@ typedef struct VkDispatchGraphCountInfoAMDX {
 } VkDispatchGraphCountInfoAMDX;
 ```
 
-## <a href="#_members" class="anchor"></a>Members
+## [](#_members)Members
 
 - `count` is the number of dispatches to perform.
+- `infos` is the device or host address of a flat array of [VkDispatchGraphInfoAMDX](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDispatchGraphInfoAMDX.html) structures
+- `stride` is the byte stride between successive [VkDispatchGraphInfoAMDX](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDispatchGraphInfoAMDX.html) structures in `infos`
 
-- `infos` is the device or host address of a flat array of
-  [VkDispatchGraphInfoAMDX](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkDispatchGraphInfoAMDX.html) structures
+## [](#_description)Description
 
-- `stride` is the byte stride between successive
-  [VkDispatchGraphInfoAMDX](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkDispatchGraphInfoAMDX.html) structures in
-  `infos`
+Whether `infos` is consumed as a device or host pointer is defined by the command this structure is used in.
 
-## <a href="#_description" class="anchor"></a>Description
+## [](#_see_also)See Also
 
-Whether `infos` is consumed as a device or host pointer is defined by
-the command this structure is used in.
+[VK\_AMDX\_shader\_enqueue](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_AMDX_shader_enqueue.html), [VkDeviceOrHostAddressConstAMDX](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDeviceOrHostAddressConstAMDX.html), [vkCmdDispatchGraphAMDX](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdDispatchGraphAMDX.html), [vkCmdDispatchGraphIndirectAMDX](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdDispatchGraphIndirectAMDX.html), [vkCmdDispatchGraphIndirectCountAMDX](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdDispatchGraphIndirectCountAMDX.html)
 
-## <a href="#_see_also" class="anchor"></a>See Also
+## [](#_document_notes)Document Notes
 
-[VK_AMDX_shader_enqueue](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_AMDX_shader_enqueue.html),
-[VkDeviceOrHostAddressConstAMDX](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkDeviceOrHostAddressConstAMDX.html),
-[vkCmdDispatchGraphAMDX](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdDispatchGraphAMDX.html),
-[vkCmdDispatchGraphIndirectAMDX](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdDispatchGraphIndirectAMDX.html),
-[vkCmdDispatchGraphIndirectCountAMDX](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdDispatchGraphIndirectCountAMDX.html)
+For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#VkDispatchGraphCountInfoAMDX)
 
-## <a href="#_document_notes" class="anchor"></a>Document Notes
+This page is extracted from the Vulkan Specification. Fixes and changes should be made to the Specification, not directly.
 
-For more information, see the <a
-href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#VkDispatchGraphCountInfoAMDX"
-target="_blank" rel="noopener">Vulkan Specification</a>
+## [](#_copyright)Copyright
 
-This page is extracted from the Vulkan Specification. Fixes and changes
-should be made to the Specification, not directly.
-
-## <a href="#_copyright" class="anchor"></a>Copyright
-
-Copyright 2014-2024 The Khronos Group Inc.
+Copyright 2014-2025 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
-
-Version 1.3.290  
-Last updated 2024-07-11 23:39:16 -0700

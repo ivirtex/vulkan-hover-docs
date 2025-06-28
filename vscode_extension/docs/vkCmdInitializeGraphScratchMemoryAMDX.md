@@ -2,170 +2,95 @@
 
 ## Name
 
-vkCmdInitializeGraphScratchMemoryAMDX - Initialize scratch memory for an
-execution graph
+vkCmdInitializeGraphScratchMemoryAMDX - Initialize scratch memory for an execution graph
 
 
 
-## <a href="#_c_specification" class="anchor"></a>C Specification
+## [](#_c_specification)C Specification
 
 To initialize scratch memory for a particular execution graph, call:
 
-``` c
+```c++
 // Provided by VK_AMDX_shader_enqueue
 void vkCmdInitializeGraphScratchMemoryAMDX(
     VkCommandBuffer                             commandBuffer,
-    VkDeviceAddress                             scratch);
+    VkPipeline                                  executionGraph,
+    VkDeviceAddress                             scratch,
+    VkDeviceSize                                scratchSize);
 ```
 
-## <a href="#_parameters" class="anchor"></a>Parameters
+## [](#_parameters)Parameters
 
-- `commandBuffer` is the command buffer into which the command will be
-  recorded.
+- `commandBuffer` is the command buffer into which the command will be recorded.
+- `executionGraph` is the execution graph pipeline to initialize the scratch memory for.
+- `scratch` is the address of scratch memory to be initialized.
+- `scratchSize` is a range in bytes of scratch memory to be initialized.
 
-- `scratch` is a pointer to the scratch memory to be initialized.
+## [](#_description)Description
 
-## <a href="#_description" class="anchor"></a>Description
+This command **must** be called before using `scratch` to dispatch the bound execution graph pipeline.
 
-This command **must** be called before using `scratch` to dispatch the
-currently bound execution graph pipeline.
+Execution of this command **may** modify any memory locations in the range [`scratch`,`scratch` + `scratchSize`). Accesses to this memory range are performed in the `VK_PIPELINE_STAGE_2_COMPUTE_SHADER_BIT` pipeline stage with the `VK_ACCESS_2_SHADER_STORAGE_READ_BIT` and `VK_ACCESS_2_SHADER_STORAGE_WRITE_BIT` access flags.
 
-Execution of this command **may** modify any memory locations in the
-range \[`scratch`,`scratch` + `size`), where `size` is the value
-returned in
-[VkExecutionGraphPipelineScratchSizeAMDX](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkExecutionGraphPipelineScratchSizeAMDX.html)::`size`
-by
-[VkExecutionGraphPipelineScratchSizeAMDX](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkExecutionGraphPipelineScratchSizeAMDX.html)
-for the currently bound execution graph pipeline. Accesses to this
-memory range are performed in the
-`VK_PIPELINE_STAGE_2_COMPUTE_SHADER_BIT` pipeline stage with the
-`VK_ACCESS_2_SHADER_STORAGE_READ_BIT` and
-`VK_ACCESS_2_SHADER_STORAGE_WRITE_BIT` access flags.
-
-If any portion of `scratch` is modified by any command other than
-[vkCmdDispatchGraphAMDX](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdDispatchGraphAMDX.html),
-[vkCmdDispatchGraphIndirectAMDX](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdDispatchGraphIndirectAMDX.html),
-[vkCmdDispatchGraphIndirectCountAMDX](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdDispatchGraphIndirectCountAMDX.html),
-or `vkCmdInitializeGraphScratchMemoryAMDX` with the same execution
-graph, it **must** be reinitialized for the execution graph again before
-dispatching against it.
+If any portion of `scratch` is modified by any command other than [vkCmdDispatchGraphAMDX](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdDispatchGraphAMDX.html), [vkCmdDispatchGraphIndirectAMDX](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdDispatchGraphIndirectAMDX.html), [vkCmdDispatchGraphIndirectCountAMDX](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdDispatchGraphIndirectCountAMDX.html), or [vkCmdInitializeGraphScratchMemoryAMDX](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdInitializeGraphScratchMemoryAMDX.html) with the same execution graph, it **must** be reinitialized for the execution graph again before dispatching against it.
 
 Valid Usage
 
-- <a href="#VUID-vkCmdInitializeGraphScratchMemoryAMDX-scratch-09143"
-  id="VUID-vkCmdInitializeGraphScratchMemoryAMDX-scratch-09143"></a>
-  VUID-vkCmdInitializeGraphScratchMemoryAMDX-scratch-09143  
-  `scratch` **must** be the device address of an allocated memory range
-  at least as large as the value of
-  [VkExecutionGraphPipelineScratchSizeAMDX](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkExecutionGraphPipelineScratchSizeAMDX.html)::`size`
-  returned by
-  [VkExecutionGraphPipelineScratchSizeAMDX](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkExecutionGraphPipelineScratchSizeAMDX.html)
-  for the currently bound execution graph pipeline.
-
-- <a href="#VUID-vkCmdInitializeGraphScratchMemoryAMDX-scratch-09144"
-  id="VUID-vkCmdInitializeGraphScratchMemoryAMDX-scratch-09144"></a>
-  VUID-vkCmdInitializeGraphScratchMemoryAMDX-scratch-09144  
+- [](#VUID-vkCmdInitializeGraphScratchMemoryAMDX-scratch-10185)VUID-vkCmdInitializeGraphScratchMemoryAMDX-scratch-10185  
+  `scratch` **must** be the device address of an allocated memory range at least as large as `scratchSize`
+- [](#VUID-vkCmdInitializeGraphScratchMemoryAMDX-scratchSize-10186)VUID-vkCmdInitializeGraphScratchMemoryAMDX-scratchSize-10186  
+  `scratchSize` **must** be greater than or equal to [VkExecutionGraphPipelineScratchSizeAMDX](https://registry.khronos.org/vulkan/specs/latest/man/html/VkExecutionGraphPipelineScratchSizeAMDX.html)::`minSize` returned by [vkGetExecutionGraphPipelineScratchSizeAMDX](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetExecutionGraphPipelineScratchSizeAMDX.html) for the bound execution graph pipeline
+- [](#VUID-vkCmdInitializeGraphScratchMemoryAMDX-scratch-09144)VUID-vkCmdInitializeGraphScratchMemoryAMDX-scratch-09144  
   `scratch` **must** be a multiple of 64
 
 Valid Usage (Implicit)
 
-- <a
-  href="#VUID-vkCmdInitializeGraphScratchMemoryAMDX-commandBuffer-parameter"
-  id="VUID-vkCmdInitializeGraphScratchMemoryAMDX-commandBuffer-parameter"></a>
-  VUID-vkCmdInitializeGraphScratchMemoryAMDX-commandBuffer-parameter  
-  `commandBuffer` **must** be a valid
-  [VkCommandBuffer](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkCommandBuffer.html) handle
-
-- <a
-  href="#VUID-vkCmdInitializeGraphScratchMemoryAMDX-commandBuffer-recording"
-  id="VUID-vkCmdInitializeGraphScratchMemoryAMDX-commandBuffer-recording"></a>
-  VUID-vkCmdInitializeGraphScratchMemoryAMDX-commandBuffer-recording  
-  `commandBuffer` **must** be in the [recording
-  state](#commandbuffers-lifecycle)
-
-- <a
-  href="#VUID-vkCmdInitializeGraphScratchMemoryAMDX-commandBuffer-cmdpool"
-  id="VUID-vkCmdInitializeGraphScratchMemoryAMDX-commandBuffer-cmdpool"></a>
-  VUID-vkCmdInitializeGraphScratchMemoryAMDX-commandBuffer-cmdpool  
-  The `VkCommandPool` that `commandBuffer` was allocated from **must**
-  support graphics, or compute operations
-
-- <a href="#VUID-vkCmdInitializeGraphScratchMemoryAMDX-renderpass"
-  id="VUID-vkCmdInitializeGraphScratchMemoryAMDX-renderpass"></a>
-  VUID-vkCmdInitializeGraphScratchMemoryAMDX-renderpass  
-  This command **must** only be called outside of a render pass instance
-
-- <a href="#VUID-vkCmdInitializeGraphScratchMemoryAMDX-videocoding"
-  id="VUID-vkCmdInitializeGraphScratchMemoryAMDX-videocoding"></a>
-  VUID-vkCmdInitializeGraphScratchMemoryAMDX-videocoding  
+- [](#VUID-vkCmdInitializeGraphScratchMemoryAMDX-commandBuffer-parameter)VUID-vkCmdInitializeGraphScratchMemoryAMDX-commandBuffer-parameter  
+  `commandBuffer` **must** be a valid [VkCommandBuffer](https://registry.khronos.org/vulkan/specs/latest/man/html/VkCommandBuffer.html) handle
+- [](#VUID-vkCmdInitializeGraphScratchMemoryAMDX-executionGraph-parameter)VUID-vkCmdInitializeGraphScratchMemoryAMDX-executionGraph-parameter  
+  `executionGraph` **must** be a valid [VkPipeline](https://registry.khronos.org/vulkan/specs/latest/man/html/VkPipeline.html) handle
+- [](#VUID-vkCmdInitializeGraphScratchMemoryAMDX-commandBuffer-recording)VUID-vkCmdInitializeGraphScratchMemoryAMDX-commandBuffer-recording  
+  `commandBuffer` **must** be in the [recording state](#commandbuffers-lifecycle)
+- [](#VUID-vkCmdInitializeGraphScratchMemoryAMDX-commandBuffer-cmdpool)VUID-vkCmdInitializeGraphScratchMemoryAMDX-commandBuffer-cmdpool  
+  The `VkCommandPool` that `commandBuffer` was allocated from **must** support graphics, or compute operations
+- [](#VUID-vkCmdInitializeGraphScratchMemoryAMDX-videocoding)VUID-vkCmdInitializeGraphScratchMemoryAMDX-videocoding  
   This command **must** only be called outside of a video coding scope
-
-- <a href="#VUID-vkCmdInitializeGraphScratchMemoryAMDX-bufferlevel"
-  id="VUID-vkCmdInitializeGraphScratchMemoryAMDX-bufferlevel"></a>
-  VUID-vkCmdInitializeGraphScratchMemoryAMDX-bufferlevel  
+- [](#VUID-vkCmdInitializeGraphScratchMemoryAMDX-bufferlevel)VUID-vkCmdInitializeGraphScratchMemoryAMDX-bufferlevel  
   `commandBuffer` **must** be a primary `VkCommandBuffer`
+- [](#VUID-vkCmdInitializeGraphScratchMemoryAMDX-commonparent)VUID-vkCmdInitializeGraphScratchMemoryAMDX-commonparent  
+  Both of `commandBuffer`, and `executionGraph` **must** have been created, allocated, or retrieved from the same [VkDevice](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDevice.html)
 
 Host Synchronization
 
-- Host access to the `VkCommandPool` that `commandBuffer` was allocated
-  from **must** be externally synchronized
+- Host access to the `VkCommandPool` that `commandBuffer` was allocated from **must** be externally synchronized
 
 Command Properties
 
-<table class="tableblock frame-all grid-all stretch">
-<colgroup>
-<col style="width: 20%" />
-<col style="width: 20%" />
-<col style="width: 20%" />
-<col style="width: 20%" />
-<col style="width: 20%" />
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-top"><a
-href="#VkCommandBufferLevel">Command Buffer Levels</a></th>
-<th class="tableblock halign-left valign-top"><a
-href="#vkCmdBeginRenderPass">Render Pass Scope</a></th>
-<th class="tableblock halign-left valign-top"><a
-href="#vkCmdBeginVideoCodingKHR">Video Coding Scope</a></th>
-<th class="tableblock halign-left valign-top"><a
-href="#VkQueueFlagBits">Supported Queue Types</a></th>
-<th class="tableblock halign-left valign-top"><a
-href="#fundamentals-queueoperation-command-types">Command Type</a></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p>Primary</p></td>
-<td class="tableblock halign-left valign-top"><p>Outside</p></td>
-<td class="tableblock halign-left valign-top"><p>Outside</p></td>
-<td class="tableblock halign-left valign-top"><p>Graphics<br />
-Compute</p></td>
-<td class="tableblock halign-left valign-top"><p>Action</p></td>
-</tr>
-</tbody>
-</table>
+     [Command Buffer Levels](#VkCommandBufferLevel) [Render Pass Scope](#vkCmdBeginRenderPass) [Video Coding Scope](#vkCmdBeginVideoCodingKHR) [Supported Queue Types](#VkQueueFlagBits) [Command Type](#fundamentals-queueoperation-command-types)
 
-## <a href="#_see_also" class="anchor"></a>See Also
+Primary
 
-[VK_AMDX_shader_enqueue](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_AMDX_shader_enqueue.html),
-[VkCommandBuffer](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkCommandBuffer.html),
-[VkDeviceAddress](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkDeviceAddress.html)
+Both
 
-## <a href="#_document_notes" class="anchor"></a>Document Notes
+Outside
 
-For more information, see the <a
-href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#vkCmdInitializeGraphScratchMemoryAMDX"
-target="_blank" rel="noopener">Vulkan Specification</a>
+Graphics  
+Compute
 
-This page is extracted from the Vulkan Specification. Fixes and changes
-should be made to the Specification, not directly.
+Action
 
-## <a href="#_copyright" class="anchor"></a>Copyright
+## [](#_see_also)See Also
 
-Copyright 2014-2024 The Khronos Group Inc.
+[VK\_AMDX\_shader\_enqueue](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_AMDX_shader_enqueue.html), [VkCommandBuffer](https://registry.khronos.org/vulkan/specs/latest/man/html/VkCommandBuffer.html), [VkDeviceAddress](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDeviceAddress.html), [VkDeviceSize](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDeviceSize.html), [VkPipeline](https://registry.khronos.org/vulkan/specs/latest/man/html/VkPipeline.html)
+
+## [](#_document_notes)Document Notes
+
+For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#vkCmdInitializeGraphScratchMemoryAMDX)
+
+This page is extracted from the Vulkan Specification. Fixes and changes should be made to the Specification, not directly.
+
+## [](#_copyright)Copyright
+
+Copyright 2014-2025 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
-
-Version 1.3.290  
-Last updated 2024-07-11 23:39:16 -0700

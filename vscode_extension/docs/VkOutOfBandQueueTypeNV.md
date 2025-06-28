@@ -6,12 +6,11 @@ VkOutOfBandQueueTypeNV - Type of out of band queue
 
 
 
-## <a href="#_c_specification" class="anchor"></a>C Specification
+## [](#_c_specification)C Specification
 
-The [VkOutOfBandQueueTypeNV](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkOutOfBandQueueTypeNV.html) enum is
-defined as:
+The [VkOutOfBandQueueTypeNV](https://registry.khronos.org/vulkan/specs/latest/man/html/VkOutOfBandQueueTypeNV.html) enum is defined as:
 
-``` c
+```c++
 // Provided by VK_NV_low_latency2
 typedef enum VkOutOfBandQueueTypeNV {
     VK_OUT_OF_BAND_QUEUE_TYPE_RENDER_NV = 0,
@@ -19,38 +18,25 @@ typedef enum VkOutOfBandQueueTypeNV {
 } VkOutOfBandQueueTypeNV;
 ```
 
-## <a href="#_description" class="anchor"></a>Description
+## [](#_description)Description
 
-The members of the [VkOutOfBandQueueTypeNV](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkOutOfBandQueueTypeNV.html)
-are used to describe the queue type in
-[VkOutOfBandQueueTypeInfoNV](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkOutOfBandQueueTypeInfoNV.html) as
-described below:
+The members of the [VkOutOfBandQueueTypeNV](https://registry.khronos.org/vulkan/specs/latest/man/html/VkOutOfBandQueueTypeNV.html) are used to describe the queue type in [VkOutOfBandQueueTypeInfoNV](https://registry.khronos.org/vulkan/specs/latest/man/html/VkOutOfBandQueueTypeInfoNV.html) as described below:
 
-- `VK_OUT_OF_BAND_QUEUE_TYPE_RENDER_NV` indicates that work will be
-  submitted to this queue.
+- `VK_OUT_OF_BAND_QUEUE_TYPE_RENDER_NV` specifies that work will be submitted to this queue.
+- `VK_OUT_OF_BAND_QUEUE_TYPE_PRESENT_NV` specifies that this queue will be presented from.
 
-- `VK_OUT_OF_BAND_QUEUE_TYPE_PRESENT_NV` indicates that this queue will
-  be presented from.
+## [](#_see_also)See Also
 
-## <a href="#_see_also" class="anchor"></a>See Also
+[VK\_NV\_low\_latency2](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_NV_low_latency2.html), [VkOutOfBandQueueTypeInfoNV](https://registry.khronos.org/vulkan/specs/latest/man/html/VkOutOfBandQueueTypeInfoNV.html)
 
-[VK_NV_low_latency2](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_NV_low_latency2.html),
-[VkOutOfBandQueueTypeInfoNV](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkOutOfBandQueueTypeInfoNV.html)
+## [](#_document_notes)Document Notes
 
-## <a href="#_document_notes" class="anchor"></a>Document Notes
+For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#VkOutOfBandQueueTypeNV)
 
-For more information, see the <a
-href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#VkOutOfBandQueueTypeNV"
-target="_blank" rel="noopener">Vulkan Specification</a>
+This page is extracted from the Vulkan Specification. Fixes and changes should be made to the Specification, not directly.
 
-This page is extracted from the Vulkan Specification. Fixes and changes
-should be made to the Specification, not directly.
+## [](#_copyright)Copyright
 
-## <a href="#_copyright" class="anchor"></a>Copyright
-
-Copyright 2014-2024 The Khronos Group Inc.
+Copyright 2014-2025 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
-
-Version 1.3.290  
-Last updated 2024-07-11 23:39:16 -0700

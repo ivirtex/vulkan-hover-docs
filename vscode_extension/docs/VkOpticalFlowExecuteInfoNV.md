@@ -2,17 +2,15 @@
 
 ## Name
 
-VkOpticalFlowExecuteInfoNV - Structure specifying parameters of an
-optical flow vector calculation
+VkOpticalFlowExecuteInfoNV - Structure specifying parameters of an optical flow vector calculation
 
 
 
-## <a href="#_c_specification" class="anchor"></a>C Specification
+## [](#_c_specification)C Specification
 
-The [VkOpticalFlowExecuteInfoNV](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkOpticalFlowExecuteInfoNV.html)
-structure is defined as:
+The [VkOpticalFlowExecuteInfoNV](https://registry.khronos.org/vulkan/specs/latest/man/html/VkOpticalFlowExecuteInfoNV.html) structure is defined as:
 
-``` c
+```c++
 // Provided by VK_NV_optical_flow
 typedef struct VkOpticalFlowExecuteInfoNV {
     VkStructureType                sType;
@@ -23,81 +21,44 @@ typedef struct VkOpticalFlowExecuteInfoNV {
 } VkOpticalFlowExecuteInfoNV;
 ```
 
-## <a href="#_members" class="anchor"></a>Members
+## [](#_members)Members
 
-- `sType` is a [VkStructureType](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkStructureType.html) value identifying
-  this structure.
+- `sType` is a [VkStructureType](https://registry.khronos.org/vulkan/specs/latest/man/html/VkStructureType.html) value identifying this structure.
+- `pNext` is `NULL` or a pointer to a structure extending this structure.
+- `flags` are the [VkOpticalFlowExecuteFlagsNV](https://registry.khronos.org/vulkan/specs/latest/man/html/VkOpticalFlowExecuteFlagsNV.html) used for this command.
+- `regionCount` is the number of regions of interest specified in `pRegions`.
+- `pRegions` is a pointer to `regionCount` `VkRect2D` regions of interest.
 
-- `pNext` is `NULL` or a pointer to a structure extending this
-  structure.
-
-- `flags` are the
-  [VkOpticalFlowExecuteFlagsNV](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkOpticalFlowExecuteFlagsNV.html) used
-  for this command.
-
-- `regionCount` is the number of regions of interest specified in
-  `pRegions`.
-
-- `pRegions` is a pointer to `regionCount` `VkRect2D` regions of
-  interest.
-
-## <a href="#_description" class="anchor"></a>Description
+## [](#_description)Description
 
 Valid Usage
 
-- <a href="#VUID-VkOpticalFlowExecuteInfoNV-regionCount-07593"
-  id="VUID-VkOpticalFlowExecuteInfoNV-regionCount-07593"></a>
-  VUID-VkOpticalFlowExecuteInfoNV-regionCount-07593  
-  `regionCount` **must** be 0 if
-  `VK_OPTICAL_FLOW_SESSION_CREATE_ALLOW_REGIONS_BIT_NV` was not set for
-  `VkOpticalFlowSessionNV` on which this command is operating
+- [](#VUID-VkOpticalFlowExecuteInfoNV-regionCount-07593)VUID-VkOpticalFlowExecuteInfoNV-regionCount-07593  
+  `regionCount` **must** be 0 if `VK_OPTICAL_FLOW_SESSION_CREATE_ALLOW_REGIONS_BIT_NV` was not set for `VkOpticalFlowSessionNV` on which this command is operating
 
 Valid Usage (Implicit)
 
-- <a href="#VUID-VkOpticalFlowExecuteInfoNV-sType-sType"
-  id="VUID-VkOpticalFlowExecuteInfoNV-sType-sType"></a>
-  VUID-VkOpticalFlowExecuteInfoNV-sType-sType  
+- [](#VUID-VkOpticalFlowExecuteInfoNV-sType-sType)VUID-VkOpticalFlowExecuteInfoNV-sType-sType  
   `sType` **must** be `VK_STRUCTURE_TYPE_OPTICAL_FLOW_EXECUTE_INFO_NV`
-
-- <a href="#VUID-VkOpticalFlowExecuteInfoNV-pNext-pNext"
-  id="VUID-VkOpticalFlowExecuteInfoNV-pNext-pNext"></a>
-  VUID-VkOpticalFlowExecuteInfoNV-pNext-pNext  
+- [](#VUID-VkOpticalFlowExecuteInfoNV-pNext-pNext)VUID-VkOpticalFlowExecuteInfoNV-pNext-pNext  
   `pNext` **must** be `NULL`
+- [](#VUID-VkOpticalFlowExecuteInfoNV-flags-parameter)VUID-VkOpticalFlowExecuteInfoNV-flags-parameter  
+  `flags` **must** be a valid combination of [VkOpticalFlowExecuteFlagBitsNV](https://registry.khronos.org/vulkan/specs/latest/man/html/VkOpticalFlowExecuteFlagBitsNV.html) values
+- [](#VUID-VkOpticalFlowExecuteInfoNV-pRegions-parameter)VUID-VkOpticalFlowExecuteInfoNV-pRegions-parameter  
+  If `regionCount` is not `0`, `pRegions` **must** be a valid pointer to an array of `regionCount` [VkRect2D](https://registry.khronos.org/vulkan/specs/latest/man/html/VkRect2D.html) structures
 
-- <a href="#VUID-VkOpticalFlowExecuteInfoNV-flags-parameter"
-  id="VUID-VkOpticalFlowExecuteInfoNV-flags-parameter"></a>
-  VUID-VkOpticalFlowExecuteInfoNV-flags-parameter  
-  `flags` **must** be a valid combination of
-  [VkOpticalFlowExecuteFlagBitsNV](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkOpticalFlowExecuteFlagBitsNV.html)
-  values
+## [](#_see_also)See Also
 
-- <a href="#VUID-VkOpticalFlowExecuteInfoNV-pRegions-parameter"
-  id="VUID-VkOpticalFlowExecuteInfoNV-pRegions-parameter"></a>
-  VUID-VkOpticalFlowExecuteInfoNV-pRegions-parameter  
-  If `regionCount` is not `0`, `pRegions` **must** be a valid pointer to
-  an array of `regionCount` [VkRect2D](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkRect2D.html) structures
+[VK\_NV\_optical\_flow](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_NV_optical_flow.html), [VkOpticalFlowExecuteFlagsNV](https://registry.khronos.org/vulkan/specs/latest/man/html/VkOpticalFlowExecuteFlagsNV.html), [VkRect2D](https://registry.khronos.org/vulkan/specs/latest/man/html/VkRect2D.html), [VkStructureType](https://registry.khronos.org/vulkan/specs/latest/man/html/VkStructureType.html), [vkCmdOpticalFlowExecuteNV](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdOpticalFlowExecuteNV.html)
 
-## <a href="#_see_also" class="anchor"></a>See Also
+## [](#_document_notes)Document Notes
 
-[VK_NV_optical_flow](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_NV_optical_flow.html),
-[VkOpticalFlowExecuteFlagsNV](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkOpticalFlowExecuteFlagsNV.html),
-[VkRect2D](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkRect2D.html), [VkStructureType](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkStructureType.html),
-[vkCmdOpticalFlowExecuteNV](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdOpticalFlowExecuteNV.html)
+For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#VkOpticalFlowExecuteInfoNV)
 
-## <a href="#_document_notes" class="anchor"></a>Document Notes
+This page is extracted from the Vulkan Specification. Fixes and changes should be made to the Specification, not directly.
 
-For more information, see the <a
-href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#VkOpticalFlowExecuteInfoNV"
-target="_blank" rel="noopener">Vulkan Specification</a>
+## [](#_copyright)Copyright
 
-This page is extracted from the Vulkan Specification. Fixes and changes
-should be made to the Specification, not directly.
-
-## <a href="#_copyright" class="anchor"></a>Copyright
-
-Copyright 2014-2024 The Khronos Group Inc.
+Copyright 2014-2025 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
-
-Version 1.3.290  
-Last updated 2024-07-11 23:39:16 -0700

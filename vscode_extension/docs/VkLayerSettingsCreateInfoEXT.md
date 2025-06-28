@@ -2,21 +2,15 @@
 
 ## Name
 
-VkLayerSettingsCreateInfoEXT - Specify layer capabilities for a Vulkan
-instance
+VkLayerSettingsCreateInfoEXT - Specify layer capabilities for a Vulkan instance
 
 
 
-## <a href="#_c_specification" class="anchor"></a>C Specification
+## [](#_c_specification)C Specification
 
-To create a Vulkan instance with a specific configuration of layer
-settings, add
-[VkLayerSettingsCreateInfoEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkLayerSettingsCreateInfoEXT.html)
-structures to the `pNext` chain of the
-[VkInstanceCreateInfo](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkInstanceCreateInfo.html) structure, specifying
-the settings to be configured.
+To create a Vulkan instance with a specific configuration of layer settings, add [VkLayerSettingsCreateInfoEXT](https://registry.khronos.org/vulkan/specs/latest/man/html/VkLayerSettingsCreateInfoEXT.html) structures to the `pNext` chain of the [VkInstanceCreateInfo](https://registry.khronos.org/vulkan/specs/latest/man/html/VkInstanceCreateInfo.html) structure, specifying the settings to be configured.
 
-``` c
+```c++
 // Provided by VK_EXT_layer_settings
 typedef struct VkLayerSettingsCreateInfoEXT {
     VkStructureType             sType;
@@ -26,56 +20,34 @@ typedef struct VkLayerSettingsCreateInfoEXT {
 } VkLayerSettingsCreateInfoEXT;
 ```
 
-## <a href="#_members" class="anchor"></a>Members
+## [](#_members)Members
 
-- `sType` is a [VkStructureType](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkStructureType.html) value identifying
-  this structure.
-
-- `pNext` is `NULL` or a pointer to a structure extending this
-  structure.
-
+- `sType` is a [VkStructureType](https://registry.khronos.org/vulkan/specs/latest/man/html/VkStructureType.html) value identifying this structure.
+- `pNext` is `NULL` or a pointer to a structure extending this structure.
 - `settingCount` is the number of settings to configure.
+- `pSettings` is a pointer to an array of `settingCount` [VkLayerSettingEXT](https://registry.khronos.org/vulkan/specs/latest/man/html/VkLayerSettingEXT.html) values specifying the settings to be configured.
 
-- `pSettings` is a pointer to an array of `settingCount`
-  [VkLayerSettingEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkLayerSettingEXT.html) values specifying the
-  setting to be configured.
-
-## <a href="#_description" class="anchor"></a>Description
+## [](#_description)Description
 
 Valid Usage (Implicit)
 
-- <a href="#VUID-VkLayerSettingsCreateInfoEXT-sType-sType"
-  id="VUID-VkLayerSettingsCreateInfoEXT-sType-sType"></a>
-  VUID-VkLayerSettingsCreateInfoEXT-sType-sType  
+- [](#VUID-VkLayerSettingsCreateInfoEXT-sType-sType)VUID-VkLayerSettingsCreateInfoEXT-sType-sType  
   `sType` **must** be `VK_STRUCTURE_TYPE_LAYER_SETTINGS_CREATE_INFO_EXT`
+- [](#VUID-VkLayerSettingsCreateInfoEXT-pSettings-parameter)VUID-VkLayerSettingsCreateInfoEXT-pSettings-parameter  
+  If `settingCount` is not `0`, `pSettings` **must** be a valid pointer to an array of `settingCount` valid [VkLayerSettingEXT](https://registry.khronos.org/vulkan/specs/latest/man/html/VkLayerSettingEXT.html) structures
 
-- <a href="#VUID-VkLayerSettingsCreateInfoEXT-pSettings-parameter"
-  id="VUID-VkLayerSettingsCreateInfoEXT-pSettings-parameter"></a>
-  VUID-VkLayerSettingsCreateInfoEXT-pSettings-parameter  
-  If `settingCount` is not `0`, `pSettings` **must** be a valid pointer
-  to an array of `settingCount` valid
-  [VkLayerSettingEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkLayerSettingEXT.html) structures
+## [](#_see_also)See Also
 
-## <a href="#_see_also" class="anchor"></a>See Also
+[VK\_EXT\_layer\_settings](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_EXT_layer_settings.html), [VkLayerSettingEXT](https://registry.khronos.org/vulkan/specs/latest/man/html/VkLayerSettingEXT.html), [VkStructureType](https://registry.khronos.org/vulkan/specs/latest/man/html/VkStructureType.html)
 
-[VK_EXT_layer_settings](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_EXT_layer_settings.html),
-[VkLayerSettingEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkLayerSettingEXT.html),
-[VkStructureType](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkStructureType.html)
+## [](#_document_notes)Document Notes
 
-## <a href="#_document_notes" class="anchor"></a>Document Notes
+For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#VkLayerSettingsCreateInfoEXT)
 
-For more information, see the <a
-href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#VkLayerSettingsCreateInfoEXT"
-target="_blank" rel="noopener">Vulkan Specification</a>
+This page is extracted from the Vulkan Specification. Fixes and changes should be made to the Specification, not directly.
 
-This page is extracted from the Vulkan Specification. Fixes and changes
-should be made to the Specification, not directly.
+## [](#_copyright)Copyright
 
-## <a href="#_copyright" class="anchor"></a>Copyright
-
-Copyright 2014-2024 The Khronos Group Inc.
+Copyright 2014-2025 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
-
-Version 1.3.290  
-Last updated 2024-07-11 23:39:16 -0700

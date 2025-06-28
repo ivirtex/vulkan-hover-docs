@@ -2,20 +2,15 @@
 
 ## Name
 
-vkCmdSetPrimitiveRestartEnable - Set primitive assembly restart state
-dynamically for a command buffer
+vkCmdSetPrimitiveRestartEnable - Set primitive assembly restart state dynamically for a command buffer
 
 
 
-## <a href="#_c_specification" class="anchor"></a>C Specification
+## [](#_c_specification)C Specification
 
-To <a
-href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#pipelines-dynamic-state"
-target="_blank" rel="noopener">dynamically control</a> whether a special
-vertex index value is treated as restarting the assembly of primitives,
-call:
+To [dynamically control](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#pipelines-dynamic-state) whether a special vertex index value is treated as restarting the assembly of primitives, call:
 
-``` c
+```c++
 // Provided by VK_VERSION_1_3
 void vkCmdSetPrimitiveRestartEnable(
     VkCommandBuffer                             commandBuffer,
@@ -24,142 +19,74 @@ void vkCmdSetPrimitiveRestartEnable(
 
 or the equivalent command
 
-``` c
+```c++
 // Provided by VK_EXT_extended_dynamic_state2, VK_EXT_shader_object
 void vkCmdSetPrimitiveRestartEnableEXT(
     VkCommandBuffer                             commandBuffer,
     VkBool32                                    primitiveRestartEnable);
 ```
 
-## <a href="#_parameters" class="anchor"></a>Parameters
+## [](#_parameters)Parameters
 
-- `commandBuffer` is the command buffer into which the command will be
-  recorded.
+- `commandBuffer` is the command buffer into which the command will be recorded.
+- `primitiveRestartEnable` controls whether a special vertex index value is treated as restarting the assembly of primitives. It behaves in the same way as `VkPipelineInputAssemblyStateCreateInfo`::`primitiveRestartEnable`
 
-- `primitiveRestartEnable` controls whether a special vertex index value
-  is treated as restarting the assembly of primitives. It behaves in the
-  same way as
-  `VkPipelineInputAssemblyStateCreateInfo`::`primitiveRestartEnable`
+## [](#_description)Description
 
-## <a href="#_description" class="anchor"></a>Description
-
-This command sets the primitive restart enable for subsequent drawing
-commands when drawing using <a
-href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#shaders-objects"
-target="_blank" rel="noopener">shader objects</a>, or when the graphics
-pipeline is created with `VK_DYNAMIC_STATE_PRIMITIVE_RESTART_ENABLE` set
-in
-[VkPipelineDynamicStateCreateInfo](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkPipelineDynamicStateCreateInfo.html)::`pDynamicStates`.
-Otherwise, this state is specified by the
-[VkPipelineInputAssemblyStateCreateInfo](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkPipelineInputAssemblyStateCreateInfo.html)::`primitiveRestartEnable`
-value used to create the currently active pipeline.
+This command sets the primitive restart enable for subsequent drawing commands when drawing using [shader objects](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#shaders-objects), or when the graphics pipeline is created with `VK_DYNAMIC_STATE_PRIMITIVE_RESTART_ENABLE` set in [VkPipelineDynamicStateCreateInfo](https://registry.khronos.org/vulkan/specs/latest/man/html/VkPipelineDynamicStateCreateInfo.html)::`pDynamicStates`. Otherwise, this state is specified by the [VkPipelineInputAssemblyStateCreateInfo](https://registry.khronos.org/vulkan/specs/latest/man/html/VkPipelineInputAssemblyStateCreateInfo.html)::`primitiveRestartEnable` value used to create the currently active pipeline.
 
 Valid Usage
 
-- <a href="#VUID-vkCmdSetPrimitiveRestartEnable-None-08970"
-  id="VUID-vkCmdSetPrimitiveRestartEnable-None-08970"></a>
-  VUID-vkCmdSetPrimitiveRestartEnable-None-08970  
+- [](#VUID-vkCmdSetPrimitiveRestartEnable-None-08970)VUID-vkCmdSetPrimitiveRestartEnable-None-08970  
   At least one of the following **must** be true:
-
-  - the [`extendedDynamicState2`](#features-extendedDynamicState2)
-    feature is enabled
-
+  
+  - the [`extendedDynamicState2`](#features-extendedDynamicState2) feature is enabled
   - the [`shaderObject`](#features-shaderObject) feature is enabled
-
-  - the value of
-    [VkApplicationInfo](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkApplicationInfo.html)::`apiVersion` used to
-    create the [VkInstance](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkInstance.html) parent of `commandBuffer`
-    is greater than or equal to Version 1.3
+  - the value of [VkApplicationInfo](https://registry.khronos.org/vulkan/specs/latest/man/html/VkApplicationInfo.html)::`apiVersion` used to create the [VkInstance](https://registry.khronos.org/vulkan/specs/latest/man/html/VkInstance.html) parent of `commandBuffer` is greater than or equal to Version 1.3
 
 Valid Usage (Implicit)
 
-- <a href="#VUID-vkCmdSetPrimitiveRestartEnable-commandBuffer-parameter"
-  id="VUID-vkCmdSetPrimitiveRestartEnable-commandBuffer-parameter"></a>
-  VUID-vkCmdSetPrimitiveRestartEnable-commandBuffer-parameter  
-  `commandBuffer` **must** be a valid
-  [VkCommandBuffer](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkCommandBuffer.html) handle
-
-- <a href="#VUID-vkCmdSetPrimitiveRestartEnable-commandBuffer-recording"
-  id="VUID-vkCmdSetPrimitiveRestartEnable-commandBuffer-recording"></a>
-  VUID-vkCmdSetPrimitiveRestartEnable-commandBuffer-recording  
-  `commandBuffer` **must** be in the [recording
-  state](#commandbuffers-lifecycle)
-
-- <a href="#VUID-vkCmdSetPrimitiveRestartEnable-commandBuffer-cmdpool"
-  id="VUID-vkCmdSetPrimitiveRestartEnable-commandBuffer-cmdpool"></a>
-  VUID-vkCmdSetPrimitiveRestartEnable-commandBuffer-cmdpool  
-  The `VkCommandPool` that `commandBuffer` was allocated from **must**
-  support graphics operations
-
-- <a href="#VUID-vkCmdSetPrimitiveRestartEnable-videocoding"
-  id="VUID-vkCmdSetPrimitiveRestartEnable-videocoding"></a>
-  VUID-vkCmdSetPrimitiveRestartEnable-videocoding  
+- [](#VUID-vkCmdSetPrimitiveRestartEnable-commandBuffer-parameter)VUID-vkCmdSetPrimitiveRestartEnable-commandBuffer-parameter  
+  `commandBuffer` **must** be a valid [VkCommandBuffer](https://registry.khronos.org/vulkan/specs/latest/man/html/VkCommandBuffer.html) handle
+- [](#VUID-vkCmdSetPrimitiveRestartEnable-commandBuffer-recording)VUID-vkCmdSetPrimitiveRestartEnable-commandBuffer-recording  
+  `commandBuffer` **must** be in the [recording state](#commandbuffers-lifecycle)
+- [](#VUID-vkCmdSetPrimitiveRestartEnable-commandBuffer-cmdpool)VUID-vkCmdSetPrimitiveRestartEnable-commandBuffer-cmdpool  
+  The `VkCommandPool` that `commandBuffer` was allocated from **must** support graphics operations
+- [](#VUID-vkCmdSetPrimitiveRestartEnable-videocoding)VUID-vkCmdSetPrimitiveRestartEnable-videocoding  
   This command **must** only be called outside of a video coding scope
 
 Host Synchronization
 
 - Host access to `commandBuffer` **must** be externally synchronized
-
-- Host access to the `VkCommandPool` that `commandBuffer` was allocated
-  from **must** be externally synchronized
+- Host access to the `VkCommandPool` that `commandBuffer` was allocated from **must** be externally synchronized
 
 Command Properties
 
-<table class="tableblock frame-all grid-all stretch">
-<colgroup>
-<col style="width: 20%" />
-<col style="width: 20%" />
-<col style="width: 20%" />
-<col style="width: 20%" />
-<col style="width: 20%" />
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-top"><a
-href="#VkCommandBufferLevel">Command Buffer Levels</a></th>
-<th class="tableblock halign-left valign-top"><a
-href="#vkCmdBeginRenderPass">Render Pass Scope</a></th>
-<th class="tableblock halign-left valign-top"><a
-href="#vkCmdBeginVideoCodingKHR">Video Coding Scope</a></th>
-<th class="tableblock halign-left valign-top"><a
-href="#VkQueueFlagBits">Supported Queue Types</a></th>
-<th class="tableblock halign-left valign-top"><a
-href="#fundamentals-queueoperation-command-types">Command Type</a></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p>Primary<br />
-Secondary</p></td>
-<td class="tableblock halign-left valign-top"><p>Both</p></td>
-<td class="tableblock halign-left valign-top"><p>Outside</p></td>
-<td class="tableblock halign-left valign-top"><p>Graphics</p></td>
-<td class="tableblock halign-left valign-top"><p>State</p></td>
-</tr>
-</tbody>
-</table>
+     [Command Buffer Levels](#VkCommandBufferLevel) [Render Pass Scope](#vkCmdBeginRenderPass) [Video Coding Scope](#vkCmdBeginVideoCodingKHR) [Supported Queue Types](#VkQueueFlagBits) [Command Type](#fundamentals-queueoperation-command-types)
 
-## <a href="#_see_also" class="anchor"></a>See Also
+Primary  
+Secondary
 
-[VK_EXT_extended_dynamic_state2](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_EXT_extended_dynamic_state2.html),
-[VK_EXT_shader_object](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_EXT_shader_object.html),
-[VK_VERSION_1_3](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_VERSION_1_3.html), [VkBool32](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkBool32.html),
-[VkCommandBuffer](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkCommandBuffer.html)
+Both
 
-## <a href="#_document_notes" class="anchor"></a>Document Notes
+Outside
 
-For more information, see the <a
-href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#vkCmdSetPrimitiveRestartEnable"
-target="_blank" rel="noopener">Vulkan Specification</a>
+Graphics
 
-This page is extracted from the Vulkan Specification. Fixes and changes
-should be made to the Specification, not directly.
+State
 
-## <a href="#_copyright" class="anchor"></a>Copyright
+## [](#_see_also)See Also
 
-Copyright 2014-2024 The Khronos Group Inc.
+[VK\_EXT\_extended\_dynamic\_state2](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_EXT_extended_dynamic_state2.html), [VK\_EXT\_shader\_object](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_EXT_shader_object.html), [VK\_VERSION\_1\_3](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_VERSION_1_3.html), [VkBool32](https://registry.khronos.org/vulkan/specs/latest/man/html/VkBool32.html), [VkCommandBuffer](https://registry.khronos.org/vulkan/specs/latest/man/html/VkCommandBuffer.html)
+
+## [](#_document_notes)Document Notes
+
+For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#vkCmdSetPrimitiveRestartEnable)
+
+This page is extracted from the Vulkan Specification. Fixes and changes should be made to the Specification, not directly.
+
+## [](#_copyright)Copyright
+
+Copyright 2014-2025 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
-
-Version 1.3.290  
-Last updated 2024-07-11 23:39:16 -0700

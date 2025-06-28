@@ -2,66 +2,54 @@
 
 ## Name
 
-VkExecutionGraphPipelineScratchSizeAMDX - Structure describing the
-scratch space required to dispatch an execution graph
+VkExecutionGraphPipelineScratchSizeAMDX - Structure describing the scratch space required to dispatch an execution graph
 
 
 
-## <a href="#_c_specification" class="anchor"></a>C Specification
+## [](#_c_specification)C Specification
 
 The `VkExecutionGraphPipelineScratchSizeAMDX` structure is defined as:
 
-``` c
+```c++
 // Provided by VK_AMDX_shader_enqueue
 typedef struct VkExecutionGraphPipelineScratchSizeAMDX {
     VkStructureType    sType;
     void*              pNext;
-    VkDeviceSize       size;
+    VkDeviceSize       minSize;
+    VkDeviceSize       maxSize;
+    VkDeviceSize       sizeGranularity;
 } VkExecutionGraphPipelineScratchSizeAMDX;
 ```
 
-## <a href="#_members" class="anchor"></a>Members
+## [](#_members)Members
 
-- `sType` is a [VkStructureType](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkStructureType.html) value identifying
-  this structure.
+- `sType` is a [VkStructureType](https://registry.khronos.org/vulkan/specs/latest/man/html/VkStructureType.html) value identifying this structure.
+- `pNext` is `NULL` or a pointer to a structure extending this structure.
+- `minSize` indicates the minimum scratch space required for dispatching the queried execution graph.
+- `maxSize` indicates the maximum scratch space that can be used for dispatching the queried execution graph.
+- `sizeGranularity` indicates the granularity at which the scratch space can be increased from `minSize`.
 
-- `pNext` is `NULL` or a pointer to a structure extending this
-  structure.
+## [](#_description)Description
 
-- `size` indicates the scratch space required for dispatch the queried
-  execution graph.
-
-## <a href="#_description" class="anchor"></a>Description
+Applications **can** use any amount of scratch memory greater than `minSize` for dispatching a graph, however only the values equal to `minSize` + an integer multiple of `sizeGranularity` will be used. Greater values **may** result in higher performance, up to `maxSize` which indicates the most memory that an implementation can use effectively.
 
 Valid Usage (Implicit)
 
-- <a href="#VUID-VkExecutionGraphPipelineScratchSizeAMDX-sType-sType"
-  id="VUID-VkExecutionGraphPipelineScratchSizeAMDX-sType-sType"></a>
-  VUID-VkExecutionGraphPipelineScratchSizeAMDX-sType-sType  
-  `sType` **must** be
-  `VK_STRUCTURE_TYPE_EXECUTION_GRAPH_PIPELINE_SCRATCH_SIZE_AMDX`
+- [](#VUID-VkExecutionGraphPipelineScratchSizeAMDX-sType-sType)VUID-VkExecutionGraphPipelineScratchSizeAMDX-sType-sType  
+  `sType` **must** be `VK_STRUCTURE_TYPE_EXECUTION_GRAPH_PIPELINE_SCRATCH_SIZE_AMDX`
 
-## <a href="#_see_also" class="anchor"></a>See Also
+## [](#_see_also)See Also
 
-[VK_AMDX_shader_enqueue](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_AMDX_shader_enqueue.html),
-[VkDeviceSize](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkDeviceSize.html),
-[VkStructureType](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkStructureType.html),
-[vkGetExecutionGraphPipelineScratchSizeAMDX](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkGetExecutionGraphPipelineScratchSizeAMDX.html)
+[VK\_AMDX\_shader\_enqueue](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_AMDX_shader_enqueue.html), [VkDeviceSize](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDeviceSize.html), [VkStructureType](https://registry.khronos.org/vulkan/specs/latest/man/html/VkStructureType.html), [vkGetExecutionGraphPipelineScratchSizeAMDX](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetExecutionGraphPipelineScratchSizeAMDX.html)
 
-## <a href="#_document_notes" class="anchor"></a>Document Notes
+## [](#_document_notes)Document Notes
 
-For more information, see the <a
-href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#VkExecutionGraphPipelineScratchSizeAMDX"
-target="_blank" rel="noopener">Vulkan Specification</a>
+For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#VkExecutionGraphPipelineScratchSizeAMDX)
 
-This page is extracted from the Vulkan Specification. Fixes and changes
-should be made to the Specification, not directly.
+This page is extracted from the Vulkan Specification. Fixes and changes should be made to the Specification, not directly.
 
-## <a href="#_copyright" class="anchor"></a>Copyright
+## [](#_copyright)Copyright
 
-Copyright 2014-2024 The Khronos Group Inc.
+Copyright 2014-2025 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
-
-Version 1.3.290  
-Last updated 2024-07-11 23:39:16 -0700

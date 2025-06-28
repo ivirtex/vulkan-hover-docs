@@ -2,20 +2,15 @@
 
 ## Name
 
-VkMemoryOpaqueCaptureAddressAllocateInfo - Request a specific address
-for a memory allocation
+VkMemoryOpaqueCaptureAddressAllocateInfo - Request a specific address for a memory allocation
 
 
 
-## <a href="#_c_specification" class="anchor"></a>C Specification
+## [](#_c_specification)C Specification
 
-To request a specific device address for a memory allocation, add a
-[VkMemoryOpaqueCaptureAddressAllocateInfo](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkMemoryOpaqueCaptureAddressAllocateInfo.html)
-structure to the `pNext` chain of the
-[VkMemoryAllocateInfo](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkMemoryAllocateInfo.html) structure. The
-`VkMemoryOpaqueCaptureAddressAllocateInfo` structure is defined as:
+To request a specific device address for a memory allocation, add a [VkMemoryOpaqueCaptureAddressAllocateInfo](https://registry.khronos.org/vulkan/specs/latest/man/html/VkMemoryOpaqueCaptureAddressAllocateInfo.html) structure to the `pNext` chain of the [VkMemoryAllocateInfo](https://registry.khronos.org/vulkan/specs/latest/man/html/VkMemoryAllocateInfo.html) structure. The `VkMemoryOpaqueCaptureAddressAllocateInfo` structure is defined as:
 
-``` c
+```c++
 // Provided by VK_VERSION_1_2
 typedef struct VkMemoryOpaqueCaptureAddressAllocateInfo {
     VkStructureType    sType;
@@ -26,84 +21,48 @@ typedef struct VkMemoryOpaqueCaptureAddressAllocateInfo {
 
 or the equivalent
 
-``` c
+```c++
 // Provided by VK_KHR_buffer_device_address
 typedef VkMemoryOpaqueCaptureAddressAllocateInfo VkMemoryOpaqueCaptureAddressAllocateInfoKHR;
 ```
 
-## <a href="#_members" class="anchor"></a>Members
+## [](#_members)Members
 
-- `sType` is a [VkStructureType](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkStructureType.html) value identifying
-  this structure.
+- `sType` is a [VkStructureType](https://registry.khronos.org/vulkan/specs/latest/man/html/VkStructureType.html) value identifying this structure.
+- `pNext` is `NULL` or a pointer to a structure extending this structure.
+- `opaqueCaptureAddress` is the opaque capture address requested for the memory allocation.
 
-- `pNext` is `NULL` or a pointer to a structure extending this
-  structure.
-
-- `opaqueCaptureAddress` is the opaque capture address requested for the
-  memory allocation.
-
-## <a href="#_description" class="anchor"></a>Description
+## [](#_description)Description
 
 If `opaqueCaptureAddress` is zero, no specific address is requested.
 
-If `opaqueCaptureAddress` is not zero, it **should** be an address
-retrieved from
-[vkGetDeviceMemoryOpaqueCaptureAddress](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkGetDeviceMemoryOpaqueCaptureAddress.html)
-on an identically created memory allocation on the same implementation.
+If `opaqueCaptureAddress` is not zero, it **should** be an address retrieved from [vkGetDeviceMemoryOpaqueCaptureAddress](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetDeviceMemoryOpaqueCaptureAddress.html) on an identically created memory allocation on the same implementation.
 
-<table>
-<colgroup>
-<col style="width: 50%" />
-<col style="width: 50%" />
-</colgroup>
-<tbody>
-<tr>
-<td class="icon"><em></em></td>
-<td class="content">Note
-<p>In most cases, it is expected that a non-zero
-<code>opaqueAddress</code> is an address retrieved from <a
-href="https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkGetDeviceMemoryOpaqueCaptureAddress.html">vkGetDeviceMemoryOpaqueCaptureAddress</a>
-on an identically created memory allocation. If this is not the case, it
-is likely that <code>VK_ERROR_INVALID_OPAQUE_CAPTURE_ADDRESS</code>
-errors will occur.</p>
-<p>This is, however, not a strict requirement because trace
-capture/replay tools may need to adjust memory allocation parameters for
-imported memory.</p></td>
-</tr>
-</tbody>
-</table>
+Note
 
-If this structure is not present, it is as if `opaqueCaptureAddress` is
-zero.
+In most cases, it is expected that a non-zero `opaqueAddress` is an address retrieved from [vkGetDeviceMemoryOpaqueCaptureAddress](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetDeviceMemoryOpaqueCaptureAddress.html) on an identically created memory allocation. If this is not the case, it is likely that `VK_ERROR_INVALID_OPAQUE_CAPTURE_ADDRESS` errors will occur.
+
+This is, however, not a strict requirement because trace capture/replay tools may need to adjust memory allocation parameters for imported memory.
+
+If this structure is not present, it is as if `opaqueCaptureAddress` is zero.
 
 Valid Usage (Implicit)
 
-- <a href="#VUID-VkMemoryOpaqueCaptureAddressAllocateInfo-sType-sType"
-  id="VUID-VkMemoryOpaqueCaptureAddressAllocateInfo-sType-sType"></a>
-  VUID-VkMemoryOpaqueCaptureAddressAllocateInfo-sType-sType  
-  `sType` **must** be
-  `VK_STRUCTURE_TYPE_MEMORY_OPAQUE_CAPTURE_ADDRESS_ALLOCATE_INFO`
+- [](#VUID-VkMemoryOpaqueCaptureAddressAllocateInfo-sType-sType)VUID-VkMemoryOpaqueCaptureAddressAllocateInfo-sType-sType  
+  `sType` **must** be `VK_STRUCTURE_TYPE_MEMORY_OPAQUE_CAPTURE_ADDRESS_ALLOCATE_INFO`
 
-## <a href="#_see_also" class="anchor"></a>See Also
+## [](#_see_also)See Also
 
-[VK_KHR_buffer_device_address](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_KHR_buffer_device_address.html),
-[VK_VERSION_1_2](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_VERSION_1_2.html),
-[VkStructureType](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkStructureType.html)
+[VK\_KHR\_buffer\_device\_address](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_KHR_buffer_device_address.html), [VK\_VERSION\_1\_2](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_VERSION_1_2.html), [VkStructureType](https://registry.khronos.org/vulkan/specs/latest/man/html/VkStructureType.html)
 
-## <a href="#_document_notes" class="anchor"></a>Document Notes
+## [](#_document_notes)Document Notes
 
-For more information, see the <a
-href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#VkMemoryOpaqueCaptureAddressAllocateInfo"
-target="_blank" rel="noopener">Vulkan Specification</a>
+For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#VkMemoryOpaqueCaptureAddressAllocateInfo)
 
-This page is extracted from the Vulkan Specification. Fixes and changes
-should be made to the Specification, not directly.
+This page is extracted from the Vulkan Specification. Fixes and changes should be made to the Specification, not directly.
 
-## <a href="#_copyright" class="anchor"></a>Copyright
+## [](#_copyright)Copyright
 
-Copyright 2014-2024 The Khronos Group Inc.
+Copyright 2014-2025 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
-
-Version 1.3.290  
-Last updated 2024-07-11 23:39:16 -0700

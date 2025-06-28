@@ -6,14 +6,11 @@ VkCullModeFlagBits - Bitmask controlling triangle culling
 
 
 
-## <a href="#_c_specification" class="anchor"></a>C Specification
+## [](#_c_specification)C Specification
 
-Once the orientation of triangles is determined, they are culled
-according to the
-[VkPipelineRasterizationStateCreateInfo](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkPipelineRasterizationStateCreateInfo.html)::`cullMode`
-property of the currently active pipeline. Possible values are:
+Once the orientation of triangles is determined, they are culled according to the [VkPipelineRasterizationStateCreateInfo](https://registry.khronos.org/vulkan/specs/latest/man/html/VkPipelineRasterizationStateCreateInfo.html)::`cullMode` property of the currently active pipeline. Possible values are:
 
-``` c
+```c++
 // Provided by VK_VERSION_1_0
 typedef enum VkCullModeFlagBits {
     VK_CULL_MODE_NONE = 0,
@@ -23,41 +20,27 @@ typedef enum VkCullModeFlagBits {
 } VkCullModeFlagBits;
 ```
 
-## <a href="#_description" class="anchor"></a>Description
+## [](#_description)Description
 
 - `VK_CULL_MODE_NONE` specifies that no triangles are discarded
+- `VK_CULL_MODE_FRONT_BIT` specifies that front-facing triangles are discarded
+- `VK_CULL_MODE_BACK_BIT` specifies that back-facing triangles are discarded
+- `VK_CULL_MODE_FRONT_AND_BACK` specifies that all triangles are discarded.
 
-- `VK_CULL_MODE_FRONT_BIT` specifies that front-facing triangles are
-  discarded
+Following culling, fragments are produced for any triangles which have not been discarded.
 
-- `VK_CULL_MODE_BACK_BIT` specifies that back-facing triangles are
-  discarded
+## [](#_see_also)See Also
 
-- `VK_CULL_MODE_FRONT_AND_BACK` specifies that all triangles are
-  discarded.
+[VK\_VERSION\_1\_0](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_VERSION_1_0.html), [VkCullModeFlags](https://registry.khronos.org/vulkan/specs/latest/man/html/VkCullModeFlags.html)
 
-Following culling, fragments are produced for any triangles which have
-not been discarded.
+## [](#_document_notes)Document Notes
 
-## <a href="#_see_also" class="anchor"></a>See Also
+For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#VkCullModeFlagBits)
 
-[VK_VERSION_1_0](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_VERSION_1_0.html),
-[VkCullModeFlags](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkCullModeFlags.html)
+This page is extracted from the Vulkan Specification. Fixes and changes should be made to the Specification, not directly.
 
-## <a href="#_document_notes" class="anchor"></a>Document Notes
+## [](#_copyright)Copyright
 
-For more information, see the <a
-href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#VkCullModeFlagBits"
-target="_blank" rel="noopener">Vulkan Specification</a>
-
-This page is extracted from the Vulkan Specification. Fixes and changes
-should be made to the Specification, not directly.
-
-## <a href="#_copyright" class="anchor"></a>Copyright
-
-Copyright 2014-2024 The Khronos Group Inc.
+Copyright 2014-2025 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
-
-Version 1.3.290  
-Last updated 2024-07-11 23:39:16 -0700

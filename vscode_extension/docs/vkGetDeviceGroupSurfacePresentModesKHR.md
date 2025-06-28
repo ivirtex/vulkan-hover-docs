@@ -2,20 +2,17 @@
 
 ## Name
 
-vkGetDeviceGroupSurfacePresentModesKHR - Query present capabilities for
-a surface
+vkGetDeviceGroupSurfacePresentModesKHR - Query present capabilities for a surface
 
 
 
-## <a href="#_c_specification" class="anchor"></a>C Specification
+## [](#_c_specification)C Specification
 
-Some surfaces **may** not be capable of using all the device group
-present modes.
+Some surfaces **may** not be capable of using all the device group present modes.
 
-To query the supported device group present modes for a particular
-surface, call:
+To query the supported device group present modes for a particular surface, call:
 
-``` c
+```c++
 // Provided by VK_VERSION_1_1 with VK_KHR_swapchain, VK_KHR_device_group with VK_KHR_surface
 VkResult vkGetDeviceGroupSurfacePresentModesKHR(
     VkDevice                                    device,
@@ -23,58 +20,31 @@ VkResult vkGetDeviceGroupSurfacePresentModesKHR(
     VkDeviceGroupPresentModeFlagsKHR*           pModes);
 ```
 
-## <a href="#_parameters" class="anchor"></a>Parameters
+## [](#_parameters)Parameters
 
 - `device` is the logical device.
-
 - `surface` is the surface.
+- `pModes` is a pointer to a [VkDeviceGroupPresentModeFlagsKHR](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDeviceGroupPresentModeFlagsKHR.html) in which the supported device group present modes for the surface are returned.
 
-- `pModes` is a pointer to a
-  [VkDeviceGroupPresentModeFlagsKHR](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkDeviceGroupPresentModeFlagsKHR.html)
-  in which the supported device group present modes for the surface are
-  returned.
+## [](#_description)Description
 
-## <a href="#_description" class="anchor"></a>Description
-
-The modes returned by this command are not invariant, and **may** change
-in response to the surface being moved, resized, or occluded. These
-modes **must** be a subset of the modes returned by
-[vkGetDeviceGroupPresentCapabilitiesKHR](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkGetDeviceGroupPresentCapabilitiesKHR.html).
+The modes returned by this command are not invariant, and **may** change in response to the surface being moved, resized, or occluded. These modes **must** be a subset of the modes returned by [vkGetDeviceGroupPresentCapabilitiesKHR](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetDeviceGroupPresentCapabilitiesKHR.html).
 
 Valid Usage
 
-- <a href="#VUID-vkGetDeviceGroupSurfacePresentModesKHR-surface-06212"
-  id="VUID-vkGetDeviceGroupSurfacePresentModesKHR-surface-06212"></a>
-  VUID-vkGetDeviceGroupSurfacePresentModesKHR-surface-06212  
-  `surface` **must** be supported by all physical devices associated
-  with `device`, as reported by
-  [vkGetPhysicalDeviceSurfaceSupportKHR](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkGetPhysicalDeviceSurfaceSupportKHR.html)
-  or an equivalent platform-specific mechanism
+- [](#VUID-vkGetDeviceGroupSurfacePresentModesKHR-surface-06212)VUID-vkGetDeviceGroupSurfacePresentModesKHR-surface-06212  
+  `surface` **must** be supported by all physical devices associated with `device`, as reported by [vkGetPhysicalDeviceSurfaceSupportKHR](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetPhysicalDeviceSurfaceSupportKHR.html) or an equivalent platform-specific mechanism
 
 Valid Usage (Implicit)
 
-- <a href="#VUID-vkGetDeviceGroupSurfacePresentModesKHR-device-parameter"
-  id="VUID-vkGetDeviceGroupSurfacePresentModesKHR-device-parameter"></a>
-  VUID-vkGetDeviceGroupSurfacePresentModesKHR-device-parameter  
-  `device` **must** be a valid [VkDevice](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkDevice.html) handle
-
-- <a href="#VUID-vkGetDeviceGroupSurfacePresentModesKHR-surface-parameter"
-  id="VUID-vkGetDeviceGroupSurfacePresentModesKHR-surface-parameter"></a>
-  VUID-vkGetDeviceGroupSurfacePresentModesKHR-surface-parameter  
-  `surface` **must** be a valid [VkSurfaceKHR](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkSurfaceKHR.html) handle
-
-- <a href="#VUID-vkGetDeviceGroupSurfacePresentModesKHR-pModes-parameter"
-  id="VUID-vkGetDeviceGroupSurfacePresentModesKHR-pModes-parameter"></a>
-  VUID-vkGetDeviceGroupSurfacePresentModesKHR-pModes-parameter  
-  `pModes` **must** be a valid pointer to a
-  [VkDeviceGroupPresentModeFlagsKHR](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkDeviceGroupPresentModeFlagsKHR.html)
-  value
-
-- <a href="#VUID-vkGetDeviceGroupSurfacePresentModesKHR-commonparent"
-  id="VUID-vkGetDeviceGroupSurfacePresentModesKHR-commonparent"></a>
-  VUID-vkGetDeviceGroupSurfacePresentModesKHR-commonparent  
-  Both of `device`, and `surface` **must** have been created, allocated,
-  or retrieved from the same [VkInstance](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkInstance.html)
+- [](#VUID-vkGetDeviceGroupSurfacePresentModesKHR-device-parameter)VUID-vkGetDeviceGroupSurfacePresentModesKHR-device-parameter  
+  `device` **must** be a valid [VkDevice](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDevice.html) handle
+- [](#VUID-vkGetDeviceGroupSurfacePresentModesKHR-surface-parameter)VUID-vkGetDeviceGroupSurfacePresentModesKHR-surface-parameter  
+  `surface` **must** be a valid [VkSurfaceKHR](https://registry.khronos.org/vulkan/specs/latest/man/html/VkSurfaceKHR.html) handle
+- [](#VUID-vkGetDeviceGroupSurfacePresentModesKHR-pModes-parameter)VUID-vkGetDeviceGroupSurfacePresentModesKHR-pModes-parameter  
+  `pModes` **must** be a valid pointer to a [VkDeviceGroupPresentModeFlagsKHR](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDeviceGroupPresentModeFlagsKHR.html) value
+- [](#VUID-vkGetDeviceGroupSurfacePresentModesKHR-commonparent)VUID-vkGetDeviceGroupSurfacePresentModesKHR-commonparent  
+  Both of `device`, and `surface` **must** have been created, allocated, or retrieved from the same [VkInstance](https://registry.khronos.org/vulkan/specs/latest/man/html/VkInstance.html)
 
 Host Synchronization
 
@@ -82,39 +52,28 @@ Host Synchronization
 
 Return Codes
 
-On success, this command returns  
+On success, this command returns
+
 - `VK_SUCCESS`
 
-On failure, this command returns  
+On failure, this command returns
+
 - `VK_ERROR_OUT_OF_HOST_MEMORY`
-
 - `VK_ERROR_OUT_OF_DEVICE_MEMORY`
-
 - `VK_ERROR_SURFACE_LOST_KHR`
 
-## <a href="#_see_also" class="anchor"></a>See Also
+## [](#_see_also)See Also
 
-[VK_KHR_device_group](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_KHR_device_group.html),
-[VK_KHR_surface](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_KHR_surface.html),
-[VK_KHR_swapchain](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_KHR_swapchain.html),
-[VK_VERSION_1_1](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_VERSION_1_1.html), [VkDevice](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkDevice.html),
-[VkDeviceGroupPresentModeFlagsKHR](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkDeviceGroupPresentModeFlagsKHR.html),
-[VkSurfaceKHR](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkSurfaceKHR.html)
+[VK\_KHR\_device\_group](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_KHR_device_group.html), [VK\_KHR\_surface](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_KHR_surface.html), [VK\_KHR\_swapchain](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_KHR_swapchain.html), [VK\_VERSION\_1\_1](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_VERSION_1_1.html), [VkDevice](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDevice.html), [VkDeviceGroupPresentModeFlagsKHR](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDeviceGroupPresentModeFlagsKHR.html), [VkSurfaceKHR](https://registry.khronos.org/vulkan/specs/latest/man/html/VkSurfaceKHR.html)
 
-## <a href="#_document_notes" class="anchor"></a>Document Notes
+## [](#_document_notes)Document Notes
 
-For more information, see the <a
-href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#vkGetDeviceGroupSurfacePresentModesKHR"
-target="_blank" rel="noopener">Vulkan Specification</a>
+For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#vkGetDeviceGroupSurfacePresentModesKHR)
 
-This page is extracted from the Vulkan Specification. Fixes and changes
-should be made to the Specification, not directly.
+This page is extracted from the Vulkan Specification. Fixes and changes should be made to the Specification, not directly.
 
-## <a href="#_copyright" class="anchor"></a>Copyright
+## [](#_copyright)Copyright
 
-Copyright 2014-2024 The Khronos Group Inc.
+Copyright 2014-2025 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
-
-Version 1.3.290  
-Last updated 2024-07-11 23:39:16 -0700

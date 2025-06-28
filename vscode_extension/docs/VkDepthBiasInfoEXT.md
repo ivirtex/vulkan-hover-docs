@@ -6,11 +6,11 @@ VkDepthBiasInfoEXT - Structure specifying depth bias parameters
 
 
 
-## <a href="#_c_specification" class="anchor"></a>C Specification
+## [](#_c_specification)C Specification
 
 The `VkDepthBiasInfoEXT` structure is defined as:
 
-``` c
+```c++
 // Provided by VK_EXT_depth_bias_control
 typedef struct VkDepthBiasInfoEXT {
     VkStructureType    sType;
@@ -21,81 +21,44 @@ typedef struct VkDepthBiasInfoEXT {
 } VkDepthBiasInfoEXT;
 ```
 
-## <a href="#_members" class="anchor"></a>Members
+## [](#_members)Members
 
-- `sType` is a [VkStructureType](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkStructureType.html) value identifying
-  this structure.
-
-- `pNext` is `NULL` or a pointer to a structure extending this
-  structure.
-
-- `depthBiasConstantFactor` is a scalar factor controlling the constant
-  depth value added to each fragment.
-
+- `sType` is a [VkStructureType](https://registry.khronos.org/vulkan/specs/latest/man/html/VkStructureType.html) value identifying this structure.
+- `pNext` is `NULL` or a pointer to a structure extending this structure.
+- `depthBiasConstantFactor` is a scalar factor controlling the constant depth value added to each fragment.
 - `depthBiasClamp` is the maximum (or minimum) depth bias of a fragment.
+- `depthBiasSlopeFactor` is a scalar factor applied to a fragment’s slope in depth bias calculations.
 
-- `depthBiasSlopeFactor` is a scalar factor applied to a fragment’s
-  slope in depth bias calculations.
+## [](#_description)Description
 
-## <a href="#_description" class="anchor"></a>Description
-
-If `pNext` does not contain a
-[VkDepthBiasRepresentationInfoEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkDepthBiasRepresentationInfoEXT.html)
-structure, then this command is equivalent to including a
-[VkDepthBiasRepresentationInfoEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkDepthBiasRepresentationInfoEXT.html)
-with `depthBiasExact` set to `VK_FALSE` and `depthBiasRepresentation`
-set to
-`VK_DEPTH_BIAS_REPRESENTATION_LEAST_REPRESENTABLE_VALUE_FORMAT_EXT`.
+If `pNext` does not contain a [VkDepthBiasRepresentationInfoEXT](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDepthBiasRepresentationInfoEXT.html) structure, then this command is equivalent to including a [VkDepthBiasRepresentationInfoEXT](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDepthBiasRepresentationInfoEXT.html) with `depthBiasExact` set to `VK_FALSE` and `depthBiasRepresentation` set to `VK_DEPTH_BIAS_REPRESENTATION_LEAST_REPRESENTABLE_VALUE_FORMAT_EXT`.
 
 Valid Usage
 
-- <a href="#VUID-VkDepthBiasInfoEXT-depthBiasClamp-08950"
-  id="VUID-VkDepthBiasInfoEXT-depthBiasClamp-08950"></a>
-  VUID-VkDepthBiasInfoEXT-depthBiasClamp-08950  
-  If the <a
-  href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#features-depthBiasClamp"
-  target="_blank" rel="noopener"><code>depthBiasClamp</code></a> feature
-  is not enabled, `depthBiasClamp` **must** be `0.0`
+- [](#VUID-VkDepthBiasInfoEXT-depthBiasClamp-08950)VUID-VkDepthBiasInfoEXT-depthBiasClamp-08950  
+  If the [`depthBiasClamp`](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#features-depthBiasClamp) feature is not enabled, `depthBiasClamp` **must** be `0.0`
 
 Valid Usage (Implicit)
 
-- <a href="#VUID-VkDepthBiasInfoEXT-sType-sType"
-  id="VUID-VkDepthBiasInfoEXT-sType-sType"></a>
-  VUID-VkDepthBiasInfoEXT-sType-sType  
+- [](#VUID-VkDepthBiasInfoEXT-sType-sType)VUID-VkDepthBiasInfoEXT-sType-sType  
   `sType` **must** be `VK_STRUCTURE_TYPE_DEPTH_BIAS_INFO_EXT`
+- [](#VUID-VkDepthBiasInfoEXT-pNext-pNext)VUID-VkDepthBiasInfoEXT-pNext-pNext  
+  `pNext` **must** be `NULL` or a pointer to a valid instance of [VkDepthBiasRepresentationInfoEXT](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDepthBiasRepresentationInfoEXT.html)
+- [](#VUID-VkDepthBiasInfoEXT-sType-unique)VUID-VkDepthBiasInfoEXT-sType-unique  
+  The `sType` value of each structure in the `pNext` chain **must** be unique
 
-- <a href="#VUID-VkDepthBiasInfoEXT-pNext-pNext"
-  id="VUID-VkDepthBiasInfoEXT-pNext-pNext"></a>
-  VUID-VkDepthBiasInfoEXT-pNext-pNext  
-  `pNext` **must** be `NULL` or a pointer to a valid instance of
-  [VkDepthBiasRepresentationInfoEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkDepthBiasRepresentationInfoEXT.html)
+## [](#_see_also)See Also
 
-- <a href="#VUID-VkDepthBiasInfoEXT-sType-unique"
-  id="VUID-VkDepthBiasInfoEXT-sType-unique"></a>
-  VUID-VkDepthBiasInfoEXT-sType-unique  
-  The `sType` value of each struct in the `pNext` chain **must** be
-  unique
+[VK\_EXT\_depth\_bias\_control](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_EXT_depth_bias_control.html), [VkStructureType](https://registry.khronos.org/vulkan/specs/latest/man/html/VkStructureType.html), [vkCmdSetDepthBias2EXT](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdSetDepthBias2EXT.html)
 
-## <a href="#_see_also" class="anchor"></a>See Also
+## [](#_document_notes)Document Notes
 
-[VK_EXT_depth_bias_control](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_EXT_depth_bias_control.html),
-[VkStructureType](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkStructureType.html),
-[vkCmdSetDepthBias2EXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdSetDepthBias2EXT.html)
+For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#VkDepthBiasInfoEXT)
 
-## <a href="#_document_notes" class="anchor"></a>Document Notes
+This page is extracted from the Vulkan Specification. Fixes and changes should be made to the Specification, not directly.
 
-For more information, see the <a
-href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#VkDepthBiasInfoEXT"
-target="_blank" rel="noopener">Vulkan Specification</a>
+## [](#_copyright)Copyright
 
-This page is extracted from the Vulkan Specification. Fixes and changes
-should be made to the Specification, not directly.
-
-## <a href="#_copyright" class="anchor"></a>Copyright
-
-Copyright 2014-2024 The Khronos Group Inc.
+Copyright 2014-2025 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
-
-Version 1.3.290  
-Last updated 2024-07-11 23:39:16 -0700

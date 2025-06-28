@@ -2,19 +2,15 @@
 
 ## Name
 
-vkGetMemoryFdPropertiesKHR - Get Properties of External Memory File
-Descriptors
+vkGetMemoryFdPropertiesKHR - Get Properties of External Memory File Descriptors
 
 
 
-## <a href="#_c_specification" class="anchor"></a>C Specification
+## [](#_c_specification)C Specification
 
-POSIX file descriptor memory handles compatible with Vulkan **may** also
-be created by non-Vulkan APIs using methods beyond the scope of this
-specification. To determine the correct parameters to use when importing
-such handles, call:
+POSIX file descriptor memory handles compatible with Vulkan **may** also be created by non-Vulkan APIs using methods beyond the scope of this specification. To determine the correct parameters to use when importing such handles, call:
 
-``` c
+```c++
 // Provided by VK_KHR_external_memory_fd
 VkResult vkGetMemoryFdPropertiesKHR(
     VkDevice                                    device,
@@ -23,86 +19,54 @@ VkResult vkGetMemoryFdPropertiesKHR(
     VkMemoryFdPropertiesKHR*                    pMemoryFdProperties);
 ```
 
-## <a href="#_parameters" class="anchor"></a>Parameters
+## [](#_parameters)Parameters
 
 - `device` is the logical device that will be importing `fd`.
-
-- `handleType` is a
-  [VkExternalMemoryHandleTypeFlagBits](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkExternalMemoryHandleTypeFlagBits.html)
-  value specifying the type of the handle `fd`.
-
+- `handleType` is a [VkExternalMemoryHandleTypeFlagBits](https://registry.khronos.org/vulkan/specs/latest/man/html/VkExternalMemoryHandleTypeFlagBits.html) value specifying the type of the handle `fd`.
 - `fd` is the handle which will be imported.
+- `pMemoryFdProperties` is a pointer to a [VkMemoryFdPropertiesKHR](https://registry.khronos.org/vulkan/specs/latest/man/html/VkMemoryFdPropertiesKHR.html) structure in which the properties of the handle `fd` are returned.
 
-- `pMemoryFdProperties` is a pointer to a
-  [VkMemoryFdPropertiesKHR](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkMemoryFdPropertiesKHR.html) structure in
-  which the properties of the handle `fd` are returned.
-
-## <a href="#_description" class="anchor"></a>Description
+## [](#_description)Description
 
 Valid Usage
 
-- <a href="#VUID-vkGetMemoryFdPropertiesKHR-fd-00673"
-  id="VUID-vkGetMemoryFdPropertiesKHR-fd-00673"></a>
-  VUID-vkGetMemoryFdPropertiesKHR-fd-00673  
+- [](#VUID-vkGetMemoryFdPropertiesKHR-fd-00673)VUID-vkGetMemoryFdPropertiesKHR-fd-00673  
   `fd` **must** point to a valid POSIX file descriptor memory handle
-
-- <a href="#VUID-vkGetMemoryFdPropertiesKHR-handleType-00674"
-  id="VUID-vkGetMemoryFdPropertiesKHR-handleType-00674"></a>
-  VUID-vkGetMemoryFdPropertiesKHR-handleType-00674  
-  `handleType` **must** not be
-  `VK_EXTERNAL_MEMORY_HANDLE_TYPE_OPAQUE_FD_BIT`
+- [](#VUID-vkGetMemoryFdPropertiesKHR-handleType-00674)VUID-vkGetMemoryFdPropertiesKHR-handleType-00674  
+  `handleType` **must** not be `VK_EXTERNAL_MEMORY_HANDLE_TYPE_OPAQUE_FD_BIT`
 
 Valid Usage (Implicit)
 
-- <a href="#VUID-vkGetMemoryFdPropertiesKHR-device-parameter"
-  id="VUID-vkGetMemoryFdPropertiesKHR-device-parameter"></a>
-  VUID-vkGetMemoryFdPropertiesKHR-device-parameter  
-  `device` **must** be a valid [VkDevice](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkDevice.html) handle
-
-- <a href="#VUID-vkGetMemoryFdPropertiesKHR-handleType-parameter"
-  id="VUID-vkGetMemoryFdPropertiesKHR-handleType-parameter"></a>
-  VUID-vkGetMemoryFdPropertiesKHR-handleType-parameter  
-  `handleType` **must** be a valid
-  [VkExternalMemoryHandleTypeFlagBits](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkExternalMemoryHandleTypeFlagBits.html)
-  value
-
-- <a href="#VUID-vkGetMemoryFdPropertiesKHR-pMemoryFdProperties-parameter"
-  id="VUID-vkGetMemoryFdPropertiesKHR-pMemoryFdProperties-parameter"></a>
-  VUID-vkGetMemoryFdPropertiesKHR-pMemoryFdProperties-parameter  
-  `pMemoryFdProperties` **must** be a valid pointer to a
-  [VkMemoryFdPropertiesKHR](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkMemoryFdPropertiesKHR.html) structure
+- [](#VUID-vkGetMemoryFdPropertiesKHR-device-parameter)VUID-vkGetMemoryFdPropertiesKHR-device-parameter  
+  `device` **must** be a valid [VkDevice](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDevice.html) handle
+- [](#VUID-vkGetMemoryFdPropertiesKHR-handleType-parameter)VUID-vkGetMemoryFdPropertiesKHR-handleType-parameter  
+  `handleType` **must** be a valid [VkExternalMemoryHandleTypeFlagBits](https://registry.khronos.org/vulkan/specs/latest/man/html/VkExternalMemoryHandleTypeFlagBits.html) value
+- [](#VUID-vkGetMemoryFdPropertiesKHR-pMemoryFdProperties-parameter)VUID-vkGetMemoryFdPropertiesKHR-pMemoryFdProperties-parameter  
+  `pMemoryFdProperties` **must** be a valid pointer to a [VkMemoryFdPropertiesKHR](https://registry.khronos.org/vulkan/specs/latest/man/html/VkMemoryFdPropertiesKHR.html) structure
 
 Return Codes
 
-On success, this command returns  
+On success, this command returns
+
 - `VK_SUCCESS`
 
-On failure, this command returns  
-- `VK_ERROR_OUT_OF_HOST_MEMORY`
+On failure, this command returns
 
+- `VK_ERROR_OUT_OF_HOST_MEMORY`
 - `VK_ERROR_INVALID_EXTERNAL_HANDLE`
 
-## <a href="#_see_also" class="anchor"></a>See Also
+## [](#_see_also)See Also
 
-[VK_KHR_external_memory_fd](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_KHR_external_memory_fd.html),
-[VkDevice](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkDevice.html),
-[VkExternalMemoryHandleTypeFlagBits](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkExternalMemoryHandleTypeFlagBits.html),
-[VkMemoryFdPropertiesKHR](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkMemoryFdPropertiesKHR.html)
+[VK\_KHR\_external\_memory\_fd](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_KHR_external_memory_fd.html), [VkDevice](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDevice.html), [VkExternalMemoryHandleTypeFlagBits](https://registry.khronos.org/vulkan/specs/latest/man/html/VkExternalMemoryHandleTypeFlagBits.html), [VkMemoryFdPropertiesKHR](https://registry.khronos.org/vulkan/specs/latest/man/html/VkMemoryFdPropertiesKHR.html)
 
-## <a href="#_document_notes" class="anchor"></a>Document Notes
+## [](#_document_notes)Document Notes
 
-For more information, see the <a
-href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#vkGetMemoryFdPropertiesKHR"
-target="_blank" rel="noopener">Vulkan Specification</a>
+For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#vkGetMemoryFdPropertiesKHR)
 
-This page is extracted from the Vulkan Specification. Fixes and changes
-should be made to the Specification, not directly.
+This page is extracted from the Vulkan Specification. Fixes and changes should be made to the Specification, not directly.
 
-## <a href="#_copyright" class="anchor"></a>Copyright
+## [](#_copyright)Copyright
 
-Copyright 2014-2024 The Khronos Group Inc.
+Copyright 2014-2025 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
-
-Version 1.3.290  
-Last updated 2024-07-11 23:39:16 -0700

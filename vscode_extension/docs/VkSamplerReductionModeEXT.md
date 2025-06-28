@@ -6,13 +6,11 @@ VkSamplerReductionMode - Specify reduction mode for texture filtering
 
 
 
-## <a href="#_c_specification" class="anchor"></a>C Specification
+## [](#_c_specification)C Specification
 
-Reduction modes are specified by
-[VkSamplerReductionMode](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkSamplerReductionMode.html), which takes
-values:
+Reduction modes are specified by [VkSamplerReductionMode](https://registry.khronos.org/vulkan/specs/latest/man/html/VkSamplerReductionMode.html), which takes values:
 
-``` c
+```c++
 // Provided by VK_VERSION_1_2
 typedef enum VkSamplerReductionMode {
     VK_SAMPLER_REDUCTION_MODE_WEIGHTED_AVERAGE = 0,
@@ -31,53 +29,30 @@ typedef enum VkSamplerReductionMode {
 
 or the equivalent
 
-``` c
+```c++
 // Provided by VK_EXT_sampler_filter_minmax
 typedef VkSamplerReductionMode VkSamplerReductionModeEXT;
 ```
 
-## <a href="#_description" class="anchor"></a>Description
+## [](#_description)Description
 
-- `VK_SAMPLER_REDUCTION_MODE_WEIGHTED_AVERAGE` specifies that texel
-  values are combined by computing a weighted average of values in the
-  footprint, using weights as specified in <a
-  href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#textures-unnormalized-to-integer"
-  target="_blank" rel="noopener">the image operations chapter</a>.
+- `VK_SAMPLER_REDUCTION_MODE_WEIGHTED_AVERAGE` specifies that texel values are combined by computing a weighted average of values in the footprint, using weights as specified in [the image operations chapter](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#textures-unnormalized-to-integer).
+- `VK_SAMPLER_REDUCTION_MODE_MIN` specifies that texel values are combined by taking the component-wise minimum of values in the footprint with non-zero weights.
+- `VK_SAMPLER_REDUCTION_MODE_MAX` specifies that texel values are combined by taking the component-wise maximum of values in the footprint with non-zero weights.
+- `VK_SAMPLER_REDUCTION_MODE_WEIGHTED_AVERAGE_RANGECLAMP_QCOM` specifies values are combined as described by `VK_SAMPLER_REDUCTION_MODE_WEIGHTED_AVERAGE`, followed by a [texel range clamp](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#textures-texel-range-clamp).
 
-- `VK_SAMPLER_REDUCTION_MODE_MIN` specifies that texel values are
-  combined by taking the component-wise minimum of values in the
-  footprint with non-zero weights.
+## [](#_see_also)See Also
 
-- `VK_SAMPLER_REDUCTION_MODE_MAX` specifies that texel values are
-  combined by taking the component-wise maximum of values in the
-  footprint with non-zero weights.
+[VK\_EXT\_sampler\_filter\_minmax](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_EXT_sampler_filter_minmax.html), [VK\_VERSION\_1\_2](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_VERSION_1_2.html), [VkSamplerReductionModeCreateInfo](https://registry.khronos.org/vulkan/specs/latest/man/html/VkSamplerReductionModeCreateInfo.html)
 
-- `VK_SAMPLER_REDUCTION_MODE_WEIGHTED_AVERAGE_RANGECLAMP_QCOM` specifies
-  values are combined as described by
-  `VK_SAMPLER_REDUCTION_MODE_WEIGHTED_AVERAGE`, followed by a <a
-  href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#textures-texel-range-clamp"
-  target="_blank" rel="noopener">texel range clamp</a>.
+## [](#_document_notes)Document Notes
 
-## <a href="#_see_also" class="anchor"></a>See Also
+For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#VkSamplerReductionMode)
 
-[VK_EXT_sampler_filter_minmax](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_EXT_sampler_filter_minmax.html),
-[VK_VERSION_1_2](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_VERSION_1_2.html),
-[VkSamplerReductionModeCreateInfo](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkSamplerReductionModeCreateInfo.html)
+This page is extracted from the Vulkan Specification. Fixes and changes should be made to the Specification, not directly.
 
-## <a href="#_document_notes" class="anchor"></a>Document Notes
+## [](#_copyright)Copyright
 
-For more information, see the <a
-href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#VkSamplerReductionMode"
-target="_blank" rel="noopener">Vulkan Specification</a>
-
-This page is extracted from the Vulkan Specification. Fixes and changes
-should be made to the Specification, not directly.
-
-## <a href="#_copyright" class="anchor"></a>Copyright
-
-Copyright 2014-2024 The Khronos Group Inc.
+Copyright 2014-2025 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
-
-Version 1.3.290  
-Last updated 2024-07-11 23:39:16 -0700

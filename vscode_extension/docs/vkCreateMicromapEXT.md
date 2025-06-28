@@ -6,11 +6,11 @@ vkCreateMicromapEXT - Create a new micromap object
 
 
 
-## <a href="#_c_specification" class="anchor"></a>C Specification
+## [](#_c_specification)C Specification
 
 To create a micromap, call:
 
-``` c
+```c++
 // Provided by VK_EXT_opacity_micromap
 VkResult vkCreateMicromapEXT(
     VkDevice                                    device,
@@ -19,158 +19,70 @@ VkResult vkCreateMicromapEXT(
     VkMicromapEXT*                              pMicromap);
 ```
 
-## <a href="#_parameters" class="anchor"></a>Parameters
+## [](#_parameters)Parameters
 
-- `device` is the logical device that creates the acceleration structure
-  object.
+- `device` is the logical device that creates the micromap object.
+- `pCreateInfo` is a pointer to a [VkMicromapCreateInfoEXT](https://registry.khronos.org/vulkan/specs/latest/man/html/VkMicromapCreateInfoEXT.html) structure containing parameters affecting creation of the micromap.
+- `pAllocator` controls host memory allocation as described in the [Memory Allocation](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#memory-allocation) chapter.
+- `pMicromap` is a pointer to a [VkMicromapEXT](https://registry.khronos.org/vulkan/specs/latest/man/html/VkMicromapEXT.html) handle in which the resulting micromap object is returned.
 
-- `pCreateInfo` is a pointer to a
-  [VkMicromapCreateInfoEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkMicromapCreateInfoEXT.html) structure
-  containing parameters affecting creation of the micromap.
+## [](#_description)Description
 
-- `pAllocator` controls host memory allocation as described in the <a
-  href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#memory-allocation"
-  target="_blank" rel="noopener">Memory Allocation</a> chapter.
+Similar to other objects in Vulkan, the micromap creation merely creates an object with a specific “shape”. The type and quantity of geometry that can be built into a micromap is determined by the parameters of [VkMicromapCreateInfoEXT](https://registry.khronos.org/vulkan/specs/latest/man/html/VkMicromapCreateInfoEXT.html).
 
-- `pMicromap` is a pointer to a `VkMicromapEXT` handle in which the
-  resulting micromap object is returned.
+The micromap data is stored in the object referred to by `VkMicromapCreateInfoEXT`::`buffer`. Once memory has been bound to that buffer, it **must** be populated by micromap build or micromap copy commands such as [vkCmdBuildMicromapsEXT](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdBuildMicromapsEXT.html), [vkBuildMicromapsEXT](https://registry.khronos.org/vulkan/specs/latest/man/html/vkBuildMicromapsEXT.html), [vkCmdCopyMicromapEXT](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdCopyMicromapEXT.html), and [vkCopyMicromapEXT](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCopyMicromapEXT.html).
 
-## <a href="#_description" class="anchor"></a>Description
+Note
 
-Similar to other objects in Vulkan, the micromap creation merely creates
-an object with a specific “shape”. The type and quantity of geometry
-that can be built into a micromap is determined by the parameters of
-[VkMicromapCreateInfoEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkMicromapCreateInfoEXT.html).
+The expected usage for a trace capture/replay tool is that it will serialize and later deserialize the micromap data using micromap copy commands. During capture the tool will use [vkCopyMicromapToMemoryEXT](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCopyMicromapToMemoryEXT.html) or [vkCmdCopyMicromapToMemoryEXT](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdCopyMicromapToMemoryEXT.html) with a `mode` of `VK_COPY_MICROMAP_MODE_SERIALIZE_EXT`, and [vkCopyMemoryToMicromapEXT](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCopyMemoryToMicromapEXT.html) or [vkCmdCopyMemoryToMicromapEXT](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdCopyMemoryToMicromapEXT.html) with a `mode` of `VK_COPY_MICROMAP_MODE_DESERIALIZE_EXT` during replay.
 
-The micromap data is stored in the object referred to by
-`VkMicromapCreateInfoEXT`::`buffer`. Once memory has been bound to that
-buffer, it **must** be populated by micromap build or micromap copy
-commands such as [vkCmdBuildMicromapsEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdBuildMicromapsEXT.html),
-[vkBuildMicromapsEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkBuildMicromapsEXT.html),
-[vkCmdCopyMicromapEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdCopyMicromapEXT.html), and
-[vkCopyMicromapEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCopyMicromapEXT.html).
-
-<table>
-<colgroup>
-<col style="width: 50%" />
-<col style="width: 50%" />
-</colgroup>
-<tbody>
-<tr>
-<td class="icon"><em></em></td>
-<td class="content">Note
-<p>The expected usage for a trace capture/replay tool is that it will
-serialize and later deserialize the micromap data using micromap copy
-commands. During capture the tool will use <a
-href="vkCopyMicromapToMemoryEXT.html">vkCopyMicromapToMemoryEXT</a> or
-<a
-href="vkCmdCopyMicromapToMemoryEXT.html">vkCmdCopyMicromapToMemoryEXT</a>
-with a <code>mode</code> of
-<code>VK_COPY_MICROMAP_MODE_SERIALIZE_EXT</code>, and <a
-href="vkCopyMemoryToMicromapEXT.html">vkCopyMemoryToMicromapEXT</a> or
-<a
-href="vkCmdCopyMemoryToMicromapEXT.html">vkCmdCopyMemoryToMicromapEXT</a>
-with a <code>mode</code> of
-<code>VK_COPY_MICROMAP_MODE_DESERIALIZE_EXT</code> during
-replay.</p></td>
-</tr>
-</tbody>
-</table>
-
-The input buffers passed to micromap build commands will be referenced
-by the implementation for the duration of the command. Micromaps
-**must** be fully self-contained. The application **can** reuse or free
-any memory which was used by the command as an input or as scratch
-without affecting the results of a subsequent acceleration structure
-build using the micromap or traversal of that acceleration structure.
+The input buffers passed to micromap build commands will be referenced by the implementation for the duration of the command. Micromaps **must** be fully self-contained. The application **can** reuse or free any memory which was used by the command as an input or as scratch without affecting the results of a subsequent acceleration structure build using the micromap or traversal of that acceleration structure.
 
 Valid Usage
 
-- <a href="#VUID-vkCreateMicromapEXT-micromap-07430"
-  id="VUID-vkCreateMicromapEXT-micromap-07430"></a>
-  VUID-vkCreateMicromapEXT-micromap-07430  
-  The <a
-  href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#features-micromap"
-  target="_blank" rel="noopener"><code>micromap</code></a> feature
-  **must** be enabled
-
-- <a href="#VUID-vkCreateMicromapEXT-deviceAddress-07431"
-  id="VUID-vkCreateMicromapEXT-deviceAddress-07431"></a>
-  VUID-vkCreateMicromapEXT-deviceAddress-07431  
-  If
-  [VkMicromapCreateInfoEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkMicromapCreateInfoEXT.html)::`deviceAddress`
-  is not zero, the <a
-  href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#features-micromapCaptureReplay"
-  target="_blank" rel="noopener"><code>micromapCaptureReplay</code></a>
-  feature **must** be enabled
-
-- <a href="#VUID-vkCreateMicromapEXT-device-07432"
-  id="VUID-vkCreateMicromapEXT-device-07432"></a>
-  VUID-vkCreateMicromapEXT-device-07432  
-  If `device` was created with multiple physical devices, then the <a
-  href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#features-bufferDeviceAddressMultiDevice"
-  target="_blank"
-  rel="noopener"><code>bufferDeviceAddressMultiDevice</code></a> feature
-  **must** be enabled
+- [](#VUID-vkCreateMicromapEXT-micromap-07430)VUID-vkCreateMicromapEXT-micromap-07430  
+  The [`micromap`](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#features-micromap) feature **must** be enabled
+- [](#VUID-vkCreateMicromapEXT-deviceAddress-07431)VUID-vkCreateMicromapEXT-deviceAddress-07431  
+  If [VkMicromapCreateInfoEXT](https://registry.khronos.org/vulkan/specs/latest/man/html/VkMicromapCreateInfoEXT.html)::`deviceAddress` is not zero, the [`micromapCaptureReplay`](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#features-micromapCaptureReplay) feature **must** be enabled
+- [](#VUID-vkCreateMicromapEXT-device-07432)VUID-vkCreateMicromapEXT-device-07432  
+  If `device` was created with multiple physical devices, then the [`bufferDeviceAddressMultiDevice`](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#features-bufferDeviceAddressMultiDevice) feature **must** be enabled
 
 Valid Usage (Implicit)
 
-- <a href="#VUID-vkCreateMicromapEXT-device-parameter"
-  id="VUID-vkCreateMicromapEXT-device-parameter"></a>
-  VUID-vkCreateMicromapEXT-device-parameter  
-  `device` **must** be a valid [VkDevice](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkDevice.html) handle
-
-- <a href="#VUID-vkCreateMicromapEXT-pCreateInfo-parameter"
-  id="VUID-vkCreateMicromapEXT-pCreateInfo-parameter"></a>
-  VUID-vkCreateMicromapEXT-pCreateInfo-parameter  
-  `pCreateInfo` **must** be a valid pointer to a valid
-  [VkMicromapCreateInfoEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkMicromapCreateInfoEXT.html) structure
-
-- <a href="#VUID-vkCreateMicromapEXT-pAllocator-parameter"
-  id="VUID-vkCreateMicromapEXT-pAllocator-parameter"></a>
-  VUID-vkCreateMicromapEXT-pAllocator-parameter  
-  If `pAllocator` is not `NULL`, `pAllocator` **must** be a valid
-  pointer to a valid [VkAllocationCallbacks](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkAllocationCallbacks.html)
-  structure
-
-- <a href="#VUID-vkCreateMicromapEXT-pMicromap-parameter"
-  id="VUID-vkCreateMicromapEXT-pMicromap-parameter"></a>
-  VUID-vkCreateMicromapEXT-pMicromap-parameter  
-  `pMicromap` **must** be a valid pointer to a
-  [VkMicromapEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkMicromapEXT.html) handle
+- [](#VUID-vkCreateMicromapEXT-device-parameter)VUID-vkCreateMicromapEXT-device-parameter  
+  `device` **must** be a valid [VkDevice](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDevice.html) handle
+- [](#VUID-vkCreateMicromapEXT-pCreateInfo-parameter)VUID-vkCreateMicromapEXT-pCreateInfo-parameter  
+  `pCreateInfo` **must** be a valid pointer to a valid [VkMicromapCreateInfoEXT](https://registry.khronos.org/vulkan/specs/latest/man/html/VkMicromapCreateInfoEXT.html) structure
+- [](#VUID-vkCreateMicromapEXT-pAllocator-parameter)VUID-vkCreateMicromapEXT-pAllocator-parameter  
+  If `pAllocator` is not `NULL`, `pAllocator` **must** be a valid pointer to a valid [VkAllocationCallbacks](https://registry.khronos.org/vulkan/specs/latest/man/html/VkAllocationCallbacks.html) structure
+- [](#VUID-vkCreateMicromapEXT-pMicromap-parameter)VUID-vkCreateMicromapEXT-pMicromap-parameter  
+  `pMicromap` **must** be a valid pointer to a [VkMicromapEXT](https://registry.khronos.org/vulkan/specs/latest/man/html/VkMicromapEXT.html) handle
+- [](#VUID-vkCreateMicromapEXT-device-queuecount)VUID-vkCreateMicromapEXT-device-queuecount  
+  The device **must** have been created with at least `1` queue
 
 Return Codes
 
-On success, this command returns  
+On success, this command returns
+
 - `VK_SUCCESS`
 
-On failure, this command returns  
-- `VK_ERROR_OUT_OF_HOST_MEMORY`
+On failure, this command returns
 
+- `VK_ERROR_OUT_OF_HOST_MEMORY`
 - `VK_ERROR_INVALID_OPAQUE_CAPTURE_ADDRESS_KHR`
 
-## <a href="#_see_also" class="anchor"></a>See Also
+## [](#_see_also)See Also
 
-[VK_EXT_opacity_micromap](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_EXT_opacity_micromap.html),
-[VkAllocationCallbacks](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkAllocationCallbacks.html),
-[VkDevice](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkDevice.html),
-[VkMicromapCreateInfoEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkMicromapCreateInfoEXT.html),
-[VkMicromapEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkMicromapEXT.html)
+[VK\_EXT\_opacity\_micromap](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_EXT_opacity_micromap.html), [VkAllocationCallbacks](https://registry.khronos.org/vulkan/specs/latest/man/html/VkAllocationCallbacks.html), [VkDevice](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDevice.html), [VkMicromapCreateInfoEXT](https://registry.khronos.org/vulkan/specs/latest/man/html/VkMicromapCreateInfoEXT.html), [VkMicromapEXT](https://registry.khronos.org/vulkan/specs/latest/man/html/VkMicromapEXT.html)
 
-## <a href="#_document_notes" class="anchor"></a>Document Notes
+## [](#_document_notes)Document Notes
 
-For more information, see the <a
-href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#vkCreateMicromapEXT"
-target="_blank" rel="noopener">Vulkan Specification</a>
+For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#vkCreateMicromapEXT)
 
-This page is extracted from the Vulkan Specification. Fixes and changes
-should be made to the Specification, not directly.
+This page is extracted from the Vulkan Specification. Fixes and changes should be made to the Specification, not directly.
 
-## <a href="#_copyright" class="anchor"></a>Copyright
+## [](#_copyright)Copyright
 
-Copyright 2014-2024 The Khronos Group Inc.
+Copyright 2014-2025 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
-
-Version 1.3.290  
-Last updated 2024-07-11 23:39:16 -0700

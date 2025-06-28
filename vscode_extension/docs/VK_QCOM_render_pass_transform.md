@@ -1,281 +1,177 @@
-# VK_QCOM_render_pass_transform(3) Manual Page
+# VK\_QCOM\_render\_pass\_transform(3) Manual Page
 
 ## Name
 
-VK_QCOM_render_pass_transform - device extension
+VK\_QCOM\_render\_pass\_transform - device extension
 
 
 
-## <a href="#_registered_extension_number" class="anchor"></a>Registered Extension Number
+## [](#_registered_extension_number)Registered Extension Number
 
 283
 
-## <a href="#_revision" class="anchor"></a>Revision
+## [](#_revision)Revision
 
 4
 
-## <a href="#_ratification_status" class="anchor"></a>Ratification Status
+## [](#_ratification_status)Ratification Status
 
 Not ratified
 
-## <a href="#_extension_and_version_dependencies" class="anchor"></a>Extension and Version Dependencies
+## [](#_extension_and_version_dependencies)Extension and Version Dependencies
 
 None
 
-## <a href="#_contact" class="anchor"></a>Contact
+## [](#_contact)Contact
 
-- Matthew Netsch <a
-  href="https://github.com/KhronosGroup/Vulkan-Docs/issues/new?body=%5BVK_QCOM_render_pass_transform%5D%20@mnetsch%0A*Here%20describe%20the%20issue%20or%20question%20you%20have%20about%20the%20VK_QCOM_render_pass_transform%20extension*"
-  target="_blank" rel="nofollow noopener"><em></em>mnetsch</a>
+- Matthew Netsch [\[GitHub\]mnetsch](https://github.com/KhronosGroup/Vulkan-Docs/issues/new?body=%5BVK_QCOM_render_pass_transform%5D%20%40mnetsch%0A%2AHere%20describe%20the%20issue%20or%20question%20you%20have%20about%20the%20VK_QCOM_render_pass_transform%20extension%2A)
 
-## <a href="#_other_extension_metadata" class="anchor"></a>Other Extension Metadata
+## [](#_other_extension_metadata)Other Extension Metadata
 
-**Last Modified Date**  
+**Last Modified Date**
+
 2023-12-13
 
-**Interactions and External Dependencies**  
-- This extension interacts with
-  [`VK_KHR_swapchain`](VK_KHR_swapchain.html)
+**Interactions and External Dependencies**
 
-- This extension interacts with [`VK_KHR_surface`](VK_KHR_surface.html)
+- This extension interacts with `VK_KHR_swapchain`
+- This extension interacts with `VK_KHR_surface`
+- This extension interacts with `VK_EXT_fragment_density_map`
+- This extension interacts with `VK_KHR_fragment_shading_rate`
+- This extension interacts with `VK_QCOM_tile_properties`
 
-- This extension interacts with
-  [`VK_EXT_fragment_density_map`](VK_EXT_fragment_density_map.html)
+**Contributors**
 
-- This extension interacts with
-  [`VK_KHR_fragment_shading_rate`](VK_KHR_fragment_shading_rate.html)
-
-- This extension interacts with
-  [`VK_QCOM_tile_properties`](VK_QCOM_tile_properties.html)
-
-**Contributors**  
 - Jeff Leger, Qualcomm Technologies, Inc.
-
 - Brandon Light, Qualcomm Technologies, Inc.
-
 - Matthew Netsch, Qualcomm Technologies, Inc.
-
 - Arpit Agarwal, Qualcomm Technologies, Inc.
 
-## <a href="#_description" class="anchor"></a>Description
+## [](#_description)Description
 
-This extension provides a mechanism for applications to enable driver
-support for <a
-href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#vertexpostproc-renderpass-transform"
-target="_blank" rel="noopener">render pass transform</a>.
+This extension provides a mechanism for applications to enable driver support for [render pass transform](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#vertexpostproc-renderpass-transform).
 
-Mobile devices can be rotated and mobile applications need to render
-properly when a device is held in a landscape or portrait orientation.
-When the current orientation differs from the device’s native
-orientation, a rotation is required so that the “up” direction of the
-rendered scene matches the current orientation.
+Mobile devices can be rotated and mobile applications need to render properly when a device is held in a landscape or portrait orientation. When the current orientation differs from the device’s native orientation, a rotation is required so that the “up” direction of the rendered scene matches the current orientation.
 
-If the Display Processing Unit (DPU) does not natively support rotation,
-the Vulkan presentation engine can handle this rotation in a separate
-composition pass. Alternatively, the application can render frames
-“pre-rotated” to avoid this extra pass. The latter is preferred to
-reduce power consumption and achieve the best performance because it
-avoids tasking the GPU with extra work to perform the copy/rotate
-operation.
+If the Display Processing Unit (DPU) does not natively support rotation, the Vulkan presentation engine can handle this rotation in a separate composition pass. Alternatively, the application can render frames “pre-rotated” to avoid this extra pass. The latter is preferred to reduce power consumption and achieve the best performance because it avoids tasking the GPU with extra work to perform the copy/rotate operation.
 
-Unlike OpenGL ES, the burden of pre-rotation in Vulkan falls on the
-application. To implement pre-rotation, applications render into
-swapchain images matching the device native aspect ratio of the display
-and “pre-rotate” the rendering content to match the device’s current
-orientation. The burden is more than adjusting the Model View Projection
-(MVP) matrix in the vertex shader to account for rotation and aspect
-ratio. The coordinate systems of scissors, viewports, derivatives and
-several shader built-ins may need to be adapted to produce the correct
-result.
+Unlike OpenGL ES, the burden of pre-rotation in Vulkan falls on the application. To implement pre-rotation, applications render into swapchain images matching the device native aspect ratio of the display and “pre-rotate” the rendering content to match the device’s current orientation. The burden is more than adjusting the Model View Projection (MVP) matrix in the vertex shader to account for rotation and aspect ratio. The coordinate systems of scissors, viewports, derivatives and several shader built-ins may need to be adapted to produce the correct result.
 
-It is difficult for some game engines to manage this burden; many chose
-to simply accept the performance/power overhead of performing rotation
-in the presentation engine.
+It is difficult for some game engines to manage this burden; many chose to simply accept the performance/power overhead of performing rotation in the presentation engine.
 
-This extension allows applications to achieve the performance benefits
-of pre-rotated rendering by moving much of the above-mentioned burden to
-the graphics driver. The following is unchanged with this extension:
+This extension allows applications to achieve the performance benefits of pre-rotated rendering by moving much of the above-mentioned burden to the graphics driver. The following is unchanged with this extension:
 
-- Applications create a swapchain matching the native orientation of the
-  display. Applications must also set the
-  [VkSwapchainCreateInfoKHR](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkSwapchainCreateInfoKHR.html)::`preTransform`
-  equal to the `currentTransform` as returned by
-  [vkGetPhysicalDeviceSurfaceCapabilitiesKHR](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkGetPhysicalDeviceSurfaceCapabilitiesKHR.html).
+- Applications create a swapchain matching the native orientation of the display. Applications must also set the [VkSwapchainCreateInfoKHR](https://registry.khronos.org/vulkan/specs/latest/man/html/VkSwapchainCreateInfoKHR.html)::`preTransform` equal to the `currentTransform` as returned by [vkGetPhysicalDeviceSurfaceCapabilitiesKHR](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetPhysicalDeviceSurfaceCapabilitiesKHR.html).
 
 The following is changed with this extension:
 
-- At [vkCmdBeginRenderPass](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdBeginRenderPass.html), the application
-  provides extension struct
-  [VkRenderPassTransformBeginInfoQCOM](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkRenderPassTransformBeginInfoQCOM.html)
-  specifying the render pass transform parameters.
+- At [vkCmdBeginRenderPass](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdBeginRenderPass.html), the application provides extension struct [VkRenderPassTransformBeginInfoQCOM](https://registry.khronos.org/vulkan/specs/latest/man/html/VkRenderPassTransformBeginInfoQCOM.html) specifying the render pass transform parameters.
+- At [vkBeginCommandBuffer](https://registry.khronos.org/vulkan/specs/latest/man/html/vkBeginCommandBuffer.html) for secondary command buffers, the application provides extension struct [VkCommandBufferInheritanceRenderPassTransformInfoQCOM](https://registry.khronos.org/vulkan/specs/latest/man/html/VkCommandBufferInheritanceRenderPassTransformInfoQCOM.html) specifying the render pass transform parameters.
+- The `renderArea`, viewports, scissors, and `fragmentSize` are all provided in the current (non-rotated) coordinate system. The implementation will transform those into the native (rotated) coordinate system.
+- The implementation is responsible for transforming shader built-ins (`FragCoord`, `PointCoord`, `SamplePosition`, `PrimitiveShadingRateKHR`, interpolateAt(), dFdx, dFdy, fWidth) into the rotated coordinate system.
+- The implementation is responsible for transforming `position` to the rotated coordinate system.
+- If this extension is used with `VK_QCOM_tile_properties`, then [vkGetFramebufferTilePropertiesQCOM](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetFramebufferTilePropertiesQCOM.html) and [vkGetDynamicRenderingTilePropertiesQCOM](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetDynamicRenderingTilePropertiesQCOM.html) return tile properties in the rotated coordinate space.
 
-- At [vkBeginCommandBuffer](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkBeginCommandBuffer.html) for secondary
-  command buffers, the application provides extension struct
-  [VkCommandBufferInheritanceRenderPassTransformInfoQCOM](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkCommandBufferInheritanceRenderPassTransformInfoQCOM.html)
-  specifying the render pass transform parameters.
+## [](#_new_structures)New Structures
 
-- The `renderArea`, viewports, scissors, and `fragmentSize` are all
-  provided in the current (non-rotated) coordinate system. The
-  implementation will transform those into the native (rotated)
-  coordinate system.
+- Extending [VkCommandBufferInheritanceInfo](https://registry.khronos.org/vulkan/specs/latest/man/html/VkCommandBufferInheritanceInfo.html):
+  
+  - [VkCommandBufferInheritanceRenderPassTransformInfoQCOM](https://registry.khronos.org/vulkan/specs/latest/man/html/VkCommandBufferInheritanceRenderPassTransformInfoQCOM.html)
+- Extending [VkRenderPassBeginInfo](https://registry.khronos.org/vulkan/specs/latest/man/html/VkRenderPassBeginInfo.html):
+  
+  - [VkRenderPassTransformBeginInfoQCOM](https://registry.khronos.org/vulkan/specs/latest/man/html/VkRenderPassTransformBeginInfoQCOM.html)
 
-- The implementation is responsible for transforming shader built-ins
-  (`FragCoord`, `PointCoord`, `SamplePosition`,
-  `PrimitiveShadingRateKHR`, interpolateAt(), dFdx, dFdy, fWidth) into
-  the rotated coordinate system.
-
-- The implementation is responsible for transforming `position` to the
-  rotated coordinate system.
-
-- If this extension is used with
-  [`VK_QCOM_tile_properties`](VK_QCOM_tile_properties.html), then
-  [vkGetFramebufferTilePropertiesQCOM](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkGetFramebufferTilePropertiesQCOM.html)
-  and
-  [vkGetDynamicRenderingTilePropertiesQCOM](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkGetDynamicRenderingTilePropertiesQCOM.html)
-  return tile properties in the rotated coordinate space.
-
-## <a href="#_new_structures" class="anchor"></a>New Structures
-
-- Extending
-  [VkCommandBufferInheritanceInfo](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkCommandBufferInheritanceInfo.html):
-
-  - [VkCommandBufferInheritanceRenderPassTransformInfoQCOM](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkCommandBufferInheritanceRenderPassTransformInfoQCOM.html)
-
-- Extending [VkRenderPassBeginInfo](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkRenderPassBeginInfo.html):
-
-  - [VkRenderPassTransformBeginInfoQCOM](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkRenderPassTransformBeginInfoQCOM.html)
-
-## <a href="#_new_enum_constants" class="anchor"></a>New Enum Constants
+## [](#_new_enum_constants)New Enum Constants
 
 - `VK_QCOM_RENDER_PASS_TRANSFORM_EXTENSION_NAME`
-
 - `VK_QCOM_RENDER_PASS_TRANSFORM_SPEC_VERSION`
-
-- Extending
-  [VkRenderPassCreateFlagBits](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkRenderPassCreateFlagBits.html):
-
+- Extending [VkRenderPassCreateFlagBits](https://registry.khronos.org/vulkan/specs/latest/man/html/VkRenderPassCreateFlagBits.html):
+  
   - `VK_RENDER_PASS_CREATE_TRANSFORM_BIT_QCOM`
-
-- Extending [VkStructureType](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkStructureType.html):
-
+- Extending [VkStructureType](https://registry.khronos.org/vulkan/specs/latest/man/html/VkStructureType.html):
+  
   - `VK_STRUCTURE_TYPE_COMMAND_BUFFER_INHERITANCE_RENDER_PASS_TRANSFORM_INFO_QCOM`
-
   - `VK_STRUCTURE_TYPE_RENDER_PASS_TRANSFORM_BEGIN_INFO_QCOM`
 
-## <a href="#_issues" class="anchor"></a>Issues
+## [](#_issues)Issues
 
-1\) Some early Adreno drivers (October 2019 through March 2020)
-advertised support for this extension but expected VK_STRUCTURE_TYPE
-values different from those in the vukan headers. To cover all Adreno
-devices on the market, applications need to detect the driver version
-and use the appropriate VK_STRUCTURE_TYPE values from the table below.
+1\) Some early Adreno drivers (October 2019 through March 2020) advertised support for this extension but expected VK\_STRUCTURE\_TYPE values different from those in the vukan headers. To cover all Adreno devices on the market, applications need to detect the driver version and use the appropriate VK\_STRUCTURE\_TYPE values from the table below.
 
-The driver version reported in VkPhysicalDeviceProperties.driverVersion
-is a `uint32_t` type. You can decode the `uint32_t` value into a
-major.minor.patch version as shown below:
+The driver version reported in VkPhysicalDeviceProperties.driverVersion is a `uint32_t` type. You can decode the `uint32_t` value into a major.minor.patch version as shown below:
 
-``` c
+```c
 uint32_t  major = ((driverVersion) >> 22);
 uint32_t  minor = ((driverVersion) >> 12) & 0x3ff);
 uint32_t  patch = ((driverVersion) & 0xfff);
 ```
 
-If the Adreno major.minor.patch version is greater than or equal to
-512.469.0, then simply use the VK_STRUCTURE_TYPE values as defined in
-vulkan_core.h. If the version is less than or equal to 512.468.0, then
-use the alternate values for the two VK_STRUCTURE_TYPEs in the table
-below.
+If the Adreno major.minor.patch version is greater than or equal to 512.469.0, then simply use the VK\_STRUCTURE\_TYPE values as defined in vulkan\_core.h. If the version is less than or equal to 512.468.0, then use the alternate values for the two VK\_STRUCTURE\_TYPEs in the table below.
 
-|  | Adreno Driver Version |  |
-|----|----|----|
-|  | 512.468.0 and earlier | 512.469.0 and later |
-| VK_STRUCTURE_TYPE\_ RENDER_PASS_TRANSFORM_BEGIN_INFO_QCOM | 1000282000 | 1000282001 |
-| VK_STRUCTURE_TYPE\_ COMMAND_BUFFER_INHERITANCE_RENDER_PASS_TRANSFORM_INFO_QCOM | 1000282001 | 1000282000 |
+Table 1. `Adreno` Driver Requirements    Adreno Driver Version
 
-Table 1. `Adreno` Driver Requirements
+512.468.0 and earlier
 
-2\) Should the extension support only rotations (e.g. 90, 180,
-270-degrees), or also mirror transforms (e.g. vertical flips)? Mobile
-use cases only require rotation. Other display systems such as
-projectors might require a flipped transform.
+512.469.0 and later
 
-**RESOLVED**: In this version of the extension, the functionality is
-restricted to 90, 180, and 270-degree rotations to address mobile use
-cases.
+VK\_STRUCTURE\_TYPE_ RENDER\_PASS\_TRANSFORM\_BEGIN\_INFO\_QCOM
 
-3\) How does this extension interact with VK_EXT_fragment_density_map?
+1000282000
 
-**RESOLVED** Some implementations may not be able to support a render
-pass that enables both render pass transform and fragment density maps.
-For simplicity, this extension disallows enabling both features within a
-single render pass.
+1000282001
+
+VK\_STRUCTURE\_TYPE_ COMMAND\_BUFFER\_INHERITANCE\_RENDER\_PASS\_TRANSFORM\_INFO\_QCOM
+
+1000282001
+
+1000282000
+
+2\) Should the extension support only rotations (e.g. 90, 180, 270-degrees), or also mirror transforms (e.g. vertical flips)? Mobile use cases only require rotation. Other display systems such as projectors might require a flipped transform.
+
+**RESOLVED**: In this version of the extension, the functionality is restricted to 90, 180, and 270-degree rotations to address mobile use cases.
+
+3\) How does this extension interact with VK\_EXT\_fragment\_density\_map?
+
+**RESOLVED** Some implementations may not be able to support a render pass that enables both render pass transform and fragment density maps. For simplicity, this extension disallows enabling both features within a single render pass.
 
 4\) What should this extension be named?
 
-We considered names such as “rotated_rendering”, “pre_rotation” and
-others. Since the functionality is limited to a render pass, it seemed
-the name should include “render_pass”. While the current extension is
-limited to rotations, it could be extended to other transforms (like
-mirror) in the future.
+We considered names such as “rotated\_rendering”, “pre\_rotation” and others. Since the functionality is limited to a render pass, it seemed the name should include “render\_pass”. While the current extension is limited to rotations, it could be extended to other transforms (like mirror) in the future.
 
-**RESOLVED** The name “render_pass_transform” seems like the most
-accurate description of the introduced functionality.
+**RESOLVED** The name “render\_pass\_transform” seems like the most accurate description of the introduced functionality.
 
-5\) How does this extension interact with VK_KHR_fragment_shading_rate?
+5\) How does this extension interact with VK\_KHR\_fragment\_shading\_rate?
 
-**RESOLVED**: For the same reasons as issue 3, this extension disallows
-enabling both `pFragmentShadingRateAttachment` and render pass transform
-within a single render pass.
+**RESOLVED**: For the same reasons as issue 3, this extension disallows enabling both `pFragmentShadingRateAttachment` and render pass transform within a single render pass.
 
-However, pipeline shading rate and primitive shading rate are supported,
-and their respective `fragmentSize` and `PrimitiveShadingRateKHR` are
-provided in the current (non-rotated) coordinate system. The
-implementation is responsible for transforming them to the rotated
-coordinate system.
+However, pipeline shading rate and primitive shading rate are supported, and their respective `fragmentSize` and `PrimitiveShadingRateKHR` are provided in the current (non-rotated) coordinate system. The implementation is responsible for transforming them to the rotated coordinate system.
 
-The <a
-href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#primsrast-fragment-shading-rate"
-target="_blank" rel="noopener">set of supported shading rates</a>
-**may** be different per transform. Supported rates queried from
-[vkGetPhysicalDeviceFragmentShadingRatesKHR](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkGetPhysicalDeviceFragmentShadingRatesKHR.html)
-are in the native (rotated) coordinate system. This means that the
-application **must** swap the x/y of the reported rates to get the set
-of rates supported for 90 and 270 degree rotation.
+The [set of supported shading rates](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#primsrast-fragment-shading-rate) **may** be different per transform. Supported rates queried from [vkGetPhysicalDeviceFragmentShadingRatesKHR](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetPhysicalDeviceFragmentShadingRatesKHR.html) are in the native (rotated) coordinate system. This means that the application **must** swap the x/y of the reported rates to get the set of rates supported for 90 and 270 degree rotation.
 
-## <a href="#_version_history" class="anchor"></a>Version History
+## [](#_version_history)Version History
 
 - Revision 1, 2020-02-05 (Jeff Leger)
-
 - Revision 2, 2021-03-09 (Matthew Netsch)
-
-  - Adds interactions with VK_KHR_fragment_shading_rate
-
+  
+  - Adds interactions with VK\_KHR\_fragment\_shading\_rate
 - Revision 3, 2022-07-11 (Arpit Agarwal)
-
-  - Adds interactions with VK_QCOM_tile_properties
-
+  
+  - Adds interactions with VK\_QCOM\_tile\_properties
 - Revision 4, 2023-12-13 (Matthew Netsch)
+  
+  - Relax dependencies on VK\_KHR\_surface and VK\_KHR\_swapchain
 
-  - Relax dependencies on VK_KHR_surface and VK_KHR_swapchain
-
-## <a href="#_see_also" class="anchor"></a>See Also
+## [](#_see_also)See Also
 
 No cross-references are available
 
-## <a href="#_document_notes" class="anchor"></a>Document Notes
+## [](#_document_notes)Document Notes
 
-For more information, see the <a
-href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#VK_QCOM_render_pass_transform"
-target="_blank" rel="noopener">Vulkan Specification</a>
+For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#VK_QCOM_render_pass_transform)
 
-This page is a generated document. Fixes and changes should be made to
-the generator scripts, not directly.
+This page is a generated document. Fixes and changes should be made to the generator scripts, not directly.
 
-## <a href="#_copyright" class="anchor"></a>Copyright
+## [](#_copyright)Copyright
 
-Copyright 2014-2024 The Khronos Group Inc.
+Copyright 2014-2025 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
-
-Version 1.3.290  
-Last updated 2024-07-11 23:39:16 -0700

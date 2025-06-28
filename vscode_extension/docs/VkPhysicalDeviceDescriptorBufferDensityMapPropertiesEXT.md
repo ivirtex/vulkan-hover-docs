@@ -2,18 +2,15 @@
 
 ## Name
 
-VkPhysicalDeviceDescriptorBufferDensityMapPropertiesEXT - Structure
-describing descriptor buffer density map properties supported by an
-implementation
+VkPhysicalDeviceDescriptorBufferDensityMapPropertiesEXT - Structure describing descriptor buffer density map properties supported by an implementation
 
 
 
-## <a href="#_c_specification" class="anchor"></a>C Specification
+## [](#_c_specification)C Specification
 
-The `VkPhysicalDeviceDescriptorBufferDensityMapPropertiesEXT` structure
-is defined as:
+The `VkPhysicalDeviceDescriptorBufferDensityMapPropertiesEXT` structure is defined as:
 
-``` c
+```c++
 // Provided by VK_EXT_descriptor_buffer
 typedef struct VkPhysicalDeviceDescriptorBufferDensityMapPropertiesEXT {
     VkStructureType    sType;
@@ -22,58 +19,33 @@ typedef struct VkPhysicalDeviceDescriptorBufferDensityMapPropertiesEXT {
 } VkPhysicalDeviceDescriptorBufferDensityMapPropertiesEXT;
 ```
 
-## <a href="#_members" class="anchor"></a>Members
+## [](#_members)Members
 
-- `sType` is a [VkStructureType](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkStructureType.html) value identifying
-  this structure.
+- `sType` is a [VkStructureType](https://registry.khronos.org/vulkan/specs/latest/man/html/VkStructureType.html) value identifying this structure.
+- `pNext` is `NULL` or a pointer to a structure extending this structure.
+- []()`combinedImageSamplerDensityMapDescriptorSize` indicates the size in bytes of a `VK_DESCRIPTOR_TYPE_COMBINED_IMAGE_SAMPLER` descriptor when creating the descriptor with `VK_SAMPLER_CREATE_SUBSAMPLED_BIT_EXT` set.
 
-- `pNext` is `NULL` or a pointer to a structure extending this
-  structure.
+## [](#_description)Description
 
-- <span id="limits-combinedImageSamplerDensityMapDescriptorSize"></span>
-  `combinedImageSamplerDensityMapDescriptorSize` indicates the size in
-  bytes of a `VK_DESCRIPTOR_TYPE_COMBINED_IMAGE_SAMPLER` descriptor when
-  creating the descriptor with `VK_SAMPLER_CREATE_SUBSAMPLED_BIT_EXT`
-  set.
-
-## <a href="#_description" class="anchor"></a>Description
-
-If the `VkPhysicalDeviceDescriptorBufferDensityMapPropertiesEXT`
-structure is included in the `pNext` chain of the
-[VkPhysicalDeviceProperties2](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkPhysicalDeviceProperties2.html)
-structure passed to
-[vkGetPhysicalDeviceProperties2](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkGetPhysicalDeviceProperties2.html),
-it is filled in with each corresponding implementation-dependent
-property.
+If the `VkPhysicalDeviceDescriptorBufferDensityMapPropertiesEXT` structure is included in the `pNext` chain of the [VkPhysicalDeviceProperties2](https://registry.khronos.org/vulkan/specs/latest/man/html/VkPhysicalDeviceProperties2.html) structure passed to [vkGetPhysicalDeviceProperties2](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetPhysicalDeviceProperties2.html), it is filled in with each corresponding implementation-dependent property.
 
 Valid Usage (Implicit)
 
-- <a
-  href="#VUID-VkPhysicalDeviceDescriptorBufferDensityMapPropertiesEXT-sType-sType"
-  id="VUID-VkPhysicalDeviceDescriptorBufferDensityMapPropertiesEXT-sType-sType"></a>
-  VUID-VkPhysicalDeviceDescriptorBufferDensityMapPropertiesEXT-sType-sType  
-  `sType` **must** be
-  `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_DESCRIPTOR_BUFFER_DENSITY_MAP_PROPERTIES_EXT`
+- [](#VUID-VkPhysicalDeviceDescriptorBufferDensityMapPropertiesEXT-sType-sType)VUID-VkPhysicalDeviceDescriptorBufferDensityMapPropertiesEXT-sType-sType  
+  `sType` **must** be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_DESCRIPTOR_BUFFER_DENSITY_MAP_PROPERTIES_EXT`
 
-## <a href="#_see_also" class="anchor"></a>See Also
+## [](#_see_also)See Also
 
-[VK_EXT_descriptor_buffer](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_EXT_descriptor_buffer.html),
-[VkStructureType](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkStructureType.html)
+[VK\_EXT\_descriptor\_buffer](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_EXT_descriptor_buffer.html), [VkStructureType](https://registry.khronos.org/vulkan/specs/latest/man/html/VkStructureType.html)
 
-## <a href="#_document_notes" class="anchor"></a>Document Notes
+## [](#_document_notes)Document Notes
 
-For more information, see the <a
-href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#VkPhysicalDeviceDescriptorBufferDensityMapPropertiesEXT"
-target="_blank" rel="noopener">Vulkan Specification</a>
+For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#VkPhysicalDeviceDescriptorBufferDensityMapPropertiesEXT)
 
-This page is extracted from the Vulkan Specification. Fixes and changes
-should be made to the Specification, not directly.
+This page is extracted from the Vulkan Specification. Fixes and changes should be made to the Specification, not directly.
 
-## <a href="#_copyright" class="anchor"></a>Copyright
+## [](#_copyright)Copyright
 
-Copyright 2014-2024 The Khronos Group Inc.
+Copyright 2014-2025 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
-
-Version 1.3.290  
-Last updated 2024-07-11 23:39:16 -0700

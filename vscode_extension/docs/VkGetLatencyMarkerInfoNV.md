@@ -2,16 +2,15 @@
 
 ## Name
 
-VkGetLatencyMarkerInfoNV - Structure specifying the parameters of
-vkGetLatencyTimingsNV
+VkGetLatencyMarkerInfoNV - Structure specifying the parameters of vkGetLatencyTimingsNV
 
 
 
-## <a href="#_c_specification" class="anchor"></a>C Specification
+## [](#_c_specification)C Specification
 
 The `VkGetLatencyMarkerInfoNV` structure is defined as:
 
-``` c
+```c++
 // Provided by VK_NV_low_latency2
 typedef struct VkGetLatencyMarkerInfoNV {
     VkStructureType                   sType;
@@ -21,67 +20,36 @@ typedef struct VkGetLatencyMarkerInfoNV {
 } VkGetLatencyMarkerInfoNV;
 ```
 
-## <a href="#_members" class="anchor"></a>Members
+## [](#_members)Members
 
-- `sType` is a [VkStructureType](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkStructureType.html) value identifying
-  this structure.
+- `sType` is a [VkStructureType](https://registry.khronos.org/vulkan/specs/latest/man/html/VkStructureType.html) value identifying this structure.
+- `pNext` is either `NULL` or a pointer to a structure extending this structure.
+- `timingCount` is an integer related to the number of previous frames of latency data available or queried, as described below.
+- `pTimings` is either `NULL` or a pointer to an array of [VkLatencyTimingsFrameReportNV](https://registry.khronos.org/vulkan/specs/latest/man/html/VkLatencyTimingsFrameReportNV.html) structures.
 
-- `pNext` is either `NULL` or a pointer to a structure extending this
-  structure.
+## [](#_description)Description
 
-- `timingCount` is an integer related to the number of previous frames
-  of latency data available or queried, as described below.
-
-- `pTimings` is either `NULL` or a pointer to an array of
-  [VkLatencyTimingsFrameReportNV](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkLatencyTimingsFrameReportNV.html)
-  structures.
-
-## <a href="#_description" class="anchor"></a>Description
-
-If `pTimings` is `NULL` then the maximum number of queryable frame data
-is returned in `timingCount`. Otherwise, `timingCount` **must** be set
-by the application to the number of elements in the `pTimings` array,
-and on return the variable is overwritten with the number of values
-actually written to `pTimings`. The elements of `pTimings` are arranged
-in the order they were requested in, with the oldest data in the first
-entry.
+If `pTimings` is `NULL` then the maximum number of queryable frame data is returned in `timingCount`. Otherwise, `timingCount` **must** be set by the application to the number of elements in the `pTimings` array, and on return the variable is overwritten with the number of values actually written to `pTimings`. The elements of `pTimings` are arranged in the order they were requested in, with the oldest data in the first entry.
 
 Valid Usage (Implicit)
 
-- <a href="#VUID-VkGetLatencyMarkerInfoNV-sType-sType"
-  id="VUID-VkGetLatencyMarkerInfoNV-sType-sType"></a>
-  VUID-VkGetLatencyMarkerInfoNV-sType-sType  
+- [](#VUID-VkGetLatencyMarkerInfoNV-sType-sType)VUID-VkGetLatencyMarkerInfoNV-sType-sType  
   `sType` **must** be `VK_STRUCTURE_TYPE_GET_LATENCY_MARKER_INFO_NV`
+- [](#VUID-VkGetLatencyMarkerInfoNV-pTimings-parameter)VUID-VkGetLatencyMarkerInfoNV-pTimings-parameter  
+  If `timingCount` is not `0`, and `pTimings` is not `NULL`, `pTimings` **must** be a valid pointer to an array of `timingCount` [VkLatencyTimingsFrameReportNV](https://registry.khronos.org/vulkan/specs/latest/man/html/VkLatencyTimingsFrameReportNV.html) structures
 
-- <a href="#VUID-VkGetLatencyMarkerInfoNV-pTimings-parameter"
-  id="VUID-VkGetLatencyMarkerInfoNV-pTimings-parameter"></a>
-  VUID-VkGetLatencyMarkerInfoNV-pTimings-parameter  
-  If `timingCount` is not `0`, and `pTimings` is not `NULL`, `pTimings`
-  **must** be a valid pointer to an array of `timingCount`
-  [VkLatencyTimingsFrameReportNV](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkLatencyTimingsFrameReportNV.html)
-  structures
+## [](#_see_also)See Also
 
-## <a href="#_see_also" class="anchor"></a>See Also
+[VK\_NV\_low\_latency2](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_NV_low_latency2.html), [VkLatencyTimingsFrameReportNV](https://registry.khronos.org/vulkan/specs/latest/man/html/VkLatencyTimingsFrameReportNV.html), [VkStructureType](https://registry.khronos.org/vulkan/specs/latest/man/html/VkStructureType.html), [vkGetLatencyTimingsNV](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetLatencyTimingsNV.html)
 
-[VK_NV_low_latency2](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_NV_low_latency2.html),
-[VkLatencyTimingsFrameReportNV](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkLatencyTimingsFrameReportNV.html),
-[VkStructureType](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkStructureType.html),
-[vkGetLatencyTimingsNV](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkGetLatencyTimingsNV.html)
+## [](#_document_notes)Document Notes
 
-## <a href="#_document_notes" class="anchor"></a>Document Notes
+For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#VkGetLatencyMarkerInfoNV)
 
-For more information, see the <a
-href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#VkGetLatencyMarkerInfoNV"
-target="_blank" rel="noopener">Vulkan Specification</a>
+This page is extracted from the Vulkan Specification. Fixes and changes should be made to the Specification, not directly.
 
-This page is extracted from the Vulkan Specification. Fixes and changes
-should be made to the Specification, not directly.
+## [](#_copyright)Copyright
 
-## <a href="#_copyright" class="anchor"></a>Copyright
-
-Copyright 2014-2024 The Khronos Group Inc.
+Copyright 2014-2025 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
-
-Version 1.3.290  
-Last updated 2024-07-11 23:39:16 -0700

@@ -2,17 +2,15 @@
 
 ## Name
 
-VkPhysicalDeviceDescriptorIndexingFeatures - Structure describing
-descriptor indexing features that can be supported by an implementation
+VkPhysicalDeviceDescriptorIndexingFeatures - Structure describing descriptor indexing features that can be supported by an implementation
 
 
 
-## <a href="#_c_specification" class="anchor"></a>C Specification
+## [](#_c_specification)C Specification
 
-The `VkPhysicalDeviceDescriptorIndexingFeatures` structure is defined
-as:
+The `VkPhysicalDeviceDescriptorIndexingFeatures` structure is defined as:
 
-``` c
+```c++
 // Provided by VK_VERSION_1_2
 typedef struct VkPhysicalDeviceDescriptorIndexingFeatures {
     VkStructureType    sType;
@@ -42,230 +40,60 @@ typedef struct VkPhysicalDeviceDescriptorIndexingFeatures {
 
 or the equivalent
 
-``` c
+```c++
 // Provided by VK_EXT_descriptor_indexing
 typedef VkPhysicalDeviceDescriptorIndexingFeatures VkPhysicalDeviceDescriptorIndexingFeaturesEXT;
 ```
 
-## <a href="#_members" class="anchor"></a>Members
+## [](#_members)Members
 
 This structure describes the following features:
 
-- `sType` is a [VkStructureType](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkStructureType.html) value identifying
-  this structure.
+- `sType` is a [VkStructureType](https://registry.khronos.org/vulkan/specs/latest/man/html/VkStructureType.html) value identifying this structure.
+- `pNext` is `NULL` or a pointer to a structure extending this structure.
 
-- `pNext` is `NULL` or a pointer to a structure extending this
-  structure.
+## [](#_description)Description
 
-## <a href="#_description" class="anchor"></a>Description
+- []()`shaderInputAttachmentArrayDynamicIndexing` indicates whether arrays of input attachments **can** be indexed by integer expressions that are dynamically uniform within either the subgroup or the invocation group in shader code. If this feature is not enabled, resources with a descriptor type of `VK_DESCRIPTOR_TYPE_INPUT_ATTACHMENT` **must** be indexed only by constant integral expressions when aggregated into arrays in shader code. This also indicates whether shader modules **can** declare the `InputAttachmentArrayDynamicIndexing` capability.
+- []()`shaderUniformTexelBufferArrayDynamicIndexing` indicates whether arrays of uniform texel buffers **can** be indexed by integer expressions that are dynamically uniform within either the subgroup or the invocation group in shader code. If this feature is not enabled, resources with a descriptor type of `VK_DESCRIPTOR_TYPE_UNIFORM_TEXEL_BUFFER` **must** be indexed only by constant integral expressions when aggregated into arrays in shader code. This also indicates whether shader modules **can** declare the `UniformTexelBufferArrayDynamicIndexing` capability.
+- []()`shaderStorageTexelBufferArrayDynamicIndexing` indicates whether arrays of storage texel buffers **can** be indexed by integer expressions that are dynamically uniform within either the subgroup or the invocation group in shader code. If this feature is not enabled, resources with a descriptor type of `VK_DESCRIPTOR_TYPE_STORAGE_TEXEL_BUFFER` **must** be indexed only by constant integral expressions when aggregated into arrays in shader code. This also indicates whether shader modules **can** declare the `StorageTexelBufferArrayDynamicIndexing` capability.
+- []()`shaderUniformBufferArrayNonUniformIndexing` indicates whether arrays of uniform buffers **can** be indexed by non-uniform integer expressions in shader code. If this feature is not enabled, resources with a descriptor type of `VK_DESCRIPTOR_TYPE_UNIFORM_BUFFER` or `VK_DESCRIPTOR_TYPE_UNIFORM_BUFFER_DYNAMIC` **must** not be indexed by non-uniform integer expressions when aggregated into arrays in shader code. This also indicates whether shader modules **can** declare the `UniformBufferArrayNonUniformIndexing` capability.
+- []()`shaderSampledImageArrayNonUniformIndexing` indicates whether arrays of samplers or sampled images **can** be indexed by non-uniform integer expressions in shader code. If this feature is not enabled, resources with a descriptor type of `VK_DESCRIPTOR_TYPE_SAMPLER`, `VK_DESCRIPTOR_TYPE_COMBINED_IMAGE_SAMPLER`, or `VK_DESCRIPTOR_TYPE_SAMPLED_IMAGE` **must** not be indexed by non-uniform integer expressions when aggregated into arrays in shader code. This also indicates whether shader modules **can** declare the `SampledImageArrayNonUniformIndexing` capability.
+- []()`shaderStorageBufferArrayNonUniformIndexing` indicates whether arrays of storage buffers **can** be indexed by non-uniform integer expressions in shader code. If this feature is not enabled, resources with a descriptor type of `VK_DESCRIPTOR_TYPE_STORAGE_BUFFER` or `VK_DESCRIPTOR_TYPE_STORAGE_BUFFER_DYNAMIC` **must** not be indexed by non-uniform integer expressions when aggregated into arrays in shader code. This also indicates whether shader modules **can** declare the `StorageBufferArrayNonUniformIndexing` capability.
+- []()`shaderStorageImageArrayNonUniformIndexing` indicates whether arrays of storage images **can** be indexed by non-uniform integer expressions in shader code. If this feature is not enabled, resources with a descriptor type of `VK_DESCRIPTOR_TYPE_STORAGE_IMAGE` **must** not be indexed by non-uniform integer expressions when aggregated into arrays in shader code. This also indicates whether shader modules **can** declare the `StorageImageArrayNonUniformIndexing` capability.
+- []()`shaderInputAttachmentArrayNonUniformIndexing` indicates whether arrays of input attachments **can** be indexed by non-uniform integer expressions in shader code. If this feature is not enabled, resources with a descriptor type of `VK_DESCRIPTOR_TYPE_INPUT_ATTACHMENT` **must** not be indexed by non-uniform integer expressions when aggregated into arrays in shader code. This also indicates whether shader modules **can** declare the `InputAttachmentArrayNonUniformIndexing` capability.
+- []()`shaderUniformTexelBufferArrayNonUniformIndexing` indicates whether arrays of uniform texel buffers **can** be indexed by non-uniform integer expressions in shader code. If this feature is not enabled, resources with a descriptor type of `VK_DESCRIPTOR_TYPE_UNIFORM_TEXEL_BUFFER` **must** not be indexed by non-uniform integer expressions when aggregated into arrays in shader code. This also indicates whether shader modules **can** declare the `UniformTexelBufferArrayNonUniformIndexing` capability.
+- []()`shaderStorageTexelBufferArrayNonUniformIndexing` indicates whether arrays of storage texel buffers **can** be indexed by non-uniform integer expressions in shader code. If this feature is not enabled, resources with a descriptor type of `VK_DESCRIPTOR_TYPE_STORAGE_TEXEL_BUFFER` **must** not be indexed by non-uniform integer expressions when aggregated into arrays in shader code. This also indicates whether shader modules **can** declare the `StorageTexelBufferArrayNonUniformIndexing` capability.
+- []()`descriptorBindingUniformBufferUpdateAfterBind` indicates whether the implementation supports updating uniform buffer descriptors after a set is bound. If this feature is not enabled, `VK_DESCRIPTOR_BINDING_UPDATE_AFTER_BIND_BIT` **must** not be used with `VK_DESCRIPTOR_TYPE_UNIFORM_BUFFER`.
+- []()`descriptorBindingSampledImageUpdateAfterBind` indicates whether the implementation supports updating sampled image descriptors after a set is bound. If this feature is not enabled, `VK_DESCRIPTOR_BINDING_UPDATE_AFTER_BIND_BIT` **must** not be used with `VK_DESCRIPTOR_TYPE_SAMPLER`, `VK_DESCRIPTOR_TYPE_COMBINED_IMAGE_SAMPLER`, or `VK_DESCRIPTOR_TYPE_SAMPLED_IMAGE`.
+- []()`descriptorBindingStorageImageUpdateAfterBind` indicates whether the implementation supports updating storage image descriptors after a set is bound. If this feature is not enabled, `VK_DESCRIPTOR_BINDING_UPDATE_AFTER_BIND_BIT` **must** not be used with `VK_DESCRIPTOR_TYPE_STORAGE_IMAGE`.
+- []()`descriptorBindingStorageBufferUpdateAfterBind` indicates whether the implementation supports updating storage buffer descriptors after a set is bound. If this feature is not enabled, `VK_DESCRIPTOR_BINDING_UPDATE_AFTER_BIND_BIT` **must** not be used with `VK_DESCRIPTOR_TYPE_STORAGE_BUFFER`.
+- []()`descriptorBindingUniformTexelBufferUpdateAfterBind` indicates whether the implementation supports updating uniform texel buffer descriptors after a set is bound. If this feature is not enabled, `VK_DESCRIPTOR_BINDING_UPDATE_AFTER_BIND_BIT` **must** not be used with `VK_DESCRIPTOR_TYPE_UNIFORM_TEXEL_BUFFER`.
+- []()`descriptorBindingStorageTexelBufferUpdateAfterBind` indicates whether the implementation supports updating storage texel buffer descriptors after a set is bound. If this feature is not enabled, `VK_DESCRIPTOR_BINDING_UPDATE_AFTER_BIND_BIT` **must** not be used with `VK_DESCRIPTOR_TYPE_STORAGE_TEXEL_BUFFER`.
+- []()`descriptorBindingUpdateUnusedWhilePending` indicates whether the implementation supports updating descriptors while the set is in use. If this feature is not enabled, `VK_DESCRIPTOR_BINDING_UPDATE_UNUSED_WHILE_PENDING_BIT` **must** not be used.
+- []()`descriptorBindingPartiallyBound` indicates whether the implementation supports statically using a descriptor set binding in which some descriptors are not valid. If this feature is not enabled, `VK_DESCRIPTOR_BINDING_PARTIALLY_BOUND_BIT` **must** not be used.
+- []()`descriptorBindingVariableDescriptorCount` indicates whether the implementation supports descriptor sets with a variable-sized last binding. If this feature is not enabled, `VK_DESCRIPTOR_BINDING_VARIABLE_DESCRIPTOR_COUNT_BIT` **must** not be used.
+- []()`runtimeDescriptorArray` indicates whether the implementation supports the SPIR-V `RuntimeDescriptorArray` capability. If this feature is not enabled, descriptors **must** not be declared in runtime arrays.
 
-- <span id="extension-features-shaderInputAttachmentArrayDynamicIndexing"></span>
-  `shaderInputAttachmentArrayDynamicIndexing` indicates whether arrays
-  of input attachments **can** be indexed by dynamically uniform integer
-  expressions in shader code. If this feature is not enabled, resources
-  with a descriptor type of `VK_DESCRIPTOR_TYPE_INPUT_ATTACHMENT`
-  **must** be indexed only by constant integral expressions when
-  aggregated into arrays in shader code. This also indicates whether
-  shader modules **can** declare the
-  `InputAttachmentArrayDynamicIndexing` capability.
-
-- <span id="extension-features-shaderUniformTexelBufferArrayDynamicIndexing"></span>
-  `shaderUniformTexelBufferArrayDynamicIndexing` indicates whether
-  arrays of uniform texel buffers **can** be indexed by dynamically
-  uniform integer expressions in shader code. If this feature is not
-  enabled, resources with a descriptor type of
-  `VK_DESCRIPTOR_TYPE_UNIFORM_TEXEL_BUFFER` **must** be indexed only by
-  constant integral expressions when aggregated into arrays in shader
-  code. This also indicates whether shader modules **can** declare the
-  `UniformTexelBufferArrayDynamicIndexing` capability.
-
-- <span id="extension-features-shaderStorageTexelBufferArrayDynamicIndexing"></span>
-  `shaderStorageTexelBufferArrayDynamicIndexing` indicates whether
-  arrays of storage texel buffers **can** be indexed by dynamically
-  uniform integer expressions in shader code. If this feature is not
-  enabled, resources with a descriptor type of
-  `VK_DESCRIPTOR_TYPE_STORAGE_TEXEL_BUFFER` **must** be indexed only by
-  constant integral expressions when aggregated into arrays in shader
-  code. This also indicates whether shader modules **can** declare the
-  `StorageTexelBufferArrayDynamicIndexing` capability.
-
-- <span id="extension-features-shaderUniformBufferArrayNonUniformIndexing"></span>
-  `shaderUniformBufferArrayNonUniformIndexing` indicates whether arrays
-  of uniform buffers **can** be indexed by non-uniform integer
-  expressions in shader code. If this feature is not enabled, resources
-  with a descriptor type of `VK_DESCRIPTOR_TYPE_UNIFORM_BUFFER` or
-  `VK_DESCRIPTOR_TYPE_UNIFORM_BUFFER_DYNAMIC` **must** not be indexed by
-  non-uniform integer expressions when aggregated into arrays in shader
-  code. This also indicates whether shader modules **can** declare the
-  `UniformBufferArrayNonUniformIndexing` capability.
-
-- <span id="extension-features-shaderSampledImageArrayNonUniformIndexing"></span>
-  `shaderSampledImageArrayNonUniformIndexing` indicates whether arrays
-  of samplers or sampled images **can** be indexed by non-uniform
-  integer expressions in shader code. If this feature is not enabled,
-  resources with a descriptor type of `VK_DESCRIPTOR_TYPE_SAMPLER`,
-  `VK_DESCRIPTOR_TYPE_COMBINED_IMAGE_SAMPLER`, or
-  `VK_DESCRIPTOR_TYPE_SAMPLED_IMAGE` **must** not be indexed by
-  non-uniform integer expressions when aggregated into arrays in shader
-  code. This also indicates whether shader modules **can** declare the
-  `SampledImageArrayNonUniformIndexing` capability.
-
-- <span id="extension-features-shaderStorageBufferArrayNonUniformIndexing"></span>
-  `shaderStorageBufferArrayNonUniformIndexing` indicates whether arrays
-  of storage buffers **can** be indexed by non-uniform integer
-  expressions in shader code. If this feature is not enabled, resources
-  with a descriptor type of `VK_DESCRIPTOR_TYPE_STORAGE_BUFFER` or
-  `VK_DESCRIPTOR_TYPE_STORAGE_BUFFER_DYNAMIC` **must** not be indexed by
-  non-uniform integer expressions when aggregated into arrays in shader
-  code. This also indicates whether shader modules **can** declare the
-  `StorageBufferArrayNonUniformIndexing` capability.
-
-- <span id="extension-features-shaderStorageImageArrayNonUniformIndexing"></span>
-  `shaderStorageImageArrayNonUniformIndexing` indicates whether arrays
-  of storage images **can** be indexed by non-uniform integer
-  expressions in shader code. If this feature is not enabled, resources
-  with a descriptor type of `VK_DESCRIPTOR_TYPE_STORAGE_IMAGE` **must**
-  not be indexed by non-uniform integer expressions when aggregated into
-  arrays in shader code. This also indicates whether shader modules
-  **can** declare the `StorageImageArrayNonUniformIndexing` capability.
-
-- <span id="extension-features-shaderInputAttachmentArrayNonUniformIndexing"></span>
-  `shaderInputAttachmentArrayNonUniformIndexing` indicates whether
-  arrays of input attachments **can** be indexed by non-uniform integer
-  expressions in shader code. If this feature is not enabled, resources
-  with a descriptor type of `VK_DESCRIPTOR_TYPE_INPUT_ATTACHMENT`
-  **must** not be indexed by non-uniform integer expressions when
-  aggregated into arrays in shader code. This also indicates whether
-  shader modules **can** declare the
-  `InputAttachmentArrayNonUniformIndexing` capability.
-
-- <span id="extension-features-shaderUniformTexelBufferArrayNonUniformIndexing"></span>
-  `shaderUniformTexelBufferArrayNonUniformIndexing` indicates whether
-  arrays of uniform texel buffers **can** be indexed by non-uniform
-  integer expressions in shader code. If this feature is not enabled,
-  resources with a descriptor type of
-  `VK_DESCRIPTOR_TYPE_UNIFORM_TEXEL_BUFFER` **must** not be indexed by
-  non-uniform integer expressions when aggregated into arrays in shader
-  code. This also indicates whether shader modules **can** declare the
-  `UniformTexelBufferArrayNonUniformIndexing` capability.
-
-- <span id="extension-features-shaderStorageTexelBufferArrayNonUniformIndexing"></span>
-  `shaderStorageTexelBufferArrayNonUniformIndexing` indicates whether
-  arrays of storage texel buffers **can** be indexed by non-uniform
-  integer expressions in shader code. If this feature is not enabled,
-  resources with a descriptor type of
-  `VK_DESCRIPTOR_TYPE_STORAGE_TEXEL_BUFFER` **must** not be indexed by
-  non-uniform integer expressions when aggregated into arrays in shader
-  code. This also indicates whether shader modules **can** declare the
-  `StorageTexelBufferArrayNonUniformIndexing` capability.
-
-- <span id="extension-features-descriptorBindingUniformBufferUpdateAfterBind"></span>
-  `descriptorBindingUniformBufferUpdateAfterBind` indicates whether the
-  implementation supports updating uniform buffer descriptors after a
-  set is bound. If this feature is not enabled,
-  `VK_DESCRIPTOR_BINDING_UPDATE_AFTER_BIND_BIT` **must** not be used
-  with `VK_DESCRIPTOR_TYPE_UNIFORM_BUFFER`.
-
-- <span id="extension-features-descriptorBindingSampledImageUpdateAfterBind"></span>
-  `descriptorBindingSampledImageUpdateAfterBind` indicates whether the
-  implementation supports updating sampled image descriptors after a set
-  is bound. If this feature is not enabled,
-  `VK_DESCRIPTOR_BINDING_UPDATE_AFTER_BIND_BIT` **must** not be used
-  with `VK_DESCRIPTOR_TYPE_SAMPLER`,
-  `VK_DESCRIPTOR_TYPE_COMBINED_IMAGE_SAMPLER`, or
-  `VK_DESCRIPTOR_TYPE_SAMPLED_IMAGE`.
-
-- <span id="extension-features-descriptorBindingStorageImageUpdateAfterBind"></span>
-  `descriptorBindingStorageImageUpdateAfterBind` indicates whether the
-  implementation supports updating storage image descriptors after a set
-  is bound. If this feature is not enabled,
-  `VK_DESCRIPTOR_BINDING_UPDATE_AFTER_BIND_BIT` **must** not be used
-  with `VK_DESCRIPTOR_TYPE_STORAGE_IMAGE`.
-
-- <span id="extension-features-descriptorBindingStorageBufferUpdateAfterBind"></span>
-  `descriptorBindingStorageBufferUpdateAfterBind` indicates whether the
-  implementation supports updating storage buffer descriptors after a
-  set is bound. If this feature is not enabled,
-  `VK_DESCRIPTOR_BINDING_UPDATE_AFTER_BIND_BIT` **must** not be used
-  with `VK_DESCRIPTOR_TYPE_STORAGE_BUFFER`.
-
-- <span id="extension-features-descriptorBindingUniformTexelBufferUpdateAfterBind"></span>
-  `descriptorBindingUniformTexelBufferUpdateAfterBind` indicates whether
-  the implementation supports updating uniform texel buffer descriptors
-  after a set is bound. If this feature is not enabled,
-  `VK_DESCRIPTOR_BINDING_UPDATE_AFTER_BIND_BIT` **must** not be used
-  with `VK_DESCRIPTOR_TYPE_UNIFORM_TEXEL_BUFFER`.
-
-- <span id="extension-features-descriptorBindingStorageTexelBufferUpdateAfterBind"></span>
-  `descriptorBindingStorageTexelBufferUpdateAfterBind` indicates whether
-  the implementation supports updating storage texel buffer descriptors
-  after a set is bound. If this feature is not enabled,
-  `VK_DESCRIPTOR_BINDING_UPDATE_AFTER_BIND_BIT` **must** not be used
-  with `VK_DESCRIPTOR_TYPE_STORAGE_TEXEL_BUFFER`.
-
-- <span id="extension-features-descriptorBindingUpdateUnusedWhilePending"></span>
-  `descriptorBindingUpdateUnusedWhilePending` indicates whether the
-  implementation supports updating descriptors while the set is in use.
-  If this feature is not enabled,
-  `VK_DESCRIPTOR_BINDING_UPDATE_UNUSED_WHILE_PENDING_BIT` **must** not
-  be used.
-
-- <span id="extension-features-descriptorBindingPartiallyBound"></span>
-  `descriptorBindingPartiallyBound` indicates whether the implementation
-  supports statically using a descriptor set binding in which some
-  descriptors are not valid. If this feature is not enabled,
-  `VK_DESCRIPTOR_BINDING_PARTIALLY_BOUND_BIT` **must** not be used.
-
-- <span id="extension-features-descriptorBindingVariableDescriptorCount"></span>
-  `descriptorBindingVariableDescriptorCount` indicates whether the
-  implementation supports descriptor sets with a variable-sized last
-  binding. If this feature is not enabled,
-  `VK_DESCRIPTOR_BINDING_VARIABLE_DESCRIPTOR_COUNT_BIT` **must** not be
-  used.
-
-- <span id="extension-features-runtimeDescriptorArray"></span>
-  `runtimeDescriptorArray` indicates whether the implementation supports
-  the SPIR-V `RuntimeDescriptorArray` capability. If this feature is not
-  enabled, descriptors **must** not be declared in runtime arrays.
-
-If the `VkPhysicalDeviceDescriptorIndexingFeatures` structure is
-included in the `pNext` chain of the
-[VkPhysicalDeviceFeatures2](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkPhysicalDeviceFeatures2.html) structure
-passed to
-[vkGetPhysicalDeviceFeatures2](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkGetPhysicalDeviceFeatures2.html), it is
-filled in to indicate whether each corresponding feature is supported.
-`VkPhysicalDeviceDescriptorIndexingFeatures` **can** also be used in the
-`pNext` chain of [VkDeviceCreateInfo](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkDeviceCreateInfo.html) to
-selectively enable these features.
+If the `VkPhysicalDeviceDescriptorIndexingFeatures` structure is included in the `pNext` chain of the [VkPhysicalDeviceFeatures2](https://registry.khronos.org/vulkan/specs/latest/man/html/VkPhysicalDeviceFeatures2.html) structure passed to [vkGetPhysicalDeviceFeatures2](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetPhysicalDeviceFeatures2.html), it is filled in to indicate whether each corresponding feature is supported. If the application wishes to use a [VkDevice](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDevice.html) with any features described by `VkPhysicalDeviceDescriptorIndexingFeatures`, it **must** add an instance of the structure, with the desired feature members set to `VK_TRUE`, to the `pNext` chain of [VkDeviceCreateInfo](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDeviceCreateInfo.html) when creating the [VkDevice](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDevice.html).
 
 Valid Usage (Implicit)
 
-- <a href="#VUID-VkPhysicalDeviceDescriptorIndexingFeatures-sType-sType"
-  id="VUID-VkPhysicalDeviceDescriptorIndexingFeatures-sType-sType"></a>
-  VUID-VkPhysicalDeviceDescriptorIndexingFeatures-sType-sType  
-  `sType` **must** be
-  `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_DESCRIPTOR_INDEXING_FEATURES`
+- [](#VUID-VkPhysicalDeviceDescriptorIndexingFeatures-sType-sType)VUID-VkPhysicalDeviceDescriptorIndexingFeatures-sType-sType  
+  `sType` **must** be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_DESCRIPTOR_INDEXING_FEATURES`
 
-## <a href="#_see_also" class="anchor"></a>See Also
+## [](#_see_also)See Also
 
-[VK_EXT_descriptor_indexing](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_EXT_descriptor_indexing.html),
-[VK_VERSION_1_2](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_VERSION_1_2.html), [VkBool32](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkBool32.html),
-[VkStructureType](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkStructureType.html)
+[VK\_EXT\_descriptor\_indexing](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_EXT_descriptor_indexing.html), [VK\_VERSION\_1\_2](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_VERSION_1_2.html), [VkBool32](https://registry.khronos.org/vulkan/specs/latest/man/html/VkBool32.html), [VkStructureType](https://registry.khronos.org/vulkan/specs/latest/man/html/VkStructureType.html)
 
-## <a href="#_document_notes" class="anchor"></a>Document Notes
+## [](#_document_notes)Document Notes
 
-For more information, see the <a
-href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#VkPhysicalDeviceDescriptorIndexingFeatures"
-target="_blank" rel="noopener">Vulkan Specification</a>
+For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#VkPhysicalDeviceDescriptorIndexingFeatures)
 
-This page is extracted from the Vulkan Specification. Fixes and changes
-should be made to the Specification, not directly.
+This page is extracted from the Vulkan Specification. Fixes and changes should be made to the Specification, not directly.
 
-## <a href="#_copyright" class="anchor"></a>Copyright
+## [](#_copyright)Copyright
 
-Copyright 2014-2024 The Khronos Group Inc.
+Copyright 2014-2025 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
-
-Version 1.3.290  
-Last updated 2024-07-11 23:39:16 -0700

@@ -1,87 +1,67 @@
-# VkImageSubresource2KHR(3) Manual Page
+# VkImageSubresource2(3) Manual Page
 
 ## Name
 
-VkImageSubresource2KHR - Structure specifying an image subresource
+VkImageSubresource2 - Structure specifying an image subresource
 
 
 
-## <a href="#_c_specification" class="anchor"></a>C Specification
+## [](#_c_specification)C Specification
 
-The `VkImageSubresource2KHR` structure is defined as:
+The `VkImageSubresource2` structure is defined as:
 
-``` c
-// Provided by VK_KHR_maintenance5
-typedef struct VkImageSubresource2KHR {
+```c++
+// Provided by VK_VERSION_1_4
+typedef struct VkImageSubresource2 {
     VkStructureType       sType;
     void*                 pNext;
     VkImageSubresource    imageSubresource;
-} VkImageSubresource2KHR;
+} VkImageSubresource2;
 ```
 
 or the equivalent
 
-``` c
-// Provided by VK_EXT_host_image_copy, VK_EXT_image_compression_control
-typedef VkImageSubresource2KHR VkImageSubresource2EXT;
+```c++
+// Provided by VK_KHR_maintenance5
+typedef VkImageSubresource2 VkImageSubresource2KHR;
 ```
 
-## <a href="#_members" class="anchor"></a>Members
+or the equivalent
 
-- `sType` is a [VkStructureType](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkStructureType.html) value identifying
-  this structure.
+```c++
+// Provided by VK_EXT_host_image_copy, VK_EXT_image_compression_control
+typedef VkImageSubresource2 VkImageSubresource2EXT;
+```
 
-- `pNext` is `NULL` or a pointer to a structure extending this
-  structure.
+## [](#_members)Members
 
-- `imageSubresource` is a [VkImageSubresource](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkImageSubresource.html)
-  structure.
+- `sType` is a [VkStructureType](https://registry.khronos.org/vulkan/specs/latest/man/html/VkStructureType.html) value identifying this structure.
+- `pNext` is `NULL` or a pointer to a structure extending this structure.
+- `imageSubresource` is a [VkImageSubresource](https://registry.khronos.org/vulkan/specs/latest/man/html/VkImageSubresource.html) structure.
 
-## <a href="#_description" class="anchor"></a>Description
+## [](#_description)Description
 
 Valid Usage (Implicit)
 
-- <a href="#VUID-VkImageSubresource2KHR-sType-sType"
-  id="VUID-VkImageSubresource2KHR-sType-sType"></a>
-  VUID-VkImageSubresource2KHR-sType-sType  
-  `sType` **must** be `VK_STRUCTURE_TYPE_IMAGE_SUBRESOURCE_2_KHR`
-
-- <a href="#VUID-VkImageSubresource2KHR-pNext-pNext"
-  id="VUID-VkImageSubresource2KHR-pNext-pNext"></a>
-  VUID-VkImageSubresource2KHR-pNext-pNext  
+- [](#VUID-VkImageSubresource2-sType-sType)VUID-VkImageSubresource2-sType-sType  
+  `sType` **must** be `VK_STRUCTURE_TYPE_IMAGE_SUBRESOURCE_2`
+- [](#VUID-VkImageSubresource2-pNext-pNext)VUID-VkImageSubresource2-pNext-pNext  
   `pNext` **must** be `NULL`
+- [](#VUID-VkImageSubresource2-imageSubresource-parameter)VUID-VkImageSubresource2-imageSubresource-parameter  
+  `imageSubresource` **must** be a valid [VkImageSubresource](https://registry.khronos.org/vulkan/specs/latest/man/html/VkImageSubresource.html) structure
 
-- <a href="#VUID-VkImageSubresource2KHR-imageSubresource-parameter"
-  id="VUID-VkImageSubresource2KHR-imageSubresource-parameter"></a>
-  VUID-VkImageSubresource2KHR-imageSubresource-parameter  
-  `imageSubresource` **must** be a valid
-  [VkImageSubresource](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkImageSubresource.html) structure
+## [](#_see_also)See Also
 
-## <a href="#_see_also" class="anchor"></a>See Also
+[VK\_EXT\_host\_image\_copy](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_EXT_host_image_copy.html), [VK\_EXT\_image\_compression\_control](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_EXT_image_compression_control.html), [VK\_KHR\_maintenance5](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_KHR_maintenance5.html), [VK\_VERSION\_1\_4](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_VERSION_1_4.html), [VkDeviceImageSubresourceInfo](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDeviceImageSubresourceInfo.html), [VkImageSubresource](https://registry.khronos.org/vulkan/specs/latest/man/html/VkImageSubresource.html), [VkStructureType](https://registry.khronos.org/vulkan/specs/latest/man/html/VkStructureType.html), [vkGetImageSubresourceLayout2](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetImageSubresourceLayout2.html), [vkGetImageSubresourceLayout2EXT](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetImageSubresourceLayout2EXT.html), [vkGetImageSubresourceLayout2KHR](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetImageSubresourceLayout2KHR.html)
 
-[VK_EXT_host_image_copy](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_EXT_host_image_copy.html),
-[VK_EXT_image_compression_control](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_EXT_image_compression_control.html),
-[VK_KHR_maintenance5](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_KHR_maintenance5.html),
-[VkDeviceImageSubresourceInfoKHR](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkDeviceImageSubresourceInfoKHR.html),
-[VkImageSubresource](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkImageSubresource.html),
-[VkStructureType](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkStructureType.html),
-[vkGetImageSubresourceLayout2EXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkGetImageSubresourceLayout2EXT.html),
-[vkGetImageSubresourceLayout2KHR](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkGetImageSubresourceLayout2KHR.html)
+## [](#_document_notes)Document Notes
 
-## <a href="#_document_notes" class="anchor"></a>Document Notes
+For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#VkImageSubresource2)
 
-For more information, see the <a
-href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#VkImageSubresource2KHR"
-target="_blank" rel="noopener">Vulkan Specification</a>
+This page is extracted from the Vulkan Specification. Fixes and changes should be made to the Specification, not directly.
 
-This page is extracted from the Vulkan Specification. Fixes and changes
-should be made to the Specification, not directly.
+## [](#_copyright)Copyright
 
-## <a href="#_copyright" class="anchor"></a>Copyright
-
-Copyright 2014-2024 The Khronos Group Inc.
+Copyright 2014-2025 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
-
-Version 1.3.290  
-Last updated 2024-07-11 23:39:16 -0700

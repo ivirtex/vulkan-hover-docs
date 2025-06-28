@@ -2,17 +2,15 @@
 
 ## Name
 
-VkPhysicalDeviceCopyMemoryIndirectPropertiesNV - Structure describing
-supported queues for indirect copy
+VkPhysicalDeviceCopyMemoryIndirectPropertiesNV - Structure describing supported queues for indirect copy
 
 
 
-## <a href="#_c_specification" class="anchor"></a>C Specification
+## [](#_c_specification)C Specification
 
-The `VkPhysicalDeviceCopyMemoryIndirectPropertiesNV` structure is
-defined as:
+The `VkPhysicalDeviceCopyMemoryIndirectPropertiesNV` structure is defined as:
 
-``` c
+```c++
 // Provided by VK_NV_copy_memory_indirect
 typedef struct VkPhysicalDeviceCopyMemoryIndirectPropertiesNV {
     VkStructureType    sType;
@@ -21,66 +19,35 @@ typedef struct VkPhysicalDeviceCopyMemoryIndirectPropertiesNV {
 } VkPhysicalDeviceCopyMemoryIndirectPropertiesNV;
 ```
 
-## <a href="#_members" class="anchor"></a>Members
+## [](#_members)Members
 
-- `sType` is a [VkStructureType](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkStructureType.html) value identifying
-  this structure.
+- `sType` is a [VkStructureType](https://registry.khronos.org/vulkan/specs/latest/man/html/VkStructureType.html) value identifying this structure.
+- `pNext` is `NULL` or a pointer to a structure extending this structure.
+- `supportedQueues` is a bitmask of [VkQueueFlagBits](https://registry.khronos.org/vulkan/specs/latest/man/html/VkQueueFlagBits.html) indicating the queues on which [indirect copy commands](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#indirect-copies) are supported.
 
-- `pNext` is `NULL` or a pointer to a structure extending this
-  structure.
+## [](#_description)Description
 
-- `supportedQueues` is a bitmask of
-  [VkQueueFlagBits](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkQueueFlagBits.html) indicating the queues on which
-  <a
-  href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#indirect-copies"
-  target="_blank" rel="noopener">indirect copy commands</a> are
-  supported.
+If the [`indirectCopy`](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#features-indirectCopy) feature is supported, `supportedQueues` **must** return at least one supported queue.
 
-## <a href="#_description" class="anchor"></a>Description
-
-If the <a
-href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#features-indirectCopy"
-target="_blank" rel="noopener"><code>indirectCopy</code></a> feature is
-supported, `supportedQueues` **must** return at least one supported
-queue.
-
-If the `VkPhysicalDeviceCopyMemoryIndirectPropertiesNV` structure is
-included in the `pNext` chain of the
-[VkPhysicalDeviceProperties2](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkPhysicalDeviceProperties2.html)
-structure passed to
-[vkGetPhysicalDeviceProperties2](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkGetPhysicalDeviceProperties2.html),
-it is filled in with each corresponding implementation-dependent
-property.
+If the `VkPhysicalDeviceCopyMemoryIndirectPropertiesNV` structure is included in the `pNext` chain of the [VkPhysicalDeviceProperties2](https://registry.khronos.org/vulkan/specs/latest/man/html/VkPhysicalDeviceProperties2.html) structure passed to [vkGetPhysicalDeviceProperties2](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetPhysicalDeviceProperties2.html), it is filled in with each corresponding implementation-dependent property.
 
 Valid Usage (Implicit)
 
-- <a
-  href="#VUID-VkPhysicalDeviceCopyMemoryIndirectPropertiesNV-sType-sType"
-  id="VUID-VkPhysicalDeviceCopyMemoryIndirectPropertiesNV-sType-sType"></a>
-  VUID-VkPhysicalDeviceCopyMemoryIndirectPropertiesNV-sType-sType  
-  `sType` **must** be
-  `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_COPY_MEMORY_INDIRECT_PROPERTIES_NV`
+- [](#VUID-VkPhysicalDeviceCopyMemoryIndirectPropertiesNV-sType-sType)VUID-VkPhysicalDeviceCopyMemoryIndirectPropertiesNV-sType-sType  
+  `sType` **must** be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_COPY_MEMORY_INDIRECT_PROPERTIES_NV`
 
-## <a href="#_see_also" class="anchor"></a>See Also
+## [](#_see_also)See Also
 
-[VK_NV_copy_memory_indirect](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_NV_copy_memory_indirect.html),
-[VkQueueFlags](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkQueueFlags.html),
-[VkStructureType](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkStructureType.html)
+[VK\_NV\_copy\_memory\_indirect](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_NV_copy_memory_indirect.html), [VkQueueFlags](https://registry.khronos.org/vulkan/specs/latest/man/html/VkQueueFlags.html), [VkStructureType](https://registry.khronos.org/vulkan/specs/latest/man/html/VkStructureType.html)
 
-## <a href="#_document_notes" class="anchor"></a>Document Notes
+## [](#_document_notes)Document Notes
 
-For more information, see the <a
-href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#VkPhysicalDeviceCopyMemoryIndirectPropertiesNV"
-target="_blank" rel="noopener">Vulkan Specification</a>
+For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#VkPhysicalDeviceCopyMemoryIndirectPropertiesNV)
 
-This page is extracted from the Vulkan Specification. Fixes and changes
-should be made to the Specification, not directly.
+This page is extracted from the Vulkan Specification. Fixes and changes should be made to the Specification, not directly.
 
-## <a href="#_copyright" class="anchor"></a>Copyright
+## [](#_copyright)Copyright
 
-Copyright 2014-2024 The Khronos Group Inc.
+Copyright 2014-2025 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
-
-Version 1.3.290  
-Last updated 2024-07-11 23:39:16 -0700

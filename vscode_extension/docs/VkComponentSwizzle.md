@@ -6,13 +6,11 @@ VkComponentSwizzle - Specify how a component is swizzled
 
 
 
-## <a href="#_c_specification" class="anchor"></a>C Specification
+## [](#_c_specification)C Specification
 
-Possible values of the members of
-[VkComponentMapping](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkComponentMapping.html), specifying the component
-values placed in each component of the output vector, are:
+Possible values of the members of [VkComponentMapping](https://registry.khronos.org/vulkan/specs/latest/man/html/VkComponentMapping.html), specifying the component values placed in each component of the output vector, are:
 
-``` c
+```c++
 // Provided by VK_VERSION_1_0
 typedef enum VkComponentSwizzle {
     VK_COMPONENT_SWIZZLE_IDENTITY = 0,
@@ -25,66 +23,48 @@ typedef enum VkComponentSwizzle {
 } VkComponentSwizzle;
 ```
 
-## <a href="#_description" class="anchor"></a>Description
+## [](#_description)Description
 
-- `VK_COMPONENT_SWIZZLE_IDENTITY` specifies that the component is set to
-  the identity swizzle.
+- `VK_COMPONENT_SWIZZLE_IDENTITY` specifies that the component is set to the identity swizzle.
+- `VK_COMPONENT_SWIZZLE_ZERO` specifies that the component is set to zero.
+- `VK_COMPONENT_SWIZZLE_ONE` specifies that the component is set to either 1 or 1.0, depending on whether the type of the image view format is integer or floating-point respectively, as determined by the [Format Definition](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#formats-definition) section for each [VkFormat](https://registry.khronos.org/vulkan/specs/latest/man/html/VkFormat.html).
+- `VK_COMPONENT_SWIZZLE_R` specifies that the component is set to the value of the R component of the image.
+- `VK_COMPONENT_SWIZZLE_G` specifies that the component is set to the value of the G component of the image.
+- `VK_COMPONENT_SWIZZLE_B` specifies that the component is set to the value of the B component of the image.
+- `VK_COMPONENT_SWIZZLE_A` specifies that the component is set to the value of the A component of the image.
 
-- `VK_COMPONENT_SWIZZLE_ZERO` specifies that the component is set to
-  zero.
+Setting the identity swizzle on a component is equivalent to setting the identity mapping on that component. That is:
 
-- `VK_COMPONENT_SWIZZLE_ONE` specifies that the component is set to
-  either 1 or 1.0, depending on whether the type of the image view
-  format is integer or floating-point respectively, as determined by the
-  <a
-  href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#formats-definition"
-  target="_blank" rel="noopener">Format Definition</a> section for each
-  [VkFormat](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkFormat.html).
+Table 1. Component Mappings Equivalent To `VK_COMPONENT_SWIZZLE_IDENTITY`   Component Identity Mapping
 
-- `VK_COMPONENT_SWIZZLE_R` specifies that the component is set to the
-  value of the R component of the image.
+`components.r`
 
-- `VK_COMPONENT_SWIZZLE_G` specifies that the component is set to the
-  value of the G component of the image.
+`VK_COMPONENT_SWIZZLE_R`
 
-- `VK_COMPONENT_SWIZZLE_B` specifies that the component is set to the
-  value of the B component of the image.
+`components.g`
 
-- `VK_COMPONENT_SWIZZLE_A` specifies that the component is set to the
-  value of the A component of the image.
+`VK_COMPONENT_SWIZZLE_G`
 
-Setting the identity swizzle on a component is equivalent to setting the
-identity mapping on that component. That is:
+`components.b`
 
-| Component      | Identity Mapping         |
-|----------------|--------------------------|
-| `components.r` | `VK_COMPONENT_SWIZZLE_R` |
-| `components.g` | `VK_COMPONENT_SWIZZLE_G` |
-| `components.b` | `VK_COMPONENT_SWIZZLE_B` |
-| `components.a` | `VK_COMPONENT_SWIZZLE_A` |
+`VK_COMPONENT_SWIZZLE_B`
 
-Table 1. Component Mappings Equivalent To
-`VK_COMPONENT_SWIZZLE_IDENTITY`
+`components.a`
 
-## <a href="#_see_also" class="anchor"></a>See Also
+`VK_COMPONENT_SWIZZLE_A`
 
-[VK_VERSION_1_0](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_VERSION_1_0.html),
-[VkComponentMapping](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkComponentMapping.html)
+## [](#_see_also)See Also
 
-## <a href="#_document_notes" class="anchor"></a>Document Notes
+[VK\_VERSION\_1\_0](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_VERSION_1_0.html), [VkComponentMapping](https://registry.khronos.org/vulkan/specs/latest/man/html/VkComponentMapping.html)
 
-For more information, see the <a
-href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#VkComponentSwizzle"
-target="_blank" rel="noopener">Vulkan Specification</a>
+## [](#_document_notes)Document Notes
 
-This page is extracted from the Vulkan Specification. Fixes and changes
-should be made to the Specification, not directly.
+For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#VkComponentSwizzle)
 
-## <a href="#_copyright" class="anchor"></a>Copyright
+This page is extracted from the Vulkan Specification. Fixes and changes should be made to the Specification, not directly.
 
-Copyright 2014-2024 The Khronos Group Inc.
+## [](#_copyright)Copyright
+
+Copyright 2014-2025 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
-
-Version 1.3.290  
-Last updated 2024-07-11 23:39:16 -0700

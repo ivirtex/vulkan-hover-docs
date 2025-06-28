@@ -2,18 +2,15 @@
 
 ## Name
 
-vkGetDrmDisplayEXT - Query the VkDisplayKHR corresponding to a DRM
-connector ID
+vkGetDrmDisplayEXT - Query the VkDisplayKHR corresponding to a DRM connector ID
 
 
 
-## <a href="#_c_specification" class="anchor"></a>C Specification
+## [](#_c_specification)C Specification
 
-Before acquiring a display from the DRM interface, the caller may want
-to select a specific `VkDisplayKHR` handle by identifying it using a
-`connectorId`. To do so, call:
+Before acquiring a display from the DRM interface, the caller may want to select a specific `VkDisplayKHR` handle by identifying it using a `connectorId`. To do so, call:
 
-``` c
+```c++
 // Provided by VK_EXT_acquire_drm_display
 VkResult vkGetDrmDisplayEXT(
     VkPhysicalDevice                            physicalDevice,
@@ -22,75 +19,47 @@ VkResult vkGetDrmDisplayEXT(
     VkDisplayKHR*                               display);
 ```
 
-## <a href="#_parameters" class="anchor"></a>Parameters
+## [](#_parameters)Parameters
 
 - `physicalDevice` The physical device to query the display from.
-
 - `drmFd` DRM primary file descriptor.
-
 - `connectorId` Identifier of the specified DRM connector.
+- `display` The corresponding [VkDisplayKHR](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDisplayKHR.html) handle will be returned here.
 
-- `display` The corresponding [VkDisplayKHR](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkDisplayKHR.html) handle
-  will be returned here.
+## [](#_description)Description
 
-## <a href="#_description" class="anchor"></a>Description
-
-If there is no [VkDisplayKHR](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkDisplayKHR.html) corresponding to the
-`connectorId` on the `physicalDevice`, the returning `display` must be
-set to [VK_NULL_HANDLE](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_NULL_HANDLE.html). The provided `drmFd` must
-correspond to the one owned by the `physicalDevice`. If not, the error
-code `VK_ERROR_UNKNOWN` must be returned. Master permissions are not
-required, because the file descriptor is just used for information
-gathering purposes. The given `connectorId` must be a resource owned by
-the provided `drmFd`. If not, the error code `VK_ERROR_UNKNOWN` must be
-returned. If any error is encountered during the identification of the
-display, the call must return the error code
-`VK_ERROR_INITIALIZATION_FAILED`.
+If there is no [VkDisplayKHR](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDisplayKHR.html) corresponding to the `connectorId` on the `physicalDevice`, the returning `display` **must** be [VK\_NULL\_HANDLE](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_NULL_HANDLE.html). The provided `drmFd` **must** correspond to the one owned by the `physicalDevice`. If not, the error code `VK_ERROR_UNKNOWN` **must** be returned. Master permissions are not required, because the file descriptor is just used for information gathering purposes. The given `connectorId` **must** be a resource owned by the provided `drmFd`. If not, the error code `VK_ERROR_UNKNOWN` **must** be returned. If any error is encountered during the identification of the display, the call **must** return the error code `VK_ERROR_INITIALIZATION_FAILED`.
 
 Valid Usage (Implicit)
 
-- <a href="#VUID-vkGetDrmDisplayEXT-physicalDevice-parameter"
-  id="VUID-vkGetDrmDisplayEXT-physicalDevice-parameter"></a>
-  VUID-vkGetDrmDisplayEXT-physicalDevice-parameter  
-  `physicalDevice` **must** be a valid
-  [VkPhysicalDevice](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkPhysicalDevice.html) handle
-
-- <a href="#VUID-vkGetDrmDisplayEXT-display-parameter"
-  id="VUID-vkGetDrmDisplayEXT-display-parameter"></a>
-  VUID-vkGetDrmDisplayEXT-display-parameter  
-  `display` **must** be a valid pointer to a
-  [VkDisplayKHR](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkDisplayKHR.html) handle
+- [](#VUID-vkGetDrmDisplayEXT-physicalDevice-parameter)VUID-vkGetDrmDisplayEXT-physicalDevice-parameter  
+  `physicalDevice` **must** be a valid [VkPhysicalDevice](https://registry.khronos.org/vulkan/specs/latest/man/html/VkPhysicalDevice.html) handle
+- [](#VUID-vkGetDrmDisplayEXT-display-parameter)VUID-vkGetDrmDisplayEXT-display-parameter  
+  `display` **must** be a valid pointer to a [VkDisplayKHR](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDisplayKHR.html) handle
 
 Return Codes
 
-On success, this command returns  
+On success, this command returns
+
 - `VK_SUCCESS`
 
-On failure, this command returns  
-- `VK_ERROR_INITIALIZATION_FAILED`
+On failure, this command returns
 
+- `VK_ERROR_INITIALIZATION_FAILED`
 - `VK_ERROR_OUT_OF_HOST_MEMORY`
 
-## <a href="#_see_also" class="anchor"></a>See Also
+## [](#_see_also)See Also
 
-[VK_EXT_acquire_drm_display](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_EXT_acquire_drm_display.html),
-[VkDisplayKHR](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkDisplayKHR.html),
-[VkPhysicalDevice](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkPhysicalDevice.html)
+[VK\_EXT\_acquire\_drm\_display](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_EXT_acquire_drm_display.html), [VkDisplayKHR](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDisplayKHR.html), [VkPhysicalDevice](https://registry.khronos.org/vulkan/specs/latest/man/html/VkPhysicalDevice.html)
 
-## <a href="#_document_notes" class="anchor"></a>Document Notes
+## [](#_document_notes)Document Notes
 
-For more information, see the <a
-href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#vkGetDrmDisplayEXT"
-target="_blank" rel="noopener">Vulkan Specification</a>
+For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#vkGetDrmDisplayEXT)
 
-This page is extracted from the Vulkan Specification. Fixes and changes
-should be made to the Specification, not directly.
+This page is extracted from the Vulkan Specification. Fixes and changes should be made to the Specification, not directly.
 
-## <a href="#_copyright" class="anchor"></a>Copyright
+## [](#_copyright)Copyright
 
-Copyright 2014-2024 The Khronos Group Inc.
+Copyright 2014-2025 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
-
-Version 1.3.290  
-Last updated 2024-07-11 23:39:16 -0700

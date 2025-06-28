@@ -6,155 +6,82 @@ vkCmdCopyMicromapEXT - Copy a micromap
 
 
 
-## <a href="#_c_specification" class="anchor"></a>C Specification
+## [](#_c_specification)C Specification
 
 To copy a micromap call:
 
-``` c
+```c++
 // Provided by VK_EXT_opacity_micromap
 void vkCmdCopyMicromapEXT(
     VkCommandBuffer                             commandBuffer,
     const VkCopyMicromapInfoEXT*                pInfo);
 ```
 
-## <a href="#_parameters" class="anchor"></a>Parameters
+## [](#_parameters)Parameters
 
-- `commandBuffer` is the command buffer into which the command will be
-  recorded.
+- `commandBuffer` is the command buffer into which the command will be recorded.
+- `pInfo` is a pointer to a [VkCopyMicromapInfoEXT](https://registry.khronos.org/vulkan/specs/latest/man/html/VkCopyMicromapInfoEXT.html) structure defining the copy operation.
 
-- `pInfo` is a pointer to a
-  [VkCopyMicromapInfoEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkCopyMicromapInfoEXT.html) structure defining
-  the copy operation.
+## [](#_description)Description
 
-## <a href="#_description" class="anchor"></a>Description
+This command copies the `pInfo->src` micromap to the `pInfo->dst` micromap in the manner specified by `pInfo->mode`.
 
-This command copies the `pInfo->src` micromap to the `pInfo->dst`
-micromap in the manner specified by `pInfo->mode`.
-
-Accesses to `pInfo->src` and `pInfo->dst` **must** be <a
-href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#synchronization-dependencies"
-target="_blank" rel="noopener">synchronized</a> with the
-`VK_PIPELINE_STAGE_2_MICROMAP_BUILD_BIT_EXT` <a
-href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#synchronization-pipeline-stages"
-target="_blank" rel="noopener">pipeline stage</a> and an <a
-href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#synchronization-access-types"
-target="_blank" rel="noopener">access type</a> of
-`VK_ACCESS_2_MICROMAP_READ_BIT_EXT` or
-`VK_ACCESS_2_MICROMAP_WRITE_BIT_EXT` as appropriate.
+Accesses to `pInfo->src` and `pInfo->dst` **must** be [synchronized](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#synchronization-dependencies) with the `VK_PIPELINE_STAGE_2_MICROMAP_BUILD_BIT_EXT` [pipeline stage](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#synchronization-pipeline-stages) and an [access type](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#synchronization-access-types) of `VK_ACCESS_2_MICROMAP_READ_BIT_EXT` or `VK_ACCESS_2_MICROMAP_WRITE_BIT_EXT` as appropriate.
 
 Valid Usage
 
-- <a href="#VUID-vkCmdCopyMicromapEXT-buffer-07529"
-  id="VUID-vkCmdCopyMicromapEXT-buffer-07529"></a>
-  VUID-vkCmdCopyMicromapEXT-buffer-07529  
-  The `buffer` used to create `pInfo->src` **must** be bound to device
-  memory
-
-- <a href="#VUID-vkCmdCopyMicromapEXT-buffer-07530"
-  id="VUID-vkCmdCopyMicromapEXT-buffer-07530"></a>
-  VUID-vkCmdCopyMicromapEXT-buffer-07530  
-  The `buffer` used to create `pInfo->dst` **must** be bound to device
-  memory
+- [](#VUID-vkCmdCopyMicromapEXT-buffer-07529)VUID-vkCmdCopyMicromapEXT-buffer-07529  
+  The `buffer` used to create `pInfo->src` **must** be bound to device memory
+- [](#VUID-vkCmdCopyMicromapEXT-buffer-07530)VUID-vkCmdCopyMicromapEXT-buffer-07530  
+  The `buffer` used to create `pInfo->dst` **must** be bound to device memory
 
 Valid Usage (Implicit)
 
-- <a href="#VUID-vkCmdCopyMicromapEXT-commandBuffer-parameter"
-  id="VUID-vkCmdCopyMicromapEXT-commandBuffer-parameter"></a>
-  VUID-vkCmdCopyMicromapEXT-commandBuffer-parameter  
-  `commandBuffer` **must** be a valid
-  [VkCommandBuffer](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkCommandBuffer.html) handle
-
-- <a href="#VUID-vkCmdCopyMicromapEXT-pInfo-parameter"
-  id="VUID-vkCmdCopyMicromapEXT-pInfo-parameter"></a>
-  VUID-vkCmdCopyMicromapEXT-pInfo-parameter  
-  `pInfo` **must** be a valid pointer to a valid
-  [VkCopyMicromapInfoEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkCopyMicromapInfoEXT.html) structure
-
-- <a href="#VUID-vkCmdCopyMicromapEXT-commandBuffer-recording"
-  id="VUID-vkCmdCopyMicromapEXT-commandBuffer-recording"></a>
-  VUID-vkCmdCopyMicromapEXT-commandBuffer-recording  
-  `commandBuffer` **must** be in the [recording
-  state](#commandbuffers-lifecycle)
-
-- <a href="#VUID-vkCmdCopyMicromapEXT-commandBuffer-cmdpool"
-  id="VUID-vkCmdCopyMicromapEXT-commandBuffer-cmdpool"></a>
-  VUID-vkCmdCopyMicromapEXT-commandBuffer-cmdpool  
-  The `VkCommandPool` that `commandBuffer` was allocated from **must**
-  support compute operations
-
-- <a href="#VUID-vkCmdCopyMicromapEXT-renderpass"
-  id="VUID-vkCmdCopyMicromapEXT-renderpass"></a>
-  VUID-vkCmdCopyMicromapEXT-renderpass  
+- [](#VUID-vkCmdCopyMicromapEXT-commandBuffer-parameter)VUID-vkCmdCopyMicromapEXT-commandBuffer-parameter  
+  `commandBuffer` **must** be a valid [VkCommandBuffer](https://registry.khronos.org/vulkan/specs/latest/man/html/VkCommandBuffer.html) handle
+- [](#VUID-vkCmdCopyMicromapEXT-pInfo-parameter)VUID-vkCmdCopyMicromapEXT-pInfo-parameter  
+  `pInfo` **must** be a valid pointer to a valid [VkCopyMicromapInfoEXT](https://registry.khronos.org/vulkan/specs/latest/man/html/VkCopyMicromapInfoEXT.html) structure
+- [](#VUID-vkCmdCopyMicromapEXT-commandBuffer-recording)VUID-vkCmdCopyMicromapEXT-commandBuffer-recording  
+  `commandBuffer` **must** be in the [recording state](#commandbuffers-lifecycle)
+- [](#VUID-vkCmdCopyMicromapEXT-commandBuffer-cmdpool)VUID-vkCmdCopyMicromapEXT-commandBuffer-cmdpool  
+  The `VkCommandPool` that `commandBuffer` was allocated from **must** support compute operations
+- [](#VUID-vkCmdCopyMicromapEXT-renderpass)VUID-vkCmdCopyMicromapEXT-renderpass  
   This command **must** only be called outside of a render pass instance
-
-- <a href="#VUID-vkCmdCopyMicromapEXT-videocoding"
-  id="VUID-vkCmdCopyMicromapEXT-videocoding"></a>
-  VUID-vkCmdCopyMicromapEXT-videocoding  
+- [](#VUID-vkCmdCopyMicromapEXT-videocoding)VUID-vkCmdCopyMicromapEXT-videocoding  
   This command **must** only be called outside of a video coding scope
 
 Host Synchronization
 
 - Host access to `commandBuffer` **must** be externally synchronized
-
-- Host access to the `VkCommandPool` that `commandBuffer` was allocated
-  from **must** be externally synchronized
+- Host access to the `VkCommandPool` that `commandBuffer` was allocated from **must** be externally synchronized
 
 Command Properties
 
-<table class="tableblock frame-all grid-all stretch">
-<colgroup>
-<col style="width: 20%" />
-<col style="width: 20%" />
-<col style="width: 20%" />
-<col style="width: 20%" />
-<col style="width: 20%" />
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-top"><a
-href="#VkCommandBufferLevel">Command Buffer Levels</a></th>
-<th class="tableblock halign-left valign-top"><a
-href="#vkCmdBeginRenderPass">Render Pass Scope</a></th>
-<th class="tableblock halign-left valign-top"><a
-href="#vkCmdBeginVideoCodingKHR">Video Coding Scope</a></th>
-<th class="tableblock halign-left valign-top"><a
-href="#VkQueueFlagBits">Supported Queue Types</a></th>
-<th class="tableblock halign-left valign-top"><a
-href="#fundamentals-queueoperation-command-types">Command Type</a></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p>Primary<br />
-Secondary</p></td>
-<td class="tableblock halign-left valign-top"><p>Outside</p></td>
-<td class="tableblock halign-left valign-top"><p>Outside</p></td>
-<td class="tableblock halign-left valign-top"><p>Compute</p></td>
-<td class="tableblock halign-left valign-top"><p>Action</p></td>
-</tr>
-</tbody>
-</table>
+     [Command Buffer Levels](#VkCommandBufferLevel) [Render Pass Scope](#vkCmdBeginRenderPass) [Video Coding Scope](#vkCmdBeginVideoCodingKHR) [Supported Queue Types](#VkQueueFlagBits) [Command Type](#fundamentals-queueoperation-command-types)
 
-## <a href="#_see_also" class="anchor"></a>See Also
+Primary  
+Secondary
 
-[VK_EXT_opacity_micromap](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_EXT_opacity_micromap.html),
-[VkCommandBuffer](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkCommandBuffer.html),
-[VkCopyMicromapInfoEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkCopyMicromapInfoEXT.html)
+Outside
 
-## <a href="#_document_notes" class="anchor"></a>Document Notes
+Outside
 
-For more information, see the <a
-href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#vkCmdCopyMicromapEXT"
-target="_blank" rel="noopener">Vulkan Specification</a>
+Compute
 
-This page is extracted from the Vulkan Specification. Fixes and changes
-should be made to the Specification, not directly.
+Action
 
-## <a href="#_copyright" class="anchor"></a>Copyright
+## [](#_see_also)See Also
 
-Copyright 2014-2024 The Khronos Group Inc.
+[VK\_EXT\_opacity\_micromap](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_EXT_opacity_micromap.html), [VkCommandBuffer](https://registry.khronos.org/vulkan/specs/latest/man/html/VkCommandBuffer.html), [VkCopyMicromapInfoEXT](https://registry.khronos.org/vulkan/specs/latest/man/html/VkCopyMicromapInfoEXT.html)
+
+## [](#_document_notes)Document Notes
+
+For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#vkCmdCopyMicromapEXT)
+
+This page is extracted from the Vulkan Specification. Fixes and changes should be made to the Specification, not directly.
+
+## [](#_copyright)Copyright
+
+Copyright 2014-2025 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
-
-Version 1.3.290  
-Last updated 2024-07-11 23:39:16 -0700

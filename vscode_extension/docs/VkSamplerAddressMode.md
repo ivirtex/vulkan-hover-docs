@@ -2,22 +2,15 @@
 
 ## Name
 
-VkSamplerAddressMode - Specify behavior of sampling with texture
-coordinates outside an image
+VkSamplerAddressMode - Specify behavior of sampling with texture coordinates outside an image
 
 
 
-## <a href="#_c_specification" class="anchor"></a>C Specification
+## [](#_c_specification)C Specification
 
-Possible values of the
-[VkSamplerCreateInfo](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkSamplerCreateInfo.html)::`addressMode*`
-parameters, specifying the behavior of sampling with coordinates outside
-the range \[0,1\] for the respective u, v, or w coordinate as defined in
-the <a
-href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#textures-wrapping-operation"
-target="_blank" rel="noopener">Wrapping Operation</a> section, are:
+Possible values of the [VkSamplerCreateInfo](https://registry.khronos.org/vulkan/specs/latest/man/html/VkSamplerCreateInfo.html)::`addressMode*` parameters, specifying the behavior of sampling with coordinates outside the range \[0,1] for the respective u, v, or w coordinate as defined in the [Wrapping Operation](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#textures-wrapping-operation) section, are:
 
-``` c
+```c++
 // Provided by VK_VERSION_1_0
 typedef enum VkSamplerAddressMode {
     VK_SAMPLER_ADDRESS_MODE_REPEAT = 0,
@@ -27,51 +20,31 @@ typedef enum VkSamplerAddressMode {
   // Provided by VK_VERSION_1_2, VK_KHR_sampler_mirror_clamp_to_edge
     VK_SAMPLER_ADDRESS_MODE_MIRROR_CLAMP_TO_EDGE = 4,
   // Provided by VK_KHR_sampler_mirror_clamp_to_edge
+  // VK_SAMPLER_ADDRESS_MODE_MIRROR_CLAMP_TO_EDGE_KHR is a deprecated alias
     VK_SAMPLER_ADDRESS_MODE_MIRROR_CLAMP_TO_EDGE_KHR = VK_SAMPLER_ADDRESS_MODE_MIRROR_CLAMP_TO_EDGE,
 } VkSamplerAddressMode;
 ```
 
-## <a href="#_description" class="anchor"></a>Description
+## [](#_description)Description
 
-- `VK_SAMPLER_ADDRESS_MODE_REPEAT` specifies that the repeat wrap mode
-  will be used.
+- `VK_SAMPLER_ADDRESS_MODE_REPEAT` specifies that the repeat wrap mode will be used.
+- `VK_SAMPLER_ADDRESS_MODE_MIRRORED_REPEAT` specifies that the mirrored repeat wrap mode will be used.
+- `VK_SAMPLER_ADDRESS_MODE_CLAMP_TO_EDGE` specifies that the clamp to edge wrap mode will be used.
+- `VK_SAMPLER_ADDRESS_MODE_CLAMP_TO_BORDER` specifies that the clamp to border wrap mode will be used.
+- `VK_SAMPLER_ADDRESS_MODE_MIRROR_CLAMP_TO_EDGE` specifies that the mirror clamp to edge wrap mode will be used. This is only valid if the [`samplerMirrorClampToEdge`](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#features-samplerMirrorClampToEdge) feature is enabled, or if the `VK_KHR_sampler_mirror_clamp_to_edge` extension is enabled.
 
-- `VK_SAMPLER_ADDRESS_MODE_MIRRORED_REPEAT` specifies that the mirrored
-  repeat wrap mode will be used.
+## [](#_see_also)See Also
 
-- `VK_SAMPLER_ADDRESS_MODE_CLAMP_TO_EDGE` specifies that the clamp to
-  edge wrap mode will be used.
+[VK\_VERSION\_1\_0](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_VERSION_1_0.html), [VkSamplerCreateInfo](https://registry.khronos.org/vulkan/specs/latest/man/html/VkSamplerCreateInfo.html)
 
-- `VK_SAMPLER_ADDRESS_MODE_CLAMP_TO_BORDER` specifies that the clamp to
-  border wrap mode will be used.
+## [](#_document_notes)Document Notes
 
-- `VK_SAMPLER_ADDRESS_MODE_MIRROR_CLAMP_TO_EDGE` specifies that the
-  mirror clamp to edge wrap mode will be used. This is only valid if <a
-  href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#features-samplerMirrorClampToEdge"
-  target="_blank" rel="noopener"><code>samplerMirrorClampToEdge</code></a>
-  is enabled, or if the
-  [`VK_KHR_sampler_mirror_clamp_to_edge`](VK_KHR_sampler_mirror_clamp_to_edge.html)
-  extension is enabled.
+For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#VkSamplerAddressMode)
 
-## <a href="#_see_also" class="anchor"></a>See Also
+This page is extracted from the Vulkan Specification. Fixes and changes should be made to the Specification, not directly.
 
-[VK_VERSION_1_0](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_VERSION_1_0.html),
-[VkSamplerCreateInfo](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkSamplerCreateInfo.html)
+## [](#_copyright)Copyright
 
-## <a href="#_document_notes" class="anchor"></a>Document Notes
-
-For more information, see the <a
-href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#VkSamplerAddressMode"
-target="_blank" rel="noopener">Vulkan Specification</a>
-
-This page is extracted from the Vulkan Specification. Fixes and changes
-should be made to the Specification, not directly.
-
-## <a href="#_copyright" class="anchor"></a>Copyright
-
-Copyright 2014-2024 The Khronos Group Inc.
+Copyright 2014-2025 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
-
-Version 1.3.290  
-Last updated 2024-07-11 23:39:16 -0700

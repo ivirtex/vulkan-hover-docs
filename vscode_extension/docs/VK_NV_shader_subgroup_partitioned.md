@@ -1,98 +1,81 @@
-# VK_NV_shader_subgroup_partitioned(3) Manual Page
+# VK\_NV\_shader\_subgroup\_partitioned(3) Manual Page
 
 ## Name
 
-VK_NV_shader_subgroup_partitioned - device extension
+VK\_NV\_shader\_subgroup\_partitioned - device extension
 
 
 
-## <a href="#_registered_extension_number" class="anchor"></a>Registered Extension Number
+## [](#_registered_extension_number)Registered Extension Number
 
 199
 
-## <a href="#_revision" class="anchor"></a>Revision
+## [](#_revision)Revision
 
 1
 
-## <a href="#_ratification_status" class="anchor"></a>Ratification Status
+## [](#_ratification_status)Ratification Status
 
 Not ratified
 
-## <a href="#_extension_and_version_dependencies" class="anchor"></a>Extension and Version Dependencies
+## [](#_extension_and_version_dependencies)Extension and Version Dependencies
 
-[Version 1.1](#versions-1.1)  
+[Vulkan Version 1.1](#versions-1.1)
 
-## <a href="#_spir_v_dependencies" class="anchor"></a>SPIR-V Dependencies
+## [](#_spir_v_dependencies)SPIR-V Dependencies
 
-- [SPV_NV_shader_subgroup_partitioned](https://htmlpreview.github.io/?https://github.com/KhronosGroup/SPIRV-Registry/blob/main/extensions/NV/SPV_NV_shader_subgroup_partitioned.html)
+- [SPV\_NV\_shader\_subgroup\_partitioned](https://github.khronos.org/SPIRV-Registry/extensions/NV/SPV_NV_shader_subgroup_partitioned.html)
 
-## <a href="#_contact" class="anchor"></a>Contact
+## [](#_contact)Contact
 
-- Jeff Bolz <a
-  href="https://github.com/KhronosGroup/Vulkan-Docs/issues/new?body=%5BVK_NV_shader_subgroup_partitioned%5D%20@jeffbolznv%0A*Here%20describe%20the%20issue%20or%20question%20you%20have%20about%20the%20VK_NV_shader_subgroup_partitioned%20extension*"
-  target="_blank" rel="nofollow noopener"><em></em>jeffbolznv</a>
+- Jeff Bolz [\[GitHub\]jeffbolznv](https://github.com/KhronosGroup/Vulkan-Docs/issues/new?body=%5BVK_NV_shader_subgroup_partitioned%5D%20%40jeffbolznv%0A%2AHere%20describe%20the%20issue%20or%20question%20you%20have%20about%20the%20VK_NV_shader_subgroup_partitioned%20extension%2A)
 
-## <a href="#_other_extension_metadata" class="anchor"></a>Other Extension Metadata
+## [](#_other_extension_metadata)Other Extension Metadata
 
-**Last Modified Date**  
+**Last Modified Date**
+
 2018-03-17
 
-**Interactions and External Dependencies**  
-- This extension provides API support for
-  [`GL_NV_shader_subgroup_partitioned`](https://github.com/KhronosGroup/GLSL/blob/main/extensions/nv/GL_NV_shader_subgroup_partitioned.txt)
+**Interactions and External Dependencies**
 
-**Contributors**  
+- This extension provides API support for [`GL_NV_shader_subgroup_partitioned`](https://github.com/KhronosGroup/GLSL/blob/main/extensions/nv/GL_NV_shader_subgroup_partitioned.txt)
+
+**Contributors**
+
 - Jeff Bolz, NVIDIA
 
-## <a href="#_description" class="anchor"></a>Description
+## [](#_description)Description
 
-This extension enables support for a new class of <a
-href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#shaders-group-operations"
-target="_blank" rel="noopener">group operations</a> on <a
-href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#shaders-scope-subgroup"
-target="_blank" rel="noopener">subgroups</a> via the
-[`GL_NV_shader_subgroup_partitioned`](https://github.com/KhronosGroup/GLSL/blob/main/extensions/nv/GL_NV_shader_subgroup_partitioned.txt)
-GLSL extension and
-[`SPV_NV_shader_subgroup_partitioned`](https://htmlpreview.github.io/?https://github.com/KhronosGroup/SPIRV-Registry/blob/main/extensions/NV/SPV_NV_shader_subgroup_partitioned.html)
-SPIR-V extension. Support for these new operations is advertised via the
-`VK_SUBGROUP_FEATURE_PARTITIONED_BIT_NV` bit.
+This extension enables support for a new class of [group operations](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#shaders-group-operations) on [subgroups](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#shaders-scope-subgroup) via the [`GL_NV_shader_subgroup_partitioned`](https://github.com/KhronosGroup/GLSL/blob/main/extensions/nv/GL_NV_shader_subgroup_partitioned.txt) GLSL extension and [`SPV_NV_shader_subgroup_partitioned`](https://github.khronos.org/SPIRV-Registry/extensions/NV/SPV_NV_shader_subgroup_partitioned.html) SPIR-V extension. Support for these new operations is advertised via the `VK_SUBGROUP_FEATURE_PARTITIONED_BIT_NV` bit.
 
 This extension requires Vulkan 1.1, for general subgroup support.
 
-## <a href="#_new_enum_constants" class="anchor"></a>New Enum Constants
+## [](#_new_enum_constants)New Enum Constants
 
 - `VK_NV_SHADER_SUBGROUP_PARTITIONED_EXTENSION_NAME`
-
 - `VK_NV_SHADER_SUBGROUP_PARTITIONED_SPEC_VERSION`
-
-- Extending [VkSubgroupFeatureFlagBits](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkSubgroupFeatureFlagBits.html):
-
+- Extending [VkSubgroupFeatureFlagBits](https://registry.khronos.org/vulkan/specs/latest/man/html/VkSubgroupFeatureFlagBits.html):
+  
   - `VK_SUBGROUP_FEATURE_PARTITIONED_BIT_NV`
 
-## <a href="#_version_history" class="anchor"></a>Version History
+## [](#_version_history)Version History
 
 - Revision 1, 2018-03-17 (Jeff Bolz)
-
+  
   - Internal revisions
 
-## <a href="#_see_also" class="anchor"></a>See Also
+## [](#_see_also)See Also
 
 No cross-references are available
 
-## <a href="#_document_notes" class="anchor"></a>Document Notes
+## [](#_document_notes)Document Notes
 
-For more information, see the <a
-href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#VK_NV_shader_subgroup_partitioned"
-target="_blank" rel="noopener">Vulkan Specification</a>
+For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#VK_NV_shader_subgroup_partitioned)
 
-This page is a generated document. Fixes and changes should be made to
-the generator scripts, not directly.
+This page is a generated document. Fixes and changes should be made to the generator scripts, not directly.
 
-## <a href="#_copyright" class="anchor"></a>Copyright
+## [](#_copyright)Copyright
 
-Copyright 2014-2024 The Khronos Group Inc.
+Copyright 2014-2025 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
-
-Version 1.3.290  
-Last updated 2024-07-11 23:39:16 -0700

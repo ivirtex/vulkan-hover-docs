@@ -6,73 +6,45 @@ vkResetEvent - Reset an event to non-signaled state
 
 
 
-## <a href="#_c_specification" class="anchor"></a>C Specification
+## [](#_c_specification)C Specification
 
 To set the state of an event to unsignaled from the host, call:
 
-``` c
+```c++
 // Provided by VK_VERSION_1_0
 VkResult vkResetEvent(
     VkDevice                                    device,
     VkEvent                                     event);
 ```
 
-## <a href="#_parameters" class="anchor"></a>Parameters
+## [](#_parameters)Parameters
 
 - `device` is the logical device that owns the event.
-
 - `event` is the event to reset.
 
-## <a href="#_description" class="anchor"></a>Description
+## [](#_description)Description
 
-When [vkResetEvent](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkResetEvent.html) is executed on the host, it
-defines an *event unsignal operation* which resets the event to the
-unsignaled state.
+When [vkResetEvent](https://registry.khronos.org/vulkan/specs/latest/man/html/vkResetEvent.html) is executed on the host, it defines an *event unsignal operation* which resets the event to the unsignaled state.
 
-If `event` is already in the unsignaled state when
-[vkResetEvent](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkResetEvent.html) is executed, then
-[vkResetEvent](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkResetEvent.html) has no effect, and no event unsignal
-operation occurs.
+If `event` is already in the unsignaled state when [vkResetEvent](https://registry.khronos.org/vulkan/specs/latest/man/html/vkResetEvent.html) is executed, then [vkResetEvent](https://registry.khronos.org/vulkan/specs/latest/man/html/vkResetEvent.html) has no effect, and no event unsignal operation occurs.
 
 Valid Usage
 
-- <a href="#VUID-vkResetEvent-event-03821"
-  id="VUID-vkResetEvent-event-03821"></a>
-  VUID-vkResetEvent-event-03821  
-  There **must** be an execution dependency between `vkResetEvent` and
-  the execution of any [vkCmdWaitEvents](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdWaitEvents.html) that
-  includes `event` in its `pEvents` parameter
-
-- <a href="#VUID-vkResetEvent-event-03822"
-  id="VUID-vkResetEvent-event-03822"></a>
-  VUID-vkResetEvent-event-03822  
-  There **must** be an execution dependency between `vkResetEvent` and
-  the execution of any [vkCmdWaitEvents2](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdWaitEvents2.html) that
-  includes `event` in its `pEvents` parameter
-
-- <a href="#VUID-vkResetEvent-event-03823"
-  id="VUID-vkResetEvent-event-03823"></a>
-  VUID-vkResetEvent-event-03823  
-  `event` **must** not have been created with
-  `VK_EVENT_CREATE_DEVICE_ONLY_BIT`
+- [](#VUID-vkResetEvent-event-03821)VUID-vkResetEvent-event-03821  
+  There **must** be an execution dependency between `vkResetEvent` and the execution of any [vkCmdWaitEvents](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdWaitEvents.html) that includes `event` in its `pEvents` parameter
+- [](#VUID-vkResetEvent-event-03822)VUID-vkResetEvent-event-03822  
+  There **must** be an execution dependency between `vkResetEvent` and the execution of any [vkCmdWaitEvents2](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdWaitEvents2.html) that includes `event` in its `pEvents` parameter
+- [](#VUID-vkResetEvent-event-03823)VUID-vkResetEvent-event-03823  
+  `event` **must** not have been created with `VK_EVENT_CREATE_DEVICE_ONLY_BIT`
 
 Valid Usage (Implicit)
 
-- <a href="#VUID-vkResetEvent-device-parameter"
-  id="VUID-vkResetEvent-device-parameter"></a>
-  VUID-vkResetEvent-device-parameter  
-  `device` **must** be a valid [VkDevice](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkDevice.html) handle
-
-- <a href="#VUID-vkResetEvent-event-parameter"
-  id="VUID-vkResetEvent-event-parameter"></a>
-  VUID-vkResetEvent-event-parameter  
-  `event` **must** be a valid [VkEvent](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkEvent.html) handle
-
-- <a href="#VUID-vkResetEvent-event-parent"
-  id="VUID-vkResetEvent-event-parent"></a>
-  VUID-vkResetEvent-event-parent  
-  `event` **must** have been created, allocated, or retrieved from
-  `device`
+- [](#VUID-vkResetEvent-device-parameter)VUID-vkResetEvent-device-parameter  
+  `device` **must** be a valid [VkDevice](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDevice.html) handle
+- [](#VUID-vkResetEvent-event-parameter)VUID-vkResetEvent-event-parameter  
+  `event` **must** be a valid [VkEvent](https://registry.khronos.org/vulkan/specs/latest/man/html/VkEvent.html) handle
+- [](#VUID-vkResetEvent-event-parent)VUID-vkResetEvent-event-parent  
+  `event` **must** have been created, allocated, or retrieved from `device`
 
 Host Synchronization
 
@@ -80,31 +52,26 @@ Host Synchronization
 
 Return Codes
 
-On success, this command returns  
+On success, this command returns
+
 - `VK_SUCCESS`
 
-On failure, this command returns  
+On failure, this command returns
+
 - `VK_ERROR_OUT_OF_DEVICE_MEMORY`
 
-## <a href="#_see_also" class="anchor"></a>See Also
+## [](#_see_also)See Also
 
-[VK_VERSION_1_0](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_VERSION_1_0.html), [VkDevice](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkDevice.html),
-[VkEvent](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkEvent.html)
+[VK\_VERSION\_1\_0](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_VERSION_1_0.html), [VkDevice](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDevice.html), [VkEvent](https://registry.khronos.org/vulkan/specs/latest/man/html/VkEvent.html)
 
-## <a href="#_document_notes" class="anchor"></a>Document Notes
+## [](#_document_notes)Document Notes
 
-For more information, see the <a
-href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#vkResetEvent"
-target="_blank" rel="noopener">Vulkan Specification</a>
+For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#vkResetEvent)
 
-This page is extracted from the Vulkan Specification. Fixes and changes
-should be made to the Specification, not directly.
+This page is extracted from the Vulkan Specification. Fixes and changes should be made to the Specification, not directly.
 
-## <a href="#_copyright" class="anchor"></a>Copyright
+## [](#_copyright)Copyright
 
-Copyright 2014-2024 The Khronos Group Inc.
+Copyright 2014-2025 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
-
-Version 1.3.290  
-Last updated 2024-07-11 23:39:16 -0700

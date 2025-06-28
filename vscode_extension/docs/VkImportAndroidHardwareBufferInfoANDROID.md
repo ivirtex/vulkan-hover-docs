@@ -2,21 +2,15 @@
 
 ## Name
 
-VkImportAndroidHardwareBufferInfoANDROID - Import memory from an Android
-hardware buffer
+VkImportAndroidHardwareBufferInfoANDROID - Import memory from an Android hardware buffer
 
 
 
-## <a href="#_c_specification" class="anchor"></a>C Specification
+## [](#_c_specification)C Specification
 
-To import memory created outside of the current Vulkan instance from an
-Android hardware buffer, add a
-`VkImportAndroidHardwareBufferInfoANDROID` structure to the `pNext`
-chain of the [VkMemoryAllocateInfo](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkMemoryAllocateInfo.html)
-structure. The `VkImportAndroidHardwareBufferInfoANDROID` structure is
-defined as:
+To import memory created outside of the current Vulkan instance from an Android hardware buffer, add a `VkImportAndroidHardwareBufferInfoANDROID` structure to the `pNext` chain of the [VkMemoryAllocateInfo](https://registry.khronos.org/vulkan/specs/latest/man/html/VkMemoryAllocateInfo.html) structure. The `VkImportAndroidHardwareBufferInfoANDROID` structure is defined as:
 
-``` c
+```c++
 // Provided by VK_ANDROID_external_memory_android_hardware_buffer
 typedef struct VkImportAndroidHardwareBufferInfoANDROID {
     VkStructureType            sType;
@@ -25,77 +19,42 @@ typedef struct VkImportAndroidHardwareBufferInfoANDROID {
 } VkImportAndroidHardwareBufferInfoANDROID;
 ```
 
-## <a href="#_members" class="anchor"></a>Members
+## [](#_members)Members
 
-- `sType` is a [VkStructureType](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkStructureType.html) value identifying
-  this structure.
-
-- `pNext` is `NULL` or a pointer to a structure extending this
-  structure.
-
+- `sType` is a [VkStructureType](https://registry.khronos.org/vulkan/specs/latest/man/html/VkStructureType.html) value identifying this structure.
+- `pNext` is `NULL` or a pointer to a structure extending this structure.
 - `buffer` is the Android hardware buffer to import.
 
-## <a href="#_description" class="anchor"></a>Description
+## [](#_description)Description
 
-If the [vkAllocateMemory](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkAllocateMemory.html) command succeeds, the
-implementation **must** acquire a reference to the imported hardware
-buffer, which it **must** release when the device memory object is
-freed. If the command fails, the implementation **must** not retain a
-reference.
+If the [vkAllocateMemory](https://registry.khronos.org/vulkan/specs/latest/man/html/vkAllocateMemory.html) command succeeds, the implementation **must** acquire a reference to the imported hardware buffer, which it **must** release when the device memory object is freed. If the command fails, the implementation **must** not retain a reference.
 
 Valid Usage
 
-- <a href="#VUID-VkImportAndroidHardwareBufferInfoANDROID-buffer-01880"
-  id="VUID-VkImportAndroidHardwareBufferInfoANDROID-buffer-01880"></a>
-  VUID-VkImportAndroidHardwareBufferInfoANDROID-buffer-01880  
-  If `buffer` is not `NULL`, Android hardware buffers **must** be
-  supported for import, as reported by
-  [VkExternalImageFormatProperties](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkExternalImageFormatProperties.html)
-  or [VkExternalBufferProperties](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkExternalBufferProperties.html)
-
-- <a href="#VUID-VkImportAndroidHardwareBufferInfoANDROID-buffer-01881"
-  id="VUID-VkImportAndroidHardwareBufferInfoANDROID-buffer-01881"></a>
-  VUID-VkImportAndroidHardwareBufferInfoANDROID-buffer-01881  
-  If `buffer` is not `NULL`, it **must** be a valid Android hardware
-  buffer object with `AHardwareBuffer_Desc`::`usage` compatible with
-  Vulkan as described in <a
-  href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#memory-external-android-hardware-buffer"
-  target="_blank" rel="noopener">Android Hardware Buffers</a>
+- [](#VUID-VkImportAndroidHardwareBufferInfoANDROID-buffer-09863)VUID-VkImportAndroidHardwareBufferInfoANDROID-buffer-09863  
+  If `buffer` is not `NULL`, Android hardware buffers **must** be supported for import, as reported by [VkExternalTensorPropertiesARM](https://registry.khronos.org/vulkan/specs/latest/man/html/VkExternalTensorPropertiesARM.html), [VkExternalImageFormatProperties](https://registry.khronos.org/vulkan/specs/latest/man/html/VkExternalImageFormatProperties.html), or [VkExternalBufferProperties](https://registry.khronos.org/vulkan/specs/latest/man/html/VkExternalBufferProperties.html)
+- [](#VUID-VkImportAndroidHardwareBufferInfoANDROID-buffer-01881)VUID-VkImportAndroidHardwareBufferInfoANDROID-buffer-01881  
+  If `buffer` is not `NULL`, it **must** be a valid Android hardware buffer object with `AHardwareBuffer_Desc`::`usage` compatible with Vulkan as described in [Android Hardware Buffers](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#memory-external-android-hardware-buffer)
 
 Valid Usage (Implicit)
 
-- <a href="#VUID-VkImportAndroidHardwareBufferInfoANDROID-sType-sType"
-  id="VUID-VkImportAndroidHardwareBufferInfoANDROID-sType-sType"></a>
-  VUID-VkImportAndroidHardwareBufferInfoANDROID-sType-sType  
-  `sType` **must** be
-  `VK_STRUCTURE_TYPE_IMPORT_ANDROID_HARDWARE_BUFFER_INFO_ANDROID`
+- [](#VUID-VkImportAndroidHardwareBufferInfoANDROID-sType-sType)VUID-VkImportAndroidHardwareBufferInfoANDROID-sType-sType  
+  `sType` **must** be `VK_STRUCTURE_TYPE_IMPORT_ANDROID_HARDWARE_BUFFER_INFO_ANDROID`
+- [](#VUID-VkImportAndroidHardwareBufferInfoANDROID-buffer-parameter)VUID-VkImportAndroidHardwareBufferInfoANDROID-buffer-parameter  
+  `buffer` **must** be a valid pointer to an [AHardwareBuffer](https://registry.khronos.org/vulkan/specs/latest/man/html/AHardwareBuffer.html) value
 
-- <a
-  href="#VUID-VkImportAndroidHardwareBufferInfoANDROID-buffer-parameter"
-  id="VUID-VkImportAndroidHardwareBufferInfoANDROID-buffer-parameter"></a>
-  VUID-VkImportAndroidHardwareBufferInfoANDROID-buffer-parameter  
-  `buffer` **must** be a valid pointer to an
-  [AHardwareBuffer](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/AHardwareBuffer.html) value
+## [](#_see_also)See Also
 
-## <a href="#_see_also" class="anchor"></a>See Also
+[VK\_ANDROID\_external\_memory\_android\_hardware\_buffer](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_ANDROID_external_memory_android_hardware_buffer.html), [VkStructureType](https://registry.khronos.org/vulkan/specs/latest/man/html/VkStructureType.html)
 
-[VK_ANDROID_external_memory_android_hardware_buffer](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_ANDROID_external_memory_android_hardware_buffer.html),
-[VkStructureType](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkStructureType.html)
+## [](#_document_notes)Document Notes
 
-## <a href="#_document_notes" class="anchor"></a>Document Notes
+For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#VkImportAndroidHardwareBufferInfoANDROID)
 
-For more information, see the <a
-href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#VkImportAndroidHardwareBufferInfoANDROID"
-target="_blank" rel="noopener">Vulkan Specification</a>
+This page is extracted from the Vulkan Specification. Fixes and changes should be made to the Specification, not directly.
 
-This page is extracted from the Vulkan Specification. Fixes and changes
-should be made to the Specification, not directly.
+## [](#_copyright)Copyright
 
-## <a href="#_copyright" class="anchor"></a>Copyright
-
-Copyright 2014-2024 The Khronos Group Inc.
+Copyright 2014-2025 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
-
-Version 1.3.290  
-Last updated 2024-07-11 23:39:16 -0700

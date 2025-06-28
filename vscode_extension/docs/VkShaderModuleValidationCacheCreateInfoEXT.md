@@ -2,23 +2,17 @@
 
 ## Name
 
-VkShaderModuleValidationCacheCreateInfoEXT - Specify validation cache to
-use during shader module creation
+VkShaderModuleValidationCacheCreateInfoEXT - Specify validation cache to use during shader module creation
 
 
 
-## <a href="#_c_specification" class="anchor"></a>C Specification
+## [](#_c_specification)C Specification
 
-To use a [VkValidationCacheEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkValidationCacheEXT.html) to cache
-shader validation results, add a
-[VkShaderModuleValidationCacheCreateInfoEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkShaderModuleValidationCacheCreateInfoEXT.html)
-structure to the `pNext` chain of the
-[VkShaderModuleCreateInfo](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkShaderModuleCreateInfo.html) structure,
-specifying the cache object to use.
+To use a [VkValidationCacheEXT](https://registry.khronos.org/vulkan/specs/latest/man/html/VkValidationCacheEXT.html) to cache shader validation results, add a [VkShaderModuleValidationCacheCreateInfoEXT](https://registry.khronos.org/vulkan/specs/latest/man/html/VkShaderModuleValidationCacheCreateInfoEXT.html) structure to the `pNext` chain of the [VkShaderModuleCreateInfo](https://registry.khronos.org/vulkan/specs/latest/man/html/VkShaderModuleCreateInfo.html) structure, specifying the cache object to use.
 
-The `VkShaderModuleValidationCacheCreateInfoEXT` struct is defined as:
+The `VkShaderModuleValidationCacheCreateInfoEXT` structure is defined as:
 
-``` c
+```c++
 // Provided by VK_EXT_validation_cache
 typedef struct VkShaderModuleValidationCacheCreateInfoEXT {
     VkStructureType         sType;
@@ -27,56 +21,33 @@ typedef struct VkShaderModuleValidationCacheCreateInfoEXT {
 } VkShaderModuleValidationCacheCreateInfoEXT;
 ```
 
-## <a href="#_members" class="anchor"></a>Members
+## [](#_members)Members
 
-- `sType` is a [VkStructureType](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkStructureType.html) value identifying
-  this structure.
+- `sType` is a [VkStructureType](https://registry.khronos.org/vulkan/specs/latest/man/html/VkStructureType.html) value identifying this structure.
+- `pNext` is `NULL` or a pointer to a structure extending this structure.
+- `validationCache` is the validation cache object from which the results of prior validation attempts will be written, and to which new validation results for this [VkShaderModule](https://registry.khronos.org/vulkan/specs/latest/man/html/VkShaderModule.html) will be written (if not already present). The implementation **must** not access this object outside of the duration of the command this structure is passed to.
 
-- `pNext` is `NULL` or a pointer to a structure extending this
-  structure.
-
-- `validationCache` is the validation cache object from which the
-  results of prior validation attempts will be written, and to which new
-  validation results for this [VkShaderModule](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkShaderModule.html) will
-  be written (if not already present).
-
-## <a href="#_description" class="anchor"></a>Description
+## [](#_description)Description
 
 Valid Usage (Implicit)
 
-- <a href="#VUID-VkShaderModuleValidationCacheCreateInfoEXT-sType-sType"
-  id="VUID-VkShaderModuleValidationCacheCreateInfoEXT-sType-sType"></a>
-  VUID-VkShaderModuleValidationCacheCreateInfoEXT-sType-sType  
-  `sType` **must** be
-  `VK_STRUCTURE_TYPE_SHADER_MODULE_VALIDATION_CACHE_CREATE_INFO_EXT`
+- [](#VUID-VkShaderModuleValidationCacheCreateInfoEXT-sType-sType)VUID-VkShaderModuleValidationCacheCreateInfoEXT-sType-sType  
+  `sType` **must** be `VK_STRUCTURE_TYPE_SHADER_MODULE_VALIDATION_CACHE_CREATE_INFO_EXT`
+- [](#VUID-VkShaderModuleValidationCacheCreateInfoEXT-validationCache-parameter)VUID-VkShaderModuleValidationCacheCreateInfoEXT-validationCache-parameter  
+  `validationCache` **must** be a valid [VkValidationCacheEXT](https://registry.khronos.org/vulkan/specs/latest/man/html/VkValidationCacheEXT.html) handle
 
-- <a
-  href="#VUID-VkShaderModuleValidationCacheCreateInfoEXT-validationCache-parameter"
-  id="VUID-VkShaderModuleValidationCacheCreateInfoEXT-validationCache-parameter"></a>
-  VUID-VkShaderModuleValidationCacheCreateInfoEXT-validationCache-parameter  
-  `validationCache` **must** be a valid
-  [VkValidationCacheEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkValidationCacheEXT.html) handle
+## [](#_see_also)See Also
 
-## <a href="#_see_also" class="anchor"></a>See Also
+[VK\_EXT\_validation\_cache](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_EXT_validation_cache.html), [VkStructureType](https://registry.khronos.org/vulkan/specs/latest/man/html/VkStructureType.html), [VkValidationCacheEXT](https://registry.khronos.org/vulkan/specs/latest/man/html/VkValidationCacheEXT.html)
 
-[VK_EXT_validation_cache](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_EXT_validation_cache.html),
-[VkStructureType](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkStructureType.html),
-[VkValidationCacheEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkValidationCacheEXT.html)
+## [](#_document_notes)Document Notes
 
-## <a href="#_document_notes" class="anchor"></a>Document Notes
+For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#VkShaderModuleValidationCacheCreateInfoEXT)
 
-For more information, see the <a
-href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#VkShaderModuleValidationCacheCreateInfoEXT"
-target="_blank" rel="noopener">Vulkan Specification</a>
+This page is extracted from the Vulkan Specification. Fixes and changes should be made to the Specification, not directly.
 
-This page is extracted from the Vulkan Specification. Fixes and changes
-should be made to the Specification, not directly.
+## [](#_copyright)Copyright
 
-## <a href="#_copyright" class="anchor"></a>Copyright
-
-Copyright 2014-2024 The Khronos Group Inc.
+Copyright 2014-2025 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
-
-Version 1.3.290  
-Last updated 2024-07-11 23:39:16 -0700

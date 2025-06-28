@@ -2,17 +2,15 @@
 
 ## Name
 
-VkPipelineDiscardRectangleStateCreateInfoEXT - Structure specifying
-discard rectangle
+VkPipelineDiscardRectangleStateCreateInfoEXT - Structure specifying discard rectangle
 
 
 
-## <a href="#_c_specification" class="anchor"></a>C Specification
+## [](#_c_specification)C Specification
 
-The `VkPipelineDiscardRectangleStateCreateInfoEXT` structure is defined
-as:
+The `VkPipelineDiscardRectangleStateCreateInfoEXT` structure is defined as:
 
-``` c
+```c++
 // Provided by VK_EXT_discard_rectangles
 typedef struct VkPipelineDiscardRectangleStateCreateInfoEXT {
     VkStructureType                                  sType;
@@ -24,101 +22,47 @@ typedef struct VkPipelineDiscardRectangleStateCreateInfoEXT {
 } VkPipelineDiscardRectangleStateCreateInfoEXT;
 ```
 
-## <a href="#_members" class="anchor"></a>Members
+## [](#_members)Members
 
-- `sType` is a [VkStructureType](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkStructureType.html) value identifying
-  this structure.
-
-- `pNext` is `NULL` or a pointer to a structure extending this
-  structure.
-
+- `sType` is a [VkStructureType](https://registry.khronos.org/vulkan/specs/latest/man/html/VkStructureType.html) value identifying this structure.
+- `pNext` is `NULL` or a pointer to a structure extending this structure.
 - `flags` is reserved for future use.
-
-- `discardRectangleMode` is a
-  [VkDiscardRectangleModeEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkDiscardRectangleModeEXT.html) value
-  determining whether the discard rectangle test is inclusive or
-  exclusive.
-
+- `discardRectangleMode` is a [VkDiscardRectangleModeEXT](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDiscardRectangleModeEXT.html) value determining whether the discard rectangle test is inclusive or exclusive.
 - `discardRectangleCount` is the number of discard rectangles to use.
+- `pDiscardRectangles` is a pointer to an array of [VkRect2D](https://registry.khronos.org/vulkan/specs/latest/man/html/VkRect2D.html) structures defining discard rectangles.
 
-- `pDiscardRectangles` is a pointer to an array of
-  [VkRect2D](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkRect2D.html) structures defining discard rectangles.
+## [](#_description)Description
 
-## <a href="#_description" class="anchor"></a>Description
+If the `VK_DYNAMIC_STATE_DISCARD_RECTANGLE_EXT` dynamic state is enabled for a pipeline, the `pDiscardRectangles` member is ignored. If the `VK_DYNAMIC_STATE_DISCARD_RECTANGLE_ENABLE_EXT` dynamic state is not enabled for the pipeline the presence of this structure in the [VkGraphicsPipelineCreateInfo](https://registry.khronos.org/vulkan/specs/latest/man/html/VkGraphicsPipelineCreateInfo.html) chain, and a `discardRectangleCount` greater than zero, implicitly enables discard rectangles in the pipeline, otherwise discard rectangles **must** enabled or disabled by [vkCmdSetDiscardRectangleEnableEXT](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdSetDiscardRectangleEnableEXT.html). If the `VK_DYNAMIC_STATE_DISCARD_RECTANGLE_MODE_EXT` dynamic state is enabled for the pipeline, the `discardRectangleMode` member is ignored, and the discard rectangle mode **must** be set by [vkCmdSetDiscardRectangleModeEXT](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdSetDiscardRectangleModeEXT.html).
 
-If the `VK_DYNAMIC_STATE_DISCARD_RECTANGLE_EXT` dynamic state is enabled
-for a pipeline, the `pDiscardRectangles` member is ignored. If the
-`VK_DYNAMIC_STATE_DISCARD_RECTANGLE_ENABLE_EXT` dynamic state is not
-enabled for the pipeline the presence of this structure in the
-[VkGraphicsPipelineCreateInfo](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkGraphicsPipelineCreateInfo.html) chain,
-and a `discardRectangleCount` greater than zero, implicitly enables
-discard rectangles in the pipeline, otherwise discard rectangles
-**must** enabled or disabled by
-[vkCmdSetDiscardRectangleEnableEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdSetDiscardRectangleEnableEXT.html).
-If the `VK_DYNAMIC_STATE_DISCARD_RECTANGLE_MODE_EXT` dynamic state is
-enabled for the pipeline, the `discardRectangleMode` member is ignored,
-and the discard rectangle mode **must** be set by
-[vkCmdSetDiscardRectangleModeEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdSetDiscardRectangleModeEXT.html).
-
-When this structure is included in the `pNext` chain of
-[VkGraphicsPipelineCreateInfo](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkGraphicsPipelineCreateInfo.html), it
-defines parameters of the discard rectangle test. If the
-`VK_DYNAMIC_STATE_DISCARD_RECTANGLE_EXT` dynamic state is not enabled,
-and this structure is not included in the `pNext` chain, it is
-equivalent to specifying this structure with a `discardRectangleCount`
-of `0`.
+When this structure is included in the `pNext` chain of [VkGraphicsPipelineCreateInfo](https://registry.khronos.org/vulkan/specs/latest/man/html/VkGraphicsPipelineCreateInfo.html), it defines parameters of the discard rectangle test. If the `VK_DYNAMIC_STATE_DISCARD_RECTANGLE_EXT` dynamic state is not enabled, and this structure is not included in the `pNext` chain, it is equivalent to specifying this structure with a `discardRectangleCount` of `0`. If all `VK_DYNAMIC_STATE_DISCARD_RECTANGLE_EXT`, `VK_DYNAMIC_STATE_DISCARD_RECTANGLE_ENABLE_EXT`, and `VK_DYNAMIC_STATE_DISCARD_RECTANGLE_MODE_EXT` dynamic states are enabled, the application **can** omit this structure from the `pNext` chain of [VkGraphicsPipelineCreateInfo](https://registry.khronos.org/vulkan/specs/latest/man/html/VkGraphicsPipelineCreateInfo.html) and still use discard rectangles by setting all state dynamically. In this case `vkCmdSetDiscardRectangleEXT` **must** be called to set the discard rectangle for all indices \[0, `maxDiscardRectangles`) before drawing with discard rectangles enabled. Individual discard rectangles **can** be made ineffective by setting their [VkRect2D](https://registry.khronos.org/vulkan/specs/latest/man/html/VkRect2D.html)::`extent.width` and [VkRect2D](https://registry.khronos.org/vulkan/specs/latest/man/html/VkRect2D.html)::`extent.height` to zero.
 
 Valid Usage
 
-- <a
-  href="#VUID-VkPipelineDiscardRectangleStateCreateInfoEXT-discardRectangleCount-00582"
-  id="VUID-VkPipelineDiscardRectangleStateCreateInfoEXT-discardRectangleCount-00582"></a>
-  VUID-VkPipelineDiscardRectangleStateCreateInfoEXT-discardRectangleCount-00582  
-  `discardRectangleCount` **must** be less than or equal to
-  `VkPhysicalDeviceDiscardRectanglePropertiesEXT`::`maxDiscardRectangles`
+- [](#VUID-VkPipelineDiscardRectangleStateCreateInfoEXT-discardRectangleCount-00582)VUID-VkPipelineDiscardRectangleStateCreateInfoEXT-discardRectangleCount-00582  
+  `discardRectangleCount` **must** be less than or equal to `VkPhysicalDeviceDiscardRectanglePropertiesEXT`::`maxDiscardRectangles`
 
 Valid Usage (Implicit)
 
-- <a href="#VUID-VkPipelineDiscardRectangleStateCreateInfoEXT-sType-sType"
-  id="VUID-VkPipelineDiscardRectangleStateCreateInfoEXT-sType-sType"></a>
-  VUID-VkPipelineDiscardRectangleStateCreateInfoEXT-sType-sType  
-  `sType` **must** be
-  `VK_STRUCTURE_TYPE_PIPELINE_DISCARD_RECTANGLE_STATE_CREATE_INFO_EXT`
-
-- <a
-  href="#VUID-VkPipelineDiscardRectangleStateCreateInfoEXT-flags-zerobitmask"
-  id="VUID-VkPipelineDiscardRectangleStateCreateInfoEXT-flags-zerobitmask"></a>
-  VUID-VkPipelineDiscardRectangleStateCreateInfoEXT-flags-zerobitmask  
+- [](#VUID-VkPipelineDiscardRectangleStateCreateInfoEXT-sType-sType)VUID-VkPipelineDiscardRectangleStateCreateInfoEXT-sType-sType  
+  `sType` **must** be `VK_STRUCTURE_TYPE_PIPELINE_DISCARD_RECTANGLE_STATE_CREATE_INFO_EXT`
+- [](#VUID-VkPipelineDiscardRectangleStateCreateInfoEXT-flags-zerobitmask)VUID-VkPipelineDiscardRectangleStateCreateInfoEXT-flags-zerobitmask  
   `flags` **must** be `0`
+- [](#VUID-VkPipelineDiscardRectangleStateCreateInfoEXT-discardRectangleMode-parameter)VUID-VkPipelineDiscardRectangleStateCreateInfoEXT-discardRectangleMode-parameter  
+  `discardRectangleMode` **must** be a valid [VkDiscardRectangleModeEXT](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDiscardRectangleModeEXT.html) value
 
-- <a
-  href="#VUID-VkPipelineDiscardRectangleStateCreateInfoEXT-discardRectangleMode-parameter"
-  id="VUID-VkPipelineDiscardRectangleStateCreateInfoEXT-discardRectangleMode-parameter"></a>
-  VUID-VkPipelineDiscardRectangleStateCreateInfoEXT-discardRectangleMode-parameter  
-  `discardRectangleMode` **must** be a valid
-  [VkDiscardRectangleModeEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkDiscardRectangleModeEXT.html) value
+## [](#_see_also)See Also
 
-## <a href="#_see_also" class="anchor"></a>See Also
+[VK\_EXT\_discard\_rectangles](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_EXT_discard_rectangles.html), [VkDiscardRectangleModeEXT](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDiscardRectangleModeEXT.html), [VkPipelineDiscardRectangleStateCreateFlagsEXT](https://registry.khronos.org/vulkan/specs/latest/man/html/VkPipelineDiscardRectangleStateCreateFlagsEXT.html), [VkRect2D](https://registry.khronos.org/vulkan/specs/latest/man/html/VkRect2D.html), [VkStructureType](https://registry.khronos.org/vulkan/specs/latest/man/html/VkStructureType.html)
 
-[VK_EXT_discard_rectangles](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_EXT_discard_rectangles.html),
-[VkDiscardRectangleModeEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkDiscardRectangleModeEXT.html),
-[VkPipelineDiscardRectangleStateCreateFlagsEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkPipelineDiscardRectangleStateCreateFlagsEXT.html),
-[VkRect2D](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkRect2D.html), [VkStructureType](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkStructureType.html)
+## [](#_document_notes)Document Notes
 
-## <a href="#_document_notes" class="anchor"></a>Document Notes
+For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#VkPipelineDiscardRectangleStateCreateInfoEXT)
 
-For more information, see the <a
-href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#VkPipelineDiscardRectangleStateCreateInfoEXT"
-target="_blank" rel="noopener">Vulkan Specification</a>
+This page is extracted from the Vulkan Specification. Fixes and changes should be made to the Specification, not directly.
 
-This page is extracted from the Vulkan Specification. Fixes and changes
-should be made to the Specification, not directly.
+## [](#_copyright)Copyright
 
-## <a href="#_copyright" class="anchor"></a>Copyright
-
-Copyright 2014-2024 The Khronos Group Inc.
+Copyright 2014-2025 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
-
-Version 1.3.290  
-Last updated 2024-07-11 23:39:16 -0700

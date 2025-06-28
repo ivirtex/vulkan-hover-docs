@@ -2,18 +2,15 @@
 
 ## Name
 
-VkCompositeAlphaFlagBitsKHR - Alpha compositing modes supported on a
-device
+VkCompositeAlphaFlagBitsKHR - Alpha compositing modes supported on a device
 
 
 
-## <a href="#_c_specification" class="anchor"></a>C Specification
+## [](#_c_specification)C Specification
 
-The `supportedCompositeAlpha` member is of type
-[VkCompositeAlphaFlagBitsKHR](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkCompositeAlphaFlagBitsKHR.html),
-containing the following values:
+The `supportedCompositeAlpha` member is of type [VkCompositeAlphaFlagBitsKHR](https://registry.khronos.org/vulkan/specs/latest/man/html/VkCompositeAlphaFlagBitsKHR.html), containing the following values:
 
-``` c
+```c++
 // Provided by VK_KHR_surface
 typedef enum VkCompositeAlphaFlagBitsKHR {
     VK_COMPOSITE_ALPHA_OPAQUE_BIT_KHR = 0x00000001,
@@ -23,54 +20,27 @@ typedef enum VkCompositeAlphaFlagBitsKHR {
 } VkCompositeAlphaFlagBitsKHR;
 ```
 
-## <a href="#_description" class="anchor"></a>Description
+## [](#_description)Description
 
 These values are described as follows:
 
-- `VK_COMPOSITE_ALPHA_OPAQUE_BIT_KHR`: The alpha component, if it
-  exists, of the images is ignored in the compositing process. Instead,
-  the image is treated as if it has a constant alpha of 1.0.
+- `VK_COMPOSITE_ALPHA_OPAQUE_BIT_KHR`: The alpha component, if it exists, of the images is ignored in the compositing process. Instead, the image is treated as if it has a constant alpha of 1.0.
+- `VK_COMPOSITE_ALPHA_PRE_MULTIPLIED_BIT_KHR`: The alpha component, if it exists, of the images is respected in the compositing process. The non-alpha components of the image are expected to already be multiplied by the alpha component by the application.
+- `VK_COMPOSITE_ALPHA_POST_MULTIPLIED_BIT_KHR`: The alpha component, if it exists, of the images is respected in the compositing process. The non-alpha components of the image are not expected to already be multiplied by the alpha component by the application; instead, the compositor will multiply the non-alpha components of the image by the alpha component during compositing.
+- `VK_COMPOSITE_ALPHA_INHERIT_BIT_KHR`: The way in which the presentation engine treats the alpha component in the images is unknown to the Vulkan API. Instead, the application is responsible for setting the composite alpha blending mode using native window system commands. If the application does not set the blending mode using native window system commands, then a platform-specific default will be used.
 
-- `VK_COMPOSITE_ALPHA_PRE_MULTIPLIED_BIT_KHR`: The alpha component, if
-  it exists, of the images is respected in the compositing process. The
-  non-alpha components of the image are expected to already be
-  multiplied by the alpha component by the application.
+## [](#_see_also)See Also
 
-- `VK_COMPOSITE_ALPHA_POST_MULTIPLIED_BIT_KHR`: The alpha component, if
-  it exists, of the images is respected in the compositing process. The
-  non-alpha components of the image are not expected to already be
-  multiplied by the alpha component by the application; instead, the
-  compositor will multiply the non-alpha components of the image by the
-  alpha component during compositing.
+[VK\_KHR\_surface](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_KHR_surface.html), [VkCompositeAlphaFlagsKHR](https://registry.khronos.org/vulkan/specs/latest/man/html/VkCompositeAlphaFlagsKHR.html), [VkSwapchainCreateInfoKHR](https://registry.khronos.org/vulkan/specs/latest/man/html/VkSwapchainCreateInfoKHR.html)
 
-- `VK_COMPOSITE_ALPHA_INHERIT_BIT_KHR`: The way in which the
-  presentation engine treats the alpha component in the images is
-  unknown to the Vulkan API. Instead, the application is responsible for
-  setting the composite alpha blending mode using native window system
-  commands. If the application does not set the blending mode using
-  native window system commands, then a platform-specific default will
-  be used.
+## [](#_document_notes)Document Notes
 
-## <a href="#_see_also" class="anchor"></a>See Also
+For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#VkCompositeAlphaFlagBitsKHR)
 
-[VK_KHR_surface](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_KHR_surface.html),
-[VkCompositeAlphaFlagsKHR](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkCompositeAlphaFlagsKHR.html),
-[VkSwapchainCreateInfoKHR](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkSwapchainCreateInfoKHR.html)
+This page is extracted from the Vulkan Specification. Fixes and changes should be made to the Specification, not directly.
 
-## <a href="#_document_notes" class="anchor"></a>Document Notes
+## [](#_copyright)Copyright
 
-For more information, see the <a
-href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#VkCompositeAlphaFlagBitsKHR"
-target="_blank" rel="noopener">Vulkan Specification</a>
-
-This page is extracted from the Vulkan Specification. Fixes and changes
-should be made to the Specification, not directly.
-
-## <a href="#_copyright" class="anchor"></a>Copyright
-
-Copyright 2014-2024 The Khronos Group Inc.
+Copyright 2014-2025 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
-
-Version 1.3.290  
-Last updated 2024-07-11 23:39:16 -0700

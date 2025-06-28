@@ -1,107 +1,90 @@
-# VK_QCOM_fragment_density_map_offset(3) Manual Page
+# VK\_QCOM\_fragment\_density\_map\_offset(3) Manual Page
 
 ## Name
 
-VK_QCOM_fragment_density_map_offset - device extension
+VK\_QCOM\_fragment\_density\_map\_offset - device extension
 
 
 
-## <a href="#_registered_extension_number" class="anchor"></a>Registered Extension Number
+## [](#_registered_extension_number)Registered Extension Number
 
 426
 
-## <a href="#_revision" class="anchor"></a>Revision
+## [](#_revision)Revision
 
-2
+3
 
-## <a href="#_ratification_status" class="anchor"></a>Ratification Status
+## [](#_ratification_status)Ratification Status
 
 Not ratified
 
-## <a href="#_extension_and_version_dependencies" class="anchor"></a>Extension and Version Dependencies
+## [](#_extension_and_version_dependencies)Extension and Version Dependencies
 
-    
-[VK_KHR_get_physical_device_properties2](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_KHR_get_physical_device_properties2.html)  
+     [VK\_KHR\_get\_physical\_device\_properties2](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_KHR_get_physical_device_properties2.html)  
      or  
-     [Version 1.1](#versions-1.1)  
+     [Vulkan Version 1.1](#versions-1.1)  
 and  
-[VK_EXT_fragment_density_map](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_EXT_fragment_density_map.html)  
+[VK\_EXT\_fragment\_density\_map](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_EXT_fragment_density_map.html)
 
-## <a href="#_contact" class="anchor"></a>Contact
+## [](#_deprecation_state)Deprecation State
 
-- Matthew Netsch <a
-  href="https://github.com/KhronosGroup/Vulkan-Docs/issues/new?body=%5BVK_QCOM_fragment_density_map_offset%5D%20@mnetsch%0A*Here%20describe%20the%20issue%20or%20question%20you%20have%20about%20the%20VK_QCOM_fragment_density_map_offset%20extension*"
-  target="_blank" rel="nofollow noopener"><em></em>mnetsch</a>
+- *Promoted* to [VK\_EXT\_fragment\_density\_map\_offset](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_EXT_fragment_density_map_offset.html) extension
 
-## <a href="#_other_extension_metadata" class="anchor"></a>Other Extension Metadata
+## [](#_contact)Contact
 
-**Last Modified Date**  
+- Matthew Netsch [\[GitHub\]mnetsch](https://github.com/KhronosGroup/Vulkan-Docs/issues/new?body=%5BVK_QCOM_fragment_density_map_offset%5D%20%40mnetsch%0A%2AHere%20describe%20the%20issue%20or%20question%20you%20have%20about%20the%20VK_QCOM_fragment_density_map_offset%20extension%2A)
+
+## [](#_other_extension_metadata)Other Extension Metadata
+
+**Last Modified Date**
+
 2024-06-17
 
-**Contributors**  
+**Contributors**
+
 - Matthew Netsch, Qualcomm Technologies, Inc.
-
 - Jonathan Wicks, Qualcomm Technologies, Inc.
-
 - Jonathan Tinkham, Qualcomm Technologies, Inc.
-
 - Jeff Leger, Qualcomm Technologies, Inc.
-
 - Manan Katwala, Qualcomm Technologies, Inc.
+- Connor Abbott, Valve Corporation
 
-## <a href="#_description" class="anchor"></a>Description
+## [](#_description)Description
 
-This extension allows an application to specify offsets to a fragment
-density map attachment, changing the framebuffer location where density
-values are applied to without having to regenerate the fragment density
-map.
+This extension allows an application to specify offsets to a fragment density map attachment, changing the location where the fragment density map is applied to the framebuffer. This is helpful for eye-tracking use cases where the fovea needs to be moved around the framebuffer to match the eye pose.
 
-## <a href="#_new_structures" class="anchor"></a>New Structures
+## [](#_new_structures)New Structures
 
-- Extending [VkPhysicalDeviceFeatures2](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkPhysicalDeviceFeatures2.html),
-  [VkDeviceCreateInfo](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkDeviceCreateInfo.html):
+- Extending [VkPhysicalDeviceFeatures2](https://registry.khronos.org/vulkan/specs/latest/man/html/VkPhysicalDeviceFeatures2.html), [VkDeviceCreateInfo](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDeviceCreateInfo.html):
+  
+  - [VkPhysicalDeviceFragmentDensityMapOffsetFeaturesQCOM](https://registry.khronos.org/vulkan/specs/latest/man/html/VkPhysicalDeviceFragmentDensityMapOffsetFeaturesQCOM.html)
+- Extending [VkPhysicalDeviceProperties2](https://registry.khronos.org/vulkan/specs/latest/man/html/VkPhysicalDeviceProperties2.html):
+  
+  - [VkPhysicalDeviceFragmentDensityMapOffsetPropertiesQCOM](https://registry.khronos.org/vulkan/specs/latest/man/html/VkPhysicalDeviceFragmentDensityMapOffsetPropertiesQCOM.html)
+- Extending [VkSubpassEndInfo](https://registry.khronos.org/vulkan/specs/latest/man/html/VkSubpassEndInfo.html), [VkRenderingEndInfoEXT](https://registry.khronos.org/vulkan/specs/latest/man/html/VkRenderingEndInfoEXT.html):
+  
+  - [VkSubpassFragmentDensityMapOffsetEndInfoQCOM](https://registry.khronos.org/vulkan/specs/latest/man/html/VkSubpassFragmentDensityMapOffsetEndInfoQCOM.html)
 
-  - [VkPhysicalDeviceFragmentDensityMapOffsetFeaturesQCOM](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkPhysicalDeviceFragmentDensityMapOffsetFeaturesQCOM.html)
-
-- Extending
-  [VkPhysicalDeviceProperties2](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkPhysicalDeviceProperties2.html):
-
-  - [VkPhysicalDeviceFragmentDensityMapOffsetPropertiesQCOM](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkPhysicalDeviceFragmentDensityMapOffsetPropertiesQCOM.html)
-
-- Extending [VkSubpassEndInfo](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkSubpassEndInfo.html):
-
-  - [VkSubpassFragmentDensityMapOffsetEndInfoQCOM](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkSubpassFragmentDensityMapOffsetEndInfoQCOM.html)
-
-## <a href="#_new_enum_constants" class="anchor"></a>New Enum Constants
+## [](#_new_enum_constants)New Enum Constants
 
 - `VK_QCOM_FRAGMENT_DENSITY_MAP_OFFSET_EXTENSION_NAME`
-
 - `VK_QCOM_FRAGMENT_DENSITY_MAP_OFFSET_SPEC_VERSION`
-
-- Extending [VkImageCreateFlagBits](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkImageCreateFlagBits.html):
-
+- Extending [VkImageCreateFlagBits](https://registry.khronos.org/vulkan/specs/latest/man/html/VkImageCreateFlagBits.html):
+  
   - `VK_IMAGE_CREATE_FRAGMENT_DENSITY_MAP_OFFSET_BIT_QCOM`
-
-- Extending [VkStructureType](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkStructureType.html):
-
+- Extending [VkStructureType](https://registry.khronos.org/vulkan/specs/latest/man/html/VkStructureType.html):
+  
   - `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_FRAGMENT_DENSITY_MAP_OFFSET_FEATURES_QCOM`
-
   - `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_FRAGMENT_DENSITY_MAP_OFFSET_PROPERTIES_QCOM`
-
   - `VK_STRUCTURE_TYPE_SUBPASS_FRAGMENT_DENSITY_MAP_OFFSET_END_INFO_QCOM`
 
-## <a href="#_examples" class="anchor"></a>Examples
+## [](#_examples)Examples
 
-### <a href="#_fragment_density_map" class="anchor"></a>Fragment Density Map
+### [](#_fragment_density_map)Fragment Density Map
 
-If the fragment density map size is larger than framebuffer size /
-`minFragmentDensityTexelSize`, then offsets may be applied with
-[VkSubpassFragmentDensityMapOffsetEndInfoQCOM](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkSubpassFragmentDensityMapOffsetEndInfoQCOM.html)
-to shift the framebuffer inside of the density map image. This is
-helpful if apps want to reuse the same density map image to track
-content without editing the image.
+If the fragment density map size is larger than framebuffer size / `minFragmentDensityTexelSize`, then offsets may be applied with [VkSubpassFragmentDensityMapOffsetEndInfoQCOM](https://registry.khronos.org/vulkan/specs/latest/man/html/VkSubpassFragmentDensityMapOffsetEndInfoQCOM.html) to shift the fragment density map.
 
-``` c
+```c++
 // Create fragment density map
 VkImageCreateInfo imageCreateInfo =
 {
@@ -142,7 +125,7 @@ vkCmdBeginRenderPass2(commandBuffer, &renderPassBeginInfo, pSubpassBeginInfo);
 
      fdmImageRegion = fdmImage * texelSize = 2048x2048
 
-   This means that the framebuffer (1024x1024) can be shifted up to 1024x1024
+   This means that the fragment density map can be shifted up to 1024x1024
    before the density values are clamped to edge of map
 */
 VkSubpassFragmentDensityMapOffsetEndInfoQCOM offsetInfo =
@@ -159,34 +142,30 @@ subpassEndInfo.pNext = &offsetInfo;
 vkCmdEndRenderPass2(VkCommandBuffer commandBuffer, &subpassEndInfo);
 ```
 
-## <a href="#_version_history" class="anchor"></a>Version History
+## [](#_version_history)Version History
 
+- Revision 3, 2025-03-20 (Connor Abbott/Matthew Netsch)
+  
+  - Fix clamp equation and clarify the offsets are FDM relative (editorial only)
 - Revision 2, 2024-06-17 (Matthew Netsch)
-
+  
   - Fix typo in spec regarding fragmentDensityMapOffset feature
-
 - Revision 1, 2021-09-03 (Matthew Netsch)
-
+  
   - Initial version
 
-## <a href="#_see_also" class="anchor"></a>See Also
+## [](#_see_also)See Also
 
 No cross-references are available
 
-## <a href="#_document_notes" class="anchor"></a>Document Notes
+## [](#_document_notes)Document Notes
 
-For more information, see the <a
-href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#VK_QCOM_fragment_density_map_offset"
-target="_blank" rel="noopener">Vulkan Specification</a>
+For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#VK_QCOM_fragment_density_map_offset)
 
-This page is a generated document. Fixes and changes should be made to
-the generator scripts, not directly.
+This page is a generated document. Fixes and changes should be made to the generator scripts, not directly.
 
-## <a href="#_copyright" class="anchor"></a>Copyright
+## [](#_copyright)Copyright
 
-Copyright 2014-2024 The Khronos Group Inc.
+Copyright 2014-2025 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
-
-Version 1.3.290  
-Last updated 2024-07-11 23:39:16 -0700

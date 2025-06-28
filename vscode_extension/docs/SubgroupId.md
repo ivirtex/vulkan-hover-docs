@@ -6,52 +6,33 @@ SubgroupId - Subgroup ID
 
 
 
-## <a href="#_description" class="anchor"></a>Description
+## [](#_description)Description
 
-`SubgroupId`  
-Decorating a variable with the `SubgroupId` built-in decoration will
-make that variable contain the index of the subgroup within the local
-workgroup. This variable is in range \[0, `NumSubgroups`-1\].
+`SubgroupId`
+
+Decorating a variable with the `SubgroupId` built-in decoration will make that variable contain the index of the subgroup within the local workgroup. This variable is in range \[0, `NumSubgroups`-1].
 
 Valid Usage
 
-- <a href="#VUID-SubgroupId-SubgroupId-04367"
-  id="VUID-SubgroupId-SubgroupId-04367"></a>
-  VUID-SubgroupId-SubgroupId-04367  
-  The `SubgroupId` decoration **must** be used only within the
-  `GLCompute`, `MeshEXT`, `TaskEXT`, `MeshNV`, or `TaskNV` `Execution`
-  `Model`
+- [](#VUID-SubgroupId-SubgroupId-04367)VUID-SubgroupId-SubgroupId-04367  
+  The `SubgroupId` decoration **must** be used only within the `GLCompute`, `MeshEXT`, `TaskEXT`, `MeshNV`, or `TaskNV` `Execution` `Model`
+- [](#VUID-SubgroupId-SubgroupId-04368)VUID-SubgroupId-SubgroupId-04368  
+  The variable decorated with `SubgroupId` **must** be declared using the `Input` `Storage` `Class`
+- [](#VUID-SubgroupId-SubgroupId-04369)VUID-SubgroupId-SubgroupId-04369  
+  The variable decorated with `SubgroupId` **must** be declared as a scalar 32-bit integer value
 
-- <a href="#VUID-SubgroupId-SubgroupId-04368"
-  id="VUID-SubgroupId-SubgroupId-04368"></a>
-  VUID-SubgroupId-SubgroupId-04368  
-  The variable decorated with `SubgroupId` **must** be declared using
-  the `Input` `Storage` `Class`
-
-- <a href="#VUID-SubgroupId-SubgroupId-04369"
-  id="VUID-SubgroupId-SubgroupId-04369"></a>
-  VUID-SubgroupId-SubgroupId-04369  
-  The variable decorated with `SubgroupId` **must** be declared as a
-  scalar 32-bit integer value
-
-## <a href="#_see_also" class="anchor"></a>See Also
+## [](#_see_also)See Also
 
 No cross-references are available
 
-## <a href="#_document_notes" class="anchor"></a>Document Notes
+## [](#_document_notes)Document Notes
 
-For more information, see the <a
-href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#SubgroupId"
-target="_blank" rel="noopener">Vulkan Specification</a>
+For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#SubgroupId)
 
-This page is extracted from the Vulkan Specification. Fixes and changes
-should be made to the Specification, not directly.
+This page is extracted from the Vulkan Specification. Fixes and changes should be made to the Specification, not directly.
 
-## <a href="#_copyright" class="anchor"></a>Copyright
+## [](#_copyright)Copyright
 
-Copyright 2014-2024 The Khronos Group Inc.
+Copyright 2014-2025 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
-
-Version 1.3.290  
-Last updated 2024-07-11 23:39:16 -0700

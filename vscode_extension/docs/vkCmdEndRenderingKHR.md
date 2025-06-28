@@ -6,11 +6,11 @@ vkCmdEndRendering - End a dynamic render pass instance
 
 
 
-## <a href="#_c_specification" class="anchor"></a>C Specification
+## [](#_c_specification)C Specification
 
 To end a render pass instance, call:
 
-``` c
+```c++
 // Provided by VK_VERSION_1_3
 void vkCmdEndRendering(
     VkCommandBuffer                             commandBuffer);
@@ -18,145 +18,79 @@ void vkCmdEndRendering(
 
 or the equivalent command
 
-``` c
+```c++
 // Provided by VK_KHR_dynamic_rendering
 void vkCmdEndRenderingKHR(
     VkCommandBuffer                             commandBuffer);
 ```
 
-## <a href="#_parameters" class="anchor"></a>Parameters
+## [](#_parameters)Parameters
 
 - `commandBuffer` is the command buffer in which to record the command.
 
-## <a href="#_description" class="anchor"></a>Description
+## [](#_description)Description
 
-If the value of `pRenderingInfo->flags` used to begin this render pass
-instance included `VK_RENDERING_SUSPENDING_BIT`, then this render pass
-is suspended and will be resumed later in <a
-href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#synchronization-submission-order"
-target="_blank" rel="noopener">submission order</a>.
+If the value of `pRenderingInfo->flags` used to begin this render pass instance included `VK_RENDERING_SUSPENDING_BIT`, then this render pass is suspended and will be resumed later in [submission order](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#synchronization-submission-order).
 
 Valid Usage
 
-- <a href="#VUID-vkCmdEndRendering-None-06161"
-  id="VUID-vkCmdEndRendering-None-06161"></a>
-  VUID-vkCmdEndRendering-None-06161  
-  The current render pass instance **must** have been begun with
-  [vkCmdBeginRendering](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdBeginRendering.html)
-
-- <a href="#VUID-vkCmdEndRendering-commandBuffer-06162"
-  id="VUID-vkCmdEndRendering-commandBuffer-06162"></a>
-  VUID-vkCmdEndRendering-commandBuffer-06162  
-  The current render pass instance **must** have been begun in
-  `commandBuffer`
-
-- <a href="#VUID-vkCmdEndRendering-None-06781"
-  id="VUID-vkCmdEndRendering-None-06781"></a>
-  VUID-vkCmdEndRendering-None-06781  
-  This command **must** not be recorded when transform feedback is
-  active
-
-- <a href="#VUID-vkCmdEndRendering-None-06999"
-  id="VUID-vkCmdEndRendering-None-06999"></a>
-  VUID-vkCmdEndRendering-None-06999  
-  If `vkCmdBeginQuery`\* was called within the render pass, the
-  corresponding `vkCmdEndQuery`\* **must** have been called subsequently
-  within the same subpass
+- [](#VUID-vkCmdEndRendering-None-06161)VUID-vkCmdEndRendering-None-06161  
+  The current render pass instance **must** have been begun with [vkCmdBeginRendering](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdBeginRendering.html)
+- [](#VUID-vkCmdEndRendering-commandBuffer-06162)VUID-vkCmdEndRendering-commandBuffer-06162  
+  The current render pass instance **must** have been begun in `commandBuffer`
+- [](#VUID-vkCmdEndRendering-None-06781)VUID-vkCmdEndRendering-None-06781  
+  This command **must** not be recorded when transform feedback is active
+- [](#VUID-vkCmdEndRendering-None-06999)VUID-vkCmdEndRendering-None-06999  
+  If `vkCmdBeginQuery`* was called within the render pass, the corresponding `vkCmdEndQuery`* **must** have been called subsequently within the same subpass
+- [](#VUID-vkCmdEndRendering-None-10645)VUID-vkCmdEndRendering-None-10645  
+  This command **must** not be recorded when [per-tile execution model](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#renderpass-per-tile-execution-model) is enabled
 
 Valid Usage (Implicit)
 
-- <a href="#VUID-vkCmdEndRendering-commandBuffer-parameter"
-  id="VUID-vkCmdEndRendering-commandBuffer-parameter"></a>
-  VUID-vkCmdEndRendering-commandBuffer-parameter  
-  `commandBuffer` **must** be a valid
-  [VkCommandBuffer](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkCommandBuffer.html) handle
-
-- <a href="#VUID-vkCmdEndRendering-commandBuffer-recording"
-  id="VUID-vkCmdEndRendering-commandBuffer-recording"></a>
-  VUID-vkCmdEndRendering-commandBuffer-recording  
-  `commandBuffer` **must** be in the [recording
-  state](#commandbuffers-lifecycle)
-
-- <a href="#VUID-vkCmdEndRendering-commandBuffer-cmdpool"
-  id="VUID-vkCmdEndRendering-commandBuffer-cmdpool"></a>
-  VUID-vkCmdEndRendering-commandBuffer-cmdpool  
-  The `VkCommandPool` that `commandBuffer` was allocated from **must**
-  support graphics operations
-
-- <a href="#VUID-vkCmdEndRendering-renderpass"
-  id="VUID-vkCmdEndRendering-renderpass"></a>
-  VUID-vkCmdEndRendering-renderpass  
+- [](#VUID-vkCmdEndRendering-commandBuffer-parameter)VUID-vkCmdEndRendering-commandBuffer-parameter  
+  `commandBuffer` **must** be a valid [VkCommandBuffer](https://registry.khronos.org/vulkan/specs/latest/man/html/VkCommandBuffer.html) handle
+- [](#VUID-vkCmdEndRendering-commandBuffer-recording)VUID-vkCmdEndRendering-commandBuffer-recording  
+  `commandBuffer` **must** be in the [recording state](#commandbuffers-lifecycle)
+- [](#VUID-vkCmdEndRendering-commandBuffer-cmdpool)VUID-vkCmdEndRendering-commandBuffer-cmdpool  
+  The `VkCommandPool` that `commandBuffer` was allocated from **must** support graphics operations
+- [](#VUID-vkCmdEndRendering-renderpass)VUID-vkCmdEndRendering-renderpass  
   This command **must** only be called inside of a render pass instance
-
-- <a href="#VUID-vkCmdEndRendering-videocoding"
-  id="VUID-vkCmdEndRendering-videocoding"></a>
-  VUID-vkCmdEndRendering-videocoding  
+- [](#VUID-vkCmdEndRendering-videocoding)VUID-vkCmdEndRendering-videocoding  
   This command **must** only be called outside of a video coding scope
 
 Host Synchronization
 
 - Host access to `commandBuffer` **must** be externally synchronized
-
-- Host access to the `VkCommandPool` that `commandBuffer` was allocated
-  from **must** be externally synchronized
+- Host access to the `VkCommandPool` that `commandBuffer` was allocated from **must** be externally synchronized
 
 Command Properties
 
-<table class="tableblock frame-all grid-all stretch">
-<colgroup>
-<col style="width: 20%" />
-<col style="width: 20%" />
-<col style="width: 20%" />
-<col style="width: 20%" />
-<col style="width: 20%" />
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-top"><a
-href="#VkCommandBufferLevel">Command Buffer Levels</a></th>
-<th class="tableblock halign-left valign-top"><a
-href="#vkCmdBeginRenderPass">Render Pass Scope</a></th>
-<th class="tableblock halign-left valign-top"><a
-href="#vkCmdBeginVideoCodingKHR">Video Coding Scope</a></th>
-<th class="tableblock halign-left valign-top"><a
-href="#VkQueueFlagBits">Supported Queue Types</a></th>
-<th class="tableblock halign-left valign-top"><a
-href="#fundamentals-queueoperation-command-types">Command Type</a></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p>Primary<br />
-Secondary</p></td>
-<td class="tableblock halign-left valign-top"><p>Inside</p></td>
-<td class="tableblock halign-left valign-top"><p>Outside</p></td>
-<td class="tableblock halign-left valign-top"><p>Graphics</p></td>
-<td class="tableblock halign-left valign-top"><p>Action<br />
-State</p></td>
-</tr>
-</tbody>
-</table>
+     [Command Buffer Levels](#VkCommandBufferLevel) [Render Pass Scope](#vkCmdBeginRenderPass) [Video Coding Scope](#vkCmdBeginVideoCodingKHR) [Supported Queue Types](#VkQueueFlagBits) [Command Type](#fundamentals-queueoperation-command-types)
 
-## <a href="#_see_also" class="anchor"></a>See Also
+Primary  
+Secondary
 
-[VK_KHR_dynamic_rendering](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_KHR_dynamic_rendering.html),
-[VK_VERSION_1_3](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_VERSION_1_3.html),
-[VkCommandBuffer](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkCommandBuffer.html)
+Inside
 
-## <a href="#_document_notes" class="anchor"></a>Document Notes
+Outside
 
-For more information, see the <a
-href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#vkCmdEndRendering"
-target="_blank" rel="noopener">Vulkan Specification</a>
+Graphics
 
-This page is extracted from the Vulkan Specification. Fixes and changes
-should be made to the Specification, not directly.
+Action  
+State
 
-## <a href="#_copyright" class="anchor"></a>Copyright
+## [](#_see_also)See Also
 
-Copyright 2014-2024 The Khronos Group Inc.
+[VK\_KHR\_dynamic\_rendering](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_KHR_dynamic_rendering.html), [VK\_VERSION\_1\_3](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_VERSION_1_3.html), [VkCommandBuffer](https://registry.khronos.org/vulkan/specs/latest/man/html/VkCommandBuffer.html)
+
+## [](#_document_notes)Document Notes
+
+For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#vkCmdEndRendering)
+
+This page is extracted from the Vulkan Specification. Fixes and changes should be made to the Specification, not directly.
+
+## [](#_copyright)Copyright
+
+Copyright 2014-2025 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
-
-Version 1.3.290  
-Last updated 2024-07-11 23:39:16 -0700

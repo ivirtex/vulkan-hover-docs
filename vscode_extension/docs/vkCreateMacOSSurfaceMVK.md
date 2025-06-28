@@ -2,17 +2,15 @@
 
 ## Name
 
-vkCreateMacOSSurfaceMVK - Create a VkSurfaceKHR object for a macOS
-NSView
+vkCreateMacOSSurfaceMVK - Create a VkSurfaceKHR object for a macOS NSView
 
 
 
-## <a href="#_c_specification" class="anchor"></a>C Specification
+## [](#_c_specification)C Specification
 
-To create a `VkSurfaceKHR` object for a macOS `NSView` or
-[CAMetalLayer](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/CAMetalLayer.html), call:
+To create a `VkSurfaceKHR` object for a macOS `NSView` or [CAMetalLayer](https://registry.khronos.org/vulkan/specs/latest/man/html/CAMetalLayer.html), call:
 
-``` c
+```c++
 // Provided by VK_MVK_macos_surface
 VkResult vkCreateMacOSSurfaceMVK(
     VkInstance                                  instance,
@@ -21,106 +19,54 @@ VkResult vkCreateMacOSSurfaceMVK(
     VkSurfaceKHR*                               pSurface);
 ```
 
-## <a href="#_parameters" class="anchor"></a>Parameters
+## [](#_parameters)Parameters
 
 - `instance` is the instance with which to associate the surface.
+- `pCreateInfo` is a pointer to a [VkMacOSSurfaceCreateInfoMVK](https://registry.khronos.org/vulkan/specs/latest/man/html/VkMacOSSurfaceCreateInfoMVK.html) structure containing parameters affecting the creation of the surface object.
+- `pAllocator` is the allocator used for host memory allocated for the surface object when there is no more specific allocator available (see [Memory Allocation](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#memory-allocation)).
+- `pSurface` is a pointer to a [VkSurfaceKHR](https://registry.khronos.org/vulkan/specs/latest/man/html/VkSurfaceKHR.html) handle in which the created surface object is returned.
 
-- `pCreateInfo` is a pointer to a
-  [VkMacOSSurfaceCreateInfoMVK](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkMacOSSurfaceCreateInfoMVK.html)
-  structure containing parameters affecting the creation of the surface
-  object.
+## [](#_description)Description
 
-- `pAllocator` is the allocator used for host memory allocated for the
-  surface object when there is no more specific allocator available (see
-  <a
-  href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#memory-allocation"
-  target="_blank" rel="noopener">Memory Allocation</a>).
+Note
 
-- `pSurface` is a pointer to a [VkSurfaceKHR](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkSurfaceKHR.html) handle
-  in which the created surface object is returned.
-
-## <a href="#_description" class="anchor"></a>Description
-
-<table>
-<colgroup>
-<col style="width: 50%" />
-<col style="width: 50%" />
-</colgroup>
-<tbody>
-<tr>
-<td class="icon"><em></em></td>
-<td class="content">Note
-<p>The <code>vkCreateMacOSSurfaceMVK</code> function is considered
-deprecated and has been superseded by <a
-href="vkCreateMetalSurfaceEXT.html">vkCreateMetalSurfaceEXT</a> from the
-<a
-href="VK_EXT_metal_surface.html"><code>VK_EXT_metal_surface</code></a>
-extension.</p></td>
-</tr>
-</tbody>
-</table>
+The `vkCreateMacOSSurfaceMVK` function is considered deprecated and has been superseded by [vkCreateMetalSurfaceEXT](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCreateMetalSurfaceEXT.html) from the `VK_EXT_metal_surface` extension.
 
 Valid Usage (Implicit)
 
-- <a href="#VUID-vkCreateMacOSSurfaceMVK-instance-parameter"
-  id="VUID-vkCreateMacOSSurfaceMVK-instance-parameter"></a>
-  VUID-vkCreateMacOSSurfaceMVK-instance-parameter  
-  `instance` **must** be a valid [VkInstance](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkInstance.html) handle
-
-- <a href="#VUID-vkCreateMacOSSurfaceMVK-pCreateInfo-parameter"
-  id="VUID-vkCreateMacOSSurfaceMVK-pCreateInfo-parameter"></a>
-  VUID-vkCreateMacOSSurfaceMVK-pCreateInfo-parameter  
-  `pCreateInfo` **must** be a valid pointer to a valid
-  [VkMacOSSurfaceCreateInfoMVK](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkMacOSSurfaceCreateInfoMVK.html)
-  structure
-
-- <a href="#VUID-vkCreateMacOSSurfaceMVK-pAllocator-parameter"
-  id="VUID-vkCreateMacOSSurfaceMVK-pAllocator-parameter"></a>
-  VUID-vkCreateMacOSSurfaceMVK-pAllocator-parameter  
-  If `pAllocator` is not `NULL`, `pAllocator` **must** be a valid
-  pointer to a valid [VkAllocationCallbacks](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkAllocationCallbacks.html)
-  structure
-
-- <a href="#VUID-vkCreateMacOSSurfaceMVK-pSurface-parameter"
-  id="VUID-vkCreateMacOSSurfaceMVK-pSurface-parameter"></a>
-  VUID-vkCreateMacOSSurfaceMVK-pSurface-parameter  
-  `pSurface` **must** be a valid pointer to a
-  [VkSurfaceKHR](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkSurfaceKHR.html) handle
+- [](#VUID-vkCreateMacOSSurfaceMVK-instance-parameter)VUID-vkCreateMacOSSurfaceMVK-instance-parameter  
+  `instance` **must** be a valid [VkInstance](https://registry.khronos.org/vulkan/specs/latest/man/html/VkInstance.html) handle
+- [](#VUID-vkCreateMacOSSurfaceMVK-pCreateInfo-parameter)VUID-vkCreateMacOSSurfaceMVK-pCreateInfo-parameter  
+  `pCreateInfo` **must** be a valid pointer to a valid [VkMacOSSurfaceCreateInfoMVK](https://registry.khronos.org/vulkan/specs/latest/man/html/VkMacOSSurfaceCreateInfoMVK.html) structure
+- [](#VUID-vkCreateMacOSSurfaceMVK-pAllocator-parameter)VUID-vkCreateMacOSSurfaceMVK-pAllocator-parameter  
+  If `pAllocator` is not `NULL`, `pAllocator` **must** be a valid pointer to a valid [VkAllocationCallbacks](https://registry.khronos.org/vulkan/specs/latest/man/html/VkAllocationCallbacks.html) structure
+- [](#VUID-vkCreateMacOSSurfaceMVK-pSurface-parameter)VUID-vkCreateMacOSSurfaceMVK-pSurface-parameter  
+  `pSurface` **must** be a valid pointer to a [VkSurfaceKHR](https://registry.khronos.org/vulkan/specs/latest/man/html/VkSurfaceKHR.html) handle
 
 Return Codes
 
-On success, this command returns  
+On success, this command returns
+
 - `VK_SUCCESS`
 
-On failure, this command returns  
+On failure, this command returns
+
 - `VK_ERROR_OUT_OF_HOST_MEMORY`
-
 - `VK_ERROR_OUT_OF_DEVICE_MEMORY`
-
 - `VK_ERROR_NATIVE_WINDOW_IN_USE_KHR`
 
-## <a href="#_see_also" class="anchor"></a>See Also
+## [](#_see_also)See Also
 
-[VK_MVK_macos_surface](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_MVK_macos_surface.html),
-[VkAllocationCallbacks](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkAllocationCallbacks.html),
-[VkInstance](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkInstance.html),
-[VkMacOSSurfaceCreateInfoMVK](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkMacOSSurfaceCreateInfoMVK.html),
-[VkSurfaceKHR](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkSurfaceKHR.html)
+[VK\_MVK\_macos\_surface](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_MVK_macos_surface.html), [VkAllocationCallbacks](https://registry.khronos.org/vulkan/specs/latest/man/html/VkAllocationCallbacks.html), [VkInstance](https://registry.khronos.org/vulkan/specs/latest/man/html/VkInstance.html), [VkMacOSSurfaceCreateInfoMVK](https://registry.khronos.org/vulkan/specs/latest/man/html/VkMacOSSurfaceCreateInfoMVK.html), [VkSurfaceKHR](https://registry.khronos.org/vulkan/specs/latest/man/html/VkSurfaceKHR.html)
 
-## <a href="#_document_notes" class="anchor"></a>Document Notes
+## [](#_document_notes)Document Notes
 
-For more information, see the <a
-href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#vkCreateMacOSSurfaceMVK"
-target="_blank" rel="noopener">Vulkan Specification</a>
+For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#vkCreateMacOSSurfaceMVK)
 
-This page is extracted from the Vulkan Specification. Fixes and changes
-should be made to the Specification, not directly.
+This page is extracted from the Vulkan Specification. Fixes and changes should be made to the Specification, not directly.
 
-## <a href="#_copyright" class="anchor"></a>Copyright
+## [](#_copyright)Copyright
 
-Copyright 2014-2024 The Khronos Group Inc.
+Copyright 2014-2025 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
-
-Version 1.3.290  
-Last updated 2024-07-11 23:39:16 -0700

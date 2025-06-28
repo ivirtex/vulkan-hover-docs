@@ -6,13 +6,11 @@ VkShaderGroupShaderKHR - Shader group shaders
 
 
 
-## <a href="#_c_specification" class="anchor"></a>C Specification
+## [](#_c_specification)C Specification
 
-Possible values of `groupShader` in
-[vkGetRayTracingShaderGroupStackSizeKHR](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkGetRayTracingShaderGroupStackSizeKHR.html)
-are:
+Possible values of `groupShader` in [vkGetRayTracingShaderGroupStackSizeKHR](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetRayTracingShaderGroupStackSizeKHR.html) are:
 
-``` c
+```c++
 // Provided by VK_KHR_ray_tracing_pipeline
 typedef enum VkShaderGroupShaderKHR {
     VK_SHADER_GROUP_SHADER_GENERAL_KHR = 0,
@@ -22,43 +20,25 @@ typedef enum VkShaderGroupShaderKHR {
 } VkShaderGroupShaderKHR;
 ```
 
-## <a href="#_description" class="anchor"></a>Description
+## [](#_description)Description
 
-- `VK_SHADER_GROUP_SHADER_GENERAL_KHR` uses the shader specified in the
-  group with
-  [VkRayTracingShaderGroupCreateInfoKHR](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkRayTracingShaderGroupCreateInfoKHR.html)::`generalShader`
+- `VK_SHADER_GROUP_SHADER_GENERAL_KHR` uses the shader specified in the group with [VkRayTracingShaderGroupCreateInfoKHR](https://registry.khronos.org/vulkan/specs/latest/man/html/VkRayTracingShaderGroupCreateInfoKHR.html)::`generalShader`
+- `VK_SHADER_GROUP_SHADER_CLOSEST_HIT_KHR` uses the shader specified in the group with [VkRayTracingShaderGroupCreateInfoKHR](https://registry.khronos.org/vulkan/specs/latest/man/html/VkRayTracingShaderGroupCreateInfoKHR.html)::`closestHitShader`
+- `VK_SHADER_GROUP_SHADER_ANY_HIT_KHR` uses the shader specified in the group with [VkRayTracingShaderGroupCreateInfoKHR](https://registry.khronos.org/vulkan/specs/latest/man/html/VkRayTracingShaderGroupCreateInfoKHR.html)::`anyHitShader`
+- `VK_SHADER_GROUP_SHADER_INTERSECTION_KHR` uses the shader specified in the group with [VkRayTracingShaderGroupCreateInfoKHR](https://registry.khronos.org/vulkan/specs/latest/man/html/VkRayTracingShaderGroupCreateInfoKHR.html)::`intersectionShader`
 
-- `VK_SHADER_GROUP_SHADER_CLOSEST_HIT_KHR` uses the shader specified in
-  the group with
-  [VkRayTracingShaderGroupCreateInfoKHR](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkRayTracingShaderGroupCreateInfoKHR.html)::`closestHitShader`
+## [](#_see_also)See Also
 
-- `VK_SHADER_GROUP_SHADER_ANY_HIT_KHR` uses the shader specified in the
-  group with
-  [VkRayTracingShaderGroupCreateInfoKHR](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkRayTracingShaderGroupCreateInfoKHR.html)::`anyHitShader`
+[VK\_KHR\_ray\_tracing\_pipeline](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_KHR_ray_tracing_pipeline.html), [vkGetRayTracingShaderGroupStackSizeKHR](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetRayTracingShaderGroupStackSizeKHR.html)
 
-- `VK_SHADER_GROUP_SHADER_INTERSECTION_KHR` uses the shader specified in
-  the group with
-  [VkRayTracingShaderGroupCreateInfoKHR](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkRayTracingShaderGroupCreateInfoKHR.html)::`intersectionShader`
+## [](#_document_notes)Document Notes
 
-## <a href="#_see_also" class="anchor"></a>See Also
+For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#VkShaderGroupShaderKHR)
 
-[VK_KHR_ray_tracing_pipeline](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_KHR_ray_tracing_pipeline.html),
-[vkGetRayTracingShaderGroupStackSizeKHR](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkGetRayTracingShaderGroupStackSizeKHR.html)
+This page is extracted from the Vulkan Specification. Fixes and changes should be made to the Specification, not directly.
 
-## <a href="#_document_notes" class="anchor"></a>Document Notes
+## [](#_copyright)Copyright
 
-For more information, see the <a
-href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#VkShaderGroupShaderKHR"
-target="_blank" rel="noopener">Vulkan Specification</a>
-
-This page is extracted from the Vulkan Specification. Fixes and changes
-should be made to the Specification, not directly.
-
-## <a href="#_copyright" class="anchor"></a>Copyright
-
-Copyright 2014-2024 The Khronos Group Inc.
+Copyright 2014-2025 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
-
-Version 1.3.290  
-Last updated 2024-07-11 23:39:16 -0700

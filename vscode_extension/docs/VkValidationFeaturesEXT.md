@@ -2,20 +2,15 @@
 
 ## Name
 
-VkValidationFeaturesEXT - Specify validation features to enable or
-disable for a Vulkan instance
+VkValidationFeaturesEXT - Specify validation features to enable or disable for a Vulkan instance
 
 
 
-## <a href="#_c_specification" class="anchor"></a>C Specification
+## [](#_c_specification)C Specification
 
-When creating a Vulkan instance for which you wish to enable or disable
-specific validation features, add a
-[VkValidationFeaturesEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkValidationFeaturesEXT.html) structure to the
-`pNext` chain of the [VkInstanceCreateInfo](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkInstanceCreateInfo.html)
-structure, specifying the features to be enabled or disabled.
+When creating a Vulkan instance for which you wish to enable or disable specific validation features, add a [VkValidationFeaturesEXT](https://registry.khronos.org/vulkan/specs/latest/man/html/VkValidationFeaturesEXT.html) structure to the `pNext` chain of the [VkInstanceCreateInfo](https://registry.khronos.org/vulkan/specs/latest/man/html/VkInstanceCreateInfo.html) structure, specifying the features to be enabled or disabled.
 
-``` c
+```c++
 // Provided by VK_EXT_validation_features
 typedef struct VkValidationFeaturesEXT {
     VkStructureType                         sType;
@@ -27,94 +22,43 @@ typedef struct VkValidationFeaturesEXT {
 } VkValidationFeaturesEXT;
 ```
 
-## <a href="#_members" class="anchor"></a>Members
+## [](#_members)Members
 
-- `sType` is a [VkStructureType](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkStructureType.html) value identifying
-  this structure.
-
-- `pNext` is `NULL` or a pointer to a structure extending this
-  structure.
-
+- `sType` is a [VkStructureType](https://registry.khronos.org/vulkan/specs/latest/man/html/VkStructureType.html) value identifying this structure.
+- `pNext` is `NULL` or a pointer to a structure extending this structure.
 - `enabledValidationFeatureCount` is the number of features to enable.
-
-- `pEnabledValidationFeatures` is a pointer to an array of
-  [VkValidationFeatureEnableEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkValidationFeatureEnableEXT.html)
-  values specifying the validation features to be enabled.
-
+- `pEnabledValidationFeatures` is a pointer to an array of [VkValidationFeatureEnableEXT](https://registry.khronos.org/vulkan/specs/latest/man/html/VkValidationFeatureEnableEXT.html) values specifying the validation features to be enabled.
 - `disabledValidationFeatureCount` is the number of features to disable.
+- `pDisabledValidationFeatures` is a pointer to an array of [VkValidationFeatureDisableEXT](https://registry.khronos.org/vulkan/specs/latest/man/html/VkValidationFeatureDisableEXT.html) values specifying the validation features to be disabled.
 
-- `pDisabledValidationFeatures` is a pointer to an array of
-  [VkValidationFeatureDisableEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkValidationFeatureDisableEXT.html)
-  values specifying the validation features to be disabled.
-
-## <a href="#_description" class="anchor"></a>Description
+## [](#_description)Description
 
 Valid Usage
 
-- <a href="#VUID-VkValidationFeaturesEXT-pEnabledValidationFeatures-02967"
-  id="VUID-VkValidationFeaturesEXT-pEnabledValidationFeatures-02967"></a>
-  VUID-VkValidationFeaturesEXT-pEnabledValidationFeatures-02967  
-  If the `pEnabledValidationFeatures` array contains
-  `VK_VALIDATION_FEATURE_ENABLE_GPU_ASSISTED_RESERVE_BINDING_SLOT_EXT`,
-  then it **must** also contain
-  `VK_VALIDATION_FEATURE_ENABLE_GPU_ASSISTED_EXT` or
-  `VK_VALIDATION_FEATURE_ENABLE_DEBUG_PRINTF_EXT`
-
-- <a href="#VUID-VkValidationFeaturesEXT-pEnabledValidationFeatures-02968"
-  id="VUID-VkValidationFeaturesEXT-pEnabledValidationFeatures-02968"></a>
-  VUID-VkValidationFeaturesEXT-pEnabledValidationFeatures-02968  
-  If the `pEnabledValidationFeatures` array contains
-  `VK_VALIDATION_FEATURE_ENABLE_DEBUG_PRINTF_EXT`, then it **must** not
-  contain `VK_VALIDATION_FEATURE_ENABLE_GPU_ASSISTED_EXT`
+- [](#VUID-VkValidationFeaturesEXT-pEnabledValidationFeatures-02967)VUID-VkValidationFeaturesEXT-pEnabledValidationFeatures-02967  
+  If the `pEnabledValidationFeatures` array contains `VK_VALIDATION_FEATURE_ENABLE_GPU_ASSISTED_RESERVE_BINDING_SLOT_EXT`, then it **must** also contain `VK_VALIDATION_FEATURE_ENABLE_GPU_ASSISTED_EXT` or `VK_VALIDATION_FEATURE_ENABLE_DEBUG_PRINTF_EXT`
 
 Valid Usage (Implicit)
 
-- <a href="#VUID-VkValidationFeaturesEXT-sType-sType"
-  id="VUID-VkValidationFeaturesEXT-sType-sType"></a>
-  VUID-VkValidationFeaturesEXT-sType-sType  
+- [](#VUID-VkValidationFeaturesEXT-sType-sType)VUID-VkValidationFeaturesEXT-sType-sType  
   `sType` **must** be `VK_STRUCTURE_TYPE_VALIDATION_FEATURES_EXT`
+- [](#VUID-VkValidationFeaturesEXT-pEnabledValidationFeatures-parameter)VUID-VkValidationFeaturesEXT-pEnabledValidationFeatures-parameter  
+  If `enabledValidationFeatureCount` is not `0`, `pEnabledValidationFeatures` **must** be a valid pointer to an array of `enabledValidationFeatureCount` valid [VkValidationFeatureEnableEXT](https://registry.khronos.org/vulkan/specs/latest/man/html/VkValidationFeatureEnableEXT.html) values
+- [](#VUID-VkValidationFeaturesEXT-pDisabledValidationFeatures-parameter)VUID-VkValidationFeaturesEXT-pDisabledValidationFeatures-parameter  
+  If `disabledValidationFeatureCount` is not `0`, `pDisabledValidationFeatures` **must** be a valid pointer to an array of `disabledValidationFeatureCount` valid [VkValidationFeatureDisableEXT](https://registry.khronos.org/vulkan/specs/latest/man/html/VkValidationFeatureDisableEXT.html) values
 
-- <a
-  href="#VUID-VkValidationFeaturesEXT-pEnabledValidationFeatures-parameter"
-  id="VUID-VkValidationFeaturesEXT-pEnabledValidationFeatures-parameter"></a>
-  VUID-VkValidationFeaturesEXT-pEnabledValidationFeatures-parameter  
-  If `enabledValidationFeatureCount` is not `0`,
-  `pEnabledValidationFeatures` **must** be a valid pointer to an array
-  of `enabledValidationFeatureCount` valid
-  [VkValidationFeatureEnableEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkValidationFeatureEnableEXT.html)
-  values
+## [](#_see_also)See Also
 
-- <a
-  href="#VUID-VkValidationFeaturesEXT-pDisabledValidationFeatures-parameter"
-  id="VUID-VkValidationFeaturesEXT-pDisabledValidationFeatures-parameter"></a>
-  VUID-VkValidationFeaturesEXT-pDisabledValidationFeatures-parameter  
-  If `disabledValidationFeatureCount` is not `0`,
-  `pDisabledValidationFeatures` **must** be a valid pointer to an array
-  of `disabledValidationFeatureCount` valid
-  [VkValidationFeatureDisableEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkValidationFeatureDisableEXT.html)
-  values
+[VK\_EXT\_validation\_features](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_EXT_validation_features.html), [VkStructureType](https://registry.khronos.org/vulkan/specs/latest/man/html/VkStructureType.html), [VkValidationFeatureDisableEXT](https://registry.khronos.org/vulkan/specs/latest/man/html/VkValidationFeatureDisableEXT.html), [VkValidationFeatureEnableEXT](https://registry.khronos.org/vulkan/specs/latest/man/html/VkValidationFeatureEnableEXT.html)
 
-## <a href="#_see_also" class="anchor"></a>See Also
+## [](#_document_notes)Document Notes
 
-[VK_EXT_validation_features](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_EXT_validation_features.html),
-[VkStructureType](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkStructureType.html),
-[VkValidationFeatureDisableEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkValidationFeatureDisableEXT.html),
-[VkValidationFeatureEnableEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkValidationFeatureEnableEXT.html)
+For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#VkValidationFeaturesEXT)
 
-## <a href="#_document_notes" class="anchor"></a>Document Notes
+This page is extracted from the Vulkan Specification. Fixes and changes should be made to the Specification, not directly.
 
-For more information, see the <a
-href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#VkValidationFeaturesEXT"
-target="_blank" rel="noopener">Vulkan Specification</a>
+## [](#_copyright)Copyright
 
-This page is extracted from the Vulkan Specification. Fixes and changes
-should be made to the Specification, not directly.
-
-## <a href="#_copyright" class="anchor"></a>Copyright
-
-Copyright 2014-2024 The Khronos Group Inc.
+Copyright 2014-2025 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
-
-Version 1.3.290  
-Last updated 2024-07-11 23:39:16 -0700

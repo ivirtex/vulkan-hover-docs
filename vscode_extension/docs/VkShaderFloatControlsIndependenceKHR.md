@@ -2,18 +2,15 @@
 
 ## Name
 
-VkShaderFloatControlsIndependence - Bitmask specifying whether, and how,
-shader float controls can be set separately
+VkShaderFloatControlsIndependence - Bitmask specifying whether, and how, shader float controls can be set separately
 
 
 
-## <a href="#_c_specification" class="anchor"></a>C Specification
+## [](#_c_specification)C Specification
 
-Values which **may** be returned in the `denormBehaviorIndependence` and
-`roundingModeIndependence` fields of
-`VkPhysicalDeviceFloatControlsProperties` are:
+Values which **may** be returned in the `denormBehaviorIndependence` and `roundingModeIndependence` fields of `VkPhysicalDeviceFloatControlsProperties` are:
 
-``` c
+```c++
 // Provided by VK_VERSION_1_2
 typedef enum VkShaderFloatControlsIndependence {
     VK_SHADER_FLOAT_CONTROLS_INDEPENDENCE_32_BIT_ONLY = 0,
@@ -30,45 +27,29 @@ typedef enum VkShaderFloatControlsIndependence {
 
 or the equivalent
 
-``` c
+```c++
 // Provided by VK_KHR_shader_float_controls
 typedef VkShaderFloatControlsIndependence VkShaderFloatControlsIndependenceKHR;
 ```
 
-## <a href="#_description" class="anchor"></a>Description
+## [](#_description)Description
 
-- `VK_SHADER_FLOAT_CONTROLS_INDEPENDENCE_32_BIT_ONLY` specifies that
-  shader float controls for 32-bit floating-point **can** be set
-  independently; other bit widths **must** be set identically to each
-  other.
+- `VK_SHADER_FLOAT_CONTROLS_INDEPENDENCE_32_BIT_ONLY` specifies that shader float controls for 32-bit floating-point **can** be set independently; other bit widths **must** be set identically to each other.
+- `VK_SHADER_FLOAT_CONTROLS_INDEPENDENCE_ALL` specifies that shader float controls for all bit widths **can** be set independently.
+- `VK_SHADER_FLOAT_CONTROLS_INDEPENDENCE_NONE` specifies that shader float controls for all bit widths **must** be set identically.
 
-- `VK_SHADER_FLOAT_CONTROLS_INDEPENDENCE_ALL` specifies that shader
-  float controls for all bit widths **can** be set independently.
+## [](#_see_also)See Also
 
-- `VK_SHADER_FLOAT_CONTROLS_INDEPENDENCE_NONE` specifies that shader
-  float controls for all bit widths **must** be set identically.
+[VK\_KHR\_shader\_float\_controls](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_KHR_shader_float_controls.html), [VK\_VERSION\_1\_2](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_VERSION_1_2.html), [VkPhysicalDeviceFloatControlsProperties](https://registry.khronos.org/vulkan/specs/latest/man/html/VkPhysicalDeviceFloatControlsProperties.html), [VkPhysicalDeviceVulkan12Properties](https://registry.khronos.org/vulkan/specs/latest/man/html/VkPhysicalDeviceVulkan12Properties.html)
 
-## <a href="#_see_also" class="anchor"></a>See Also
+## [](#_document_notes)Document Notes
 
-[VK_KHR_shader_float_controls](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_KHR_shader_float_controls.html),
-[VK_VERSION_1_2](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_VERSION_1_2.html),
-[VkPhysicalDeviceFloatControlsProperties](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkPhysicalDeviceFloatControlsProperties.html),
-[VkPhysicalDeviceVulkan12Properties](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkPhysicalDeviceVulkan12Properties.html)
+For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#VkShaderFloatControlsIndependence)
 
-## <a href="#_document_notes" class="anchor"></a>Document Notes
+This page is extracted from the Vulkan Specification. Fixes and changes should be made to the Specification, not directly.
 
-For more information, see the <a
-href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#VkShaderFloatControlsIndependence"
-target="_blank" rel="noopener">Vulkan Specification</a>
+## [](#_copyright)Copyright
 
-This page is extracted from the Vulkan Specification. Fixes and changes
-should be made to the Specification, not directly.
-
-## <a href="#_copyright" class="anchor"></a>Copyright
-
-Copyright 2014-2024 The Khronos Group Inc.
+Copyright 2014-2025 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
-
-Version 1.3.290  
-Last updated 2024-07-11 23:39:16 -0700

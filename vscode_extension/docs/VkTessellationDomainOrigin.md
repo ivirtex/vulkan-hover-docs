@@ -6,13 +6,11 @@ VkTessellationDomainOrigin - Enum describing tessellation domain origin
 
 
 
-## <a href="#_c_specification" class="anchor"></a>C Specification
+## [](#_c_specification)C Specification
 
-The possible tessellation domain origins are specified by the
-[VkTessellationDomainOrigin](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkTessellationDomainOrigin.html)
-enumeration:
+The possible tessellation domain origins are specified by the [VkTessellationDomainOrigin](https://registry.khronos.org/vulkan/specs/latest/man/html/VkTessellationDomainOrigin.html) enumeration:
 
-``` c
+```c++
 // Provided by VK_VERSION_1_1
 typedef enum VkTessellationDomainOrigin {
     VK_TESSELLATION_DOMAIN_ORIGIN_UPPER_LEFT = 0,
@@ -26,49 +24,30 @@ typedef enum VkTessellationDomainOrigin {
 
 or the equivalent
 
-``` c
+```c++
 // Provided by VK_KHR_maintenance2
 typedef VkTessellationDomainOrigin VkTessellationDomainOriginKHR;
 ```
 
-## <a href="#_description" class="anchor"></a>Description
+## [](#_description)Description
 
-- `VK_TESSELLATION_DOMAIN_ORIGIN_UPPER_LEFT` specifies that the origin
-  of the domain space is in the upper left corner, as shown in figure <a
-  href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#img-tessellation-topology-ul"
-  class="bare" target="_blank"
-  rel="noopener">https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#img-tessellation-topology-ul</a>.
+- `VK_TESSELLATION_DOMAIN_ORIGIN_UPPER_LEFT` specifies that the origin of the domain space is in the upper left corner, as shown in figure [https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#img-tessellation-topology-ul](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#img-tessellation-topology-ul).
+- `VK_TESSELLATION_DOMAIN_ORIGIN_LOWER_LEFT` specifies that the origin of the domain space is in the lower left corner, as shown in figure [https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#img-tessellation-topology-ll](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#img-tessellation-topology-ll).
 
-- `VK_TESSELLATION_DOMAIN_ORIGIN_LOWER_LEFT` specifies that the origin
-  of the domain space is in the lower left corner, as shown in figure <a
-  href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#img-tessellation-topology-ll"
-  class="bare" target="_blank"
-  rel="noopener">https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#img-tessellation-topology-ll</a>.
+This enum affects how the `VertexOrderCw` and `VertexOrderCcw` tessellation execution modes are interpreted, since the winding is defined relative to the orientation of the domain.
 
-This enum affects how the `VertexOrderCw` and `VertexOrderCcw`
-tessellation execution modes are interpreted, since the winding is
-defined relative to the orientation of the domain.
+## [](#_see_also)See Also
 
-## <a href="#_see_also" class="anchor"></a>See Also
+[VK\_VERSION\_1\_1](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_VERSION_1_1.html), [VkPipelineTessellationDomainOriginStateCreateInfo](https://registry.khronos.org/vulkan/specs/latest/man/html/VkPipelineTessellationDomainOriginStateCreateInfo.html), [vkCmdSetTessellationDomainOriginEXT](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdSetTessellationDomainOriginEXT.html)
 
-[VK_VERSION_1_1](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_VERSION_1_1.html),
-[VkPipelineTessellationDomainOriginStateCreateInfo](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkPipelineTessellationDomainOriginStateCreateInfo.html),
-[vkCmdSetTessellationDomainOriginEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdSetTessellationDomainOriginEXT.html)
+## [](#_document_notes)Document Notes
 
-## <a href="#_document_notes" class="anchor"></a>Document Notes
+For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#VkTessellationDomainOrigin)
 
-For more information, see the <a
-href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#VkTessellationDomainOrigin"
-target="_blank" rel="noopener">Vulkan Specification</a>
+This page is extracted from the Vulkan Specification. Fixes and changes should be made to the Specification, not directly.
 
-This page is extracted from the Vulkan Specification. Fixes and changes
-should be made to the Specification, not directly.
+## [](#_copyright)Copyright
 
-## <a href="#_copyright" class="anchor"></a>Copyright
-
-Copyright 2014-2024 The Khronos Group Inc.
+Copyright 2014-2025 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
-
-Version 1.3.290  
-Last updated 2024-07-11 23:39:16 -0700

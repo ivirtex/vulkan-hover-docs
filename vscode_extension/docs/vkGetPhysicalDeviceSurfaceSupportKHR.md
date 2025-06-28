@@ -2,17 +2,15 @@
 
 ## Name
 
-vkGetPhysicalDeviceSurfaceSupportKHR - Query if presentation is
-supported
+vkGetPhysicalDeviceSurfaceSupportKHR - Query if presentation is supported
 
 
 
-## <a href="#_c_specification" class="anchor"></a>C Specification
+## [](#_c_specification)C Specification
 
-To determine whether a queue family of a physical device supports
-presentation to a given surface, call:
+To determine whether a queue family of a physical device supports presentation to a given surface, call:
 
-``` c
+```c++
 // Provided by VK_KHR_surface
 VkResult vkGetPhysicalDeviceSurfaceSupportKHR(
     VkPhysicalDevice                            physicalDevice,
@@ -21,88 +19,55 @@ VkResult vkGetPhysicalDeviceSurfaceSupportKHR(
     VkBool32*                                   pSupported);
 ```
 
-## <a href="#_parameters" class="anchor"></a>Parameters
+## [](#_parameters)Parameters
 
 - `physicalDevice` is the physical device.
-
 - `queueFamilyIndex` is the queue family.
-
 - `surface` is the surface.
+- `pSupported` is a pointer to a [VkBool32](https://registry.khronos.org/vulkan/specs/latest/man/html/VkBool32.html). `VK_TRUE` indicates support, and `VK_FALSE` indicates no support.
 
-- `pSupported` is a pointer to a [VkBool32](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkBool32.html), which is set
-  to `VK_TRUE` to indicate support, and `VK_FALSE` otherwise.
-
-## <a href="#_description" class="anchor"></a>Description
+## [](#_description)Description
 
 Valid Usage
 
-- <a
-  href="#VUID-vkGetPhysicalDeviceSurfaceSupportKHR-queueFamilyIndex-01269"
-  id="VUID-vkGetPhysicalDeviceSurfaceSupportKHR-queueFamilyIndex-01269"></a>
-  VUID-vkGetPhysicalDeviceSurfaceSupportKHR-queueFamilyIndex-01269  
-  `queueFamilyIndex` **must** be less than `pQueueFamilyPropertyCount`
-  returned by `vkGetPhysicalDeviceQueueFamilyProperties` for the given
-  `physicalDevice`
+- [](#VUID-vkGetPhysicalDeviceSurfaceSupportKHR-queueFamilyIndex-01269)VUID-vkGetPhysicalDeviceSurfaceSupportKHR-queueFamilyIndex-01269  
+  `queueFamilyIndex` **must** be less than `pQueueFamilyPropertyCount` returned by `vkGetPhysicalDeviceQueueFamilyProperties` for the given `physicalDevice`
 
 Valid Usage (Implicit)
 
-- <a
-  href="#VUID-vkGetPhysicalDeviceSurfaceSupportKHR-physicalDevice-parameter"
-  id="VUID-vkGetPhysicalDeviceSurfaceSupportKHR-physicalDevice-parameter"></a>
-  VUID-vkGetPhysicalDeviceSurfaceSupportKHR-physicalDevice-parameter  
-  `physicalDevice` **must** be a valid
-  [VkPhysicalDevice](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkPhysicalDevice.html) handle
-
-- <a href="#VUID-vkGetPhysicalDeviceSurfaceSupportKHR-surface-parameter"
-  id="VUID-vkGetPhysicalDeviceSurfaceSupportKHR-surface-parameter"></a>
-  VUID-vkGetPhysicalDeviceSurfaceSupportKHR-surface-parameter  
-  `surface` **must** be a valid [VkSurfaceKHR](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkSurfaceKHR.html) handle
-
-- <a
-  href="#VUID-vkGetPhysicalDeviceSurfaceSupportKHR-pSupported-parameter"
-  id="VUID-vkGetPhysicalDeviceSurfaceSupportKHR-pSupported-parameter"></a>
-  VUID-vkGetPhysicalDeviceSurfaceSupportKHR-pSupported-parameter  
-  `pSupported` **must** be a valid pointer to a
-  [VkBool32](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkBool32.html) value
-
-- <a href="#VUID-vkGetPhysicalDeviceSurfaceSupportKHR-commonparent"
-  id="VUID-vkGetPhysicalDeviceSurfaceSupportKHR-commonparent"></a>
-  VUID-vkGetPhysicalDeviceSurfaceSupportKHR-commonparent  
-  Both of `physicalDevice`, and `surface` **must** have been created,
-  allocated, or retrieved from the same [VkInstance](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkInstance.html)
+- [](#VUID-vkGetPhysicalDeviceSurfaceSupportKHR-physicalDevice-parameter)VUID-vkGetPhysicalDeviceSurfaceSupportKHR-physicalDevice-parameter  
+  `physicalDevice` **must** be a valid [VkPhysicalDevice](https://registry.khronos.org/vulkan/specs/latest/man/html/VkPhysicalDevice.html) handle
+- [](#VUID-vkGetPhysicalDeviceSurfaceSupportKHR-surface-parameter)VUID-vkGetPhysicalDeviceSurfaceSupportKHR-surface-parameter  
+  `surface` **must** be a valid [VkSurfaceKHR](https://registry.khronos.org/vulkan/specs/latest/man/html/VkSurfaceKHR.html) handle
+- [](#VUID-vkGetPhysicalDeviceSurfaceSupportKHR-pSupported-parameter)VUID-vkGetPhysicalDeviceSurfaceSupportKHR-pSupported-parameter  
+  `pSupported` **must** be a valid pointer to a [VkBool32](https://registry.khronos.org/vulkan/specs/latest/man/html/VkBool32.html) value
+- [](#VUID-vkGetPhysicalDeviceSurfaceSupportKHR-commonparent)VUID-vkGetPhysicalDeviceSurfaceSupportKHR-commonparent  
+  Both of `physicalDevice`, and `surface` **must** have been created, allocated, or retrieved from the same [VkInstance](https://registry.khronos.org/vulkan/specs/latest/man/html/VkInstance.html)
 
 Return Codes
 
-On success, this command returns  
+On success, this command returns
+
 - `VK_SUCCESS`
 
-On failure, this command returns  
+On failure, this command returns
+
 - `VK_ERROR_OUT_OF_HOST_MEMORY`
-
 - `VK_ERROR_OUT_OF_DEVICE_MEMORY`
-
 - `VK_ERROR_SURFACE_LOST_KHR`
 
-## <a href="#_see_also" class="anchor"></a>See Also
+## [](#_see_also)See Also
 
-[VK_KHR_surface](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_KHR_surface.html), [VkBool32](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkBool32.html),
-[VkPhysicalDevice](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkPhysicalDevice.html),
-[VkSurfaceKHR](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkSurfaceKHR.html)
+[VK\_KHR\_surface](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_KHR_surface.html), [VkBool32](https://registry.khronos.org/vulkan/specs/latest/man/html/VkBool32.html), [VkPhysicalDevice](https://registry.khronos.org/vulkan/specs/latest/man/html/VkPhysicalDevice.html), [VkSurfaceKHR](https://registry.khronos.org/vulkan/specs/latest/man/html/VkSurfaceKHR.html)
 
-## <a href="#_document_notes" class="anchor"></a>Document Notes
+## [](#_document_notes)Document Notes
 
-For more information, see the <a
-href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#vkGetPhysicalDeviceSurfaceSupportKHR"
-target="_blank" rel="noopener">Vulkan Specification</a>
+For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#vkGetPhysicalDeviceSurfaceSupportKHR)
 
-This page is extracted from the Vulkan Specification. Fixes and changes
-should be made to the Specification, not directly.
+This page is extracted from the Vulkan Specification. Fixes and changes should be made to the Specification, not directly.
 
-## <a href="#_copyright" class="anchor"></a>Copyright
+## [](#_copyright)Copyright
 
-Copyright 2014-2024 The Khronos Group Inc.
+Copyright 2014-2025 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
-
-Version 1.3.290  
-Last updated 2024-07-11 23:39:16 -0700

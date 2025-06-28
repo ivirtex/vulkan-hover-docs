@@ -2,17 +2,15 @@
 
 ## Name
 
-VkMacOSSurfaceCreateInfoMVK - Structure specifying parameters of a newly
-created macOS surface object
+VkMacOSSurfaceCreateInfoMVK - Structure specifying parameters of a newly created macOS surface object
 
 
 
-## <a href="#_c_specification" class="anchor"></a>C Specification
+## [](#_c_specification)C Specification
 
-The [VkMacOSSurfaceCreateInfoMVK](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkMacOSSurfaceCreateInfoMVK.html)
-structure is defined as:
+The [VkMacOSSurfaceCreateInfoMVK](https://registry.khronos.org/vulkan/specs/latest/man/html/VkMacOSSurfaceCreateInfoMVK.html) structure is defined as:
 
-``` c
+```c++
 // Provided by VK_MVK_macos_surface
 typedef struct VkMacOSSurfaceCreateInfoMVK {
     VkStructureType                 sType;
@@ -22,76 +20,43 @@ typedef struct VkMacOSSurfaceCreateInfoMVK {
 } VkMacOSSurfaceCreateInfoMVK;
 ```
 
-## <a href="#_members" class="anchor"></a>Members
+## [](#_members)Members
 
-- `sType` is a [VkStructureType](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkStructureType.html) value identifying
-  this structure.
-
-- `pNext` is `NULL` or a pointer to a structure extending this
-  structure.
-
+- `sType` is a [VkStructureType](https://registry.khronos.org/vulkan/specs/latest/man/html/VkStructureType.html) value identifying this structure.
+- `pNext` is `NULL` or a pointer to a structure extending this structure.
 - `flags` is reserved for future use.
+- `pView` is a reference to either a [CAMetalLayer](https://registry.khronos.org/vulkan/specs/latest/man/html/CAMetalLayer.html) object or an `NSView` object.
 
-- `pView` is a reference to either a [CAMetalLayer](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/CAMetalLayer.html)
-  object or an `NSView` object.
-
-## <a href="#_description" class="anchor"></a>Description
+## [](#_description)Description
 
 Valid Usage
 
-- <a href="#VUID-VkMacOSSurfaceCreateInfoMVK-pView-04144"
-  id="VUID-VkMacOSSurfaceCreateInfoMVK-pView-04144"></a>
-  VUID-VkMacOSSurfaceCreateInfoMVK-pView-04144  
-  If `pView` is a [CAMetalLayer](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/CAMetalLayer.html) object, it **must**
-  be a valid [CAMetalLayer](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/CAMetalLayer.html)
-
-- <a href="#VUID-VkMacOSSurfaceCreateInfoMVK-pView-01317"
-  id="VUID-VkMacOSSurfaceCreateInfoMVK-pView-01317"></a>
-  VUID-VkMacOSSurfaceCreateInfoMVK-pView-01317  
-  If `pView` is an `NSView` object, it **must** be a valid `NSView`,
-  **must** be backed by a `CALayer` object of type
-  [CAMetalLayer](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/CAMetalLayer.html), and
-  [vkCreateMacOSSurfaceMVK](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCreateMacOSSurfaceMVK.html) **must** be
-  called on the main thread
+- [](#VUID-VkMacOSSurfaceCreateInfoMVK-pView-04144)VUID-VkMacOSSurfaceCreateInfoMVK-pView-04144  
+  If `pView` is a [CAMetalLayer](https://registry.khronos.org/vulkan/specs/latest/man/html/CAMetalLayer.html) object, it **must** be a valid [CAMetalLayer](https://registry.khronos.org/vulkan/specs/latest/man/html/CAMetalLayer.html)
+- [](#VUID-VkMacOSSurfaceCreateInfoMVK-pView-01317)VUID-VkMacOSSurfaceCreateInfoMVK-pView-01317  
+  If `pView` is an `NSView` object, it **must** be a valid `NSView`, **must** be backed by a `CALayer` object of type [CAMetalLayer](https://registry.khronos.org/vulkan/specs/latest/man/html/CAMetalLayer.html), and [vkCreateMacOSSurfaceMVK](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCreateMacOSSurfaceMVK.html) **must** be called on the main thread
 
 Valid Usage (Implicit)
 
-- <a href="#VUID-VkMacOSSurfaceCreateInfoMVK-sType-sType"
-  id="VUID-VkMacOSSurfaceCreateInfoMVK-sType-sType"></a>
-  VUID-VkMacOSSurfaceCreateInfoMVK-sType-sType  
+- [](#VUID-VkMacOSSurfaceCreateInfoMVK-sType-sType)VUID-VkMacOSSurfaceCreateInfoMVK-sType-sType  
   `sType` **must** be `VK_STRUCTURE_TYPE_MACOS_SURFACE_CREATE_INFO_MVK`
-
-- <a href="#VUID-VkMacOSSurfaceCreateInfoMVK-pNext-pNext"
-  id="VUID-VkMacOSSurfaceCreateInfoMVK-pNext-pNext"></a>
-  VUID-VkMacOSSurfaceCreateInfoMVK-pNext-pNext  
+- [](#VUID-VkMacOSSurfaceCreateInfoMVK-pNext-pNext)VUID-VkMacOSSurfaceCreateInfoMVK-pNext-pNext  
   `pNext` **must** be `NULL`
-
-- <a href="#VUID-VkMacOSSurfaceCreateInfoMVK-flags-zerobitmask"
-  id="VUID-VkMacOSSurfaceCreateInfoMVK-flags-zerobitmask"></a>
-  VUID-VkMacOSSurfaceCreateInfoMVK-flags-zerobitmask  
+- [](#VUID-VkMacOSSurfaceCreateInfoMVK-flags-zerobitmask)VUID-VkMacOSSurfaceCreateInfoMVK-flags-zerobitmask  
   `flags` **must** be `0`
 
-## <a href="#_see_also" class="anchor"></a>See Also
+## [](#_see_also)See Also
 
-[VK_MVK_macos_surface](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_MVK_macos_surface.html),
-[VkMacOSSurfaceCreateFlagsMVK](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkMacOSSurfaceCreateFlagsMVK.html),
-[VkStructureType](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkStructureType.html),
-[vkCreateMacOSSurfaceMVK](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCreateMacOSSurfaceMVK.html)
+[VK\_MVK\_macos\_surface](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_MVK_macos_surface.html), [VkMacOSSurfaceCreateFlagsMVK](https://registry.khronos.org/vulkan/specs/latest/man/html/VkMacOSSurfaceCreateFlagsMVK.html), [VkStructureType](https://registry.khronos.org/vulkan/specs/latest/man/html/VkStructureType.html), [vkCreateMacOSSurfaceMVK](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCreateMacOSSurfaceMVK.html)
 
-## <a href="#_document_notes" class="anchor"></a>Document Notes
+## [](#_document_notes)Document Notes
 
-For more information, see the <a
-href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#VkMacOSSurfaceCreateInfoMVK"
-target="_blank" rel="noopener">Vulkan Specification</a>
+For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#VkMacOSSurfaceCreateInfoMVK)
 
-This page is extracted from the Vulkan Specification. Fixes and changes
-should be made to the Specification, not directly.
+This page is extracted from the Vulkan Specification. Fixes and changes should be made to the Specification, not directly.
 
-## <a href="#_copyright" class="anchor"></a>Copyright
+## [](#_copyright)Copyright
 
-Copyright 2014-2024 The Khronos Group Inc.
+Copyright 2014-2025 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
-
-Version 1.3.290  
-Last updated 2024-07-11 23:39:16 -0700

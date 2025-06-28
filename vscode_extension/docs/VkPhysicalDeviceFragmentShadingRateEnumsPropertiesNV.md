@@ -2,18 +2,15 @@
 
 ## Name
 
-VkPhysicalDeviceFragmentShadingRateEnumsPropertiesNV - Structure
-describing fragment shading rate limits that can be supported by an
-implementation
+VkPhysicalDeviceFragmentShadingRateEnumsPropertiesNV - Structure describing fragment shading rate limits that can be supported by an implementation
 
 
 
-## <a href="#_c_specification" class="anchor"></a>C Specification
+## [](#_c_specification)C Specification
 
-The `VkPhysicalDeviceFragmentShadingRateEnumsPropertiesNV` structure is
-defined as:
+The `VkPhysicalDeviceFragmentShadingRateEnumsPropertiesNV` structure is defined as:
 
-``` c
+```c++
 // Provided by VK_NV_fragment_shading_rate_enums
 typedef struct VkPhysicalDeviceFragmentShadingRateEnumsPropertiesNV {
     VkStructureType          sType;
@@ -22,71 +19,35 @@ typedef struct VkPhysicalDeviceFragmentShadingRateEnumsPropertiesNV {
 } VkPhysicalDeviceFragmentShadingRateEnumsPropertiesNV;
 ```
 
-## <a href="#_members" class="anchor"></a>Members
+## [](#_members)Members
 
-- `sType` is a [VkStructureType](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkStructureType.html) value identifying
-  this structure.
+- `sType` is a [VkStructureType](https://registry.khronos.org/vulkan/specs/latest/man/html/VkStructureType.html) value identifying this structure.
+- `pNext` is `NULL` or a pointer to a structure extending this structure.
+- []()`maxFragmentShadingRateInvocationCount` is a [VkSampleCountFlagBits](https://registry.khronos.org/vulkan/specs/latest/man/html/VkSampleCountFlagBits.html) value indicating the maximum number of fragment shader invocations per fragment supported in pipeline, primitive, and attachment fragment shading rates.
 
-- `pNext` is `NULL` or a pointer to a structure extending this
-  structure.
+## [](#_description)Description
 
-- <span id="limits-maxFragmentShadingRateInvocationCount"></span>
-  `maxFragmentShadingRateInvocationCount` is a
-  [VkSampleCountFlagBits](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkSampleCountFlagBits.html) value indicating
-  the maximum number of fragment shader invocations per fragment
-  supported in pipeline, primitive, and attachment fragment shading
-  rates.
+If the `VkPhysicalDeviceFragmentShadingRateEnumsPropertiesNV` structure is included in the `pNext` chain of the [VkPhysicalDeviceProperties2](https://registry.khronos.org/vulkan/specs/latest/man/html/VkPhysicalDeviceProperties2.html) structure passed to [vkGetPhysicalDeviceProperties2](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetPhysicalDeviceProperties2.html), it is filled in with each corresponding implementation-dependent property.
 
-## <a href="#_description" class="anchor"></a>Description
-
-If the `VkPhysicalDeviceFragmentShadingRateEnumsPropertiesNV` structure
-is included in the `pNext` chain of the
-[VkPhysicalDeviceProperties2](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkPhysicalDeviceProperties2.html)
-structure passed to
-[vkGetPhysicalDeviceProperties2](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkGetPhysicalDeviceProperties2.html),
-it is filled in with each corresponding implementation-dependent
-property.
-
-These properties are related to <a
-href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#primsrast-fragment-shading-rate"
-target="_blank" rel="noopener">fragment shading rates</a>.
+These properties are related to [fragment shading rates](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#primsrast-fragment-shading-rate).
 
 Valid Usage (Implicit)
 
-- <a
-  href="#VUID-VkPhysicalDeviceFragmentShadingRateEnumsPropertiesNV-sType-sType"
-  id="VUID-VkPhysicalDeviceFragmentShadingRateEnumsPropertiesNV-sType-sType"></a>
-  VUID-VkPhysicalDeviceFragmentShadingRateEnumsPropertiesNV-sType-sType  
-  `sType` **must** be
-  `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_FRAGMENT_SHADING_RATE_ENUMS_PROPERTIES_NV`
+- [](#VUID-VkPhysicalDeviceFragmentShadingRateEnumsPropertiesNV-sType-sType)VUID-VkPhysicalDeviceFragmentShadingRateEnumsPropertiesNV-sType-sType  
+  `sType` **must** be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_FRAGMENT_SHADING_RATE_ENUMS_PROPERTIES_NV`
 
-- <a
-  href="#VUID-VkPhysicalDeviceFragmentShadingRateEnumsPropertiesNV-maxFragmentShadingRateInvocationCount-parameter"
-  id="VUID-VkPhysicalDeviceFragmentShadingRateEnumsPropertiesNV-maxFragmentShadingRateInvocationCount-parameter"></a>
-  VUID-VkPhysicalDeviceFragmentShadingRateEnumsPropertiesNV-maxFragmentShadingRateInvocationCount-parameter  
-  `maxFragmentShadingRateInvocationCount` **must** be a valid
-  [VkSampleCountFlagBits](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkSampleCountFlagBits.html) value
+## [](#_see_also)See Also
 
-## <a href="#_see_also" class="anchor"></a>See Also
+[VK\_NV\_fragment\_shading\_rate\_enums](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_NV_fragment_shading_rate_enums.html), [VkSampleCountFlagBits](https://registry.khronos.org/vulkan/specs/latest/man/html/VkSampleCountFlagBits.html), [VkStructureType](https://registry.khronos.org/vulkan/specs/latest/man/html/VkStructureType.html)
 
-[VK_NV_fragment_shading_rate_enums](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_NV_fragment_shading_rate_enums.html),
-[VkSampleCountFlagBits](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkSampleCountFlagBits.html),
-[VkStructureType](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkStructureType.html)
+## [](#_document_notes)Document Notes
 
-## <a href="#_document_notes" class="anchor"></a>Document Notes
+For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#VkPhysicalDeviceFragmentShadingRateEnumsPropertiesNV)
 
-For more information, see the <a
-href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#VkPhysicalDeviceFragmentShadingRateEnumsPropertiesNV"
-target="_blank" rel="noopener">Vulkan Specification</a>
+This page is extracted from the Vulkan Specification. Fixes and changes should be made to the Specification, not directly.
 
-This page is extracted from the Vulkan Specification. Fixes and changes
-should be made to the Specification, not directly.
+## [](#_copyright)Copyright
 
-## <a href="#_copyright" class="anchor"></a>Copyright
-
-Copyright 2014-2024 The Khronos Group Inc.
+Copyright 2014-2025 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
-
-Version 1.3.290  
-Last updated 2024-07-11 23:39:16 -0700

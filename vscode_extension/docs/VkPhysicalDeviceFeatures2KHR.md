@@ -2,16 +2,15 @@
 
 ## Name
 
-VkPhysicalDeviceFeatures2 - Structure describing the fine-grained
-features that can be supported by an implementation
+VkPhysicalDeviceFeatures2 - Structure describing the fine-grained features that can be supported by an implementation
 
 
 
-## <a href="#_c_specification" class="anchor"></a>C Specification
+## [](#_c_specification)C Specification
 
 The `VkPhysicalDeviceFeatures2` structure is defined as:
 
-``` c
+```c++
 // Provided by VK_VERSION_1_1
 typedef struct VkPhysicalDeviceFeatures2 {
     VkStructureType             sType;
@@ -22,62 +21,38 @@ typedef struct VkPhysicalDeviceFeatures2 {
 
 or the equivalent
 
-``` c
+```c++
 // Provided by VK_KHR_get_physical_device_properties2
 typedef VkPhysicalDeviceFeatures2 VkPhysicalDeviceFeatures2KHR;
 ```
 
-## <a href="#_members" class="anchor"></a>Members
+## [](#_members)Members
 
-- `sType` is a [VkStructureType](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkStructureType.html) value identifying
-  this structure.
+- `sType` is a [VkStructureType](https://registry.khronos.org/vulkan/specs/latest/man/html/VkStructureType.html) value identifying this structure.
+- `pNext` is `NULL` or a pointer to a structure extending this structure.
+- `features` is a [VkPhysicalDeviceFeatures](https://registry.khronos.org/vulkan/specs/latest/man/html/VkPhysicalDeviceFeatures.html) structure describing the fine-grained features of the Vulkan 1.0 API.
 
-- `pNext` is `NULL` or a pointer to a structure extending this
-  structure.
+## [](#_description)Description
 
-- `features` is a
-  [VkPhysicalDeviceFeatures](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkPhysicalDeviceFeatures.html) structure
-  describing the fine-grained features of the Vulkan 1.0 API.
-
-## <a href="#_description" class="anchor"></a>Description
-
-The `pNext` chain of this structure is used to extend the structure with
-features defined by extensions. This structure **can** be used in
-[vkGetPhysicalDeviceFeatures2](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkGetPhysicalDeviceFeatures2.html) or
-**can** be included in the `pNext` chain of a
-[VkDeviceCreateInfo](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkDeviceCreateInfo.html) structure, in which case
-it controls which features are enabled on the device in lieu of
-`pEnabledFeatures`.
+The `pNext` chain of this structure is used to extend the structure with features defined by extensions. This structure **can** be used in [vkGetPhysicalDeviceFeatures2](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetPhysicalDeviceFeatures2.html) or **can** be included in the `pNext` chain of a [VkDeviceCreateInfo](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDeviceCreateInfo.html) structure, in which case it controls which features are enabled in lieu of `pEnabledFeatures`.
 
 Valid Usage (Implicit)
 
-- <a href="#VUID-VkPhysicalDeviceFeatures2-sType-sType"
-  id="VUID-VkPhysicalDeviceFeatures2-sType-sType"></a>
-  VUID-VkPhysicalDeviceFeatures2-sType-sType  
+- [](#VUID-VkPhysicalDeviceFeatures2-sType-sType)VUID-VkPhysicalDeviceFeatures2-sType-sType  
   `sType` **must** be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_FEATURES_2`
 
-## <a href="#_see_also" class="anchor"></a>See Also
+## [](#_see_also)See Also
 
-[VK_VERSION_1_1](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_VERSION_1_1.html),
-[VkPhysicalDeviceFeatures](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkPhysicalDeviceFeatures.html),
-[VkStructureType](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkStructureType.html),
-[vkGetPhysicalDeviceFeatures2](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkGetPhysicalDeviceFeatures2.html),
-[vkGetPhysicalDeviceFeatures2KHR](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkGetPhysicalDeviceFeatures2KHR.html)
+[VK\_VERSION\_1\_1](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_VERSION_1_1.html), [VkPhysicalDeviceFeatures](https://registry.khronos.org/vulkan/specs/latest/man/html/VkPhysicalDeviceFeatures.html), [VkStructureType](https://registry.khronos.org/vulkan/specs/latest/man/html/VkStructureType.html), [vkGetPhysicalDeviceFeatures2](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetPhysicalDeviceFeatures2.html), [vkGetPhysicalDeviceFeatures2KHR](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetPhysicalDeviceFeatures2KHR.html)
 
-## <a href="#_document_notes" class="anchor"></a>Document Notes
+## [](#_document_notes)Document Notes
 
-For more information, see the <a
-href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#VkPhysicalDeviceFeatures2"
-target="_blank" rel="noopener">Vulkan Specification</a>
+For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#VkPhysicalDeviceFeatures2)
 
-This page is extracted from the Vulkan Specification. Fixes and changes
-should be made to the Specification, not directly.
+This page is extracted from the Vulkan Specification. Fixes and changes should be made to the Specification, not directly.
 
-## <a href="#_copyright" class="anchor"></a>Copyright
+## [](#_copyright)Copyright
 
-Copyright 2014-2024 The Khronos Group Inc.
+Copyright 2014-2025 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
-
-Version 1.3.290  
-Last updated 2024-07-11 23:39:16 -0700

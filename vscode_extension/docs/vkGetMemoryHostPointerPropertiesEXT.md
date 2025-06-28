@@ -2,17 +2,15 @@
 
 ## Name
 
-vkGetMemoryHostPointerPropertiesEXT - Get properties of external memory
-host pointer
+vkGetMemoryHostPointerPropertiesEXT - Get properties of external memory host pointer
 
 
 
-## <a href="#_c_specification" class="anchor"></a>C Specification
+## [](#_c_specification)C Specification
 
-To determine the correct parameters to use when importing host pointers,
-call:
+To determine the correct parameters to use when importing host pointers, call:
 
-``` c
+```c++
 // Provided by VK_EXT_external_memory_host
 VkResult vkGetMemoryHostPointerPropertiesEXT(
     VkDevice                                    device,
@@ -21,110 +19,60 @@ VkResult vkGetMemoryHostPointerPropertiesEXT(
     VkMemoryHostPointerPropertiesEXT*           pMemoryHostPointerProperties);
 ```
 
-## <a href="#_parameters" class="anchor"></a>Parameters
+## [](#_parameters)Parameters
 
 - `device` is the logical device that will be importing `pHostPointer`.
-
-- `handleType` is a
-  [VkExternalMemoryHandleTypeFlagBits](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkExternalMemoryHandleTypeFlagBits.html)
-  value specifying the type of the handle `pHostPointer`.
-
+- `handleType` is a [VkExternalMemoryHandleTypeFlagBits](https://registry.khronos.org/vulkan/specs/latest/man/html/VkExternalMemoryHandleTypeFlagBits.html) value specifying the type of the handle `pHostPointer`.
 - `pHostPointer` is the host pointer to import from.
+- `pMemoryHostPointerProperties` is a pointer to a [VkMemoryHostPointerPropertiesEXT](https://registry.khronos.org/vulkan/specs/latest/man/html/VkMemoryHostPointerPropertiesEXT.html) structure in which the host pointer properties are returned.
 
-- `pMemoryHostPointerProperties` is a pointer to a
-  [VkMemoryHostPointerPropertiesEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkMemoryHostPointerPropertiesEXT.html)
-  structure in which the host pointer properties are returned.
-
-## <a href="#_description" class="anchor"></a>Description
+## [](#_description)Description
 
 Valid Usage
 
-- <a href="#VUID-vkGetMemoryHostPointerPropertiesEXT-handleType-01752"
-  id="VUID-vkGetMemoryHostPointerPropertiesEXT-handleType-01752"></a>
-  VUID-vkGetMemoryHostPointerPropertiesEXT-handleType-01752  
-  `handleType` **must** be
-  `VK_EXTERNAL_MEMORY_HANDLE_TYPE_HOST_ALLOCATION_BIT_EXT` or
-  `VK_EXTERNAL_MEMORY_HANDLE_TYPE_HOST_MAPPED_FOREIGN_MEMORY_BIT_EXT`
-
-- <a href="#VUID-vkGetMemoryHostPointerPropertiesEXT-pHostPointer-01753"
-  id="VUID-vkGetMemoryHostPointerPropertiesEXT-pHostPointer-01753"></a>
-  VUID-vkGetMemoryHostPointerPropertiesEXT-pHostPointer-01753  
-  `pHostPointer` **must** be a pointer aligned to an integer multiple of
-  `VkPhysicalDeviceExternalMemoryHostPropertiesEXT`::`minImportedHostPointerAlignment`
-
-- <a href="#VUID-vkGetMemoryHostPointerPropertiesEXT-handleType-01754"
-  id="VUID-vkGetMemoryHostPointerPropertiesEXT-handleType-01754"></a>
-  VUID-vkGetMemoryHostPointerPropertiesEXT-handleType-01754  
-  If `handleType` is
-  `VK_EXTERNAL_MEMORY_HANDLE_TYPE_HOST_ALLOCATION_BIT_EXT`,
-  `pHostPointer` **must** be a pointer to host memory
-
-- <a href="#VUID-vkGetMemoryHostPointerPropertiesEXT-handleType-01755"
-  id="VUID-vkGetMemoryHostPointerPropertiesEXT-handleType-01755"></a>
-  VUID-vkGetMemoryHostPointerPropertiesEXT-handleType-01755  
-  If `handleType` is
-  `VK_EXTERNAL_MEMORY_HANDLE_TYPE_HOST_MAPPED_FOREIGN_MEMORY_BIT_EXT`,
-  `pHostPointer` **must** be a pointer to host mapped foreign memory
+- [](#VUID-vkGetMemoryHostPointerPropertiesEXT-handleType-01752)VUID-vkGetMemoryHostPointerPropertiesEXT-handleType-01752  
+  `handleType` **must** be `VK_EXTERNAL_MEMORY_HANDLE_TYPE_HOST_ALLOCATION_BIT_EXT` or `VK_EXTERNAL_MEMORY_HANDLE_TYPE_HOST_MAPPED_FOREIGN_MEMORY_BIT_EXT`
+- [](#VUID-vkGetMemoryHostPointerPropertiesEXT-pHostPointer-01753)VUID-vkGetMemoryHostPointerPropertiesEXT-pHostPointer-01753  
+  `pHostPointer` **must** be a pointer aligned to an integer multiple of `VkPhysicalDeviceExternalMemoryHostPropertiesEXT`::`minImportedHostPointerAlignment`
+- [](#VUID-vkGetMemoryHostPointerPropertiesEXT-handleType-01754)VUID-vkGetMemoryHostPointerPropertiesEXT-handleType-01754  
+  If `handleType` is `VK_EXTERNAL_MEMORY_HANDLE_TYPE_HOST_ALLOCATION_BIT_EXT`, `pHostPointer` **must** be a pointer to host memory
+- [](#VUID-vkGetMemoryHostPointerPropertiesEXT-handleType-01755)VUID-vkGetMemoryHostPointerPropertiesEXT-handleType-01755  
+  If `handleType` is `VK_EXTERNAL_MEMORY_HANDLE_TYPE_HOST_MAPPED_FOREIGN_MEMORY_BIT_EXT`, `pHostPointer` **must** be a pointer to host mapped foreign memory
 
 Valid Usage (Implicit)
 
-- <a href="#VUID-vkGetMemoryHostPointerPropertiesEXT-device-parameter"
-  id="VUID-vkGetMemoryHostPointerPropertiesEXT-device-parameter"></a>
-  VUID-vkGetMemoryHostPointerPropertiesEXT-device-parameter  
-  `device` **must** be a valid [VkDevice](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkDevice.html) handle
-
-- <a href="#VUID-vkGetMemoryHostPointerPropertiesEXT-handleType-parameter"
-  id="VUID-vkGetMemoryHostPointerPropertiesEXT-handleType-parameter"></a>
-  VUID-vkGetMemoryHostPointerPropertiesEXT-handleType-parameter  
-  `handleType` **must** be a valid
-  [VkExternalMemoryHandleTypeFlagBits](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkExternalMemoryHandleTypeFlagBits.html)
-  value
-
-- <a
-  href="#VUID-vkGetMemoryHostPointerPropertiesEXT-pHostPointer-parameter"
-  id="VUID-vkGetMemoryHostPointerPropertiesEXT-pHostPointer-parameter"></a>
-  VUID-vkGetMemoryHostPointerPropertiesEXT-pHostPointer-parameter  
+- [](#VUID-vkGetMemoryHostPointerPropertiesEXT-device-parameter)VUID-vkGetMemoryHostPointerPropertiesEXT-device-parameter  
+  `device` **must** be a valid [VkDevice](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDevice.html) handle
+- [](#VUID-vkGetMemoryHostPointerPropertiesEXT-handleType-parameter)VUID-vkGetMemoryHostPointerPropertiesEXT-handleType-parameter  
+  `handleType` **must** be a valid [VkExternalMemoryHandleTypeFlagBits](https://registry.khronos.org/vulkan/specs/latest/man/html/VkExternalMemoryHandleTypeFlagBits.html) value
+- [](#VUID-vkGetMemoryHostPointerPropertiesEXT-pHostPointer-parameter)VUID-vkGetMemoryHostPointerPropertiesEXT-pHostPointer-parameter  
   `pHostPointer` **must** be a pointer value
-
-- <a
-  href="#VUID-vkGetMemoryHostPointerPropertiesEXT-pMemoryHostPointerProperties-parameter"
-  id="VUID-vkGetMemoryHostPointerPropertiesEXT-pMemoryHostPointerProperties-parameter"></a>
-  VUID-vkGetMemoryHostPointerPropertiesEXT-pMemoryHostPointerProperties-parameter  
-  `pMemoryHostPointerProperties` **must** be a valid pointer to a
-  [VkMemoryHostPointerPropertiesEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkMemoryHostPointerPropertiesEXT.html)
-  structure
+- [](#VUID-vkGetMemoryHostPointerPropertiesEXT-pMemoryHostPointerProperties-parameter)VUID-vkGetMemoryHostPointerPropertiesEXT-pMemoryHostPointerProperties-parameter  
+  `pMemoryHostPointerProperties` **must** be a valid pointer to a [VkMemoryHostPointerPropertiesEXT](https://registry.khronos.org/vulkan/specs/latest/man/html/VkMemoryHostPointerPropertiesEXT.html) structure
 
 Return Codes
 
-On success, this command returns  
+On success, this command returns
+
 - `VK_SUCCESS`
 
-On failure, this command returns  
-- `VK_ERROR_OUT_OF_HOST_MEMORY`
+On failure, this command returns
 
+- `VK_ERROR_OUT_OF_HOST_MEMORY`
 - `VK_ERROR_INVALID_EXTERNAL_HANDLE`
 
-## <a href="#_see_also" class="anchor"></a>See Also
+## [](#_see_also)See Also
 
-[VK_EXT_external_memory_host](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_EXT_external_memory_host.html),
-[VkDevice](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkDevice.html),
-[VkExternalMemoryHandleTypeFlagBits](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkExternalMemoryHandleTypeFlagBits.html),
-[VkMemoryHostPointerPropertiesEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkMemoryHostPointerPropertiesEXT.html)
+[VK\_EXT\_external\_memory\_host](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_EXT_external_memory_host.html), [VkDevice](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDevice.html), [VkExternalMemoryHandleTypeFlagBits](https://registry.khronos.org/vulkan/specs/latest/man/html/VkExternalMemoryHandleTypeFlagBits.html), [VkMemoryHostPointerPropertiesEXT](https://registry.khronos.org/vulkan/specs/latest/man/html/VkMemoryHostPointerPropertiesEXT.html)
 
-## <a href="#_document_notes" class="anchor"></a>Document Notes
+## [](#_document_notes)Document Notes
 
-For more information, see the <a
-href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#vkGetMemoryHostPointerPropertiesEXT"
-target="_blank" rel="noopener">Vulkan Specification</a>
+For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#vkGetMemoryHostPointerPropertiesEXT)
 
-This page is extracted from the Vulkan Specification. Fixes and changes
-should be made to the Specification, not directly.
+This page is extracted from the Vulkan Specification. Fixes and changes should be made to the Specification, not directly.
 
-## <a href="#_copyright" class="anchor"></a>Copyright
+## [](#_copyright)Copyright
 
-Copyright 2014-2024 The Khronos Group Inc.
+Copyright 2014-2025 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
-
-Version 1.3.290  
-Last updated 2024-07-11 23:39:16 -0700

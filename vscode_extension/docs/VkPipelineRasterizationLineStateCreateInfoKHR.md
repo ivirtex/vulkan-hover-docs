@@ -1,179 +1,92 @@
-# VkPipelineRasterizationLineStateCreateInfoKHR(3) Manual Page
+# VkPipelineRasterizationLineStateCreateInfo(3) Manual Page
 
 ## Name
 
-VkPipelineRasterizationLineStateCreateInfoKHR - Structure specifying
-parameters of a newly created pipeline line rasterization state
+VkPipelineRasterizationLineStateCreateInfo - Structure specifying parameters of a newly created pipeline line rasterization state
 
 
 
-## <a href="#_c_specification" class="anchor"></a>C Specification
+## [](#_c_specification)C Specification
 
-Line segment rasterization options are controlled by the
-[VkPipelineRasterizationLineStateCreateInfoKHR](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkPipelineRasterizationLineStateCreateInfoKHR.html)
-structure.
+Line segment rasterization options are controlled by the [VkPipelineRasterizationLineStateCreateInfo](https://registry.khronos.org/vulkan/specs/latest/man/html/VkPipelineRasterizationLineStateCreateInfo.html) structure.
 
-The `VkPipelineRasterizationLineStateCreateInfoKHR` structure is defined
-as:
+The `VkPipelineRasterizationLineStateCreateInfo` structure is defined as:
 
-``` c
-// Provided by VK_KHR_line_rasterization
-typedef struct VkPipelineRasterizationLineStateCreateInfoKHR {
-    VkStructureType               sType;
-    const void*                   pNext;
-    VkLineRasterizationModeKHR    lineRasterizationMode;
-    VkBool32                      stippledLineEnable;
-    uint32_t                      lineStippleFactor;
-    uint16_t                      lineStipplePattern;
-} VkPipelineRasterizationLineStateCreateInfoKHR;
+```c++
+// Provided by VK_VERSION_1_4
+typedef struct VkPipelineRasterizationLineStateCreateInfo {
+    VkStructureType            sType;
+    const void*                pNext;
+    VkLineRasterizationMode    lineRasterizationMode;
+    VkBool32                   stippledLineEnable;
+    uint32_t                   lineStippleFactor;
+    uint16_t                   lineStipplePattern;
+} VkPipelineRasterizationLineStateCreateInfo;
 ```
 
 or the equivalent
 
-``` c
-// Provided by VK_EXT_line_rasterization
-typedef VkPipelineRasterizationLineStateCreateInfoKHR VkPipelineRasterizationLineStateCreateInfoEXT;
+```c++
+// Provided by VK_KHR_line_rasterization
+typedef VkPipelineRasterizationLineStateCreateInfo VkPipelineRasterizationLineStateCreateInfoKHR;
 ```
 
-## <a href="#_members" class="anchor"></a>Members
+or the equivalent
 
-- `sType` is a [VkStructureType](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkStructureType.html) value identifying
-  this structure.
+```c++
+// Provided by VK_EXT_line_rasterization
+typedef VkPipelineRasterizationLineStateCreateInfo VkPipelineRasterizationLineStateCreateInfoEXT;
+```
 
-- `pNext` is `NULL` or a pointer to a structure extending this
-  structure.
+## [](#_members)Members
 
-- `lineRasterizationMode` is a
-  [VkLineRasterizationModeKHR](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkLineRasterizationModeKHR.html) value
-  selecting the style of line rasterization.
+- `sType` is a [VkStructureType](https://registry.khronos.org/vulkan/specs/latest/man/html/VkStructureType.html) value identifying this structure.
+- `pNext` is `NULL` or a pointer to a structure extending this structure.
+- `lineRasterizationMode` is a [VkLineRasterizationMode](https://registry.khronos.org/vulkan/specs/latest/man/html/VkLineRasterizationMode.html) value selecting the style of line rasterization.
+- `stippledLineEnable` enables [stippled line rasterization](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#primsrast-lines-stipple).
+- `lineStippleFactor` is the repeat factor used in stippled line rasterization.
+- `lineStipplePattern` is the bit pattern used in stippled line rasterization.
 
-- `stippledLineEnable` enables <a
-  href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#primsrast-lines-stipple"
-  target="_blank" rel="noopener">stippled line rasterization</a>.
+## [](#_description)Description
 
-- `lineStippleFactor` is the repeat factor used in stippled line
-  rasterization.
-
-- `lineStipplePattern` is the bit pattern used in stippled line
-  rasterization.
-
-## <a href="#_description" class="anchor"></a>Description
-
-If `stippledLineEnable` is `VK_FALSE`, the values of `lineStippleFactor`
-and `lineStipplePattern` are ignored.
+If `stippledLineEnable` is `VK_FALSE`, the values of `lineStippleFactor` and `lineStipplePattern` are ignored.
 
 Valid Usage
 
-- <a
-  href="#VUID-VkPipelineRasterizationLineStateCreateInfoKHR-lineRasterizationMode-02768"
-  id="VUID-VkPipelineRasterizationLineStateCreateInfoKHR-lineRasterizationMode-02768"></a>
-  VUID-VkPipelineRasterizationLineStateCreateInfoKHR-lineRasterizationMode-02768  
-  If `lineRasterizationMode` is
-  `VK_LINE_RASTERIZATION_MODE_RECTANGULAR_KHR`, then the <a
-  href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#features-rectangularLines"
-  target="_blank" rel="noopener"><code>rectangularLines</code></a>
-  feature **must** be enabled
-
-- <a
-  href="#VUID-VkPipelineRasterizationLineStateCreateInfoKHR-lineRasterizationMode-02769"
-  id="VUID-VkPipelineRasterizationLineStateCreateInfoKHR-lineRasterizationMode-02769"></a>
-  VUID-VkPipelineRasterizationLineStateCreateInfoKHR-lineRasterizationMode-02769  
-  If `lineRasterizationMode` is
-  `VK_LINE_RASTERIZATION_MODE_BRESENHAM_KHR`, then the <a
-  href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#features-bresenhamLines"
-  target="_blank" rel="noopener"><code>bresenhamLines</code></a> feature
-  **must** be enabled
-
-- <a
-  href="#VUID-VkPipelineRasterizationLineStateCreateInfoKHR-lineRasterizationMode-02770"
-  id="VUID-VkPipelineRasterizationLineStateCreateInfoKHR-lineRasterizationMode-02770"></a>
-  VUID-VkPipelineRasterizationLineStateCreateInfoKHR-lineRasterizationMode-02770  
-  If `lineRasterizationMode` is
-  `VK_LINE_RASTERIZATION_MODE_RECTANGULAR_SMOOTH_KHR`, then the <a
-  href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#features-smoothLines"
-  target="_blank" rel="noopener"><code>smoothLines</code></a> feature
-  **must** be enabled
-
-- <a
-  href="#VUID-VkPipelineRasterizationLineStateCreateInfoKHR-stippledLineEnable-02771"
-  id="VUID-VkPipelineRasterizationLineStateCreateInfoKHR-stippledLineEnable-02771"></a>
-  VUID-VkPipelineRasterizationLineStateCreateInfoKHR-stippledLineEnable-02771  
-  If `stippledLineEnable` is `VK_TRUE` and `lineRasterizationMode` is
-  `VK_LINE_RASTERIZATION_MODE_RECTANGULAR_KHR`, then the <a
-  href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#features-stippledRectangularLines"
-  target="_blank" rel="noopener"><code>stippledRectangularLines</code></a>
-  feature **must** be enabled
-
-- <a
-  href="#VUID-VkPipelineRasterizationLineStateCreateInfoKHR-stippledLineEnable-02772"
-  id="VUID-VkPipelineRasterizationLineStateCreateInfoKHR-stippledLineEnable-02772"></a>
-  VUID-VkPipelineRasterizationLineStateCreateInfoKHR-stippledLineEnable-02772  
-  If `stippledLineEnable` is `VK_TRUE` and `lineRasterizationMode` is
-  `VK_LINE_RASTERIZATION_MODE_BRESENHAM_KHR`, then the <a
-  href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#features-stippledBresenhamLines"
-  target="_blank" rel="noopener"><code>stippledBresenhamLines</code></a>
-  feature **must** be enabled
-
-- <a
-  href="#VUID-VkPipelineRasterizationLineStateCreateInfoKHR-stippledLineEnable-02773"
-  id="VUID-VkPipelineRasterizationLineStateCreateInfoKHR-stippledLineEnable-02773"></a>
-  VUID-VkPipelineRasterizationLineStateCreateInfoKHR-stippledLineEnable-02773  
-  If `stippledLineEnable` is `VK_TRUE` and `lineRasterizationMode` is
-  `VK_LINE_RASTERIZATION_MODE_RECTANGULAR_SMOOTH_KHR`, then the <a
-  href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#features-stippledSmoothLines"
-  target="_blank" rel="noopener"><code>stippledSmoothLines</code></a>
-  feature **must** be enabled
-
-- <a
-  href="#VUID-VkPipelineRasterizationLineStateCreateInfoKHR-stippledLineEnable-02774"
-  id="VUID-VkPipelineRasterizationLineStateCreateInfoKHR-stippledLineEnable-02774"></a>
-  VUID-VkPipelineRasterizationLineStateCreateInfoKHR-stippledLineEnable-02774  
-  If `stippledLineEnable` is `VK_TRUE` and `lineRasterizationMode` is
-  `VK_LINE_RASTERIZATION_MODE_DEFAULT_KHR`, then the <a
-  href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#features-stippledRectangularLines"
-  target="_blank" rel="noopener"><code>stippledRectangularLines</code></a>
-  feature **must** be enabled and
-  [VkPhysicalDeviceLimits](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkPhysicalDeviceLimits.html)::`strictLines`
-  **must** be `VK_TRUE`
+- [](#VUID-VkPipelineRasterizationLineStateCreateInfo-lineRasterizationMode-02768)VUID-VkPipelineRasterizationLineStateCreateInfo-lineRasterizationMode-02768  
+  If `lineRasterizationMode` is `VK_LINE_RASTERIZATION_MODE_RECTANGULAR`, then the [`rectangularLines`](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#features-rectangularLines) feature **must** be enabled
+- [](#VUID-VkPipelineRasterizationLineStateCreateInfo-lineRasterizationMode-02769)VUID-VkPipelineRasterizationLineStateCreateInfo-lineRasterizationMode-02769  
+  If `lineRasterizationMode` is `VK_LINE_RASTERIZATION_MODE_BRESENHAM`, then the [`bresenhamLines`](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#features-bresenhamLines) feature **must** be enabled
+- [](#VUID-VkPipelineRasterizationLineStateCreateInfo-lineRasterizationMode-02770)VUID-VkPipelineRasterizationLineStateCreateInfo-lineRasterizationMode-02770  
+  If `lineRasterizationMode` is `VK_LINE_RASTERIZATION_MODE_RECTANGULAR_SMOOTH`, then the [`smoothLines`](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#features-smoothLines) feature **must** be enabled
+- [](#VUID-VkPipelineRasterizationLineStateCreateInfo-stippledLineEnable-02771)VUID-VkPipelineRasterizationLineStateCreateInfo-stippledLineEnable-02771  
+  If `stippledLineEnable` is `VK_TRUE` and `lineRasterizationMode` is `VK_LINE_RASTERIZATION_MODE_RECTANGULAR`, then the [`stippledRectangularLines`](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#features-stippledRectangularLines) feature **must** be enabled
+- [](#VUID-VkPipelineRasterizationLineStateCreateInfo-stippledLineEnable-02772)VUID-VkPipelineRasterizationLineStateCreateInfo-stippledLineEnable-02772  
+  If `stippledLineEnable` is `VK_TRUE` and `lineRasterizationMode` is `VK_LINE_RASTERIZATION_MODE_BRESENHAM`, then the [`stippledBresenhamLines`](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#features-stippledBresenhamLines) feature **must** be enabled
+- [](#VUID-VkPipelineRasterizationLineStateCreateInfo-stippledLineEnable-02773)VUID-VkPipelineRasterizationLineStateCreateInfo-stippledLineEnable-02773  
+  If `stippledLineEnable` is `VK_TRUE` and `lineRasterizationMode` is `VK_LINE_RASTERIZATION_MODE_RECTANGULAR_SMOOTH`, then the [`stippledSmoothLines`](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#features-stippledSmoothLines) feature **must** be enabled
+- [](#VUID-VkPipelineRasterizationLineStateCreateInfo-stippledLineEnable-02774)VUID-VkPipelineRasterizationLineStateCreateInfo-stippledLineEnable-02774  
+  If `stippledLineEnable` is `VK_TRUE` and `lineRasterizationMode` is `VK_LINE_RASTERIZATION_MODE_DEFAULT`, then the [`stippledRectangularLines`](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#features-stippledRectangularLines) feature **must** be enabled and [VkPhysicalDeviceLimits](https://registry.khronos.org/vulkan/specs/latest/man/html/VkPhysicalDeviceLimits.html)::`strictLines` **must** be `VK_TRUE`
 
 Valid Usage (Implicit)
 
-- <a
-  href="#VUID-VkPipelineRasterizationLineStateCreateInfoKHR-sType-sType"
-  id="VUID-VkPipelineRasterizationLineStateCreateInfoKHR-sType-sType"></a>
-  VUID-VkPipelineRasterizationLineStateCreateInfoKHR-sType-sType  
-  `sType` **must** be
-  `VK_STRUCTURE_TYPE_PIPELINE_RASTERIZATION_LINE_STATE_CREATE_INFO_KHR`
+- [](#VUID-VkPipelineRasterizationLineStateCreateInfo-sType-sType)VUID-VkPipelineRasterizationLineStateCreateInfo-sType-sType  
+  `sType` **must** be `VK_STRUCTURE_TYPE_PIPELINE_RASTERIZATION_LINE_STATE_CREATE_INFO`
+- [](#VUID-VkPipelineRasterizationLineStateCreateInfo-lineRasterizationMode-parameter)VUID-VkPipelineRasterizationLineStateCreateInfo-lineRasterizationMode-parameter  
+  `lineRasterizationMode` **must** be a valid [VkLineRasterizationMode](https://registry.khronos.org/vulkan/specs/latest/man/html/VkLineRasterizationMode.html) value
 
-- <a
-  href="#VUID-VkPipelineRasterizationLineStateCreateInfoKHR-lineRasterizationMode-parameter"
-  id="VUID-VkPipelineRasterizationLineStateCreateInfoKHR-lineRasterizationMode-parameter"></a>
-  VUID-VkPipelineRasterizationLineStateCreateInfoKHR-lineRasterizationMode-parameter  
-  `lineRasterizationMode` **must** be a valid
-  [VkLineRasterizationModeKHR](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkLineRasterizationModeKHR.html) value
+## [](#_see_also)See Also
 
-## <a href="#_see_also" class="anchor"></a>See Also
+[VK\_EXT\_line\_rasterization](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_EXT_line_rasterization.html), [VK\_KHR\_line\_rasterization](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_KHR_line_rasterization.html), [VK\_VERSION\_1\_4](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_VERSION_1_4.html), [VkBool32](https://registry.khronos.org/vulkan/specs/latest/man/html/VkBool32.html), [VkLineRasterizationMode](https://registry.khronos.org/vulkan/specs/latest/man/html/VkLineRasterizationMode.html), [VkStructureType](https://registry.khronos.org/vulkan/specs/latest/man/html/VkStructureType.html)
 
-[VK_EXT_line_rasterization](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_EXT_line_rasterization.html),
-[VK_KHR_line_rasterization](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_KHR_line_rasterization.html),
-[VkBool32](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkBool32.html),
-[VkLineRasterizationModeKHR](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkLineRasterizationModeKHR.html),
-[VkStructureType](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkStructureType.html)
+## [](#_document_notes)Document Notes
 
-## <a href="#_document_notes" class="anchor"></a>Document Notes
+For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#VkPipelineRasterizationLineStateCreateInfo)
 
-For more information, see the <a
-href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#VkPipelineRasterizationLineStateCreateInfoKHR"
-target="_blank" rel="noopener">Vulkan Specification</a>
+This page is extracted from the Vulkan Specification. Fixes and changes should be made to the Specification, not directly.
 
-This page is extracted from the Vulkan Specification. Fixes and changes
-should be made to the Specification, not directly.
+## [](#_copyright)Copyright
 
-## <a href="#_copyright" class="anchor"></a>Copyright
-
-Copyright 2014-2024 The Khronos Group Inc.
+Copyright 2014-2025 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
-
-Version 1.3.290  
-Last updated 2024-07-11 23:39:16 -0700

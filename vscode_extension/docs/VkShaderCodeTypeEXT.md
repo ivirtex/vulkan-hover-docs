@@ -6,13 +6,11 @@ VkShaderCodeTypeEXT - Indicate a shader code type
 
 
 
-## <a href="#_c_specification" class="anchor"></a>C Specification
+## [](#_c_specification)C Specification
 
-Shader objects **can** be created using different types of shader code.
-Possible values of
-[VkShaderCreateInfoEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkShaderCreateInfoEXT.html)::`codeType`, are:
+Shader objects **can** be created using different types of shader code. Possible values of [VkShaderCreateInfoEXT](https://registry.khronos.org/vulkan/specs/latest/man/html/VkShaderCreateInfoEXT.html)::`codeType`, are:
 
-``` c
+```c++
 // Provided by VK_EXT_shader_object
 typedef enum VkShaderCodeTypeEXT {
     VK_SHADER_CODE_TYPE_BINARY_EXT = 0,
@@ -20,33 +18,23 @@ typedef enum VkShaderCodeTypeEXT {
 } VkShaderCodeTypeEXT;
 ```
 
-## <a href="#_description" class="anchor"></a>Description
+## [](#_description)Description
 
-- `VK_SHADER_CODE_TYPE_BINARY_EXT` specifies shader code in an opaque,
-  implementation-defined binary format specific to the physical device.
+- `VK_SHADER_CODE_TYPE_BINARY_EXT` specifies shader code in an opaque, implementation-defined binary format specific to the physical device.
+- `VK_SHADER_CODE_TYPE_SPIRV_EXT` specifies shader code in SPIR-V format.
 
-- `VK_SHADER_CODE_TYPE_SPIRV_EXT` specifies shader code in SPIR-V
-  format.
+## [](#_see_also)See Also
 
-## <a href="#_see_also" class="anchor"></a>See Also
+[VK\_EXT\_shader\_object](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_EXT_shader_object.html), [VkShaderCreateInfoEXT](https://registry.khronos.org/vulkan/specs/latest/man/html/VkShaderCreateInfoEXT.html)
 
-[VK_EXT_shader_object](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_EXT_shader_object.html),
-[VkShaderCreateInfoEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkShaderCreateInfoEXT.html)
+## [](#_document_notes)Document Notes
 
-## <a href="#_document_notes" class="anchor"></a>Document Notes
+For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#VkShaderCodeTypeEXT)
 
-For more information, see the <a
-href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#VkShaderCodeTypeEXT"
-target="_blank" rel="noopener">Vulkan Specification</a>
+This page is extracted from the Vulkan Specification. Fixes and changes should be made to the Specification, not directly.
 
-This page is extracted from the Vulkan Specification. Fixes and changes
-should be made to the Specification, not directly.
+## [](#_copyright)Copyright
 
-## <a href="#_copyright" class="anchor"></a>Copyright
-
-Copyright 2014-2024 The Khronos Group Inc.
+Copyright 2014-2025 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
-
-Version 1.3.290  
-Last updated 2024-07-11 23:39:16 -0700
