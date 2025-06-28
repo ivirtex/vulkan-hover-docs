@@ -80,7 +80,7 @@ jobs:
         run: |
           git config user.name 'github-actions[bot]'
           git config user.email 'github-actions[bot]@users.noreply.github.com'
-          git switch -b update-vulkan-docs
+          git switch -c update-vulkan-docs
           git add .
           git commit -m "Update Vulkan documentation to SHA ${{ env.LATEST_COMMIT }}"
 
