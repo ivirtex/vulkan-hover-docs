@@ -65,7 +65,7 @@ jobs:
 
       - name: Run docs_generator
         run: docs_generator generate \
-          --url https://registry.khronos.org/vulkan/specs/latest/man/html/ \
+          https://registry.khronos.org/vulkan/specs/latest/man/html/ \
           --path vscode_extension/docs
 
       - name: Save latest commit SHA
