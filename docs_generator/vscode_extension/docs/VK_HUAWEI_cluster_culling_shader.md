@@ -1,0 +1,321 @@
+# VK\_HUAWEI\_cluster\_culling\_shader(3) Manual Page
+
+## Name
+
+VK\_HUAWEI\_cluster\_culling\_shader - device extension
+
+
+
+## [](#_registered_extension_number)Registered Extension Number
+
+405
+
+## [](#_revision)Revision
+
+3
+
+## [](#_ratification_status)Ratification Status
+
+Not ratified
+
+## [](#_extension_and_version_dependencies)Extension and Version Dependencies
+
+[VK\_KHR\_get\_physical\_device\_properties2](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_KHR_get_physical_device_properties2.html)  
+or  
+[Vulkan Version 1.1](#versions-1.1)
+
+## [](#_spir_v_dependencies)SPIR-V Dependencies
+
+- [SPV\_HUAWEI\_cluster\_culling\_shader](https://github.khronos.org/SPIRV-Registry/extensions/HUAWEI/SPV_HUAWEI_cluster_culling_shader.html)
+
+## [](#_contact)Contact
+
+- Yuchang Wang [\[GitHub\]richard\_Wang2](https://github.com/KhronosGroup/Vulkan-Docs/issues/new?body=%5BVK_HUAWEI_cluster_culling_shader%5D%20%40richard_Wang2%0A%2AHere%20describe%20the%20issue%20or%20question%20you%20have%20about%20the%20VK_HUAWEI_cluster_culling_shader%20extension%2A)
+
+## [](#_extension_proposal)Extension Proposal
+
+[VK\_HUAWEI\_cluster\_culling\_shader](https://github.com/KhronosGroup/Vulkan-Docs/tree/main/proposals/VK_HUAWEI_cluster_culling_shader.adoc)
+
+## [](#_other_extension_metadata)Other Extension Metadata
+
+**Last Modified Date**
+
+2023-08-16
+
+**Interactions and External Dependencies**
+
+- This extension provides API support for [`GL_HUAWEI_cluster_culling_shader`](https://github.com/KhronosGroup/GLSL/blob/main/extensions/huawei/GLSL_HUAWEI_cluster_culling_shader.txt).
+
+**Contributors**
+
+- Yuchang Wang, Huawei
+- Juntao Li, Huawei
+- Pan Gao, Huawei
+- Jie Cao, Huawei
+- Yunjin Zhang, Huawei
+- Shujie Zhou, Huawei
+- Chaojun Wang, Huawei
+- Jiajun Hu, Huawei
+- Cong Zhang, Huawei
+
+## [](#_description)Description
+
+Cluster Culling Shaders (CCS) are similar to the existing compute shaders. Their main purpose is to provide an execution environment in order to perform coarse-level geometry culling and LOD selection more efficiently on the GPU.
+
+The traditional 2-pass GPU culling solution using a compute shader sometimes needs a pipeline barrier between compute and graphics pipeline to optimize performance. An additional compaction process may also be required. This extension addresses these shortcomings, allowing compute shaders to directly emit visible clusters to the following graphics pipeline.
+
+A set of new built-in output variables are used to express a visible cluster, including per-cluster shading rate. In addition, a new built-in function is used to emit these variables from CCS to the IA stage. The IA stage can use these variables to fetch vertices of a visible cluster and drive vertex shaders to shading these vertices.
+
+Note that CCS do not work with geometry or tessellation shaders, but both IA and vertex shaders are preserved. Vertex shaders are still used for vertex position shading, instead of directly outputting transformed vertices from the compute shader. This makes CCS more suitable for mobile GPUs.
+
+## [](#_new_commands)New Commands
+
+- [vkCmdDrawClusterHUAWEI](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdDrawClusterHUAWEI.html)
+- [vkCmdDrawClusterIndirectHUAWEI](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdDrawClusterIndirectHUAWEI.html)
+
+## [](#_new_structures)New Structures
+
+- Extending [VkPhysicalDeviceClusterCullingShaderFeaturesHUAWEI](https://registry.khronos.org/vulkan/specs/latest/man/html/VkPhysicalDeviceClusterCullingShaderFeaturesHUAWEI.html):
+  
+  - [VkPhysicalDeviceClusterCullingShaderVrsFeaturesHUAWEI](https://registry.khronos.org/vulkan/specs/latest/man/html/VkPhysicalDeviceClusterCullingShaderVrsFeaturesHUAWEI.html)
+- Extending [VkPhysicalDeviceFeatures2](https://registry.khronos.org/vulkan/specs/latest/man/html/VkPhysicalDeviceFeatures2.html), [VkDeviceCreateInfo](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDeviceCreateInfo.html):
+  
+  - [VkPhysicalDeviceClusterCullingShaderFeaturesHUAWEI](https://registry.khronos.org/vulkan/specs/latest/man/html/VkPhysicalDeviceClusterCullingShaderFeaturesHUAWEI.html)
+- Extending [VkPhysicalDeviceProperties2](https://registry.khronos.org/vulkan/specs/latest/man/html/VkPhysicalDeviceProperties2.html):
+  
+  - [VkPhysicalDeviceClusterCullingShaderPropertiesHUAWEI](https://registry.khronos.org/vulkan/specs/latest/man/html/VkPhysicalDeviceClusterCullingShaderPropertiesHUAWEI.html)
+
+## [](#_new_enum_constants)New Enum Constants
+
+- `VK_HUAWEI_CLUSTER_CULLING_SHADER_EXTENSION_NAME`
+- `VK_HUAWEI_CLUSTER_CULLING_SHADER_SPEC_VERSION`
+- Extending [VkPipelineStageFlagBits2](https://registry.khronos.org/vulkan/specs/latest/man/html/VkPipelineStageFlagBits2.html):
+  
+  - `VK_PIPELINE_STAGE_2_CLUSTER_CULLING_SHADER_BIT_HUAWEI`
+- Extending [VkQueryPipelineStatisticFlagBits](https://registry.khronos.org/vulkan/specs/latest/man/html/VkQueryPipelineStatisticFlagBits.html):
+  
+  - `VK_QUERY_PIPELINE_STATISTIC_CLUSTER_CULLING_SHADER_INVOCATIONS_BIT_HUAWEI`
+- Extending [VkShaderStageFlagBits](https://registry.khronos.org/vulkan/specs/latest/man/html/VkShaderStageFlagBits.html):
+  
+  - `VK_SHADER_STAGE_CLUSTER_CULLING_BIT_HUAWEI`
+- Extending [VkStructureType](https://registry.khronos.org/vulkan/specs/latest/man/html/VkStructureType.html):
+  
+  - `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_CLUSTER_CULLING_SHADER_FEATURES_HUAWEI`
+  - `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_CLUSTER_CULLING_SHADER_PROPERTIES_HUAWEI`
+  - `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_CLUSTER_CULLING_SHADER_VRS_FEATURES_HUAWEI`
+
+## [](#_new_built_in_variables)New Built-In Variables
+
+- [IndexCountHUAWEI](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#interfaces-builtin-variables-indexcounthuawei)
+- [VertexCountHUAWEI](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#interfaces-builtin-variables-vertexcounthuawei)
+- [InstanceCountHUAWEI](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#interfaces-builtin-variables-instancecounthuawei)
+- [FirstIndexHUAWEI](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#interfaces-builtin-variables-firstindexhuawei)
+- [FirstVertexHUAWEI](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#interfaces-builtin-variables-firstvertexhuawei)
+- [VertexOffsetHUAWEI](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#interfaces-builtin-variables-vertexoffsethuawei)
+- [FirstInstanceHUAWEI](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#interfaces-builtin-variables-firstinstancehuawei)
+- [ClusterIDHUAWEI](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#interfaces-builtin-variables-clusteridhuawei)
+- [ClusterShadingRateHUAWEI](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#interfaces-builtin-variables-clustershadingratehuawei)
+
+## [](#_new_spir_v_capability)New SPIR-V Capability
+
+- [`ClusterCullingShadingHUAWEI`](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#spirvenv-capabilities-table-ClusterCullingShadingHUAWEI)
+
+## [](#_sample_code)Sample Code
+
+Example of cluster culling in a GLSL shader
+
+```c
+#extension GL_HUAWEI_cluster_culling_shader: enable
+
+#define GPU_WARP_SIZE                   32
+#define GPU_GROUP_SIZE                  GPU_WARP_SIZE
+
+#define GPU_CLUSTER_PER_INVOCATION      1
+#define GPU_CLUSTER_PER_WORKGROUP       (GPU_GROUP_SIZE * GPU_CLUSTER_PER_INVOCATION)
+
+// Number of threads per workgroup
+// - 1D only
+// - warpsize = 32
+layout(local_size_x=GPU_GROUP_SIZE, local_size_y=1, local_size_z=1) in;
+
+#define GPU_DRAW_BUFFER_BINDING             0
+#define GPU_INSTANCE_DESCRIPTOR_BINDING     1
+
+struct BoundingSphere
+{
+  vec3 center;
+  float radius;
+};
+
+struct InstanceData
+{
+  mat4 mvp_matrix;                      // mvp matrix.
+  vec4 frustum_planes[6];               // six frustum planes
+  mat4 model_matrix_transpose_inverse;  // inverse transpose of model matrix.
+  vec3 view_origin;                     // view original
+};
+
+struct InstanceDescriptor
+{
+  uint begin;
+  uint end;
+  uint cluster_count;
+  uint debug;
+  BoundingSphere sphere;
+  InstanceData instance_data;
+};
+
+struct DrawElementsCommand{
+  uint indexcount;
+  uint instanceCount;
+  uint firstIndex;
+  int  vertexoffset;
+  uint firstInstance;
+  uint cluster_id;
+};
+
+// indexed mode
+out gl_PerClusterHUAWEI{
+  uint gl_IndexCountHUAWEI;
+  uint gl_InstanceCountHUAWEI;
+  uint gl_FirstIndexHUAWEI;
+  int  gl_VertexOffsetHUAWEI;
+  uint gl_FirstInstanceHUAWEI;
+  uint gl_ClusterIDHUAWEI;
+  uint gl_ClusterShadingRateHUAWEI;
+};
+
+layout(binding = GPU_DRAW_BUFFER_BINDING, std430) buffer draw_indirect_ssbo
+{
+        DrawElementsCommand draw_commands[];
+};
+
+layout(binding = GPU_INSTANCE_DESCRIPTOR_BINDING, std430) buffer instance_descriptor_ssbo
+{
+        InstanceDescriptor instance_descriptors[];
+};
+
+
+float Distance(uint instance_id)
+{
+    vec3 v = normalize(instance_descriptor[instance_id].sphere.center -
+                     instance_descriptor[instance_id].instance_data.view_origin);
+    float dist = sqrt(dot(v,v));
+
+    return dist;
+}
+
+bool isSphereOutsideFrustum( vec3 sphere_center, float sphere_radius )
+{
+  bool isInside = false;
+
+  for(int i = 0; i < 6; i++)
+  {
+      isInside = isInside ||
+      (dot(instance_descriptors[instance_id].instance_data.frustum_planes[i].xyz,
+      sphere_center) + instance_descriptors[instance_id].instance_data.frustum_planes[i].w <
+      sphere_radius);
+  }
+  return isInside;
+}
+
+
+void main()
+{
+    // get instance description
+    instance_id = gl_GlobalInvocationID.x;
+    InstanceDescriptor inst_desc = instance_descriptors[instance_id];
+
+    //instance based culling
+    bool render = !isSphereOutsideFrustum(inst_desc.sphere.center, inst_desc.sphere.radius);
+
+    if (render)
+    {
+        // calculate distance
+        float distance = Distance(instance_id);
+
+        // update shading rate built-in variable
+        if(distance > 0.7)
+            gl_ClusterShadingRateHUAWEI =
+                gl_ShadingRateFlag4VerticalPixelsEXT | gl_ShadingRateFlag4HorizontalPixelsEXT;
+        else if(distance > 0.3)
+            gl_ClusterShadingRateHUAWEI =
+                gl_ShadingRateFlag2VerticalPixelsEXT | gl_ShadingRateFlag2HorizontalPixelsEXT;
+        else
+            gl_ClusterShadingRateHUAWEI = 0;
+
+        // this is a visible cluster, update built-in output variable.
+        // in case of indexed mode:
+        gl_IndexCountHUAWEI     = draw_commands[cluster_id].indexcount;
+        gl_InstanceCountHUAWEI  = draw_commands[cluster_id].instanceCount;
+        gl_FirstIndexHUAWEI     = draw_commands[cluster_id].firstIndex;
+        gl_VertexOffsetHUAWEI   = draw_commands[cluster_id].vertexoffset;
+        gl_FirstInstanceHUAWEI  = draw_commands[cluster_id].firstInstance;
+        gl_ClusterIDHUAWEI      = draw_commands[cluster_id].cluster_id;
+
+        // emit built-in output variables as a drawing command to subsequent
+        // rendering pipeline.
+        dispatchClusterHUAWEI();
+    }
+}
+```
+
+Example of graphics pipeline creation with cluster culling shader
+
+```c
+// create a cluster culling shader stage info structure.
+VkPipelineShaderStageCreateInfo ccsStageInfo{};
+ccsStageInfo.sType = VK_STRUCTURE_TYPE_PIPELINE_SHADER_STAGE_CREATE_INFO;
+ccsStageInfo.stage = VK_SHADER_STAGE_CLUSTER_CULLING_BIT_HUAWEI;
+ccsStageInfo.module = clustercullingshaderModule;
+ccsStageInfo.pName =  "main";
+
+// pipeline shader stage creation
+VkPipelineShaderStageCreateInfo shaderStages[] = { ccsStageInfo, vertexShaderStageInfo, fragmentShaderStageInfo };
+
+// create graphics pipeline
+VkGraphicsPipelineCreateInfo pipelineInfo{};
+pipelineInfo.sType = VK_STRUCTURE_TYPE_GRAPHICS_PIPELINE_CREATE_INFO;
+pipelineInfo.stageCount = 3;
+pipelineInfo.pStage = shaderStages;
+pipelineInfo.pVertexInputState = &vertexInputInfo;
+// ...
+VkPipeline graphicsPipeline;
+VkCreateGraphicsPipelines(device, VK_NULL_HANDLE, 1, &pipelineInfo, nullptr, &graphicsPipeline);
+```
+
+Example of launching the execution of cluster culling shader
+
+```c
+vkCmdBindPipeline(commandBuffer, VK_PIPELINE_BIND_POINT_GRAPHICS, graphicsPipeline);
+vkCmdDrawClusterHUAWEI(commandBuffer, groupCountX, 1, 1);
+vkCmdEndRenderPass(commandBuffer);
+```
+
+## [](#_version_history)Version History
+
+- Revision 1, 2022-11-18 (YuChang Wang)
+  
+  - Internal revisions
+- Revision 2, 2023-04-02 (Jon Leech)
+  
+  - Grammar edits.
+- Revision 3, 2023-08-21 (YuChang Wang)
+  
+  - Add per-cluster shading rate.
+
+## [](#_see_also)See Also
+
+No cross-references are available
+
+## [](#_document_notes)Document Notes
+
+For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#VK_HUAWEI_cluster_culling_shader)
+
+This page is a generated document. Fixes and changes should be made to the generator scripts, not directly.
+
+## [](#_copyright)Copyright
+
+Copyright 2014-2025 The Khronos Group Inc.
+
+SPDX-License-Identifier: CC-BY-4.0

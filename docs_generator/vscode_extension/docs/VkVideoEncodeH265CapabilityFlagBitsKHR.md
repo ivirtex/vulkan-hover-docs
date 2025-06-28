@@ -1,0 +1,65 @@
+# VkVideoEncodeH265CapabilityFlagBitsKHR(3) Manual Page
+
+## Name
+
+VkVideoEncodeH265CapabilityFlagBitsKHR - Video encode H.265 capability flags
+
+
+
+## [](#_c_specification)C Specification
+
+Bits which **may** be set in [VkVideoEncodeH265CapabilitiesKHR](https://registry.khronos.org/vulkan/specs/latest/man/html/VkVideoEncodeH265CapabilitiesKHR.html)::`flags`, indicating the H.265 encoding capabilities supported, are:
+
+```c++
+// Provided by VK_KHR_video_encode_h265
+typedef enum VkVideoEncodeH265CapabilityFlagBitsKHR {
+    VK_VIDEO_ENCODE_H265_CAPABILITY_HRD_COMPLIANCE_BIT_KHR = 0x00000001,
+    VK_VIDEO_ENCODE_H265_CAPABILITY_PREDICTION_WEIGHT_TABLE_GENERATED_BIT_KHR = 0x00000002,
+    VK_VIDEO_ENCODE_H265_CAPABILITY_ROW_UNALIGNED_SLICE_SEGMENT_BIT_KHR = 0x00000004,
+    VK_VIDEO_ENCODE_H265_CAPABILITY_DIFFERENT_SLICE_SEGMENT_TYPE_BIT_KHR = 0x00000008,
+    VK_VIDEO_ENCODE_H265_CAPABILITY_B_FRAME_IN_L0_LIST_BIT_KHR = 0x00000010,
+    VK_VIDEO_ENCODE_H265_CAPABILITY_B_FRAME_IN_L1_LIST_BIT_KHR = 0x00000020,
+    VK_VIDEO_ENCODE_H265_CAPABILITY_PER_PICTURE_TYPE_MIN_MAX_QP_BIT_KHR = 0x00000040,
+    VK_VIDEO_ENCODE_H265_CAPABILITY_PER_SLICE_SEGMENT_CONSTANT_QP_BIT_KHR = 0x00000080,
+    VK_VIDEO_ENCODE_H265_CAPABILITY_MULTIPLE_TILES_PER_SLICE_SEGMENT_BIT_KHR = 0x00000100,
+    VK_VIDEO_ENCODE_H265_CAPABILITY_MULTIPLE_SLICE_SEGMENTS_PER_TILE_BIT_KHR = 0x00000200,
+  // Provided by VK_KHR_video_encode_h265 with VK_KHR_video_encode_quantization_map
+    VK_VIDEO_ENCODE_H265_CAPABILITY_CU_QP_DIFF_WRAPAROUND_BIT_KHR = 0x00000400,
+} VkVideoEncodeH265CapabilityFlagBitsKHR;
+```
+
+## [](#_description)Description
+
+- `VK_VIDEO_ENCODE_H265_CAPABILITY_HRD_COMPLIANCE_BIT_KHR` specifies whether the implementation **may** be able to generate HRD compliant bitstreams if any of the `nal_hrd_parameters_present_flag`, `vcl_hrd_parameters_present_flag`, or `sub_pic_hrd_params_present_flag` members of `StdVideoH265HrdFlags` are set to `1` in the HRD parameters of the [active VPS](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#encode-h265-active-vps) or [active SPS](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#encode-h265-active-sps), or if `StdVideoH265SpsVuiFlags`::`vui_hrd_parameters_present_flag` is set to `1` in the [active SPS](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#encode-h265-active-sps).
+- `VK_VIDEO_ENCODE_H265_CAPABILITY_PREDICTION_WEIGHT_TABLE_GENERATED_BIT_KHR` specifies that if the `weighted_pred_flag` or the `weighted_bipred_flag` member of `StdVideoH265PpsFlags` is set to `1` in the [active PPS](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#encode-h265-active-pps) when encoding a [P picture](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#encode-h265-p-pic) or [B picture](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#encode-h265-b-pic), respectively, then the implementation is able to internally decide syntax for `pred_weight_table`, as defined in section 7.4.7.3 of the [ITU-T H.265 Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#itu-t-h265), and the application is not **required** to provide a weight table in the [H.265 slice segment header parameters](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#encode-h265-slice-segment-header-params).
+- `VK_VIDEO_ENCODE_H265_CAPABILITY_ROW_UNALIGNED_SLICE_SEGMENT_BIT_KHR` specifies that each slice segment in a frame with a single or multiple tiles per slice may begin or finish at any offset in a CTB row. If not supported, all slice segments in such a frame **must** begin at the start of a CTB row (and hence each slice segment **must** finish at the end of a CTB row). Also indicates that each slice segment in a frame with multiple slices per tile may begin or finish at any offset within the enclosing tile’s CTB row. If not supported, slice segments in such a frame **must** begin at the start of the enclosing tile’s CTB row (and hence each slice segment **must** finish at the end of the enclosing tile’s CTB row).
+- `VK_VIDEO_ENCODE_H265_CAPABILITY_DIFFERENT_SLICE_SEGMENT_TYPE_BIT_KHR` specifies that when a frame is encoded with multiple slice segments, the implementation allows encoding each slice segment with a different `StdVideoEncodeH265SliceSegmentHeader`::`slice_type` specified in the [H.265 slice segment header parameters](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#encode-h265-slice-segment-header-params). If not supported, all slice segments of the frame **must** be encoded with the same `slice_type` which corresponds to the picture type of the frame.
+- `VK_VIDEO_ENCODE_H265_CAPABILITY_B_FRAME_IN_L0_LIST_BIT_KHR` specifies support for using a [B frame](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#encode-h265-b-pic) as L0 reference, as specified in `StdVideoEncodeH265ReferenceListsInfo`::`RefPicList0` in the [H.265 picture information](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#encode-h265-picture-info).
+- `VK_VIDEO_ENCODE_H265_CAPABILITY_B_FRAME_IN_L1_LIST_BIT_KHR` specifies support for using a [B frame](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#encode-h265-b-pic) as L1 reference, as specified in `StdVideoEncodeH265ReferenceListsInfo`::`RefPicList1` in the [H.265 picture information](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#encode-h265-picture-info).
+- `VK_VIDEO_ENCODE_H265_CAPABILITY_PER_PICTURE_TYPE_MIN_MAX_QP_BIT_KHR` specifies support for specifying different QP values in the members of [VkVideoEncodeH265QpKHR](https://registry.khronos.org/vulkan/specs/latest/man/html/VkVideoEncodeH265QpKHR.html).
+- `VK_VIDEO_ENCODE_H265_CAPABILITY_PER_SLICE_SEGMENT_CONSTANT_QP_BIT_KHR` specifies support for specifying different constant QP values for each slice segment.
+- `VK_VIDEO_ENCODE_H265_CAPABILITY_MULTIPLE_TILES_PER_SLICE_SEGMENT_BIT_KHR` specifies whether encoding multiple tiles per slice segment, as defined in section 6.3.1 of the [ITU-T H.265 Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#itu-t-h265), is supported. If this capability flag is not present, then the implementation is only able to encode a single tile for each slice segment.
+- `VK_VIDEO_ENCODE_H265_CAPABILITY_MULTIPLE_SLICE_SEGMENTS_PER_TILE_BIT_KHR` specifies whether encoding multiple slice segments per tile, as defined in section 6.3.1 of the [ITU-T H.265 Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#itu-t-h265), is supported. If this capability flag is not present, then the implementation is only able to encode a single slice segment for each tile.
+- []()`VK_VIDEO_ENCODE_H265_CAPABILITY_CU_QP_DIFF_WRAPAROUND_BIT_KHR` indicates support for wraparound during the calculation of the QP values of subsequently encoded coding units, as defined in section 7.4.9.14 of the [ITU-T H.265 Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#itu-t-h265). If not supported, equation 8-283 of the [ITU-T H.265 Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#itu-t-h265) is effectively reduced to the following:
+  
+  QpY = qPY\_PRED + `CuQpDeltaVal`
+  
+  Note
+  
+  The effect of this is that the maximum QP difference across subsequent coding units is limited to the \[-(26 + QpBdOffsetY / 2), 25 + QpBdOffsetY / 2] range.
+
+## [](#_see_also)See Also
+
+[VK\_KHR\_video\_encode\_h265](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_KHR_video_encode_h265.html), [VkVideoEncodeH265CapabilityFlagsKHR](https://registry.khronos.org/vulkan/specs/latest/man/html/VkVideoEncodeH265CapabilityFlagsKHR.html)
+
+## [](#_document_notes)Document Notes
+
+For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#VkVideoEncodeH265CapabilityFlagBitsKHR)
+
+This page is extracted from the Vulkan Specification. Fixes and changes should be made to the Specification, not directly.
+
+## [](#_copyright)Copyright
+
+Copyright 2014-2025 The Khronos Group Inc.
+
+SPDX-License-Identifier: CC-BY-4.0

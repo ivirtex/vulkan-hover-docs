@@ -1,0 +1,34 @@
+# VkMemoryPropertyFlags(3) Manual Page
+
+## Name
+
+VkMemoryPropertyFlags - Bitmask of VkMemoryPropertyFlagBits
+
+
+
+## [](#_c_specification)C Specification
+
+```c++
+// Provided by VK_VERSION_1_0
+typedef VkFlags VkMemoryPropertyFlags;
+```
+
+## [](#_description)Description
+
+`VkMemoryPropertyFlags` is a bitmask type for setting a mask of zero or more [VkMemoryPropertyFlagBits](https://registry.khronos.org/vulkan/specs/latest/man/html/VkMemoryPropertyFlagBits.html).
+
+## [](#_see_also)See Also
+
+[VK\_VERSION\_1\_0](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_VERSION_1_0.html), [VkFlags](https://registry.khronos.org/vulkan/specs/latest/man/html/VkFlags.html), [VkMemoryPropertyFlagBits](https://registry.khronos.org/vulkan/specs/latest/man/html/VkMemoryPropertyFlagBits.html), [VkMemoryType](https://registry.khronos.org/vulkan/specs/latest/man/html/VkMemoryType.html)
+
+## [](#_document_notes)Document Notes
+
+For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#VkMemoryPropertyFlags)
+
+This page is extracted from the Vulkan Specification. Fixes and changes should be made to the Specification, not directly.
+
+## [](#_copyright)Copyright
+
+Copyright 2014-2025 The Khronos Group Inc.
+
+SPDX-License-Identifier: CC-BY-4.0

@@ -1,0 +1,75 @@
+# vkCmdInsertDebugUtilsLabelEXT(3) Manual Page
+
+## Name
+
+vkCmdInsertDebugUtilsLabelEXT - Insert a label into a command buffer
+
+
+
+## [](#_c_specification)C Specification
+
+A single debug label can be inserted into a command buffer by calling:
+
+```c++
+// Provided by VK_EXT_debug_utils
+void vkCmdInsertDebugUtilsLabelEXT(
+    VkCommandBuffer                             commandBuffer,
+    const VkDebugUtilsLabelEXT*                 pLabelInfo);
+```
+
+## [](#_parameters)Parameters
+
+- `commandBuffer` is the command buffer into which the command is recorded.
+- `pLabelInfo` is a pointer to a [VkDebugUtilsLabelEXT](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDebugUtilsLabelEXT.html) structure specifying parameters of the label to insert.
+
+## [](#_description)Description
+
+Valid Usage (Implicit)
+
+- [](#VUID-vkCmdInsertDebugUtilsLabelEXT-commandBuffer-parameter)VUID-vkCmdInsertDebugUtilsLabelEXT-commandBuffer-parameter  
+  `commandBuffer` **must** be a valid [VkCommandBuffer](https://registry.khronos.org/vulkan/specs/latest/man/html/VkCommandBuffer.html) handle
+- [](#VUID-vkCmdInsertDebugUtilsLabelEXT-pLabelInfo-parameter)VUID-vkCmdInsertDebugUtilsLabelEXT-pLabelInfo-parameter  
+  `pLabelInfo` **must** be a valid pointer to a valid [VkDebugUtilsLabelEXT](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDebugUtilsLabelEXT.html) structure
+- [](#VUID-vkCmdInsertDebugUtilsLabelEXT-commandBuffer-recording)VUID-vkCmdInsertDebugUtilsLabelEXT-commandBuffer-recording  
+  `commandBuffer` **must** be in the [recording state](#commandbuffers-lifecycle)
+- [](#VUID-vkCmdInsertDebugUtilsLabelEXT-commandBuffer-cmdpool)VUID-vkCmdInsertDebugUtilsLabelEXT-commandBuffer-cmdpool  
+  The `VkCommandPool` that `commandBuffer` was allocated from **must** support graphics, or compute operations
+- [](#VUID-vkCmdInsertDebugUtilsLabelEXT-videocoding)VUID-vkCmdInsertDebugUtilsLabelEXT-videocoding  
+  This command **must** only be called outside of a video coding scope
+
+Host Synchronization
+
+- Host access to `commandBuffer` **must** be externally synchronized
+- Host access to the `VkCommandPool` that `commandBuffer` was allocated from **must** be externally synchronized
+
+Command Properties
+
+     [Command Buffer Levels](#VkCommandBufferLevel) [Render Pass Scope](#vkCmdBeginRenderPass) [Video Coding Scope](#vkCmdBeginVideoCodingKHR) [Supported Queue Types](#VkQueueFlagBits) [Command Type](#fundamentals-queueoperation-command-types)
+
+Primary  
+Secondary
+
+Both
+
+Outside
+
+Graphics  
+Compute
+
+Action
+
+## [](#_see_also)See Also
+
+[VK\_EXT\_debug\_utils](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_EXT_debug_utils.html), [VkCommandBuffer](https://registry.khronos.org/vulkan/specs/latest/man/html/VkCommandBuffer.html), [VkDebugUtilsLabelEXT](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDebugUtilsLabelEXT.html)
+
+## [](#_document_notes)Document Notes
+
+For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#vkCmdInsertDebugUtilsLabelEXT)
+
+This page is extracted from the Vulkan Specification. Fixes and changes should be made to the Specification, not directly.
+
+## [](#_copyright)Copyright
+
+Copyright 2014-2025 The Khronos Group Inc.
+
+SPDX-License-Identifier: CC-BY-4.0
