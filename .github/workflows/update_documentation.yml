@@ -50,17 +50,15 @@ jobs:
     steps:
       - name: Checkout docs_generator repository
         uses: actions/checkout@v4
-        with:
-          repository: ivirtex/vulkan-hover-docs
-
-      - name: Setup Go
-        uses: actions/setup-go@v4
 
       - name: Change directory to docs_generator
         run: cd docs_generator
 
+      - name: Setup Go
+        uses: actions/setup-go@v5
+
       - name: Install dependencies
-        run: go mod tidy
+        run: go get .
 
       - name: Install executable
         run: go install 
