@@ -33,6 +33,7 @@ jobs:
           if [ "$last_commit" != "$latest_commit" ]; then
             echo "New Vulkan-Docs commit found: $latest_commit"
             echo "should_run_gen=true" >> $GITHUB_OUTPUT
+            echo "$latest_commit" > vscode_extension/docs/.last_update
           else
             echo "No new Vulkan-Docs commit found."
             echo "should_run_gen=false" >> $GITHUB_OUTPUT
@@ -51,6 +52,9 @@ jobs:
 
       - name: Setup Go
         uses: actions/setup-go@v4
+
+      - name: Change directory to docs_generator
+        run: cd docs_generator
 
       - name: Install dependencies
         run: go mod tidy
