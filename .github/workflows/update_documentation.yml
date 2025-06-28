@@ -47,12 +47,12 @@ jobs:
     if: needs.check_for_updates.outputs.should_run_gen == 'true'
     env:
       latest_commit: ${{ needs.check_for_updates.outputs.latest_commit }}
+    defaults:
+      run:
+        working-directory: docs_generator
     steps:
       - name: Checkout docs_generator repository
         uses: actions/checkout@v4
-
-      - name: Change directory to docs_generator
-        run: cd docs_generator
 
       - name: Setup Go
         uses: actions/setup-go@v5
