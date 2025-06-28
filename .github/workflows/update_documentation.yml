@@ -70,8 +70,8 @@ jobs:
         run: echo "${{ env.latest_commit }}" > vscode_extension/docs/.last_update
 
       - name: Create pull request
-        run: gh pr create \
-          --title "Update Vulkan documentation to SHA ${{ github.env.latest_commit }}" \
-          --base main \
-          --head update-vulkan-docs \
+        run: gh pr create
+          --title "Update Vulkan documentation to SHA ${{ github.env.latest_commit }}"
+          --base main
+          --head update-vulkan-docs
           --label "documentation"
