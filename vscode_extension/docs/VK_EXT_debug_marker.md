@@ -1,115 +1,95 @@
-# VK_EXT_debug_marker(3) Manual Page
+# VK\_EXT\_debug\_marker(3) Manual Page
 
 ## Name
 
-VK_EXT_debug_marker - device extension
+VK\_EXT\_debug\_marker - device extension
 
 
 
-## <a href="#_registered_extension_number" class="anchor"></a>Registered Extension Number
+## [](#_registered_extension_number)Registered Extension Number
 
 23
 
-## <a href="#_revision" class="anchor"></a>Revision
+## [](#_revision)Revision
 
 4
 
-## <a href="#_ratification_status" class="anchor"></a>Ratification Status
+## [](#_ratification_status)Ratification Status
 
 Not ratified
 
-## <a href="#_extension_and_version_dependencies" class="anchor"></a>Extension and Version Dependencies
+## [](#_extension_and_version_dependencies)Extension and Version Dependencies
 
-[VK_EXT_debug_report](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_EXT_debug_report.html)  
+[VK\_EXT\_debug\_report](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_EXT_debug_report.html)
 
-## <a href="#_deprecation_state" class="anchor"></a>Deprecation State
+## [](#_deprecation_state)Deprecation State
 
-- *Promoted* to [VK_EXT_debug_utils](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_EXT_debug_utils.html) extension
+- *Promoted* to [VK\_EXT\_debug\_utils](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_EXT_debug_utils.html) extension
 
-## <a href="#_special_use" class="anchor"></a>Special Use
+## [](#_special_use)Special Use
 
-- <a
-  href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#extendingvulkan-compatibility-specialuse"
-  target="_blank" rel="noopener">Debugging tools</a>
+- [Debugging tools](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#extendingvulkan-compatibility-specialuse)
 
-## <a href="#_contact" class="anchor"></a>Contact
+## [](#_contact)Contact
 
-- Baldur Karlsson <a
-  href="https://github.com/KhronosGroup/Vulkan-Docs/issues/new?body=%5BVK_EXT_debug_marker%5D%20@baldurk%0A*Here%20describe%20the%20issue%20or%20question%20you%20have%20about%20the%20VK_EXT_debug_marker%20extension*"
-  target="_blank" rel="nofollow noopener"><em></em>baldurk</a>
+- Baldur Karlsson [\[GitHub\]baldurk](https://github.com/KhronosGroup/Vulkan-Docs/issues/new?body=%5BVK_EXT_debug_marker%5D%20%40baldurk%0A%2AHere%20describe%20the%20issue%20or%20question%20you%20have%20about%20the%20VK_EXT_debug_marker%20extension%2A)
 
-## <a href="#_other_extension_metadata" class="anchor"></a>Other Extension Metadata
+## [](#_other_extension_metadata)Other Extension Metadata
 
-**Last Modified Date**  
+**Last Modified Date**
+
 2017-01-31
 
-**IP Status**  
+**IP Status**
+
 No known IP claims.
 
-**Contributors**  
+**Contributors**
+
 - Baldur Karlsson
-
 - Dan Ginsburg, Valve
-
 - Jon Ashburn, LunarG
-
 - Kyle Spagnoli, NVIDIA
 
-## <a href="#_description" class="anchor"></a>Description
+## [](#_description)Description
 
-The `VK_EXT_debug_marker` extension is a device extension. It introduces
-concepts of object naming and tagging, for better tracking of Vulkan
-objects, as well as additional commands for recording annotations of
-named sections of a workload to aid organization and offline analysis in
-external tools.
+The `VK_EXT_debug_marker` extension is a device extension. It introduces concepts of object naming and tagging, for better tracking of Vulkan objects, as well as additional commands for recording annotations of named sections of a workload to aid organization and offline analysis in external tools.
 
-## <a href="#_new_commands" class="anchor"></a>New Commands
+## [](#_new_commands)New Commands
 
-- [vkCmdDebugMarkerBeginEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdDebugMarkerBeginEXT.html)
+- [vkCmdDebugMarkerBeginEXT](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdDebugMarkerBeginEXT.html)
+- [vkCmdDebugMarkerEndEXT](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdDebugMarkerEndEXT.html)
+- [vkCmdDebugMarkerInsertEXT](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdDebugMarkerInsertEXT.html)
+- [vkDebugMarkerSetObjectNameEXT](https://registry.khronos.org/vulkan/specs/latest/man/html/vkDebugMarkerSetObjectNameEXT.html)
+- [vkDebugMarkerSetObjectTagEXT](https://registry.khronos.org/vulkan/specs/latest/man/html/vkDebugMarkerSetObjectTagEXT.html)
 
-- [vkCmdDebugMarkerEndEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdDebugMarkerEndEXT.html)
+## [](#_new_structures)New Structures
 
-- [vkCmdDebugMarkerInsertEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdDebugMarkerInsertEXT.html)
+- [VkDebugMarkerMarkerInfoEXT](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDebugMarkerMarkerInfoEXT.html)
+- [VkDebugMarkerObjectNameInfoEXT](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDebugMarkerObjectNameInfoEXT.html)
+- [VkDebugMarkerObjectTagInfoEXT](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDebugMarkerObjectTagInfoEXT.html)
 
-- [vkDebugMarkerSetObjectNameEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkDebugMarkerSetObjectNameEXT.html)
+## [](#_new_enums)New Enums
 
-- [vkDebugMarkerSetObjectTagEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkDebugMarkerSetObjectTagEXT.html)
+- [VkDebugReportObjectTypeEXT](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDebugReportObjectTypeEXT.html)
 
-## <a href="#_new_structures" class="anchor"></a>New Structures
-
-- [VkDebugMarkerMarkerInfoEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkDebugMarkerMarkerInfoEXT.html)
-
-- [VkDebugMarkerObjectNameInfoEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkDebugMarkerObjectNameInfoEXT.html)
-
-- [VkDebugMarkerObjectTagInfoEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkDebugMarkerObjectTagInfoEXT.html)
-
-## <a href="#_new_enums" class="anchor"></a>New Enums
-
-- [VkDebugReportObjectTypeEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkDebugReportObjectTypeEXT.html)
-
-## <a href="#_new_enum_constants" class="anchor"></a>New Enum Constants
+## [](#_new_enum_constants)New Enum Constants
 
 - `VK_EXT_DEBUG_MARKER_EXTENSION_NAME`
-
 - `VK_EXT_DEBUG_MARKER_SPEC_VERSION`
-
-- Extending [VkStructureType](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkStructureType.html):
-
+- Extending [VkStructureType](https://registry.khronos.org/vulkan/specs/latest/man/html/VkStructureType.html):
+  
   - `VK_STRUCTURE_TYPE_DEBUG_MARKER_MARKER_INFO_EXT`
-
   - `VK_STRUCTURE_TYPE_DEBUG_MARKER_OBJECT_NAME_INFO_EXT`
-
   - `VK_STRUCTURE_TYPE_DEBUG_MARKER_OBJECT_TAG_INFO_EXT`
 
-## <a href="#_examples" class="anchor"></a>Examples
+## [](#_examples)Examples
 
 **Example 1**
 
-Associate a name with an image, for easier debugging in external tools
-or with validation layers that can print a friendly name when referring
-to objects in error messages.
+Associate a name with an image, for easier debugging in external tools or with validation layers that can print a friendly name when referring to objects in error messages.
 
-``` c
+```c++
     extern VkDevice device;
     extern VkImage image;
 
@@ -135,11 +115,9 @@ to objects in error messages.
 
 **Example 2**
 
-Annotating regions of a workload with naming information so that offline
-analysis tools can display a more usable visualization of the commands
-submitted.
+Annotating regions of a workload with naming information so that offline analysis tools can display a more usable visualization of the commands submitted.
 
-``` c
+```c++
     extern VkDevice device;
     extern VkCommandBuffer commandBuffer;
 
@@ -199,87 +177,53 @@ submitted.
     pfnCmdDebugMarkerEndEXT(commandBuffer);
 ```
 
-## <a href="#_issues" class="anchor"></a>Issues
+## [](#_issues)Issues
 
-1\) Should the tag or name for an object be specified using the `pNext`
-parameter in the object’s `Vk*CreateInfo` structure?
+1\) Should the tag or name for an object be specified using the `pNext` parameter in the object’s `Vk*CreateInfo` structure?
 
-**RESOLVED**: No. While this fits with other Vulkan patterns and would
-allow more type safety and future proofing against future objects, it
-has notable downsides. In particular passing the name at `Vk*CreateInfo`
-time does not allow renaming, prevents late binding of naming
-information, and does not allow naming of implicitly created objects
-such as queues and swapchain images.
+**RESOLVED**: No. While this fits with other Vulkan patterns and would allow more type safety and future proofing against future objects, it has notable downsides. In particular passing the name at `Vk*CreateInfo` time does not allow renaming, prevents late binding of naming information, and does not allow naming of implicitly created objects such as queues and swapchain images.
 
-2\) Should the command annotation functions
-[vkCmdDebugMarkerBeginEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdDebugMarkerBeginEXT.html) and
-[vkCmdDebugMarkerEndEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdDebugMarkerEndEXT.html) support the
-ability to specify a color?
+2\) Should the command annotation functions [vkCmdDebugMarkerBeginEXT](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdDebugMarkerBeginEXT.html) and [vkCmdDebugMarkerEndEXT](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdDebugMarkerEndEXT.html) support the ability to specify a color?
 
-**RESOLVED**: Yes. The functions have been expanded to take an optional
-color which can be used at will by implementations consuming the command
-buffer annotations in their visualization.
+**RESOLVED**: Yes. The functions have been expanded to take an optional color which can be used at will by implementations consuming the command buffer annotations in their visualization.
 
-3\) Should the functions added in this extension accept an extensible
-structure as their parameter for a more flexible API, as opposed to
-direct function parameters? If so, which functions?
+3\) Should the functions added in this extension accept an extensible structure as their parameter for a more flexible API, as opposed to direct function parameters? If so, which functions?
 
-**RESOLVED**: Yes. All functions have been modified to take a structure
-type with extensible `pNext` pointer, to allow future extensions to add
-additional annotation information in the same commands.
+**RESOLVED**: Yes. All functions have been modified to take a structure type with extensible `pNext` pointer, to allow future extensions to add additional annotation information in the same commands.
 
-## <a href="#_version_history" class="anchor"></a>Version History
+## [](#_version_history)Version History
 
 - Revision 1, 2016-02-24 (Baldur Karlsson)
-
+  
   - Initial draft, based on LunarG marker spec
-
 - Revision 2, 2016-02-26 (Baldur Karlsson)
-
+  
   - Renamed Dbg to DebugMarker in function names
-
-  - Allow markers in secondary command buffers under certain
-    circumstances
-
+  - Allow markers in secondary command buffers under certain circumstances
   - Minor language tweaks and edits
-
 - Revision 3, 2016-04-23 (Baldur Karlsson)
-
+  
   - Reorganize spec layout to closer match desired organization
-
   - Added optional color to markers (both regions and inserted labels)
-
-  - Changed functions to take extensible structs instead of direct
-    function parameters
-
+  - Changed functions to take extensible structs instead of direct function parameters
 - Revision 4, 2017-01-31 (Baldur Karlsson)
-
-  - Added explicit dependency on VK_EXT_debug_report
-
-  - Moved definition of
-    [VkDebugReportObjectTypeEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkDebugReportObjectTypeEXT.html) to
-    debug report chapter.
-
+  
+  - Added explicit dependency on VK\_EXT\_debug\_report
+  - Moved definition of [VkDebugReportObjectTypeEXT](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDebugReportObjectTypeEXT.html) to debug report chapter.
   - Fixed typo in dates in revision history
 
-## <a href="#_see_also" class="anchor"></a>See Also
+## [](#_see_also)See Also
 
 No cross-references are available
 
-## <a href="#_document_notes" class="anchor"></a>Document Notes
+## [](#_document_notes)Document Notes
 
-For more information, see the <a
-href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#VK_EXT_debug_marker"
-target="_blank" rel="noopener">Vulkan Specification</a>
+For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#VK_EXT_debug_marker)
 
-This page is a generated document. Fixes and changes should be made to
-the generator scripts, not directly.
+This page is a generated document. Fixes and changes should be made to the generator scripts, not directly.
 
-## <a href="#_copyright" class="anchor"></a>Copyright
+## [](#_copyright)Copyright
 
-Copyright 2014-2024 The Khronos Group Inc.
+Copyright 2014-2025 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
-
-Version 1.3.290  
-Last updated 2024-07-11 23:39:16 -0700

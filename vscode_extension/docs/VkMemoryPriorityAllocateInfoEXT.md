@@ -6,14 +6,13 @@ VkMemoryPriorityAllocateInfoEXT - Specify a memory allocation priority
 
 
 
-## <a href="#_c_specification" class="anchor"></a>C Specification
+## [](#_c_specification)C Specification
 
-If the `pNext` chain includes a `VkMemoryPriorityAllocateInfoEXT`
-structure, then that structure includes a priority for the memory.
+If the `pNext` chain includes a `VkMemoryPriorityAllocateInfoEXT` structure, then that structure includes a priority for the memory.
 
 The `VkMemoryPriorityAllocateInfoEXT` structure is defined as:
 
-``` c
+```c++
 // Provided by VK_EXT_memory_priority
 typedef struct VkMemoryPriorityAllocateInfoEXT {
     VkStructureType    sType;
@@ -22,61 +21,40 @@ typedef struct VkMemoryPriorityAllocateInfoEXT {
 } VkMemoryPriorityAllocateInfoEXT;
 ```
 
-## <a href="#_members" class="anchor"></a>Members
+## [](#_members)Members
 
-- `sType` is a [VkStructureType](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkStructureType.html) value identifying
-  this structure.
+- `sType` is a [VkStructureType](https://registry.khronos.org/vulkan/specs/latest/man/html/VkStructureType.html) value identifying this structure.
+- `pNext` is `NULL` or a pointer to a structure extending this structure.
+- `priority` is a floating-point value between `0` and `1`, indicating the priority of the allocation relative to other memory allocations. Larger values are higher priority. The granularity of the priorities is implementation-dependent.
 
-- `pNext` is `NULL` or a pointer to a structure extending this
-  structure.
+## [](#_description)Description
 
-- `priority` is a floating-point value between `0` and `1`, indicating
-  the priority of the allocation relative to other memory allocations.
-  Larger values are higher priority. The granularity of the priorities
-  is implementation-dependent.
+Memory allocations with higher priority **may** be more likely to stay in device-local memory when the system is under memory pressure.
 
-## <a href="#_description" class="anchor"></a>Description
-
-Memory allocations with higher priority **may** be more likely to stay
-in device-local memory when the system is under memory pressure.
-
-If this structure is not included, it is as if the `priority` value were
-`0.5`.
+If this structure is not included, it is as if the `priority` value were `0.5`.
 
 Valid Usage
 
-- <a href="#VUID-VkMemoryPriorityAllocateInfoEXT-priority-02602"
-  id="VUID-VkMemoryPriorityAllocateInfoEXT-priority-02602"></a>
-  VUID-VkMemoryPriorityAllocateInfoEXT-priority-02602  
+- [](#VUID-VkMemoryPriorityAllocateInfoEXT-priority-02602)VUID-VkMemoryPriorityAllocateInfoEXT-priority-02602  
   `priority` **must** be between `0` and `1`, inclusive
 
 Valid Usage (Implicit)
 
-- <a href="#VUID-VkMemoryPriorityAllocateInfoEXT-sType-sType"
-  id="VUID-VkMemoryPriorityAllocateInfoEXT-sType-sType"></a>
-  VUID-VkMemoryPriorityAllocateInfoEXT-sType-sType  
-  `sType` **must** be
-  `VK_STRUCTURE_TYPE_MEMORY_PRIORITY_ALLOCATE_INFO_EXT`
+- [](#VUID-VkMemoryPriorityAllocateInfoEXT-sType-sType)VUID-VkMemoryPriorityAllocateInfoEXT-sType-sType  
+  `sType` **must** be `VK_STRUCTURE_TYPE_MEMORY_PRIORITY_ALLOCATE_INFO_EXT`
 
-## <a href="#_see_also" class="anchor"></a>See Also
+## [](#_see_also)See Also
 
-[VK_EXT_memory_priority](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_EXT_memory_priority.html),
-[VkStructureType](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkStructureType.html)
+[VK\_EXT\_memory\_priority](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_EXT_memory_priority.html), [VkStructureType](https://registry.khronos.org/vulkan/specs/latest/man/html/VkStructureType.html)
 
-## <a href="#_document_notes" class="anchor"></a>Document Notes
+## [](#_document_notes)Document Notes
 
-For more information, see the <a
-href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#VkMemoryPriorityAllocateInfoEXT"
-target="_blank" rel="noopener">Vulkan Specification</a>
+For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#VkMemoryPriorityAllocateInfoEXT)
 
-This page is extracted from the Vulkan Specification. Fixes and changes
-should be made to the Specification, not directly.
+This page is extracted from the Vulkan Specification. Fixes and changes should be made to the Specification, not directly.
 
-## <a href="#_copyright" class="anchor"></a>Copyright
+## [](#_copyright)Copyright
 
-Copyright 2014-2024 The Khronos Group Inc.
+Copyright 2014-2025 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
-
-Version 1.3.290  
-Last updated 2024-07-11 23:39:16 -0700

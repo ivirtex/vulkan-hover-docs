@@ -1,146 +1,108 @@
-# VK_HUAWEI_subpass_shading(3) Manual Page
+# VK\_HUAWEI\_subpass\_shading(3) Manual Page
 
 ## Name
 
-VK_HUAWEI_subpass_shading - device extension
+VK\_HUAWEI\_subpass\_shading - device extension
 
 
 
-## <a href="#_registered_extension_number" class="anchor"></a>Registered Extension Number
+## [](#_registered_extension_number)Registered Extension Number
 
 370
 
-## <a href="#_revision" class="anchor"></a>Revision
+## [](#_revision)Revision
 
 3
 
-## <a href="#_ratification_status" class="anchor"></a>Ratification Status
+## [](#_ratification_status)Ratification Status
 
 Not ratified
 
-## <a href="#_extension_and_version_dependencies" class="anchor"></a>Extension and Version Dependencies
+## [](#_extension_and_version_dependencies)Extension and Version Dependencies
 
-         [VK_KHR_create_renderpass2](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_KHR_create_renderpass2.html)  
+         [VK\_KHR\_create\_renderpass2](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_KHR_create_renderpass2.html)  
          or  
-         [Version 1.2](#versions-1.2)  
+         [Vulkan Version 1.2](#versions-1.2)  
      and  
-     [VK_KHR_synchronization2](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_KHR_synchronization2.html)  
+     [VK\_KHR\_synchronization2](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_KHR_synchronization2.html)  
 or  
-[Version 1.3](#versions-1.3)  
+[Vulkan Version 1.3](#versions-1.3)
 
-## <a href="#_spir_v_dependencies" class="anchor"></a>SPIR-V Dependencies
+## [](#_spir_v_dependencies)SPIR-V Dependencies
 
-- [SPV_HUAWEI_subpass_shading](https://htmlpreview.github.io/?https://github.com/KhronosGroup/SPIRV-Registry/blob/main/extensions/HUAWEI/SPV_HUAWEI_subpass_shading.html)
+- [SPV\_HUAWEI\_subpass\_shading](https://github.khronos.org/SPIRV-Registry/extensions/HUAWEI/SPV_HUAWEI_subpass_shading.html)
 
-## <a href="#_contact" class="anchor"></a>Contact
+## [](#_contact)Contact
 
-- Pan Gao <a
-  href="https://github.com/KhronosGroup/Vulkan-Docs/issues/new?body=%5BVK_HUAWEI_subpass_shading%5D%20@PanGao-h%0A*Here%20describe%20the%20issue%20or%20question%20you%20have%20about%20the%20VK_HUAWEI_subpass_shading%20extension*"
-  target="_blank" rel="nofollow noopener"><em></em>PanGao-h</a>
+- Pan Gao [\[GitHub\]PanGao-h](https://github.com/KhronosGroup/Vulkan-Docs/issues/new?body=%5BVK_HUAWEI_subpass_shading%5D%20%40PanGao-h%0A%2AHere%20describe%20the%20issue%20or%20question%20you%20have%20about%20the%20VK_HUAWEI_subpass_shading%20extension%2A)
 
-## <a href="#_other_extension_metadata" class="anchor"></a>Other Extension Metadata
+## [](#_other_extension_metadata)Other Extension Metadata
 
-**Last Modified Date**  
+**Last Modified Date**
+
 2021-06-01
 
-**Interactions and External Dependencies**  
-- This extension provides API support for
-  [`GL_HUAWEI_subpass_shading`](https://github.com/KhronosGroup/GLSL/blob/main/extensions/huawei/GLSL_HUAWEI_subpass_shading.txt).
+**Interactions and External Dependencies**
 
-**Contributors**  
+- This extension provides API support for [`GL_HUAWEI_subpass_shading`](https://github.com/KhronosGroup/GLSL/blob/main/extensions/huawei/GLSL_HUAWEI_subpass_shading.txt).
+
+**Contributors**
+
 - Hueilong Wang
-
 - Juntao Li, Huawei
-
 - Renmiao Lu, Huawei
-
 - Pan Gao, Huawei
 
-## <a href="#_description" class="anchor"></a>Description
+## [](#_description)Description
 
-This extension allows applications to execute a subpass shading pipeline
-in a subpass of a render pass in order to save memory bandwidth for
-algorithms like tile-based deferred rendering and forward plus. A
-subpass shading pipeline is a pipeline with the compute pipeline
-ability, allowed to read values from input attachments, and only allowed
-to be dispatched inside a stand-alone subpass. Its work dimension is
-defined by the render pass’s render area size. Its workgroup size
-(width, height) shall be a power-of-two number in width or height, with
-minimum value from 8, and maximum value shall be decided from the render
-pass attachments and sample counts but depends on implementation.
+This extension allows applications to execute a subpass shading pipeline in a subpass of a render pass in order to save memory bandwidth for algorithms like tile-based deferred rendering and forward plus. A subpass shading pipeline is a pipeline with the compute pipeline ability, allowed to read values from input attachments, and only allowed to be dispatched inside a stand-alone subpass. Its work dimension is defined by the render pass’s render area size. Its workgroup size (width, height) shall be a power-of-two number in width or height, with minimum value from 8, and maximum value shall be decided from the render pass attachments and sample counts but depends on implementation.
 
-The `GlobalInvocationId.xy` of a subpass shading pipeline is equal to
-the `FragCoord.xy` of a graphic pipeline in the same render pass
-subtracted the <a href="VkRect2D.html" target="_blank"
-rel="noopener"><code>offset</code></a> of the
-[VkRenderPassBeginInfo](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkRenderPassBeginInfo.html)::`renderArea`.
-`GlobalInvocationId.z` is mapped to the Layer if
-[`VK_EXT_shader_viewport_index_layer`](VK_EXT_shader_viewport_index_layer.html)
-is supported. The `GlobalInvocationId.xy` is equal to the index of the
-local workgroup multiplied by the size of the local workgroup plus the
-`LocalInvocationId` and the <a href="VkRect2D.html" target="_blank"
-rel="noopener"><code>offset</code></a> of the
-[VkRenderPassBeginInfo](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkRenderPassBeginInfo.html)::`renderArea`.
+The `GlobalInvocationId.xy` of a subpass shading pipeline is equal to the `FragCoord.xy` of a graphic pipeline in the same render pass subtracted the [`offset`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkRect2D.html) of the [VkRenderPassBeginInfo](https://registry.khronos.org/vulkan/specs/latest/man/html/VkRenderPassBeginInfo.html)::`renderArea`. `GlobalInvocationId.z` is mapped to the Layer if `VK_EXT_shader_viewport_index_layer` is supported. The `GlobalInvocationId.xy` is equal to the index of the local workgroup multiplied by the size of the local workgroup plus the `LocalInvocationId` and the [`offset`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkRect2D.html) of the [VkRenderPassBeginInfo](https://registry.khronos.org/vulkan/specs/latest/man/html/VkRenderPassBeginInfo.html)::`renderArea`.
 
-This extension allows a subpass’s pipeline bind point to be
-`VK_PIPELINE_BIND_POINT_SUBPASS_SHADING_HUAWEI`.
+This extension allows a subpass’s pipeline bind point to be `VK_PIPELINE_BIND_POINT_SUBPASS_SHADING_HUAWEI`.
 
-## <a href="#_new_commands" class="anchor"></a>New Commands
+## [](#_new_commands)New Commands
 
-- [vkCmdSubpassShadingHUAWEI](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdSubpassShadingHUAWEI.html)
+- [vkCmdSubpassShadingHUAWEI](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdSubpassShadingHUAWEI.html)
+- [vkGetDeviceSubpassShadingMaxWorkgroupSizeHUAWEI](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetDeviceSubpassShadingMaxWorkgroupSizeHUAWEI.html)
 
-- [vkGetDeviceSubpassShadingMaxWorkgroupSizeHUAWEI](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkGetDeviceSubpassShadingMaxWorkgroupSizeHUAWEI.html)
+## [](#_new_structures)New Structures
 
-## <a href="#_new_structures" class="anchor"></a>New Structures
+- Extending [VkComputePipelineCreateInfo](https://registry.khronos.org/vulkan/specs/latest/man/html/VkComputePipelineCreateInfo.html):
+  
+  - [VkSubpassShadingPipelineCreateInfoHUAWEI](https://registry.khronos.org/vulkan/specs/latest/man/html/VkSubpassShadingPipelineCreateInfoHUAWEI.html)
+- Extending [VkPhysicalDeviceFeatures2](https://registry.khronos.org/vulkan/specs/latest/man/html/VkPhysicalDeviceFeatures2.html), [VkDeviceCreateInfo](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDeviceCreateInfo.html):
+  
+  - [VkPhysicalDeviceSubpassShadingFeaturesHUAWEI](https://registry.khronos.org/vulkan/specs/latest/man/html/VkPhysicalDeviceSubpassShadingFeaturesHUAWEI.html)
+- Extending [VkPhysicalDeviceProperties2](https://registry.khronos.org/vulkan/specs/latest/man/html/VkPhysicalDeviceProperties2.html):
+  
+  - [VkPhysicalDeviceSubpassShadingPropertiesHUAWEI](https://registry.khronos.org/vulkan/specs/latest/man/html/VkPhysicalDeviceSubpassShadingPropertiesHUAWEI.html)
 
-- Extending
-  [VkComputePipelineCreateInfo](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkComputePipelineCreateInfo.html):
-
-  - [VkSubpassShadingPipelineCreateInfoHUAWEI](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkSubpassShadingPipelineCreateInfoHUAWEI.html)
-
-- Extending [VkPhysicalDeviceFeatures2](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkPhysicalDeviceFeatures2.html),
-  [VkDeviceCreateInfo](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkDeviceCreateInfo.html):
-
-  - [VkPhysicalDeviceSubpassShadingFeaturesHUAWEI](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkPhysicalDeviceSubpassShadingFeaturesHUAWEI.html)
-
-- Extending
-  [VkPhysicalDeviceProperties2](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkPhysicalDeviceProperties2.html):
-
-  - [VkPhysicalDeviceSubpassShadingPropertiesHUAWEI](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkPhysicalDeviceSubpassShadingPropertiesHUAWEI.html)
-
-## <a href="#_new_enum_constants" class="anchor"></a>New Enum Constants
+## [](#_new_enum_constants)New Enum Constants
 
 - `VK_HUAWEI_SUBPASS_SHADING_EXTENSION_NAME`
-
 - `VK_HUAWEI_SUBPASS_SHADING_SPEC_VERSION`
-
-- Extending [VkPipelineBindPoint](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkPipelineBindPoint.html):
-
+- Extending [VkPipelineBindPoint](https://registry.khronos.org/vulkan/specs/latest/man/html/VkPipelineBindPoint.html):
+  
   - `VK_PIPELINE_BIND_POINT_SUBPASS_SHADING_HUAWEI`
-
-- Extending [VkPipelineStageFlagBits2](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkPipelineStageFlagBits2.html):
-
+- Extending [VkPipelineStageFlagBits2](https://registry.khronos.org/vulkan/specs/latest/man/html/VkPipelineStageFlagBits2.html):
+  
   - `VK_PIPELINE_STAGE_2_SUBPASS_SHADER_BIT_HUAWEI`
-
   - `VK_PIPELINE_STAGE_2_SUBPASS_SHADING_BIT_HUAWEI`
-
-- Extending [VkShaderStageFlagBits](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkShaderStageFlagBits.html):
-
+- Extending [VkShaderStageFlagBits](https://registry.khronos.org/vulkan/specs/latest/man/html/VkShaderStageFlagBits.html):
+  
   - `VK_SHADER_STAGE_SUBPASS_SHADING_BIT_HUAWEI`
-
-- Extending [VkStructureType](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkStructureType.html):
-
+- Extending [VkStructureType](https://registry.khronos.org/vulkan/specs/latest/man/html/VkStructureType.html):
+  
   - `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SUBPASS_SHADING_FEATURES_HUAWEI`
-
   - `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SUBPASS_SHADING_PROPERTIES_HUAWEI`
-
   - `VK_STRUCTURE_TYPE_SUBPASS_SHADING_PIPELINE_CREATE_INFO_HUAWEI`
 
-## <a href="#_sample_code" class="anchor"></a>Sample Code
+## [](#_sample_code)Sample Code
 
 Example of subpass shading in a GLSL shader
 
-``` c
+```c
 #extension GL_HUAWEI_subpass_shading: enable
 #extension GL_KHR_shader_subgroup_arithmetic: enable
 
@@ -159,7 +121,7 @@ void main()
 
 Example of subpass shading dispatching in a subpass
 
-``` c
+```c
 vkCmdNextSubpass(commandBuffer, VK_SUBPASS_CONTENTS_INLINE);
 vkCmdBindPipeline(commandBuffer, VK_PIPELINE_BIND_POINT_SUBPASS_SHADING_HUAWEI, subpassShadingPipeline);
 vkCmdBindDescriptorSets(commandBuffer, VK_PIPELINE_BIND_POINT_SUBPASS_SHADING_HUAWEI, subpassShadingPipelineLayout,
@@ -170,7 +132,7 @@ vkCmdEndRenderPass(commandBuffer);
 
 Example of subpass shading render pass creation
 
-``` c
+```c
 VkAttachmentDescription2 attachments[] = {
   {
     VK_STRUCTURE_TYPE_ATTACHMENT_DESCRIPTION_2, NULL,
@@ -295,7 +257,7 @@ vkCreateRenderPass2(device, &renderPassCreateInfo, NULL, &renderPass);
 
 Example of subpass shading pipeline creation
 
-``` c
+```c
 VkExtent2D maxWorkgroupSize;
 
 VkSpecializationMapEntry subpassShadingConstantMapEntries[] = {
@@ -332,42 +294,30 @@ vkGetDeviceSubpassShadingMaxWorkgroupSizeHUAWEI(device, renderPass, &maxWorkgrou
 vkCreateComputePipelines(device, pipelineCache, 1, &subpassShadingComputePipelineCreateInfo, NULL, &pipeline);
 ```
 
-## <a href="#_version_history" class="anchor"></a>Version History
+## [](#_version_history)Version History
 
 - Revision 3, 2023-06-19 (Pan Gao)
-
-  - Rename `VK_PIPELINE_STAGE_2_SUBPASS_SHADING_BIT_HUAWEI` to
-    `VK_PIPELINE_STAGE_2_SUBPASS_SHADER_BIT_HUAWEI` to better aligned
-    with naming of other pipeline stages
-
+  
+  - Rename `VK_PIPELINE_STAGE_2_SUBPASS_SHADING_BIT_HUAWEI` to `VK_PIPELINE_STAGE_2_SUBPASS_SHADER_BIT_HUAWEI` to better aligned with naming of other pipeline stages
 - Revision 2, 2021-06-28 (Hueilong Wang)
-
-  - Change vkGetSubpassShadingMaxWorkgroupSizeHUAWEI to
-    vkGetDeviceSubpassShadingMaxWorkgroupSizeHUAWEI to resolve issue
-    [`pub1564`](https://github.com/KhronosGroup/Vulkan-Docs/issues/1564)
-
+  
+  - Change vkGetSubpassShadingMaxWorkgroupSizeHUAWEI to vkGetDeviceSubpassShadingMaxWorkgroupSizeHUAWEI to resolve issue [`pub1564`](https://github.com/KhronosGroup/Vulkan-Docs/issues/1564)
 - Revision 1, 2020-12-15 (Hueilong Wang)
-
+  
   - Initial draft.
 
-## <a href="#_see_also" class="anchor"></a>See Also
+## [](#_see_also)See Also
 
 No cross-references are available
 
-## <a href="#_document_notes" class="anchor"></a>Document Notes
+## [](#_document_notes)Document Notes
 
-For more information, see the <a
-href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#VK_HUAWEI_subpass_shading"
-target="_blank" rel="noopener">Vulkan Specification</a>
+For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#VK_HUAWEI_subpass_shading)
 
-This page is a generated document. Fixes and changes should be made to
-the generator scripts, not directly.
+This page is a generated document. Fixes and changes should be made to the generator scripts, not directly.
 
-## <a href="#_copyright" class="anchor"></a>Copyright
+## [](#_copyright)Copyright
 
-Copyright 2014-2024 The Khronos Group Inc.
+Copyright 2014-2025 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
-
-Version 1.3.290  
-Last updated 2024-07-11 23:39:16 -0700

@@ -6,52 +6,42 @@ VkSubmitFlagBits - Bitmask specifying behavior of a submission
 
 
 
-## <a href="#_c_specification" class="anchor"></a>C Specification
+## [](#_c_specification)C Specification
 
-Bits which **can** be set in
-[VkSubmitInfo2](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkSubmitInfo2.html)::`flags`, specifying submission
-behavior, are:
+Bits which **can** be set in [VkSubmitInfo2](https://registry.khronos.org/vulkan/specs/latest/man/html/VkSubmitInfo2.html)::`flags`, specifying submission behavior, are:
 
-``` c
+```c++
 // Provided by VK_VERSION_1_3
 typedef enum VkSubmitFlagBits {
     VK_SUBMIT_PROTECTED_BIT = 0x00000001,
+  // Provided by VK_KHR_synchronization2
     VK_SUBMIT_PROTECTED_BIT_KHR = VK_SUBMIT_PROTECTED_BIT,
 } VkSubmitFlagBits;
 ```
 
 or the equivalent
 
-``` c
+```c++
 // Provided by VK_KHR_synchronization2
 typedef VkSubmitFlagBits VkSubmitFlagBitsKHR;
 ```
 
-## <a href="#_description" class="anchor"></a>Description
+## [](#_description)Description
 
-- `VK_SUBMIT_PROTECTED_BIT` specifies that this batch is a protected
-  submission.
+- `VK_SUBMIT_PROTECTED_BIT` specifies that this batch is a protected submission.
 
-## <a href="#_see_also" class="anchor"></a>See Also
+## [](#_see_also)See Also
 
-[VK_KHR_synchronization2](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_KHR_synchronization2.html),
-[VK_VERSION_1_3](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_VERSION_1_3.html),
-[VkSubmitFlags](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkSubmitFlags.html)
+[VK\_KHR\_synchronization2](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_KHR_synchronization2.html), [VK\_VERSION\_1\_3](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_VERSION_1_3.html), [VkSubmitFlags](https://registry.khronos.org/vulkan/specs/latest/man/html/VkSubmitFlags.html)
 
-## <a href="#_document_notes" class="anchor"></a>Document Notes
+## [](#_document_notes)Document Notes
 
-For more information, see the <a
-href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#VkSubmitFlagBits"
-target="_blank" rel="noopener">Vulkan Specification</a>
+For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#VkSubmitFlagBits)
 
-This page is extracted from the Vulkan Specification. Fixes and changes
-should be made to the Specification, not directly.
+This page is extracted from the Vulkan Specification. Fixes and changes should be made to the Specification, not directly.
 
-## <a href="#_copyright" class="anchor"></a>Copyright
+## [](#_copyright)Copyright
 
-Copyright 2014-2024 The Khronos Group Inc.
+Copyright 2014-2025 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
-
-Version 1.3.290  
-Last updated 2024-07-11 23:39:16 -0700

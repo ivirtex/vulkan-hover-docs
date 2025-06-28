@@ -6,11 +6,11 @@ vkResetCommandPool - Reset a command pool
 
 
 
-## <a href="#_c_specification" class="anchor"></a>C Specification
+## [](#_c_specification)C Specification
 
 To reset a command pool, call:
 
-``` c
+```c++
 // Provided by VK_VERSION_1_0
 VkResult vkResetCommandPool(
     VkDevice                                    device,
@@ -18,68 +18,33 @@ VkResult vkResetCommandPool(
     VkCommandPoolResetFlags                     flags);
 ```
 
-## <a href="#_parameters" class="anchor"></a>Parameters
+## [](#_parameters)Parameters
 
 - `device` is the logical device that owns the command pool.
-
 - `commandPool` is the command pool to reset.
+- `flags` is a bitmask of [VkCommandPoolResetFlagBits](https://registry.khronos.org/vulkan/specs/latest/man/html/VkCommandPoolResetFlagBits.html) controlling the reset operation.
 
-- `flags` is a bitmask of
-  [VkCommandPoolResetFlagBits](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkCommandPoolResetFlagBits.html)
-  controlling the reset operation.
+## [](#_description)Description
 
-## <a href="#_description" class="anchor"></a>Description
+Resetting a command pool recycles all of the resources from all of the command buffers allocated from the command pool back to the command pool. All command buffers that have been allocated from the command pool are put in the [initial state](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#commandbuffers-lifecycle).
 
-Resetting a command pool recycles all of the resources from all of the
-command buffers allocated from the command pool back to the command
-pool. All command buffers that have been allocated from the command pool
-are put in the <a
-href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#commandbuffers-lifecycle"
-target="_blank" rel="noopener">initial state</a>.
-
-Any primary command buffer allocated from another
-[VkCommandPool](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkCommandPool.html) that is in the <a
-href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#commandbuffers-lifecycle"
-target="_blank" rel="noopener">recording or executable state</a> and has
-a secondary command buffer allocated from `commandPool` recorded into
-it, becomes <a
-href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#commandbuffers-lifecycle"
-target="_blank" rel="noopener">invalid</a>.
+Any primary command buffer allocated from another [VkCommandPool](https://registry.khronos.org/vulkan/specs/latest/man/html/VkCommandPool.html) that is in the [recording or executable state](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#commandbuffers-lifecycle) and has a secondary command buffer allocated from `commandPool` recorded into it, becomes [invalid](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#commandbuffers-lifecycle).
 
 Valid Usage
 
-- <a href="#VUID-vkResetCommandPool-commandPool-00040"
-  id="VUID-vkResetCommandPool-commandPool-00040"></a>
-  VUID-vkResetCommandPool-commandPool-00040  
-  All `VkCommandBuffer` objects allocated from `commandPool` **must**
-  not be in the <a
-  href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#commandbuffers-lifecycle"
-  target="_blank" rel="noopener">pending state</a>
+- [](#VUID-vkResetCommandPool-commandPool-00040)VUID-vkResetCommandPool-commandPool-00040  
+  All `VkCommandBuffer` objects allocated from `commandPool` **must** not be in the [pending state](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#commandbuffers-lifecycle)
 
 Valid Usage (Implicit)
 
-- <a href="#VUID-vkResetCommandPool-device-parameter"
-  id="VUID-vkResetCommandPool-device-parameter"></a>
-  VUID-vkResetCommandPool-device-parameter  
-  `device` **must** be a valid [VkDevice](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkDevice.html) handle
-
-- <a href="#VUID-vkResetCommandPool-commandPool-parameter"
-  id="VUID-vkResetCommandPool-commandPool-parameter"></a>
-  VUID-vkResetCommandPool-commandPool-parameter  
-  `commandPool` **must** be a valid [VkCommandPool](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkCommandPool.html)
-  handle
-
-- <a href="#VUID-vkResetCommandPool-flags-parameter"
-  id="VUID-vkResetCommandPool-flags-parameter"></a>
-  VUID-vkResetCommandPool-flags-parameter  
-  `flags` **must** be a valid combination of
-  [VkCommandPoolResetFlagBits](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkCommandPoolResetFlagBits.html) values
-
-- <a href="#VUID-vkResetCommandPool-commandPool-parent"
-  id="VUID-vkResetCommandPool-commandPool-parent"></a>
-  VUID-vkResetCommandPool-commandPool-parent  
-  `commandPool` **must** have been created, allocated, or retrieved from
-  `device`
+- [](#VUID-vkResetCommandPool-device-parameter)VUID-vkResetCommandPool-device-parameter  
+  `device` **must** be a valid [VkDevice](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDevice.html) handle
+- [](#VUID-vkResetCommandPool-commandPool-parameter)VUID-vkResetCommandPool-commandPool-parameter  
+  `commandPool` **must** be a valid [VkCommandPool](https://registry.khronos.org/vulkan/specs/latest/man/html/VkCommandPool.html) handle
+- [](#VUID-vkResetCommandPool-flags-parameter)VUID-vkResetCommandPool-flags-parameter  
+  `flags` **must** be a valid combination of [VkCommandPoolResetFlagBits](https://registry.khronos.org/vulkan/specs/latest/man/html/VkCommandPoolResetFlagBits.html) values
+- [](#VUID-vkResetCommandPool-commandPool-parent)VUID-vkResetCommandPool-commandPool-parent  
+  `commandPool` **must** have been created, allocated, or retrieved from `device`
 
 Host Synchronization
 
@@ -87,33 +52,26 @@ Host Synchronization
 
 Return Codes
 
-On success, this command returns  
+On success, this command returns
+
 - `VK_SUCCESS`
 
-On failure, this command returns  
+On failure, this command returns
+
 - `VK_ERROR_OUT_OF_DEVICE_MEMORY`
 
-## <a href="#_see_also" class="anchor"></a>See Also
+## [](#_see_also)See Also
 
-[VK_VERSION_1_0](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_VERSION_1_0.html),
-[VkCommandPool](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkCommandPool.html),
-[VkCommandPoolResetFlags](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkCommandPoolResetFlags.html),
-[VkDevice](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkDevice.html)
+[VK\_VERSION\_1\_0](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_VERSION_1_0.html), [VkCommandPool](https://registry.khronos.org/vulkan/specs/latest/man/html/VkCommandPool.html), [VkCommandPoolResetFlags](https://registry.khronos.org/vulkan/specs/latest/man/html/VkCommandPoolResetFlags.html), [VkDevice](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDevice.html)
 
-## <a href="#_document_notes" class="anchor"></a>Document Notes
+## [](#_document_notes)Document Notes
 
-For more information, see the <a
-href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#vkResetCommandPool"
-target="_blank" rel="noopener">Vulkan Specification</a>
+For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#vkResetCommandPool)
 
-This page is extracted from the Vulkan Specification. Fixes and changes
-should be made to the Specification, not directly.
+This page is extracted from the Vulkan Specification. Fixes and changes should be made to the Specification, not directly.
 
-## <a href="#_copyright" class="anchor"></a>Copyright
+## [](#_copyright)Copyright
 
-Copyright 2014-2024 The Khronos Group Inc.
+Copyright 2014-2025 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
-
-Version 1.3.290  
-Last updated 2024-07-11 23:39:16 -0700

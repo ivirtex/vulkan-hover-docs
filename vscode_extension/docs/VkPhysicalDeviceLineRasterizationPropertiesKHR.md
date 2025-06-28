@@ -1,87 +1,66 @@
-# VkPhysicalDeviceLineRasterizationPropertiesKHR(3) Manual Page
+# VkPhysicalDeviceLineRasterizationProperties(3) Manual Page
 
 ## Name
 
-VkPhysicalDeviceLineRasterizationPropertiesKHR - Structure describing
-line rasterization properties supported by an implementation
+VkPhysicalDeviceLineRasterizationProperties - Structure describing line rasterization properties supported by an implementation
 
 
 
-## <a href="#_c_specification" class="anchor"></a>C Specification
+## [](#_c_specification)C Specification
 
-The `VkPhysicalDeviceLineRasterizationPropertiesKHR` structure is
-defined as:
+The `VkPhysicalDeviceLineRasterizationProperties` structure is defined as:
 
-``` c
-// Provided by VK_KHR_line_rasterization
-typedef struct VkPhysicalDeviceLineRasterizationPropertiesKHR {
+```c++
+// Provided by VK_VERSION_1_4
+typedef struct VkPhysicalDeviceLineRasterizationProperties {
     VkStructureType    sType;
     void*              pNext;
     uint32_t           lineSubPixelPrecisionBits;
-} VkPhysicalDeviceLineRasterizationPropertiesKHR;
+} VkPhysicalDeviceLineRasterizationProperties;
 ```
 
 or the equivalent
 
-``` c
-// Provided by VK_EXT_line_rasterization
-typedef VkPhysicalDeviceLineRasterizationPropertiesKHR VkPhysicalDeviceLineRasterizationPropertiesEXT;
+```c++
+// Provided by VK_KHR_line_rasterization
+typedef VkPhysicalDeviceLineRasterizationProperties VkPhysicalDeviceLineRasterizationPropertiesKHR;
 ```
 
-## <a href="#_members" class="anchor"></a>Members
+or the equivalent
 
-- `sType` is a [VkStructureType](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkStructureType.html) value identifying
-  this structure.
+```c++
+// Provided by VK_EXT_line_rasterization
+typedef VkPhysicalDeviceLineRasterizationProperties VkPhysicalDeviceLineRasterizationPropertiesEXT;
+```
 
-- `pNext` is `NULL` or a pointer to a structure extending this
-  structure.
+## [](#_members)Members
 
-- <span id="limits-lineSubPixelPrecisionBits"></span>
-  `lineSubPixelPrecisionBits` is the number of bits of subpixel
-  precision in framebuffer coordinates x<sub>f</sub> and y<sub>f</sub>
-  when rasterizing <a
-  href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#primsrast-lines"
-  target="_blank" rel="noopener">line segments</a>.
+- `sType` is a [VkStructureType](https://registry.khronos.org/vulkan/specs/latest/man/html/VkStructureType.html) value identifying this structure.
+- `pNext` is `NULL` or a pointer to a structure extending this structure.
 
-## <a href="#_description" class="anchor"></a>Description
+## [](#_description)Description
 
-If the `VkPhysicalDeviceLineRasterizationPropertiesKHR` structure is
-included in the `pNext` chain of the
-[VkPhysicalDeviceProperties2](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkPhysicalDeviceProperties2.html)
-structure passed to
-[vkGetPhysicalDeviceProperties2](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkGetPhysicalDeviceProperties2.html),
-it is filled in with each corresponding implementation-dependent
-property.
+- []()`lineSubPixelPrecisionBits` is the number of bits of subpixel precision in framebuffer coordinates xf and yf when rasterizing [line segments](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#primsrast-lines).
+
+If the `VkPhysicalDeviceLineRasterizationProperties` structure is included in the `pNext` chain of the [VkPhysicalDeviceProperties2](https://registry.khronos.org/vulkan/specs/latest/man/html/VkPhysicalDeviceProperties2.html) structure passed to [vkGetPhysicalDeviceProperties2](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetPhysicalDeviceProperties2.html), it is filled in with each corresponding implementation-dependent property.
 
 Valid Usage (Implicit)
 
-- <a
-  href="#VUID-VkPhysicalDeviceLineRasterizationPropertiesKHR-sType-sType"
-  id="VUID-VkPhysicalDeviceLineRasterizationPropertiesKHR-sType-sType"></a>
-  VUID-VkPhysicalDeviceLineRasterizationPropertiesKHR-sType-sType  
-  `sType` **must** be
-  `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_LINE_RASTERIZATION_PROPERTIES_KHR`
+- [](#VUID-VkPhysicalDeviceLineRasterizationProperties-sType-sType)VUID-VkPhysicalDeviceLineRasterizationProperties-sType-sType  
+  `sType` **must** be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_LINE_RASTERIZATION_PROPERTIES`
 
-## <a href="#_see_also" class="anchor"></a>See Also
+## [](#_see_also)See Also
 
-[VK_EXT_line_rasterization](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_EXT_line_rasterization.html),
-[VK_KHR_line_rasterization](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_KHR_line_rasterization.html),
-[VkStructureType](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkStructureType.html)
+[VK\_EXT\_line\_rasterization](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_EXT_line_rasterization.html), [VK\_KHR\_line\_rasterization](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_KHR_line_rasterization.html), [VK\_VERSION\_1\_4](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_VERSION_1_4.html), [VkStructureType](https://registry.khronos.org/vulkan/specs/latest/man/html/VkStructureType.html)
 
-## <a href="#_document_notes" class="anchor"></a>Document Notes
+## [](#_document_notes)Document Notes
 
-For more information, see the <a
-href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#VkPhysicalDeviceLineRasterizationPropertiesKHR"
-target="_blank" rel="noopener">Vulkan Specification</a>
+For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#VkPhysicalDeviceLineRasterizationProperties)
 
-This page is extracted from the Vulkan Specification. Fixes and changes
-should be made to the Specification, not directly.
+This page is extracted from the Vulkan Specification. Fixes and changes should be made to the Specification, not directly.
 
-## <a href="#_copyright" class="anchor"></a>Copyright
+## [](#_copyright)Copyright
 
-Copyright 2014-2024 The Khronos Group Inc.
+Copyright 2014-2025 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
-
-Version 1.3.290  
-Last updated 2024-07-11 23:39:16 -0700

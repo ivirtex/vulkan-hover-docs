@@ -6,11 +6,11 @@ VkVideoEncodeInfoKHR - Structure specifying video encode parameters
 
 
 
-## <a href="#_c_specification" class="anchor"></a>C Specification
+## [](#_c_specification)C Specification
 
 The `VkVideoEncodeInfoKHR` structure is defined as:
 
-``` c
+```c++
 // Provided by VK_KHR_video_encode_queue
 typedef struct VkVideoEncodeInfoKHR {
     VkStructureType                       sType;
@@ -27,178 +27,70 @@ typedef struct VkVideoEncodeInfoKHR {
 } VkVideoEncodeInfoKHR;
 ```
 
-## <a href="#_members" class="anchor"></a>Members
+## [](#_members)Members
 
-- `sType` is a [VkStructureType](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkStructureType.html) value identifying
-  this structure.
-
+- `sType` is a [VkStructureType](https://registry.khronos.org/vulkan/specs/latest/man/html/VkStructureType.html) value identifying this structure.
 - `pNext` is a pointer to a structure extending this structure.
+- `flags` is a bitmask of [VkVideoEncodeFlagBitsKHR](https://registry.khronos.org/vulkan/specs/latest/man/html/VkVideoEncodeFlagBitsKHR.html) indicating video encode command flags.
+- `dstBuffer` is the destination video bitstream buffer to write the encoded bitstream to.
+- `dstBufferOffset` is the starting offset in bytes from the start of `dstBuffer` to write the encoded bitstream to.
+- `dstBufferRange` is the maximum bitstream size in bytes that **can** be written to `dstBuffer`, starting from `dstBufferOffset`.
+- `srcPictureResource` is the video picture resource to use as the [encode input picture](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#encode-input-picture).
+- `pSetupReferenceSlot` is `NULL` or a pointer to a [VkVideoReferenceSlotInfoKHR](https://registry.khronos.org/vulkan/specs/latest/man/html/VkVideoReferenceSlotInfoKHR.html) structure specifying the [reconstructed picture information](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#encode-reconstructed-picture-info).
+- `referenceSlotCount` is the number of elements in the `pReferenceSlots` array.
+- `pReferenceSlots` is `NULL` or a pointer to an array of [VkVideoReferenceSlotInfoKHR](https://registry.khronos.org/vulkan/specs/latest/man/html/VkVideoReferenceSlotInfoKHR.html) structures describing the DPB slots and corresponding [reference picture](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#reference-picture) resources to use in this video encode operation (the set of [active reference pictures](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#active-reference-pictures)).
+- `precedingExternallyEncodedBytes` is the number of bytes externally encoded by the application to the video bitstream and is used to update the internal state of the implementation’s [rate control](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#encode-rate-control) algorithm to account for the bitrate budget consumed by these externally encoded bytes.
 
-- `flags` is reserved for future use.
-
-- `dstBuffer` is the destination video bitstream buffer to write the
-  encoded bitstream to.
-
-- `dstBufferOffset` is the starting offset in bytes from the start of
-  `dstBuffer` to write the encoded bitstream to.
-
-- `dstBufferRange` is the maximum bitstream size in bytes that **can**
-  be written to `dstBuffer`, starting from `dstBufferOffset`.
-
-- `srcPictureResource` is the video picture resource to use as the <a
-  href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#encode-input-picture"
-  target="_blank" rel="noopener">encode input picture</a>.
-
-- `pSetupReferenceSlot` is `NULL` or a pointer to a
-  [VkVideoReferenceSlotInfoKHR](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkVideoReferenceSlotInfoKHR.html)
-  structure specifying the <a
-  href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#encode-reconstructed-picture-info"
-  target="_blank" rel="noopener">reconstructed picture information</a>.
-
-- `referenceSlotCount` is the number of elements in the
-  `pReferenceSlots` array.
-
-- `pReferenceSlots` is `NULL` or a pointer to an array of
-  [VkVideoReferenceSlotInfoKHR](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkVideoReferenceSlotInfoKHR.html)
-  structures describing the DPB slots and corresponding <a
-  href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#reference-picture"
-  target="_blank" rel="noopener">reference picture</a> resources to use
-  in this video encode operation (the set of <a
-  href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#active-reference-pictures"
-  target="_blank" rel="noopener">active reference pictures</a>).
-
-- `precedingExternallyEncodedBytes` is the number of bytes externally
-  encoded by the application to the video bitstream and is used to
-  update the internal state of the implementation’s <a
-  href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#encode-rate-control"
-  target="_blank" rel="noopener">rate control</a> algorithm to account
-  for the bitrate budget consumed by these externally encoded bytes.
-
-## <a href="#_description" class="anchor"></a>Description
+## [](#_description)Description
 
 Valid Usage
 
-- <a href="#VUID-VkVideoEncodeInfoKHR-dstBuffer-08236"
-  id="VUID-VkVideoEncodeInfoKHR-dstBuffer-08236"></a>
-  VUID-VkVideoEncodeInfoKHR-dstBuffer-08236  
-  `dstBuffer` **must** have been created with
-  `VK_BUFFER_USAGE_VIDEO_ENCODE_DST_BIT_KHR` set
-
-- <a href="#VUID-VkVideoEncodeInfoKHR-dstBufferOffset-08237"
-  id="VUID-VkVideoEncodeInfoKHR-dstBufferOffset-08237"></a>
-  VUID-VkVideoEncodeInfoKHR-dstBufferOffset-08237  
+- [](#VUID-VkVideoEncodeInfoKHR-dstBuffer-08236)VUID-VkVideoEncodeInfoKHR-dstBuffer-08236  
+  `dstBuffer` **must** have been created with `VK_BUFFER_USAGE_VIDEO_ENCODE_DST_BIT_KHR` set
+- [](#VUID-VkVideoEncodeInfoKHR-dstBufferOffset-08237)VUID-VkVideoEncodeInfoKHR-dstBufferOffset-08237  
   `dstBufferOffset` **must** be less than the size of `dstBuffer`
-
-- <a href="#VUID-VkVideoEncodeInfoKHR-dstBufferRange-08238"
-  id="VUID-VkVideoEncodeInfoKHR-dstBufferRange-08238"></a>
-  VUID-VkVideoEncodeInfoKHR-dstBufferRange-08238  
-  `dstBufferRange` **must** be less than or equal to the size of
-  `dstBuffer` minus `dstBufferOffset`
-
-- <a href="#VUID-VkVideoEncodeInfoKHR-pSetupReferenceSlot-08239"
-  id="VUID-VkVideoEncodeInfoKHR-pSetupReferenceSlot-08239"></a>
-  VUID-VkVideoEncodeInfoKHR-pSetupReferenceSlot-08239  
-  If `pSetupReferenceSlot` is not `NULL`, then its `slotIndex` member
-  **must** not be negative
-
-- <a href="#VUID-VkVideoEncodeInfoKHR-pSetupReferenceSlot-08240"
-  id="VUID-VkVideoEncodeInfoKHR-pSetupReferenceSlot-08240"></a>
-  VUID-VkVideoEncodeInfoKHR-pSetupReferenceSlot-08240  
-  If `pSetupReferenceSlot` is not `NULL`, then its `pPictureResource`
-  **must** not be `NULL`
-
-- <a href="#VUID-VkVideoEncodeInfoKHR-slotIndex-08241"
-  id="VUID-VkVideoEncodeInfoKHR-slotIndex-08241"></a>
-  VUID-VkVideoEncodeInfoKHR-slotIndex-08241  
-  The `slotIndex` member of each element of `pReferenceSlots` **must**
-  not be negative
-
-- <a href="#VUID-VkVideoEncodeInfoKHR-pPictureResource-08242"
-  id="VUID-VkVideoEncodeInfoKHR-pPictureResource-08242"></a>
-  VUID-VkVideoEncodeInfoKHR-pPictureResource-08242  
-  The `pPictureResource` member of each element of `pReferenceSlots`
-  **must** not be `NULL`
+- [](#VUID-VkVideoEncodeInfoKHR-dstBufferRange-08238)VUID-VkVideoEncodeInfoKHR-dstBufferRange-08238  
+  `dstBufferRange` **must** be less than or equal to the size of `dstBuffer` minus `dstBufferOffset`
+- [](#VUID-VkVideoEncodeInfoKHR-pSetupReferenceSlot-08239)VUID-VkVideoEncodeInfoKHR-pSetupReferenceSlot-08239  
+  If `pSetupReferenceSlot` is not `NULL`, then its `slotIndex` member **must** not be negative
+- [](#VUID-VkVideoEncodeInfoKHR-pSetupReferenceSlot-08240)VUID-VkVideoEncodeInfoKHR-pSetupReferenceSlot-08240  
+  If `pSetupReferenceSlot` is not `NULL`, then its `pPictureResource` **must** not be `NULL`
+- [](#VUID-VkVideoEncodeInfoKHR-slotIndex-08241)VUID-VkVideoEncodeInfoKHR-slotIndex-08241  
+  The `slotIndex` member of each element of `pReferenceSlots` **must** not be negative
+- [](#VUID-VkVideoEncodeInfoKHR-pPictureResource-08242)VUID-VkVideoEncodeInfoKHR-pPictureResource-08242  
+  The `pPictureResource` member of each element of `pReferenceSlots` **must** not be `NULL`
 
 Valid Usage (Implicit)
 
-- <a href="#VUID-VkVideoEncodeInfoKHR-sType-sType"
-  id="VUID-VkVideoEncodeInfoKHR-sType-sType"></a>
-  VUID-VkVideoEncodeInfoKHR-sType-sType  
+- [](#VUID-VkVideoEncodeInfoKHR-sType-sType)VUID-VkVideoEncodeInfoKHR-sType-sType  
   `sType` **must** be `VK_STRUCTURE_TYPE_VIDEO_ENCODE_INFO_KHR`
+- [](#VUID-VkVideoEncodeInfoKHR-pNext-pNext)VUID-VkVideoEncodeInfoKHR-pNext-pNext  
+  Each `pNext` member of any structure (including this one) in the `pNext` chain **must** be either `NULL` or a pointer to a valid instance of [VkVideoEncodeAV1PictureInfoKHR](https://registry.khronos.org/vulkan/specs/latest/man/html/VkVideoEncodeAV1PictureInfoKHR.html), [VkVideoEncodeH264PictureInfoKHR](https://registry.khronos.org/vulkan/specs/latest/man/html/VkVideoEncodeH264PictureInfoKHR.html), [VkVideoEncodeH265PictureInfoKHR](https://registry.khronos.org/vulkan/specs/latest/man/html/VkVideoEncodeH265PictureInfoKHR.html), [VkVideoEncodeQuantizationMapInfoKHR](https://registry.khronos.org/vulkan/specs/latest/man/html/VkVideoEncodeQuantizationMapInfoKHR.html), or [VkVideoInlineQueryInfoKHR](https://registry.khronos.org/vulkan/specs/latest/man/html/VkVideoInlineQueryInfoKHR.html)
+- [](#VUID-VkVideoEncodeInfoKHR-sType-unique)VUID-VkVideoEncodeInfoKHR-sType-unique  
+  The `sType` value of each structure in the `pNext` chain **must** be unique
+- [](#VUID-VkVideoEncodeInfoKHR-flags-parameter)VUID-VkVideoEncodeInfoKHR-flags-parameter  
+  `flags` **must** be a valid combination of [VkVideoEncodeFlagBitsKHR](https://registry.khronos.org/vulkan/specs/latest/man/html/VkVideoEncodeFlagBitsKHR.html) values
+- [](#VUID-VkVideoEncodeInfoKHR-dstBuffer-parameter)VUID-VkVideoEncodeInfoKHR-dstBuffer-parameter  
+  `dstBuffer` **must** be a valid [VkBuffer](https://registry.khronos.org/vulkan/specs/latest/man/html/VkBuffer.html) handle
+- [](#VUID-VkVideoEncodeInfoKHR-srcPictureResource-parameter)VUID-VkVideoEncodeInfoKHR-srcPictureResource-parameter  
+  `srcPictureResource` **must** be a valid [VkVideoPictureResourceInfoKHR](https://registry.khronos.org/vulkan/specs/latest/man/html/VkVideoPictureResourceInfoKHR.html) structure
+- [](#VUID-VkVideoEncodeInfoKHR-pSetupReferenceSlot-parameter)VUID-VkVideoEncodeInfoKHR-pSetupReferenceSlot-parameter  
+  If `pSetupReferenceSlot` is not `NULL`, `pSetupReferenceSlot` **must** be a valid pointer to a valid [VkVideoReferenceSlotInfoKHR](https://registry.khronos.org/vulkan/specs/latest/man/html/VkVideoReferenceSlotInfoKHR.html) structure
+- [](#VUID-VkVideoEncodeInfoKHR-pReferenceSlots-parameter)VUID-VkVideoEncodeInfoKHR-pReferenceSlots-parameter  
+  If `referenceSlotCount` is not `0`, `pReferenceSlots` **must** be a valid pointer to an array of `referenceSlotCount` valid [VkVideoReferenceSlotInfoKHR](https://registry.khronos.org/vulkan/specs/latest/man/html/VkVideoReferenceSlotInfoKHR.html) structures
 
-- <a href="#VUID-VkVideoEncodeInfoKHR-pNext-pNext"
-  id="VUID-VkVideoEncodeInfoKHR-pNext-pNext"></a>
-  VUID-VkVideoEncodeInfoKHR-pNext-pNext  
-  Each `pNext` member of any structure (including this one) in the
-  `pNext` chain **must** be either `NULL` or a pointer to a valid
-  instance of
-  [VkVideoEncodeH264PictureInfoKHR](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkVideoEncodeH264PictureInfoKHR.html),
-  [VkVideoEncodeH265PictureInfoKHR](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkVideoEncodeH265PictureInfoKHR.html),
-  or [VkVideoInlineQueryInfoKHR](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkVideoInlineQueryInfoKHR.html)
+## [](#_see_also)See Also
 
-- <a href="#VUID-VkVideoEncodeInfoKHR-sType-unique"
-  id="VUID-VkVideoEncodeInfoKHR-sType-unique"></a>
-  VUID-VkVideoEncodeInfoKHR-sType-unique  
-  The `sType` value of each struct in the `pNext` chain **must** be
-  unique
+[VK\_KHR\_video\_encode\_queue](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_KHR_video_encode_queue.html), [VkBuffer](https://registry.khronos.org/vulkan/specs/latest/man/html/VkBuffer.html), [VkDeviceSize](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDeviceSize.html), [VkStructureType](https://registry.khronos.org/vulkan/specs/latest/man/html/VkStructureType.html), [VkVideoEncodeFlagsKHR](https://registry.khronos.org/vulkan/specs/latest/man/html/VkVideoEncodeFlagsKHR.html), [VkVideoPictureResourceInfoKHR](https://registry.khronos.org/vulkan/specs/latest/man/html/VkVideoPictureResourceInfoKHR.html), [VkVideoReferenceSlotInfoKHR](https://registry.khronos.org/vulkan/specs/latest/man/html/VkVideoReferenceSlotInfoKHR.html), [vkCmdEncodeVideoKHR](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdEncodeVideoKHR.html)
 
-- <a href="#VUID-VkVideoEncodeInfoKHR-flags-zerobitmask"
-  id="VUID-VkVideoEncodeInfoKHR-flags-zerobitmask"></a>
-  VUID-VkVideoEncodeInfoKHR-flags-zerobitmask  
-  `flags` **must** be `0`
+## [](#_document_notes)Document Notes
 
-- <a href="#VUID-VkVideoEncodeInfoKHR-dstBuffer-parameter"
-  id="VUID-VkVideoEncodeInfoKHR-dstBuffer-parameter"></a>
-  VUID-VkVideoEncodeInfoKHR-dstBuffer-parameter  
-  `dstBuffer` **must** be a valid [VkBuffer](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkBuffer.html) handle
+For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#VkVideoEncodeInfoKHR)
 
-- <a href="#VUID-VkVideoEncodeInfoKHR-srcPictureResource-parameter"
-  id="VUID-VkVideoEncodeInfoKHR-srcPictureResource-parameter"></a>
-  VUID-VkVideoEncodeInfoKHR-srcPictureResource-parameter  
-  `srcPictureResource` **must** be a valid
-  [VkVideoPictureResourceInfoKHR](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkVideoPictureResourceInfoKHR.html)
-  structure
+This page is extracted from the Vulkan Specification. Fixes and changes should be made to the Specification, not directly.
 
-- <a href="#VUID-VkVideoEncodeInfoKHR-pSetupReferenceSlot-parameter"
-  id="VUID-VkVideoEncodeInfoKHR-pSetupReferenceSlot-parameter"></a>
-  VUID-VkVideoEncodeInfoKHR-pSetupReferenceSlot-parameter  
-  If `pSetupReferenceSlot` is not `NULL`, `pSetupReferenceSlot` **must**
-  be a valid pointer to a valid
-  [VkVideoReferenceSlotInfoKHR](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkVideoReferenceSlotInfoKHR.html)
-  structure
+## [](#_copyright)Copyright
 
-- <a href="#VUID-VkVideoEncodeInfoKHR-pReferenceSlots-parameter"
-  id="VUID-VkVideoEncodeInfoKHR-pReferenceSlots-parameter"></a>
-  VUID-VkVideoEncodeInfoKHR-pReferenceSlots-parameter  
-  If `referenceSlotCount` is not `0`, `pReferenceSlots` **must** be a
-  valid pointer to an array of `referenceSlotCount` valid
-  [VkVideoReferenceSlotInfoKHR](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkVideoReferenceSlotInfoKHR.html)
-  structures
-
-## <a href="#_see_also" class="anchor"></a>See Also
-
-[VK_KHR_video_encode_queue](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_KHR_video_encode_queue.html),
-[VkBuffer](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkBuffer.html), [VkDeviceSize](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkDeviceSize.html),
-[VkStructureType](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkStructureType.html),
-[VkVideoEncodeFlagsKHR](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkVideoEncodeFlagsKHR.html),
-[VkVideoPictureResourceInfoKHR](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkVideoPictureResourceInfoKHR.html),
-[VkVideoReferenceSlotInfoKHR](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkVideoReferenceSlotInfoKHR.html),
-[vkCmdEncodeVideoKHR](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdEncodeVideoKHR.html)
-
-## <a href="#_document_notes" class="anchor"></a>Document Notes
-
-For more information, see the <a
-href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#VkVideoEncodeInfoKHR"
-target="_blank" rel="noopener">Vulkan Specification</a>
-
-This page is extracted from the Vulkan Specification. Fixes and changes
-should be made to the Specification, not directly.
-
-## <a href="#_copyright" class="anchor"></a>Copyright
-
-Copyright 2014-2024 The Khronos Group Inc.
+Copyright 2014-2025 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
-
-Version 1.3.290  
-Last updated 2024-07-11 23:39:16 -0700

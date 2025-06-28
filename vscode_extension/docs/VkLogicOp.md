@@ -6,29 +6,11 @@ VkLogicOp - Framebuffer logical operations
 
 
 
-## <a href="#_c_specification" class="anchor"></a>C Specification
+## [](#_c_specification)C Specification
 
-Logical operations are controlled by the `logicOpEnable` and `logicOp`
-members of
-[VkPipelineColorBlendStateCreateInfo](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkPipelineColorBlendStateCreateInfo.html).
-The `logicOpEnable` state can also be controlled by
-[vkCmdSetLogicOpEnableEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdSetLogicOpEnableEXT.html) if graphics
-pipeline is created with `VK_DYNAMIC_STATE_LOGIC_OP_ENABLE_EXT` set in
-[VkPipelineDynamicStateCreateInfo](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkPipelineDynamicStateCreateInfo.html)::`pDynamicStates`.
-The `logicOp` state can also be controlled by
-[vkCmdSetLogicOpEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdSetLogicOpEXT.html) if graphics pipeline is
-created with `VK_DYNAMIC_STATE_LOGIC_OP_EXT` set in
-[VkPipelineDynamicStateCreateInfo](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkPipelineDynamicStateCreateInfo.html)::`pDynamicStates`.
-If `logicOpEnable` is `VK_TRUE`, then a logical operation selected by
-`logicOp` is applied between each color attachment and the fragment’s
-corresponding output value, and blending of all attachments is treated
-as if it were disabled. Any attachments using color formats for which
-logical operations are not supported simply pass through the color
-values unmodified. The logical operation is applied independently for
-each of the red, green, blue, and alpha components. The `logicOp` is
-selected from the following operations:
+Logical operations are controlled by the `logicOpEnable` and `logicOp` members of [VkPipelineColorBlendStateCreateInfo](https://registry.khronos.org/vulkan/specs/latest/man/html/VkPipelineColorBlendStateCreateInfo.html). The `logicOpEnable` state can also be controlled by [vkCmdSetLogicOpEnableEXT](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdSetLogicOpEnableEXT.html) if graphics pipeline is created with `VK_DYNAMIC_STATE_LOGIC_OP_ENABLE_EXT` set in [VkPipelineDynamicStateCreateInfo](https://registry.khronos.org/vulkan/specs/latest/man/html/VkPipelineDynamicStateCreateInfo.html)::`pDynamicStates`. The `logicOp` state can also be controlled by [vkCmdSetLogicOpEXT](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdSetLogicOpEXT.html) if graphics pipeline is created with `VK_DYNAMIC_STATE_LOGIC_OP_EXT` set in [VkPipelineDynamicStateCreateInfo](https://registry.khronos.org/vulkan/specs/latest/man/html/VkPipelineDynamicStateCreateInfo.html)::`pDynamicStates`. If `logicOpEnable` is `VK_TRUE`, then a logical operation selected by `logicOp` is applied between each color attachment and the fragment’s corresponding output value, and blending of all attachments is treated as if it were disabled. Any attachments using color formats for which logical operations are not supported simply pass through the color values unmodified. The logical operation is applied independently for each of the red, green, blue, and alpha components. The `logicOp` is selected from the following operations:
 
-``` c
+```c++
 // Provided by VK_VERSION_1_0
 typedef enum VkLogicOp {
     VK_LOGIC_OP_CLEAR = 0,
@@ -50,71 +32,97 @@ typedef enum VkLogicOp {
 } VkLogicOp;
 ```
 
-## <a href="#_description" class="anchor"></a>Description
+## [](#_description)Description
 
-The logical operations supported by Vulkan are summarized in the
-following table in which
+The logical operations supported by Vulkan are summarized in the following table in which
 
 - ¬ is bitwise invert,
-
 - ∧ is bitwise and,
-
 - ∨ is bitwise or,
-
 - ⊕ is bitwise exclusive or,
-
-- s is the fragment’s R<sub>s0</sub>, G<sub>s0</sub>, B<sub>s0</sub> or
-  A<sub>s0</sub> component value for the fragment output corresponding
-  to the color attachment being updated, and
-
+- s is the fragment’s Rs0, Gs0, Bs0 or As0 component value for the fragment output corresponding to the color attachment being updated, and
 - d is the color attachment’s R, G, B or A component value:
 
-| Mode                        | Operation |
-|-----------------------------|-----------|
-| `VK_LOGIC_OP_CLEAR`         | 0         |
-| `VK_LOGIC_OP_AND`           | s ∧ d     |
-| `VK_LOGIC_OP_AND_REVERSE`   | s ∧ ¬ d   |
-| `VK_LOGIC_OP_COPY`          | s         |
-| `VK_LOGIC_OP_AND_INVERTED`  | ¬ s ∧ d   |
-| `VK_LOGIC_OP_NO_OP`         | d         |
-| `VK_LOGIC_OP_XOR`           | s ⊕ d     |
-| `VK_LOGIC_OP_OR`            | s ∨ d     |
-| `VK_LOGIC_OP_NOR`           | ¬ (s ∨ d) |
-| `VK_LOGIC_OP_EQUIVALENT`    | ¬ (s ⊕ d) |
-| `VK_LOGIC_OP_INVERT`        | ¬ d       |
-| `VK_LOGIC_OP_OR_REVERSE`    | s ∨ ¬ d   |
-| `VK_LOGIC_OP_COPY_INVERTED` | ¬ s       |
-| `VK_LOGIC_OP_OR_INVERTED`   | ¬ s ∨ d   |
-| `VK_LOGIC_OP_NAND`          | ¬ (s ∧ d) |
-| `VK_LOGIC_OP_SET`           | all 1s    |
+Table 1. Logical Operations   Mode Operation
 
-Table 1. Logical Operations
+`VK_LOGIC_OP_CLEAR`
 
-The result of the logical operation is then written to the color
-attachment as controlled by the component write mask, described in <a
-href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#framebuffer-blendoperations"
-target="_blank" rel="noopener">Blend Operations</a>.
+0
 
-## <a href="#_see_also" class="anchor"></a>See Also
+`VK_LOGIC_OP_AND`
 
-[VK_VERSION_1_0](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_VERSION_1_0.html),
-[VkPipelineColorBlendStateCreateInfo](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkPipelineColorBlendStateCreateInfo.html),
-[vkCmdSetLogicOpEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdSetLogicOpEXT.html)
+s ∧ d
 
-## <a href="#_document_notes" class="anchor"></a>Document Notes
+`VK_LOGIC_OP_AND_REVERSE`
 
-For more information, see the <a
-href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#VkLogicOp"
-target="_blank" rel="noopener">Vulkan Specification</a>
+s ∧ ¬ d
 
-This page is extracted from the Vulkan Specification. Fixes and changes
-should be made to the Specification, not directly.
+`VK_LOGIC_OP_COPY`
 
-## <a href="#_copyright" class="anchor"></a>Copyright
+s
 
-Copyright 2014-2024 The Khronos Group Inc.
+`VK_LOGIC_OP_AND_INVERTED`
+
+¬ s ∧ d
+
+`VK_LOGIC_OP_NO_OP`
+
+d
+
+`VK_LOGIC_OP_XOR`
+
+s ⊕ d
+
+`VK_LOGIC_OP_OR`
+
+s ∨ d
+
+`VK_LOGIC_OP_NOR`
+
+¬ (s ∨ d)
+
+`VK_LOGIC_OP_EQUIVALENT`
+
+¬ (s ⊕ d)
+
+`VK_LOGIC_OP_INVERT`
+
+¬ d
+
+`VK_LOGIC_OP_OR_REVERSE`
+
+s ∨ ¬ d
+
+`VK_LOGIC_OP_COPY_INVERTED`
+
+¬ s
+
+`VK_LOGIC_OP_OR_INVERTED`
+
+¬ s ∨ d
+
+`VK_LOGIC_OP_NAND`
+
+¬ (s ∧ d)
+
+`VK_LOGIC_OP_SET`
+
+all 1s
+
+The result of the logical operation is then written to the color attachment as controlled by the component write mask, described in [Blend Operations](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#framebuffer-blendoperations).
+
+## [](#_see_also)See Also
+
+[VK\_VERSION\_1\_0](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_VERSION_1_0.html), [VkPipelineColorBlendStateCreateInfo](https://registry.khronos.org/vulkan/specs/latest/man/html/VkPipelineColorBlendStateCreateInfo.html), [vkCmdSetLogicOpEXT](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdSetLogicOpEXT.html)
+
+## [](#_document_notes)Document Notes
+
+For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#VkLogicOp)
+
+This page is extracted from the Vulkan Specification. Fixes and changes should be made to the Specification, not directly.
+
+## [](#_copyright)Copyright
+
+Copyright 2014-2025 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
-
-Version 1.3.290  
-Last updated 2024-07-11 23:39:16 -0700

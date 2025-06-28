@@ -6,12 +6,15 @@ vkCmdNextSubpass2 - Transition to the next subpass of a render pass
 
 
 
-## <a href="#_c_specification" class="anchor"></a>C Specification
+## [](#_c_specification)C Specification
 
-To transition to the next subpass in the render pass instance after
-recording the commands for a subpass, call:
+To transition to the next subpass in the render pass instance after recording the commands for a subpass, call:
 
-``` c
+Warning
+
+This functionality is deprecated by [Vulkan Version 1.4](#versions-1.4). See [Deprecated Functionality](#deprecation-dynamicrendering) for more information.
+
+```c++
 // Provided by VK_VERSION_1_2
 void vkCmdNextSubpass2(
     VkCommandBuffer                             commandBuffer,
@@ -21,7 +24,7 @@ void vkCmdNextSubpass2(
 
 or the equivalent command
 
-``` c
+```c++
 // Provided by VK_KHR_create_renderpass2
 void vkCmdNextSubpass2KHR(
     VkCommandBuffer                             commandBuffer,
@@ -29,152 +32,75 @@ void vkCmdNextSubpass2KHR(
     const VkSubpassEndInfo*                     pSubpassEndInfo);
 ```
 
-## <a href="#_parameters" class="anchor"></a>Parameters
+## [](#_parameters)Parameters
 
 - `commandBuffer` is the command buffer in which to record the command.
+- `pSubpassBeginInfo` is a pointer to a [VkSubpassBeginInfo](https://registry.khronos.org/vulkan/specs/latest/man/html/VkSubpassBeginInfo.html) structure containing information about the subpass which is about to begin rendering.
+- `pSubpassEndInfo` is a pointer to a [VkSubpassEndInfo](https://registry.khronos.org/vulkan/specs/latest/man/html/VkSubpassEndInfo.html) structure containing information about how the previous subpass will be ended.
 
-- `pSubpassBeginInfo` is a pointer to a
-  [VkSubpassBeginInfo](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkSubpassBeginInfo.html) structure containing
-  information about the subpass which is about to begin rendering.
+## [](#_description)Description
 
-- `pSubpassEndInfo` is a pointer to a
-  [VkSubpassEndInfo](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkSubpassEndInfo.html) structure containing
-  information about how the previous subpass will be ended.
-
-## <a href="#_description" class="anchor"></a>Description
-
-`vkCmdNextSubpass2` is semantically identical to
-[vkCmdNextSubpass](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdNextSubpass.html), except that it is extensible,
-and that `contents` is provided as part of an extensible structure
-instead of as a flat parameter.
+`vkCmdNextSubpass2` is semantically identical to [vkCmdNextSubpass](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdNextSubpass.html), except that it is extensible, and that `contents` is provided as part of an extensible structure instead of as a flat parameter.
 
 Valid Usage
 
-- <a href="#VUID-vkCmdNextSubpass2-None-03102"
-  id="VUID-vkCmdNextSubpass2-None-03102"></a>
-  VUID-vkCmdNextSubpass2-None-03102  
-  The current subpass index **must** be less than the number of
-  subpasses in the render pass minus one
-
-- <a href="#VUID-vkCmdNextSubpass2-None-02350"
-  id="VUID-vkCmdNextSubpass2-None-02350"></a>
-  VUID-vkCmdNextSubpass2-None-02350  
-  This command **must** not be recorded when transform feedback is
-  active
+- [](#VUID-vkCmdNextSubpass2-None-03102)VUID-vkCmdNextSubpass2-None-03102  
+  The current subpass index **must** be less than the number of subpasses in the render pass minus one
+- [](#VUID-vkCmdNextSubpass2-None-02350)VUID-vkCmdNextSubpass2-None-02350  
+  This command **must** not be recorded when transform feedback is active
 
 Valid Usage (Implicit)
 
-- <a href="#VUID-vkCmdNextSubpass2-commandBuffer-parameter"
-  id="VUID-vkCmdNextSubpass2-commandBuffer-parameter"></a>
-  VUID-vkCmdNextSubpass2-commandBuffer-parameter  
-  `commandBuffer` **must** be a valid
-  [VkCommandBuffer](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkCommandBuffer.html) handle
-
-- <a href="#VUID-vkCmdNextSubpass2-pSubpassBeginInfo-parameter"
-  id="VUID-vkCmdNextSubpass2-pSubpassBeginInfo-parameter"></a>
-  VUID-vkCmdNextSubpass2-pSubpassBeginInfo-parameter  
-  `pSubpassBeginInfo` **must** be a valid pointer to a valid
-  [VkSubpassBeginInfo](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkSubpassBeginInfo.html) structure
-
-- <a href="#VUID-vkCmdNextSubpass2-pSubpassEndInfo-parameter"
-  id="VUID-vkCmdNextSubpass2-pSubpassEndInfo-parameter"></a>
-  VUID-vkCmdNextSubpass2-pSubpassEndInfo-parameter  
-  `pSubpassEndInfo` **must** be a valid pointer to a valid
-  [VkSubpassEndInfo](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkSubpassEndInfo.html) structure
-
-- <a href="#VUID-vkCmdNextSubpass2-commandBuffer-recording"
-  id="VUID-vkCmdNextSubpass2-commandBuffer-recording"></a>
-  VUID-vkCmdNextSubpass2-commandBuffer-recording  
-  `commandBuffer` **must** be in the [recording
-  state](#commandbuffers-lifecycle)
-
-- <a href="#VUID-vkCmdNextSubpass2-commandBuffer-cmdpool"
-  id="VUID-vkCmdNextSubpass2-commandBuffer-cmdpool"></a>
-  VUID-vkCmdNextSubpass2-commandBuffer-cmdpool  
-  The `VkCommandPool` that `commandBuffer` was allocated from **must**
-  support graphics operations
-
-- <a href="#VUID-vkCmdNextSubpass2-renderpass"
-  id="VUID-vkCmdNextSubpass2-renderpass"></a>
-  VUID-vkCmdNextSubpass2-renderpass  
+- [](#VUID-vkCmdNextSubpass2-commandBuffer-parameter)VUID-vkCmdNextSubpass2-commandBuffer-parameter  
+  `commandBuffer` **must** be a valid [VkCommandBuffer](https://registry.khronos.org/vulkan/specs/latest/man/html/VkCommandBuffer.html) handle
+- [](#VUID-vkCmdNextSubpass2-pSubpassBeginInfo-parameter)VUID-vkCmdNextSubpass2-pSubpassBeginInfo-parameter  
+  `pSubpassBeginInfo` **must** be a valid pointer to a valid [VkSubpassBeginInfo](https://registry.khronos.org/vulkan/specs/latest/man/html/VkSubpassBeginInfo.html) structure
+- [](#VUID-vkCmdNextSubpass2-pSubpassEndInfo-parameter)VUID-vkCmdNextSubpass2-pSubpassEndInfo-parameter  
+  `pSubpassEndInfo` **must** be a valid pointer to a valid [VkSubpassEndInfo](https://registry.khronos.org/vulkan/specs/latest/man/html/VkSubpassEndInfo.html) structure
+- [](#VUID-vkCmdNextSubpass2-commandBuffer-recording)VUID-vkCmdNextSubpass2-commandBuffer-recording  
+  `commandBuffer` **must** be in the [recording state](#commandbuffers-lifecycle)
+- [](#VUID-vkCmdNextSubpass2-commandBuffer-cmdpool)VUID-vkCmdNextSubpass2-commandBuffer-cmdpool  
+  The `VkCommandPool` that `commandBuffer` was allocated from **must** support graphics operations
+- [](#VUID-vkCmdNextSubpass2-renderpass)VUID-vkCmdNextSubpass2-renderpass  
   This command **must** only be called inside of a render pass instance
-
-- <a href="#VUID-vkCmdNextSubpass2-videocoding"
-  id="VUID-vkCmdNextSubpass2-videocoding"></a>
-  VUID-vkCmdNextSubpass2-videocoding  
+- [](#VUID-vkCmdNextSubpass2-videocoding)VUID-vkCmdNextSubpass2-videocoding  
   This command **must** only be called outside of a video coding scope
-
-- <a href="#VUID-vkCmdNextSubpass2-bufferlevel"
-  id="VUID-vkCmdNextSubpass2-bufferlevel"></a>
-  VUID-vkCmdNextSubpass2-bufferlevel  
+- [](#VUID-vkCmdNextSubpass2-bufferlevel)VUID-vkCmdNextSubpass2-bufferlevel  
   `commandBuffer` **must** be a primary `VkCommandBuffer`
 
 Host Synchronization
 
 - Host access to `commandBuffer` **must** be externally synchronized
-
-- Host access to the `VkCommandPool` that `commandBuffer` was allocated
-  from **must** be externally synchronized
+- Host access to the `VkCommandPool` that `commandBuffer` was allocated from **must** be externally synchronized
 
 Command Properties
 
-<table class="tableblock frame-all grid-all stretch">
-<colgroup>
-<col style="width: 20%" />
-<col style="width: 20%" />
-<col style="width: 20%" />
-<col style="width: 20%" />
-<col style="width: 20%" />
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-top"><a
-href="#VkCommandBufferLevel">Command Buffer Levels</a></th>
-<th class="tableblock halign-left valign-top"><a
-href="#vkCmdBeginRenderPass">Render Pass Scope</a></th>
-<th class="tableblock halign-left valign-top"><a
-href="#vkCmdBeginVideoCodingKHR">Video Coding Scope</a></th>
-<th class="tableblock halign-left valign-top"><a
-href="#VkQueueFlagBits">Supported Queue Types</a></th>
-<th class="tableblock halign-left valign-top"><a
-href="#fundamentals-queueoperation-command-types">Command Type</a></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p>Primary</p></td>
-<td class="tableblock halign-left valign-top"><p>Inside</p></td>
-<td class="tableblock halign-left valign-top"><p>Outside</p></td>
-<td class="tableblock halign-left valign-top"><p>Graphics</p></td>
-<td class="tableblock halign-left valign-top"><p>Action<br />
-State<br />
-Synchronization</p></td>
-</tr>
-</tbody>
-</table>
+     [Command Buffer Levels](#VkCommandBufferLevel) [Render Pass Scope](#vkCmdBeginRenderPass) [Video Coding Scope](#vkCmdBeginVideoCodingKHR) [Supported Queue Types](#VkQueueFlagBits) [Command Type](#fundamentals-queueoperation-command-types)
 
-## <a href="#_see_also" class="anchor"></a>See Also
+Primary
 
-[VK_KHR_create_renderpass2](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_KHR_create_renderpass2.html),
-[VK_VERSION_1_2](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_VERSION_1_2.html),
-[VkCommandBuffer](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkCommandBuffer.html),
-[VkSubpassBeginInfo](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkSubpassBeginInfo.html),
-[VkSubpassEndInfo](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkSubpassEndInfo.html)
+Inside
 
-## <a href="#_document_notes" class="anchor"></a>Document Notes
+Outside
 
-For more information, see the <a
-href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#vkCmdNextSubpass2"
-target="_blank" rel="noopener">Vulkan Specification</a>
+Graphics
 
-This page is extracted from the Vulkan Specification. Fixes and changes
-should be made to the Specification, not directly.
+Action  
+State  
+Synchronization
 
-## <a href="#_copyright" class="anchor"></a>Copyright
+## [](#_see_also)See Also
 
-Copyright 2014-2024 The Khronos Group Inc.
+[VK\_KHR\_create\_renderpass2](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_KHR_create_renderpass2.html), [VK\_VERSION\_1\_2](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_VERSION_1_2.html), [VkCommandBuffer](https://registry.khronos.org/vulkan/specs/latest/man/html/VkCommandBuffer.html), [VkSubpassBeginInfo](https://registry.khronos.org/vulkan/specs/latest/man/html/VkSubpassBeginInfo.html), [VkSubpassEndInfo](https://registry.khronos.org/vulkan/specs/latest/man/html/VkSubpassEndInfo.html)
+
+## [](#_document_notes)Document Notes
+
+For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#vkCmdNextSubpass2)
+
+This page is extracted from the Vulkan Specification. Fixes and changes should be made to the Specification, not directly.
+
+## [](#_copyright)Copyright
+
+Copyright 2014-2025 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
-
-Version 1.3.290  
-Last updated 2024-07-11 23:39:16 -0700

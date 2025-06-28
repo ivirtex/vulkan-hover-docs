@@ -1,93 +1,97 @@
-# VK_EXT_layer_settings(3) Manual Page
+# VK\_EXT\_layer\_settings(3) Manual Page
 
 ## Name
 
-VK_EXT_layer_settings - instance extension
+VK\_EXT\_layer\_settings - instance extension
 
 
 
-## <a href="#_registered_extension_number" class="anchor"></a>Registered Extension Number
+## [](#_registered_extension_number)Registered Extension Number
 
 497
 
-## <a href="#_revision" class="anchor"></a>Revision
+## [](#_revision)Revision
 
 2
 
-## <a href="#_ratification_status" class="anchor"></a>Ratification Status
+## [](#_ratification_status)Ratification Status
 
 Ratified
 
-## <a href="#_extension_and_version_dependencies" class="anchor"></a>Extension and Version Dependencies
+## [](#_extension_and_version_dependencies)Extension and Version Dependencies
 
 None
 
-## <a href="#_contact" class="anchor"></a>Contact
+## [](#_contact)Contact
 
-- Christophe Riccio <a
-  href="https://github.com/KhronosGroup/Vulkan-Docs/issues/new?body=%5BVK_EXT_layer_settings%5D%20@christophe%0A*Here%20describe%20the%20issue%20or%20question%20you%20have%20about%20the%20VK_EXT_layer_settings%20extension*"
-  target="_blank" rel="nofollow noopener"><em></em>christophe</a>
+- Christophe Riccio [\[GitHub\]christophe](https://github.com/KhronosGroup/Vulkan-Docs/issues/new?body=%5BVK_EXT_layer_settings%5D%20%40christophe%0A%2AHere%20describe%20the%20issue%20or%20question%20you%20have%20about%20the%20VK_EXT_layer_settings%20extension%2A)
 
-## <a href="#_extension_proposal" class="anchor"></a>Extension Proposal
+## [](#_extension_proposal)Extension Proposal
 
-[VK_EXT_layer_settings](https://github.com/KhronosGroup/Vulkan-Docs/tree/main/proposals/VK_EXT_layer_settings.adoc)
+[VK\_EXT\_layer\_settings](https://github.com/KhronosGroup/Vulkan-Docs/tree/main/proposals/VK_EXT_layer_settings.adoc)
 
-## <a href="#_other_extension_metadata" class="anchor"></a>Other Extension Metadata
+## [](#_other_extension_metadata)Other Extension Metadata
 
-**Last Modified Date**  
+**Last Modified Date**
+
 2023-09-23
 
-**IP Status**  
+**IP Status**
+
 No known IP claims.
 
-**Contributors**  
+**Contributors**
+
 - Christophe Riccio, LunarG
-
 - Mark Lobodzinski, LunarG
-
 - Charles Giessen, LunarG
-
 - Spencer Fricke, LunarG
-
 - Juan Ramos, LunarG
-
 - Daniel Rakos, RasterGrid
-
 - Shahbaz Youssefi, Google
-
 - Lina Versace, Google
-
 - Bill Hollings, The Brenwill Workshop
-
 - Jon Leech, Khronos
-
 - Tom Olson, Arm
 
-## <a href="#_description" class="anchor"></a>Description
+## [](#_description)Description
 
-This extension provides a mechanism for configuring programmatically
-through the Vulkan API the behavior of layers.
+This extension provides a mechanism for configuring programmatically through the Vulkan API the behavior of layers.
 
-This extension provides the
-[VkLayerSettingsCreateInfoEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkLayerSettingsCreateInfoEXT.html) struct
-that can be included in the `pNext` chain of the
-[VkInstanceCreateInfo](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkInstanceCreateInfo.html) structure passed as
-the `pCreateInfo` parameter of
-[vkCreateInstance](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCreateInstance.html).
+This extension provides the [VkLayerSettingsCreateInfoEXT](https://registry.khronos.org/vulkan/specs/latest/man/html/VkLayerSettingsCreateInfoEXT.html) structure that can be included in the `pNext` chain of the [VkInstanceCreateInfo](https://registry.khronos.org/vulkan/specs/latest/man/html/VkInstanceCreateInfo.html) structure passed as the `pCreateInfo` parameter of [vkCreateInstance](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCreateInstance.html).
 
-The structure contains an array of
-[VkLayerSettingEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkLayerSettingEXT.html) structure values that
-configure specific features of layers.
+The structure contains an array of [VkLayerSettingEXT](https://registry.khronos.org/vulkan/specs/latest/man/html/VkLayerSettingEXT.html) structure values that configure specific features of layers.
 
-## <a href="#_example" class="anchor"></a>Example
+Note
 
-`VK_EXT_layer_settings` is implemented by the Vulkan Profiles layer.
+The `VK_EXT_layer_settings` extension subsumes all the functionality provided in the `VK_EXT_validation_flags` extension and the `VK_EXT_validation_features` extension.
 
-It allows the profiles layer tests used by the profiles layer C.I. to
-programmatically configure the layer for each test without affecting the
-C.I. environment, allowing to run multiple tests concurrently.
+## [](#_new_structures)New Structures
 
-``` c
+- [VkLayerSettingEXT](https://registry.khronos.org/vulkan/specs/latest/man/html/VkLayerSettingEXT.html)
+- Extending [VkInstanceCreateInfo](https://registry.khronos.org/vulkan/specs/latest/man/html/VkInstanceCreateInfo.html):
+  
+  - [VkLayerSettingsCreateInfoEXT](https://registry.khronos.org/vulkan/specs/latest/man/html/VkLayerSettingsCreateInfoEXT.html)
+
+## [](#_new_enums)New Enums
+
+- [VkLayerSettingTypeEXT](https://registry.khronos.org/vulkan/specs/latest/man/html/VkLayerSettingTypeEXT.html)
+
+## [](#_new_enum_constants)New Enum Constants
+
+- `VK_EXT_LAYER_SETTINGS_EXTENSION_NAME`
+- `VK_EXT_LAYER_SETTINGS_SPEC_VERSION`
+- Extending [VkStructureType](https://registry.khronos.org/vulkan/specs/latest/man/html/VkStructureType.html):
+  
+  - `VK_STRUCTURE_TYPE_LAYER_SETTINGS_CREATE_INFO_EXT`
+
+## [](#_example)Example
+
+One example usage of `VK_EXT_layer_settings` is as implemented by the Vulkan Profiles layer.
+
+It allows the profiles layer tests used by the profiles layer C.I. to programmatically configure the layer for each test without affecting the C.I. environment, allowing to run multiple tests concurrently.
+
+```c++
 const char* profile_file_data = JSON_TEST_FILES_PATH "VP_KHR_roadmap_2022.json";
 const char* profile_name_data = "VP_KHR_roadmap_2022";
 VkBool32 emulate_portability_data = VK_TRUE;
@@ -126,85 +130,33 @@ inst_create_info.pNext = &layer_settings_create_info;
 vkCreateInstance(&inst_create_info, nullptr, &_instances);
 ```
 
-<table>
-<colgroup>
-<col style="width: 50%" />
-<col style="width: 50%" />
-</colgroup>
-<tbody>
-<tr>
-<td class="icon"><em></em></td>
-<td class="content">Note
-<p>The <a
-href="VK_EXT_layer_settings.html"><code>VK_EXT_layer_settings</code></a>
-extension subsumes all the functionality provided in the <a
-href="VK_EXT_validation_flags.html"><code>VK_EXT_validation_flags</code></a>
-extension and the <a
-href="VK_EXT_validation_features.html"><code>VK_EXT_validation_features</code></a>
-extension.</p></td>
-</tr>
-</tbody>
-</table>
+## [](#_issues)Issues
 
-## <a href="#_new_structures" class="anchor"></a>New Structures
+- How should application developers figure out the list of available settings?
 
-- [VkLayerSettingEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkLayerSettingEXT.html)
+This extension does not provide a reflection API for layer settings. Layer settings are described in each layer JSON manifest and the documentation of each layer which implements this extension.
 
-- Extending [VkInstanceCreateInfo](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkInstanceCreateInfo.html):
-
-  - [VkLayerSettingsCreateInfoEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkLayerSettingsCreateInfoEXT.html)
-
-## <a href="#_new_enums" class="anchor"></a>New Enums
-
-- [VkLayerSettingTypeEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkLayerSettingTypeEXT.html)
-
-## <a href="#_new_enum_constants" class="anchor"></a>New Enum Constants
-
-- `VK_EXT_LAYER_SETTINGS_EXTENSION_NAME`
-
-- `VK_EXT_LAYER_SETTINGS_SPEC_VERSION`
-
-- Extending [VkStructureType](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkStructureType.html):
-
-  - `VK_STRUCTURE_TYPE_LAYER_SETTINGS_CREATE_INFO_EXT`
-
-## <a href="#_issues" class="anchor"></a>Issues
-
-- How should application developers figure out the list of available
-  settings?
-
-This extension does not provide a reflection API for layer settings.
-Layer settings are described in each layer JSON manifest and the
-documentation of each layer which implements this extension.
-
-## <a href="#_version_history" class="anchor"></a>Version History
+## [](#_version_history)Version History
 
 - Revision 1, 2020-06-17 (Mark Lobodzinski)
-
+  
   - Initial revision for Validation layer internal usages
-
 - Revision 2, 2023-09-26 (Christophe Riccio)
-
+  
   - Refactor APIs for any layer usages and public release
 
-## <a href="#_see_also" class="anchor"></a>See Also
+## [](#_see_also)See Also
 
 No cross-references are available
 
-## <a href="#_document_notes" class="anchor"></a>Document Notes
+## [](#_document_notes)Document Notes
 
-For more information, see the <a
-href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#VK_EXT_layer_settings"
-target="_blank" rel="noopener">Vulkan Specification</a>
+For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#VK_EXT_layer_settings)
 
-This page is a generated document. Fixes and changes should be made to
-the generator scripts, not directly.
+This page is a generated document. Fixes and changes should be made to the generator scripts, not directly.
 
-## <a href="#_copyright" class="anchor"></a>Copyright
+## [](#_copyright)Copyright
 
-Copyright 2014-2024 The Khronos Group Inc.
+Copyright 2014-2025 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
-
-Version 1.3.290  
-Last updated 2024-07-11 23:39:16 -0700

@@ -1,75 +1,76 @@
-# VkQueueGlobalPriorityKHR(3) Manual Page
+# VkQueueGlobalPriority(3) Manual Page
 
 ## Name
 
-VkQueueGlobalPriorityKHR - Values specifying a system-wide queue
-priority
+VkQueueGlobalPriority - Values specifying a system-wide queue priority
 
 
 
-## <a href="#_c_specification" class="anchor"></a>C Specification
+## [](#_c_specification)C Specification
 
-Possible values of
-[VkDeviceQueueGlobalPriorityCreateInfoKHR](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkDeviceQueueGlobalPriorityCreateInfoKHR.html)::`globalPriority`,
-specifying a system-wide priority level are:
+Possible values of [VkDeviceQueueGlobalPriorityCreateInfo](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDeviceQueueGlobalPriorityCreateInfo.html)::`globalPriority`, specifying a system-wide priority level are:
 
-``` c
-// Provided by VK_KHR_global_priority
-typedef enum VkQueueGlobalPriorityKHR {
-    VK_QUEUE_GLOBAL_PRIORITY_LOW_KHR = 128,
-    VK_QUEUE_GLOBAL_PRIORITY_MEDIUM_KHR = 256,
-    VK_QUEUE_GLOBAL_PRIORITY_HIGH_KHR = 512,
-    VK_QUEUE_GLOBAL_PRIORITY_REALTIME_KHR = 1024,
-    VK_QUEUE_GLOBAL_PRIORITY_LOW_EXT = VK_QUEUE_GLOBAL_PRIORITY_LOW_KHR,
-    VK_QUEUE_GLOBAL_PRIORITY_MEDIUM_EXT = VK_QUEUE_GLOBAL_PRIORITY_MEDIUM_KHR,
-    VK_QUEUE_GLOBAL_PRIORITY_HIGH_EXT = VK_QUEUE_GLOBAL_PRIORITY_HIGH_KHR,
-    VK_QUEUE_GLOBAL_PRIORITY_REALTIME_EXT = VK_QUEUE_GLOBAL_PRIORITY_REALTIME_KHR,
-} VkQueueGlobalPriorityKHR;
+```c++
+// Provided by VK_VERSION_1_4
+typedef enum VkQueueGlobalPriority {
+    VK_QUEUE_GLOBAL_PRIORITY_LOW = 128,
+    VK_QUEUE_GLOBAL_PRIORITY_MEDIUM = 256,
+    VK_QUEUE_GLOBAL_PRIORITY_HIGH = 512,
+    VK_QUEUE_GLOBAL_PRIORITY_REALTIME = 1024,
+  // Provided by VK_EXT_global_priority
+    VK_QUEUE_GLOBAL_PRIORITY_LOW_EXT = VK_QUEUE_GLOBAL_PRIORITY_LOW,
+  // Provided by VK_EXT_global_priority
+    VK_QUEUE_GLOBAL_PRIORITY_MEDIUM_EXT = VK_QUEUE_GLOBAL_PRIORITY_MEDIUM,
+  // Provided by VK_EXT_global_priority
+    VK_QUEUE_GLOBAL_PRIORITY_HIGH_EXT = VK_QUEUE_GLOBAL_PRIORITY_HIGH,
+  // Provided by VK_EXT_global_priority
+    VK_QUEUE_GLOBAL_PRIORITY_REALTIME_EXT = VK_QUEUE_GLOBAL_PRIORITY_REALTIME,
+  // Provided by VK_KHR_global_priority
+    VK_QUEUE_GLOBAL_PRIORITY_LOW_KHR = VK_QUEUE_GLOBAL_PRIORITY_LOW,
+  // Provided by VK_KHR_global_priority
+    VK_QUEUE_GLOBAL_PRIORITY_MEDIUM_KHR = VK_QUEUE_GLOBAL_PRIORITY_MEDIUM,
+  // Provided by VK_KHR_global_priority
+    VK_QUEUE_GLOBAL_PRIORITY_HIGH_KHR = VK_QUEUE_GLOBAL_PRIORITY_HIGH,
+  // Provided by VK_KHR_global_priority
+    VK_QUEUE_GLOBAL_PRIORITY_REALTIME_KHR = VK_QUEUE_GLOBAL_PRIORITY_REALTIME,
+} VkQueueGlobalPriority;
 ```
 
 or the equivalent
 
-``` c
-// Provided by VK_EXT_global_priority
-typedef VkQueueGlobalPriorityKHR VkQueueGlobalPriorityEXT;
+```c++
+// Provided by VK_KHR_global_priority
+typedef VkQueueGlobalPriority VkQueueGlobalPriorityKHR;
 ```
 
-## <a href="#_description" class="anchor"></a>Description
+or the equivalent
 
-Priority values are sorted in ascending order. A comparison operation on
-the enum values can be used to determine the priority order.
+```c++
+// Provided by VK_EXT_global_priority
+typedef VkQueueGlobalPriority VkQueueGlobalPriorityEXT;
+```
 
-- `VK_QUEUE_GLOBAL_PRIORITY_LOW_KHR` is below the system default. Useful
-  for non-interactive tasks.
+## [](#_description)Description
 
-- `VK_QUEUE_GLOBAL_PRIORITY_MEDIUM_KHR` is the system default priority.
+Priority values are sorted in ascending order. A comparison operation on the enum values can be used to determine the priority order.
 
-- `VK_QUEUE_GLOBAL_PRIORITY_HIGH_KHR` is above the system default.
+- `VK_QUEUE_GLOBAL_PRIORITY_LOW` is below the system default. Useful for non-interactive tasks.
+- `VK_QUEUE_GLOBAL_PRIORITY_MEDIUM` is the system default priority.
+- `VK_QUEUE_GLOBAL_PRIORITY_HIGH` is above the system default.
+- `VK_QUEUE_GLOBAL_PRIORITY_REALTIME` is the highest priority. Useful for critical tasks.
 
-- `VK_QUEUE_GLOBAL_PRIORITY_REALTIME_KHR` is the highest priority.
-  Useful for critical tasks.
+## [](#_see_also)See Also
 
-## <a href="#_see_also" class="anchor"></a>See Also
+[VK\_EXT\_global\_priority](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_EXT_global_priority.html), [VK\_KHR\_global\_priority](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_KHR_global_priority.html), [VK\_VERSION\_1\_4](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_VERSION_1_4.html), [VkDeviceQueueGlobalPriorityCreateInfo](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDeviceQueueGlobalPriorityCreateInfo.html), [VkQueueFamilyGlobalPriorityProperties](https://registry.khronos.org/vulkan/specs/latest/man/html/VkQueueFamilyGlobalPriorityProperties.html)
 
-[VK_EXT_global_priority](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_EXT_global_priority.html),
-[VK_KHR_global_priority](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_KHR_global_priority.html),
-[VkDeviceQueueGlobalPriorityCreateInfoKHR](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkDeviceQueueGlobalPriorityCreateInfoKHR.html),
-[VkQueueFamilyGlobalPriorityPropertiesKHR](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkQueueFamilyGlobalPriorityPropertiesKHR.html)
+## [](#_document_notes)Document Notes
 
-## <a href="#_document_notes" class="anchor"></a>Document Notes
+For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#VkQueueGlobalPriority)
 
-For more information, see the <a
-href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#VkQueueGlobalPriorityKHR"
-target="_blank" rel="noopener">Vulkan Specification</a>
+This page is extracted from the Vulkan Specification. Fixes and changes should be made to the Specification, not directly.
 
-This page is extracted from the Vulkan Specification. Fixes and changes
-should be made to the Specification, not directly.
+## [](#_copyright)Copyright
 
-## <a href="#_copyright" class="anchor"></a>Copyright
-
-Copyright 2014-2024 The Khronos Group Inc.
+Copyright 2014-2025 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
-
-Version 1.3.290  
-Last updated 2024-07-11 23:39:16 -0700

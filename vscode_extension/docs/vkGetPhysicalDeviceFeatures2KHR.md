@@ -6,11 +6,11 @@ vkGetPhysicalDeviceFeatures2 - Reports capabilities of a physical device
 
 
 
-## <a href="#_c_specification" class="anchor"></a>C Specification
+## [](#_c_specification)C Specification
 
 To query supported features defined by the core or extensions, call:
 
-``` c
+```c++
 // Provided by VK_VERSION_1_1
 void vkGetPhysicalDeviceFeatures2(
     VkPhysicalDevice                            physicalDevice,
@@ -19,63 +19,41 @@ void vkGetPhysicalDeviceFeatures2(
 
 or the equivalent command
 
-``` c
+```c++
 // Provided by VK_KHR_get_physical_device_properties2
 void vkGetPhysicalDeviceFeatures2KHR(
     VkPhysicalDevice                            physicalDevice,
     VkPhysicalDeviceFeatures2*                  pFeatures);
 ```
 
-## <a href="#_parameters" class="anchor"></a>Parameters
+## [](#_parameters)Parameters
 
-- `physicalDevice` is the physical device from which to query the
-  supported features.
+- `physicalDevice` is the physical device from which to query the supported features.
+- `pFeatures` is a pointer to a [VkPhysicalDeviceFeatures2](https://registry.khronos.org/vulkan/specs/latest/man/html/VkPhysicalDeviceFeatures2.html) structure in which the physical device features are returned.
 
-- `pFeatures` is a pointer to a
-  [VkPhysicalDeviceFeatures2](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkPhysicalDeviceFeatures2.html) structure
-  in which the physical device features are returned.
+## [](#_description)Description
 
-## <a href="#_description" class="anchor"></a>Description
-
-Each structure in `pFeatures` and its `pNext` chain contains members
-corresponding to fine-grained features. `vkGetPhysicalDeviceFeatures2`
-writes each member to a boolean value indicating whether that feature is
-supported.
+Each structure in `pFeatures` and its `pNext` chain contains members corresponding to fine-grained features. Each structure in `pFeatures` and its `pNext` chain contains [VkBool32](https://registry.khronos.org/vulkan/specs/latest/man/html/VkBool32.html) members corresponding to fine-grained features. Each such member is returned with a `VK_TRUE` value indicating that feature is supported on this physical device, or a `VK_FALSE` value indicating it is unsupported.
 
 Valid Usage (Implicit)
 
-- <a href="#VUID-vkGetPhysicalDeviceFeatures2-physicalDevice-parameter"
-  id="VUID-vkGetPhysicalDeviceFeatures2-physicalDevice-parameter"></a>
-  VUID-vkGetPhysicalDeviceFeatures2-physicalDevice-parameter  
-  `physicalDevice` **must** be a valid
-  [VkPhysicalDevice](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkPhysicalDevice.html) handle
+- [](#VUID-vkGetPhysicalDeviceFeatures2-physicalDevice-parameter)VUID-vkGetPhysicalDeviceFeatures2-physicalDevice-parameter  
+  `physicalDevice` **must** be a valid [VkPhysicalDevice](https://registry.khronos.org/vulkan/specs/latest/man/html/VkPhysicalDevice.html) handle
+- [](#VUID-vkGetPhysicalDeviceFeatures2-pFeatures-parameter)VUID-vkGetPhysicalDeviceFeatures2-pFeatures-parameter  
+  `pFeatures` **must** be a valid pointer to a [VkPhysicalDeviceFeatures2](https://registry.khronos.org/vulkan/specs/latest/man/html/VkPhysicalDeviceFeatures2.html) structure
 
-- <a href="#VUID-vkGetPhysicalDeviceFeatures2-pFeatures-parameter"
-  id="VUID-vkGetPhysicalDeviceFeatures2-pFeatures-parameter"></a>
-  VUID-vkGetPhysicalDeviceFeatures2-pFeatures-parameter  
-  `pFeatures` **must** be a valid pointer to a
-  [VkPhysicalDeviceFeatures2](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkPhysicalDeviceFeatures2.html) structure
+## [](#_see_also)See Also
 
-## <a href="#_see_also" class="anchor"></a>See Also
+[VK\_VERSION\_1\_1](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_VERSION_1_1.html), [VkPhysicalDevice](https://registry.khronos.org/vulkan/specs/latest/man/html/VkPhysicalDevice.html), [VkPhysicalDeviceFeatures2](https://registry.khronos.org/vulkan/specs/latest/man/html/VkPhysicalDeviceFeatures2.html)
 
-[VK_VERSION_1_1](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_VERSION_1_1.html),
-[VkPhysicalDevice](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkPhysicalDevice.html),
-[VkPhysicalDeviceFeatures2](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkPhysicalDeviceFeatures2.html)
+## [](#_document_notes)Document Notes
 
-## <a href="#_document_notes" class="anchor"></a>Document Notes
+For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#vkGetPhysicalDeviceFeatures2)
 
-For more information, see the <a
-href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#vkGetPhysicalDeviceFeatures2"
-target="_blank" rel="noopener">Vulkan Specification</a>
+This page is extracted from the Vulkan Specification. Fixes and changes should be made to the Specification, not directly.
 
-This page is extracted from the Vulkan Specification. Fixes and changes
-should be made to the Specification, not directly.
+## [](#_copyright)Copyright
 
-## <a href="#_copyright" class="anchor"></a>Copyright
-
-Copyright 2014-2024 The Khronos Group Inc.
+Copyright 2014-2025 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
-
-Version 1.3.290  
-Last updated 2024-07-11 23:39:16 -0700

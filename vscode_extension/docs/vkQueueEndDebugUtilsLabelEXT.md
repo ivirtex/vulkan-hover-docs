@@ -6,66 +6,64 @@ vkQueueEndDebugUtilsLabelEXT - Close a queue debug label region
 
 
 
-## <a href="#_c_specification" class="anchor"></a>C Specification
+## [](#_c_specification)C Specification
 
 A queue debug label region is closed by calling:
 
-``` c
+```c++
 // Provided by VK_EXT_debug_utils
 void vkQueueEndDebugUtilsLabelEXT(
     VkQueue                                     queue);
 ```
 
-## <a href="#_parameters" class="anchor"></a>Parameters
+## [](#_parameters)Parameters
 
 - `queue` is the queue in which a debug label region should be closed.
 
-## <a href="#_description" class="anchor"></a>Description
+## [](#_description)Description
 
-The calls to
-[vkQueueBeginDebugUtilsLabelEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkQueueBeginDebugUtilsLabelEXT.html)
-and [vkQueueEndDebugUtilsLabelEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkQueueEndDebugUtilsLabelEXT.html)
-**must** be matched and balanced.
+The calls to [vkQueueBeginDebugUtilsLabelEXT](https://registry.khronos.org/vulkan/specs/latest/man/html/vkQueueBeginDebugUtilsLabelEXT.html) and [vkQueueEndDebugUtilsLabelEXT](https://registry.khronos.org/vulkan/specs/latest/man/html/vkQueueEndDebugUtilsLabelEXT.html) **must** be matched and balanced.
 
 Valid Usage
 
-- <a href="#VUID-vkQueueEndDebugUtilsLabelEXT-None-01911"
-  id="VUID-vkQueueEndDebugUtilsLabelEXT-None-01911"></a>
-  VUID-vkQueueEndDebugUtilsLabelEXT-None-01911  
-  There **must** be an outstanding `vkQueueBeginDebugUtilsLabelEXT`
-  command prior to the `vkQueueEndDebugUtilsLabelEXT` on the queue
+- [](#VUID-vkQueueEndDebugUtilsLabelEXT-None-01911)VUID-vkQueueEndDebugUtilsLabelEXT-None-01911  
+  There **must** be an outstanding `vkQueueBeginDebugUtilsLabelEXT` command prior to the `vkQueueEndDebugUtilsLabelEXT` on the queue
 
 Valid Usage (Implicit)
 
-- <a href="#VUID-vkQueueEndDebugUtilsLabelEXT-queue-parameter"
-  id="VUID-vkQueueEndDebugUtilsLabelEXT-queue-parameter"></a>
-  VUID-vkQueueEndDebugUtilsLabelEXT-queue-parameter  
-  `queue` **must** be a valid [VkQueue](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkQueue.html) handle
+- [](#VUID-vkQueueEndDebugUtilsLabelEXT-queue-parameter)VUID-vkQueueEndDebugUtilsLabelEXT-queue-parameter  
+  `queue` **must** be a valid [VkQueue](https://registry.khronos.org/vulkan/specs/latest/man/html/VkQueue.html) handle
+
+Host Synchronization
+
+- Host access to `queue` **must** be externally synchronized
 
 Command Properties
 
-| [Command Buffer Levels](#VkCommandBufferLevel) | [Render Pass Scope](#vkCmdBeginRenderPass) | [Video Coding Scope](#vkCmdBeginVideoCodingKHR) | [Supported Queue Types](#VkQueueFlagBits) | [Command Type](#fundamentals-queueoperation-command-types) |
-|----|----|----|----|----|
-| \- | \- | \- | Any | \- |
+     [Command Buffer Levels](#VkCommandBufferLevel) [Render Pass Scope](#vkCmdBeginRenderPass) [Video Coding Scope](#vkCmdBeginVideoCodingKHR) [Supported Queue Types](#VkQueueFlagBits) [Command Type](#fundamentals-queueoperation-command-types)
 
-## <a href="#_see_also" class="anchor"></a>See Also
+\-
 
-[VK_EXT_debug_utils](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_EXT_debug_utils.html), [VkQueue](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkQueue.html)
+\-
 
-## <a href="#_document_notes" class="anchor"></a>Document Notes
+\-
 
-For more information, see the <a
-href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#vkQueueEndDebugUtilsLabelEXT"
-target="_blank" rel="noopener">Vulkan Specification</a>
+Any
 
-This page is extracted from the Vulkan Specification. Fixes and changes
-should be made to the Specification, not directly.
+\-
 
-## <a href="#_copyright" class="anchor"></a>Copyright
+## [](#_see_also)See Also
 
-Copyright 2014-2024 The Khronos Group Inc.
+[VK\_EXT\_debug\_utils](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_EXT_debug_utils.html), [VkQueue](https://registry.khronos.org/vulkan/specs/latest/man/html/VkQueue.html)
+
+## [](#_document_notes)Document Notes
+
+For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#vkQueueEndDebugUtilsLabelEXT)
+
+This page is extracted from the Vulkan Specification. Fixes and changes should be made to the Specification, not directly.
+
+## [](#_copyright)Copyright
+
+Copyright 2014-2025 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
-
-Version 1.3.290  
-Last updated 2024-07-11 23:39:16 -0700

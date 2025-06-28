@@ -6,11 +6,11 @@ vkSetHdrMetadataEXT - Set HDR metadata
 
 
 
-## <a href="#_c_specification" class="anchor"></a>C Specification
+## [](#_c_specification)C Specification
 
 To provide HDR metadata to an implementation, call:
 
-``` c
+```c++
 // Provided by VK_EXT_hdr_metadata
 void vkSetHdrMetadataEXT(
     VkDevice                                    device,
@@ -19,78 +19,42 @@ void vkSetHdrMetadataEXT(
     const VkHdrMetadataEXT*                     pMetadata);
 ```
 
-## <a href="#_parameters" class="anchor"></a>Parameters
+## [](#_parameters)Parameters
 
 - `device` is the logical device where the swapchain(s) were created.
+- `swapchainCount` is the number of swapchains included in `pSwapchains`.
+- `pSwapchains` is a pointer to an array of `swapchainCount` [VkSwapchainKHR](https://registry.khronos.org/vulkan/specs/latest/man/html/VkSwapchainKHR.html) handles.
+- `pMetadata` is a pointer to an array of `swapchainCount` [VkHdrMetadataEXT](https://registry.khronos.org/vulkan/specs/latest/man/html/VkHdrMetadataEXT.html) structures.
 
-- `swapchainCount` is the number of swapchains included in
-  `pSwapchains`.
+## [](#_description)Description
 
-- `pSwapchains` is a pointer to an array of `swapchainCount`
-  [VkSwapchainKHR](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkSwapchainKHR.html) handles.
-
-- `pMetadata` is a pointer to an array of `swapchainCount`
-  [VkHdrMetadataEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkHdrMetadataEXT.html) structures.
-
-## <a href="#_description" class="anchor"></a>Description
-
-The metadata will be applied to the specified
-[VkSwapchainKHR](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkSwapchainKHR.html) objects at the next
-[vkQueuePresentKHR](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkQueuePresentKHR.html) call using that
-[VkSwapchainKHR](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkSwapchainKHR.html) object. The metadata will persist
-until a subsequent `vkSetHdrMetadataEXT` changes it.
+The metadata will be applied to the specified [VkSwapchainKHR](https://registry.khronos.org/vulkan/specs/latest/man/html/VkSwapchainKHR.html) objects at the next [vkQueuePresentKHR](https://registry.khronos.org/vulkan/specs/latest/man/html/vkQueuePresentKHR.html) call using that [VkSwapchainKHR](https://registry.khronos.org/vulkan/specs/latest/man/html/VkSwapchainKHR.html) object. The metadata will persist until a subsequent `vkSetHdrMetadataEXT` changes it.
 
 Valid Usage (Implicit)
 
-- <a href="#VUID-vkSetHdrMetadataEXT-device-parameter"
-  id="VUID-vkSetHdrMetadataEXT-device-parameter"></a>
-  VUID-vkSetHdrMetadataEXT-device-parameter  
-  `device` **must** be a valid [VkDevice](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkDevice.html) handle
-
-- <a href="#VUID-vkSetHdrMetadataEXT-pSwapchains-parameter"
-  id="VUID-vkSetHdrMetadataEXT-pSwapchains-parameter"></a>
-  VUID-vkSetHdrMetadataEXT-pSwapchains-parameter  
-  `pSwapchains` **must** be a valid pointer to an array of
-  `swapchainCount` valid [VkSwapchainKHR](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkSwapchainKHR.html) handles
-
-- <a href="#VUID-vkSetHdrMetadataEXT-pMetadata-parameter"
-  id="VUID-vkSetHdrMetadataEXT-pMetadata-parameter"></a>
-  VUID-vkSetHdrMetadataEXT-pMetadata-parameter  
-  `pMetadata` **must** be a valid pointer to an array of
-  `swapchainCount` valid [VkHdrMetadataEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkHdrMetadataEXT.html)
-  structures
-
-- <a href="#VUID-vkSetHdrMetadataEXT-swapchainCount-arraylength"
-  id="VUID-vkSetHdrMetadataEXT-swapchainCount-arraylength"></a>
-  VUID-vkSetHdrMetadataEXT-swapchainCount-arraylength  
+- [](#VUID-vkSetHdrMetadataEXT-device-parameter)VUID-vkSetHdrMetadataEXT-device-parameter  
+  `device` **must** be a valid [VkDevice](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDevice.html) handle
+- [](#VUID-vkSetHdrMetadataEXT-pSwapchains-parameter)VUID-vkSetHdrMetadataEXT-pSwapchains-parameter  
+  `pSwapchains` **must** be a valid pointer to an array of `swapchainCount` valid [VkSwapchainKHR](https://registry.khronos.org/vulkan/specs/latest/man/html/VkSwapchainKHR.html) handles
+- [](#VUID-vkSetHdrMetadataEXT-pMetadata-parameter)VUID-vkSetHdrMetadataEXT-pMetadata-parameter  
+  `pMetadata` **must** be a valid pointer to an array of `swapchainCount` valid [VkHdrMetadataEXT](https://registry.khronos.org/vulkan/specs/latest/man/html/VkHdrMetadataEXT.html) structures
+- [](#VUID-vkSetHdrMetadataEXT-swapchainCount-arraylength)VUID-vkSetHdrMetadataEXT-swapchainCount-arraylength  
   `swapchainCount` **must** be greater than `0`
+- [](#VUID-vkSetHdrMetadataEXT-pSwapchains-parent)VUID-vkSetHdrMetadataEXT-pSwapchains-parent  
+  Each element of `pSwapchains` **must** have been created, allocated, or retrieved from `device`
 
-- <a href="#VUID-vkSetHdrMetadataEXT-pSwapchains-parent"
-  id="VUID-vkSetHdrMetadataEXT-pSwapchains-parent"></a>
-  VUID-vkSetHdrMetadataEXT-pSwapchains-parent  
-  Each element of `pSwapchains` **must** have been created, allocated,
-  or retrieved from `device`
+## [](#_see_also)See Also
 
-## <a href="#_see_also" class="anchor"></a>See Also
+[VK\_EXT\_hdr\_metadata](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_EXT_hdr_metadata.html), [VkDevice](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDevice.html), [VkHdrMetadataEXT](https://registry.khronos.org/vulkan/specs/latest/man/html/VkHdrMetadataEXT.html), [VkSwapchainKHR](https://registry.khronos.org/vulkan/specs/latest/man/html/VkSwapchainKHR.html)
 
-[VK_EXT_hdr_metadata](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_EXT_hdr_metadata.html),
-[VkDevice](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkDevice.html), [VkHdrMetadataEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkHdrMetadataEXT.html),
-[VkSwapchainKHR](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkSwapchainKHR.html)
+## [](#_document_notes)Document Notes
 
-## <a href="#_document_notes" class="anchor"></a>Document Notes
+For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#vkSetHdrMetadataEXT)
 
-For more information, see the <a
-href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#vkSetHdrMetadataEXT"
-target="_blank" rel="noopener">Vulkan Specification</a>
+This page is extracted from the Vulkan Specification. Fixes and changes should be made to the Specification, not directly.
 
-This page is extracted from the Vulkan Specification. Fixes and changes
-should be made to the Specification, not directly.
+## [](#_copyright)Copyright
 
-## <a href="#_copyright" class="anchor"></a>Copyright
-
-Copyright 2014-2024 The Khronos Group Inc.
+Copyright 2014-2025 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
-
-Version 1.3.290  
-Last updated 2024-07-11 23:39:16 -0700

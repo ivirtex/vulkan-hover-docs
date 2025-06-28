@@ -6,13 +6,11 @@ VkBorderColor - Specify border color used for texture lookups
 
 
 
-## <a href="#_c_specification" class="anchor"></a>C Specification
+## [](#_c_specification)C Specification
 
-Possible values of
-[VkSamplerCreateInfo](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkSamplerCreateInfo.html)::`borderColor`,
-specifying the border color used for texture lookups, are:
+Possible values of [VkSamplerCreateInfo](https://registry.khronos.org/vulkan/specs/latest/man/html/VkSamplerCreateInfo.html)::`borderColor`, specifying the border color used for texture lookups, are:
 
-``` c
+```c++
 // Provided by VK_VERSION_1_0
 typedef enum VkBorderColor {
     VK_BORDER_COLOR_FLOAT_TRANSPARENT_BLACK = 0,
@@ -28,61 +26,31 @@ typedef enum VkBorderColor {
 } VkBorderColor;
 ```
 
-## <a href="#_description" class="anchor"></a>Description
+## [](#_description)Description
 
-- `VK_BORDER_COLOR_FLOAT_TRANSPARENT_BLACK` specifies a transparent,
-  floating-point format, black color.
+- `VK_BORDER_COLOR_FLOAT_TRANSPARENT_BLACK` specifies a transparent, floating-point format, black color.
+- `VK_BORDER_COLOR_INT_TRANSPARENT_BLACK` specifies a transparent, integer format, black color.
+- `VK_BORDER_COLOR_FLOAT_OPAQUE_BLACK` specifies an opaque, floating-point format, black color.
+- `VK_BORDER_COLOR_INT_OPAQUE_BLACK` specifies an opaque, integer format, black color.
+- `VK_BORDER_COLOR_FLOAT_OPAQUE_WHITE` specifies an opaque, floating-point format, white color.
+- `VK_BORDER_COLOR_INT_OPAQUE_WHITE` specifies an opaque, integer format, white color.
+- `VK_BORDER_COLOR_FLOAT_CUSTOM_EXT` specifies that a [VkSamplerCustomBorderColorCreateInfoEXT](https://registry.khronos.org/vulkan/specs/latest/man/html/VkSamplerCustomBorderColorCreateInfoEXT.html) structure is included in the [VkSamplerCreateInfo](https://registry.khronos.org/vulkan/specs/latest/man/html/VkSamplerCreateInfo.html)::`pNext` chain containing the color data in floating-point format.
+- `VK_BORDER_COLOR_INT_CUSTOM_EXT` specifies that a [VkSamplerCustomBorderColorCreateInfoEXT](https://registry.khronos.org/vulkan/specs/latest/man/html/VkSamplerCustomBorderColorCreateInfoEXT.html) structure is included in the [VkSamplerCreateInfo](https://registry.khronos.org/vulkan/specs/latest/man/html/VkSamplerCreateInfo.html)::`pNext` chain containing the color data in integer format.
 
-- `VK_BORDER_COLOR_INT_TRANSPARENT_BLACK` specifies a transparent,
-  integer format, black color.
+These colors are described in detail in [Texel Replacement](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#textures-texel-replacement).
 
-- `VK_BORDER_COLOR_FLOAT_OPAQUE_BLACK` specifies an opaque,
-  floating-point format, black color.
+## [](#_see_also)See Also
 
-- `VK_BORDER_COLOR_INT_OPAQUE_BLACK` specifies an opaque, integer
-  format, black color.
+[VK\_VERSION\_1\_0](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_VERSION_1_0.html), [VkSamplerCreateInfo](https://registry.khronos.org/vulkan/specs/latest/man/html/VkSamplerCreateInfo.html)
 
-- `VK_BORDER_COLOR_FLOAT_OPAQUE_WHITE` specifies an opaque,
-  floating-point format, white color.
+## [](#_document_notes)Document Notes
 
-- `VK_BORDER_COLOR_INT_OPAQUE_WHITE` specifies an opaque, integer
-  format, white color.
+For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#VkBorderColor)
 
-- `VK_BORDER_COLOR_FLOAT_CUSTOM_EXT` indicates that a
-  [VkSamplerCustomBorderColorCreateInfoEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkSamplerCustomBorderColorCreateInfoEXT.html)
-  structure is included in the
-  [VkSamplerCreateInfo](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkSamplerCreateInfo.html)::`pNext` chain
-  containing the color data in floating-point format.
+This page is extracted from the Vulkan Specification. Fixes and changes should be made to the Specification, not directly.
 
-- `VK_BORDER_COLOR_INT_CUSTOM_EXT` indicates that a
-  [VkSamplerCustomBorderColorCreateInfoEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkSamplerCustomBorderColorCreateInfoEXT.html)
-  structure is included in the
-  [VkSamplerCreateInfo](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkSamplerCreateInfo.html)::`pNext` chain
-  containing the color data in integer format.
+## [](#_copyright)Copyright
 
-These colors are described in detail in <a
-href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#textures-texel-replacement"
-target="_blank" rel="noopener">Texel Replacement</a>.
-
-## <a href="#_see_also" class="anchor"></a>See Also
-
-[VK_VERSION_1_0](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_VERSION_1_0.html),
-[VkSamplerCreateInfo](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkSamplerCreateInfo.html)
-
-## <a href="#_document_notes" class="anchor"></a>Document Notes
-
-For more information, see the <a
-href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#VkBorderColor"
-target="_blank" rel="noopener">Vulkan Specification</a>
-
-This page is extracted from the Vulkan Specification. Fixes and changes
-should be made to the Specification, not directly.
-
-## <a href="#_copyright" class="anchor"></a>Copyright
-
-Copyright 2014-2024 The Khronos Group Inc.
+Copyright 2014-2025 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
-
-Version 1.3.290  
-Last updated 2024-07-11 23:39:16 -0700

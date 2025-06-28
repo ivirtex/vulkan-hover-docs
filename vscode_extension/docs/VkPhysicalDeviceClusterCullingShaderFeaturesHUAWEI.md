@@ -2,17 +2,15 @@
 
 ## Name
 
-VkPhysicalDeviceClusterCullingShaderFeaturesHUAWEI - Structure
-describing whether cluster culling shader is enabled
+VkPhysicalDeviceClusterCullingShaderFeaturesHUAWEI - Structure describing whether cluster culling shader is enabled
 
 
 
-## <a href="#_c_specification" class="anchor"></a>C Specification
+## [](#_c_specification)C Specification
 
-The `VkPhysicalDeviceClusterCullingShaderFeaturesHUAWEI` structure is
-defined as:
+The `VkPhysicalDeviceClusterCullingShaderFeaturesHUAWEI` structure is defined as:
 
-``` c
+```c++
 // Provided by VK_HUAWEI_cluster_culling_shader
 typedef struct VkPhysicalDeviceClusterCullingShaderFeaturesHUAWEI {
     VkStructureType    sType;
@@ -22,63 +20,34 @@ typedef struct VkPhysicalDeviceClusterCullingShaderFeaturesHUAWEI {
 } VkPhysicalDeviceClusterCullingShaderFeaturesHUAWEI;
 ```
 
-## <a href="#_members" class="anchor"></a>Members
+## [](#_members)Members
 
-- `sType` is a [VkStructureType](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkStructureType.html) value identifying
-  this structure.
+- `sType` is a [VkStructureType](https://registry.khronos.org/vulkan/specs/latest/man/html/VkStructureType.html) value identifying this structure.
+- `pNext` is `NULL` or a pointer to a structure extending this structure.
+- []()`clustercullingShader` specifies whether cluster culling shader is supported.
+- []()`multiviewClusterCullingShader` specifies whether multiview is supported.
 
-- `pNext` is `NULL` or a pointer to a structure extending this
-  structure.
+## [](#_description)Description
 
-- <span id="features-clustercullingShader"></span>
-  `clustercullingShader` specifies whether cluster culling shader is
-  supported.
-
-- <span id="features-multiviewClusterCullingShader"></span>
-  `multiviewClusterCullingShader` specifies whether multiview is
-  supported.
-
-## <a href="#_description" class="anchor"></a>Description
-
-If the `VkPhysicalDeviceClusterCullingShaderFeaturesHUAWEI` structure is
-included in the `pNext` chain of the
-[VkPhysicalDeviceFeatures2](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkPhysicalDeviceFeatures2.html) structure
-passed to
-[vkGetPhysicalDeviceFeatures2](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkGetPhysicalDeviceFeatures2.html), it is
-filled in to indicate whether each corresponding feature is supported.
-`VkPhysicalDeviceClusterCullingShaderFeaturesHUAWEI` **can** also be
-used in the `pNext` chain of
-[VkDeviceCreateInfo](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkDeviceCreateInfo.html) to selectively enable
-these features.
+If the `VkPhysicalDeviceClusterCullingShaderFeaturesHUAWEI` structure is included in the `pNext` chain of the [VkPhysicalDeviceFeatures2](https://registry.khronos.org/vulkan/specs/latest/man/html/VkPhysicalDeviceFeatures2.html) structure passed to [vkGetPhysicalDeviceFeatures2](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetPhysicalDeviceFeatures2.html), it is filled in to indicate whether each corresponding feature is supported. If the application wishes to use a [VkDevice](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDevice.html) with any features described by `VkPhysicalDeviceClusterCullingShaderFeaturesHUAWEI`, it **must** add an instance of the structure, with the desired feature members set to `VK_TRUE`, to the `pNext` chain of [VkDeviceCreateInfo](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDeviceCreateInfo.html) when creating the [VkDevice](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDevice.html).
 
 Valid Usage (Implicit)
 
-- <a
-  href="#VUID-VkPhysicalDeviceClusterCullingShaderFeaturesHUAWEI-sType-sType"
-  id="VUID-VkPhysicalDeviceClusterCullingShaderFeaturesHUAWEI-sType-sType"></a>
-  VUID-VkPhysicalDeviceClusterCullingShaderFeaturesHUAWEI-sType-sType  
-  `sType` **must** be
-  `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_CLUSTER_CULLING_SHADER_FEATURES_HUAWEI`
+- [](#VUID-VkPhysicalDeviceClusterCullingShaderFeaturesHUAWEI-sType-sType)VUID-VkPhysicalDeviceClusterCullingShaderFeaturesHUAWEI-sType-sType  
+  `sType` **must** be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_CLUSTER_CULLING_SHADER_FEATURES_HUAWEI`
 
-## <a href="#_see_also" class="anchor"></a>See Also
+## [](#_see_also)See Also
 
-[VK_HUAWEI_cluster_culling_shader](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_HUAWEI_cluster_culling_shader.html),
-[VkBool32](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkBool32.html), [VkStructureType](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkStructureType.html)
+[VK\_HUAWEI\_cluster\_culling\_shader](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_HUAWEI_cluster_culling_shader.html), [VkBool32](https://registry.khronos.org/vulkan/specs/latest/man/html/VkBool32.html), [VkStructureType](https://registry.khronos.org/vulkan/specs/latest/man/html/VkStructureType.html)
 
-## <a href="#_document_notes" class="anchor"></a>Document Notes
+## [](#_document_notes)Document Notes
 
-For more information, see the <a
-href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#VkPhysicalDeviceClusterCullingShaderFeaturesHUAWEI"
-target="_blank" rel="noopener">Vulkan Specification</a>
+For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#VkPhysicalDeviceClusterCullingShaderFeaturesHUAWEI)
 
-This page is extracted from the Vulkan Specification. Fixes and changes
-should be made to the Specification, not directly.
+This page is extracted from the Vulkan Specification. Fixes and changes should be made to the Specification, not directly.
 
-## <a href="#_copyright" class="anchor"></a>Copyright
+## [](#_copyright)Copyright
 
-Copyright 2014-2024 The Khronos Group Inc.
+Copyright 2014-2025 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
-
-Version 1.3.290  
-Last updated 2024-07-11 23:39:16 -0700

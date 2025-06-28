@@ -6,11 +6,11 @@ VkHdrMetadataEXT - Specify HDR metadata
 
 
 
-## <a href="#_c_specification" class="anchor"></a>C Specification
+## [](#_c_specification)C Specification
 
 The `VkHdrMetadataEXT` structure is defined as:
 
-``` c
+```c++
 // Provided by VK_EXT_hdr_metadata
 typedef struct VkHdrMetadataEXT {
     VkStructureType    sType;
@@ -26,94 +26,48 @@ typedef struct VkHdrMetadataEXT {
 } VkHdrMetadataEXT;
 ```
 
-## <a href="#_members" class="anchor"></a>Members
+## [](#_members)Members
 
-- `sType` is a [VkStructureType](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkStructureType.html) value identifying
-  this structure.
+- `sType` is a [VkStructureType](https://registry.khronos.org/vulkan/specs/latest/man/html/VkStructureType.html) value identifying this structure.
+- `pNext` is `NULL` or a pointer to a structure extending this structure.
+- `displayPrimaryRed` is a [VkXYColorEXT](https://registry.khronos.org/vulkan/specs/latest/man/html/VkXYColorEXT.html) structure specifying the red primary of the display used to optimize the content
+- `displayPrimaryGreen` is a [VkXYColorEXT](https://registry.khronos.org/vulkan/specs/latest/man/html/VkXYColorEXT.html) structure specifying the green primary of the display used to optimize the content
+- `displayPrimaryBlue` is a [VkXYColorEXT](https://registry.khronos.org/vulkan/specs/latest/man/html/VkXYColorEXT.html) structure specifying the blue primary of the display used to optimize the content
+- `whitePoint` is a [VkXYColorEXT](https://registry.khronos.org/vulkan/specs/latest/man/html/VkXYColorEXT.html) structure specifying the white-point of the display used to optimize the content
+- `maxLuminance` is the maximum luminance of the display used to optimize the content in nits
+- `minLuminance` is the minimum luminance of the display used to optimize the content in nits
+- `maxContentLightLevel` is the value in nits of the desired luminance for the brightest pixels in the displayed image.
+- `maxFrameAverageLightLevel` is the value in nits of the average luminance of the frame which has the brightest average luminance anywhere in the content.
 
-- `pNext` is `NULL` or a pointer to a structure extending this
-  structure.
-
-- `displayPrimaryRed` is a [VkXYColorEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkXYColorEXT.html) structure
-  specifying the red primary of the display used to optimize the content
-
-- `displayPrimaryGreen` is a [VkXYColorEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkXYColorEXT.html) structure
-  specifying the green primary of the display used to optimize the
-  content
-
-- `displayPrimaryBlue` is a [VkXYColorEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkXYColorEXT.html) structure
-  specifying the blue primary of the display used to optimize the
-  content
-
-- `whitePoint` is a [VkXYColorEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkXYColorEXT.html) structure
-  specifying the white-point of the display used to optimize the content
-
-- `maxLuminance` is the maximum luminance of the display used to
-  optimize the content in nits
-
-- `minLuminance` is the minimum luminance of the display used to
-  optimize the content in nits
-
-- `maxContentLightLevel` is the value in nits of the desired luminance
-  for the brightest pixels in the displayed image.
-
-- `maxFrameAverageLightLevel` is the value in nits of the average
-  luminance of the frame which has the brightest average luminance
-  anywhere in the content.
-
-## <a href="#_description" class="anchor"></a>Description
+## [](#_description)Description
 
 If any of the above values are unknown, they **can** be set to 0.
 
-<table>
-<colgroup>
-<col style="width: 50%" />
-<col style="width: 50%" />
-</colgroup>
-<tbody>
-<tr>
-<td class="icon"><em></em></td>
-<td class="content">Note
-<p>The meta-data provided here is intended to be used as defined in the
-SMPTE 2086, CTA 861.3 and CIE 15:2004 specifications. The validity and
-use of this data is outside the scope of Vulkan.</p></td>
-</tr>
-</tbody>
-</table>
+Note
+
+The meta-data provided here is intended to be used as defined in the SMPTE 2086, CTA 861.3 and CIE 15:2004 specifications. The validity and use of this data is outside the scope of Vulkan.
 
 Valid Usage (Implicit)
 
-- <a href="#VUID-VkHdrMetadataEXT-sType-sType"
-  id="VUID-VkHdrMetadataEXT-sType-sType"></a>
-  VUID-VkHdrMetadataEXT-sType-sType  
+- [](#VUID-VkHdrMetadataEXT-sType-sType)VUID-VkHdrMetadataEXT-sType-sType  
   `sType` **must** be `VK_STRUCTURE_TYPE_HDR_METADATA_EXT`
+- [](#VUID-VkHdrMetadataEXT-pNext-pNext)VUID-VkHdrMetadataEXT-pNext-pNext  
+  `pNext` **must** be `NULL` or a pointer to a valid instance of [VkHdrVividDynamicMetadataHUAWEI](https://registry.khronos.org/vulkan/specs/latest/man/html/VkHdrVividDynamicMetadataHUAWEI.html)
+- [](#VUID-VkHdrMetadataEXT-sType-unique)VUID-VkHdrMetadataEXT-sType-unique  
+  The `sType` value of each structure in the `pNext` chain **must** be unique
 
-- <a href="#VUID-VkHdrMetadataEXT-pNext-pNext"
-  id="VUID-VkHdrMetadataEXT-pNext-pNext"></a>
-  VUID-VkHdrMetadataEXT-pNext-pNext  
-  `pNext` **must** be `NULL`
+## [](#_see_also)See Also
 
-## <a href="#_see_also" class="anchor"></a>See Also
+[VK\_EXT\_hdr\_metadata](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_EXT_hdr_metadata.html), [VkStructureType](https://registry.khronos.org/vulkan/specs/latest/man/html/VkStructureType.html), [VkXYColorEXT](https://registry.khronos.org/vulkan/specs/latest/man/html/VkXYColorEXT.html), [vkSetHdrMetadataEXT](https://registry.khronos.org/vulkan/specs/latest/man/html/vkSetHdrMetadataEXT.html)
 
-[VK_EXT_hdr_metadata](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_EXT_hdr_metadata.html),
-[VkStructureType](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkStructureType.html),
-[VkXYColorEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkXYColorEXT.html),
-[vkSetHdrMetadataEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkSetHdrMetadataEXT.html)
+## [](#_document_notes)Document Notes
 
-## <a href="#_document_notes" class="anchor"></a>Document Notes
+For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#VkHdrMetadataEXT)
 
-For more information, see the <a
-href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#VkHdrMetadataEXT"
-target="_blank" rel="noopener">Vulkan Specification</a>
+This page is extracted from the Vulkan Specification. Fixes and changes should be made to the Specification, not directly.
 
-This page is extracted from the Vulkan Specification. Fixes and changes
-should be made to the Specification, not directly.
+## [](#_copyright)Copyright
 
-## <a href="#_copyright" class="anchor"></a>Copyright
-
-Copyright 2014-2024 The Khronos Group Inc.
+Copyright 2014-2025 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
-
-Version 1.3.290  
-Last updated 2024-07-11 23:39:16 -0700

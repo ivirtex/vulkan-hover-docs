@@ -2,16 +2,15 @@
 
 ## Name
 
-VkImageSubresourceLayers - Structure specifying an image subresource
-layers
+VkImageSubresourceLayers - Structure specifying an image subresource layers
 
 
 
-## <a href="#_c_specification" class="anchor"></a>C Specification
+## [](#_c_specification)C Specification
 
 The `VkImageSubresourceLayers` structure is defined as:
 
-``` c
+```c++
 // Provided by VK_VERSION_1_0
 typedef struct VkImageSubresourceLayers {
     VkImageAspectFlags    aspectMask;
@@ -21,96 +20,46 @@ typedef struct VkImageSubresourceLayers {
 } VkImageSubresourceLayers;
 ```
 
-## <a href="#_members" class="anchor"></a>Members
+## [](#_members)Members
 
-- `aspectMask` is a combination of
-  [VkImageAspectFlagBits](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkImageAspectFlagBits.html), selecting the
-  color, depth and/or stencil aspects to be copied.
-
+- `aspectMask` is a combination of [VkImageAspectFlagBits](https://registry.khronos.org/vulkan/specs/latest/man/html/VkImageAspectFlagBits.html), selecting the color, depth and/or stencil aspects to be copied.
 - `mipLevel` is the mipmap level to copy
+- `baseArrayLayer` and `layerCount` are the starting layer and number of layers to copy.
 
-- `baseArrayLayer` and `layerCount` are the starting layer and number of
-  layers to copy.
-
-## <a href="#_description" class="anchor"></a>Description
+## [](#_description)Description
 
 Valid Usage
 
-- <a href="#VUID-VkImageSubresourceLayers-aspectMask-00167"
-  id="VUID-VkImageSubresourceLayers-aspectMask-00167"></a>
-  VUID-VkImageSubresourceLayers-aspectMask-00167  
-  If `aspectMask` contains `VK_IMAGE_ASPECT_COLOR_BIT`, it **must** not
-  contain either of `VK_IMAGE_ASPECT_DEPTH_BIT` or
-  `VK_IMAGE_ASPECT_STENCIL_BIT`
-
-- <a href="#VUID-VkImageSubresourceLayers-aspectMask-00168"
-  id="VUID-VkImageSubresourceLayers-aspectMask-00168"></a>
-  VUID-VkImageSubresourceLayers-aspectMask-00168  
+- [](#VUID-VkImageSubresourceLayers-aspectMask-00167)VUID-VkImageSubresourceLayers-aspectMask-00167  
+  If `aspectMask` contains `VK_IMAGE_ASPECT_COLOR_BIT`, it **must** not contain either of `VK_IMAGE_ASPECT_DEPTH_BIT` or `VK_IMAGE_ASPECT_STENCIL_BIT`
+- [](#VUID-VkImageSubresourceLayers-aspectMask-00168)VUID-VkImageSubresourceLayers-aspectMask-00168  
   `aspectMask` **must** not contain `VK_IMAGE_ASPECT_METADATA_BIT`
-
-- <a href="#VUID-VkImageSubresourceLayers-aspectMask-02247"
-  id="VUID-VkImageSubresourceLayers-aspectMask-02247"></a>
-  VUID-VkImageSubresourceLayers-aspectMask-02247  
-  `aspectMask` **must** not include
-  `VK_IMAGE_ASPECT_MEMORY_PLANE`*`_i_`*`BIT_EXT` for any index *i*
-
-- <a href="#VUID-VkImageSubresourceLayers-layerCount-09243"
-  id="VUID-VkImageSubresourceLayers-layerCount-09243"></a>
-  VUID-VkImageSubresourceLayers-layerCount-09243  
-  If the <a
-  href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#features-maintenance5"
-  target="_blank" rel="noopener"><code>maintenance5</code></a> feature
-  is not enabled, `layerCount` **must** not be
-  `VK_REMAINING_ARRAY_LAYERS`
-
-- <a href="#VUID-VkImageSubresourceLayers-layerCount-01700"
-  id="VUID-VkImageSubresourceLayers-layerCount-01700"></a>
-  VUID-VkImageSubresourceLayers-layerCount-01700  
-  If `layerCount` is not `VK_REMAINING_ARRAY_LAYERS`, it **must** be
-  greater than 0
+- [](#VUID-VkImageSubresourceLayers-aspectMask-02247)VUID-VkImageSubresourceLayers-aspectMask-02247  
+  `aspectMask` **must** not include `VK_IMAGE_ASPECT_MEMORY_PLANE_i_BIT_EXT` for any index *i*
+- [](#VUID-VkImageSubresourceLayers-layerCount-09243)VUID-VkImageSubresourceLayers-layerCount-09243  
+  If the [`maintenance5`](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#features-maintenance5) feature is not enabled, `layerCount` **must** not be `VK_REMAINING_ARRAY_LAYERS`
+- [](#VUID-VkImageSubresourceLayers-layerCount-01700)VUID-VkImageSubresourceLayers-layerCount-01700  
+  If `layerCount` is not `VK_REMAINING_ARRAY_LAYERS`, it **must** be greater than 0
 
 Valid Usage (Implicit)
 
-- <a href="#VUID-VkImageSubresourceLayers-aspectMask-parameter"
-  id="VUID-VkImageSubresourceLayers-aspectMask-parameter"></a>
-  VUID-VkImageSubresourceLayers-aspectMask-parameter  
-  `aspectMask` **must** be a valid combination of
-  [VkImageAspectFlagBits](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkImageAspectFlagBits.html) values
-
-- <a href="#VUID-VkImageSubresourceLayers-aspectMask-requiredbitmask"
-  id="VUID-VkImageSubresourceLayers-aspectMask-requiredbitmask"></a>
-  VUID-VkImageSubresourceLayers-aspectMask-requiredbitmask  
+- [](#VUID-VkImageSubresourceLayers-aspectMask-parameter)VUID-VkImageSubresourceLayers-aspectMask-parameter  
+  `aspectMask` **must** be a valid combination of [VkImageAspectFlagBits](https://registry.khronos.org/vulkan/specs/latest/man/html/VkImageAspectFlagBits.html) values
+- [](#VUID-VkImageSubresourceLayers-aspectMask-requiredbitmask)VUID-VkImageSubresourceLayers-aspectMask-requiredbitmask  
   `aspectMask` **must** not be `0`
 
-## <a href="#_see_also" class="anchor"></a>See Also
+## [](#_see_also)See Also
 
-[VK_VERSION_1_0](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_VERSION_1_0.html),
-[VkBufferImageCopy](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkBufferImageCopy.html),
-[VkBufferImageCopy2](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkBufferImageCopy2.html),
-[VkCopyMemoryToImageIndirectCommandNV](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkCopyMemoryToImageIndirectCommandNV.html),
-[VkImageAspectFlags](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkImageAspectFlags.html),
-[VkImageBlit](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkImageBlit.html), [VkImageBlit2](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkImageBlit2.html),
-[VkImageCopy](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkImageCopy.html), [VkImageCopy2](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkImageCopy2.html),
-[VkImageResolve](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkImageResolve.html),
-[VkImageResolve2](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkImageResolve2.html),
-[VkImageToMemoryCopyEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkImageToMemoryCopyEXT.html),
-[VkMemoryToImageCopyEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkMemoryToImageCopyEXT.html),
-[vkCmdCopyMemoryToImageIndirectNV](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdCopyMemoryToImageIndirectNV.html)
+[VK\_VERSION\_1\_0](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_VERSION_1_0.html), [VkBufferImageCopy](https://registry.khronos.org/vulkan/specs/latest/man/html/VkBufferImageCopy.html), [VkBufferImageCopy2](https://registry.khronos.org/vulkan/specs/latest/man/html/VkBufferImageCopy2.html), [VkCopyMemoryToImageIndirectCommandNV](https://registry.khronos.org/vulkan/specs/latest/man/html/VkCopyMemoryToImageIndirectCommandNV.html), [VkImageAspectFlags](https://registry.khronos.org/vulkan/specs/latest/man/html/VkImageAspectFlags.html), [VkImageBlit](https://registry.khronos.org/vulkan/specs/latest/man/html/VkImageBlit.html), [VkImageBlit2](https://registry.khronos.org/vulkan/specs/latest/man/html/VkImageBlit2.html), [VkImageCopy](https://registry.khronos.org/vulkan/specs/latest/man/html/VkImageCopy.html), [VkImageCopy2](https://registry.khronos.org/vulkan/specs/latest/man/html/VkImageCopy2.html), [VkImageResolve](https://registry.khronos.org/vulkan/specs/latest/man/html/VkImageResolve.html), [VkImageResolve2](https://registry.khronos.org/vulkan/specs/latest/man/html/VkImageResolve2.html), [VkImageToMemoryCopy](https://registry.khronos.org/vulkan/specs/latest/man/html/VkImageToMemoryCopy.html), [VkMemoryToImageCopy](https://registry.khronos.org/vulkan/specs/latest/man/html/VkMemoryToImageCopy.html), [vkCmdCopyMemoryToImageIndirectNV](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdCopyMemoryToImageIndirectNV.html)
 
-## <a href="#_document_notes" class="anchor"></a>Document Notes
+## [](#_document_notes)Document Notes
 
-For more information, see the <a
-href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#VkImageSubresourceLayers"
-target="_blank" rel="noopener">Vulkan Specification</a>
+For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#VkImageSubresourceLayers)
 
-This page is extracted from the Vulkan Specification. Fixes and changes
-should be made to the Specification, not directly.
+This page is extracted from the Vulkan Specification. Fixes and changes should be made to the Specification, not directly.
 
-## <a href="#_copyright" class="anchor"></a>Copyright
+## [](#_copyright)Copyright
 
-Copyright 2014-2024 The Khronos Group Inc.
+Copyright 2014-2025 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
-
-Version 1.3.290  
-Last updated 2024-07-11 23:39:16 -0700

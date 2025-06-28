@@ -2,16 +2,15 @@
 
 ## Name
 
-VkInitializePerformanceApiInfoINTEL - Structure specifying parameters of
-initialize of the device
+VkInitializePerformanceApiInfoINTEL - Structure specifying parameters of initialize of the device
 
 
 
-## <a href="#_c_specification" class="anchor"></a>C Specification
+## [](#_c_specification)C Specification
 
 The `VkInitializePerformanceApiInfoINTEL` structure is defined as :
 
-``` c
+```c++
 // Provided by VK_INTEL_performance_query
 typedef struct VkInitializePerformanceApiInfoINTEL {
     VkStructureType    sType;
@@ -20,51 +19,33 @@ typedef struct VkInitializePerformanceApiInfoINTEL {
 } VkInitializePerformanceApiInfoINTEL;
 ```
 
-## <a href="#_members" class="anchor"></a>Members
+## [](#_members)Members
 
-- `sType` is a [VkStructureType](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkStructureType.html) value identifying
-  this structure.
-
-- `pNext` is `NULL` or a pointer to a structure extending this
-  structure.
-
+- `sType` is a [VkStructureType](https://registry.khronos.org/vulkan/specs/latest/man/html/VkStructureType.html) value identifying this structure.
+- `pNext` is `NULL` or a pointer to a structure extending this structure.
 - `pUserData` is a pointer for application data.
 
-## <a href="#_description" class="anchor"></a>Description
+## [](#_description)Description
 
 Valid Usage (Implicit)
 
-- <a href="#VUID-VkInitializePerformanceApiInfoINTEL-sType-sType"
-  id="VUID-VkInitializePerformanceApiInfoINTEL-sType-sType"></a>
-  VUID-VkInitializePerformanceApiInfoINTEL-sType-sType  
-  `sType` **must** be
-  `VK_STRUCTURE_TYPE_INITIALIZE_PERFORMANCE_API_INFO_INTEL`
-
-- <a href="#VUID-VkInitializePerformanceApiInfoINTEL-pNext-pNext"
-  id="VUID-VkInitializePerformanceApiInfoINTEL-pNext-pNext"></a>
-  VUID-VkInitializePerformanceApiInfoINTEL-pNext-pNext  
+- [](#VUID-VkInitializePerformanceApiInfoINTEL-sType-sType)VUID-VkInitializePerformanceApiInfoINTEL-sType-sType  
+  `sType` **must** be `VK_STRUCTURE_TYPE_INITIALIZE_PERFORMANCE_API_INFO_INTEL`
+- [](#VUID-VkInitializePerformanceApiInfoINTEL-pNext-pNext)VUID-VkInitializePerformanceApiInfoINTEL-pNext-pNext  
   `pNext` **must** be `NULL`
 
-## <a href="#_see_also" class="anchor"></a>See Also
+## [](#_see_also)See Also
 
-[VK_INTEL_performance_query](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_INTEL_performance_query.html),
-[VkStructureType](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkStructureType.html),
-[vkInitializePerformanceApiINTEL](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkInitializePerformanceApiINTEL.html)
+[VK\_INTEL\_performance\_query](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_INTEL_performance_query.html), [VkStructureType](https://registry.khronos.org/vulkan/specs/latest/man/html/VkStructureType.html), [vkInitializePerformanceApiINTEL](https://registry.khronos.org/vulkan/specs/latest/man/html/vkInitializePerformanceApiINTEL.html)
 
-## <a href="#_document_notes" class="anchor"></a>Document Notes
+## [](#_document_notes)Document Notes
 
-For more information, see the <a
-href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#VkInitializePerformanceApiInfoINTEL"
-target="_blank" rel="noopener">Vulkan Specification</a>
+For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#VkInitializePerformanceApiInfoINTEL)
 
-This page is extracted from the Vulkan Specification. Fixes and changes
-should be made to the Specification, not directly.
+This page is extracted from the Vulkan Specification. Fixes and changes should be made to the Specification, not directly.
 
-## <a href="#_copyright" class="anchor"></a>Copyright
+## [](#_copyright)Copyright
 
-Copyright 2014-2024 The Khronos Group Inc.
+Copyright 2014-2025 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
-
-Version 1.3.290  
-Last updated 2024-07-11 23:39:16 -0700

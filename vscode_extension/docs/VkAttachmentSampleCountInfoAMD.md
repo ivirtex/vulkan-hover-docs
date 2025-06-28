@@ -2,18 +2,16 @@
 
 ## Name
 
-VkAttachmentSampleCountInfoAMD - Structure specifying command buffer
-inheritance info for dynamic render pass instances
+VkAttachmentSampleCountInfoAMD - Structure specifying command buffer inheritance info for dynamic render pass instances
 
 
 
-## <a href="#_c_specification" class="anchor"></a>C Specification
+## [](#_c_specification)C Specification
 
-The `VkAttachmentSampleCountInfoAMD` or `VkAttachmentSampleCountInfoNV`
-structure is defined as:
+The `VkAttachmentSampleCountInfoAMD` or `VkAttachmentSampleCountInfoNV` structure is defined as:
 
-``` c
-// Provided by VK_KHR_dynamic_rendering with VK_AMD_mixed_attachment_samples
+```c++
+// Provided by VK_AMD_mixed_attachment_samples with VK_VERSION_1_3 or VK_KHR_dynamic_rendering
 typedef struct VkAttachmentSampleCountInfoAMD {
     VkStructureType                 sType;
     const void*                     pNext;
@@ -25,94 +23,42 @@ typedef struct VkAttachmentSampleCountInfoAMD {
 
 or the equivalent
 
-``` c
-// Provided by VK_KHR_dynamic_rendering with VK_NV_framebuffer_mixed_samples
+```c++
+// Provided by VK_NV_framebuffer_mixed_samples with VK_VERSION_1_3 or VK_KHR_dynamic_rendering
 typedef VkAttachmentSampleCountInfoAMD VkAttachmentSampleCountInfoNV;
 ```
 
-## <a href="#_members" class="anchor"></a>Members
+## [](#_members)Members
 
-- `sType` is a [VkStructureType](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkStructureType.html) value identifying
-  this structure.
-
+- `sType` is a [VkStructureType](https://registry.khronos.org/vulkan/specs/latest/man/html/VkStructureType.html) value identifying this structure.
 - `pNext` is `NULL` or a pointer to a structure extending this structure
+- `colorAttachmentCount` is the number of color attachments specified in a render pass instance.
+- `pColorAttachmentSamples` is a pointer to an array of [VkSampleCountFlagBits](https://registry.khronos.org/vulkan/specs/latest/man/html/VkSampleCountFlagBits.html) values defining the sample count of color attachments.
+- `depthStencilAttachmentSamples` is a [VkSampleCountFlagBits](https://registry.khronos.org/vulkan/specs/latest/man/html/VkSampleCountFlagBits.html) value defining the sample count of a depth/stencil attachment.
 
-- `colorAttachmentCount` is the number of color attachments specified in
-  a render pass instance.
+## [](#_description)Description
 
-- `pColorAttachmentSamples` is a pointer to an array of
-  [VkSampleCountFlagBits](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkSampleCountFlagBits.html) values defining
-  the sample count of color attachments.
+If [VkCommandBufferInheritanceInfo](https://registry.khronos.org/vulkan/specs/latest/man/html/VkCommandBufferInheritanceInfo.html)::`renderPass` is [VK\_NULL\_HANDLE](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_NULL_HANDLE.html), `VK_COMMAND_BUFFER_USAGE_RENDER_PASS_CONTINUE_BIT` is specified in [VkCommandBufferBeginInfo](https://registry.khronos.org/vulkan/specs/latest/man/html/VkCommandBufferBeginInfo.html)::`flags`, and the `pNext` chain of [VkCommandBufferInheritanceInfo](https://registry.khronos.org/vulkan/specs/latest/man/html/VkCommandBufferInheritanceInfo.html) includes `VkAttachmentSampleCountInfoAMD`, then this structure defines the sample counts of each attachment within the render pass instance. If `VkAttachmentSampleCountInfoAMD` is not included, the value of [VkCommandBufferInheritanceRenderingInfo](https://registry.khronos.org/vulkan/specs/latest/man/html/VkCommandBufferInheritanceRenderingInfo.html)::`rasterizationSamples` is used as the sample count for each attachment. If [VkCommandBufferInheritanceInfo](https://registry.khronos.org/vulkan/specs/latest/man/html/VkCommandBufferInheritanceInfo.html)::`renderPass` is not [VK\_NULL\_HANDLE](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_NULL_HANDLE.html), or `VK_COMMAND_BUFFER_USAGE_RENDER_PASS_CONTINUE_BIT` is not specified in [VkCommandBufferBeginInfo](https://registry.khronos.org/vulkan/specs/latest/man/html/VkCommandBufferBeginInfo.html)::`flags`, parameters of this structure are ignored.
 
-- `depthStencilAttachmentSamples` is a
-  [VkSampleCountFlagBits](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkSampleCountFlagBits.html) value defining the
-  sample count of a depth/stencil attachment.
-
-## <a href="#_description" class="anchor"></a>Description
-
-If
-[VkCommandBufferInheritanceInfo](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkCommandBufferInheritanceInfo.html)::`renderPass`
-is [VK_NULL_HANDLE](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_NULL_HANDLE.html),
-`VK_COMMAND_BUFFER_USAGE_RENDER_PASS_CONTINUE_BIT` is specified in
-[VkCommandBufferBeginInfo](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkCommandBufferBeginInfo.html)::`flags`, and
-the `pNext` chain of
-[VkCommandBufferInheritanceInfo](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkCommandBufferInheritanceInfo.html)
-includes `VkAttachmentSampleCountInfoAMD`, then this structure defines
-the sample counts of each attachment within the render pass instance. If
-`VkAttachmentSampleCountInfoAMD` is not included, the value of
-[VkCommandBufferInheritanceRenderingInfo](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkCommandBufferInheritanceRenderingInfo.html)::`rasterizationSamples`
-is used as the sample count for each attachment. If
-[VkCommandBufferInheritanceInfo](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkCommandBufferInheritanceInfo.html)::`renderPass`
-is not [VK_NULL_HANDLE](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_NULL_HANDLE.html), or
-`VK_COMMAND_BUFFER_USAGE_RENDER_PASS_CONTINUE_BIT` is not specified in
-[VkCommandBufferBeginInfo](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkCommandBufferBeginInfo.html)::`flags`,
-parameters of this structure are ignored.
-
-`VkAttachmentSampleCountInfoAMD` **can** also be included in the `pNext`
-chain of
-[VkGraphicsPipelineCreateInfo](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkGraphicsPipelineCreateInfo.html). When
-a graphics pipeline is created without a
-[VkRenderPass](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkRenderPass.html), if this structure is included in the
-`pNext` chain of
-[VkGraphicsPipelineCreateInfo](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkGraphicsPipelineCreateInfo.html), it
-specifies the sample count of attachments used for rendering. If this
-structure is not specified, and the pipeline does not include a
-[VkRenderPass](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkRenderPass.html), the value of
-[VkPipelineMultisampleStateCreateInfo](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkPipelineMultisampleStateCreateInfo.html)::`rasterizationSamples`
-is used as the sample count for each attachment. If a graphics pipeline
-is created with a valid [VkRenderPass](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkRenderPass.html), parameters of
-this structure are ignored.
+`VkAttachmentSampleCountInfoAMD` **can** also be included in the `pNext` chain of [VkGraphicsPipelineCreateInfo](https://registry.khronos.org/vulkan/specs/latest/man/html/VkGraphicsPipelineCreateInfo.html). When a graphics pipeline is created without a [VkRenderPass](https://registry.khronos.org/vulkan/specs/latest/man/html/VkRenderPass.html), if this structure is included in the `pNext` chain of [VkGraphicsPipelineCreateInfo](https://registry.khronos.org/vulkan/specs/latest/man/html/VkGraphicsPipelineCreateInfo.html), it specifies the sample count of attachments used for rendering. If this structure is not specified, and the pipeline does not include a [VkRenderPass](https://registry.khronos.org/vulkan/specs/latest/man/html/VkRenderPass.html), the value of [VkPipelineMultisampleStateCreateInfo](https://registry.khronos.org/vulkan/specs/latest/man/html/VkPipelineMultisampleStateCreateInfo.html)::`rasterizationSamples` is used as the sample count for each attachment. If a graphics pipeline is created with a valid [VkRenderPass](https://registry.khronos.org/vulkan/specs/latest/man/html/VkRenderPass.html), parameters of this structure are ignored.
 
 Valid Usage (Implicit)
 
-- <a href="#VUID-VkAttachmentSampleCountInfoAMD-sType-sType"
-  id="VUID-VkAttachmentSampleCountInfoAMD-sType-sType"></a>
-  VUID-VkAttachmentSampleCountInfoAMD-sType-sType  
-  `sType` **must** be
-  `VK_STRUCTURE_TYPE_ATTACHMENT_SAMPLE_COUNT_INFO_AMD`
+- [](#VUID-VkAttachmentSampleCountInfoAMD-sType-sType)VUID-VkAttachmentSampleCountInfoAMD-sType-sType  
+  `sType` **must** be `VK_STRUCTURE_TYPE_ATTACHMENT_SAMPLE_COUNT_INFO_AMD`
 
-## <a href="#_see_also" class="anchor"></a>See Also
+## [](#_see_also)See Also
 
-[VK_AMD_mixed_attachment_samples](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_AMD_mixed_attachment_samples.html),
-[VK_KHR_dynamic_rendering](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_KHR_dynamic_rendering.html),
-[VK_NV_framebuffer_mixed_samples](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_NV_framebuffer_mixed_samples.html),
-[VkSampleCountFlagBits](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkSampleCountFlagBits.html),
-[VkStructureType](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkStructureType.html)
+[VK\_AMD\_mixed\_attachment\_samples](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_AMD_mixed_attachment_samples.html), [VK\_KHR\_dynamic\_rendering](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_KHR_dynamic_rendering.html), [VK\_NV\_framebuffer\_mixed\_samples](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_NV_framebuffer_mixed_samples.html), [VK\_VERSION\_1\_3](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_VERSION_1_3.html), [VkSampleCountFlagBits](https://registry.khronos.org/vulkan/specs/latest/man/html/VkSampleCountFlagBits.html), [VkStructureType](https://registry.khronos.org/vulkan/specs/latest/man/html/VkStructureType.html)
 
-## <a href="#_document_notes" class="anchor"></a>Document Notes
+## [](#_document_notes)Document Notes
 
-For more information, see the <a
-href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#VkAttachmentSampleCountInfoAMD"
-target="_blank" rel="noopener">Vulkan Specification</a>
+For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#VkAttachmentSampleCountInfoAMD)
 
-This page is extracted from the Vulkan Specification. Fixes and changes
-should be made to the Specification, not directly.
+This page is extracted from the Vulkan Specification. Fixes and changes should be made to the Specification, not directly.
 
-## <a href="#_copyright" class="anchor"></a>Copyright
+## [](#_copyright)Copyright
 
-Copyright 2014-2024 The Khronos Group Inc.
+Copyright 2014-2025 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
-
-Version 1.3.290  
-Last updated 2024-07-11 23:39:16 -0700

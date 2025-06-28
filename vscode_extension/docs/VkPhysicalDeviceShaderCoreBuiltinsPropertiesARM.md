@@ -2,17 +2,15 @@
 
 ## Name
 
-VkPhysicalDeviceShaderCoreBuiltinsPropertiesARM - Structure describing
-shader core builtins properties supported by an implementation
+VkPhysicalDeviceShaderCoreBuiltinsPropertiesARM - Structure describing shader core builtins properties supported by an implementation
 
 
 
-## <a href="#_c_specification" class="anchor"></a>C Specification
+## [](#_c_specification)C Specification
 
-The `VkPhysicalDeviceShaderCoreBuiltinsPropertiesARM` structure is
-defined as:
+The `VkPhysicalDeviceShaderCoreBuiltinsPropertiesARM` structure is defined as:
 
-``` c
+```c++
 // Provided by VK_ARM_shader_core_builtins
 typedef struct VkPhysicalDeviceShaderCoreBuiltinsPropertiesARM {
     VkStructureType    sType;
@@ -23,63 +21,35 @@ typedef struct VkPhysicalDeviceShaderCoreBuiltinsPropertiesARM {
 } VkPhysicalDeviceShaderCoreBuiltinsPropertiesARM;
 ```
 
-## <a href="#_members" class="anchor"></a>Members
+## [](#_members)Members
 
-- `sType` is a [VkStructureType](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkStructureType.html) value identifying
-  this structure.
+- `sType` is a [VkStructureType](https://registry.khronos.org/vulkan/specs/latest/man/html/VkStructureType.html) value identifying this structure.
+- `pNext` is `NULL` or a pointer to a structure extending this structure.
+- []()`shaderCoreMask` is a bitfield where each bit set represents the presence of a shader core whose ID is the bit position. The highest ID for any shader core on the device is the position of the most significant bit set.
+- []()`shaderCoreCount` is the number of shader cores on the device.
+- []()`shaderWarpsPerCore` is the maximum number of simultaneously executing warps on a shader core.
 
-- `pNext` is `NULL` or a pointer to a structure extending this
-  structure.
+## [](#_description)Description
 
-- <span id="limits-shaderCoreMask"></span> `shaderCoreMask` is a
-  bitfield where each bit set represents the presence of a shader core
-  whose ID is the bit position. The highest ID for any shader core on
-  the device is the position of the most significant bit set.
-
-- <span id="limits-shaderCoreCount"></span> `shaderCoreCount` is the
-  number of shader cores on the device.
-
-- <span id="limits-shaderWarpsPerCore"></span> `shaderWarpsPerCore` is
-  the maximum number of simultaneously executing warps on a shader core.
-
-## <a href="#_description" class="anchor"></a>Description
-
-If the `VkPhysicalDeviceShaderCoreBuiltinsPropertiesARM` structure is
-included in the `pNext` chain of the
-[VkPhysicalDeviceProperties2](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkPhysicalDeviceProperties2.html)
-structure passed to
-[vkGetPhysicalDeviceProperties2](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkGetPhysicalDeviceProperties2.html),
-it is filled in with each corresponding implementation-dependent
-property.
+If the `VkPhysicalDeviceShaderCoreBuiltinsPropertiesARM` structure is included in the `pNext` chain of the [VkPhysicalDeviceProperties2](https://registry.khronos.org/vulkan/specs/latest/man/html/VkPhysicalDeviceProperties2.html) structure passed to [vkGetPhysicalDeviceProperties2](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetPhysicalDeviceProperties2.html), it is filled in with each corresponding implementation-dependent property.
 
 Valid Usage (Implicit)
 
-- <a
-  href="#VUID-VkPhysicalDeviceShaderCoreBuiltinsPropertiesARM-sType-sType"
-  id="VUID-VkPhysicalDeviceShaderCoreBuiltinsPropertiesARM-sType-sType"></a>
-  VUID-VkPhysicalDeviceShaderCoreBuiltinsPropertiesARM-sType-sType  
-  `sType` **must** be
-  `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SHADER_CORE_BUILTINS_PROPERTIES_ARM`
+- [](#VUID-VkPhysicalDeviceShaderCoreBuiltinsPropertiesARM-sType-sType)VUID-VkPhysicalDeviceShaderCoreBuiltinsPropertiesARM-sType-sType  
+  `sType` **must** be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SHADER_CORE_BUILTINS_PROPERTIES_ARM`
 
-## <a href="#_see_also" class="anchor"></a>See Also
+## [](#_see_also)See Also
 
-[VK_ARM_shader_core_builtins](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_ARM_shader_core_builtins.html),
-[VkStructureType](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkStructureType.html)
+[VK\_ARM\_shader\_core\_builtins](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_ARM_shader_core_builtins.html), [VkStructureType](https://registry.khronos.org/vulkan/specs/latest/man/html/VkStructureType.html)
 
-## <a href="#_document_notes" class="anchor"></a>Document Notes
+## [](#_document_notes)Document Notes
 
-For more information, see the <a
-href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#VkPhysicalDeviceShaderCoreBuiltinsPropertiesARM"
-target="_blank" rel="noopener">Vulkan Specification</a>
+For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#VkPhysicalDeviceShaderCoreBuiltinsPropertiesARM)
 
-This page is extracted from the Vulkan Specification. Fixes and changes
-should be made to the Specification, not directly.
+This page is extracted from the Vulkan Specification. Fixes and changes should be made to the Specification, not directly.
 
-## <a href="#_copyright" class="anchor"></a>Copyright
+## [](#_copyright)Copyright
 
-Copyright 2014-2024 The Khronos Group Inc.
+Copyright 2014-2025 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
-
-Version 1.3.290  
-Last updated 2024-07-11 23:39:16 -0700

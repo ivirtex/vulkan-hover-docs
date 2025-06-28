@@ -6,14 +6,13 @@ VkOpticalFlowPerformanceLevelNV - Optical flow performance level types
 
 
 
-## <a href="#_c_specification" class="anchor"></a>C Specification
+## [](#_c_specification)C Specification
 
-Optical flow exposes performance levels which the application **can**
-choose based on the desired performance and quality requirement.
+Optical flow exposes performance levels which the application **can** choose based on the desired performance and quality requirement.
 
 The optical flow performance level types are defined with the following:
 
-``` c
+```c++
 // Provided by VK_NV_optical_flow
 typedef enum VkOpticalFlowPerformanceLevelNV {
     VK_OPTICAL_FLOW_PERFORMANCE_LEVEL_UNKNOWN_NV = 0,
@@ -23,36 +22,24 @@ typedef enum VkOpticalFlowPerformanceLevelNV {
 } VkOpticalFlowPerformanceLevelNV;
 ```
 
-## <a href="#_description" class="anchor"></a>Description
+## [](#_description)Description
 
-- `VK_OPTICAL_FLOW_PERFORMANCE_LEVEL_SLOW_NV` is a level with slower
-  performance but higher quality.
+- `VK_OPTICAL_FLOW_PERFORMANCE_LEVEL_SLOW_NV` is a level with slower performance but higher quality.
+- `VK_OPTICAL_FLOW_PERFORMANCE_LEVEL_MEDIUM_NV` is a level with medium performance and medium quality.
+- `VK_OPTICAL_FLOW_PERFORMANCE_LEVEL_FAST_NV` is a preset with higher performance but lower quality.
 
-- `VK_OPTICAL_FLOW_PERFORMANCE_LEVEL_MEDIUM_NV` is a level with medium
-  performance and medium quality.
+## [](#_see_also)See Also
 
-- `VK_OPTICAL_FLOW_PERFORMANCE_LEVEL_FAST_NV` is a preset with higher
-  performance but lower quality.
+[VK\_NV\_optical\_flow](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_NV_optical_flow.html), [VkOpticalFlowSessionCreateInfoNV](https://registry.khronos.org/vulkan/specs/latest/man/html/VkOpticalFlowSessionCreateInfoNV.html)
 
-## <a href="#_see_also" class="anchor"></a>See Also
+## [](#_document_notes)Document Notes
 
-[VK_NV_optical_flow](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_NV_optical_flow.html),
-[VkOpticalFlowSessionCreateInfoNV](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkOpticalFlowSessionCreateInfoNV.html)
+For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#VkOpticalFlowPerformanceLevelNV)
 
-## <a href="#_document_notes" class="anchor"></a>Document Notes
+This page is extracted from the Vulkan Specification. Fixes and changes should be made to the Specification, not directly.
 
-For more information, see the <a
-href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#VkOpticalFlowPerformanceLevelNV"
-target="_blank" rel="noopener">Vulkan Specification</a>
+## [](#_copyright)Copyright
 
-This page is extracted from the Vulkan Specification. Fixes and changes
-should be made to the Specification, not directly.
-
-## <a href="#_copyright" class="anchor"></a>Copyright
-
-Copyright 2014-2024 The Khronos Group Inc.
+Copyright 2014-2025 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
-
-Version 1.3.290  
-Last updated 2024-07-11 23:39:16 -0700

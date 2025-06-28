@@ -2,98 +2,63 @@
 
 ## Name
 
-vkEnumerateInstanceLayerProperties - Returns up to requested number of
-global layer properties
+vkEnumerateInstanceLayerProperties - Returns up to requested number of global layer properties
 
 
 
-## <a href="#_c_specification" class="anchor"></a>C Specification
+## [](#_c_specification)C Specification
 
 To query the available layers, call:
 
-``` c
+```c++
 // Provided by VK_VERSION_1_0
 VkResult vkEnumerateInstanceLayerProperties(
     uint32_t*                                   pPropertyCount,
     VkLayerProperties*                          pProperties);
 ```
 
-## <a href="#_parameters" class="anchor"></a>Parameters
+## [](#_parameters)Parameters
 
-- `pPropertyCount` is a pointer to an integer related to the number of
-  layer properties available or queried, as described below.
+- `pPropertyCount` is a pointer to an integer related to the number of layer properties available or queried, as described below.
+- `pProperties` is either `NULL` or a pointer to an array of [VkLayerProperties](https://registry.khronos.org/vulkan/specs/latest/man/html/VkLayerProperties.html) structures.
 
-- `pProperties` is either `NULL` or a pointer to an array of
-  [VkLayerProperties](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkLayerProperties.html) structures.
+## [](#_description)Description
 
-## <a href="#_description" class="anchor"></a>Description
+If `pProperties` is `NULL`, then the number of layer properties available is returned in `pPropertyCount`. Otherwise, `pPropertyCount` **must** point to a variable set by the application to the number of elements in the `pProperties` array, and on return the variable is overwritten with the number of structures actually written to `pProperties`. If `pPropertyCount` is less than the number of layer properties available, at most `pPropertyCount` structures will be written, and `VK_INCOMPLETE` will be returned instead of `VK_SUCCESS`, to indicate that not all the available properties were returned.
 
-If `pProperties` is `NULL`, then the number of layer properties
-available is returned in `pPropertyCount`. Otherwise, `pPropertyCount`
-**must** point to a variable set by the application to the number of
-elements in the `pProperties` array, and on return the variable is
-overwritten with the number of structures actually written to
-`pProperties`. If `pPropertyCount` is less than the number of layer
-properties available, at most `pPropertyCount` structures will be
-written, and `VK_INCOMPLETE` will be returned instead of `VK_SUCCESS`,
-to indicate that not all the available properties were returned.
-
-The list of available layers may change at any time due to actions
-outside of the Vulkan implementation, so two calls to
-`vkEnumerateInstanceLayerProperties` with the same parameters **may**
-return different results, or retrieve different `pPropertyCount` values
-or `pProperties` contents. Once an instance has been created, the layers
-enabled for that instance will continue to be enabled and valid for the
-lifetime of that instance, even if some of them become unavailable for
-future instances.
+The list of available layers may change at any time due to actions outside of the Vulkan implementation, so two calls to `vkEnumerateInstanceLayerProperties` with the same parameters **may** return different results, or retrieve different `pPropertyCount` values or `pProperties` contents. Once an instance has been created, the layers enabled for that instance will continue to be enabled and valid for the lifetime of that instance, even if some of them become unavailable for future instances.
 
 Valid Usage (Implicit)
 
-- <a
-  href="#VUID-vkEnumerateInstanceLayerProperties-pPropertyCount-parameter"
-  id="VUID-vkEnumerateInstanceLayerProperties-pPropertyCount-parameter"></a>
-  VUID-vkEnumerateInstanceLayerProperties-pPropertyCount-parameter  
+- [](#VUID-vkEnumerateInstanceLayerProperties-pPropertyCount-parameter)VUID-vkEnumerateInstanceLayerProperties-pPropertyCount-parameter  
   `pPropertyCount` **must** be a valid pointer to a `uint32_t` value
-
-- <a href="#VUID-vkEnumerateInstanceLayerProperties-pProperties-parameter"
-  id="VUID-vkEnumerateInstanceLayerProperties-pProperties-parameter"></a>
-  VUID-vkEnumerateInstanceLayerProperties-pProperties-parameter  
-  If the value referenced by `pPropertyCount` is not `0`, and
-  `pProperties` is not `NULL`, `pProperties` **must** be a valid pointer
-  to an array of `pPropertyCount`
-  [VkLayerProperties](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkLayerProperties.html) structures
+- [](#VUID-vkEnumerateInstanceLayerProperties-pProperties-parameter)VUID-vkEnumerateInstanceLayerProperties-pProperties-parameter  
+  If the value referenced by `pPropertyCount` is not `0`, and `pProperties` is not `NULL`, `pProperties` **must** be a valid pointer to an array of `pPropertyCount` [VkLayerProperties](https://registry.khronos.org/vulkan/specs/latest/man/html/VkLayerProperties.html) structures
 
 Return Codes
 
-On success, this command returns  
-- `VK_SUCCESS`
+On success, this command returns
 
+- `VK_SUCCESS`
 - `VK_INCOMPLETE`
 
-On failure, this command returns  
-- `VK_ERROR_OUT_OF_HOST_MEMORY`
+On failure, this command returns
 
+- `VK_ERROR_OUT_OF_HOST_MEMORY`
 - `VK_ERROR_OUT_OF_DEVICE_MEMORY`
 
-## <a href="#_see_also" class="anchor"></a>See Also
+## [](#_see_also)See Also
 
-[VK_VERSION_1_0](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_VERSION_1_0.html),
-[VkLayerProperties](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkLayerProperties.html)
+[VK\_VERSION\_1\_0](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_VERSION_1_0.html), [VkLayerProperties](https://registry.khronos.org/vulkan/specs/latest/man/html/VkLayerProperties.html)
 
-## <a href="#_document_notes" class="anchor"></a>Document Notes
+## [](#_document_notes)Document Notes
 
-For more information, see the <a
-href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#vkEnumerateInstanceLayerProperties"
-target="_blank" rel="noopener">Vulkan Specification</a>
+For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#vkEnumerateInstanceLayerProperties)
 
-This page is extracted from the Vulkan Specification. Fixes and changes
-should be made to the Specification, not directly.
+This page is extracted from the Vulkan Specification. Fixes and changes should be made to the Specification, not directly.
 
-## <a href="#_copyright" class="anchor"></a>Copyright
+## [](#_copyright)Copyright
 
-Copyright 2014-2024 The Khronos Group Inc.
+Copyright 2014-2025 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
-
-Version 1.3.290  
-Last updated 2024-07-11 23:39:16 -0700

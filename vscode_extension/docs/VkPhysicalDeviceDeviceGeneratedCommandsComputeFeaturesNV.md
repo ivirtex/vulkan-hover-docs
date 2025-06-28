@@ -2,18 +2,15 @@
 
 ## Name
 
-VkPhysicalDeviceDeviceGeneratedCommandsComputeFeaturesNV - Structure
-describing the device-generated compute features that can be supported
-by an implementation
+VkPhysicalDeviceDeviceGeneratedCommandsComputeFeaturesNV - Structure describing the device-generated compute features that can be supported by an implementation
 
 
 
-## <a href="#_c_specification" class="anchor"></a>C Specification
+## [](#_c_specification)C Specification
 
-The `VkPhysicalDeviceDeviceGeneratedCommandsComputeFeaturesNV` structure
-is defined as:
+The `VkPhysicalDeviceDeviceGeneratedCommandsComputeFeaturesNV` structure is defined as:
 
-``` c
+```c++
 // Provided by VK_NV_device_generated_commands_compute
 typedef struct VkPhysicalDeviceDeviceGeneratedCommandsComputeFeaturesNV {
     VkStructureType    sType;
@@ -24,78 +21,37 @@ typedef struct VkPhysicalDeviceDeviceGeneratedCommandsComputeFeaturesNV {
 } VkPhysicalDeviceDeviceGeneratedCommandsComputeFeaturesNV;
 ```
 
-## <a href="#_members" class="anchor"></a>Members
+## [](#_members)Members
 
 This structure describes the following features:
 
-- `sType` is a [VkStructureType](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkStructureType.html) value identifying
-  this structure.
+- `sType` is a [VkStructureType](https://registry.khronos.org/vulkan/specs/latest/man/html/VkStructureType.html) value identifying this structure.
+- `pNext` is `NULL` or a pointer to a structure extending this structure.
+- []()`deviceGeneratedCompute` indicates whether the implementation supports functionality to generate dispatch commands and push constants for the compute pipeline on the device. See [Device-Generated Commands](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#device-generated-commands).
+- []()`deviceGeneratedComputePipelines` indicates whether the implementation supports functionality to generate commands to bind compute pipelines on the device. See [Device-Generated Commands](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#device-generated-commands).
+- []()`deviceGeneratedComputeCaptureReplay` indicates whether the implementation supports functionality to capture compute pipeline address and reuse later for replay in [Device-Generated Commands](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#device-generated-commands).
 
-- `pNext` is `NULL` or a pointer to a structure extending this
-  structure.
+## [](#_description)Description
 
-- <span id="features-deviceGeneratedCompute"></span>
-  `deviceGeneratedCompute` indicates whether the implementation supports
-  functionality to generate dispatch commands and push constants for the
-  compute pipeline on the device. See <a
-  href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#device-generated-commands"
-  target="_blank" rel="noopener">Device-Generated Commands</a>.
-
-- <span id="features-deviceGeneratedComputePipelines"></span>
-  `deviceGeneratedComputePipelines` indicates whether the implementation
-  supports functionality to generate commands to bind compute pipelines
-  on the device. See <a
-  href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#device-generated-commands"
-  target="_blank" rel="noopener">Device-Generated Commands</a>.
-
-- <span id="features-deviceGeneratedComputeCaptureReplay"></span>
-  `deviceGeneratedComputeCaptureReplay` indicates whether the
-  implementation supports functionality to capture compute pipeline
-  address and reuse later for replay in <a
-  href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#device-generated-commands"
-  target="_blank" rel="noopener">Device-Generated Commands</a>.
-
-## <a href="#_description" class="anchor"></a>Description
-
-If the `VkPhysicalDeviceDeviceGeneratedCommandsComputeFeaturesNV`
-structure is included in the `pNext` chain of the
-[VkPhysicalDeviceFeatures2](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkPhysicalDeviceFeatures2.html) structure
-passed to
-[vkGetPhysicalDeviceFeatures2](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkGetPhysicalDeviceFeatures2.html), it is
-filled in to indicate whether each corresponding feature is supported.
-`VkPhysicalDeviceDeviceGeneratedCommandsComputeFeaturesNV` **can** also
-be used in the `pNext` chain of
-[VkDeviceCreateInfo](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkDeviceCreateInfo.html) to selectively enable
-these features.
+If the `VkPhysicalDeviceDeviceGeneratedCommandsComputeFeaturesNV` structure is included in the `pNext` chain of the [VkPhysicalDeviceFeatures2](https://registry.khronos.org/vulkan/specs/latest/man/html/VkPhysicalDeviceFeatures2.html) structure passed to [vkGetPhysicalDeviceFeatures2](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetPhysicalDeviceFeatures2.html), it is filled in to indicate whether each corresponding feature is supported. If the application wishes to use a [VkDevice](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDevice.html) with any features described by `VkPhysicalDeviceDeviceGeneratedCommandsComputeFeaturesNV`, it **must** add an instance of the structure, with the desired feature members set to `VK_TRUE`, to the `pNext` chain of [VkDeviceCreateInfo](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDeviceCreateInfo.html) when creating the [VkDevice](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDevice.html).
 
 Valid Usage (Implicit)
 
-- <a
-  href="#VUID-VkPhysicalDeviceDeviceGeneratedCommandsComputeFeaturesNV-sType-sType"
-  id="VUID-VkPhysicalDeviceDeviceGeneratedCommandsComputeFeaturesNV-sType-sType"></a>
-  VUID-VkPhysicalDeviceDeviceGeneratedCommandsComputeFeaturesNV-sType-sType  
-  `sType` **must** be
-  `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_DEVICE_GENERATED_COMMANDS_COMPUTE_FEATURES_NV`
+- [](#VUID-VkPhysicalDeviceDeviceGeneratedCommandsComputeFeaturesNV-sType-sType)VUID-VkPhysicalDeviceDeviceGeneratedCommandsComputeFeaturesNV-sType-sType  
+  `sType` **must** be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_DEVICE_GENERATED_COMMANDS_COMPUTE_FEATURES_NV`
 
-## <a href="#_see_also" class="anchor"></a>See Also
+## [](#_see_also)See Also
 
-[VK_NV_device_generated_commands_compute](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_NV_device_generated_commands_compute.html),
-[VkBool32](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkBool32.html), [VkStructureType](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkStructureType.html)
+[VK\_NV\_device\_generated\_commands\_compute](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_NV_device_generated_commands_compute.html), [VkBool32](https://registry.khronos.org/vulkan/specs/latest/man/html/VkBool32.html), [VkStructureType](https://registry.khronos.org/vulkan/specs/latest/man/html/VkStructureType.html)
 
-## <a href="#_document_notes" class="anchor"></a>Document Notes
+## [](#_document_notes)Document Notes
 
-For more information, see the <a
-href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#VkPhysicalDeviceDeviceGeneratedCommandsComputeFeaturesNV"
-target="_blank" rel="noopener">Vulkan Specification</a>
+For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#VkPhysicalDeviceDeviceGeneratedCommandsComputeFeaturesNV)
 
-This page is extracted from the Vulkan Specification. Fixes and changes
-should be made to the Specification, not directly.
+This page is extracted from the Vulkan Specification. Fixes and changes should be made to the Specification, not directly.
 
-## <a href="#_copyright" class="anchor"></a>Copyright
+## [](#_copyright)Copyright
 
-Copyright 2014-2024 The Khronos Group Inc.
+Copyright 2014-2025 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
-
-Version 1.3.290  
-Last updated 2024-07-11 23:39:16 -0700

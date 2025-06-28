@@ -6,12 +6,11 @@ vkCreateBufferCollectionFUCHSIA - Create a new buffer collection
 
 
 
-## <a href="#_c_specification" class="anchor"></a>C Specification
+## [](#_c_specification)C Specification
 
-To create a [VkBufferCollectionFUCHSIA](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkBufferCollectionFUCHSIA.html)
-for Vulkan to participate in the buffer collection:
+To create a [VkBufferCollectionFUCHSIA](https://registry.khronos.org/vulkan/specs/latest/man/html/VkBufferCollectionFUCHSIA.html) for Vulkan to participate in the buffer collection:
 
-``` c
+```c++
 // Provided by VK_FUCHSIA_buffer_collection
 VkResult vkCreateBufferCollectionFUCHSIA(
     VkDevice                                    device,
@@ -20,96 +19,56 @@ VkResult vkCreateBufferCollectionFUCHSIA(
     VkBufferCollectionFUCHSIA*                  pCollection);
 ```
 
-## <a href="#_parameters" class="anchor"></a>Parameters
+## [](#_parameters)Parameters
 
-- `device` is the logical device that creates the
-  `VkBufferCollectionFUCHSIA`
+- `device` is the logical device that creates the `VkBufferCollectionFUCHSIA`
+- `pCreateInfo` is a pointer to a [VkBufferCollectionCreateInfoFUCHSIA](https://registry.khronos.org/vulkan/specs/latest/man/html/VkBufferCollectionCreateInfoFUCHSIA.html) structure containing parameters affecting creation of the buffer collection
+- `pAllocator` is a pointer to a [VkAllocationCallbacks](https://registry.khronos.org/vulkan/specs/latest/man/html/VkAllocationCallbacks.html) structure controlling host memory allocation as described in the [Memory Allocation](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#memory-allocation) chapter
+- `pCollection` is a pointer to a [VkBufferCollectionFUCHSIA](https://registry.khronos.org/vulkan/specs/latest/man/html/VkBufferCollectionFUCHSIA.html) handle in which the resulting buffer collection object is returned
 
-- `pCreateInfo` is a pointer to a
-  [VkBufferCollectionCreateInfoFUCHSIA](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkBufferCollectionCreateInfoFUCHSIA.html)
-  structure containing parameters affecting creation of the buffer
-  collection
-
-- `pAllocator` is a pointer to a
-  [VkAllocationCallbacks](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkAllocationCallbacks.html) structure
-  controlling host memory allocation as described in the <a
-  href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#memory-allocation"
-  target="_blank" rel="noopener">Memory Allocation</a> chapter
-
-- `pBufferCollection` is a pointer to a
-  [VkBufferCollectionFUCHSIA](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkBufferCollectionFUCHSIA.html) handle in
-  which the resulting buffer collection object is returned
-
-## <a href="#_description" class="anchor"></a>Description
+## [](#_description)Description
 
 Valid Usage (Implicit)
 
-- <a href="#VUID-vkCreateBufferCollectionFUCHSIA-device-parameter"
-  id="VUID-vkCreateBufferCollectionFUCHSIA-device-parameter"></a>
-  VUID-vkCreateBufferCollectionFUCHSIA-device-parameter  
-  `device` **must** be a valid [VkDevice](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkDevice.html) handle
-
-- <a href="#VUID-vkCreateBufferCollectionFUCHSIA-pCreateInfo-parameter"
-  id="VUID-vkCreateBufferCollectionFUCHSIA-pCreateInfo-parameter"></a>
-  VUID-vkCreateBufferCollectionFUCHSIA-pCreateInfo-parameter  
-  `pCreateInfo` **must** be a valid pointer to a valid
-  [VkBufferCollectionCreateInfoFUCHSIA](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkBufferCollectionCreateInfoFUCHSIA.html)
-  structure
-
-- <a href="#VUID-vkCreateBufferCollectionFUCHSIA-pAllocator-parameter"
-  id="VUID-vkCreateBufferCollectionFUCHSIA-pAllocator-parameter"></a>
-  VUID-vkCreateBufferCollectionFUCHSIA-pAllocator-parameter  
-  If `pAllocator` is not `NULL`, `pAllocator` **must** be a valid
-  pointer to a valid [VkAllocationCallbacks](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkAllocationCallbacks.html)
-  structure
-
-- <a href="#VUID-vkCreateBufferCollectionFUCHSIA-pCollection-parameter"
-  id="VUID-vkCreateBufferCollectionFUCHSIA-pCollection-parameter"></a>
-  VUID-vkCreateBufferCollectionFUCHSIA-pCollection-parameter  
-  `pCollection` **must** be a valid pointer to a
-  [VkBufferCollectionFUCHSIA](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkBufferCollectionFUCHSIA.html) handle
+- [](#VUID-vkCreateBufferCollectionFUCHSIA-device-parameter)VUID-vkCreateBufferCollectionFUCHSIA-device-parameter  
+  `device` **must** be a valid [VkDevice](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDevice.html) handle
+- [](#VUID-vkCreateBufferCollectionFUCHSIA-pCreateInfo-parameter)VUID-vkCreateBufferCollectionFUCHSIA-pCreateInfo-parameter  
+  `pCreateInfo` **must** be a valid pointer to a valid [VkBufferCollectionCreateInfoFUCHSIA](https://registry.khronos.org/vulkan/specs/latest/man/html/VkBufferCollectionCreateInfoFUCHSIA.html) structure
+- [](#VUID-vkCreateBufferCollectionFUCHSIA-pAllocator-parameter)VUID-vkCreateBufferCollectionFUCHSIA-pAllocator-parameter  
+  If `pAllocator` is not `NULL`, `pAllocator` **must** be a valid pointer to a valid [VkAllocationCallbacks](https://registry.khronos.org/vulkan/specs/latest/man/html/VkAllocationCallbacks.html) structure
+- [](#VUID-vkCreateBufferCollectionFUCHSIA-pCollection-parameter)VUID-vkCreateBufferCollectionFUCHSIA-pCollection-parameter  
+  `pCollection` **must** be a valid pointer to a [VkBufferCollectionFUCHSIA](https://registry.khronos.org/vulkan/specs/latest/man/html/VkBufferCollectionFUCHSIA.html) handle
+- [](#VUID-vkCreateBufferCollectionFUCHSIA-device-queuecount)VUID-vkCreateBufferCollectionFUCHSIA-device-queuecount  
+  The device **must** have been created with at least `1` queue
 
 Return Codes
 
-On success, this command returns  
+On success, this command returns
+
 - `VK_SUCCESS`
 
-On failure, this command returns  
+On failure, this command returns
+
 - `VK_ERROR_OUT_OF_HOST_MEMORY`
-
 - `VK_ERROR_INVALID_EXTERNAL_HANDLE`
-
 - `VK_ERROR_INITIALIZATION_FAILED`
 
 Host Access
 
-All functions referencing a
-[VkBufferCollectionFUCHSIA](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkBufferCollectionFUCHSIA.html) **must** be
-externally synchronized with the exception of
-`vkCreateBufferCollectionFUCHSIA`.
+All functions referencing a [VkBufferCollectionFUCHSIA](https://registry.khronos.org/vulkan/specs/latest/man/html/VkBufferCollectionFUCHSIA.html) **must** be externally synchronized with the exception of `vkCreateBufferCollectionFUCHSIA`.
 
-## <a href="#_see_also" class="anchor"></a>See Also
+## [](#_see_also)See Also
 
-[VK_FUCHSIA_buffer_collection](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_FUCHSIA_buffer_collection.html),
-[VkAllocationCallbacks](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkAllocationCallbacks.html),
-[VkBufferCollectionCreateInfoFUCHSIA](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkBufferCollectionCreateInfoFUCHSIA.html),
-[VkBufferCollectionFUCHSIA](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkBufferCollectionFUCHSIA.html),
-[VkDevice](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkDevice.html)
+[VK\_FUCHSIA\_buffer\_collection](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_FUCHSIA_buffer_collection.html), [VkAllocationCallbacks](https://registry.khronos.org/vulkan/specs/latest/man/html/VkAllocationCallbacks.html), [VkBufferCollectionCreateInfoFUCHSIA](https://registry.khronos.org/vulkan/specs/latest/man/html/VkBufferCollectionCreateInfoFUCHSIA.html), [VkBufferCollectionFUCHSIA](https://registry.khronos.org/vulkan/specs/latest/man/html/VkBufferCollectionFUCHSIA.html), [VkDevice](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDevice.html)
 
-## <a href="#_document_notes" class="anchor"></a>Document Notes
+## [](#_document_notes)Document Notes
 
-For more information, see the <a
-href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#vkCreateBufferCollectionFUCHSIA"
-target="_blank" rel="noopener">Vulkan Specification</a>
+For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#vkCreateBufferCollectionFUCHSIA)
 
-This page is extracted from the Vulkan Specification. Fixes and changes
-should be made to the Specification, not directly.
+This page is extracted from the Vulkan Specification. Fixes and changes should be made to the Specification, not directly.
 
-## <a href="#_copyright" class="anchor"></a>Copyright
+## [](#_copyright)Copyright
 
-Copyright 2014-2024 The Khronos Group Inc.
+Copyright 2014-2025 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
-
-Version 1.3.290  
-Last updated 2024-07-11 23:39:16 -0700

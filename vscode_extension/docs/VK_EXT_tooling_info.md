@@ -1,140 +1,121 @@
-# VK_EXT_tooling_info(3) Manual Page
+# VK\_EXT\_tooling\_info(3) Manual Page
 
 ## Name
 
-VK_EXT_tooling_info - device extension
+VK\_EXT\_tooling\_info - device extension
 
 
 
-## <a href="#_registered_extension_number" class="anchor"></a>Registered Extension Number
+## [](#_registered_extension_number)Registered Extension Number
 
 246
 
-## <a href="#_revision" class="anchor"></a>Revision
+## [](#_revision)Revision
 
 1
 
-## <a href="#_ratification_status" class="anchor"></a>Ratification Status
+## [](#_ratification_status)Ratification Status
 
 Not ratified
 
-## <a href="#_extension_and_version_dependencies" class="anchor"></a>Extension and Version Dependencies
+## [](#_extension_and_version_dependencies)Extension and Version Dependencies
 
 None
 
-## <a href="#_api_interactions" class="anchor"></a>API Interactions
+## [](#_api_interactions)API Interactions
 
-- Interacts with VK_EXT_debug_marker
+- Interacts with VK\_EXT\_debug\_marker
+- Interacts with VK\_EXT\_debug\_report
+- Interacts with VK\_EXT\_debug\_utils
 
-- Interacts with VK_EXT_debug_report
+## [](#_deprecation_state)Deprecation State
 
-- Interacts with VK_EXT_debug_utils
+- *Promoted* to [Vulkan 1.3](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#versions-1.3-promotions)
 
-## <a href="#_deprecation_state" class="anchor"></a>Deprecation State
+## [](#_contact)Contact
 
-- *Promoted* to <a
-  href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#versions-1.3-promotions"
-  target="_blank" rel="noopener">Vulkan 1.3</a>
+- Tobias Hector [\[GitHub\]tobski](https://github.com/KhronosGroup/Vulkan-Docs/issues/new?body=%5BVK_EXT_tooling_info%5D%20%40tobski%0A%2AHere%20describe%20the%20issue%20or%20question%20you%20have%20about%20the%20VK_EXT_tooling_info%20extension%2A)
 
-## <a href="#_contact" class="anchor"></a>Contact
+## [](#_other_extension_metadata)Other Extension Metadata
 
-- Tobias Hector <a
-  href="https://github.com/KhronosGroup/Vulkan-Docs/issues/new?body=%5BVK_EXT_tooling_info%5D%20@tobski%0A*Here%20describe%20the%20issue%20or%20question%20you%20have%20about%20the%20VK_EXT_tooling_info%20extension*"
-  target="_blank" rel="nofollow noopener"><em></em>tobski</a>
+**Last Modified Date**
 
-## <a href="#_other_extension_metadata" class="anchor"></a>Other Extension Metadata
-
-**Last Modified Date**  
 2018-11-05
 
-**Contributors**  
+**Contributors**
+
 - Rolando Caloca
-
 - Matthaeus Chajdas
-
 - Baldur Karlsson
-
 - Daniel Rakos
 
-## <a href="#_description" class="anchor"></a>Description
+## [](#_description)Description
 
-When an error occurs during application development, a common question
-is "What tools are actually running right now?" This extension adds the
-ability to query that information directly from the Vulkan
-implementation.
+When an error occurs during application development, a common question is "What tools are actually running right now?" This extension adds the ability to query that information directly from the Vulkan implementation.
 
-Outdated versions of one tool might not play nicely with another, or
-perhaps a tool is not actually running when it should have been. Trying
-to figure that out can cause headaches as it is necessary to consult
-each known tool to figure out what is going on — in some cases the tool
-might not even be known.
+Outdated versions of one tool might not play nicely with another, or perhaps a tool is not actually running when it should have been. Trying to figure that out can cause headaches as it is necessary to consult each known tool to figure out what is going on — in some cases the tool might not even be known.
 
-Typically, the expectation is that developers will simply print out this
-information for visual inspection when an issue occurs, however a small
-amount of semantic information about what the tool is doing is provided
-to help identify it programmatically. For example, if the advertised
-limits or features of an implementation are unexpected, is there a tool
-active which modifies these limits? Or if an application is providing
-debug markers, but the implementation is not actually doing anything
-with that information, this can quickly point that out.
+Typically, the expectation is that developers will simply print out this information for visual inspection when an issue occurs, however a small amount of semantic information about what the tool is doing is provided to help identify it programmatically. For example, if the advertised limits or features of an implementation are unexpected, is there a tool active which modifies these limits? Or if an application is providing debug markers, but the implementation is not actually doing anything with that information, this can quickly point that out.
 
-## <a href="#_new_commands" class="anchor"></a>New Commands
+## [](#_new_commands)New Commands
 
-- [vkGetPhysicalDeviceToolPropertiesEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkGetPhysicalDeviceToolPropertiesEXT.html)
+- [vkGetPhysicalDeviceToolPropertiesEXT](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetPhysicalDeviceToolPropertiesEXT.html)
 
-## <a href="#_new_structures" class="anchor"></a>New Structures
+## [](#_new_structures)New Structures
 
-- [VkPhysicalDeviceToolPropertiesEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkPhysicalDeviceToolPropertiesEXT.html)
+- [VkPhysicalDeviceToolPropertiesEXT](https://registry.khronos.org/vulkan/specs/latest/man/html/VkPhysicalDeviceToolPropertiesEXT.html)
 
-## <a href="#_new_enums" class="anchor"></a>New Enums
+## [](#_new_enums)New Enums
 
-- [VkToolPurposeFlagBitsEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkToolPurposeFlagBitsEXT.html)
+- [VkToolPurposeFlagBitsEXT](https://registry.khronos.org/vulkan/specs/latest/man/html/VkToolPurposeFlagBitsEXT.html)
 
-## <a href="#_new_bitmasks" class="anchor"></a>New Bitmasks
+## [](#_new_bitmasks)New Bitmasks
 
-- [VkToolPurposeFlagsEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkToolPurposeFlagsEXT.html)
+- [VkToolPurposeFlagsEXT](https://registry.khronos.org/vulkan/specs/latest/man/html/VkToolPurposeFlagsEXT.html)
 
-## <a href="#_new_enum_constants" class="anchor"></a>New Enum Constants
+## [](#_new_enum_constants)New Enum Constants
 
 - `VK_EXT_TOOLING_INFO_EXTENSION_NAME`
-
 - `VK_EXT_TOOLING_INFO_SPEC_VERSION`
-
-- Extending [VkStructureType](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkStructureType.html):
-
+- Extending [VkStructureType](https://registry.khronos.org/vulkan/specs/latest/man/html/VkStructureType.html):
+  
   - `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_TOOL_PROPERTIES_EXT`
+- Extending [VkToolPurposeFlagBits](https://registry.khronos.org/vulkan/specs/latest/man/html/VkToolPurposeFlagBits.html):
+  
+  - `VK_TOOL_PURPOSE_ADDITIONAL_FEATURES_BIT_EXT`
+  - `VK_TOOL_PURPOSE_MODIFYING_FEATURES_BIT_EXT`
+  - `VK_TOOL_PURPOSE_PROFILING_BIT_EXT`
+  - `VK_TOOL_PURPOSE_TRACING_BIT_EXT`
+  - `VK_TOOL_PURPOSE_VALIDATION_BIT_EXT`
 
-If [VK_EXT_debug_marker](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_EXT_debug_marker.html) is supported:
+If [VK\_EXT\_debug\_marker](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_EXT_debug_marker.html) is supported:
 
-- Extending [VkToolPurposeFlagBits](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkToolPurposeFlagBits.html):
-
+- Extending [VkToolPurposeFlagBits](https://registry.khronos.org/vulkan/specs/latest/man/html/VkToolPurposeFlagBits.html):
+  
   - `VK_TOOL_PURPOSE_DEBUG_MARKERS_BIT_EXT`
 
-If [VK_EXT_debug_report](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_EXT_debug_report.html) is supported:
+If [VK\_EXT\_debug\_report](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_EXT_debug_report.html) is supported:
 
-- Extending [VkToolPurposeFlagBits](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkToolPurposeFlagBits.html):
-
+- Extending [VkToolPurposeFlagBits](https://registry.khronos.org/vulkan/specs/latest/man/html/VkToolPurposeFlagBits.html):
+  
   - `VK_TOOL_PURPOSE_DEBUG_REPORTING_BIT_EXT`
 
-If [VK_EXT_debug_utils](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_EXT_debug_utils.html) is supported:
+If [VK\_EXT\_debug\_utils](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_EXT_debug_utils.html) is supported:
 
-- Extending [VkToolPurposeFlagBits](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkToolPurposeFlagBits.html):
-
+- Extending [VkToolPurposeFlagBits](https://registry.khronos.org/vulkan/specs/latest/man/html/VkToolPurposeFlagBits.html):
+  
   - `VK_TOOL_PURPOSE_DEBUG_MARKERS_BIT_EXT`
-
   - `VK_TOOL_PURPOSE_DEBUG_REPORTING_BIT_EXT`
 
-## <a href="#_promotion_to_vulkan_1_3" class="anchor"></a>Promotion to Vulkan 1.3
+## [](#_promotion_to_vulkan_1_3)Promotion to Vulkan 1.3
 
-Functionality in this extension is included in core Vulkan 1.3, with the
-EXT suffix omitted. The original type, enum and command names are still
-available as aliases of the core functionality.
+Vulkan APIs in this extension are included in core Vulkan 1.3, with the EXT suffix omitted. External interactions defined by this extension, such as SPIR-V token names, retain their original names. The original Vulkan API names are still available as aliases of the core functionality.
 
-## <a href="#_examples" class="anchor"></a>Examples
+## [](#_examples)Examples
 
 Printing Tool Information
 
-``` c
+```
 uint32_t num_tools;
 VkPhysicalDeviceToolPropertiesEXT *pToolProperties;
 vkGetPhysicalDeviceToolPropertiesEXT(physicalDevice, &num_tools, NULL);
@@ -158,38 +139,30 @@ for (int i = 0; i < num_tools; ++i) {
 }
 ```
 
-## <a href="#_issues" class="anchor"></a>Issues
+## [](#_issues)Issues
 
 1\) Why is this information separate from the layer mechanism?
 
-Some tooling may be built into a driver, or be part of the Vulkan loader
-etc. Tying this information directly to layers would have been awkward
-at best.
+Some tooling may be built into a driver, or be part of the Vulkan loader etc. Tying this information directly to layers would have been awkward at best.
 
-## <a href="#_version_history" class="anchor"></a>Version History
+## [](#_version_history)Version History
 
 - Revision 1, 2018-11-05 (Tobias Hector)
-
+  
   - Initial draft
 
-## <a href="#_see_also" class="anchor"></a>See Also
+## [](#_see_also)See Also
 
 No cross-references are available
 
-## <a href="#_document_notes" class="anchor"></a>Document Notes
+## [](#_document_notes)Document Notes
 
-For more information, see the <a
-href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#VK_EXT_tooling_info"
-target="_blank" rel="noopener">Vulkan Specification</a>
+For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#VK_EXT_tooling_info)
 
-This page is a generated document. Fixes and changes should be made to
-the generator scripts, not directly.
+This page is a generated document. Fixes and changes should be made to the generator scripts, not directly.
 
-## <a href="#_copyright" class="anchor"></a>Copyright
+## [](#_copyright)Copyright
 
-Copyright 2014-2024 The Khronos Group Inc.
+Copyright 2014-2025 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
-
-Version 1.3.290  
-Last updated 2024-07-11 23:39:16 -0700

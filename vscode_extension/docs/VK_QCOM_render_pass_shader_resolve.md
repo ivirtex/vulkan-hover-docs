@@ -1,167 +1,132 @@
-# VK_QCOM_render_pass_shader_resolve(3) Manual Page
+# VK\_QCOM\_render\_pass\_shader\_resolve(3) Manual Page
 
 ## Name
 
-VK_QCOM_render_pass_shader_resolve - device extension
+VK\_QCOM\_render\_pass\_shader\_resolve - device extension
 
 
 
-## <a href="#_registered_extension_number" class="anchor"></a>Registered Extension Number
+## [](#_registered_extension_number)Registered Extension Number
 
 172
 
-## <a href="#_revision" class="anchor"></a>Revision
+## [](#_revision)Revision
 
 4
 
-## <a href="#_ratification_status" class="anchor"></a>Ratification Status
+## [](#_ratification_status)Ratification Status
 
 Not ratified
 
-## <a href="#_extension_and_version_dependencies" class="anchor"></a>Extension and Version Dependencies
+## [](#_extension_and_version_dependencies)Extension and Version Dependencies
 
 None
 
-## <a href="#_contact" class="anchor"></a>Contact
+## [](#_contact)Contact
 
-- Matthew Netsch <a
-  href="https://github.com/KhronosGroup/Vulkan-Docs/issues/new?body=%5BVK_QCOM_render_pass_shader_resolve%5D%20@mnetsch%0A*Here%20describe%20the%20issue%20or%20question%20you%20have%20about%20the%20VK_QCOM_render_pass_shader_resolve%20extension*"
-  target="_blank" rel="nofollow noopener"><em></em>mnetsch</a>
+- Matthew Netsch [\[GitHub\]mnetsch](https://github.com/KhronosGroup/Vulkan-Docs/issues/new?body=%5BVK_QCOM_render_pass_shader_resolve%5D%20%40mnetsch%0A%2AHere%20describe%20the%20issue%20or%20question%20you%20have%20about%20the%20VK_QCOM_render_pass_shader_resolve%20extension%2A)
 
-## <a href="#_other_extension_metadata" class="anchor"></a>Other Extension Metadata
+## [](#_other_extension_metadata)Other Extension Metadata
 
-**Last Modified Date**  
+**Last Modified Date**
+
 2019-11-07
 
-**IP Status**  
+**IP Status**
+
 No known IP claims.
 
-**Interactions and External Dependencies**  
+**Interactions and External Dependencies**
+
 None.
 
-**Contributors**  
+**Contributors**
+
 - Srihari Babu Alla, Qualcomm
-
 - Bill Licea-Kane, Qualcomm
-
 - Jeff Leger, Qualcomm
 
-## <a href="#_description" class="anchor"></a>Description
+## [](#_description)Description
 
-This extension allows a shader resolve to replace fixed-function
-resolve.
+This extension allows a shader resolve to replace fixed-function resolve.
 
-Fixed-function resolve is limited in function to simple filters of
-multisample buffers to a single sample buffer.
+Fixed-function resolve is limited in function to simple filters of multisample buffers to a single sample buffer.
 
-Fixed-function resolve is more performance efficient and/or power
-efficient than shader resolve for such simple filters.
+Fixed-function resolve is more performance efficient and/or power efficient than shader resolve for such simple filters.
 
-Shader resolve allows a shader writer to create complex, non-linear
-filtering of a multisample buffer in the last subpass of a subpass
-dependency chain.
+Shader resolve allows a shader writer to create complex, non-linear filtering of a multisample buffer in the last subpass of a subpass dependency chain.
 
-This extension also provides a bit which **can** be used to enlarge a
-sample region dependency to a fragment region dependency, so that a
-framebuffer-region dependency **can** replace a framebuffer-global
-dependency in some cases.
+This extension also provides a bit which **can** be used to enlarge a sample region dependency to a fragment region dependency, so that a framebuffer-region dependency **can** replace a framebuffer-global dependency in some cases.
 
-## <a href="#_new_enum_constants" class="anchor"></a>New Enum Constants
+## [](#_new_enum_constants)New Enum Constants
 
 - `VK_QCOM_RENDER_PASS_SHADER_RESOLVE_EXTENSION_NAME`
-
 - `VK_QCOM_RENDER_PASS_SHADER_RESOLVE_SPEC_VERSION`
-
-- Extending
-  [VkSubpassDescriptionFlagBits](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkSubpassDescriptionFlagBits.html):
-
+- Extending [VkSubpassDescriptionFlagBits](https://registry.khronos.org/vulkan/specs/latest/man/html/VkSubpassDescriptionFlagBits.html):
+  
   - `VK_SUBPASS_DESCRIPTION_FRAGMENT_REGION_BIT_QCOM`
-
   - `VK_SUBPASS_DESCRIPTION_SHADER_RESOLVE_BIT_QCOM`
 
-## <a href="#_issues" class="anchor"></a>Issues
+## [](#_issues)Issues
 
-1\) Should this extension be named render_pass_shader_resolve?
+1\) Should this extension be named render\_pass\_shader\_resolve?
 
 **RESOLVED** Yes.
 
 This is part of suite of small extensions to render pass.
 
-Following the style guide, instead of following
-VK_KHR_create_renderpass2.
+Following the style guide, instead of following VK\_KHR\_create\_renderpass2.
 
-2\) Should the VK_SAMPLE_COUNT_1_BIT be required for each
-pColorAttachment and the DepthStencilAttachent?
+2\) Should the VK\_SAMPLE\_COUNT\_1\_BIT be required for each pColorAttachment and the DepthStencilAttachent?
 
 **RESOLVED** No.
 
-While this may not be a common use case, and while most fixed-function
-resolve hardware has this limitation, there is little reason to require
-a shader resolve to resolve to a single sample buffer.
+While this may not be a common use case, and while most fixed-function resolve hardware has this limitation, there is little reason to require a shader resolve to resolve to a single sample buffer.
 
-3\) Should a shader resolve subpass be the last subpass in a render
-pass?
+3\) Should a shader resolve subpass be the last subpass in a render pass?
 
 **RESOLVED** Yes.
 
-To be more specific, it should be the last subpass in a subpass
-dependency chain.
+To be more specific, it should be the last subpass in a subpass dependency chain.
 
-4\) Do we need the `VK_SUBPASS_DESCRIPTION_FRAGMENT_REGION_BIT_QCOM`
-bit?
+4\) Do we need the `VK_SUBPASS_DESCRIPTION_FRAGMENT_REGION_BIT_QCOM` bit?
 
 **RESOLVED** Yes.
 
-This applies when an input attachment’s sample count is equal to
-`rasterizationSamples`. Further, if `sampleShading` is enabled
-(explicitly or implicitly) then `minSampleShading` **must** equal 0.0.
+This applies when an input attachment’s sample count is equal to `rasterizationSamples`. Further, if `sampleShading` is enabled (explicitly or implicitly) then `minSampleShading` **must** equal 0.0.
 
-However, this bit may be set on any subpass, it is not restricted to a
-shader resolve subpass.
+However, this bit may be set on any subpass, it is not restricted to a shader resolve subpass.
 
-## <a href="#_version_history" class="anchor"></a>Version History
+## [](#_version_history)Version History
 
 - Revision 1, 2019-06-28 (wwlk)
-
+  
   - Initial draft
-
 - Revision 2, 2019-11-06 (wwlk)
-
+  
   - General clean-up/spec updates
-
   - Added issues
-
 - Revision 3, 2019-11-07 (wwlk)
-
+  
   - Typos
-
   - Additional issues
-
-  - Clarified that a shader resolve subpass is the last subpass in a
-    subpass dependency chain
-
+  - Clarified that a shader resolve subpass is the last subpass in a subpass dependency chain
 - Revision 4, 2020-01-06 (wwlk)
+  
+  - Change resolution of Issue 1 (*render\_pass*, not *renderpass*)
 
-  - Change resolution of Issue 1 (*render_pass*, not *renderpass*)
-
-## <a href="#_see_also" class="anchor"></a>See Also
+## [](#_see_also)See Also
 
 No cross-references are available
 
-## <a href="#_document_notes" class="anchor"></a>Document Notes
+## [](#_document_notes)Document Notes
 
-For more information, see the <a
-href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#VK_QCOM_render_pass_shader_resolve"
-target="_blank" rel="noopener">Vulkan Specification</a>
+For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#VK_QCOM_render_pass_shader_resolve)
 
-This page is a generated document. Fixes and changes should be made to
-the generator scripts, not directly.
+This page is a generated document. Fixes and changes should be made to the generator scripts, not directly.
 
-## <a href="#_copyright" class="anchor"></a>Copyright
+## [](#_copyright)Copyright
 
-Copyright 2014-2024 The Khronos Group Inc.
+Copyright 2014-2025 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
-
-Version 1.3.290  
-Last updated 2024-07-11 23:39:16 -0700

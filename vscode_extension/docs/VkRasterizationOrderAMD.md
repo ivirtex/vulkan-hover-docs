@@ -2,18 +2,15 @@
 
 ## Name
 
-VkRasterizationOrderAMD - Specify rasterization order for a graphics
-pipeline
+VkRasterizationOrderAMD - Specify rasterization order for a graphics pipeline
 
 
 
-## <a href="#_c_specification" class="anchor"></a>C Specification
+## [](#_c_specification)C Specification
 
-Possible values of
-[VkPipelineRasterizationStateRasterizationOrderAMD](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkPipelineRasterizationStateRasterizationOrderAMD.html)::`rasterizationOrder`,
-specifying the primitive rasterization order, are:
+Possible values of [VkPipelineRasterizationStateRasterizationOrderAMD](https://registry.khronos.org/vulkan/specs/latest/man/html/VkPipelineRasterizationStateRasterizationOrderAMD.html)::`rasterizationOrder`, specifying the primitive rasterization order, are:
 
-``` c
+```c++
 // Provided by VK_AMD_rasterization_order
 typedef enum VkRasterizationOrderAMD {
     VK_RASTERIZATION_ORDER_STRICT_AMD = 0,
@@ -21,37 +18,23 @@ typedef enum VkRasterizationOrderAMD {
 } VkRasterizationOrderAMD;
 ```
 
-## <a href="#_description" class="anchor"></a>Description
+## [](#_description)Description
 
-- `VK_RASTERIZATION_ORDER_STRICT_AMD` specifies that operations for each
-  primitive in a subpass **must** occur in <a
-  href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#drawing-primitive-order"
-  target="_blank" rel="noopener">primitive order</a>.
+- `VK_RASTERIZATION_ORDER_STRICT_AMD` specifies that operations for each primitive in a subpass **must** occur in [primitive order](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#drawing-primitive-order).
+- `VK_RASTERIZATION_ORDER_RELAXED_AMD` specifies that operations for each primitive in a subpass **may** not occur in [primitive order](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#drawing-primitive-order).
 
-- `VK_RASTERIZATION_ORDER_RELAXED_AMD` specifies that operations for
-  each primitive in a subpass **may** not occur in <a
-  href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#drawing-primitive-order"
-  target="_blank" rel="noopener">primitive order</a>.
+## [](#_see_also)See Also
 
-## <a href="#_see_also" class="anchor"></a>See Also
+[VK\_AMD\_rasterization\_order](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_AMD_rasterization_order.html), [VkPipelineRasterizationStateRasterizationOrderAMD](https://registry.khronos.org/vulkan/specs/latest/man/html/VkPipelineRasterizationStateRasterizationOrderAMD.html)
 
-[VK_AMD_rasterization_order](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_AMD_rasterization_order.html),
-[VkPipelineRasterizationStateRasterizationOrderAMD](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkPipelineRasterizationStateRasterizationOrderAMD.html)
+## [](#_document_notes)Document Notes
 
-## <a href="#_document_notes" class="anchor"></a>Document Notes
+For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#VkRasterizationOrderAMD)
 
-For more information, see the <a
-href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#VkRasterizationOrderAMD"
-target="_blank" rel="noopener">Vulkan Specification</a>
+This page is extracted from the Vulkan Specification. Fixes and changes should be made to the Specification, not directly.
 
-This page is extracted from the Vulkan Specification. Fixes and changes
-should be made to the Specification, not directly.
+## [](#_copyright)Copyright
 
-## <a href="#_copyright" class="anchor"></a>Copyright
-
-Copyright 2014-2024 The Khronos Group Inc.
+Copyright 2014-2025 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
-
-Version 1.3.290  
-Last updated 2024-07-11 23:39:16 -0700

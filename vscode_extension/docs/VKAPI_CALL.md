@@ -1,35 +1,27 @@
-# VKAPI_CALL(3) Manual Page
+# VKAPI\_CALL(3) Manual Page
 
 ## Name
 
-VKAPI_CALL - Vulkan function calling conventions macro
+VKAPI\_CALL - Vulkan function calling conventions macro
 
 
 
-## <a href="#_description" class="anchor"></a>Description
+## [](#_description)Description
 
-`VKAPI_CALL` is a macro placed after the return type in Vulkan API
-function declarations. This macro controls calling conventions for
-MSVC-style compilers.
+`VKAPI_CALL` is a macro placed after the return type in Vulkan API function declarations. This macro controls calling conventions for MSVC-style compilers.
 
-## <a href="#_see_also" class="anchor"></a>See Also
+## [](#_see_also)See Also
 
-[VKAPI_ATTR](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VKAPI_ATTR.html), [VKAPI_PTR](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VKAPI_PTR.html)
+[VKAPI\_ATTR](https://registry.khronos.org/vulkan/specs/latest/man/html/VKAPI_ATTR.html), [VKAPI\_PTR](https://registry.khronos.org/vulkan/specs/latest/man/html/VKAPI_PTR.html)
 
-## <a href="#_document_notes" class="anchor"></a>Document Notes
+## [](#_document_notes)Document Notes
 
-For more information, see the <a
-href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#boilerplate-platform-specific-calling-conventions"
-target="_blank" rel="noopener">Vulkan Specification</a>
+For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#boilerplate-platform-specific-calling-conventions)
 
-This page is extracted from the Vulkan Specification. Fixes and changes
-should be made to the Specification, not directly.
+This page is extracted from the Vulkan Specification. Fixes and changes should be made to the Specification, not directly.
 
-## <a href="#_copyright" class="anchor"></a>Copyright
+## [](#_copyright)Copyright
 
-Copyright 2014-2024 The Khronos Group Inc.
+Copyright 2014-2025 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
-
-Version 1.3.290  
-Last updated 2024-07-11 23:39:16 -0700

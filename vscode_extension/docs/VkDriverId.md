@@ -6,13 +6,11 @@ VkDriverId - Khronos driver IDs
 
 
 
-## <a href="#_c_specification" class="anchor"></a>C Specification
+## [](#_c_specification)C Specification
 
-Khronos driver IDs which **may** be returned in
-[VkPhysicalDeviceDriverProperties](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkPhysicalDeviceDriverProperties.html)::`driverID`
-are:
+Khronos driver IDs which **may** be returned in [VkPhysicalDeviceDriverProperties](https://registry.khronos.org/vulkan/specs/latest/man/html/VkPhysicalDeviceDriverProperties.html)::`driverID` are:
 
-``` c
+```c++
 // Provided by VK_VERSION_1_2
 typedef enum VkDriverId {
     VK_DRIVER_ID_AMD_PROPRIETARY = 1,
@@ -41,7 +39,7 @@ typedef enum VkDriverId {
     VK_DRIVER_ID_MESA_NVK = 24,
     VK_DRIVER_ID_IMAGINATION_OPEN_SOURCE_MESA = 25,
     VK_DRIVER_ID_MESA_HONEYKRISP = 26,
-    VK_DRIVER_ID_RESERVED_27 = 27,
+    VK_DRIVER_ID_VULKAN_SC_EMULATION_ON_VULKAN = 27,
   // Provided by VK_KHR_driver_properties
     VK_DRIVER_ID_AMD_PROPRIETARY_KHR = VK_DRIVER_ID_AMD_PROPRIETARY,
   // Provided by VK_KHR_driver_properties
@@ -71,56 +69,31 @@ typedef enum VkDriverId {
 
 or the equivalent
 
-``` c
+```c++
 // Provided by VK_KHR_driver_properties
 typedef VkDriverId VkDriverIdKHR;
 ```
 
-## <a href="#_description" class="anchor"></a>Description
+## [](#_description)Description
 
-<table>
-<colgroup>
-<col style="width: 50%" />
-<col style="width: 50%" />
-</colgroup>
-<tbody>
-<tr>
-<td class="icon"><em></em></td>
-<td class="content">Note
-<p>Khronos driver IDs may be allocated by vendors at any time. There may
-be multiple driver IDs for the same vendor, representing different
-drivers (for e.g. different platforms, proprietary or open source,
-etc.). Only the latest canonical versions of this Specification, of the
-corresponding <code>vk.xml</code> API Registry, and of the corresponding
-<code>vulkan_core.h</code> header file <strong>must</strong> contain all
-reserved Khronos driver IDs.</p>
-<p>Only driver IDs registered with Khronos are given symbolic names.
-There <strong>may</strong> be unregistered driver IDs returned.</p></td>
-</tr>
-</tbody>
-</table>
+Note
 
-## <a href="#_see_also" class="anchor"></a>See Also
+Khronos driver IDs may be allocated by vendors at any time. There may be multiple driver IDs for the same vendor, representing different drivers (for e.g. different platforms, proprietary or open source, etc.). Only the latest canonical versions of this Specification, of the corresponding `vk.xml` API Registry, and of the corresponding `vulkan_core.h` header file **must** contain all reserved Khronos driver IDs.
 
-[VK_KHR_driver_properties](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_KHR_driver_properties.html),
-[VK_VERSION_1_2](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_VERSION_1_2.html),
-[VkPhysicalDeviceDriverProperties](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkPhysicalDeviceDriverProperties.html),
-[VkPhysicalDeviceVulkan12Properties](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkPhysicalDeviceVulkan12Properties.html)
+Only driver IDs registered with Khronos are given symbolic names. There **may** be unregistered driver IDs returned.
 
-## <a href="#_document_notes" class="anchor"></a>Document Notes
+## [](#_see_also)See Also
 
-For more information, see the <a
-href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#VkDriverId"
-target="_blank" rel="noopener">Vulkan Specification</a>
+[VK\_KHR\_driver\_properties](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_KHR_driver_properties.html), [VK\_VERSION\_1\_2](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_VERSION_1_2.html), [VkPhysicalDeviceDriverProperties](https://registry.khronos.org/vulkan/specs/latest/man/html/VkPhysicalDeviceDriverProperties.html), [VkPhysicalDeviceVulkan12Properties](https://registry.khronos.org/vulkan/specs/latest/man/html/VkPhysicalDeviceVulkan12Properties.html)
 
-This page is extracted from the Vulkan Specification. Fixes and changes
-should be made to the Specification, not directly.
+## [](#_document_notes)Document Notes
 
-## <a href="#_copyright" class="anchor"></a>Copyright
+For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#VkDriverId)
 
-Copyright 2014-2024 The Khronos Group Inc.
+This page is extracted from the Vulkan Specification. Fixes and changes should be made to the Specification, not directly.
+
+## [](#_copyright)Copyright
+
+Copyright 2014-2025 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
-
-Version 1.3.290  
-Last updated 2024-07-11 23:39:16 -0700

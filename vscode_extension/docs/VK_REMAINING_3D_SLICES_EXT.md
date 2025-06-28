@@ -1,40 +1,31 @@
-# VK_REMAINING_3D_SLICES_EXT(3) Manual Page
+# VK\_REMAINING\_3D\_SLICES\_EXT(3) Manual Page
 
 ## Name
 
-VK_REMAINING_3D_SLICES_EXT - Sentinel for all remaining 3D slices
+VK\_REMAINING\_3D\_SLICES\_EXT - Sentinel for all remaining 3D slices
 
 
 
-## <a href="#_c_specification" class="anchor"></a>C Specification
+## [](#_c_specification)C Specification
 
-`VK_REMAINING_3D_SLICES_EXT` is a special constant value used for
-[VkImageViewSlicedCreateInfoEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkImageViewSlicedCreateInfoEXT.html)::`sliceCount`
-to indicate that all remaining 3D slices in an image after the first
-slice offset specified should be included in the view.
+`VK_REMAINING_3D_SLICES_EXT` is a special constant value used for [VkImageViewSlicedCreateInfoEXT](https://registry.khronos.org/vulkan/specs/latest/man/html/VkImageViewSlicedCreateInfoEXT.html)::`sliceCount` to indicate that all remaining 3D slices in an image after the first slice offset specified should be included in the view.
 
-``` c
+```c++
 #define VK_REMAINING_3D_SLICES_EXT        (~0U)
 ```
 
-## <a href="#_see_also" class="anchor"></a>See Also
+## [](#_see_also)See Also
 
-[VK_EXT_image_sliced_view_of_3d](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_EXT_image_sliced_view_of_3d.html)
+[VK\_EXT\_image\_sliced\_view\_of\_3d](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_EXT_image_sliced_view_of_3d.html)
 
-## <a href="#_document_notes" class="anchor"></a>Document Notes
+## [](#_document_notes)Document Notes
 
-For more information, see the <a
-href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#VK_REMAINING_3D_SLICES_EXT"
-target="_blank" rel="noopener">Vulkan Specification</a>
+For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#VK_REMAINING_3D_SLICES_EXT)
 
-This page is extracted from the Vulkan Specification. Fixes and changes
-should be made to the Specification, not directly.
+This page is extracted from the Vulkan Specification. Fixes and changes should be made to the Specification, not directly.
 
-## <a href="#_copyright" class="anchor"></a>Copyright
+## [](#_copyright)Copyright
 
-Copyright 2014-2024 The Khronos Group Inc.
+Copyright 2014-2025 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
-
-Version 1.3.290  
-Last updated 2024-07-11 23:39:16 -0700

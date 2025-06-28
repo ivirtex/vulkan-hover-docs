@@ -6,14 +6,11 @@ VkDisplacementMicromapFormatNV - Format enum for displacement micromaps
 
 
 
-## <a href="#_c_specification" class="anchor"></a>C Specification
+## [](#_c_specification)C Specification
 
-Formats which **can** be set in
-[VkMicromapUsageEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkMicromapUsageEXT.html)::`format` and
-[VkMicromapTriangleEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkMicromapTriangleEXT.html)::`format` for
-micromap builds, are:
+Formats which **can** be set in [VkMicromapUsageEXT](https://registry.khronos.org/vulkan/specs/latest/man/html/VkMicromapUsageEXT.html)::`format` and [VkMicromapTriangleEXT](https://registry.khronos.org/vulkan/specs/latest/man/html/VkMicromapTriangleEXT.html)::`format` for micromap builds, are:
 
-``` c
+```c++
 // Provided by VK_NV_displacement_micromap
 typedef enum VkDisplacementMicromapFormatNV {
     VK_DISPLACEMENT_MICROMAP_FORMAT_64_TRIANGLES_64_BYTES_NV = 1,
@@ -22,59 +19,28 @@ typedef enum VkDisplacementMicromapFormatNV {
 } VkDisplacementMicromapFormatNV;
 ```
 
-## <a href="#_description" class="anchor"></a>Description
+## [](#_description)Description
 
-- `VK_DISPLACEMENT_MICROMAP_FORMAT_64_TRIANGLES_64_BYTES_NV` indicates
-  that the given micromap format encodes 64 micro-triangles worth of
-  displacements in 64 bytes as described in <a
-  href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#displacement-micromap-encoding"
-  target="_blank" rel="noopener">Displacement Micromap Encoding</a>.
+- `VK_DISPLACEMENT_MICROMAP_FORMAT_64_TRIANGLES_64_BYTES_NV` specifies that the given micromap format encodes 64 micro-triangles worth of displacements in 64 bytes as described in [Displacement Micromap Encoding](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#displacement-micromap-encoding).
+- `VK_DISPLACEMENT_MICROMAP_FORMAT_256_TRIANGLES_128_BYTES_NV` specifies that the given micromap format encodes 256 micro-triangles worth of displacements in 128 bytes as described in [Displacement Micromap Encoding](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#displacement-micromap-encoding).
+- `VK_DISPLACEMENT_MICROMAP_FORMAT_1024_TRIANGLES_128_BYTES_NV` specifies that the given micromap format encodes 1024 micro-triangles worth of displacements in 128 bytes as described in [Displacement Micromap Encoding](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#displacement-micromap-encoding).
 
-- `VK_DISPLACEMENT_MICROMAP_FORMAT_256_TRIANGLES_128_BYTES_NV` indicates
-  that the given micromap format encodes 256 micro-triangles worth of
-  displacements in 128 bytes as described in <a
-  href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#displacement-micromap-encoding"
-  target="_blank" rel="noopener">Displacement Micromap Encoding</a>.
+Note
 
-- `VK_DISPLACEMENT_MICROMAP_FORMAT_1024_TRIANGLES_128_BYTES_NV`
-  indicates that the given micromap format encodes 1024 micro-triangles
-  worth of displacements in 128 bytes as described in <a
-  href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#displacement-micromap-encoding"
-  target="_blank" rel="noopener">Displacement Micromap Encoding</a>.
+For compactness, these values are stored as 16-bit in some structures.
 
-<table>
-<colgroup>
-<col style="width: 50%" />
-<col style="width: 50%" />
-</colgroup>
-<tbody>
-<tr>
-<td class="icon"><em></em></td>
-<td class="content">Note
-<p>For compactness, these values are stored as 16-bit in some
-structures.</p></td>
-</tr>
-</tbody>
-</table>
+## [](#_see_also)See Also
 
-## <a href="#_see_also" class="anchor"></a>See Also
+[VK\_NV\_displacement\_micromap](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_NV_displacement_micromap.html)
 
-[VK_NV_displacement_micromap](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_NV_displacement_micromap.html)
+## [](#_document_notes)Document Notes
 
-## <a href="#_document_notes" class="anchor"></a>Document Notes
+For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#VkDisplacementMicromapFormatNV)
 
-For more information, see the <a
-href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#VkDisplacementMicromapFormatNV"
-target="_blank" rel="noopener">Vulkan Specification</a>
+This page is extracted from the Vulkan Specification. Fixes and changes should be made to the Specification, not directly.
 
-This page is extracted from the Vulkan Specification. Fixes and changes
-should be made to the Specification, not directly.
+## [](#_copyright)Copyright
 
-## <a href="#_copyright" class="anchor"></a>Copyright
-
-Copyright 2014-2024 The Khronos Group Inc.
+Copyright 2014-2025 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
-
-Version 1.3.290  
-Last updated 2024-07-11 23:39:16 -0700

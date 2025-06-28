@@ -2,17 +2,15 @@
 
 ## Name
 
-VkPhysicalDeviceMapMemoryPlacedPropertiesEXT - Structure describing the
-alignment requirements of placed memory maps for a physical device
+VkPhysicalDeviceMapMemoryPlacedPropertiesEXT - Structure describing the alignment requirements of placed memory maps for a physical device
 
 
 
-## <a href="#_c_specification" class="anchor"></a>C Specification
+## [](#_c_specification)C Specification
 
-The `VkPhysicalDeviceMapMemoryPlacedPropertiesEXT` structure is defined
-as:
+The `VkPhysicalDeviceMapMemoryPlacedPropertiesEXT` structure is defined as:
 
-``` c
+```c++
 // Provided by VK_EXT_map_memory_placed
 typedef struct VkPhysicalDeviceMapMemoryPlacedPropertiesEXT {
     VkStructureType    sType;
@@ -21,54 +19,33 @@ typedef struct VkPhysicalDeviceMapMemoryPlacedPropertiesEXT {
 } VkPhysicalDeviceMapMemoryPlacedPropertiesEXT;
 ```
 
-## <a href="#_members" class="anchor"></a>Members
+## [](#_members)Members
 
-The members of the `VkPhysicalDeviceMapMemoryPlacedPropertiesEXT`
-structure describe the following:
+The members of the `VkPhysicalDeviceMapMemoryPlacedPropertiesEXT` structure describe the following:
 
-## <a href="#_description" class="anchor"></a>Description
+## [](#_description)Description
 
-- <span id="limits-minPlacedMemoryMapAlignment"></span>
-  `minPlacedMemoryMapAlignment` is the minimum alignment required for
-  memory object offsets and virtual address ranges when using placed
-  memory mapping.
+- []()`minPlacedMemoryMapAlignment` is the minimum alignment required for memory object offsets and virtual address ranges when using placed memory mapping.
 
-If the `VkPhysicalDeviceMapMemoryPlacedPropertiesEXT` structure is
-included in the `pNext` chain of the
-[VkPhysicalDeviceProperties2](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkPhysicalDeviceProperties2.html)
-structure passed to
-[vkGetPhysicalDeviceProperties2](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkGetPhysicalDeviceProperties2.html),
-it is filled in with each corresponding implementation-dependent
-property.
+If the `VkPhysicalDeviceMapMemoryPlacedPropertiesEXT` structure is included in the `pNext` chain of the [VkPhysicalDeviceProperties2](https://registry.khronos.org/vulkan/specs/latest/man/html/VkPhysicalDeviceProperties2.html) structure passed to [vkGetPhysicalDeviceProperties2](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetPhysicalDeviceProperties2.html), it is filled in with each corresponding implementation-dependent property.
 
 Valid Usage (Implicit)
 
-- <a href="#VUID-VkPhysicalDeviceMapMemoryPlacedPropertiesEXT-sType-sType"
-  id="VUID-VkPhysicalDeviceMapMemoryPlacedPropertiesEXT-sType-sType"></a>
-  VUID-VkPhysicalDeviceMapMemoryPlacedPropertiesEXT-sType-sType  
-  `sType` **must** be
-  `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_MAP_MEMORY_PLACED_PROPERTIES_EXT`
+- [](#VUID-VkPhysicalDeviceMapMemoryPlacedPropertiesEXT-sType-sType)VUID-VkPhysicalDeviceMapMemoryPlacedPropertiesEXT-sType-sType  
+  `sType` **must** be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_MAP_MEMORY_PLACED_PROPERTIES_EXT`
 
-## <a href="#_see_also" class="anchor"></a>See Also
+## [](#_see_also)See Also
 
-[VK_EXT_map_memory_placed](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_EXT_map_memory_placed.html),
-[VkDeviceSize](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkDeviceSize.html),
-[VkStructureType](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkStructureType.html)
+[VK\_EXT\_map\_memory\_placed](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_EXT_map_memory_placed.html), [VkDeviceSize](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDeviceSize.html), [VkStructureType](https://registry.khronos.org/vulkan/specs/latest/man/html/VkStructureType.html)
 
-## <a href="#_document_notes" class="anchor"></a>Document Notes
+## [](#_document_notes)Document Notes
 
-For more information, see the <a
-href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#VkPhysicalDeviceMapMemoryPlacedPropertiesEXT"
-target="_blank" rel="noopener">Vulkan Specification</a>
+For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#VkPhysicalDeviceMapMemoryPlacedPropertiesEXT)
 
-This page is extracted from the Vulkan Specification. Fixes and changes
-should be made to the Specification, not directly.
+This page is extracted from the Vulkan Specification. Fixes and changes should be made to the Specification, not directly.
 
-## <a href="#_copyright" class="anchor"></a>Copyright
+## [](#_copyright)Copyright
 
-Copyright 2014-2024 The Khronos Group Inc.
+Copyright 2014-2025 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
-
-Version 1.3.290  
-Last updated 2024-07-11 23:39:16 -0700

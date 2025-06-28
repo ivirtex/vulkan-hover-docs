@@ -6,11 +6,11 @@ VkLatencyMarkerNV - Structure used to mark different points in latency
 
 
 
-## <a href="#_c_specification" class="anchor"></a>C Specification
+## [](#_c_specification)C Specification
 
-The [VkLatencyMarkerNV](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkLatencyMarkerNV.html) enum is defined as:
+The [VkLatencyMarkerNV](https://registry.khronos.org/vulkan/specs/latest/man/html/VkLatencyMarkerNV.html) enum is defined as:
 
-``` c
+```c++
 // Provided by VK_NV_low_latency2
 typedef enum VkLatencyMarkerNV {
     VK_LATENCY_MARKER_SIMULATION_START_NV = 0,
@@ -28,60 +28,31 @@ typedef enum VkLatencyMarkerNV {
 } VkLatencyMarkerNV;
 ```
 
-## <a href="#_description" class="anchor"></a>Description
+## [](#_description)Description
 
-The members of the [VkLatencyMarkerNV](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkLatencyMarkerNV.html) are used
-as arguments for [vkSetLatencyMarkerNV](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkSetLatencyMarkerNV.html) in
-the use cases described below:
+The members of the [VkLatencyMarkerNV](https://registry.khronos.org/vulkan/specs/latest/man/html/VkLatencyMarkerNV.html) are used as arguments for [vkSetLatencyMarkerNV](https://registry.khronos.org/vulkan/specs/latest/man/html/vkSetLatencyMarkerNV.html) in the use cases described below:
 
-- `VK_LATENCY_MARKER_SIMULATION_START_NV` **should** be called at the
-  start of the simulation execution each frame, but after the call to
-  `vkLatencySleepNV`.
+- `VK_LATENCY_MARKER_SIMULATION_START_NV` **should** be called at the start of the simulation execution each frame, but after the call to `vkLatencySleepNV`.
+- `VK_LATENCY_MARKER_SIMULATION_END_NV` **should** be called at the end of the simulation execution each frame.
+- `VK_LATENCY_MARKER_RENDERSUBMIT_START_NV` **should** be called at the beginning of the render submission execution each frame. This **should** be wherever Vulkan API calls are made and **must** not span into asynchronous rendering.
+- `VK_LATENCY_MARKER_RENDERSUBMIT_END_NV` **should** be called at the end of the render submission execution each frame.
+- `VK_LATENCY_MARKER_PRESENT_START_NV` **should** be called just before `vkQueuePresentKHR`.
+- `VK_LATENCY_MARKER_PRESENT_END_NV` **should** be called when `vkQueuePresentKHR` returns.
+- `VK_LATENCY_MARKER_INPUT_SAMPLE_NV` **should** be called just before the application gathers input data.
+- `VK_LATENCY_MARKER_TRIGGER_FLASH_NV` **should** be called anywhere between `VK_LATENCY_MARKER_SIMULATION_START_NV` and `VK_LATENCY_MARKER_SIMULATION_END_NV` whenever a left mouse click occurs.
 
-- `VK_LATENCY_MARKER_SIMULATION_END_NV` **should** be called at the end
-  of the simulation execution each frame.
+## [](#_see_also)See Also
 
-- `VK_LATENCY_MARKER_RENDERSUBMIT_START_NV` **should** be called at the
-  beginning of the render submission execution each frame. This
-  **should** be wherever Vulkan API calls are made and **must** not span
-  into asynchronous rendering.
+[VK\_NV\_low\_latency2](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_NV_low_latency2.html), [VkSetLatencyMarkerInfoNV](https://registry.khronos.org/vulkan/specs/latest/man/html/VkSetLatencyMarkerInfoNV.html)
 
-- `VK_LATENCY_MARKER_RENDERSUBMIT_END_NV` **should** be called at the
-  end of the render submission execution each frame.
+## [](#_document_notes)Document Notes
 
-- `VK_LATENCY_MARKER_PRESENT_START_NV` **should** be called just before
-  `vkQueuePresentKHR`.
+For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#VkLatencyMarkerNV)
 
-- `VK_LATENCY_MARKER_PRESENT_END_NV` **should** be called when
-  `vkQueuePresentKHR` returns.
+This page is extracted from the Vulkan Specification. Fixes and changes should be made to the Specification, not directly.
 
-- `VK_LATENCY_MARKER_INPUT_SAMPLE_NV` **should** be called just before
-  the application gathers input data.
+## [](#_copyright)Copyright
 
-- `VK_LATENCY_MARKER_TRIGGER_FLASH_NV` **should** be called anywhere
-  between `VK_LATENCY_MARKER_SIMULATION_START_NV` and
-  `VK_LATENCY_MARKER_SIMULATION_END_NV` whenever a left mouse click
-  occurs.
-
-## <a href="#_see_also" class="anchor"></a>See Also
-
-[VK_NV_low_latency2](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_NV_low_latency2.html),
-[VkSetLatencyMarkerInfoNV](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkSetLatencyMarkerInfoNV.html)
-
-## <a href="#_document_notes" class="anchor"></a>Document Notes
-
-For more information, see the <a
-href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#VkLatencyMarkerNV"
-target="_blank" rel="noopener">Vulkan Specification</a>
-
-This page is extracted from the Vulkan Specification. Fixes and changes
-should be made to the Specification, not directly.
-
-## <a href="#_copyright" class="anchor"></a>Copyright
-
-Copyright 2014-2024 The Khronos Group Inc.
+Copyright 2014-2025 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
-
-Version 1.3.290  
-Last updated 2024-07-11 23:39:16 -0700

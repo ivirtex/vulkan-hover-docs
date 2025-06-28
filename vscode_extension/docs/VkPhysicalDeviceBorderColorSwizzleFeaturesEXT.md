@@ -2,18 +2,15 @@
 
 ## Name
 
-VkPhysicalDeviceBorderColorSwizzleFeaturesEXT - Structure describing
-whether samplers with custom border colors require the component swizzle
-specified in order to have defined behavior
+VkPhysicalDeviceBorderColorSwizzleFeaturesEXT - Structure describing whether samplers with custom border colors require the component swizzle specified in order to have defined behavior
 
 
 
-## <a href="#_c_specification" class="anchor"></a>C Specification
+## [](#_c_specification)C Specification
 
-The `VkPhysicalDeviceBorderColorSwizzleFeaturesEXT` structure is defined
-as:
+The `VkPhysicalDeviceBorderColorSwizzleFeaturesEXT` structure is defined as:
 
-``` c
+```c++
 // Provided by VK_EXT_border_color_swizzle
 typedef struct VkPhysicalDeviceBorderColorSwizzleFeaturesEXT {
     VkStructureType    sType;
@@ -23,86 +20,36 @@ typedef struct VkPhysicalDeviceBorderColorSwizzleFeaturesEXT {
 } VkPhysicalDeviceBorderColorSwizzleFeaturesEXT;
 ```
 
-## <a href="#_members" class="anchor"></a>Members
+## [](#_members)Members
 
 This structure describes the following features:
 
-- `sType` is a [VkStructureType](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkStructureType.html) value identifying
-  this structure.
+- `sType` is a [VkStructureType](https://registry.khronos.org/vulkan/specs/latest/man/html/VkStructureType.html) value identifying this structure.
+- `pNext` is `NULL` or a pointer to a structure extending this structure.
+- []()`borderColorSwizzle` indicates that defined values are returned by sampled image operations when used with a sampler that uses a `VK_BORDER_COLOR_FLOAT_OPAQUE_BLACK`, `VK_BORDER_COLOR_INT_OPAQUE_BLACK`, `VK_BORDER_COLOR_FLOAT_CUSTOM_EXT`, or `VK_BORDER_COLOR_INT_CUSTOM_EXT` `borderColor` and an image view that uses a non-[identity component mapping](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#resources-image-views-identity-mappings), when either `borderColorSwizzleFromImage` is enabled or the [VkSamplerBorderColorComponentMappingCreateInfoEXT](https://registry.khronos.org/vulkan/specs/latest/man/html/VkSamplerBorderColorComponentMappingCreateInfoEXT.html) is specified.
+- []()`borderColorSwizzleFromImage` indicates that the implementation will return the correct border color values from sampled image operations under the conditions expressed above, without the application having to specify the border color component mapping when creating the sampler object. If this feature bit is not set, applications **can** chain a [VkSamplerBorderColorComponentMappingCreateInfoEXT](https://registry.khronos.org/vulkan/specs/latest/man/html/VkSamplerBorderColorComponentMappingCreateInfoEXT.html) structure when creating samplers for use with image views that do not have an [identity swizzle](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#resources-image-views-identity-mappings) and, when those samplers are combined with image views using the same component mapping, sampled image operations that use opaque black or custom border colors will return the correct border color values.
 
-- `pNext` is `NULL` or a pointer to a structure extending this
-  structure.
+## [](#_description)Description
 
-- <span id="features-borderColorSwizzle"></span> `borderColorSwizzle`
-  indicates that defined values are returned by sampled image operations
-  when used with a sampler that uses a
-  `VK_BORDER_COLOR_FLOAT_OPAQUE_BLACK`,
-  `VK_BORDER_COLOR_INT_OPAQUE_BLACK`,
-  `VK_BORDER_COLOR_FLOAT_CUSTOM_EXT`, or
-  `VK_BORDER_COLOR_INT_CUSTOM_EXT` `borderColor` and an image view that
-  uses a non-<a
-  href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#resources-image-views-identity-mappings"
-  target="_blank" rel="noopener">identity component mapping</a>, when
-  either `borderColorSwizzleFromImage` is enabled or the
-  [VkSamplerBorderColorComponentMappingCreateInfoEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkSamplerBorderColorComponentMappingCreateInfoEXT.html)
-  is specified.
-
-- <span id="features-borderColorSwizzleFromImage"></span>
-  `borderColorSwizzleFromImage` indicates that the implementation will
-  return the correct border color values from sampled image operations
-  under the conditions expressed above, without the application having
-  to specify the border color component mapping when creating the
-  sampler object. If this feature bit is not set, applications **can**
-  chain a
-  [VkSamplerBorderColorComponentMappingCreateInfoEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkSamplerBorderColorComponentMappingCreateInfoEXT.html)
-  structure when creating samplers for use with image views that do not
-  have an <a
-  href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#resources-image-views-identity-mappings"
-  target="_blank" rel="noopener">identity swizzle</a> and, when those
-  samplers are combined with image views using the same component
-  mapping, sampled image operations that use opaque black or custom
-  border colors will return the correct border color values.
-
-## <a href="#_description" class="anchor"></a>Description
-
-If the `VkPhysicalDeviceBorderColorSwizzleFeaturesEXT` structure is
-included in the `pNext` chain of the
-[VkPhysicalDeviceFeatures2](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkPhysicalDeviceFeatures2.html) structure
-passed to
-[vkGetPhysicalDeviceFeatures2](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkGetPhysicalDeviceFeatures2.html), it is
-filled in to indicate whether each corresponding feature is supported.
-`VkPhysicalDeviceBorderColorSwizzleFeaturesEXT` **can** also be used in
-the `pNext` chain of [VkDeviceCreateInfo](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkDeviceCreateInfo.html) to
-selectively enable these features.
+If the `VkPhysicalDeviceBorderColorSwizzleFeaturesEXT` structure is included in the `pNext` chain of the [VkPhysicalDeviceFeatures2](https://registry.khronos.org/vulkan/specs/latest/man/html/VkPhysicalDeviceFeatures2.html) structure passed to [vkGetPhysicalDeviceFeatures2](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetPhysicalDeviceFeatures2.html), it is filled in to indicate whether each corresponding feature is supported. If the application wishes to use a [VkDevice](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDevice.html) with any features described by `VkPhysicalDeviceBorderColorSwizzleFeaturesEXT`, it **must** add an instance of the structure, with the desired feature members set to `VK_TRUE`, to the `pNext` chain of [VkDeviceCreateInfo](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDeviceCreateInfo.html) when creating the [VkDevice](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDevice.html).
 
 Valid Usage (Implicit)
 
-- <a
-  href="#VUID-VkPhysicalDeviceBorderColorSwizzleFeaturesEXT-sType-sType"
-  id="VUID-VkPhysicalDeviceBorderColorSwizzleFeaturesEXT-sType-sType"></a>
-  VUID-VkPhysicalDeviceBorderColorSwizzleFeaturesEXT-sType-sType  
-  `sType` **must** be
-  `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_BORDER_COLOR_SWIZZLE_FEATURES_EXT`
+- [](#VUID-VkPhysicalDeviceBorderColorSwizzleFeaturesEXT-sType-sType)VUID-VkPhysicalDeviceBorderColorSwizzleFeaturesEXT-sType-sType  
+  `sType` **must** be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_BORDER_COLOR_SWIZZLE_FEATURES_EXT`
 
-## <a href="#_see_also" class="anchor"></a>See Also
+## [](#_see_also)See Also
 
-[VK_EXT_border_color_swizzle](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_EXT_border_color_swizzle.html),
-[VkBool32](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkBool32.html), [VkStructureType](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkStructureType.html)
+[VK\_EXT\_border\_color\_swizzle](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_EXT_border_color_swizzle.html), [VkBool32](https://registry.khronos.org/vulkan/specs/latest/man/html/VkBool32.html), [VkStructureType](https://registry.khronos.org/vulkan/specs/latest/man/html/VkStructureType.html)
 
-## <a href="#_document_notes" class="anchor"></a>Document Notes
+## [](#_document_notes)Document Notes
 
-For more information, see the <a
-href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#VkPhysicalDeviceBorderColorSwizzleFeaturesEXT"
-target="_blank" rel="noopener">Vulkan Specification</a>
+For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#VkPhysicalDeviceBorderColorSwizzleFeaturesEXT)
 
-This page is extracted from the Vulkan Specification. Fixes and changes
-should be made to the Specification, not directly.
+This page is extracted from the Vulkan Specification. Fixes and changes should be made to the Specification, not directly.
 
-## <a href="#_copyright" class="anchor"></a>Copyright
+## [](#_copyright)Copyright
 
-Copyright 2014-2024 The Khronos Group Inc.
+Copyright 2014-2025 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
-
-Version 1.3.290  
-Last updated 2024-07-11 23:39:16 -0700

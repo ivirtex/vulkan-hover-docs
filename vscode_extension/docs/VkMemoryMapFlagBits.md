@@ -2,18 +2,15 @@
 
 ## Name
 
-VkMemoryMapFlagBits - Bitmask specifying additional parameters of a
-memory map
+VkMemoryMapFlagBits - Bitmask specifying additional parameters of a memory map
 
 
 
-## <a href="#_c_specification" class="anchor"></a>C Specification
+## [](#_c_specification)C Specification
 
-Bits which **can** be set in [vkMapMemory](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkMapMemory.html)::`flags`
-and [VkMemoryMapInfoKHR](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkMemoryMapInfoKHR.html)::`flags`, specifying
-additional properties of a memory map, are:
+Bits which **can** be set in [vkMapMemory](https://registry.khronos.org/vulkan/specs/latest/man/html/vkMapMemory.html)::`flags` and [VkMemoryMapInfo](https://registry.khronos.org/vulkan/specs/latest/man/html/VkMemoryMapInfo.html)::`flags`, specifying additional properties of a memory map, are:
 
-``` c
+```c++
 // Provided by VK_VERSION_1_0
 typedef enum VkMemoryMapFlagBits {
   // Provided by VK_EXT_map_memory_placed
@@ -21,34 +18,22 @@ typedef enum VkMemoryMapFlagBits {
 } VkMemoryMapFlagBits;
 ```
 
-## <a href="#_description" class="anchor"></a>Description
+## [](#_description)Description
 
-- `VK_MEMORY_MAP_PLACED_BIT_EXT` requests that the implementation place
-  the memory map at the virtual address specified by the application via
-  [VkMemoryMapPlacedInfoEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkMemoryMapPlacedInfoEXT.html)::`pPlacedAddress`,
-  replacing any existing mapping at that address. This flag **must** not
-  be used with [vkMapMemory](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkMapMemory.html) as there is no way to
-  specify the placement address.
+- `VK_MEMORY_MAP_PLACED_BIT_EXT` requests that the implementation place the memory map at the virtual address specified by the application via [VkMemoryMapPlacedInfoEXT](https://registry.khronos.org/vulkan/specs/latest/man/html/VkMemoryMapPlacedInfoEXT.html)::`pPlacedAddress`, replacing any existing mapping at that address. This flag **must** not be used with [vkMapMemory](https://registry.khronos.org/vulkan/specs/latest/man/html/vkMapMemory.html) as there is no way to specify the placement address.
 
-## <a href="#_see_also" class="anchor"></a>See Also
+## [](#_see_also)See Also
 
-[VK_VERSION_1_0](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_VERSION_1_0.html),
-[VkMemoryMapFlags](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkMemoryMapFlags.html)
+[VK\_VERSION\_1\_0](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_VERSION_1_0.html), [VkMemoryMapFlags](https://registry.khronos.org/vulkan/specs/latest/man/html/VkMemoryMapFlags.html)
 
-## <a href="#_document_notes" class="anchor"></a>Document Notes
+## [](#_document_notes)Document Notes
 
-For more information, see the <a
-href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#VkMemoryMapFlagBits"
-target="_blank" rel="noopener">Vulkan Specification</a>
+For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#VkMemoryMapFlagBits)
 
-This page is extracted from the Vulkan Specification. Fixes and changes
-should be made to the Specification, not directly.
+This page is extracted from the Vulkan Specification. Fixes and changes should be made to the Specification, not directly.
 
-## <a href="#_copyright" class="anchor"></a>Copyright
+## [](#_copyright)Copyright
 
-Copyright 2014-2024 The Khronos Group Inc.
+Copyright 2014-2025 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
-
-Version 1.3.290  
-Last updated 2024-07-11 23:39:16 -0700

@@ -2,16 +2,15 @@
 
 ## Name
 
-VkWaylandSurfaceCreateInfoKHR - Structure specifying parameters of a
-newly created Wayland surface object
+VkWaylandSurfaceCreateInfoKHR - Structure specifying parameters of a newly created Wayland surface object
 
 
 
-## <a href="#_c_specification" class="anchor"></a>C Specification
+## [](#_c_specification)C Specification
 
 The `VkWaylandSurfaceCreateInfoKHR` structure is defined as:
 
-``` c
+```c++
 // Provided by VK_KHR_wayland_surface
 typedef struct VkWaylandSurfaceCreateInfoKHR {
     VkStructureType                   sType;
@@ -22,72 +21,43 @@ typedef struct VkWaylandSurfaceCreateInfoKHR {
 } VkWaylandSurfaceCreateInfoKHR;
 ```
 
-## <a href="#_members" class="anchor"></a>Members
+## [](#_members)Members
 
-- `sType` is a [VkStructureType](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkStructureType.html) value identifying
-  this structure.
-
-- `pNext` is `NULL` or a pointer to a structure extending this
-  structure.
-
+- `sType` is a [VkStructureType](https://registry.khronos.org/vulkan/specs/latest/man/html/VkStructureType.html) value identifying this structure.
+- `pNext` is `NULL` or a pointer to a structure extending this structure.
 - `flags` is reserved for future use.
+- `display` and `surface` are pointers to the Wayland `wl_display` and `wl_surface` to associate the surface with.
 
-- `display` and `surface` are pointers to the Wayland `wl_display` and
-  `wl_surface` to associate the surface with.
-
-## <a href="#_description" class="anchor"></a>Description
+## [](#_description)Description
 
 Valid Usage
 
-- <a href="#VUID-VkWaylandSurfaceCreateInfoKHR-display-01304"
-  id="VUID-VkWaylandSurfaceCreateInfoKHR-display-01304"></a>
-  VUID-VkWaylandSurfaceCreateInfoKHR-display-01304  
+- [](#VUID-VkWaylandSurfaceCreateInfoKHR-display-01304)VUID-VkWaylandSurfaceCreateInfoKHR-display-01304  
   `display` **must** point to a valid Wayland `wl_display`
-
-- <a href="#VUID-VkWaylandSurfaceCreateInfoKHR-surface-01305"
-  id="VUID-VkWaylandSurfaceCreateInfoKHR-surface-01305"></a>
-  VUID-VkWaylandSurfaceCreateInfoKHR-surface-01305  
+- [](#VUID-VkWaylandSurfaceCreateInfoKHR-surface-01305)VUID-VkWaylandSurfaceCreateInfoKHR-surface-01305  
   `surface` **must** point to a valid Wayland `wl_surface`
 
 Valid Usage (Implicit)
 
-- <a href="#VUID-VkWaylandSurfaceCreateInfoKHR-sType-sType"
-  id="VUID-VkWaylandSurfaceCreateInfoKHR-sType-sType"></a>
-  VUID-VkWaylandSurfaceCreateInfoKHR-sType-sType  
-  `sType` **must** be
-  `VK_STRUCTURE_TYPE_WAYLAND_SURFACE_CREATE_INFO_KHR`
-
-- <a href="#VUID-VkWaylandSurfaceCreateInfoKHR-pNext-pNext"
-  id="VUID-VkWaylandSurfaceCreateInfoKHR-pNext-pNext"></a>
-  VUID-VkWaylandSurfaceCreateInfoKHR-pNext-pNext  
+- [](#VUID-VkWaylandSurfaceCreateInfoKHR-sType-sType)VUID-VkWaylandSurfaceCreateInfoKHR-sType-sType  
+  `sType` **must** be `VK_STRUCTURE_TYPE_WAYLAND_SURFACE_CREATE_INFO_KHR`
+- [](#VUID-VkWaylandSurfaceCreateInfoKHR-pNext-pNext)VUID-VkWaylandSurfaceCreateInfoKHR-pNext-pNext  
   `pNext` **must** be `NULL`
-
-- <a href="#VUID-VkWaylandSurfaceCreateInfoKHR-flags-zerobitmask"
-  id="VUID-VkWaylandSurfaceCreateInfoKHR-flags-zerobitmask"></a>
-  VUID-VkWaylandSurfaceCreateInfoKHR-flags-zerobitmask  
+- [](#VUID-VkWaylandSurfaceCreateInfoKHR-flags-zerobitmask)VUID-VkWaylandSurfaceCreateInfoKHR-flags-zerobitmask  
   `flags` **must** be `0`
 
-## <a href="#_see_also" class="anchor"></a>See Also
+## [](#_see_also)See Also
 
-[VK_KHR_wayland_surface](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_KHR_wayland_surface.html),
-[VkStructureType](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkStructureType.html),
-[VkWaylandSurfaceCreateFlagsKHR](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkWaylandSurfaceCreateFlagsKHR.html),
-[vkCreateWaylandSurfaceKHR](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCreateWaylandSurfaceKHR.html)
+[VK\_KHR\_wayland\_surface](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_KHR_wayland_surface.html), [VkStructureType](https://registry.khronos.org/vulkan/specs/latest/man/html/VkStructureType.html), [VkWaylandSurfaceCreateFlagsKHR](https://registry.khronos.org/vulkan/specs/latest/man/html/VkWaylandSurfaceCreateFlagsKHR.html), [vkCreateWaylandSurfaceKHR](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCreateWaylandSurfaceKHR.html)
 
-## <a href="#_document_notes" class="anchor"></a>Document Notes
+## [](#_document_notes)Document Notes
 
-For more information, see the <a
-href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#VkWaylandSurfaceCreateInfoKHR"
-target="_blank" rel="noopener">Vulkan Specification</a>
+For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#VkWaylandSurfaceCreateInfoKHR)
 
-This page is extracted from the Vulkan Specification. Fixes and changes
-should be made to the Specification, not directly.
+This page is extracted from the Vulkan Specification. Fixes and changes should be made to the Specification, not directly.
 
-## <a href="#_copyright" class="anchor"></a>Copyright
+## [](#_copyright)Copyright
 
-Copyright 2014-2024 The Khronos Group Inc.
+Copyright 2014-2025 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
-
-Version 1.3.290  
-Last updated 2024-07-11 23:39:16 -0700

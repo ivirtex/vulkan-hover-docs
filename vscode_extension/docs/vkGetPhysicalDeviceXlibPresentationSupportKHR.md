@@ -2,17 +2,15 @@
 
 ## Name
 
-vkGetPhysicalDeviceXlibPresentationSupportKHR - Query physical device
-for presentation to X11 server using Xlib
+vkGetPhysicalDeviceXlibPresentationSupportKHR - Query physical device for presentation to X11 server using Xlib
 
 
 
-## <a href="#_c_specification" class="anchor"></a>C Specification
+## [](#_c_specification)C Specification
 
-To determine whether a queue family of a physical device supports
-presentation to an X11 server, using the Xlib client-side library, call:
+To determine whether a queue family of a physical device supports presentation to an X11 server, using the Xlib client-side library, call:
 
-``` c
+```c++
 // Provided by VK_KHR_xlib_surface
 VkBool32 vkGetPhysicalDeviceXlibPresentationSupportKHR(
     VkPhysicalDevice                            physicalDevice,
@@ -21,65 +19,41 @@ VkBool32 vkGetPhysicalDeviceXlibPresentationSupportKHR(
     VisualID                                    visualID);
 ```
 
-## <a href="#_parameters" class="anchor"></a>Parameters
+## [](#_parameters)Parameters
 
 - `physicalDevice` is the physical device.
-
 - `queueFamilyIndex` is the queue family index.
-
 - `dpy` is a pointer to an Xlib `Display` connection to the server.
+- `visualID` is an X11 visual (`VisualID`).
 
-- `visualId` is an X11 visual (`VisualID`).
+## [](#_description)Description
 
-## <a href="#_description" class="anchor"></a>Description
-
-This platform-specific function **can** be called prior to creating a
-surface.
+This platform-specific function **can** be called prior to creating a surface.
 
 Valid Usage
 
-- <a
-  href="#VUID-vkGetPhysicalDeviceXlibPresentationSupportKHR-queueFamilyIndex-01315"
-  id="VUID-vkGetPhysicalDeviceXlibPresentationSupportKHR-queueFamilyIndex-01315"></a>
-  VUID-vkGetPhysicalDeviceXlibPresentationSupportKHR-queueFamilyIndex-01315  
-  `queueFamilyIndex` **must** be less than `pQueueFamilyPropertyCount`
-  returned by `vkGetPhysicalDeviceQueueFamilyProperties` for the given
-  `physicalDevice`
+- [](#VUID-vkGetPhysicalDeviceXlibPresentationSupportKHR-queueFamilyIndex-01315)VUID-vkGetPhysicalDeviceXlibPresentationSupportKHR-queueFamilyIndex-01315  
+  `queueFamilyIndex` **must** be less than `pQueueFamilyPropertyCount` returned by `vkGetPhysicalDeviceQueueFamilyProperties` for the given `physicalDevice`
 
 Valid Usage (Implicit)
 
-- <a
-  href="#VUID-vkGetPhysicalDeviceXlibPresentationSupportKHR-physicalDevice-parameter"
-  id="VUID-vkGetPhysicalDeviceXlibPresentationSupportKHR-physicalDevice-parameter"></a>
-  VUID-vkGetPhysicalDeviceXlibPresentationSupportKHR-physicalDevice-parameter  
-  `physicalDevice` **must** be a valid
-  [VkPhysicalDevice](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkPhysicalDevice.html) handle
-
-- <a
-  href="#VUID-vkGetPhysicalDeviceXlibPresentationSupportKHR-dpy-parameter"
-  id="VUID-vkGetPhysicalDeviceXlibPresentationSupportKHR-dpy-parameter"></a>
-  VUID-vkGetPhysicalDeviceXlibPresentationSupportKHR-dpy-parameter  
+- [](#VUID-vkGetPhysicalDeviceXlibPresentationSupportKHR-physicalDevice-parameter)VUID-vkGetPhysicalDeviceXlibPresentationSupportKHR-physicalDevice-parameter  
+  `physicalDevice` **must** be a valid [VkPhysicalDevice](https://registry.khronos.org/vulkan/specs/latest/man/html/VkPhysicalDevice.html) handle
+- [](#VUID-vkGetPhysicalDeviceXlibPresentationSupportKHR-dpy-parameter)VUID-vkGetPhysicalDeviceXlibPresentationSupportKHR-dpy-parameter  
   `dpy` **must** be a valid pointer to a `Display` value
 
-## <a href="#_see_also" class="anchor"></a>See Also
+## [](#_see_also)See Also
 
-[VK_KHR_xlib_surface](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_KHR_xlib_surface.html),
-[VkPhysicalDevice](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkPhysicalDevice.html)
+[VK\_KHR\_xlib\_surface](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_KHR_xlib_surface.html), [VkPhysicalDevice](https://registry.khronos.org/vulkan/specs/latest/man/html/VkPhysicalDevice.html)
 
-## <a href="#_document_notes" class="anchor"></a>Document Notes
+## [](#_document_notes)Document Notes
 
-For more information, see the <a
-href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#vkGetPhysicalDeviceXlibPresentationSupportKHR"
-target="_blank" rel="noopener">Vulkan Specification</a>
+For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#vkGetPhysicalDeviceXlibPresentationSupportKHR)
 
-This page is extracted from the Vulkan Specification. Fixes and changes
-should be made to the Specification, not directly.
+This page is extracted from the Vulkan Specification. Fixes and changes should be made to the Specification, not directly.
 
-## <a href="#_copyright" class="anchor"></a>Copyright
+## [](#_copyright)Copyright
 
-Copyright 2014-2024 The Khronos Group Inc.
+Copyright 2014-2025 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
-
-Version 1.3.290  
-Last updated 2024-07-11 23:39:16 -0700

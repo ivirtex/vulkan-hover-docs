@@ -2,18 +2,15 @@
 
 ## Name
 
-VkVideoEncodeH264DpbSlotInfoKHR - Structure specifies H.264 encode DPB
-picture information
+VkVideoEncodeH264DpbSlotInfoKHR - Structure specifies H.264 encode DPB picture information
 
 
 
-## <a href="#_c_specification" class="anchor"></a>C Specification
+## [](#_c_specification)C Specification
 
-The
-[VkVideoEncodeH264DpbSlotInfoKHR](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkVideoEncodeH264DpbSlotInfoKHR.html)
-structure is defined as:
+The [VkVideoEncodeH264DpbSlotInfoKHR](https://registry.khronos.org/vulkan/specs/latest/man/html/VkVideoEncodeH264DpbSlotInfoKHR.html) structure is defined as:
 
-``` c
+```c++
 // Provided by VK_KHR_video_encode_h264
 typedef struct VkVideoEncodeH264DpbSlotInfoKHR {
     VkStructureType                           sType;
@@ -22,152 +19,62 @@ typedef struct VkVideoEncodeH264DpbSlotInfoKHR {
 } VkVideoEncodeH264DpbSlotInfoKHR;
 ```
 
-## <a href="#_members" class="anchor"></a>Members
+## [](#_members)Members
 
-- `sType` is a [VkStructureType](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkStructureType.html) value identifying
-  this structure.
+- `sType` is a [VkStructureType](https://registry.khronos.org/vulkan/specs/latest/man/html/VkStructureType.html) value identifying this structure.
+- `pNext` is `NULL` or a pointer to a structure extending this structure.
+- `pStdReferenceInfo` is a pointer to a `StdVideoEncodeH264ReferenceInfo` structure specifying [H.264 reference information](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#encode-h264-reference-info).
 
-- `pNext` is `NULL` or a pointer to a structure extending this
-  structure.
+## [](#_description)Description
 
-- `pStdReferenceInfo` is a pointer to a
-  `StdVideoEncodeH264ReferenceInfo` structure specifying <a
-  href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#encode-h264-reference-info"
-  target="_blank" rel="noopener">H.264 reference information</a>.
+This structure is specified in the `pNext` chain of [VkVideoEncodeInfoKHR](https://registry.khronos.org/vulkan/specs/latest/man/html/VkVideoEncodeInfoKHR.html)::`pSetupReferenceSlot`, if not `NULL`, and the `pNext` chain of the elements of [VkVideoEncodeInfoKHR](https://registry.khronos.org/vulkan/specs/latest/man/html/VkVideoEncodeInfoKHR.html)::`pReferenceSlots` to specify the codec-specific reference picture information for an [H.264 encode operation](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#encode-h264).
 
-## <a href="#_description" class="anchor"></a>Description
+Active Reference Picture Information
 
-This structure is specified in the `pNext` chain of
-[VkVideoEncodeInfoKHR](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkVideoEncodeInfoKHR.html)::`pSetupReferenceSlot`,
-if not `NULL`, and the `pNext` chain of the elements of
-[VkVideoEncodeInfoKHR](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkVideoEncodeInfoKHR.html)::`pReferenceSlots` to
-specify the codec-specific reference picture information for an <a
-href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#encode-h264"
-target="_blank" rel="noopener">H.264 encode operation</a>.
+When this structure is specified in the `pNext` chain of the elements of [VkVideoEncodeInfoKHR](https://registry.khronos.org/vulkan/specs/latest/man/html/VkVideoEncodeInfoKHR.html)::`pReferenceSlots`, one element is added to the list of [active reference pictures](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#encode-active-reference-picture-info) used by the video encode operation for each element of [VkVideoEncodeInfoKHR](https://registry.khronos.org/vulkan/specs/latest/man/html/VkVideoEncodeInfoKHR.html)::`pReferenceSlots` as follows:
 
-Active Reference Picture Information  
-When this structure is specified in the `pNext` chain of the elements of
-[VkVideoEncodeInfoKHR](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkVideoEncodeInfoKHR.html)::`pReferenceSlots`,
-one element is added to the list of <a
-href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#encode-active-reference-picture-info"
-target="_blank" rel="noopener">active reference pictures</a> used by the
-video encode operation for each element of
-[VkVideoEncodeInfoKHR](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkVideoEncodeInfoKHR.html)::`pReferenceSlots` as
-follows:
+- The image subregion used is determined according to the [H.264 Encode Picture Data Access](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#encode-h264-picture-data-access) section.
+- The reference picture is associated with the [DPB slot](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#dpb-slot) index specified in the `slotIndex` member of the corresponding element of [VkVideoEncodeInfoKHR](https://registry.khronos.org/vulkan/specs/latest/man/html/VkVideoEncodeInfoKHR.html)::`pReferenceSlots`.
+- The reference picture is associated with the [H.264 reference information](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#encode-h264-reference-info) provided in `pStdReferenceInfo`.
 
-- The image subregion used is determined according to the <a
-  href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#encode-h264-picture-data-access"
-  target="_blank" rel="noopener">H.264 Encode Picture Data Access</a>
-  section.
+Reconstructed Picture Information
 
-- The reference picture is associated with the <a
-  href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#dpb-slot"
-  target="_blank" rel="noopener">DPB slot</a> index specified in the
-  `slotIndex` member of the corresponding element of
-  [VkVideoEncodeInfoKHR](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkVideoEncodeInfoKHR.html)::`pReferenceSlots`.
+When this structure is specified in the `pNext` chain of [VkVideoEncodeInfoKHR](https://registry.khronos.org/vulkan/specs/latest/man/html/VkVideoEncodeInfoKHR.html)::`pSetupReferenceSlot`, the information related to the [reconstructed picture](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#encode-reconstructed-picture-info) is defined as follows:
 
-- The reference picture is associated with the <a
-  href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#encode-h264-reference-info"
-  target="_blank" rel="noopener">H.264 reference information</a>
-  provided in `pStdReferenceInfo`.
+- The image subregion used is determined according to the [H.264 Encode Picture Data Access](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#encode-h264-picture-data-access) section.
+- If [reference picture setup](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#encode-h264-ref-pic-setup) is requested, then the reconstructed picture is used to [activate](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#dpb-slot-states) the [DPB slot](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#dpb-slot) with the index specified in [VkVideoEncodeInfoKHR](https://registry.khronos.org/vulkan/specs/latest/man/html/VkVideoEncodeInfoKHR.html)::`pSetupReferenceSlot->slotIndex`.
+- The reconstructed picture is associated with the [H.264 reference information](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#encode-h264-reference-info) provided in `pStdReferenceInfo`.
 
-<!-- -->
+Std Reference Information
 
-Reconstructed Picture Information  
-When this structure is specified in the `pNext` chain of
-[VkVideoEncodeInfoKHR](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkVideoEncodeInfoKHR.html)::`pSetupReferenceSlot`,
-the information related to the <a
-href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#encode-reconstructed-picture-info"
-target="_blank" rel="noopener">reconstructed picture</a> is defined as
-follows:
+The members of the `StdVideoEncodeH264ReferenceInfo` structure pointed to by `pStdReferenceInfo` are interpreted as follows:
 
-- The image subregion used is determined according to the <a
-  href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#encode-h264-picture-data-access"
-  target="_blank" rel="noopener">H.264 Encode Picture Data Access</a>
-  section.
-
-- If <a
-  href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#encode-h264-ref-pic-setup"
-  target="_blank" rel="noopener">reference picture setup</a> is
-  requested, then the reconstructed picture is used to <a
-  href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#dpb-slot-states"
-  target="_blank" rel="noopener">activate</a> the <a
-  href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#dpb-slot"
-  target="_blank" rel="noopener">DPB slot</a> with the index specified
-  in
-  [VkVideoEncodeInfoKHR](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkVideoEncodeInfoKHR.html)::`pSetupReferenceSlot->slotIndex`.
-
-- The reconstructed picture is associated with the <a
-  href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#encode-h264-reference-info"
-  target="_blank" rel="noopener">H.264 reference information</a>
-  provided in `pStdReferenceInfo`.
-
-<!-- -->
-
-Std Reference Information  
-The members of the `StdVideoEncodeH264ReferenceInfo` structure pointed
-to by `pStdReferenceInfo` are interpreted as follows:
-
-- `flags.reserved` is used only for padding purposes and is otherwise
-  ignored;
-
-- `flags.used_for_long_term_reference` is used to indicate whether the
-  picture is marked as “used for long-term reference” as defined in
-  section 8.2.5.1 of the <a
-  href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#itu-t-h264"
-  target="_blank" rel="noopener">ITU-T H.264 Specification</a>;
-
-- `primary_pic_type` as defined in section 7.4.2 of the <a
-  href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#itu-t-h264"
-  target="_blank" rel="noopener">ITU-T H.264 Specification</a>;
-
-- `long_term_pic_num` and `long_term_frame_idx` as defined in section
-  7.4.3 of the <a
-  href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#itu-t-h264"
-  target="_blank" rel="noopener">ITU-T H.264 Specification</a>;
-
-- `temporal_id` as defined in section G.7.4.1.1 of the <a
-  href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#itu-t-h264"
-  target="_blank" rel="noopener">ITU-T H.264 Specification</a>;
-
-- all other members are interpreted as defined in section 8.2 of the <a
-  href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#itu-t-h264"
-  target="_blank" rel="noopener">ITU-T H.264 Specification</a>.
+- `flags.reserved` is used only for padding purposes and is otherwise ignored;
+- `flags.used_for_long_term_reference` is used to indicate whether the picture is marked as “used for long-term reference” as defined in section 8.2.5.1 of the [ITU-T H.264 Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#itu-t-h264);
+- `primary_pic_type` as defined in section 7.4.2 of the [ITU-T H.264 Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#itu-t-h264);
+- `long_term_pic_num` and `long_term_frame_idx` as defined in section 7.4.3 of the [ITU-T H.264 Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#itu-t-h264);
+- `temporal_id` as defined in section G.7.4.1.1 of the [ITU-T H.264 Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#itu-t-h264);
+- all other members are interpreted as defined in section 8.2 of the [ITU-T H.264 Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#itu-t-h264).
 
 Valid Usage (Implicit)
 
-- <a href="#VUID-VkVideoEncodeH264DpbSlotInfoKHR-sType-sType"
-  id="VUID-VkVideoEncodeH264DpbSlotInfoKHR-sType-sType"></a>
-  VUID-VkVideoEncodeH264DpbSlotInfoKHR-sType-sType  
-  `sType` **must** be
-  `VK_STRUCTURE_TYPE_VIDEO_ENCODE_H264_DPB_SLOT_INFO_KHR`
+- [](#VUID-VkVideoEncodeH264DpbSlotInfoKHR-sType-sType)VUID-VkVideoEncodeH264DpbSlotInfoKHR-sType-sType  
+  `sType` **must** be `VK_STRUCTURE_TYPE_VIDEO_ENCODE_H264_DPB_SLOT_INFO_KHR`
+- [](#VUID-VkVideoEncodeH264DpbSlotInfoKHR-pStdReferenceInfo-parameter)VUID-VkVideoEncodeH264DpbSlotInfoKHR-pStdReferenceInfo-parameter  
+  `pStdReferenceInfo` **must** be a valid pointer to a valid `StdVideoEncodeH264ReferenceInfo` value
 
-- <a
-  href="#VUID-VkVideoEncodeH264DpbSlotInfoKHR-pStdReferenceInfo-parameter"
-  id="VUID-VkVideoEncodeH264DpbSlotInfoKHR-pStdReferenceInfo-parameter"></a>
-  VUID-VkVideoEncodeH264DpbSlotInfoKHR-pStdReferenceInfo-parameter  
-  `pStdReferenceInfo` **must** be a valid pointer to a valid
-  `StdVideoEncodeH264ReferenceInfo` value
+## [](#_see_also)See Also
 
-## <a href="#_see_also" class="anchor"></a>See Also
+[VK\_KHR\_video\_encode\_h264](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_KHR_video_encode_h264.html), [VkStructureType](https://registry.khronos.org/vulkan/specs/latest/man/html/VkStructureType.html)
 
-[VK_KHR_video_encode_h264](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_KHR_video_encode_h264.html),
-[VkStructureType](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkStructureType.html)
+## [](#_document_notes)Document Notes
 
-## <a href="#_document_notes" class="anchor"></a>Document Notes
+For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#VkVideoEncodeH264DpbSlotInfoKHR)
 
-For more information, see the <a
-href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#VkVideoEncodeH264DpbSlotInfoKHR"
-target="_blank" rel="noopener">Vulkan Specification</a>
+This page is extracted from the Vulkan Specification. Fixes and changes should be made to the Specification, not directly.
 
-This page is extracted from the Vulkan Specification. Fixes and changes
-should be made to the Specification, not directly.
+## [](#_copyright)Copyright
 
-## <a href="#_copyright" class="anchor"></a>Copyright
-
-Copyright 2014-2024 The Khronos Group Inc.
+Copyright 2014-2025 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
-
-Version 1.3.290  
-Last updated 2024-07-11 23:39:16 -0700

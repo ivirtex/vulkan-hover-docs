@@ -2,18 +2,15 @@
 
 ## Name
 
-VkMemoryAllocateFlagBits - Bitmask specifying flags for a device memory
-allocation
+VkMemoryAllocateFlagBits - Bitmask specifying flags for a device memory allocation
 
 
 
-## <a href="#_c_specification" class="anchor"></a>C Specification
+## [](#_c_specification)C Specification
 
-Bits which **can** be set in
-[VkMemoryAllocateFlagsInfo](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkMemoryAllocateFlagsInfo.html)::`flags`,
-controlling device memory allocation, are:
+Bits which **can** be set in [VkMemoryAllocateFlagsInfo](https://registry.khronos.org/vulkan/specs/latest/man/html/VkMemoryAllocateFlagsInfo.html)::`flags`, controlling device memory allocation, are:
 
-``` c
+```c++
 // Provided by VK_VERSION_1_1
 typedef enum VkMemoryAllocateFlagBits {
     VK_MEMORY_ALLOCATE_DEVICE_MASK_BIT = 0x00000001,
@@ -21,6 +18,8 @@ typedef enum VkMemoryAllocateFlagBits {
     VK_MEMORY_ALLOCATE_DEVICE_ADDRESS_BIT = 0x00000002,
   // Provided by VK_VERSION_1_2
     VK_MEMORY_ALLOCATE_DEVICE_ADDRESS_CAPTURE_REPLAY_BIT = 0x00000004,
+  // Provided by VK_EXT_zero_initialize_device_memory
+    VK_MEMORY_ALLOCATE_ZERO_INITIALIZE_BIT_EXT = 0x00000008,
   // Provided by VK_KHR_device_group
     VK_MEMORY_ALLOCATE_DEVICE_MASK_BIT_KHR = VK_MEMORY_ALLOCATE_DEVICE_MASK_BIT,
   // Provided by VK_KHR_buffer_device_address
@@ -32,49 +31,30 @@ typedef enum VkMemoryAllocateFlagBits {
 
 or the equivalent
 
-``` c
+```c++
 // Provided by VK_KHR_device_group
 typedef VkMemoryAllocateFlagBits VkMemoryAllocateFlagBitsKHR;
 ```
 
-## <a href="#_description" class="anchor"></a>Description
+## [](#_description)Description
 
-- `VK_MEMORY_ALLOCATE_DEVICE_MASK_BIT` specifies that memory will be
-  allocated for the devices in
-  [VkMemoryAllocateFlagsInfo](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkMemoryAllocateFlagsInfo.html)::`deviceMask`.
+- `VK_MEMORY_ALLOCATE_DEVICE_MASK_BIT` specifies that memory will be allocated for the devices in [VkMemoryAllocateFlagsInfo](https://registry.khronos.org/vulkan/specs/latest/man/html/VkMemoryAllocateFlagsInfo.html)::`deviceMask`.
+- `VK_MEMORY_ALLOCATE_DEVICE_ADDRESS_BIT` specifies that the memory **can** be attached to a buffer object created with the `VK_BUFFER_USAGE_SHADER_DEVICE_ADDRESS_BIT` bit set in `usage`, and that the memory handle **can** be used to retrieve an opaque address via [vkGetDeviceMemoryOpaqueCaptureAddress](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetDeviceMemoryOpaqueCaptureAddress.html).
+- `VK_MEMORY_ALLOCATE_DEVICE_ADDRESS_CAPTURE_REPLAY_BIT` specifies that the memory’s address **can** be saved and reused on a subsequent run (e.g. for trace capture and replay), see [VkBufferOpaqueCaptureAddressCreateInfo](https://registry.khronos.org/vulkan/specs/latest/man/html/VkBufferOpaqueCaptureAddressCreateInfo.html) for more detail.
+- `VK_MEMORY_ALLOCATE_ZERO_INITIALIZE_BIT_EXT` specifies that the memory will be zeroed automatically by the implementation before application is able to access it.
 
-- `VK_MEMORY_ALLOCATE_DEVICE_ADDRESS_BIT` specifies that the memory
-  **can** be attached to a buffer object created with the
-  `VK_BUFFER_USAGE_SHADER_DEVICE_ADDRESS_BIT` bit set in `usage`, and
-  that the memory handle **can** be used to retrieve an opaque address
-  via
-  [vkGetDeviceMemoryOpaqueCaptureAddress](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkGetDeviceMemoryOpaqueCaptureAddress.html).
+## [](#_see_also)See Also
 
-- `VK_MEMORY_ALLOCATE_DEVICE_ADDRESS_CAPTURE_REPLAY_BIT` specifies that
-  the memory’s address **can** be saved and reused on a subsequent run
-  (e.g. for trace capture and replay), see
-  [VkBufferOpaqueCaptureAddressCreateInfo](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkBufferOpaqueCaptureAddressCreateInfo.html)
-  for more detail.
+[VK\_VERSION\_1\_1](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_VERSION_1_1.html), [VkMemoryAllocateFlags](https://registry.khronos.org/vulkan/specs/latest/man/html/VkMemoryAllocateFlags.html)
 
-## <a href="#_see_also" class="anchor"></a>See Also
+## [](#_document_notes)Document Notes
 
-[VK_VERSION_1_1](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_VERSION_1_1.html),
-[VkMemoryAllocateFlags](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkMemoryAllocateFlags.html)
+For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#VkMemoryAllocateFlagBits)
 
-## <a href="#_document_notes" class="anchor"></a>Document Notes
+This page is extracted from the Vulkan Specification. Fixes and changes should be made to the Specification, not directly.
 
-For more information, see the <a
-href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#VkMemoryAllocateFlagBits"
-target="_blank" rel="noopener">Vulkan Specification</a>
+## [](#_copyright)Copyright
 
-This page is extracted from the Vulkan Specification. Fixes and changes
-should be made to the Specification, not directly.
-
-## <a href="#_copyright" class="anchor"></a>Copyright
-
-Copyright 2014-2024 The Khronos Group Inc.
+Copyright 2014-2025 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
-
-Version 1.3.290  
-Last updated 2024-07-11 23:39:16 -0700

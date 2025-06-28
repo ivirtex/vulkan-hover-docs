@@ -6,125 +6,71 @@ vkCmdCudaLaunchKernelNV - Dispatch compute work items
 
 
 
-## <a href="#_c_specification" class="anchor"></a>C Specification
+## [](#_c_specification)C Specification
 
 To record a CUDA kernel launch, call:
 
-``` c
+```c++
 // Provided by VK_NV_cuda_kernel_launch
 void vkCmdCudaLaunchKernelNV(
     VkCommandBuffer                             commandBuffer,
     const VkCudaLaunchInfoNV*                   pLaunchInfo);
 ```
 
-## <a href="#_parameters" class="anchor"></a>Parameters
+## [](#_parameters)Parameters
 
-- `commandBuffer` is the command buffer into which the command will be
-  recorded.
+- `commandBuffer` is the command buffer into which the command will be recorded.
+- `pLaunchInfo` is a pointer to a [VkCudaLaunchInfoNV](https://registry.khronos.org/vulkan/specs/latest/man/html/VkCudaLaunchInfoNV.html) structure in which the grid (similar to workgroup) dimension, function handle and related arguments are defined.
 
-- `pLaunchInfo` is a pointer to a
-  [VkCudaLaunchInfoNV](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkCudaLaunchInfoNV.html) structure in which the
-  grid (similar to workgroup) dimension, function handle and related
-  arguments are defined.
+## [](#_description)Description
 
-## <a href="#_description" class="anchor"></a>Description
-
-When the command is executed, a global workgroup consisting of
-`gridDimX` × `gridDimY` × `gridDimZ` local workgroups is assembled.
+When the command is executed, a global workgroup consisting of `gridDimX` × `gridDimY` × `gridDimZ` local workgroups is assembled.
 
 Valid Usage (Implicit)
 
-- <a href="#VUID-vkCmdCudaLaunchKernelNV-commandBuffer-parameter"
-  id="VUID-vkCmdCudaLaunchKernelNV-commandBuffer-parameter"></a>
-  VUID-vkCmdCudaLaunchKernelNV-commandBuffer-parameter  
-  `commandBuffer` **must** be a valid
-  [VkCommandBuffer](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkCommandBuffer.html) handle
-
-- <a href="#VUID-vkCmdCudaLaunchKernelNV-pLaunchInfo-parameter"
-  id="VUID-vkCmdCudaLaunchKernelNV-pLaunchInfo-parameter"></a>
-  VUID-vkCmdCudaLaunchKernelNV-pLaunchInfo-parameter  
-  `pLaunchInfo` **must** be a valid pointer to a valid
-  [VkCudaLaunchInfoNV](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkCudaLaunchInfoNV.html) structure
-
-- <a href="#VUID-vkCmdCudaLaunchKernelNV-commandBuffer-recording"
-  id="VUID-vkCmdCudaLaunchKernelNV-commandBuffer-recording"></a>
-  VUID-vkCmdCudaLaunchKernelNV-commandBuffer-recording  
-  `commandBuffer` **must** be in the [recording
-  state](#commandbuffers-lifecycle)
-
-- <a href="#VUID-vkCmdCudaLaunchKernelNV-commandBuffer-cmdpool"
-  id="VUID-vkCmdCudaLaunchKernelNV-commandBuffer-cmdpool"></a>
-  VUID-vkCmdCudaLaunchKernelNV-commandBuffer-cmdpool  
-  The `VkCommandPool` that `commandBuffer` was allocated from **must**
-  support graphics, or compute operations
-
-- <a href="#VUID-vkCmdCudaLaunchKernelNV-videocoding"
-  id="VUID-vkCmdCudaLaunchKernelNV-videocoding"></a>
-  VUID-vkCmdCudaLaunchKernelNV-videocoding  
+- [](#VUID-vkCmdCudaLaunchKernelNV-commandBuffer-parameter)VUID-vkCmdCudaLaunchKernelNV-commandBuffer-parameter  
+  `commandBuffer` **must** be a valid [VkCommandBuffer](https://registry.khronos.org/vulkan/specs/latest/man/html/VkCommandBuffer.html) handle
+- [](#VUID-vkCmdCudaLaunchKernelNV-pLaunchInfo-parameter)VUID-vkCmdCudaLaunchKernelNV-pLaunchInfo-parameter  
+  `pLaunchInfo` **must** be a valid pointer to a valid [VkCudaLaunchInfoNV](https://registry.khronos.org/vulkan/specs/latest/man/html/VkCudaLaunchInfoNV.html) structure
+- [](#VUID-vkCmdCudaLaunchKernelNV-commandBuffer-recording)VUID-vkCmdCudaLaunchKernelNV-commandBuffer-recording  
+  `commandBuffer` **must** be in the [recording state](#commandbuffers-lifecycle)
+- [](#VUID-vkCmdCudaLaunchKernelNV-commandBuffer-cmdpool)VUID-vkCmdCudaLaunchKernelNV-commandBuffer-cmdpool  
+  The `VkCommandPool` that `commandBuffer` was allocated from **must** support graphics, or compute operations
+- [](#VUID-vkCmdCudaLaunchKernelNV-videocoding)VUID-vkCmdCudaLaunchKernelNV-videocoding  
   This command **must** only be called outside of a video coding scope
 
 Host Synchronization
 
-- Host access to the `VkCommandPool` that `commandBuffer` was allocated
-  from **must** be externally synchronized
+- Host access to the `VkCommandPool` that `commandBuffer` was allocated from **must** be externally synchronized
 
 Command Properties
 
-<table class="tableblock frame-all grid-all stretch">
-<colgroup>
-<col style="width: 20%" />
-<col style="width: 20%" />
-<col style="width: 20%" />
-<col style="width: 20%" />
-<col style="width: 20%" />
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-top"><a
-href="#VkCommandBufferLevel">Command Buffer Levels</a></th>
-<th class="tableblock halign-left valign-top"><a
-href="#vkCmdBeginRenderPass">Render Pass Scope</a></th>
-<th class="tableblock halign-left valign-top"><a
-href="#vkCmdBeginVideoCodingKHR">Video Coding Scope</a></th>
-<th class="tableblock halign-left valign-top"><a
-href="#VkQueueFlagBits">Supported Queue Types</a></th>
-<th class="tableblock halign-left valign-top"><a
-href="#fundamentals-queueoperation-command-types">Command Type</a></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p>Primary<br />
-Secondary</p></td>
-<td class="tableblock halign-left valign-top"><p>Both</p></td>
-<td class="tableblock halign-left valign-top"><p>Outside</p></td>
-<td class="tableblock halign-left valign-top"><p>Graphics<br />
-Compute</p></td>
-<td class="tableblock halign-left valign-top"><p>Action</p></td>
-</tr>
-</tbody>
-</table>
+     [Command Buffer Levels](#VkCommandBufferLevel) [Render Pass Scope](#vkCmdBeginRenderPass) [Video Coding Scope](#vkCmdBeginVideoCodingKHR) [Supported Queue Types](#VkQueueFlagBits) [Command Type](#fundamentals-queueoperation-command-types)
 
-## <a href="#_see_also" class="anchor"></a>See Also
+Primary  
+Secondary
 
-[VK_NV_cuda_kernel_launch](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_NV_cuda_kernel_launch.html),
-[VkCommandBuffer](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkCommandBuffer.html),
-[VkCudaLaunchInfoNV](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkCudaLaunchInfoNV.html)
+Both
 
-## <a href="#_document_notes" class="anchor"></a>Document Notes
+Outside
 
-For more information, see the <a
-href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#vkCmdCudaLaunchKernelNV"
-target="_blank" rel="noopener">Vulkan Specification</a>
+Graphics  
+Compute
 
-This page is extracted from the Vulkan Specification. Fixes and changes
-should be made to the Specification, not directly.
+Action
 
-## <a href="#_copyright" class="anchor"></a>Copyright
+## [](#_see_also)See Also
 
-Copyright 2014-2024 The Khronos Group Inc.
+[VK\_NV\_cuda\_kernel\_launch](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_NV_cuda_kernel_launch.html), [VkCommandBuffer](https://registry.khronos.org/vulkan/specs/latest/man/html/VkCommandBuffer.html), [VkCudaLaunchInfoNV](https://registry.khronos.org/vulkan/specs/latest/man/html/VkCudaLaunchInfoNV.html)
+
+## [](#_document_notes)Document Notes
+
+For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#vkCmdCudaLaunchKernelNV)
+
+This page is extracted from the Vulkan Specification. Fixes and changes should be made to the Specification, not directly.
+
+## [](#_copyright)Copyright
+
+Copyright 2014-2025 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
-
-Version 1.3.290  
-Last updated 2024-07-11 23:39:16 -0700

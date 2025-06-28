@@ -2,17 +2,15 @@
 
 ## Name
 
-VkGeometryNV - Structure specifying a geometry in a bottom-level
-acceleration structure
+VkGeometryNV - Structure specifying a geometry in a bottom-level acceleration structure
 
 
 
-## <a href="#_c_specification" class="anchor"></a>C Specification
+## [](#_c_specification)C Specification
 
-The `VkGeometryNV` structure describes geometry in a bottom-level
-acceleration structure and is defined as:
+The `VkGeometryNV` structure describes geometry in a bottom-level acceleration structure and is defined as:
 
-``` c
+```c++
 // Provided by VK_NV_ray_tracing
 typedef struct VkGeometryNV {
     VkStructureType       sType;
@@ -23,87 +21,46 @@ typedef struct VkGeometryNV {
 } VkGeometryNV;
 ```
 
-## <a href="#_members" class="anchor"></a>Members
+## [](#_members)Members
 
-- `sType` is a [VkStructureType](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkStructureType.html) value identifying
-  this structure.
+- `sType` is a [VkStructureType](https://registry.khronos.org/vulkan/specs/latest/man/html/VkStructureType.html) value identifying this structure.
+- `pNext` is `NULL` or a pointer to a structure extending this structure.
+- `geometryType` specifies the [VkGeometryTypeKHR](https://registry.khronos.org/vulkan/specs/latest/man/html/VkGeometryTypeKHR.html) which this geometry refers to.
+- `geometry` contains the geometry data as described in [VkGeometryDataNV](https://registry.khronos.org/vulkan/specs/latest/man/html/VkGeometryDataNV.html).
+- `flags` has [VkGeometryFlagBitsKHR](https://registry.khronos.org/vulkan/specs/latest/man/html/VkGeometryFlagBitsKHR.html) describing options for this geometry.
 
-- `pNext` is `NULL` or a pointer to a structure extending this
-  structure.
-
-- `geometryType` specifies the
-  [VkGeometryTypeKHR](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkGeometryTypeKHR.html) which this geometry refers
-  to.
-
-- `geometry` contains the geometry data as described in
-  [VkGeometryDataNV](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkGeometryDataNV.html).
-
-- `flags` has [VkGeometryFlagBitsKHR](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkGeometryFlagBitsKHR.html)
-  describing options for this geometry.
-
-## <a href="#_description" class="anchor"></a>Description
+## [](#_description)Description
 
 Valid Usage
 
-- <a href="#VUID-VkGeometryNV-geometryType-03503"
-  id="VUID-VkGeometryNV-geometryType-03503"></a>
-  VUID-VkGeometryNV-geometryType-03503  
-  `geometryType` **must** be `VK_GEOMETRY_TYPE_TRIANGLES_NV` or
-  `VK_GEOMETRY_TYPE_AABBS_NV`
+- [](#VUID-VkGeometryNV-geometryType-03503)VUID-VkGeometryNV-geometryType-03503  
+  `geometryType` **must** be `VK_GEOMETRY_TYPE_TRIANGLES_NV` or `VK_GEOMETRY_TYPE_AABBS_NV`
 
 Valid Usage (Implicit)
 
-- <a href="#VUID-VkGeometryNV-sType-sType"
-  id="VUID-VkGeometryNV-sType-sType"></a>
-  VUID-VkGeometryNV-sType-sType  
+- [](#VUID-VkGeometryNV-sType-sType)VUID-VkGeometryNV-sType-sType  
   `sType` **must** be `VK_STRUCTURE_TYPE_GEOMETRY_NV`
-
-- <a href="#VUID-VkGeometryNV-pNext-pNext"
-  id="VUID-VkGeometryNV-pNext-pNext"></a>
-  VUID-VkGeometryNV-pNext-pNext  
+- [](#VUID-VkGeometryNV-pNext-pNext)VUID-VkGeometryNV-pNext-pNext  
   `pNext` **must** be `NULL`
+- [](#VUID-VkGeometryNV-geometryType-parameter)VUID-VkGeometryNV-geometryType-parameter  
+  `geometryType` **must** be a valid [VkGeometryTypeKHR](https://registry.khronos.org/vulkan/specs/latest/man/html/VkGeometryTypeKHR.html) value
+- [](#VUID-VkGeometryNV-geometry-parameter)VUID-VkGeometryNV-geometry-parameter  
+  `geometry` **must** be a valid [VkGeometryDataNV](https://registry.khronos.org/vulkan/specs/latest/man/html/VkGeometryDataNV.html) structure
+- [](#VUID-VkGeometryNV-flags-parameter)VUID-VkGeometryNV-flags-parameter  
+  `flags` **must** be a valid combination of [VkGeometryFlagBitsKHR](https://registry.khronos.org/vulkan/specs/latest/man/html/VkGeometryFlagBitsKHR.html) values
 
-- <a href="#VUID-VkGeometryNV-geometryType-parameter"
-  id="VUID-VkGeometryNV-geometryType-parameter"></a>
-  VUID-VkGeometryNV-geometryType-parameter  
-  `geometryType` **must** be a valid
-  [VkGeometryTypeKHR](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkGeometryTypeKHR.html) value
+## [](#_see_also)See Also
 
-- <a href="#VUID-VkGeometryNV-geometry-parameter"
-  id="VUID-VkGeometryNV-geometry-parameter"></a>
-  VUID-VkGeometryNV-geometry-parameter  
-  `geometry` **must** be a valid
-  [VkGeometryDataNV](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkGeometryDataNV.html) structure
+[VK\_NV\_ray\_tracing](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_NV_ray_tracing.html), [VkAccelerationStructureInfoNV](https://registry.khronos.org/vulkan/specs/latest/man/html/VkAccelerationStructureInfoNV.html), [VkGeometryDataNV](https://registry.khronos.org/vulkan/specs/latest/man/html/VkGeometryDataNV.html), [VkGeometryFlagsKHR](https://registry.khronos.org/vulkan/specs/latest/man/html/VkGeometryFlagsKHR.html), [VkGeometryTypeKHR](https://registry.khronos.org/vulkan/specs/latest/man/html/VkGeometryTypeKHR.html), [VkStructureType](https://registry.khronos.org/vulkan/specs/latest/man/html/VkStructureType.html)
 
-- <a href="#VUID-VkGeometryNV-flags-parameter"
-  id="VUID-VkGeometryNV-flags-parameter"></a>
-  VUID-VkGeometryNV-flags-parameter  
-  `flags` **must** be a valid combination of
-  [VkGeometryFlagBitsKHR](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkGeometryFlagBitsKHR.html) values
+## [](#_document_notes)Document Notes
 
-## <a href="#_see_also" class="anchor"></a>See Also
+For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#VkGeometryNV)
 
-[VK_NV_ray_tracing](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_NV_ray_tracing.html),
-[VkAccelerationStructureInfoNV](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkAccelerationStructureInfoNV.html),
-[VkGeometryDataNV](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkGeometryDataNV.html),
-[VkGeometryFlagsKHR](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkGeometryFlagsKHR.html),
-[VkGeometryTypeKHR](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkGeometryTypeKHR.html),
-[VkStructureType](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkStructureType.html)
+This page is extracted from the Vulkan Specification. Fixes and changes should be made to the Specification, not directly.
 
-## <a href="#_document_notes" class="anchor"></a>Document Notes
+## [](#_copyright)Copyright
 
-For more information, see the <a
-href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#VkGeometryNV"
-target="_blank" rel="noopener">Vulkan Specification</a>
-
-This page is extracted from the Vulkan Specification. Fixes and changes
-should be made to the Specification, not directly.
-
-## <a href="#_copyright" class="anchor"></a>Copyright
-
-Copyright 2014-2024 The Khronos Group Inc.
+Copyright 2014-2025 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
-
-Version 1.3.290  
-Last updated 2024-07-11 23:39:16 -0700

@@ -6,11 +6,11 @@ VkImageResolve2 - Structure specifying an image resolve operation
 
 
 
-## <a href="#_c_specification" class="anchor"></a>C Specification
+## [](#_c_specification)C Specification
 
 The `VkImageResolve2` structure is defined as:
 
-``` c
+```c++
 // Provided by VK_VERSION_1_3
 typedef struct VkImageResolve2 {
     VkStructureType             sType;
@@ -25,106 +25,53 @@ typedef struct VkImageResolve2 {
 
 or the equivalent
 
-``` c
+```c++
 // Provided by VK_KHR_copy_commands2
 typedef VkImageResolve2 VkImageResolve2KHR;
 ```
 
-## <a href="#_members" class="anchor"></a>Members
+## [](#_members)Members
 
-- `sType` is a [VkStructureType](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkStructureType.html) value identifying
-  this structure.
+- `sType` is a [VkStructureType](https://registry.khronos.org/vulkan/specs/latest/man/html/VkStructureType.html) value identifying this structure.
+- `pNext` is `NULL` or a pointer to a structure extending this structure.
+- `srcSubresource` and `dstSubresource` are [VkImageSubresourceLayers](https://registry.khronos.org/vulkan/specs/latest/man/html/VkImageSubresourceLayers.html) structures specifying the image subresources of the images used for the source and destination image data, respectively. Resolve of depth/stencil images is not supported.
+- `srcOffset` and `dstOffset` select the initial `x`, `y`, and `z` offsets in texels of the sub-regions of the source and destination image data.
+- `extent` is the size in texels of the source image to resolve in `width`, `height` and `depth`.
 
-- `pNext` is `NULL` or a pointer to a structure extending this
-  structure.
-
-- `srcSubresource` and `dstSubresource` are
-  [VkImageSubresourceLayers](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkImageSubresourceLayers.html) structures
-  specifying the image subresources of the images used for the source
-  and destination image data, respectively. Resolve of depth/stencil
-  images is not supported.
-
-- `srcOffset` and `dstOffset` select the initial `x`, `y`, and `z`
-  offsets in texels of the sub-regions of the source and destination
-  image data.
-
-- `extent` is the size in texels of the source image to resolve in
-  `width`, `height` and `depth`.
-
-## <a href="#_description" class="anchor"></a>Description
+## [](#_description)Description
 
 Valid Usage
 
-- <a href="#VUID-VkImageResolve2-aspectMask-00266"
-  id="VUID-VkImageResolve2-aspectMask-00266"></a>
-  VUID-VkImageResolve2-aspectMask-00266  
-  The `aspectMask` member of `srcSubresource` and `dstSubresource`
-  **must** only contain `VK_IMAGE_ASPECT_COLOR_BIT`
-
-- <a href="#VUID-VkImageResolve2-layerCount-08803"
-  id="VUID-VkImageResolve2-layerCount-08803"></a>
-  VUID-VkImageResolve2-layerCount-08803  
-  If neither of the `layerCount` members of `srcSubresource` or
-  `dstSubresource` are `VK_REMAINING_ARRAY_LAYERS`, the `layerCount`
-  member of `srcSubresource` and `dstSubresource` **must** match
-
-- <a href="#VUID-VkImageResolve2-layerCount-08804"
-  id="VUID-VkImageResolve2-layerCount-08804"></a>
-  VUID-VkImageResolve2-layerCount-08804  
-  If one of the `layerCount` members of `srcSubresource` or
-  `dstSubresource` is `VK_REMAINING_ARRAY_LAYERS`, the other member
-  **must** be either `VK_REMAINING_ARRAY_LAYERS` or equal to the
-  `arrayLayers` member of the
-  [VkImageCreateInfo](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkImageCreateInfo.html) used to create the image
-  minus `baseArrayLayer`
+- [](#VUID-VkImageResolve2-aspectMask-00266)VUID-VkImageResolve2-aspectMask-00266  
+  The `aspectMask` member of `srcSubresource` and `dstSubresource` **must** only contain `VK_IMAGE_ASPECT_COLOR_BIT`
+- [](#VUID-VkImageResolve2-layerCount-08803)VUID-VkImageResolve2-layerCount-08803  
+  If neither of the `layerCount` members of `srcSubresource` or `dstSubresource` are `VK_REMAINING_ARRAY_LAYERS`, the `layerCount` member of `srcSubresource` and `dstSubresource` **must** match
+- [](#VUID-VkImageResolve2-layerCount-08804)VUID-VkImageResolve2-layerCount-08804  
+  If one of the `layerCount` members of `srcSubresource` or `dstSubresource` is `VK_REMAINING_ARRAY_LAYERS`, the other member **must** be either `VK_REMAINING_ARRAY_LAYERS` or equal to the `arrayLayers` member of the [VkImageCreateInfo](https://registry.khronos.org/vulkan/specs/latest/man/html/VkImageCreateInfo.html) used to create the image minus `baseArrayLayer`
 
 Valid Usage (Implicit)
 
-- <a href="#VUID-VkImageResolve2-sType-sType"
-  id="VUID-VkImageResolve2-sType-sType"></a>
-  VUID-VkImageResolve2-sType-sType  
+- [](#VUID-VkImageResolve2-sType-sType)VUID-VkImageResolve2-sType-sType  
   `sType` **must** be `VK_STRUCTURE_TYPE_IMAGE_RESOLVE_2`
-
-- <a href="#VUID-VkImageResolve2-pNext-pNext"
-  id="VUID-VkImageResolve2-pNext-pNext"></a>
-  VUID-VkImageResolve2-pNext-pNext  
+- [](#VUID-VkImageResolve2-pNext-pNext)VUID-VkImageResolve2-pNext-pNext  
   `pNext` **must** be `NULL`
+- [](#VUID-VkImageResolve2-srcSubresource-parameter)VUID-VkImageResolve2-srcSubresource-parameter  
+  `srcSubresource` **must** be a valid [VkImageSubresourceLayers](https://registry.khronos.org/vulkan/specs/latest/man/html/VkImageSubresourceLayers.html) structure
+- [](#VUID-VkImageResolve2-dstSubresource-parameter)VUID-VkImageResolve2-dstSubresource-parameter  
+  `dstSubresource` **must** be a valid [VkImageSubresourceLayers](https://registry.khronos.org/vulkan/specs/latest/man/html/VkImageSubresourceLayers.html) structure
 
-- <a href="#VUID-VkImageResolve2-srcSubresource-parameter"
-  id="VUID-VkImageResolve2-srcSubresource-parameter"></a>
-  VUID-VkImageResolve2-srcSubresource-parameter  
-  `srcSubresource` **must** be a valid
-  [VkImageSubresourceLayers](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkImageSubresourceLayers.html) structure
+## [](#_see_also)See Also
 
-- <a href="#VUID-VkImageResolve2-dstSubresource-parameter"
-  id="VUID-VkImageResolve2-dstSubresource-parameter"></a>
-  VUID-VkImageResolve2-dstSubresource-parameter  
-  `dstSubresource` **must** be a valid
-  [VkImageSubresourceLayers](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkImageSubresourceLayers.html) structure
+[VK\_KHR\_copy\_commands2](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_KHR_copy_commands2.html), [VK\_VERSION\_1\_3](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_VERSION_1_3.html), [VkExtent3D](https://registry.khronos.org/vulkan/specs/latest/man/html/VkExtent3D.html), [VkImageSubresourceLayers](https://registry.khronos.org/vulkan/specs/latest/man/html/VkImageSubresourceLayers.html), [VkOffset3D](https://registry.khronos.org/vulkan/specs/latest/man/html/VkOffset3D.html), [VkResolveImageInfo2](https://registry.khronos.org/vulkan/specs/latest/man/html/VkResolveImageInfo2.html), [VkStructureType](https://registry.khronos.org/vulkan/specs/latest/man/html/VkStructureType.html)
 
-## <a href="#_see_also" class="anchor"></a>See Also
+## [](#_document_notes)Document Notes
 
-[VK_KHR_copy_commands2](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_KHR_copy_commands2.html),
-[VK_VERSION_1_3](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_VERSION_1_3.html), [VkExtent3D](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkExtent3D.html),
-[VkImageSubresourceLayers](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkImageSubresourceLayers.html),
-[VkOffset3D](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkOffset3D.html),
-[VkResolveImageInfo2](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkResolveImageInfo2.html),
-[VkStructureType](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkStructureType.html)
+For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#VkImageResolve2)
 
-## <a href="#_document_notes" class="anchor"></a>Document Notes
+This page is extracted from the Vulkan Specification. Fixes and changes should be made to the Specification, not directly.
 
-For more information, see the <a
-href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#VkImageResolve2"
-target="_blank" rel="noopener">Vulkan Specification</a>
+## [](#_copyright)Copyright
 
-This page is extracted from the Vulkan Specification. Fixes and changes
-should be made to the Specification, not directly.
-
-## <a href="#_copyright" class="anchor"></a>Copyright
-
-Copyright 2014-2024 The Khronos Group Inc.
+Copyright 2014-2025 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
-
-Version 1.3.290  
-Last updated 2024-07-11 23:39:16 -0700

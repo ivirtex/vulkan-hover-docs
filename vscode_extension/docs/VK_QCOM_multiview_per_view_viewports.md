@@ -1,138 +1,100 @@
-# VK_QCOM_multiview_per_view_viewports(3) Manual Page
+# VK\_QCOM\_multiview\_per\_view\_viewports(3) Manual Page
 
 ## Name
 
-VK_QCOM_multiview_per_view_viewports - device extension
+VK\_QCOM\_multiview\_per\_view\_viewports - device extension
 
 
 
-## <a href="#_registered_extension_number" class="anchor"></a>Registered Extension Number
+## [](#_registered_extension_number)Registered Extension Number
 
 489
 
-## <a href="#_revision" class="anchor"></a>Revision
+## [](#_revision)Revision
 
 1
 
-## <a href="#_ratification_status" class="anchor"></a>Ratification Status
+## [](#_ratification_status)Ratification Status
 
 Not ratified
 
-## <a href="#_extension_and_version_dependencies" class="anchor"></a>Extension and Version Dependencies
+## [](#_extension_and_version_dependencies)Extension and Version Dependencies
 
-[VK_KHR_get_physical_device_properties2](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_KHR_get_physical_device_properties2.html)  
+[VK\_KHR\_get\_physical\_device\_properties2](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_KHR_get_physical_device_properties2.html)  
 or  
-[Version 1.1](#versions-1.1)  
+[Vulkan Version 1.1](#versions-1.1)
 
-## <a href="#_contact" class="anchor"></a>Contact
+## [](#_contact)Contact
 
-- Matthew Netsch <a
-  href="https://github.com/KhronosGroup/Vulkan-Docs/issues/new?body=%5BVK_QCOM_multiview_per_view_viewports%5D%20@mnetsch%0A*Here%20describe%20the%20issue%20or%20question%20you%20have%20about%20the%20VK_QCOM_multiview_per_view_viewports%20extension*"
-  target="_blank" rel="nofollow noopener"><em></em>mnetsch</a>
+- Matthew Netsch [\[GitHub\]mnetsch](https://github.com/KhronosGroup/Vulkan-Docs/issues/new?body=%5BVK_QCOM_multiview_per_view_viewports%5D%20%40mnetsch%0A%2AHere%20describe%20the%20issue%20or%20question%20you%20have%20about%20the%20VK_QCOM_multiview_per_view_viewports%20extension%2A)
 
-## <a href="#_other_extension_metadata" class="anchor"></a>Other Extension Metadata
+## [](#_other_extension_metadata)Other Extension Metadata
 
-**Last Modified Date**  
+**Last Modified Date**
+
 2022-11-22
 
-**IP Status**  
+**IP Status**
+
 No known IP claims.
 
-**Interactions and External Dependencies**  
-- This extension interacts with
-  [`VK_KHR_dynamic_rendering`](VK_KHR_dynamic_rendering.html)
+**Interactions and External Dependencies**
 
-- This extension interacts with
-  [`VK_EXT_extended_dynamic_state`](VK_EXT_extended_dynamic_state.html)
+- This extension interacts with `VK_KHR_dynamic_rendering`
+- This extension interacts with `VK_EXT_extended_dynamic_state`
 
-**Contributors**  
+**Contributors**
+
 - Jeff Leger, Qualcomm
-
 - Jonathan Tinkham, Qualcomm
-
 - Jonathan Wicks, Qualcomm
 
-## <a href="#_description" class="anchor"></a>Description
+## [](#_description)Description
 
-Certain use cases for multiview have a need for specifying a separate
-viewport and scissor for each view, without using shader-based viewport
-indexing as introduced with
-[`VK_EXT_shader_viewport_index_layer`](VK_EXT_shader_viewport_index_layer.html).
+Certain use cases for multiview have a need for specifying a separate viewport and scissor for each view, without using shader-based viewport indexing as introduced with `VK_EXT_shader_viewport_index_layer`.
 
-This extension adds a new way to control ViewportIndex with multiview.
-When the <a
-href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#features-multiview-per-view-viewports"
-target="_blank"
-rel="noopener"><code>multiviewPerViewViewports</code></a> feature is
-enabled and if the last pre-rasterization shader entry point’s interface
-does not use the `ViewportIndex` built-in decoration, then each view of
-a multiview render pass instance will use a viewport and scissor index
-equal to the `ViewIndex`.
+This extension adds a new way to control ViewportIndex with multiview. When the [`multiviewPerViewViewports`](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#features-multiviewPerViewViewports) feature is enabled and if the last pre-rasterization shader entry point’s interface does not use the `ViewportIndex` built-in decoration, then each view of a multiview render pass instance will use a viewport and scissor index equal to the `ViewIndex`.
 
-## <a href="#_new_structures" class="anchor"></a>New Structures
+## [](#_new_structures)New Structures
 
-- Extending [VkPhysicalDeviceFeatures2](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkPhysicalDeviceFeatures2.html),
-  [VkDeviceCreateInfo](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkDeviceCreateInfo.html):
+- Extending [VkPhysicalDeviceFeatures2](https://registry.khronos.org/vulkan/specs/latest/man/html/VkPhysicalDeviceFeatures2.html), [VkDeviceCreateInfo](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDeviceCreateInfo.html):
+  
+  - [VkPhysicalDeviceMultiviewPerViewViewportsFeaturesQCOM](https://registry.khronos.org/vulkan/specs/latest/man/html/VkPhysicalDeviceMultiviewPerViewViewportsFeaturesQCOM.html)
 
-  - [VkPhysicalDeviceMultiviewPerViewViewportsFeaturesQCOM](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkPhysicalDeviceMultiviewPerViewViewportsFeaturesQCOM.html)
-
-## <a href="#_new_enum_constants" class="anchor"></a>New Enum Constants
+## [](#_new_enum_constants)New Enum Constants
 
 - `VK_QCOM_MULTIVIEW_PER_VIEW_VIEWPORTS_EXTENSION_NAME`
-
 - `VK_QCOM_MULTIVIEW_PER_VIEW_VIEWPORTS_SPEC_VERSION`
-
-- Extending [VkStructureType](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkStructureType.html):
-
+- Extending [VkStructureType](https://registry.khronos.org/vulkan/specs/latest/man/html/VkStructureType.html):
+  
   - `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_MULTIVIEW_PER_VIEW_VIEWPORTS_FEATURES_QCOM`
 
-## <a href="#_issues" class="anchor"></a>Issues
+## [](#_issues)Issues
 
-1\) Is it possible to enable/disable the <a
-href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#features-multiview-per-view-viewports"
-target="_blank"
-rel="noopener"><code>multiviewPerViewViewports</code></a> feature for
-individual render pass instances?
+1\) Is it possible to enable/disable the [`multiviewPerViewViewports`](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#features-multiviewPerViewViewports) feature for individual render pass instances?
 
-**RESOLVED**: No, when the multiviewPerViewViewports feature is enabled
-during vkCreateDevice, then all created render pass instances (including
-dynamic render passes from
-[`VK_KHR_dynamic_rendering`](VK_KHR_dynamic_rendering.html)) and all
-created VkPipelines will have the feature enabled. This approach was
-chosen because it simplifies application code and there is no known use
-case to enable/disable the feature for individual render passes or
-pipelines.
+**RESOLVED**: No, when the multiviewPerViewViewports feature is enabled during vkCreateDevice, then all created render pass instances (including dynamic render passes from `VK_KHR_dynamic_rendering`) and all created VkPipelines will have the feature enabled. This approach was chosen because it simplifies application code and there is no known use case to enable/disable the feature for individual render passes or pipelines.
 
-2\) When this extension is used, is the value of `ViewportIndex`
-implicitly written by the last pre-rasterization shader stage and can
-the value of `ViewportIndex` be read in the fragment shader?
+2\) When this extension is used, is the value of `ViewportIndex` implicitly written by the last pre-rasterization shader stage and can the value of `ViewportIndex` be read in the fragment shader?
 
-**RESOLVED**: No, use of the extension does not add an implicit write to
-`ViewportIndex` in any shader stage, and additionally, the value of
-`ViewportIndex` in the fragment shader is undefined.
+**RESOLVED**: No, use of the extension does not add an implicit write to `ViewportIndex` in any shader stage, and additionally, the value of `ViewportIndex` in the fragment shader is undefined.
 
-## <a href="#_version_history" class="anchor"></a>Version History
+## [](#_version_history)Version History
 
 - Revision 1, 2022-11-22 (Jeff Leger)
 
-## <a href="#_see_also" class="anchor"></a>See Also
+## [](#_see_also)See Also
 
 No cross-references are available
 
-## <a href="#_document_notes" class="anchor"></a>Document Notes
+## [](#_document_notes)Document Notes
 
-For more information, see the <a
-href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#VK_QCOM_multiview_per_view_viewports"
-target="_blank" rel="noopener">Vulkan Specification</a>
+For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#VK_QCOM_multiview_per_view_viewports)
 
-This page is a generated document. Fixes and changes should be made to
-the generator scripts, not directly.
+This page is a generated document. Fixes and changes should be made to the generator scripts, not directly.
 
-## <a href="#_copyright" class="anchor"></a>Copyright
+## [](#_copyright)Copyright
 
-Copyright 2014-2024 The Khronos Group Inc.
+Copyright 2014-2025 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
-
-Version 1.3.290  
-Last updated 2024-07-11 23:39:16 -0700

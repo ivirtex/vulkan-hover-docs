@@ -6,77 +6,39 @@ Position - Vertex position
 
 
 
-## <a href="#_description" class="anchor"></a>Description
+## [](#_description)Description
 
-`Position`  
-Decorating a variable with the `Position` built-in decoration will make
-that variable contain the position of the current vertex. In the last <a
-href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#pipelines-graphics-subsets-pre-rasterization"
-target="_blank" rel="noopener">pre-rasterization shader stage</a>, the
-value of the variable decorated with `Position` is used in subsequent
-primitive assembly, clipping, and rasterization operations.
+`Position`
 
-<table>
-<colgroup>
-<col style="width: 50%" />
-<col style="width: 50%" />
-</colgroup>
-<tbody>
-<tr>
-<td class="icon"><em></em></td>
-<td class="content">Note
-<p>When <code>Position</code> decorates a variable in the
-<code>Input</code> <code>Storage</code> <code>Class</code>, it contains
-the data written to the output variable decorated with
-<code>Position</code> from the previous shader stage.</p></td>
-</tr>
-</tbody>
-</table>
+Decorating a variable with the `Position` built-in decoration will make that variable contain the position of the current vertex. In the last [pre-rasterization shader stage](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#pipelines-graphics-subsets-pre-rasterization), the value of the variable decorated with `Position` is used in subsequent primitive assembly, clipping, and rasterization operations.
+
+Note
+
+When `Position` decorates a variable in the `Input` `Storage` `Class`, it contains the data written to the output variable decorated with `Position` from the previous shader stage.
 
 Valid Usage
 
-- <a href="#VUID-Position-Position-04318"
-  id="VUID-Position-Position-04318"></a> VUID-Position-Position-04318  
-  The `Position` decoration **must** be used only within the `MeshEXT`,
-  `MeshNV`, `Vertex`, `TessellationControl`, `TessellationEvaluation`,
-  or `Geometry` `Execution` `Model`
+- [](#VUID-Position-Position-04318)VUID-Position-Position-04318  
+  The `Position` decoration **must** be used only within the `MeshEXT`, `MeshNV`, `Vertex`, `TessellationControl`, `TessellationEvaluation`, or `Geometry` `Execution` `Model`
+- [](#VUID-Position-Position-04319)VUID-Position-Position-04319  
+  The variable decorated with `Position` within the `MeshEXT`, `MeshNV`, or `Vertex` `Execution` `Model` **must** be declared using the `Output` `Storage` `Class`
+- [](#VUID-Position-Position-04320)VUID-Position-Position-04320  
+  The variable decorated with `Position` within the `TessellationControl`, `TessellationEvaluation`, or `Geometry` `Execution` `Model` **must** not be declared using a `Storage` `Class` other than `Input` or `Output`
+- [](#VUID-Position-Position-04321)VUID-Position-Position-04321  
+  The variable decorated with `Position` **must** be declared as a four-component vector of 32-bit floating-point values
 
-- <a href="#VUID-Position-Position-04319"
-  id="VUID-Position-Position-04319"></a> VUID-Position-Position-04319  
-  The variable decorated with `Position` within the `MeshEXT`, `MeshNV`,
-  or `Vertex` `Execution` `Model` **must** be declared using the
-  `Output` `Storage` `Class`
-
-- <a href="#VUID-Position-Position-04320"
-  id="VUID-Position-Position-04320"></a> VUID-Position-Position-04320  
-  The variable decorated with `Position` within the
-  `TessellationControl`, `TessellationEvaluation`, or `Geometry`
-  `Execution` `Model` **must** not be declared using a `Storage` `Class`
-  other than `Input` or `Output`
-
-- <a href="#VUID-Position-Position-04321"
-  id="VUID-Position-Position-04321"></a> VUID-Position-Position-04321  
-  The variable decorated with `Position` **must** be declared as a
-  four-component vector of 32-bit floating-point values
-
-## <a href="#_see_also" class="anchor"></a>See Also
+## [](#_see_also)See Also
 
 No cross-references are available
 
-## <a href="#_document_notes" class="anchor"></a>Document Notes
+## [](#_document_notes)Document Notes
 
-For more information, see the <a
-href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#Position"
-target="_blank" rel="noopener">Vulkan Specification</a>
+For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#Position)
 
-This page is extracted from the Vulkan Specification. Fixes and changes
-should be made to the Specification, not directly.
+This page is extracted from the Vulkan Specification. Fixes and changes should be made to the Specification, not directly.
 
-## <a href="#_copyright" class="anchor"></a>Copyright
+## [](#_copyright)Copyright
 
-Copyright 2014-2024 The Khronos Group Inc.
+Copyright 2014-2025 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
-
-Version 1.3.290  
-Last updated 2024-07-11 23:39:16 -0700

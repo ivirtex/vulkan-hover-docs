@@ -6,17 +6,13 @@ VkFormatProperties3 - Structure specifying image format properties
 
 
 
-## <a href="#_c_specification" class="anchor"></a>C Specification
+## [](#_c_specification)C Specification
 
-To query supported format extended features which are properties of the
-physical device, add [VkFormatProperties3](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkFormatProperties3.html)
-structure to the `pNext` chain of
-[VkFormatProperties2](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkFormatProperties2.html).
+To query supported format extended features which are properties of the physical device, add [VkFormatProperties3](https://registry.khronos.org/vulkan/specs/latest/man/html/VkFormatProperties3.html) structure to the `pNext` chain of [VkFormatProperties2](https://registry.khronos.org/vulkan/specs/latest/man/html/VkFormatProperties2.html).
 
-The [VkFormatProperties3](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkFormatProperties3.html) structure is defined
-as:
+The [VkFormatProperties3](https://registry.khronos.org/vulkan/specs/latest/man/html/VkFormatProperties3.html) structure is defined as:
 
-``` c
+```c++
 // Provided by VK_VERSION_1_3
 typedef struct VkFormatProperties3 {
     VkStructureType          sType;
@@ -29,61 +25,38 @@ typedef struct VkFormatProperties3 {
 
 or the equivalent
 
-``` c
+```c++
 // Provided by VK_KHR_format_feature_flags2
 typedef VkFormatProperties3 VkFormatProperties3KHR;
 ```
 
-## <a href="#_members" class="anchor"></a>Members
+## [](#_members)Members
 
-- `linearTilingFeatures` is a bitmask of
-  [VkFormatFeatureFlagBits2](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkFormatFeatureFlagBits2.html) specifying
-  features supported by images created with a `tiling` parameter of
-  `VK_IMAGE_TILING_LINEAR`.
+- `linearTilingFeatures` is a bitmask of [VkFormatFeatureFlagBits2](https://registry.khronos.org/vulkan/specs/latest/man/html/VkFormatFeatureFlagBits2.html) specifying features supported by images created with a `tiling` parameter of `VK_IMAGE_TILING_LINEAR`.
+- `optimalTilingFeatures` is a bitmask of [VkFormatFeatureFlagBits2](https://registry.khronos.org/vulkan/specs/latest/man/html/VkFormatFeatureFlagBits2.html) specifying features supported by images created with a `tiling` parameter of `VK_IMAGE_TILING_OPTIMAL`.
+- `bufferFeatures` is a bitmask of [VkFormatFeatureFlagBits2](https://registry.khronos.org/vulkan/specs/latest/man/html/VkFormatFeatureFlagBits2.html) specifying features supported by buffers.
 
-- `optimalTilingFeatures` is a bitmask of
-  [VkFormatFeatureFlagBits2](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkFormatFeatureFlagBits2.html) specifying
-  features supported by images created with a `tiling` parameter of
-  `VK_IMAGE_TILING_OPTIMAL`.
+## [](#_description)Description
 
-- `bufferFeatures` is a bitmask of
-  [VkFormatFeatureFlagBits2](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkFormatFeatureFlagBits2.html) specifying
-  features supported by buffers.
-
-## <a href="#_description" class="anchor"></a>Description
-
-The bits reported in `linearTilingFeatures`, `optimalTilingFeatures` and
-`bufferFeatures` **must** include the bits reported in the corresponding
-fields of `VkFormatProperties2`::`formatProperties`.
+The bits reported in `linearTilingFeatures`, `optimalTilingFeatures` and `bufferFeatures` **must** include the bits reported in the corresponding fields of `VkFormatProperties2`::`formatProperties`.
 
 Valid Usage (Implicit)
 
-- <a href="#VUID-VkFormatProperties3-sType-sType"
-  id="VUID-VkFormatProperties3-sType-sType"></a>
-  VUID-VkFormatProperties3-sType-sType  
+- [](#VUID-VkFormatProperties3-sType-sType)VUID-VkFormatProperties3-sType-sType  
   `sType` **must** be `VK_STRUCTURE_TYPE_FORMAT_PROPERTIES_3`
 
-## <a href="#_see_also" class="anchor"></a>See Also
+## [](#_see_also)See Also
 
-[VK_KHR_format_feature_flags2](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_KHR_format_feature_flags2.html),
-[VK_VERSION_1_3](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_VERSION_1_3.html),
-[VkFormatFeatureFlags2](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkFormatFeatureFlags2.html),
-[VkStructureType](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkStructureType.html)
+[VK\_KHR\_format\_feature\_flags2](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_KHR_format_feature_flags2.html), [VK\_VERSION\_1\_3](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_VERSION_1_3.html), [VkFormatFeatureFlags2](https://registry.khronos.org/vulkan/specs/latest/man/html/VkFormatFeatureFlags2.html), [VkStructureType](https://registry.khronos.org/vulkan/specs/latest/man/html/VkStructureType.html)
 
-## <a href="#_document_notes" class="anchor"></a>Document Notes
+## [](#_document_notes)Document Notes
 
-For more information, see the <a
-href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#VkFormatProperties3"
-target="_blank" rel="noopener">Vulkan Specification</a>
+For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#VkFormatProperties3)
 
-This page is extracted from the Vulkan Specification. Fixes and changes
-should be made to the Specification, not directly.
+This page is extracted from the Vulkan Specification. Fixes and changes should be made to the Specification, not directly.
 
-## <a href="#_copyright" class="anchor"></a>Copyright
+## [](#_copyright)Copyright
 
-Copyright 2014-2024 The Khronos Group Inc.
+Copyright 2014-2025 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
-
-Version 1.3.290  
-Last updated 2024-07-11 23:39:16 -0700

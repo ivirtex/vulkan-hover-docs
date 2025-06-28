@@ -6,12 +6,11 @@ vkCmdWaitEvents2 - Wait for one or more events
 
 
 
-## <a href="#_c_specification" class="anchor"></a>C Specification
+## [](#_c_specification)C Specification
 
-To wait for one or more events to enter the signaled state on a device,
-call:
+To wait for one or more events to enter the signaled state on a device, call:
 
-``` c
+```c++
 // Provided by VK_VERSION_1_3
 void vkCmdWaitEvents2(
     VkCommandBuffer                             commandBuffer,
@@ -22,7 +21,7 @@ void vkCmdWaitEvents2(
 
 or the equivalent command
 
-``` c
+```c++
 // Provided by VK_KHR_synchronization2
 void vkCmdWaitEvents2KHR(
     VkCommandBuffer                             commandBuffer,
@@ -31,304 +30,124 @@ void vkCmdWaitEvents2KHR(
     const VkDependencyInfo*                     pDependencyInfos);
 ```
 
-## <a href="#_parameters" class="anchor"></a>Parameters
+## [](#_parameters)Parameters
 
-- `commandBuffer` is the command buffer into which the command is
-  recorded.
-
+- `commandBuffer` is the command buffer into which the command is recorded.
 - `eventCount` is the length of the `pEvents` array.
-
 - `pEvents` is a pointer to an array of `eventCount` events to wait on.
+- `pDependencyInfos` is a pointer to an array of `eventCount` [VkDependencyInfo](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDependencyInfo.html) structures, defining the second [synchronization scope](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#synchronization-dependencies-scopes).
 
-- `pDependencyInfos` is a pointer to an array of `eventCount`
-  [VkDependencyInfo](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkDependencyInfo.html) structures, defining the
-  second <a
-  href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#synchronization-dependencies-scopes"
-  target="_blank" rel="noopener">synchronization scope</a>.
+## [](#_description)Description
 
-## <a href="#_description" class="anchor"></a>Description
+When `vkCmdWaitEvents2` is submitted to a queue, it inserts memory dependencies according to the elements of `pDependencyInfos` and each corresponding element of `pEvents`. `vkCmdWaitEvents2` **must** not be used to wait on event signal operations occurring on other queues, or signal operations executed by [vkCmdSetEvent](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdSetEvent.html).
 
-When `vkCmdWaitEvents2` is submitted to a queue, it inserts memory
-dependencies according to the elements of `pDependencyInfos` and each
-corresponding element of `pEvents`. `vkCmdWaitEvents2` **must** not be
-used to wait on event signal operations occurring on other queues, or
-signal operations executed by [vkCmdSetEvent](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdSetEvent.html).
-
-The first <a
-href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#synchronization-dependencies-scopes"
-target="_blank" rel="noopener">synchronization scope</a> and <a
-href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#synchronization-dependencies-access-scopes"
-target="_blank" rel="noopener">access scope</a> of each memory
-dependency defined by any element i of `pDependencyInfos` are applied to
-operations that occurred earlier in <a
-href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#synchronization-submission-order"
-target="_blank" rel="noopener">submission order</a> than the last event
-signal operation on element i of `pEvents`.
+The first [synchronization scope](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#synchronization-dependencies-scopes) and [access scope](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#synchronization-dependencies-access-scopes) of each memory dependency defined by any element i of `pDependencyInfos` are applied to operations that occurred earlier in [submission order](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#synchronization-submission-order) than the last event signal operation on element i of `pEvents`.
 
 Signal operations for an event at index i are only included if:
 
-- The event was signaled by a [vkCmdSetEvent2](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdSetEvent2.html)
-  command that occurred earlier in <a
-  href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#synchronization-submission-order"
-  target="_blank" rel="noopener">submission order</a> with a
-  `dependencyInfo` parameter exactly equal to the element of
-  `pDependencyInfos` at index i ; or
+- The event was signaled by a [vkCmdSetEvent2](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdSetEvent2.html) command that occurred earlier in [submission order](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#synchronization-submission-order) with a `dependencyInfo` parameter exactly equal to the element of `pDependencyInfos` at index i ; or
+- The event was created without `VK_EVENT_CREATE_DEVICE_ONLY_BIT`, and the first [synchronization scope](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#synchronization-dependencies-scopes) defined by the element of `pDependencyInfos` at index i only includes host operations (`VK_PIPELINE_STAGE_2_HOST_BIT`).
 
-- The event was created without `VK_EVENT_CREATE_DEVICE_ONLY_BIT`, and
-  the first <a
-  href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#synchronization-dependencies-scopes"
-  target="_blank" rel="noopener">synchronization scope</a> defined by
-  the element of `pDependencyInfos` at index i only includes host
-  operations (`VK_PIPELINE_STAGE_2_HOST_BIT`).
+The second [synchronization scope](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#synchronization-dependencies-scopes) and [access scope](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#synchronization-dependencies-access-scopes) of each memory dependency defined by any element i of `pDependencyInfos` are applied to operations that occurred later in [submission order](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#synchronization-submission-order) than `vkCmdWaitEvents2`.
 
-The second <a
-href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#synchronization-dependencies-scopes"
-target="_blank" rel="noopener">synchronization scope</a> and <a
-href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#synchronization-dependencies-access-scopes"
-target="_blank" rel="noopener">access scope</a> of each memory
-dependency defined by any element i of `pDependencyInfos` are applied to
-operations that occurred later in <a
-href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#synchronization-submission-order"
-target="_blank" rel="noopener">submission order</a> than
-`vkCmdWaitEvents2`.
+Note
 
-<table>
-<colgroup>
-<col style="width: 50%" />
-<col style="width: 50%" />
-</colgroup>
-<tbody>
-<tr>
-<td class="icon"><em></em></td>
-<td class="content">Note
-<p><a href="https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdWaitEvents2.html">vkCmdWaitEvents2</a> is used with <a
-href="https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdSetEvent2.html">vkCmdSetEvent2</a> to define a memory
-dependency between two sets of action commands, roughly in the same way
-as pipeline barriers, but split into two commands such that work between
-the two <strong>may</strong> execute unhindered.</p></td>
-</tr>
-</tbody>
-</table>
+[vkCmdWaitEvents2](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdWaitEvents2.html) is used with [vkCmdSetEvent2](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdSetEvent2.html) to define a memory dependency between two sets of action commands, roughly in the same way as pipeline barriers, but split into two commands such that work between the two **may** execute unhindered.
 
-<table>
-<colgroup>
-<col style="width: 50%" />
-<col style="width: 50%" />
-</colgroup>
-<tbody>
-<tr>
-<td class="icon"><em></em></td>
-<td class="content">Note
-<p>Applications should be careful to avoid race conditions when using
-events. There is no direct ordering guarantee between
-<code>vkCmdSetEvent2</code> and <a
-href="vkCmdResetEvent2.html">vkCmdResetEvent2</a>, <a
-href="vkCmdResetEvent.html">vkCmdResetEvent</a>, or <a
-href="https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdSetEvent.html">vkCmdSetEvent</a>. Another execution
-dependency (e.g. a pipeline barrier or semaphore with
-<code>VK_PIPELINE_STAGE_2_ALL_COMMANDS_BIT</code>) is needed to prevent
-such a race condition.</p></td>
-</tr>
-</tbody>
-</table>
+Note
+
+Applications should be careful to avoid race conditions when using events. There is no direct ordering guarantee between `vkCmdSetEvent2` and [vkCmdResetEvent2](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdResetEvent2.html), [vkCmdResetEvent](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdResetEvent.html), or [vkCmdSetEvent](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdSetEvent.html). Another execution dependency (e.g. a pipeline barrier or semaphore with `VK_PIPELINE_STAGE_2_ALL_COMMANDS_BIT`) is needed to prevent such a race condition.
 
 Valid Usage
 
-- <a href="#VUID-vkCmdWaitEvents2-synchronization2-03836"
-  id="VUID-vkCmdWaitEvents2-synchronization2-03836"></a>
-  VUID-vkCmdWaitEvents2-synchronization2-03836  
-  The <a
-  href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#features-synchronization2"
-  target="_blank" rel="noopener"><code>synchronization2</code></a>
-  feature **must** be enabled
-
-- <a href="#VUID-vkCmdWaitEvents2-pEvents-03837"
-  id="VUID-vkCmdWaitEvents2-pEvents-03837"></a>
-  VUID-vkCmdWaitEvents2-pEvents-03837  
-  Members of `pEvents` **must** not have been signaled by
-  [vkCmdSetEvent](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdSetEvent.html)
-
-- <a href="#VUID-vkCmdWaitEvents2-pEvents-03838"
-  id="VUID-vkCmdWaitEvents2-pEvents-03838"></a>
-  VUID-vkCmdWaitEvents2-pEvents-03838  
-  For any element i of `pEvents`, if that event is signaled by
-  [vkCmdSetEvent2](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdSetEvent2.html), that command’s `dependencyInfo`
-  parameter **must** be exactly equal to the ith element of
-  `pDependencyInfos`
-
-- <a href="#VUID-vkCmdWaitEvents2-pEvents-03839"
-  id="VUID-vkCmdWaitEvents2-pEvents-03839"></a>
-  VUID-vkCmdWaitEvents2-pEvents-03839  
-  For any element i of `pEvents`, if that event is signaled by
-  [vkSetEvent](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkSetEvent.html), barriers in the ith element of
-  `pDependencyInfos` **must** include only host operations in their
-  first <a
-  href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#synchronization-dependencies-scopes"
-  target="_blank" rel="noopener">synchronization scope</a>
-
-- <a href="#VUID-vkCmdWaitEvents2-pEvents-03840"
-  id="VUID-vkCmdWaitEvents2-pEvents-03840"></a>
-  VUID-vkCmdWaitEvents2-pEvents-03840  
-  For any element i of `pEvents`, if barriers in the ith element of
-  `pDependencyInfos` include only host operations, the ith element of
-  `pEvents` **must** be signaled before
-  [vkCmdWaitEvents2](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdWaitEvents2.html) is executed
-
-- <a href="#VUID-vkCmdWaitEvents2-pEvents-03841"
-  id="VUID-vkCmdWaitEvents2-pEvents-03841"></a>
-  VUID-vkCmdWaitEvents2-pEvents-03841  
-  For any element i of `pEvents`, if barriers in the ith element of
-  `pDependencyInfos` do not include host operations, the ith element of
-  `pEvents` **must** be signaled by a corresponding
-  [vkCmdSetEvent2](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdSetEvent2.html) that occurred earlier in <a
-  href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#synchronization-submission-order"
-  target="_blank" rel="noopener">submission order</a>
-
-- <a href="#VUID-vkCmdWaitEvents2-srcStageMask-03842"
-  id="VUID-vkCmdWaitEvents2-srcStageMask-03842"></a>
-  VUID-vkCmdWaitEvents2-srcStageMask-03842  
-  The `srcStageMask` member of any element of the `pMemoryBarriers`,
-  `pBufferMemoryBarriers`, or `pImageMemoryBarriers` members of
-  `pDependencyInfos` **must** either include only pipeline stages valid
-  for the queue family that was used to create the command pool that
-  `commandBuffer` was allocated from
-
-- <a href="#VUID-vkCmdWaitEvents2-dstStageMask-03843"
-  id="VUID-vkCmdWaitEvents2-dstStageMask-03843"></a>
-  VUID-vkCmdWaitEvents2-dstStageMask-03843  
-  The `dstStageMask` member of any element of the `pMemoryBarriers`,
-  `pBufferMemoryBarriers`, or `pImageMemoryBarriers` members of
-  `pDependencyInfos` **must** only include pipeline stages valid for the
-  queue family that was used to create the command pool that
-  `commandBuffer` was allocated from
-
-- <a href="#VUID-vkCmdWaitEvents2-dependencyFlags-03844"
-  id="VUID-vkCmdWaitEvents2-dependencyFlags-03844"></a>
-  VUID-vkCmdWaitEvents2-dependencyFlags-03844  
-  If `vkCmdWaitEvents2` is being called inside a render pass instance,
-  the `srcStageMask` member of any element of the `pMemoryBarriers`,
-  `pBufferMemoryBarriers`, or `pImageMemoryBarriers` members of
-  `pDependencyInfos` **must** not include `VK_PIPELINE_STAGE_2_HOST_BIT`
-
-- <a href="#VUID-vkCmdWaitEvents2-commandBuffer-03846"
-  id="VUID-vkCmdWaitEvents2-commandBuffer-03846"></a>
-  VUID-vkCmdWaitEvents2-commandBuffer-03846  
-  `commandBuffer`’s current device mask **must** include exactly one
-  physical device
+- [](#VUID-vkCmdWaitEvents2-synchronization2-03836)VUID-vkCmdWaitEvents2-synchronization2-03836  
+  The [`synchronization2`](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#features-synchronization2) feature **must** be enabled
+- [](#VUID-vkCmdWaitEvents2-pEvents-03837)VUID-vkCmdWaitEvents2-pEvents-03837  
+  Members of `pEvents` **must** not have been signaled by [vkCmdSetEvent](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdSetEvent.html)
+- [](#VUID-vkCmdWaitEvents2-pEvents-10788)VUID-vkCmdWaitEvents2-pEvents-10788  
+  For any element i of `pEvents`, if the `dependencyFlags` member of the ith element of `pDependencyInfos` does not include `VK_DEPENDENCY_ASYMMETRIC_EVENT_BIT_KHR`, and if that event is signaled by [vkCmdSetEvent2](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdSetEvent2.html), that command’s `dependencyInfo` parameter **must** be exactly equal to the ith element of `pDependencyInfos`
+- [](#VUID-vkCmdWaitEvents2-pEvents-10789)VUID-vkCmdWaitEvents2-pEvents-10789  
+  For any element i of `pEvents`, if the `dependencyFlags` member of the ith element of `pDependencyInfos` includes `VK_DEPENDENCY_ASYMMETRIC_EVENT_BIT_KHR`, that event **must** be signaled by [vkCmdSetEvent2](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdSetEvent2.html) with `VK_DEPENDENCY_ASYMMETRIC_EVENT_BIT_KHR`
+- [](#VUID-vkCmdWaitEvents2-pEvents-10790)VUID-vkCmdWaitEvents2-pEvents-10790  
+  For any element i of `pEvents`, if the `dependencyFlags` member of the ith element of `pDependencyInfos` includes `VK_DEPENDENCY_ASYMMETRIC_EVENT_BIT_KHR`, the union of `srcStageMask` members of all elements of `pMemoryBarriers`, `pBufferMemoryBarriers`, and `pImageMemoryBarriers` of the ith element of `pDependencyInfos` **must** equal `pDependencyInfos->pMemoryBarriers`\[0].`srcStageMask` in the [vkCmdSetEvent2](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdSetEvent2.html) command
+- [](#VUID-vkCmdWaitEvents2-pEvents-03839)VUID-vkCmdWaitEvents2-pEvents-03839  
+  For any element i of `pEvents`, if that event is signaled by [vkSetEvent](https://registry.khronos.org/vulkan/specs/latest/man/html/vkSetEvent.html), barriers in the ith element of `pDependencyInfos` **must** include only host operations in their first [synchronization scope](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#synchronization-dependencies-scopes)
+- [](#VUID-vkCmdWaitEvents2-pEvents-03840)VUID-vkCmdWaitEvents2-pEvents-03840  
+  For any element i of `pEvents`, if barriers in the ith element of `pDependencyInfos` include only host operations, the ith element of `pEvents` **must** be signaled before [vkCmdWaitEvents2](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdWaitEvents2.html) is executed
+- [](#VUID-vkCmdWaitEvents2-pEvents-03841)VUID-vkCmdWaitEvents2-pEvents-03841  
+  For any element i of `pEvents`, if barriers in the ith element of `pDependencyInfos` do not include host operations, the ith element of `pEvents` **must** be signaled by a corresponding [vkCmdSetEvent2](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdSetEvent2.html) that occurred earlier in [submission order](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#synchronization-submission-order)
+- [](#VUID-vkCmdWaitEvents2-srcStageMask-03842)VUID-vkCmdWaitEvents2-srcStageMask-03842  
+  The `srcStageMask` member of any element of the `pMemoryBarriers`, `pBufferMemoryBarriers`, or `pImageMemoryBarriers` members of `pDependencyInfos` **must** only include pipeline stages valid for the queue family that was used to create the command pool that `commandBuffer` was allocated from
+- [](#VUID-vkCmdWaitEvents2-dstStageMask-03843)VUID-vkCmdWaitEvents2-dstStageMask-03843  
+  The `dstStageMask` member of any element of the `pMemoryBarriers`, `pBufferMemoryBarriers`, or `pImageMemoryBarriers` members of `pDependencyInfos` **must** only include pipeline stages valid for the queue family that was used to create the command pool that `commandBuffer` was allocated from
+- [](#VUID-vkCmdWaitEvents2-dependencyFlags-10394)VUID-vkCmdWaitEvents2-dependencyFlags-10394  
+  The `dependencyFlags` member of any element of `pDependencyInfo` **must** not include any of the following bits:
+  
+  - `VK_DEPENDENCY_BY_REGION_BIT`
+  - `VK_DEPENDENCY_DEVICE_GROUP_BIT`
+  - `VK_DEPENDENCY_VIEW_LOCAL_BIT`
+  - `VK_DEPENDENCY_FEEDBACK_LOOP_BIT_EXT`
+- [](#VUID-vkCmdWaitEvents2-maintenance8-10205)VUID-vkCmdWaitEvents2-maintenance8-10205  
+  If the [`maintenance8`](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#features-maintenance8) feature is not enabled, the `dependencyFlags` members of any element of `pDependencyInfos` **must** not include `VK_DEPENDENCY_QUEUE_FAMILY_OWNERSHIP_TRANSFER_USE_ALL_STAGES_BIT_KHR`
+- [](#VUID-vkCmdWaitEvents2-dependencyFlags-03844)VUID-vkCmdWaitEvents2-dependencyFlags-03844  
+  If `vkCmdWaitEvents2` is being called inside a render pass instance, the `srcStageMask` member of any element of the `pMemoryBarriers`, `pBufferMemoryBarriers`, or `pImageMemoryBarriers` members of `pDependencyInfos` **must** not include `VK_PIPELINE_STAGE_2_HOST_BIT`
+- [](#VUID-vkCmdWaitEvents2-commandBuffer-03846)VUID-vkCmdWaitEvents2-commandBuffer-03846  
+  `commandBuffer`’s current device mask **must** include exactly one physical device
+- [](#VUID-vkCmdWaitEvents2-None-10654)VUID-vkCmdWaitEvents2-None-10654  
+  This command **must** not be recorded when [per-tile execution model](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#renderpass-per-tile-execution-model) is enabled
 
 Valid Usage (Implicit)
 
-- <a href="#VUID-vkCmdWaitEvents2-commandBuffer-parameter"
-  id="VUID-vkCmdWaitEvents2-commandBuffer-parameter"></a>
-  VUID-vkCmdWaitEvents2-commandBuffer-parameter  
-  `commandBuffer` **must** be a valid
-  [VkCommandBuffer](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkCommandBuffer.html) handle
-
-- <a href="#VUID-vkCmdWaitEvents2-pEvents-parameter"
-  id="VUID-vkCmdWaitEvents2-pEvents-parameter"></a>
-  VUID-vkCmdWaitEvents2-pEvents-parameter  
-  `pEvents` **must** be a valid pointer to an array of `eventCount`
-  valid [VkEvent](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkEvent.html) handles
-
-- <a href="#VUID-vkCmdWaitEvents2-pDependencyInfos-parameter"
-  id="VUID-vkCmdWaitEvents2-pDependencyInfos-parameter"></a>
-  VUID-vkCmdWaitEvents2-pDependencyInfos-parameter  
-  `pDependencyInfos` **must** be a valid pointer to an array of
-  `eventCount` valid [VkDependencyInfo](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkDependencyInfo.html)
-  structures
-
-- <a href="#VUID-vkCmdWaitEvents2-commandBuffer-recording"
-  id="VUID-vkCmdWaitEvents2-commandBuffer-recording"></a>
-  VUID-vkCmdWaitEvents2-commandBuffer-recording  
-  `commandBuffer` **must** be in the [recording
-  state](#commandbuffers-lifecycle)
-
-- <a href="#VUID-vkCmdWaitEvents2-commandBuffer-cmdpool"
-  id="VUID-vkCmdWaitEvents2-commandBuffer-cmdpool"></a>
-  VUID-vkCmdWaitEvents2-commandBuffer-cmdpool  
-  The `VkCommandPool` that `commandBuffer` was allocated from **must**
-  support graphics, compute, decode, or encode operations
-
-- <a href="#VUID-vkCmdWaitEvents2-eventCount-arraylength"
-  id="VUID-vkCmdWaitEvents2-eventCount-arraylength"></a>
-  VUID-vkCmdWaitEvents2-eventCount-arraylength  
+- [](#VUID-vkCmdWaitEvents2-commandBuffer-parameter)VUID-vkCmdWaitEvents2-commandBuffer-parameter  
+  `commandBuffer` **must** be a valid [VkCommandBuffer](https://registry.khronos.org/vulkan/specs/latest/man/html/VkCommandBuffer.html) handle
+- [](#VUID-vkCmdWaitEvents2-pEvents-parameter)VUID-vkCmdWaitEvents2-pEvents-parameter  
+  `pEvents` **must** be a valid pointer to an array of `eventCount` valid [VkEvent](https://registry.khronos.org/vulkan/specs/latest/man/html/VkEvent.html) handles
+- [](#VUID-vkCmdWaitEvents2-pDependencyInfos-parameter)VUID-vkCmdWaitEvents2-pDependencyInfos-parameter  
+  `pDependencyInfos` **must** be a valid pointer to an array of `eventCount` valid [VkDependencyInfo](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDependencyInfo.html) structures
+- [](#VUID-vkCmdWaitEvents2-commandBuffer-recording)VUID-vkCmdWaitEvents2-commandBuffer-recording  
+  `commandBuffer` **must** be in the [recording state](#commandbuffers-lifecycle)
+- [](#VUID-vkCmdWaitEvents2-commandBuffer-cmdpool)VUID-vkCmdWaitEvents2-commandBuffer-cmdpool  
+  The `VkCommandPool` that `commandBuffer` was allocated from **must** support graphics, compute, decode, or encode operations
+- [](#VUID-vkCmdWaitEvents2-eventCount-arraylength)VUID-vkCmdWaitEvents2-eventCount-arraylength  
   `eventCount` **must** be greater than `0`
-
-- <a href="#VUID-vkCmdWaitEvents2-commonparent"
-  id="VUID-vkCmdWaitEvents2-commonparent"></a>
-  VUID-vkCmdWaitEvents2-commonparent  
-  Both of `commandBuffer`, and the elements of `pEvents` **must** have
-  been created, allocated, or retrieved from the same
-  [VkDevice](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkDevice.html)
+- [](#VUID-vkCmdWaitEvents2-commonparent)VUID-vkCmdWaitEvents2-commonparent  
+  Both of `commandBuffer`, and the elements of `pEvents` **must** have been created, allocated, or retrieved from the same [VkDevice](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDevice.html)
 
 Host Synchronization
 
 - Host access to `commandBuffer` **must** be externally synchronized
-
-- Host access to the `VkCommandPool` that `commandBuffer` was allocated
-  from **must** be externally synchronized
+- Host access to the `VkCommandPool` that `commandBuffer` was allocated from **must** be externally synchronized
 
 Command Properties
 
-<table class="tableblock frame-all grid-all stretch">
-<colgroup>
-<col style="width: 20%" />
-<col style="width: 20%" />
-<col style="width: 20%" />
-<col style="width: 20%" />
-<col style="width: 20%" />
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-top"><a
-href="#VkCommandBufferLevel">Command Buffer Levels</a></th>
-<th class="tableblock halign-left valign-top"><a
-href="#vkCmdBeginRenderPass">Render Pass Scope</a></th>
-<th class="tableblock halign-left valign-top"><a
-href="#vkCmdBeginVideoCodingKHR">Video Coding Scope</a></th>
-<th class="tableblock halign-left valign-top"><a
-href="#VkQueueFlagBits">Supported Queue Types</a></th>
-<th class="tableblock halign-left valign-top"><a
-href="#fundamentals-queueoperation-command-types">Command Type</a></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p>Primary<br />
-Secondary</p></td>
-<td class="tableblock halign-left valign-top"><p>Both</p></td>
-<td class="tableblock halign-left valign-top"><p>Both</p></td>
-<td class="tableblock halign-left valign-top"><p>Graphics<br />
-Compute<br />
-Decode<br />
-Encode</p></td>
-<td
-class="tableblock halign-left valign-top"><p>Synchronization</p></td>
-</tr>
-</tbody>
-</table>
+     [Command Buffer Levels](#VkCommandBufferLevel) [Render Pass Scope](#vkCmdBeginRenderPass) [Video Coding Scope](#vkCmdBeginVideoCodingKHR) [Supported Queue Types](#VkQueueFlagBits) [Command Type](#fundamentals-queueoperation-command-types)
 
-## <a href="#_see_also" class="anchor"></a>See Also
+Primary  
+Secondary
 
-[VK_KHR_synchronization2](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_KHR_synchronization2.html),
-[VK_VERSION_1_3](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_VERSION_1_3.html),
-[VkCommandBuffer](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkCommandBuffer.html),
-[VkDependencyInfo](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkDependencyInfo.html), [VkEvent](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkEvent.html)
+Both
 
-## <a href="#_document_notes" class="anchor"></a>Document Notes
+Both
 
-For more information, see the <a
-href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#vkCmdWaitEvents2"
-target="_blank" rel="noopener">Vulkan Specification</a>
+Graphics  
+Compute  
+Decode  
+Encode
 
-This page is extracted from the Vulkan Specification. Fixes and changes
-should be made to the Specification, not directly.
+Synchronization
 
-## <a href="#_copyright" class="anchor"></a>Copyright
+## [](#_see_also)See Also
 
-Copyright 2014-2024 The Khronos Group Inc.
+[VK\_KHR\_synchronization2](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_KHR_synchronization2.html), [VK\_VERSION\_1\_3](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_VERSION_1_3.html), [VkCommandBuffer](https://registry.khronos.org/vulkan/specs/latest/man/html/VkCommandBuffer.html), [VkDependencyInfo](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDependencyInfo.html), [VkEvent](https://registry.khronos.org/vulkan/specs/latest/man/html/VkEvent.html)
+
+## [](#_document_notes)Document Notes
+
+For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#vkCmdWaitEvents2)
+
+This page is extracted from the Vulkan Specification. Fixes and changes should be made to the Specification, not directly.
+
+## [](#_copyright)Copyright
+
+Copyright 2014-2025 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
-
-Version 1.3.290  
-Last updated 2024-07-11 23:39:16 -0700

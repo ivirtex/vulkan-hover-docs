@@ -2,16 +2,15 @@
 
 ## Name
 
-VkSurfaceFormat2KHR - Structure describing a supported swapchain format
-tuple
+VkSurfaceFormat2KHR - Structure describing a supported swapchain format tuple
 
 
 
-## <a href="#_c_specification" class="anchor"></a>C Specification
+## [](#_c_specification)C Specification
 
 The `VkSurfaceFormat2KHR` structure is defined as:
 
-``` c
+```c++
 // Provided by VK_KHR_get_surface_capabilities2
 typedef struct VkSurfaceFormat2KHR {
     VkStructureType       sType;
@@ -20,83 +19,42 @@ typedef struct VkSurfaceFormat2KHR {
 } VkSurfaceFormat2KHR;
 ```
 
-## <a href="#_members" class="anchor"></a>Members
+## [](#_members)Members
 
-- `sType` is a [VkStructureType](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkStructureType.html) value identifying
-  this structure.
+- `sType` is a [VkStructureType](https://registry.khronos.org/vulkan/specs/latest/man/html/VkStructureType.html) value identifying this structure.
+- `pNext` is `NULL` or a pointer to a structure extending this structure.
+- `surfaceFormat` is a [VkSurfaceFormatKHR](https://registry.khronos.org/vulkan/specs/latest/man/html/VkSurfaceFormatKHR.html) structure describing a format-color space pair that is compatible with the specified surface.
 
-- `pNext` is `NULL` or a pointer to a structure extending this
-  structure.
+## [](#_description)Description
 
-- `surfaceFormat` is a [VkSurfaceFormatKHR](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkSurfaceFormatKHR.html)
-  structure describing a format-color space pair that is compatible with
-  the specified surface.
-
-## <a href="#_description" class="anchor"></a>Description
-
-If the <a
-href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#features-imageCompressionControlSwapchain"
-target="_blank"
-rel="noopener"><code>imageCompressionControlSwapchain</code></a> feature
-is supported and a
-[VkImageCompressionPropertiesEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkImageCompressionPropertiesEXT.html)
-structure is included in the `pNext` chain of this structure, then it
-will be filled with the compression properties that are supported for
-the `surfaceFormat`.
+If the [`imageCompressionControlSwapchain`](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#features-imageCompressionControlSwapchain) feature is supported and a [VkImageCompressionPropertiesEXT](https://registry.khronos.org/vulkan/specs/latest/man/html/VkImageCompressionPropertiesEXT.html) structure is included in the `pNext` chain of this structure, then it will be filled with the compression properties that are supported for the `surfaceFormat`.
 
 Valid Usage
 
-- <a href="#VUID-VkSurfaceFormat2KHR-pNext-06750"
-  id="VUID-VkSurfaceFormat2KHR-pNext-06750"></a>
-  VUID-VkSurfaceFormat2KHR-pNext-06750  
-  If the <a
-  href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#features-imageCompressionControlSwapchain"
-  target="_blank"
-  rel="noopener"><code>imageCompressionControlSwapchain</code></a>
-  feature is not enabled, the `pNext` chain **must** not include an
-  [VkImageCompressionPropertiesEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkImageCompressionPropertiesEXT.html)
-  structure
+- [](#VUID-VkSurfaceFormat2KHR-pNext-06750)VUID-VkSurfaceFormat2KHR-pNext-06750  
+  If the `VK_EXT_image_compression_control_swapchain` extension is not supported, the `pNext` chain **must** not include an [VkImageCompressionPropertiesEXT](https://registry.khronos.org/vulkan/specs/latest/man/html/VkImageCompressionPropertiesEXT.html) structure
 
 Valid Usage (Implicit)
 
-- <a href="#VUID-VkSurfaceFormat2KHR-sType-sType"
-  id="VUID-VkSurfaceFormat2KHR-sType-sType"></a>
-  VUID-VkSurfaceFormat2KHR-sType-sType  
+- [](#VUID-VkSurfaceFormat2KHR-sType-sType)VUID-VkSurfaceFormat2KHR-sType-sType  
   `sType` **must** be `VK_STRUCTURE_TYPE_SURFACE_FORMAT_2_KHR`
+- [](#VUID-VkSurfaceFormat2KHR-pNext-pNext)VUID-VkSurfaceFormat2KHR-pNext-pNext  
+  `pNext` **must** be `NULL` or a pointer to a valid instance of [VkImageCompressionPropertiesEXT](https://registry.khronos.org/vulkan/specs/latest/man/html/VkImageCompressionPropertiesEXT.html)
+- [](#VUID-VkSurfaceFormat2KHR-sType-unique)VUID-VkSurfaceFormat2KHR-sType-unique  
+  The `sType` value of each structure in the `pNext` chain **must** be unique
 
-- <a href="#VUID-VkSurfaceFormat2KHR-pNext-pNext"
-  id="VUID-VkSurfaceFormat2KHR-pNext-pNext"></a>
-  VUID-VkSurfaceFormat2KHR-pNext-pNext  
-  `pNext` **must** be `NULL` or a pointer to a valid instance of
-  [VkImageCompressionPropertiesEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkImageCompressionPropertiesEXT.html)
+## [](#_see_also)See Also
 
-- <a href="#VUID-VkSurfaceFormat2KHR-sType-unique"
-  id="VUID-VkSurfaceFormat2KHR-sType-unique"></a>
-  VUID-VkSurfaceFormat2KHR-sType-unique  
-  The `sType` value of each struct in the `pNext` chain **must** be
-  unique
+[VK\_KHR\_get\_surface\_capabilities2](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_KHR_get_surface_capabilities2.html), [VkStructureType](https://registry.khronos.org/vulkan/specs/latest/man/html/VkStructureType.html), [VkSurfaceFormatKHR](https://registry.khronos.org/vulkan/specs/latest/man/html/VkSurfaceFormatKHR.html), [vkGetPhysicalDeviceSurfaceFormats2KHR](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetPhysicalDeviceSurfaceFormats2KHR.html)
 
-## <a href="#_see_also" class="anchor"></a>See Also
+## [](#_document_notes)Document Notes
 
-[VK_KHR_get_surface_capabilities2](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_KHR_get_surface_capabilities2.html),
-[VkStructureType](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkStructureType.html),
-[VkSurfaceFormatKHR](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkSurfaceFormatKHR.html),
-[vkGetPhysicalDeviceSurfaceFormats2KHR](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkGetPhysicalDeviceSurfaceFormats2KHR.html)
+For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#VkSurfaceFormat2KHR)
 
-## <a href="#_document_notes" class="anchor"></a>Document Notes
+This page is extracted from the Vulkan Specification. Fixes and changes should be made to the Specification, not directly.
 
-For more information, see the <a
-href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#VkSurfaceFormat2KHR"
-target="_blank" rel="noopener">Vulkan Specification</a>
+## [](#_copyright)Copyright
 
-This page is extracted from the Vulkan Specification. Fixes and changes
-should be made to the Specification, not directly.
-
-## <a href="#_copyright" class="anchor"></a>Copyright
-
-Copyright 2014-2024 The Khronos Group Inc.
+Copyright 2014-2025 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
-
-Version 1.3.290  
-Last updated 2024-07-11 23:39:16 -0700

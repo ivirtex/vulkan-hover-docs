@@ -1,99 +1,85 @@
-# VK_NV_ray_tracing_invocation_reorder(3) Manual Page
+# VK\_NV\_ray\_tracing\_invocation\_reorder(3) Manual Page
 
 ## Name
 
-VK_NV_ray_tracing_invocation_reorder - device extension
+VK\_NV\_ray\_tracing\_invocation\_reorder - device extension
 
 
 
-## <a href="#_registered_extension_number" class="anchor"></a>Registered Extension Number
+## [](#_registered_extension_number)Registered Extension Number
 
 491
 
-## <a href="#_revision" class="anchor"></a>Revision
+## [](#_revision)Revision
 
 1
 
-## <a href="#_ratification_status" class="anchor"></a>Ratification Status
+## [](#_ratification_status)Ratification Status
 
 Not ratified
 
-## <a href="#_extension_and_version_dependencies" class="anchor"></a>Extension and Version Dependencies
+## [](#_extension_and_version_dependencies)Extension and Version Dependencies
 
-[VK_KHR_ray_tracing_pipeline](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_KHR_ray_tracing_pipeline.html)  
+[VK\_KHR\_ray\_tracing\_pipeline](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_KHR_ray_tracing_pipeline.html)
 
-## <a href="#_spir_v_dependencies" class="anchor"></a>SPIR-V Dependencies
+## [](#_spir_v_dependencies)SPIR-V Dependencies
 
-- [SPV_NV_shader_invocation_reorder](https://htmlpreview.github.io/?https://github.com/KhronosGroup/SPIRV-Registry/blob/main/extensions/NV/SPV_NV_shader_invocation_reorder.html)
+- [SPV\_NV\_shader\_invocation\_reorder](https://github.khronos.org/SPIRV-Registry/extensions/NV/SPV_NV_shader_invocation_reorder.html)
 
-## <a href="#_contact" class="anchor"></a>Contact
+## [](#_contact)Contact
 
-- Eric Werness <a
-  href="https://github.com/KhronosGroup/Vulkan-Docs/issues/new?body=%5BVK_NV_ray_tracing_invocation_reorder%5D%20@ewerness-nv%0A*Here%20describe%20the%20issue%20or%20question%20you%20have%20about%20the%20VK_NV_ray_tracing_invocation_reorder%20extension*"
-  target="_blank" rel="nofollow noopener"><em></em>ewerness-nv</a>
+- Eric Werness [\[GitHub\]ewerness-nv](https://github.com/KhronosGroup/Vulkan-Docs/issues/new?body=%5BVK_NV_ray_tracing_invocation_reorder%5D%20%40ewerness-nv%0A%2AHere%20describe%20the%20issue%20or%20question%20you%20have%20about%20the%20VK_NV_ray_tracing_invocation_reorder%20extension%2A)
 
-## <a href="#_other_extension_metadata" class="anchor"></a>Other Extension Metadata
+## [](#_other_extension_metadata)Other Extension Metadata
 
-**Last Modified Date**  
+**Last Modified Date**
+
 2022-11-02
 
-**Interactions and External Dependencies**  
-- This extension provides API support for
-  [`GL_NV_shader_invocation_reorder`](https://github.com/KhronosGroup/GLSL/blob/main/extensions/nv/GLSL_NV_shader_invocation_reorder.txt)
+**Interactions and External Dependencies**
 
-**Contributors**  
+- This extension provides API support for [`GL_NV_shader_invocation_reorder`](https://github.com/KhronosGroup/GLSL/blob/main/extensions/nv/GLSL_NV_shader_invocation_reorder.txt)
+
+**Contributors**
+
 - Eric Werness, NVIDIA
-
 - Ashwin Lele, NVIDIA
 
-## <a href="#_description" class="anchor"></a>Description
+## [](#_description)Description
 
-The ray tracing pipeline API provides some ability to reorder for
-locality, but it is useful to have more control over how the reordering
-happens and what information is included in the reordering. The shader
-API provides a hit object to contain result information from the hit
-which can be used as part of the explicit sorting plus options that
-contain an integer for hint bits to use to add more locality.
+The ray tracing pipeline API provides some ability to reorder for locality, but it is useful to have more control over how the reordering happens and what information is included in the reordering. The shader API provides a hit object to contain result information from the hit which can be used as part of the explicit sorting plus options that contain an integer for hint bits to use to add more locality.
 
-## <a href="#_new_structures" class="anchor"></a>New Structures
+## [](#_new_structures)New Structures
 
-- Extending [VkPhysicalDeviceFeatures2](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkPhysicalDeviceFeatures2.html),
-  [VkDeviceCreateInfo](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkDeviceCreateInfo.html):
+- Extending [VkPhysicalDeviceFeatures2](https://registry.khronos.org/vulkan/specs/latest/man/html/VkPhysicalDeviceFeatures2.html), [VkDeviceCreateInfo](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDeviceCreateInfo.html):
+  
+  - [VkPhysicalDeviceRayTracingInvocationReorderFeaturesNV](https://registry.khronos.org/vulkan/specs/latest/man/html/VkPhysicalDeviceRayTracingInvocationReorderFeaturesNV.html)
+- Extending [VkPhysicalDeviceProperties2](https://registry.khronos.org/vulkan/specs/latest/man/html/VkPhysicalDeviceProperties2.html):
+  
+  - [VkPhysicalDeviceRayTracingInvocationReorderPropertiesNV](https://registry.khronos.org/vulkan/specs/latest/man/html/VkPhysicalDeviceRayTracingInvocationReorderPropertiesNV.html)
 
-  - [VkPhysicalDeviceRayTracingInvocationReorderFeaturesNV](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkPhysicalDeviceRayTracingInvocationReorderFeaturesNV.html)
+## [](#_new_enums)New Enums
 
-- Extending
-  [VkPhysicalDeviceProperties2](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkPhysicalDeviceProperties2.html):
+- [VkRayTracingInvocationReorderModeNV](https://registry.khronos.org/vulkan/specs/latest/man/html/VkRayTracingInvocationReorderModeNV.html)
 
-  - [VkPhysicalDeviceRayTracingInvocationReorderPropertiesNV](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkPhysicalDeviceRayTracingInvocationReorderPropertiesNV.html)
-
-## <a href="#_new_enums" class="anchor"></a>New Enums
-
-- [VkRayTracingInvocationReorderModeNV](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkRayTracingInvocationReorderModeNV.html)
-
-## <a href="#_new_enum_constants" class="anchor"></a>New Enum Constants
+## [](#_new_enum_constants)New Enum Constants
 
 - `VK_NV_RAY_TRACING_INVOCATION_REORDER_EXTENSION_NAME`
-
 - `VK_NV_RAY_TRACING_INVOCATION_REORDER_SPEC_VERSION`
-
-- Extending [VkStructureType](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkStructureType.html):
-
+- Extending [VkStructureType](https://registry.khronos.org/vulkan/specs/latest/man/html/VkStructureType.html):
+  
   - `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_RAY_TRACING_INVOCATION_REORDER_FEATURES_NV`
-
   - `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_RAY_TRACING_INVOCATION_REORDER_PROPERTIES_NV`
 
-## <a href="#_hlsl_mapping" class="anchor"></a>HLSL Mapping
+## [](#_hlsl_mapping)HLSL Mapping
 
 HLSL does not provide this functionality natively yet.
 
-However, it is possible to use this functionality via [SPIR-V
-Intrinsics](https://github.com/microsoft/DirectXShaderCompiler/wiki/GL_EXT_spirv_intrinsics-for-SPIR-V-code-gen).
+However, it is possible to use this functionality via [SPIR-V Intrinsics](https://github.com/microsoft/DirectXShaderCompiler/wiki/GL_EXT_spirv_intrinsics-for-SPIR-V-code-gen).
 
-The codes for shader invocation reorder are obtained from [this
-page](https://htmlpreview.github.io/?https://github.com/KhronosGroup/SPIRV-Registry/blob/main/extensions/NV/SPV_NV_shader_invocation_reorder.html):
+The codes for shader invocation reorder are obtained from [this page](https://htmlpreview.github.io/?https%3A%2F%2Fgithub.com%2FKhronosGroup%2FSPIRV-Registry%2Fblob%2Fmain%2Fextensions%2FNV%2FSPV_NV_shader_invocation_reorder.html):
 
-``` c
+```c
 #define ShaderInvocationReorderNV 5383
 #define HitObjectAttributeNV 5385
 
@@ -134,14 +120,14 @@ page](https://htmlpreview.github.io/?https://github.com/KhronosGroup/SPIRV-Regis
 
 The capability and extension need to be added:
 
-``` c
+```c
 [[vk::ext_capability(ShaderInvocationReorderNV)]]
 [[vk::ext_extension("SPV_NV_shader_invocation_reorder")]]
 ```
 
 The creation of the `HitObject` type can be done like this:
 
-``` c
+```c
 [[vk::ext_type_def(HitObjectAttributeNV, OpTypeHitObjectNV)]]
 void createHitObjectNV();
 #define HitObjectNV vk::ext_type<HitObjectAttributeNV>
@@ -150,10 +136,9 @@ void createHitObjectNV();
 The payload:
 
 - must be global
-
 - needs the `RayPayloadKHR` attribute as an extra storage class
 
-``` c
+```c
 struct [raypayload] HitPayload
 {
   float hitT : write(closesthit, miss) : read(caller);
@@ -168,7 +153,7 @@ struct [raypayload] HitPayload
 
 Here is the declaration of a few invocation reordering functions:
 
-``` c
+```c
 [[vk::ext_instruction(OpHitObjectRecordEmptyNV)]]
 void hitObjectRecordEmptyNV([[vk::ext_reference]] HitObjectNV hitObject);
 
@@ -203,7 +188,7 @@ bool hitObjectIsHitNV([[vk::ext_reference]] HitObjectNV hitObject);
 
 Using the function in the code, can be done like this
 
-``` c
+```c
   if (USE_SER == 1)
   {
     createHitObjectNV();
@@ -217,36 +202,27 @@ Using the function in the code, can be done like this
 
 Note:
 
-- createHitObjectNV() needs to be call at least once. This can be also
-  done in the main entry of the shader.
+- createHitObjectNV() needs to be call at least once. This can be also done in the main entry of the shader.
+- Function with a payload parameter, needs to have the payload struct defined before. There are no templated declaration of the function.
 
-- Function with a payload parameter, needs to have the payload struct
-  defined before. There are no templated declaration of the function.
-
-## <a href="#_version_history" class="anchor"></a>Version History
+## [](#_version_history)Version History
 
 - Revision 1, 2020-09-12 (Eric Werness, Ashwin Lele)
-
+  
   - Initial external release
 
-## <a href="#_see_also" class="anchor"></a>See Also
+## [](#_see_also)See Also
 
 No cross-references are available
 
-## <a href="#_document_notes" class="anchor"></a>Document Notes
+## [](#_document_notes)Document Notes
 
-For more information, see the <a
-href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#VK_NV_ray_tracing_invocation_reorder"
-target="_blank" rel="noopener">Vulkan Specification</a>
+For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#VK_NV_ray_tracing_invocation_reorder)
 
-This page is a generated document. Fixes and changes should be made to
-the generator scripts, not directly.
+This page is a generated document. Fixes and changes should be made to the generator scripts, not directly.
 
-## <a href="#_copyright" class="anchor"></a>Copyright
+## [](#_copyright)Copyright
 
-Copyright 2014-2024 The Khronos Group Inc.
+Copyright 2014-2025 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
-
-Version 1.3.290  
-Last updated 2024-07-11 23:39:16 -0700

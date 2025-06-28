@@ -1,36 +1,27 @@
-# VK_NO_STDDEF_H(3) Manual Page
+# VK\_NO\_STDDEF\_H(3) Manual Page
 
 ## Name
 
-VK_NO_STDDEF_H - Control definition of types
+VK\_NO\_STDDEF\_H - Control definition of types
 
 
 
-## <a href="#_description" class="anchor"></a>Description
+## [](#_description)Description
 
-If the `VK_NO_STDDEF_H` macro is defined by the application at compile
-time, `size_t`, **must** also be defined by the application. Otherwise,
-the Vulkan headers will not compile. If `VK_NO_STDDEF_H` is not defined,
-the system `<stddef.h>` is used to define this type.
+If the `VK_NO_STDDEF_H` macro is defined by the application at compile time, `size_t`, **must** also be defined by the application. Otherwise, the Vulkan headers will not compile. If `VK_NO_STDDEF_H` is not defined, the system `<stddef.h>` is used to define this type.
 
-## <a href="#_see_also" class="anchor"></a>See Also
+## [](#_see_also)See Also
 
 No cross-references are available
 
-## <a href="#_document_notes" class="anchor"></a>Document Notes
+## [](#_document_notes)Document Notes
 
-For more information, see the <a
-href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#boilerplate-platform-specific-header-control"
-target="_blank" rel="noopener">Vulkan Specification</a>
+For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#boilerplate-platform-specific-header-control)
 
-This page is extracted from the Vulkan Specification. Fixes and changes
-should be made to the Specification, not directly.
+This page is extracted from the Vulkan Specification. Fixes and changes should be made to the Specification, not directly.
 
-## <a href="#_copyright" class="anchor"></a>Copyright
+## [](#_copyright)Copyright
 
-Copyright 2014-2024 The Khronos Group Inc.
+Copyright 2014-2025 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
-
-Version 1.3.290  
-Last updated 2024-07-11 23:39:16 -0700

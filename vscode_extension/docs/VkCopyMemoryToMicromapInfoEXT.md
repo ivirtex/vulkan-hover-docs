@@ -6,11 +6,11 @@ VkCopyMemoryToMicromapInfoEXT - Parameters for deserializing a micromap
 
 
 
-## <a href="#_c_specification" class="anchor"></a>C Specification
+## [](#_c_specification)C Specification
 
 The `VkCopyMemoryToMicromapInfoEXT` structure is defined as:
 
-``` c
+```c++
 // Provided by VK_EXT_opacity_micromap
 typedef struct VkCopyMemoryToMicromapInfoEXT {
     VkStructureType                  sType;
@@ -21,99 +21,50 @@ typedef struct VkCopyMemoryToMicromapInfoEXT {
 } VkCopyMemoryToMicromapInfoEXT;
 ```
 
-## <a href="#_members" class="anchor"></a>Members
+## [](#_members)Members
 
-- `sType` is a [VkStructureType](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkStructureType.html) value identifying
-  this structure.
-
-- `pNext` is `NULL` or a pointer to a structure extending this
-  structure.
-
-- `src` is the device or host address to memory containing the source
-  data for the copy.
-
+- `sType` is a [VkStructureType](https://registry.khronos.org/vulkan/specs/latest/man/html/VkStructureType.html) value identifying this structure.
+- `pNext` is `NULL` or a pointer to a structure extending this structure.
+- `src` is the device or host address to memory containing the source data for the copy.
 - `dst` is the target micromap for the copy.
+- `mode` is a [VkCopyMicromapModeEXT](https://registry.khronos.org/vulkan/specs/latest/man/html/VkCopyMicromapModeEXT.html) value specifying additional operations to perform during the copy.
 
-- `mode` is a [VkCopyMicromapModeEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkCopyMicromapModeEXT.html) value
-  specifying additional operations to perform during the copy.
-
-## <a href="#_description" class="anchor"></a>Description
+## [](#_description)Description
 
 Valid Usage
 
-- <a href="#VUID-VkCopyMemoryToMicromapInfoEXT-src-07547"
-  id="VUID-VkCopyMemoryToMicromapInfoEXT-src-07547"></a>
-  VUID-VkCopyMemoryToMicromapInfoEXT-src-07547  
-  The source memory pointed to by `src` **must** contain data previously
-  serialized using
-  [vkCmdCopyMicromapToMemoryEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdCopyMicromapToMemoryEXT.html)
-
-- <a href="#VUID-VkCopyMemoryToMicromapInfoEXT-mode-07548"
-  id="VUID-VkCopyMemoryToMicromapInfoEXT-mode-07548"></a>
-  VUID-VkCopyMemoryToMicromapInfoEXT-mode-07548  
+- [](#VUID-VkCopyMemoryToMicromapInfoEXT-src-07547)VUID-VkCopyMemoryToMicromapInfoEXT-src-07547  
+  The source memory pointed to by `src` **must** contain data previously serialized using [vkCmdCopyMicromapToMemoryEXT](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdCopyMicromapToMemoryEXT.html)
+- [](#VUID-VkCopyMemoryToMicromapInfoEXT-mode-07548)VUID-VkCopyMemoryToMicromapInfoEXT-mode-07548  
   `mode` **must** be `VK_COPY_MICROMAP_MODE_DESERIALIZE_EXT`
-
-- <a href="#VUID-VkCopyMemoryToMicromapInfoEXT-src-07549"
-  id="VUID-VkCopyMemoryToMicromapInfoEXT-src-07549"></a>
-  VUID-VkCopyMemoryToMicromapInfoEXT-src-07549  
-  The data in `src` **must** have a format compatible with the
-  destination physical device as returned by
-  [vkGetDeviceMicromapCompatibilityEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkGetDeviceMicromapCompatibilityEXT.html)
-
-- <a href="#VUID-VkCopyMemoryToMicromapInfoEXT-dst-07550"
-  id="VUID-VkCopyMemoryToMicromapInfoEXT-dst-07550"></a>
-  VUID-VkCopyMemoryToMicromapInfoEXT-dst-07550  
-  `dst` **must** have been created with a `size` greater than or equal
-  to that used to serialize the data in `src`
+- [](#VUID-VkCopyMemoryToMicromapInfoEXT-src-07549)VUID-VkCopyMemoryToMicromapInfoEXT-src-07549  
+  The data in `src` **must** have a format compatible with the destination physical device as returned by [vkGetDeviceMicromapCompatibilityEXT](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetDeviceMicromapCompatibilityEXT.html)
+- [](#VUID-VkCopyMemoryToMicromapInfoEXT-dst-07550)VUID-VkCopyMemoryToMicromapInfoEXT-dst-07550  
+  `dst` **must** have been created with a `size` greater than or equal to that used to serialize the data in `src`
 
 Valid Usage (Implicit)
 
-- <a href="#VUID-VkCopyMemoryToMicromapInfoEXT-sType-sType"
-  id="VUID-VkCopyMemoryToMicromapInfoEXT-sType-sType"></a>
-  VUID-VkCopyMemoryToMicromapInfoEXT-sType-sType  
-  `sType` **must** be
-  `VK_STRUCTURE_TYPE_COPY_MEMORY_TO_MICROMAP_INFO_EXT`
-
-- <a href="#VUID-VkCopyMemoryToMicromapInfoEXT-pNext-pNext"
-  id="VUID-VkCopyMemoryToMicromapInfoEXT-pNext-pNext"></a>
-  VUID-VkCopyMemoryToMicromapInfoEXT-pNext-pNext  
+- [](#VUID-VkCopyMemoryToMicromapInfoEXT-sType-sType)VUID-VkCopyMemoryToMicromapInfoEXT-sType-sType  
+  `sType` **must** be `VK_STRUCTURE_TYPE_COPY_MEMORY_TO_MICROMAP_INFO_EXT`
+- [](#VUID-VkCopyMemoryToMicromapInfoEXT-pNext-pNext)VUID-VkCopyMemoryToMicromapInfoEXT-pNext-pNext  
   `pNext` **must** be `NULL`
+- [](#VUID-VkCopyMemoryToMicromapInfoEXT-dst-parameter)VUID-VkCopyMemoryToMicromapInfoEXT-dst-parameter  
+  `dst` **must** be a valid [VkMicromapEXT](https://registry.khronos.org/vulkan/specs/latest/man/html/VkMicromapEXT.html) handle
+- [](#VUID-VkCopyMemoryToMicromapInfoEXT-mode-parameter)VUID-VkCopyMemoryToMicromapInfoEXT-mode-parameter  
+  `mode` **must** be a valid [VkCopyMicromapModeEXT](https://registry.khronos.org/vulkan/specs/latest/man/html/VkCopyMicromapModeEXT.html) value
 
-- <a href="#VUID-VkCopyMemoryToMicromapInfoEXT-dst-parameter"
-  id="VUID-VkCopyMemoryToMicromapInfoEXT-dst-parameter"></a>
-  VUID-VkCopyMemoryToMicromapInfoEXT-dst-parameter  
-  `dst` **must** be a valid [VkMicromapEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkMicromapEXT.html) handle
+## [](#_see_also)See Also
 
-- <a href="#VUID-VkCopyMemoryToMicromapInfoEXT-mode-parameter"
-  id="VUID-VkCopyMemoryToMicromapInfoEXT-mode-parameter"></a>
-  VUID-VkCopyMemoryToMicromapInfoEXT-mode-parameter  
-  `mode` **must** be a valid
-  [VkCopyMicromapModeEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkCopyMicromapModeEXT.html) value
+[VK\_EXT\_opacity\_micromap](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_EXT_opacity_micromap.html), [VkCopyMicromapModeEXT](https://registry.khronos.org/vulkan/specs/latest/man/html/VkCopyMicromapModeEXT.html), [VkDeviceOrHostAddressConstKHR](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDeviceOrHostAddressConstKHR.html), [VkMicromapEXT](https://registry.khronos.org/vulkan/specs/latest/man/html/VkMicromapEXT.html), [VkStructureType](https://registry.khronos.org/vulkan/specs/latest/man/html/VkStructureType.html), [vkCmdCopyMemoryToMicromapEXT](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdCopyMemoryToMicromapEXT.html), [vkCopyMemoryToMicromapEXT](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCopyMemoryToMicromapEXT.html)
 
-## <a href="#_see_also" class="anchor"></a>See Also
+## [](#_document_notes)Document Notes
 
-[VK_EXT_opacity_micromap](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_EXT_opacity_micromap.html),
-[VkCopyMicromapModeEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkCopyMicromapModeEXT.html),
-[VkDeviceOrHostAddressConstKHR](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkDeviceOrHostAddressConstKHR.html),
-[VkMicromapEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkMicromapEXT.html),
-[VkStructureType](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkStructureType.html),
-[vkCmdCopyMemoryToMicromapEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdCopyMemoryToMicromapEXT.html),
-[vkCopyMemoryToMicromapEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCopyMemoryToMicromapEXT.html)
+For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#VkCopyMemoryToMicromapInfoEXT)
 
-## <a href="#_document_notes" class="anchor"></a>Document Notes
+This page is extracted from the Vulkan Specification. Fixes and changes should be made to the Specification, not directly.
 
-For more information, see the <a
-href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#VkCopyMemoryToMicromapInfoEXT"
-target="_blank" rel="noopener">Vulkan Specification</a>
+## [](#_copyright)Copyright
 
-This page is extracted from the Vulkan Specification. Fixes and changes
-should be made to the Specification, not directly.
-
-## <a href="#_copyright" class="anchor"></a>Copyright
-
-Copyright 2014-2024 The Khronos Group Inc.
+Copyright 2014-2025 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
-
-Version 1.3.290  
-Last updated 2024-07-11 23:39:16 -0700

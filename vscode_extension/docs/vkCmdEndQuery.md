@@ -6,12 +6,11 @@ vkCmdEndQuery - Ends a query
 
 
 
-## <a href="#_c_specification" class="anchor"></a>C Specification
+## [](#_c_specification)C Specification
 
-To end a query after the set of desired drawing or dispatching commands
-is executed, call:
+To end a query after the set of desired drawing or dispatching commands is executed, call:
 
-``` c
+```c++
 // Provided by VK_VERSION_1_0
 void vkCmdEndQuery(
     VkCommandBuffer                             commandBuffer,
@@ -19,198 +18,95 @@ void vkCmdEndQuery(
     uint32_t                                    query);
 ```
 
-## <a href="#_parameters" class="anchor"></a>Parameters
+## [](#_parameters)Parameters
 
-- `commandBuffer` is the command buffer into which this command will be
-  recorded.
+- `commandBuffer` is the command buffer into which this command will be recorded.
+- `queryPool` is the query pool that is managing the results of the query.
+- `query` is the query index within the query pool where the result is stored.
 
-- `queryPool` is the query pool that is managing the results of the
-  query.
+## [](#_description)Description
 
-- `query` is the query index within the query pool where the result is
-  stored.
+The command completes the query in `queryPool` identified by `query`, and marks it as available.
 
-## <a href="#_description" class="anchor"></a>Description
+This command defines an execution dependency between other query commands that reference the same query.
 
-The command completes the query in `queryPool` identified by `query`,
-and marks it as available.
+The first [synchronization scope](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#synchronization-dependencies-scopes) includes all commands which reference the queries in `queryPool` indicated by `query` that occur earlier in [submission order](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#synchronization-submission-order).
 
-This command defines an execution dependency between other query
-commands that reference the same query.
+The second [synchronization scope](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#synchronization-dependencies-scopes) includes only the operation of this command.
 
-The first <a
-href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#synchronization-dependencies-scopes"
-target="_blank" rel="noopener">synchronization scope</a> includes all
-commands which reference the queries in `queryPool` indicated by `query`
-that occur earlier in <a
-href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#synchronization-submission-order"
-target="_blank" rel="noopener">submission order</a>.
-
-The second <a
-href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#synchronization-dependencies-scopes"
-target="_blank" rel="noopener">synchronization scope</a> includes only
-the operation of this command.
-
-Calling `vkCmdEndQuery` is equivalent to calling
-[vkCmdEndQueryIndexedEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdEndQueryIndexedEXT.html) with the `index`
-parameter set to zero.
+Calling `vkCmdEndQuery` is equivalent to calling [vkCmdEndQueryIndexedEXT](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdEndQueryIndexedEXT.html) with the `index` parameter set to zero.
 
 Valid Usage
 
-- <a href="#VUID-vkCmdEndQuery-None-01923"
-  id="VUID-vkCmdEndQuery-None-01923"></a>
-  VUID-vkCmdEndQuery-None-01923  
-  All queries used by the command **must** be <a
-  href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#queries-operation-active"
-  target="_blank" rel="noopener">active</a>
-
-- <a href="#VUID-vkCmdEndQuery-query-00810"
-  id="VUID-vkCmdEndQuery-query-00810"></a>
-  VUID-vkCmdEndQuery-query-00810  
+- [](#VUID-vkCmdEndQuery-None-01923)VUID-vkCmdEndQuery-None-01923  
+  All queries used by the command **must** be [active](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#queries-operation-active)
+- [](#VUID-vkCmdEndQuery-query-00810)VUID-vkCmdEndQuery-query-00810  
   `query` **must** be less than the number of queries in `queryPool`
-
-- <a href="#VUID-vkCmdEndQuery-commandBuffer-01886"
-  id="VUID-vkCmdEndQuery-commandBuffer-01886"></a>
-  VUID-vkCmdEndQuery-commandBuffer-01886  
+- [](#VUID-vkCmdEndQuery-commandBuffer-01886)VUID-vkCmdEndQuery-commandBuffer-01886  
   `commandBuffer` **must** not be a protected command buffer
+- [](#VUID-vkCmdEndQuery-query-00812)VUID-vkCmdEndQuery-query-00812  
+  If `vkCmdEndQuery` is called within a render pass instance, the sum of `query` and the number of bits set in the current subpass’s view mask **must** be less than or equal to the number of queries in `queryPool`
+- [](#VUID-vkCmdEndQuery-queryPool-03227)VUID-vkCmdEndQuery-queryPool-03227  
+  If `queryPool` was created with a `queryType` of `VK_QUERY_TYPE_PERFORMANCE_QUERY_KHR` and one or more of the counters used to create `queryPool` was `VK_PERFORMANCE_COUNTER_SCOPE_COMMAND_BUFFER_KHR`, the [vkCmdEndQuery](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdEndQuery.html) **must** be the last recorded command in `commandBuffer`
+- [](#VUID-vkCmdEndQuery-queryPool-03228)VUID-vkCmdEndQuery-queryPool-03228  
+  If `queryPool` was created with a `queryType` of `VK_QUERY_TYPE_PERFORMANCE_QUERY_KHR` and one or more of the counters used to create `queryPool` was `VK_PERFORMANCE_COUNTER_SCOPE_RENDER_PASS_KHR`, the [vkCmdEndQuery](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdEndQuery.html) **must** not be recorded within a render pass instance
 
-- <a href="#VUID-vkCmdEndQuery-query-00812"
-  id="VUID-vkCmdEndQuery-query-00812"></a>
-  VUID-vkCmdEndQuery-query-00812  
-  If `vkCmdEndQuery` is called within a render pass instance, the sum of
-  `query` and the number of bits set in the current subpass’s view mask
-  **must** be less than or equal to the number of queries in `queryPool`
+<!--THE END-->
 
-- <a href="#VUID-vkCmdEndQuery-queryPool-03227"
-  id="VUID-vkCmdEndQuery-queryPool-03227"></a>
-  VUID-vkCmdEndQuery-queryPool-03227  
-  If `queryPool` was created with a `queryType` of
-  `VK_QUERY_TYPE_PERFORMANCE_QUERY_KHR` and one or more of the counters
-  used to create `queryPool` was
-  `VK_PERFORMANCE_COUNTER_SCOPE_COMMAND_BUFFER_KHR`, the
-  [vkCmdEndQuery](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdEndQuery.html) **must** be the last recorded
-  command in `commandBuffer`
-
-- <a href="#VUID-vkCmdEndQuery-queryPool-03228"
-  id="VUID-vkCmdEndQuery-queryPool-03228"></a>
-  VUID-vkCmdEndQuery-queryPool-03228  
-  If `queryPool` was created with a `queryType` of
-  `VK_QUERY_TYPE_PERFORMANCE_QUERY_KHR` and one or more of the counters
-  used to create `queryPool` was
-  `VK_PERFORMANCE_COUNTER_SCOPE_RENDER_PASS_KHR`, the
-  [vkCmdEndQuery](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdEndQuery.html) **must** not be recorded within a
-  render pass instance
-
-<!-- -->
-
-- <a href="#VUID-vkCmdEndQuery-None-07007"
-  id="VUID-vkCmdEndQuery-None-07007"></a>
-  VUID-vkCmdEndQuery-None-07007  
-  If called within a subpass of a render pass instance, the
-  corresponding `vkCmdBeginQuery`\* command **must** have been called
-  previously within the same subpass
+- [](#VUID-vkCmdEndQuery-None-07007)VUID-vkCmdEndQuery-None-07007  
+  If called within a subpass of a render pass instance, the corresponding `vkCmdBeginQuery`* command **must** have been called previously within the same subpass
+- [](#VUID-vkCmdEndQuery-None-10682)VUID-vkCmdEndQuery-None-10682  
+  This command **must** not be recorded when [per-tile execution model](#renderpass-per-tile-execution-model) is enabled
 
 Valid Usage (Implicit)
 
-- <a href="#VUID-vkCmdEndQuery-commandBuffer-parameter"
-  id="VUID-vkCmdEndQuery-commandBuffer-parameter"></a>
-  VUID-vkCmdEndQuery-commandBuffer-parameter  
-  `commandBuffer` **must** be a valid
-  [VkCommandBuffer](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkCommandBuffer.html) handle
-
-- <a href="#VUID-vkCmdEndQuery-queryPool-parameter"
-  id="VUID-vkCmdEndQuery-queryPool-parameter"></a>
-  VUID-vkCmdEndQuery-queryPool-parameter  
-  `queryPool` **must** be a valid [VkQueryPool](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkQueryPool.html) handle
-
-- <a href="#VUID-vkCmdEndQuery-commandBuffer-recording"
-  id="VUID-vkCmdEndQuery-commandBuffer-recording"></a>
-  VUID-vkCmdEndQuery-commandBuffer-recording  
-  `commandBuffer` **must** be in the [recording
-  state](#commandbuffers-lifecycle)
-
-- <a href="#VUID-vkCmdEndQuery-commandBuffer-cmdpool"
-  id="VUID-vkCmdEndQuery-commandBuffer-cmdpool"></a>
-  VUID-vkCmdEndQuery-commandBuffer-cmdpool  
-  The `VkCommandPool` that `commandBuffer` was allocated from **must**
-  support graphics, compute, decode, or encode operations
-
-- <a href="#VUID-vkCmdEndQuery-commonparent"
-  id="VUID-vkCmdEndQuery-commonparent"></a>
-  VUID-vkCmdEndQuery-commonparent  
-  Both of `commandBuffer`, and `queryPool` **must** have been created,
-  allocated, or retrieved from the same [VkDevice](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkDevice.html)
+- [](#VUID-vkCmdEndQuery-commandBuffer-parameter)VUID-vkCmdEndQuery-commandBuffer-parameter  
+  `commandBuffer` **must** be a valid [VkCommandBuffer](https://registry.khronos.org/vulkan/specs/latest/man/html/VkCommandBuffer.html) handle
+- [](#VUID-vkCmdEndQuery-queryPool-parameter)VUID-vkCmdEndQuery-queryPool-parameter  
+  `queryPool` **must** be a valid [VkQueryPool](https://registry.khronos.org/vulkan/specs/latest/man/html/VkQueryPool.html) handle
+- [](#VUID-vkCmdEndQuery-commandBuffer-recording)VUID-vkCmdEndQuery-commandBuffer-recording  
+  `commandBuffer` **must** be in the [recording state](#commandbuffers-lifecycle)
+- [](#VUID-vkCmdEndQuery-commandBuffer-cmdpool)VUID-vkCmdEndQuery-commandBuffer-cmdpool  
+  The `VkCommandPool` that `commandBuffer` was allocated from **must** support graphics, compute, decode, or encode operations
+- [](#VUID-vkCmdEndQuery-commonparent)VUID-vkCmdEndQuery-commonparent  
+  Both of `commandBuffer`, and `queryPool` **must** have been created, allocated, or retrieved from the same [VkDevice](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDevice.html)
 
 Host Synchronization
 
 - Host access to `commandBuffer` **must** be externally synchronized
-
-- Host access to the `VkCommandPool` that `commandBuffer` was allocated
-  from **must** be externally synchronized
+- Host access to the `VkCommandPool` that `commandBuffer` was allocated from **must** be externally synchronized
 
 Command Properties
 
-<table class="tableblock frame-all grid-all stretch">
-<colgroup>
-<col style="width: 20%" />
-<col style="width: 20%" />
-<col style="width: 20%" />
-<col style="width: 20%" />
-<col style="width: 20%" />
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-top"><a
-href="#VkCommandBufferLevel">Command Buffer Levels</a></th>
-<th class="tableblock halign-left valign-top"><a
-href="#vkCmdBeginRenderPass">Render Pass Scope</a></th>
-<th class="tableblock halign-left valign-top"><a
-href="#vkCmdBeginVideoCodingKHR">Video Coding Scope</a></th>
-<th class="tableblock halign-left valign-top"><a
-href="#VkQueueFlagBits">Supported Queue Types</a></th>
-<th class="tableblock halign-left valign-top"><a
-href="#fundamentals-queueoperation-command-types">Command Type</a></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p>Primary<br />
-Secondary</p></td>
-<td class="tableblock halign-left valign-top"><p>Both</p></td>
-<td class="tableblock halign-left valign-top"><p>Both</p></td>
-<td class="tableblock halign-left valign-top"><p>Graphics<br />
-Compute<br />
-Decode<br />
-Encode</p></td>
-<td class="tableblock halign-left valign-top"><p>Action<br />
-State</p></td>
-</tr>
-</tbody>
-</table>
+     [Command Buffer Levels](#VkCommandBufferLevel) [Render Pass Scope](#vkCmdBeginRenderPass) [Video Coding Scope](#vkCmdBeginVideoCodingKHR) [Supported Queue Types](#VkQueueFlagBits) [Command Type](#fundamentals-queueoperation-command-types)
 
-## <a href="#_see_also" class="anchor"></a>See Also
+Primary  
+Secondary
 
-[VK_VERSION_1_0](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_VERSION_1_0.html),
-[VkCommandBuffer](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkCommandBuffer.html),
-[VkQueryPool](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkQueryPool.html),
-[vkCmdBeginQuery](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdBeginQuery.html),
-[vkCmdBeginQueryIndexedEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdBeginQueryIndexedEXT.html),
-[vkCmdEndQueryIndexedEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdEndQueryIndexedEXT.html)
+Both
 
-## <a href="#_document_notes" class="anchor"></a>Document Notes
+Both
 
-For more information, see the <a
-href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#vkCmdEndQuery"
-target="_blank" rel="noopener">Vulkan Specification</a>
+Graphics  
+Compute  
+Decode  
+Encode
 
-This page is extracted from the Vulkan Specification. Fixes and changes
-should be made to the Specification, not directly.
+Action  
+State
 
-## <a href="#_copyright" class="anchor"></a>Copyright
+## [](#_see_also)See Also
 
-Copyright 2014-2024 The Khronos Group Inc.
+[VK\_VERSION\_1\_0](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_VERSION_1_0.html), [VkCommandBuffer](https://registry.khronos.org/vulkan/specs/latest/man/html/VkCommandBuffer.html), [VkQueryPool](https://registry.khronos.org/vulkan/specs/latest/man/html/VkQueryPool.html), [vkCmdBeginQuery](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdBeginQuery.html), [vkCmdBeginQueryIndexedEXT](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdBeginQueryIndexedEXT.html), [vkCmdEndQueryIndexedEXT](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdEndQueryIndexedEXT.html)
+
+## [](#_document_notes)Document Notes
+
+For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#vkCmdEndQuery)
+
+This page is extracted from the Vulkan Specification. Fixes and changes should be made to the Specification, not directly.
+
+## [](#_copyright)Copyright
+
+Copyright 2014-2025 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
-
-Version 1.3.290  
-Last updated 2024-07-11 23:39:16 -0700

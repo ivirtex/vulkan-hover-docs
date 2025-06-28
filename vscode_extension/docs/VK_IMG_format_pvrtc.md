@@ -1,122 +1,94 @@
-# VK_IMG_format_pvrtc(3) Manual Page
+# VK\_IMG\_format\_pvrtc(3) Manual Page
 
 ## Name
 
-VK_IMG_format_pvrtc - device extension
+VK\_IMG\_format\_pvrtc - device extension
 
 
 
-## <a href="#_registered_extension_number" class="anchor"></a>Registered Extension Number
+## [](#_registered_extension_number)Registered Extension Number
 
 55
 
-## <a href="#_revision" class="anchor"></a>Revision
+## [](#_revision)Revision
 
 1
 
-## <a href="#_ratification_status" class="anchor"></a>Ratification Status
+## [](#_ratification_status)Ratification Status
 
 Not ratified
 
-## <a href="#_extension_and_version_dependencies" class="anchor"></a>Extension and Version Dependencies
+## [](#_extension_and_version_dependencies)Extension and Version Dependencies
 
 None
 
-## <a href="#_deprecation_state" class="anchor"></a>Deprecation State
+## [](#_deprecation_state)Deprecation State
 
 - *Deprecated* without replacement
 
-## <a href="#_contact" class="anchor"></a>Contact
+## [](#_contact)Contact
 
 - Stuart Smith
 
-## <a href="#_other_extension_metadata" class="anchor"></a>Other Extension Metadata
+## [](#_other_extension_metadata)Other Extension Metadata
 
-**Last Modified Date**  
+**Last Modified Date**
+
 2019-09-02
 
-**IP Status**  
+**IP Status**
+
 Imagination Technologies Proprietary
 
-**Contributors**  
+**Contributors**
+
 - Stuart Smith, Imagination Technologies
 
-## <a href="#_description" class="anchor"></a>Description
+## [](#_description)Description
 
-`VK_IMG_format_pvrtc` provides additional texture compression
-functionality specific to Imagination Technologies PowerVR Texture
-compression format (called PVRTC).
+`VK_IMG_format_pvrtc` provides additional texture compression functionality specific to Imagination Technologies PowerVR Texture compression format (called PVRTC).
 
-<table>
-<colgroup>
-<col style="width: 50%" />
-<col style="width: 50%" />
-</colgroup>
-<tbody>
-<tr>
-<td class="icon"><em></em></td>
-<td class="content">Note
-<p>As also noted in the <a
-href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#data-format"
-target="_blank" rel="noopener">Khronos Data Format Specification</a>,
-PVRTC1 images must have dimensions that are a power of two.</p></td>
-</tr>
-</tbody>
-</table>
+Note
 
-## <a href="#_deprecation" class="anchor"></a>Deprecation
+As also noted in the [Khronos Data Format Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#data-format), PVRTC1 images must have dimensions that are a power of two.
 
-Both PVRTC1 and PVRTC2 are slower than standard image formats on PowerVR
-GPUs, and support will be removed from future hardware.
+## [](#_deprecation)Deprecation
 
-## <a href="#_new_enum_constants" class="anchor"></a>New Enum Constants
+Both PVRTC1 and PVRTC2 are slower than standard image formats on PowerVR GPUs, and support will be removed from future hardware.
+
+## [](#_new_enum_constants)New Enum Constants
 
 - `VK_IMG_FORMAT_PVRTC_EXTENSION_NAME`
-
 - `VK_IMG_FORMAT_PVRTC_SPEC_VERSION`
-
-- Extending [VkFormat](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkFormat.html):
-
+- Extending [VkFormat](https://registry.khronos.org/vulkan/specs/latest/man/html/VkFormat.html):
+  
   - `VK_FORMAT_PVRTC1_2BPP_SRGB_BLOCK_IMG`
-
   - `VK_FORMAT_PVRTC1_2BPP_UNORM_BLOCK_IMG`
-
   - `VK_FORMAT_PVRTC1_4BPP_SRGB_BLOCK_IMG`
-
   - `VK_FORMAT_PVRTC1_4BPP_UNORM_BLOCK_IMG`
-
   - `VK_FORMAT_PVRTC2_2BPP_SRGB_BLOCK_IMG`
-
   - `VK_FORMAT_PVRTC2_2BPP_UNORM_BLOCK_IMG`
-
   - `VK_FORMAT_PVRTC2_4BPP_SRGB_BLOCK_IMG`
-
   - `VK_FORMAT_PVRTC2_4BPP_UNORM_BLOCK_IMG`
 
-## <a href="#_version_history" class="anchor"></a>Version History
+## [](#_version_history)Version History
 
 - Revision 1, 2019-09-02 (Stuart Smith)
-
+  
   - Initial version
 
-## <a href="#_see_also" class="anchor"></a>See Also
+## [](#_see_also)See Also
 
 No cross-references are available
 
-## <a href="#_document_notes" class="anchor"></a>Document Notes
+## [](#_document_notes)Document Notes
 
-For more information, see the <a
-href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#VK_IMG_format_pvrtc"
-target="_blank" rel="noopener">Vulkan Specification</a>
+For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#VK_IMG_format_pvrtc)
 
-This page is a generated document. Fixes and changes should be made to
-the generator scripts, not directly.
+This page is a generated document. Fixes and changes should be made to the generator scripts, not directly.
 
-## <a href="#_copyright" class="anchor"></a>Copyright
+## [](#_copyright)Copyright
 
-Copyright 2014-2024 The Khronos Group Inc.
+Copyright 2014-2025 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
-
-Version 1.3.290  
-Last updated 2024-07-11 23:39:16 -0700

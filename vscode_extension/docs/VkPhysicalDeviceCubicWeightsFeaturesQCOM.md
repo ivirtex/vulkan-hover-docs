@@ -2,16 +2,15 @@
 
 ## Name
 
-VkPhysicalDeviceCubicWeightsFeaturesQCOM - Structure describing cubic
-weight selection features that can be supported by an implementation
+VkPhysicalDeviceCubicWeightsFeaturesQCOM - Structure describing cubic weight selection features that can be supported by an implementation
 
 
 
-## <a href="#_c_specification" class="anchor"></a>C Specification
+## [](#_c_specification)C Specification
 
 The `VkPhysicalDeviceCubicWeightsFeaturesQCOM` structure is defined as:
 
-``` c
+```c++
 // Provided by VK_QCOM_filter_cubic_weights
 typedef struct VkPhysicalDeviceCubicWeightsFeaturesQCOM {
     VkStructureType    sType;
@@ -20,53 +19,33 @@ typedef struct VkPhysicalDeviceCubicWeightsFeaturesQCOM {
 } VkPhysicalDeviceCubicWeightsFeaturesQCOM;
 ```
 
-## <a href="#_members" class="anchor"></a>Members
+## [](#_members)Members
 
 This structure describes the following feature:
 
-- <span id="features-filter-cubic-weight-selection"></span>
-  `selectableCubicWeights` indicates that the implementation supports
-  the selection of filter cubic weights.
+- []()`selectableCubicWeights` indicates that the implementation supports the selection of filter cubic weights.
 
-## <a href="#_description" class="anchor"></a>Description
+## [](#_description)Description
 
-If the `VkPhysicalDeviceCubicWeightsFeaturesQCOM` structure is included
-in the `pNext` chain of the
-[VkPhysicalDeviceFeatures2](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkPhysicalDeviceFeatures2.html) structure
-passed to
-[vkGetPhysicalDeviceFeatures2](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkGetPhysicalDeviceFeatures2.html), it is
-filled in to indicate whether each corresponding feature is supported.
-`VkPhysicalDeviceCubicWeightsFeaturesQCOM` **can** also be used in the
-`pNext` chain of [VkDeviceCreateInfo](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkDeviceCreateInfo.html) to
-selectively enable these features.
+If the `VkPhysicalDeviceCubicWeightsFeaturesQCOM` structure is included in the `pNext` chain of the [VkPhysicalDeviceFeatures2](https://registry.khronos.org/vulkan/specs/latest/man/html/VkPhysicalDeviceFeatures2.html) structure passed to [vkGetPhysicalDeviceFeatures2](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetPhysicalDeviceFeatures2.html), it is filled in to indicate whether each corresponding feature is supported. If the application wishes to use a [VkDevice](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDevice.html) with any features described by `VkPhysicalDeviceCubicWeightsFeaturesQCOM`, it **must** add an instance of the structure, with the desired feature members set to `VK_TRUE`, to the `pNext` chain of [VkDeviceCreateInfo](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDeviceCreateInfo.html) when creating the [VkDevice](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDevice.html).
 
 Valid Usage (Implicit)
 
-- <a href="#VUID-VkPhysicalDeviceCubicWeightsFeaturesQCOM-sType-sType"
-  id="VUID-VkPhysicalDeviceCubicWeightsFeaturesQCOM-sType-sType"></a>
-  VUID-VkPhysicalDeviceCubicWeightsFeaturesQCOM-sType-sType  
-  `sType` **must** be
-  `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_CUBIC_WEIGHTS_FEATURES_QCOM`
+- [](#VUID-VkPhysicalDeviceCubicWeightsFeaturesQCOM-sType-sType)VUID-VkPhysicalDeviceCubicWeightsFeaturesQCOM-sType-sType  
+  `sType` **must** be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_CUBIC_WEIGHTS_FEATURES_QCOM`
 
-## <a href="#_see_also" class="anchor"></a>See Also
+## [](#_see_also)See Also
 
-[VK_QCOM_filter_cubic_weights](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_QCOM_filter_cubic_weights.html),
-[VkBool32](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkBool32.html), [VkStructureType](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkStructureType.html)
+[VK\_QCOM\_filter\_cubic\_weights](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_QCOM_filter_cubic_weights.html), [VkBool32](https://registry.khronos.org/vulkan/specs/latest/man/html/VkBool32.html), [VkStructureType](https://registry.khronos.org/vulkan/specs/latest/man/html/VkStructureType.html)
 
-## <a href="#_document_notes" class="anchor"></a>Document Notes
+## [](#_document_notes)Document Notes
 
-For more information, see the <a
-href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#VkPhysicalDeviceCubicWeightsFeaturesQCOM"
-target="_blank" rel="noopener">Vulkan Specification</a>
+For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#VkPhysicalDeviceCubicWeightsFeaturesQCOM)
 
-This page is extracted from the Vulkan Specification. Fixes and changes
-should be made to the Specification, not directly.
+This page is extracted from the Vulkan Specification. Fixes and changes should be made to the Specification, not directly.
 
-## <a href="#_copyright" class="anchor"></a>Copyright
+## [](#_copyright)Copyright
 
-Copyright 2014-2024 The Khronos Group Inc.
+Copyright 2014-2025 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
-
-Version 1.3.290  
-Last updated 2024-07-11 23:39:16 -0700

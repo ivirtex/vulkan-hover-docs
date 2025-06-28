@@ -2,16 +2,15 @@
 
 ## Name
 
-VkDispatchIndirectCommand - Structure specifying an indirect dispatching
-command
+VkDispatchIndirectCommand - Structure specifying an indirect dispatching command
 
 
 
-## <a href="#_c_specification" class="anchor"></a>C Specification
+## [](#_c_specification)C Specification
 
 The `VkDispatchIndirectCommand` structure is defined as:
 
-``` c
+```c++
 // Provided by VK_VERSION_1_0
 typedef struct VkDispatchIndirectCommand {
     uint32_t    x;
@@ -20,58 +19,37 @@ typedef struct VkDispatchIndirectCommand {
 } VkDispatchIndirectCommand;
 ```
 
-## <a href="#_members" class="anchor"></a>Members
+## [](#_members)Members
 
 - `x` is the number of local workgroups to dispatch in the X dimension.
-
 - `y` is the number of local workgroups to dispatch in the Y dimension.
-
 - `z` is the number of local workgroups to dispatch in the Z dimension.
 
-## <a href="#_description" class="anchor"></a>Description
+## [](#_description)Description
 
-The members of `VkDispatchIndirectCommand` have the same meaning as the
-corresponding parameters of [vkCmdDispatch](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdDispatch.html).
+The members of `VkDispatchIndirectCommand` have the same meaning as the corresponding parameters of [vkCmdDispatch](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdDispatch.html).
 
 Valid Usage
 
-- <a href="#VUID-VkDispatchIndirectCommand-x-00417"
-  id="VUID-VkDispatchIndirectCommand-x-00417"></a>
-  VUID-VkDispatchIndirectCommand-x-00417  
-  `x` **must** be less than or equal to
-  `VkPhysicalDeviceLimits`::`maxComputeWorkGroupCount`\[0\]
+- [](#VUID-VkDispatchIndirectCommand-x-00417)VUID-VkDispatchIndirectCommand-x-00417  
+  `x` **must** be less than or equal to `VkPhysicalDeviceLimits`::`maxComputeWorkGroupCount`\[0]
+- [](#VUID-VkDispatchIndirectCommand-y-00418)VUID-VkDispatchIndirectCommand-y-00418  
+  `y` **must** be less than or equal to `VkPhysicalDeviceLimits`::`maxComputeWorkGroupCount`\[1]
+- [](#VUID-VkDispatchIndirectCommand-z-00419)VUID-VkDispatchIndirectCommand-z-00419  
+  `z` **must** be less than or equal to `VkPhysicalDeviceLimits`::`maxComputeWorkGroupCount`\[2]
 
-- <a href="#VUID-VkDispatchIndirectCommand-y-00418"
-  id="VUID-VkDispatchIndirectCommand-y-00418"></a>
-  VUID-VkDispatchIndirectCommand-y-00418  
-  `y` **must** be less than or equal to
-  `VkPhysicalDeviceLimits`::`maxComputeWorkGroupCount`\[1\]
+## [](#_see_also)See Also
 
-- <a href="#VUID-VkDispatchIndirectCommand-z-00419"
-  id="VUID-VkDispatchIndirectCommand-z-00419"></a>
-  VUID-VkDispatchIndirectCommand-z-00419  
-  `z` **must** be less than or equal to
-  `VkPhysicalDeviceLimits`::`maxComputeWorkGroupCount`\[2\]
+[VK\_VERSION\_1\_0](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_VERSION_1_0.html), [vkCmdDispatchIndirect](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdDispatchIndirect.html)
 
-## <a href="#_see_also" class="anchor"></a>See Also
+## [](#_document_notes)Document Notes
 
-[VK_VERSION_1_0](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_VERSION_1_0.html),
-[vkCmdDispatchIndirect](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdDispatchIndirect.html)
+For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#VkDispatchIndirectCommand)
 
-## <a href="#_document_notes" class="anchor"></a>Document Notes
+This page is extracted from the Vulkan Specification. Fixes and changes should be made to the Specification, not directly.
 
-For more information, see the <a
-href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#VkDispatchIndirectCommand"
-target="_blank" rel="noopener">Vulkan Specification</a>
+## [](#_copyright)Copyright
 
-This page is extracted from the Vulkan Specification. Fixes and changes
-should be made to the Specification, not directly.
-
-## <a href="#_copyright" class="anchor"></a>Copyright
-
-Copyright 2014-2024 The Khronos Group Inc.
+Copyright 2014-2025 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
-
-Version 1.3.290  
-Last updated 2024-07-11 23:39:16 -0700

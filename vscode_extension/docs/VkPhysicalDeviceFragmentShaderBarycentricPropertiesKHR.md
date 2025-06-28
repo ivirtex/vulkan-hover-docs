@@ -2,17 +2,15 @@
 
 ## Name
 
-VkPhysicalDeviceFragmentShaderBarycentricPropertiesKHR - Structure
-describing fragment shader barycentric limits of an implementation
+VkPhysicalDeviceFragmentShaderBarycentricPropertiesKHR - Structure describing fragment shader barycentric limits of an implementation
 
 
 
-## <a href="#_c_specification" class="anchor"></a>C Specification
+## [](#_c_specification)C Specification
 
-The `VkPhysicalDeviceFragmentShaderBarycentricPropertiesKHR` structure
-is defined as:
+The `VkPhysicalDeviceFragmentShaderBarycentricPropertiesKHR` structure is defined as:
 
-``` c
+```c++
 // Provided by VK_KHR_fragment_shader_barycentric
 typedef struct VkPhysicalDeviceFragmentShaderBarycentricPropertiesKHR {
     VkStructureType    sType;
@@ -21,58 +19,31 @@ typedef struct VkPhysicalDeviceFragmentShaderBarycentricPropertiesKHR {
 } VkPhysicalDeviceFragmentShaderBarycentricPropertiesKHR;
 ```
 
-## <a href="#_members" class="anchor"></a>Members
+## [](#_members)Members
 
-- <span id="limits-triStripVertexOrderIndependentOfProvokingVertex"></span>
-  When the <a
-  href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#vertexpostproc-flatshading"
-  target="_blank" rel="noopener">provoking vertex mode</a> is
-  `VK_PROVOKING_VERTEX_MODE_LAST_VERTEX_EXT`, and the primitive order is
-  odd in a triangle strip, the ordering of vertices is defined in <a
-  href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#primsrast-barycentric-order-table-last-vertex"
-  target="_blank" rel="noopener">last vertex table</a>.
-  `triStripVertexOrderIndependentOfProvokingVertex` equal to `VK_TRUE`
-  indicates that the implementation ignores this and uses the vertex
-  order defined by `VK_PROVOKING_VERTEX_MODE_FIRST_VERTEX_EXT` instead.
+- []()When the [provoking vertex mode](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#vertexpostproc-flatshading) is `VK_PROVOKING_VERTEX_MODE_LAST_VERTEX_EXT`, and the primitive order is odd in a triangle strip, the ordering of vertices is defined in [last vertex table](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#primsrast-barycentric-order-table-last-vertex). `triStripVertexOrderIndependentOfProvokingVertex` equal to `VK_TRUE` indicates that the implementation ignores this and uses the vertex order defined by `VK_PROVOKING_VERTEX_MODE_FIRST_VERTEX_EXT` instead.
 
-## <a href="#_description" class="anchor"></a>Description
+## [](#_description)Description
 
-If the `VkPhysicalDeviceFragmentShaderBarycentricPropertiesKHR`
-structure is included in the `pNext` chain of the
-[VkPhysicalDeviceProperties2](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkPhysicalDeviceProperties2.html)
-structure passed to
-[vkGetPhysicalDeviceProperties2](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkGetPhysicalDeviceProperties2.html),
-it is filled in with each corresponding implementation-dependent
-property.
+If the `VkPhysicalDeviceFragmentShaderBarycentricPropertiesKHR` structure is included in the `pNext` chain of the [VkPhysicalDeviceProperties2](https://registry.khronos.org/vulkan/specs/latest/man/html/VkPhysicalDeviceProperties2.html) structure passed to [vkGetPhysicalDeviceProperties2](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetPhysicalDeviceProperties2.html), it is filled in with each corresponding implementation-dependent property.
 
 Valid Usage (Implicit)
 
-- <a
-  href="#VUID-VkPhysicalDeviceFragmentShaderBarycentricPropertiesKHR-sType-sType"
-  id="VUID-VkPhysicalDeviceFragmentShaderBarycentricPropertiesKHR-sType-sType"></a>
-  VUID-VkPhysicalDeviceFragmentShaderBarycentricPropertiesKHR-sType-sType  
-  `sType` **must** be
-  `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_FRAGMENT_SHADER_BARYCENTRIC_PROPERTIES_KHR`
+- [](#VUID-VkPhysicalDeviceFragmentShaderBarycentricPropertiesKHR-sType-sType)VUID-VkPhysicalDeviceFragmentShaderBarycentricPropertiesKHR-sType-sType  
+  `sType` **must** be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_FRAGMENT_SHADER_BARYCENTRIC_PROPERTIES_KHR`
 
-## <a href="#_see_also" class="anchor"></a>See Also
+## [](#_see_also)See Also
 
-[VK_KHR_fragment_shader_barycentric](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_KHR_fragment_shader_barycentric.html),
-[VkBool32](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkBool32.html), [VkStructureType](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkStructureType.html)
+[VK\_KHR\_fragment\_shader\_barycentric](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_KHR_fragment_shader_barycentric.html), [VkBool32](https://registry.khronos.org/vulkan/specs/latest/man/html/VkBool32.html), [VkStructureType](https://registry.khronos.org/vulkan/specs/latest/man/html/VkStructureType.html)
 
-## <a href="#_document_notes" class="anchor"></a>Document Notes
+## [](#_document_notes)Document Notes
 
-For more information, see the <a
-href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#VkPhysicalDeviceFragmentShaderBarycentricPropertiesKHR"
-target="_blank" rel="noopener">Vulkan Specification</a>
+For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#VkPhysicalDeviceFragmentShaderBarycentricPropertiesKHR)
 
-This page is extracted from the Vulkan Specification. Fixes and changes
-should be made to the Specification, not directly.
+This page is extracted from the Vulkan Specification. Fixes and changes should be made to the Specification, not directly.
 
-## <a href="#_copyright" class="anchor"></a>Copyright
+## [](#_copyright)Copyright
 
-Copyright 2014-2024 The Khronos Group Inc.
+Copyright 2014-2025 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
-
-Version 1.3.290  
-Last updated 2024-07-11 23:39:16 -0700

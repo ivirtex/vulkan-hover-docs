@@ -1,131 +1,93 @@
-# VK_NV_external_memory_win32(3) Manual Page
+# VK\_NV\_external\_memory\_win32(3) Manual Page
 
 ## Name
 
-VK_NV_external_memory_win32 - device extension
+VK\_NV\_external\_memory\_win32 - device extension
 
 
 
-## <a href="#_registered_extension_number" class="anchor"></a>Registered Extension Number
+## [](#_registered_extension_number)Registered Extension Number
 
 58
 
-## <a href="#_revision" class="anchor"></a>Revision
+## [](#_revision)Revision
 
 1
 
-## <a href="#_ratification_status" class="anchor"></a>Ratification Status
+## [](#_ratification_status)Ratification Status
 
 Not ratified
 
-## <a href="#_extension_and_version_dependencies" class="anchor"></a>Extension and Version Dependencies
+## [](#_extension_and_version_dependencies)Extension and Version Dependencies
 
-[VK_NV_external_memory](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_NV_external_memory.html)  
+[VK\_NV\_external\_memory](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_NV_external_memory.html)
 
-## <a href="#_deprecation_state" class="anchor"></a>Deprecation State
+## [](#_deprecation_state)Deprecation State
 
-- *Deprecated* by
-  [VK_KHR_external_memory_win32](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_KHR_external_memory_win32.html)
-  extension
+- *Deprecated* by [VK\_KHR\_external\_memory\_win32](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_KHR_external_memory_win32.html) extension
 
-## <a href="#_contact" class="anchor"></a>Contact
+## [](#_contact)Contact
 
-- James Jones <a
-  href="https://github.com/KhronosGroup/Vulkan-Docs/issues/new?body=%5BVK_NV_external_memory_win32%5D%20@cubanismo%0A*Here%20describe%20the%20issue%20or%20question%20you%20have%20about%20the%20VK_NV_external_memory_win32%20extension*"
-  target="_blank" rel="nofollow noopener"><em></em>cubanismo</a>
+- James Jones [\[GitHub\]cubanismo](https://github.com/KhronosGroup/Vulkan-Docs/issues/new?body=%5BVK_NV_external_memory_win32%5D%20%40cubanismo%0A%2AHere%20describe%20the%20issue%20or%20question%20you%20have%20about%20the%20VK_NV_external_memory_win32%20extension%2A)
 
-## <a href="#_other_extension_metadata" class="anchor"></a>Other Extension Metadata
+## [](#_other_extension_metadata)Other Extension Metadata
 
-**Last Modified Date**  
+**Last Modified Date**
+
 2016-08-19
 
-**IP Status**  
+**IP Status**
+
 No known IP claims.
 
-**Contributors**  
-- James Jones, NVIDIA
+**Contributors**
 
+- James Jones, NVIDIA
 - Carsten Rohde, NVIDIA
 
-## <a href="#_description" class="anchor"></a>Description
+## [](#_description)Description
 
-Applications may wish to export memory to other Vulkan instances or
-other APIs, or import memory from other Vulkan instances or other APIs
-to enable Vulkan workloads to be split up across application module,
-process, or API boundaries. This extension enables win32 applications to
-export win32 handles from Vulkan memory objects such that the underlying
-resources can be referenced outside the Vulkan instance that created
-them, and import win32 handles created in the Direct3D API to Vulkan
-memory objects.
+Applications may wish to export memory to other Vulkan instances or other APIs, or import memory from other Vulkan instances or other APIs to enable Vulkan workloads to be split up across application module, process, or API boundaries. This extension enables win32 applications to export win32 handles from Vulkan memory objects such that the underlying resources can be referenced outside the Vulkan instance that created them, and import win32 handles created in the Direct3D API to Vulkan memory objects.
 
-## <a href="#_new_commands" class="anchor"></a>New Commands
+## [](#_new_commands)New Commands
 
-- [vkGetMemoryWin32HandleNV](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkGetMemoryWin32HandleNV.html)
+- [vkGetMemoryWin32HandleNV](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetMemoryWin32HandleNV.html)
 
-## <a href="#_new_structures" class="anchor"></a>New Structures
+## [](#_new_structures)New Structures
 
-- Extending [VkMemoryAllocateInfo](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkMemoryAllocateInfo.html):
+- Extending [VkMemoryAllocateInfo](https://registry.khronos.org/vulkan/specs/latest/man/html/VkMemoryAllocateInfo.html):
+  
+  - [VkExportMemoryWin32HandleInfoNV](https://registry.khronos.org/vulkan/specs/latest/man/html/VkExportMemoryWin32HandleInfoNV.html)
+  - [VkImportMemoryWin32HandleInfoNV](https://registry.khronos.org/vulkan/specs/latest/man/html/VkImportMemoryWin32HandleInfoNV.html)
 
-  - [VkExportMemoryWin32HandleInfoNV](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkExportMemoryWin32HandleInfoNV.html)
-
-  - [VkImportMemoryWin32HandleInfoNV](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkImportMemoryWin32HandleInfoNV.html)
-
-## <a href="#_new_enum_constants" class="anchor"></a>New Enum Constants
+## [](#_new_enum_constants)New Enum Constants
 
 - `VK_NV_EXTERNAL_MEMORY_WIN32_EXTENSION_NAME`
-
 - `VK_NV_EXTERNAL_MEMORY_WIN32_SPEC_VERSION`
-
-- Extending [VkStructureType](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkStructureType.html):
-
+- Extending [VkStructureType](https://registry.khronos.org/vulkan/specs/latest/man/html/VkStructureType.html):
+  
   - `VK_STRUCTURE_TYPE_EXPORT_MEMORY_WIN32_HANDLE_INFO_NV`
-
   - `VK_STRUCTURE_TYPE_IMPORT_MEMORY_WIN32_HANDLE_INFO_NV`
 
-## <a href="#_issues" class="anchor"></a>Issues
+## [](#_issues)Issues
 
-1\) If memory objects are shared between processes and APIs, is this
-considered aliasing according to the rules outlined in the <a
-href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#resources-memory-aliasing"
-target="_blank" rel="noopener">Memory Aliasing</a> section?
+1\) If memory objects are shared between processes and APIs, is this considered aliasing according to the rules outlined in the [Memory Aliasing](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#resources-memory-aliasing) section?
 
-**RESOLVED**: Yes, but strict exceptions to the rules are added to allow
-some forms of aliasing in these cases. Further, other extensions may
-build upon these new aliasing rules to define specific support usage
-within Vulkan for imported native memory objects, or memory objects from
-other APIs.
+**RESOLVED**: Yes, but strict exceptions to the rules are added to allow some forms of aliasing in these cases. Further, other extensions may build upon these new aliasing rules to define specific support usage within Vulkan for imported native memory objects, or memory objects from other APIs.
 
-2\) Are new image layouts or metadata required to specify image layouts
-and layout transitions compatible with non-Vulkan APIs, or with other
-instances of the same Vulkan driver?
+2\) Are new image layouts or metadata required to specify image layouts and layout transitions compatible with non-Vulkan APIs, or with other instances of the same Vulkan driver?
 
-**RESOLVED**: No. Separate instances of the same Vulkan driver running
-on the same GPU should have identical internal layout semantics, so
-applications have the tools they need to ensure views of images are
-consistent between the two instances. Other APIs will fall into two
-categories: Those that are Vulkan compatible (a term to be defined by
-subsequent interopability extensions), or Vulkan incompatible. When
-sharing images with Vulkan incompatible APIs, the Vulkan image must be
-transitioned to the `VK_IMAGE_LAYOUT_GENERAL` layout before handing it
-off to the external API.
+**RESOLVED**: No. Separate instances of the same Vulkan driver running on the same GPU should have identical internal layout semantics, so applications have the tools they need to ensure views of images are consistent between the two instances. Other APIs will fall into two categories: Those that are Vulkan compatible (a term to be defined by subsequent interopability extensions), or Vulkan incompatible. When sharing images with Vulkan incompatible APIs, the Vulkan image must be transitioned to the `VK_IMAGE_LAYOUT_GENERAL` layout before handing it off to the external API.
 
-Note this does not attempt to address cross-device transitions, nor
-transitions to engines on the same device which are not visible within
-the Vulkan API. Both of these are beyond the scope of this extension.
+Note this does not attempt to address cross-device transitions, nor transitions to engines on the same device which are not visible within the Vulkan API. Both of these are beyond the scope of this extension.
 
-3\) Do applications need to call `CloseHandle`() on the values returned
-from [vkGetMemoryWin32HandleNV](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkGetMemoryWin32HandleNV.html) when
-`handleType` is `VK_EXTERNAL_MEMORY_HANDLE_TYPE_OPAQUE_WIN32_BIT_NV`?
+3\) Do applications need to call `CloseHandle`() on the values returned from [vkGetMemoryWin32HandleNV](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetMemoryWin32HandleNV.html) when `handleType` is `VK_EXTERNAL_MEMORY_HANDLE_TYPE_OPAQUE_WIN32_BIT_NV`?
 
-**RESOLVED**: Yes, unless it is passed back in to another driver
-instance to import the object. A successful get call transfers ownership
-of the handle to the application, while an import transfers ownership to
-the associated driver. Destroying the memory object will not destroy the
-handle or the handle’s reference to the underlying memory resource.
+**RESOLVED**: Yes, unless it is passed back in to another driver instance to import the object. A successful get call transfers ownership of the handle to the application, while an import transfers ownership to the associated driver. Destroying the memory object will not destroy the handle or the handle’s reference to the underlying memory resource.
 
-## <a href="#_examples" class="anchor"></a>Examples
+## [](#_examples)Examples
 
-``` c
+```c++
     //
     // Create an exportable memory object and export an external
     // handle from it.
@@ -259,30 +221,24 @@ handle or the handle’s reference to the underlying memory resource.
     vkGetMemoryWin32HandleNV(device, memory, &memoryHnd);
 ```
 
-## <a href="#_version_history" class="anchor"></a>Version History
+## [](#_version_history)Version History
 
 - Revision 1, 2016-08-11 (James Jones)
-
+  
   - Initial draft
 
-## <a href="#_see_also" class="anchor"></a>See Also
+## [](#_see_also)See Also
 
 No cross-references are available
 
-## <a href="#_document_notes" class="anchor"></a>Document Notes
+## [](#_document_notes)Document Notes
 
-For more information, see the <a
-href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#VK_NV_external_memory_win32"
-target="_blank" rel="noopener">Vulkan Specification</a>
+For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#VK_NV_external_memory_win32)
 
-This page is a generated document. Fixes and changes should be made to
-the generator scripts, not directly.
+This page is a generated document. Fixes and changes should be made to the generator scripts, not directly.
 
-## <a href="#_copyright" class="anchor"></a>Copyright
+## [](#_copyright)Copyright
 
-Copyright 2014-2024 The Khronos Group Inc.
+Copyright 2014-2025 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
-
-Version 1.3.290  
-Last updated 2024-07-11 23:39:16 -0700

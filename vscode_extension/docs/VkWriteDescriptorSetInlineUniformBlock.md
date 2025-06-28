@@ -2,23 +2,17 @@
 
 ## Name
 
-VkWriteDescriptorSetInlineUniformBlock - Structure specifying inline
-uniform block data
+VkWriteDescriptorSetInlineUniformBlock - Structure specifying inline uniform block data
 
 
 
-## <a href="#_c_specification" class="anchor"></a>C Specification
+## [](#_c_specification)C Specification
 
-If the `descriptorType` member of
-[VkWriteDescriptorSet](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkWriteDescriptorSet.html) is
-`VK_DESCRIPTOR_TYPE_INLINE_UNIFORM_BLOCK` then the data to write to the
-descriptor set is specified through a
-`VkWriteDescriptorSetInlineUniformBlock` structure included in the
-`pNext` chain of `VkWriteDescriptorSet`.
+If the `descriptorType` member of [VkWriteDescriptorSet](https://registry.khronos.org/vulkan/specs/latest/man/html/VkWriteDescriptorSet.html) is `VK_DESCRIPTOR_TYPE_INLINE_UNIFORM_BLOCK` then the data to write to the descriptor set is specified through a `VkWriteDescriptorSetInlineUniformBlock` structure included in the `pNext` chain of `VkWriteDescriptorSet`.
 
 The `VkWriteDescriptorSetInlineUniformBlock` structure is defined as:
 
-``` c
+```c++
 // Provided by VK_VERSION_1_3
 typedef struct VkWriteDescriptorSetInlineUniformBlock {
     VkStructureType    sType;
@@ -30,73 +24,46 @@ typedef struct VkWriteDescriptorSetInlineUniformBlock {
 
 or the equivalent
 
-``` c
+```c++
 // Provided by VK_EXT_inline_uniform_block
 typedef VkWriteDescriptorSetInlineUniformBlock VkWriteDescriptorSetInlineUniformBlockEXT;
 ```
 
-## <a href="#_members" class="anchor"></a>Members
+## [](#_members)Members
 
-- `sType` is a [VkStructureType](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkStructureType.html) value identifying
-  this structure.
+- `sType` is a [VkStructureType](https://registry.khronos.org/vulkan/specs/latest/man/html/VkStructureType.html) value identifying this structure.
+- `pNext` is `NULL` or a pointer to a structure extending this structure.
+- `dataSize` is the number of bytes of inline uniform block data pointed to by `pData`.
+- `pData` is a pointer to `dataSize` number of bytes of data to write to the inline uniform block.
 
-- `pNext` is `NULL` or a pointer to a structure extending this
-  structure.
-
-- `dataSize` is the number of bytes of inline uniform block data pointed
-  to by `pData`.
-
-- `pData` is a pointer to `dataSize` number of bytes of data to write to
-  the inline uniform block.
-
-## <a href="#_description" class="anchor"></a>Description
+## [](#_description)Description
 
 Valid Usage
 
-- <a href="#VUID-VkWriteDescriptorSetInlineUniformBlock-dataSize-02222"
-  id="VUID-VkWriteDescriptorSetInlineUniformBlock-dataSize-02222"></a>
-  VUID-VkWriteDescriptorSetInlineUniformBlock-dataSize-02222  
+- [](#VUID-VkWriteDescriptorSetInlineUniformBlock-dataSize-02222)VUID-VkWriteDescriptorSetInlineUniformBlock-dataSize-02222  
   `dataSize` **must** be an integer multiple of `4`
 
 Valid Usage (Implicit)
 
-- <a href="#VUID-VkWriteDescriptorSetInlineUniformBlock-sType-sType"
-  id="VUID-VkWriteDescriptorSetInlineUniformBlock-sType-sType"></a>
-  VUID-VkWriteDescriptorSetInlineUniformBlock-sType-sType  
-  `sType` **must** be
-  `VK_STRUCTURE_TYPE_WRITE_DESCRIPTOR_SET_INLINE_UNIFORM_BLOCK`
-
-- <a href="#VUID-VkWriteDescriptorSetInlineUniformBlock-pData-parameter"
-  id="VUID-VkWriteDescriptorSetInlineUniformBlock-pData-parameter"></a>
-  VUID-VkWriteDescriptorSetInlineUniformBlock-pData-parameter  
+- [](#VUID-VkWriteDescriptorSetInlineUniformBlock-sType-sType)VUID-VkWriteDescriptorSetInlineUniformBlock-sType-sType  
+  `sType` **must** be `VK_STRUCTURE_TYPE_WRITE_DESCRIPTOR_SET_INLINE_UNIFORM_BLOCK`
+- [](#VUID-VkWriteDescriptorSetInlineUniformBlock-pData-parameter)VUID-VkWriteDescriptorSetInlineUniformBlock-pData-parameter  
   `pData` **must** be a valid pointer to an array of `dataSize` bytes
-
-- <a
-  href="#VUID-VkWriteDescriptorSetInlineUniformBlock-dataSize-arraylength"
-  id="VUID-VkWriteDescriptorSetInlineUniformBlock-dataSize-arraylength"></a>
-  VUID-VkWriteDescriptorSetInlineUniformBlock-dataSize-arraylength  
+- [](#VUID-VkWriteDescriptorSetInlineUniformBlock-dataSize-arraylength)VUID-VkWriteDescriptorSetInlineUniformBlock-dataSize-arraylength  
   `dataSize` **must** be greater than `0`
 
-## <a href="#_see_also" class="anchor"></a>See Also
+## [](#_see_also)See Also
 
-[VK_EXT_inline_uniform_block](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_EXT_inline_uniform_block.html),
-[VK_VERSION_1_3](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_VERSION_1_3.html),
-[VkStructureType](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkStructureType.html)
+[VK\_EXT\_inline\_uniform\_block](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_EXT_inline_uniform_block.html), [VK\_VERSION\_1\_3](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_VERSION_1_3.html), [VkStructureType](https://registry.khronos.org/vulkan/specs/latest/man/html/VkStructureType.html)
 
-## <a href="#_document_notes" class="anchor"></a>Document Notes
+## [](#_document_notes)Document Notes
 
-For more information, see the <a
-href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#VkWriteDescriptorSetInlineUniformBlock"
-target="_blank" rel="noopener">Vulkan Specification</a>
+For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#VkWriteDescriptorSetInlineUniformBlock)
 
-This page is extracted from the Vulkan Specification. Fixes and changes
-should be made to the Specification, not directly.
+This page is extracted from the Vulkan Specification. Fixes and changes should be made to the Specification, not directly.
 
-## <a href="#_copyright" class="anchor"></a>Copyright
+## [](#_copyright)Copyright
 
-Copyright 2014-2024 The Khronos Group Inc.
+Copyright 2014-2025 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
-
-Version 1.3.290  
-Last updated 2024-07-11 23:39:16 -0700

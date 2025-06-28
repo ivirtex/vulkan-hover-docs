@@ -6,11 +6,11 @@ vkFlushMappedMemoryRanges - Flush mapped memory ranges
 
 
 
-## <a href="#_c_specification" class="anchor"></a>C Specification
+## [](#_c_specification)C Specification
 
 To flush ranges of non-coherent memory from the host caches, call:
 
-``` c
+```c++
 // Provided by VK_VERSION_1_0
 VkResult vkFlushMappedMemoryRanges(
     VkDevice                                    device,
@@ -18,107 +18,70 @@ VkResult vkFlushMappedMemoryRanges(
     const VkMappedMemoryRange*                  pMemoryRanges);
 ```
 
-## <a href="#_parameters" class="anchor"></a>Parameters
+## [](#_parameters)Parameters
 
 - `device` is the logical device that owns the memory ranges.
-
 - `memoryRangeCount` is the length of the `pMemoryRanges` array.
+- `pMemoryRanges` is a pointer to an array of [VkMappedMemoryRange](https://registry.khronos.org/vulkan/specs/latest/man/html/VkMappedMemoryRange.html) structures describing the memory ranges to flush.
 
-- `pMemoryRanges` is a pointer to an array of
-  [VkMappedMemoryRange](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkMappedMemoryRange.html) structures describing
-  the memory ranges to flush.
+## [](#_description)Description
 
-## <a href="#_description" class="anchor"></a>Description
+`vkFlushMappedMemoryRanges` guarantees that host writes to the memory ranges described by `pMemoryRanges` are made available to the host memory domain, such that they **can** be made available to the device memory domain via [memory domain operations](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#synchronization-dependencies-available-and-visible) using the `VK_ACCESS_HOST_WRITE_BIT` [access type](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#synchronization-access-types).
 
-`vkFlushMappedMemoryRanges` guarantees that host writes to the memory
-ranges described by `pMemoryRanges` are made available to the host
-memory domain, such that they **can** be made available to the device
-memory domain via <a
-href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#synchronization-dependencies-available-and-visible"
-target="_blank" rel="noopener">memory domain operations</a> using the
-`VK_ACCESS_HOST_WRITE_BIT` <a
-href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#synchronization-access-types"
-target="_blank" rel="noopener">access type</a>.
+The first [synchronization scope](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#synchronization-dependencies-scopes) includes all host operations that happened-before it, as defined by the host memory model.
 
-Within each range described by `pMemoryRanges`, each set of
-`nonCoherentAtomSize` bytes in that range is flushed if any byte in that
-set has been written by the host since it was first host mapped, or the
-last time it was flushed. If `pMemoryRanges` includes sets of
-`nonCoherentAtomSize` bytes where no bytes have been written by the
-host, those bytes **must** not be flushed.
+Note
 
-Unmapping non-coherent memory does not implicitly flush the host mapped
-memory, and host writes that have not been flushed **may** not ever be
-visible to the device. However, implementations **must** ensure that
-writes that have not been flushed do not become visible to any other
-memory.
+Some systems allow writes that do not directly integrate with the host memory model; these have to be synchronized by the application manually. One example of this is non-temporal store instructions on x86; to ensure these happen-before submission, applications should call `_mm_sfence()`.
 
-<table>
-<colgroup>
-<col style="width: 50%" />
-<col style="width: 50%" />
-</colgroup>
-<tbody>
-<tr>
-<td class="icon"><em></em></td>
-<td class="content">Note
-<p>The above guarantee avoids a potential memory corruption in scenarios
-where host writes to a mapped memory object have not been flushed before
-the memory is unmapped (or freed), and the virtual address range is
-subsequently reused for a different mapping (or memory
-allocation).</p></td>
-</tr>
-</tbody>
-</table>
+The second [synchronization scope](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#synchronization-dependencies-scopes) is empty.
+
+The first [access scope](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#synchronization-dependencies-access-scopes) includes host writes to the specified memory ranges.
+
+Note
+
+When a host write to a memory location is made available in this way, each whole aligned set of [`nonCoherentAtomSize`](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#limits-nonCoherentAtomSize) bytes that the memory location exists in will also be made available as if they were written by the host. For example, with a `nonCoherentAtomSize` of 128, if an application writes to the first byte of a memory object via a host mapping, the first 128 bytes of the memory object will be made available by this command. While the value of the following 127 bytes will be unchanged, this does count as an access for the purpose of synchronization, so care must be taken to avoid data races.
+
+The second [access scope](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#synchronization-dependencies-access-scopes) is empty.
+
+Unmapping non-coherent memory does not implicitly flush the host mapped memory, and host writes that have not been flushed **may** not ever be visible to the device. However, implementations **must** ensure that writes that have not been flushed do not become visible to any other memory.
+
+Note
+
+The above guarantee avoids a potential memory corruption in scenarios where host writes to a mapped memory object have not been flushed before the memory is unmapped (or freed), and the virtual address range is subsequently reused for a different mapping (or memory allocation).
 
 Valid Usage (Implicit)
 
-- <a href="#VUID-vkFlushMappedMemoryRanges-device-parameter"
-  id="VUID-vkFlushMappedMemoryRanges-device-parameter"></a>
-  VUID-vkFlushMappedMemoryRanges-device-parameter  
-  `device` **must** be a valid [VkDevice](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkDevice.html) handle
-
-- <a href="#VUID-vkFlushMappedMemoryRanges-pMemoryRanges-parameter"
-  id="VUID-vkFlushMappedMemoryRanges-pMemoryRanges-parameter"></a>
-  VUID-vkFlushMappedMemoryRanges-pMemoryRanges-parameter  
-  `pMemoryRanges` **must** be a valid pointer to an array of
-  `memoryRangeCount` valid
-  [VkMappedMemoryRange](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkMappedMemoryRange.html) structures
-
-- <a href="#VUID-vkFlushMappedMemoryRanges-memoryRangeCount-arraylength"
-  id="VUID-vkFlushMappedMemoryRanges-memoryRangeCount-arraylength"></a>
-  VUID-vkFlushMappedMemoryRanges-memoryRangeCount-arraylength  
+- [](#VUID-vkFlushMappedMemoryRanges-device-parameter)VUID-vkFlushMappedMemoryRanges-device-parameter  
+  `device` **must** be a valid [VkDevice](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDevice.html) handle
+- [](#VUID-vkFlushMappedMemoryRanges-pMemoryRanges-parameter)VUID-vkFlushMappedMemoryRanges-pMemoryRanges-parameter  
+  `pMemoryRanges` **must** be a valid pointer to an array of `memoryRangeCount` valid [VkMappedMemoryRange](https://registry.khronos.org/vulkan/specs/latest/man/html/VkMappedMemoryRange.html) structures
+- [](#VUID-vkFlushMappedMemoryRanges-memoryRangeCount-arraylength)VUID-vkFlushMappedMemoryRanges-memoryRangeCount-arraylength  
   `memoryRangeCount` **must** be greater than `0`
 
 Return Codes
 
-On success, this command returns  
+On success, this command returns
+
 - `VK_SUCCESS`
 
-On failure, this command returns  
-- `VK_ERROR_OUT_OF_HOST_MEMORY`
+On failure, this command returns
 
+- `VK_ERROR_OUT_OF_HOST_MEMORY`
 - `VK_ERROR_OUT_OF_DEVICE_MEMORY`
 
-## <a href="#_see_also" class="anchor"></a>See Also
+## [](#_see_also)See Also
 
-[VK_VERSION_1_0](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_VERSION_1_0.html), [VkDevice](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkDevice.html),
-[VkMappedMemoryRange](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkMappedMemoryRange.html)
+[VK\_VERSION\_1\_0](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_VERSION_1_0.html), [VkDevice](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDevice.html), [VkMappedMemoryRange](https://registry.khronos.org/vulkan/specs/latest/man/html/VkMappedMemoryRange.html)
 
-## <a href="#_document_notes" class="anchor"></a>Document Notes
+## [](#_document_notes)Document Notes
 
-For more information, see the <a
-href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#vkFlushMappedMemoryRanges"
-target="_blank" rel="noopener">Vulkan Specification</a>
+For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#vkFlushMappedMemoryRanges)
 
-This page is extracted from the Vulkan Specification. Fixes and changes
-should be made to the Specification, not directly.
+This page is extracted from the Vulkan Specification. Fixes and changes should be made to the Specification, not directly.
 
-## <a href="#_copyright" class="anchor"></a>Copyright
+## [](#_copyright)Copyright
 
-Copyright 2014-2024 The Khronos Group Inc.
+Copyright 2014-2025 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
-
-Version 1.3.290  
-Last updated 2024-07-11 23:39:16 -0700

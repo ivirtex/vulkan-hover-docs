@@ -6,15 +6,13 @@ VkPerformanceCounterUnitKHR - Supported counter unit types
 
 
 
-## <a href="#_c_specification" class="anchor"></a>C Specification
+## [](#_c_specification)C Specification
 
-Performance counters have an associated unit. This unit describes how to
-interpret the performance counter result.
+Performance counters have an associated unit. This unit describes how to interpret the performance counter result.
 
-The performance counter unit types which **may** be returned in
-[VkPerformanceCounterKHR](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkPerformanceCounterKHR.html)::`unit` are:
+The performance counter unit types which **may** be returned in [VkPerformanceCounterKHR](https://registry.khronos.org/vulkan/specs/latest/man/html/VkPerformanceCounterKHR.html)::`unit` are:
 
-``` c
+```c++
 // Provided by VK_KHR_performance_query
 typedef enum VkPerformanceCounterUnitKHR {
     VK_PERFORMANCE_COUNTER_UNIT_GENERIC_KHR = 0,
@@ -31,60 +29,32 @@ typedef enum VkPerformanceCounterUnitKHR {
 } VkPerformanceCounterUnitKHR;
 ```
 
-## <a href="#_description" class="anchor"></a>Description
+## [](#_description)Description
 
-- `VK_PERFORMANCE_COUNTER_UNIT_GENERIC_KHR` - the performance counter
-  unit is a generic data point.
+- `VK_PERFORMANCE_COUNTER_UNIT_GENERIC_KHR` - the performance counter unit is a generic data point.
+- `VK_PERFORMANCE_COUNTER_UNIT_PERCENTAGE_KHR` - the performance counter unit is a percentage (%).
+- `VK_PERFORMANCE_COUNTER_UNIT_NANOSECONDS_KHR` - the performance counter unit is a value of nanoseconds (ns).
+- `VK_PERFORMANCE_COUNTER_UNIT_BYTES_KHR` - the performance counter unit is a value of bytes.
+- `VK_PERFORMANCE_COUNTER_UNIT_BYTES_PER_SECOND_KHR` - the performance counter unit is a value of bytes/s.
+- `VK_PERFORMANCE_COUNTER_UNIT_KELVIN_KHR` - the performance counter unit is a temperature reported in Kelvin.
+- `VK_PERFORMANCE_COUNTER_UNIT_WATTS_KHR` - the performance counter unit is a value of watts (W).
+- `VK_PERFORMANCE_COUNTER_UNIT_VOLTS_KHR` - the performance counter unit is a value of volts (V).
+- `VK_PERFORMANCE_COUNTER_UNIT_AMPS_KHR` - the performance counter unit is a value of amps (A).
+- `VK_PERFORMANCE_COUNTER_UNIT_HERTZ_KHR` - the performance counter unit is a value of hertz (Hz).
+- `VK_PERFORMANCE_COUNTER_UNIT_CYCLES_KHR` - the performance counter unit is a value of cycles.
 
-- `VK_PERFORMANCE_COUNTER_UNIT_PERCENTAGE_KHR` - the performance counter
-  unit is a percentage (%).
+## [](#_see_also)See Also
 
-- `VK_PERFORMANCE_COUNTER_UNIT_NANOSECONDS_KHR` - the performance
-  counter unit is a value of nanoseconds (ns).
+[VK\_KHR\_performance\_query](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_KHR_performance_query.html), [VkPerformanceCounterKHR](https://registry.khronos.org/vulkan/specs/latest/man/html/VkPerformanceCounterKHR.html)
 
-- `VK_PERFORMANCE_COUNTER_UNIT_BYTES_KHR` - the performance counter unit
-  is a value of bytes.
+## [](#_document_notes)Document Notes
 
-- `VK_PERFORMANCE_COUNTER_UNIT_BYTES_PER_SECOND_KHR` - the performance
-  counter unit is a value of bytes/s.
+For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#VkPerformanceCounterUnitKHR)
 
-- `VK_PERFORMANCE_COUNTER_UNIT_KELVIN_KHR` - the performance counter
-  unit is a temperature reported in Kelvin.
+This page is extracted from the Vulkan Specification. Fixes and changes should be made to the Specification, not directly.
 
-- `VK_PERFORMANCE_COUNTER_UNIT_WATTS_KHR` - the performance counter unit
-  is a value of watts (W).
+## [](#_copyright)Copyright
 
-- `VK_PERFORMANCE_COUNTER_UNIT_VOLTS_KHR` - the performance counter unit
-  is a value of volts (V).
-
-- `VK_PERFORMANCE_COUNTER_UNIT_AMPS_KHR` - the performance counter unit
-  is a value of amps (A).
-
-- `VK_PERFORMANCE_COUNTER_UNIT_HERTZ_KHR` - the performance counter unit
-  is a value of hertz (Hz).
-
-- `VK_PERFORMANCE_COUNTER_UNIT_CYCLES_KHR` - the performance counter
-  unit is a value of cycles.
-
-## <a href="#_see_also" class="anchor"></a>See Also
-
-[VK_KHR_performance_query](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_KHR_performance_query.html),
-[VkPerformanceCounterKHR](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkPerformanceCounterKHR.html)
-
-## <a href="#_document_notes" class="anchor"></a>Document Notes
-
-For more information, see the <a
-href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#VkPerformanceCounterUnitKHR"
-target="_blank" rel="noopener">Vulkan Specification</a>
-
-This page is extracted from the Vulkan Specification. Fixes and changes
-should be made to the Specification, not directly.
-
-## <a href="#_copyright" class="anchor"></a>Copyright
-
-Copyright 2014-2024 The Khronos Group Inc.
+Copyright 2014-2025 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
-
-Version 1.3.290  
-Last updated 2024-07-11 23:39:16 -0700

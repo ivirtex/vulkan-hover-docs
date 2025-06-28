@@ -6,13 +6,12 @@ VkComponentTypeKHR - Specify SPIR-V cooperative matrix component type
 
 
 
-## <a href="#_c_specification" class="anchor"></a>C Specification
+## [](#_c_specification)C Specification
 
-Possible values for [VkComponentTypeKHR](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkComponentTypeKHR.html)
-include:
+Possible values for [VkComponentTypeKHR](https://registry.khronos.org/vulkan/specs/latest/man/html/VkComponentTypeKHR.html) include:
 
-``` c
-// Provided by VK_KHR_cooperative_matrix
+```c++
+// Provided by VK_KHR_cooperative_matrix, VK_NV_cooperative_vector
 typedef enum VkComponentTypeKHR {
     VK_COMPONENT_TYPE_FLOAT16_KHR = 0,
     VK_COMPONENT_TYPE_FLOAT32_KHR = 1,
@@ -25,6 +24,16 @@ typedef enum VkComponentTypeKHR {
     VK_COMPONENT_TYPE_UINT16_KHR = 8,
     VK_COMPONENT_TYPE_UINT32_KHR = 9,
     VK_COMPONENT_TYPE_UINT64_KHR = 10,
+  // Provided by VK_KHR_cooperative_matrix with VK_KHR_shader_bfloat16
+    VK_COMPONENT_TYPE_BFLOAT16_KHR = 1000141000,
+  // Provided by VK_NV_cooperative_vector
+    VK_COMPONENT_TYPE_SINT8_PACKED_NV = 1000491000,
+  // Provided by VK_NV_cooperative_vector
+    VK_COMPONENT_TYPE_UINT8_PACKED_NV = 1000491001,
+  // Provided by VK_KHR_cooperative_matrix with VK_EXT_shader_float8
+    VK_COMPONENT_TYPE_FLOAT8_E4M3_EXT = 1000491002,
+  // Provided by VK_KHR_cooperative_matrix with VK_EXT_shader_float8
+    VK_COMPONENT_TYPE_FLOAT8_E5M2_EXT = 1000491003,
   // Provided by VK_NV_cooperative_matrix
     VK_COMPONENT_TYPE_FLOAT16_NV = VK_COMPONENT_TYPE_FLOAT16_KHR,
   // Provided by VK_NV_cooperative_matrix
@@ -47,68 +56,53 @@ typedef enum VkComponentTypeKHR {
     VK_COMPONENT_TYPE_UINT32_NV = VK_COMPONENT_TYPE_UINT32_KHR,
   // Provided by VK_NV_cooperative_matrix
     VK_COMPONENT_TYPE_UINT64_NV = VK_COMPONENT_TYPE_UINT64_KHR,
+  // Provided by VK_NV_cooperative_vector
+    VK_COMPONENT_TYPE_FLOAT_E4M3_NV = VK_COMPONENT_TYPE_FLOAT8_E4M3_EXT,
+  // Provided by VK_NV_cooperative_vector
+    VK_COMPONENT_TYPE_FLOAT_E5M2_NV = VK_COMPONENT_TYPE_FLOAT8_E5M2_EXT,
 } VkComponentTypeKHR;
 ```
 
 or the equivalent
 
-``` c
+```c++
 // Provided by VK_NV_cooperative_matrix
 typedef VkComponentTypeKHR VkComponentTypeNV;
 ```
 
-## <a href="#_description" class="anchor"></a>Description
+## [](#_description)Description
 
-- `VK_COMPONENT_TYPE_FLOAT16_KHR` corresponds to SPIR-V `OpTypeFloat`
-  16.
-
-- `VK_COMPONENT_TYPE_FLOAT32_KHR` corresponds to SPIR-V `OpTypeFloat`
-  32.
-
-- `VK_COMPONENT_TYPE_FLOAT64_KHR` corresponds to SPIR-V `OpTypeFloat`
-  64.
-
+- `VK_COMPONENT_TYPE_FLOAT16_KHR` corresponds to SPIR-V `OpTypeFloat` 16.
+- `VK_COMPONENT_TYPE_FLOAT32_KHR` corresponds to SPIR-V `OpTypeFloat` 32.
+- `VK_COMPONENT_TYPE_FLOAT64_KHR` corresponds to SPIR-V `OpTypeFloat` 64.
 - `VK_COMPONENT_TYPE_SINT8_KHR` corresponds to SPIR-V `OpTypeInt` 8 0/1.
-
-- `VK_COMPONENT_TYPE_SINT16_KHR` corresponds to SPIR-V `OpTypeInt` 16
-  0/1.
-
-- `VK_COMPONENT_TYPE_SINT32_KHR` corresponds to SPIR-V `OpTypeInt` 32
-  0/1.
-
-- `VK_COMPONENT_TYPE_SINT64_KHR` corresponds to SPIR-V `OpTypeInt` 64
-  0/1.
-
+- `VK_COMPONENT_TYPE_SINT16_KHR` corresponds to SPIR-V `OpTypeInt` 16 0/1.
+- `VK_COMPONENT_TYPE_SINT32_KHR` corresponds to SPIR-V `OpTypeInt` 32 0/1.
+- `VK_COMPONENT_TYPE_SINT64_KHR` corresponds to SPIR-V `OpTypeInt` 64 0/1.
 - `VK_COMPONENT_TYPE_UINT8_KHR` corresponds to SPIR-V `OpTypeInt` 8 0/1.
+- `VK_COMPONENT_TYPE_UINT16_KHR` corresponds to SPIR-V `OpTypeInt` 16 0/1.
+- `VK_COMPONENT_TYPE_UINT32_KHR` corresponds to SPIR-V `OpTypeInt` 32 0/1.
+- `VK_COMPONENT_TYPE_UINT64_KHR` corresponds to SPIR-V `OpTypeInt` 64 0/1.
+- `VK_COMPONENT_TYPE_BFLOAT16_KHR` corresponds to SPIR-V `OpTypeFloat` 16 BFloat16KHR.
+- `VK_COMPONENT_TYPE_SINT8_PACKED_NV` corresponds to four 8-bit signed integers packed in a 32-bit unsigned integer.
+- `VK_COMPONENT_TYPE_UINT8_PACKED_NV` corresponds to four 8-bit unsigned integers packed in a 32-bit unsigned integer.
+- `VK_COMPONENT_TYPE_FLOAT_E4M3_NV` corresponds to a floating-point type with a sign bit in the most significant bit, followed by four exponent bits, followed by three mantissa bits.
+- `VK_COMPONENT_TYPE_FLOAT_E5M2_NV` corresponds to a floating-point type with a sign bit in the most significant bit, followed by five exponent bits, followed by two mantissa bits.
+- `VK_COMPONENT_TYPE_FLOAT8_E4M3_EXT` corresponds to SPIR-V `OpTypeFloat` 8 Float8E4M3EXT.
+- `VK_COMPONENT_TYPE_FLOAT8_E5M2_EXT` corresponds to SPIR-V `OpTypeFloat` 8 Float8E5M2EXT.
 
-- `VK_COMPONENT_TYPE_UINT16_KHR` corresponds to SPIR-V `OpTypeInt` 16
-  0/1.
+## [](#_see_also)See Also
 
-- `VK_COMPONENT_TYPE_UINT32_KHR` corresponds to SPIR-V `OpTypeInt` 32
-  0/1.
+[VK\_KHR\_cooperative\_matrix](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_KHR_cooperative_matrix.html), [VK\_NV\_cooperative\_vector](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_NV_cooperative_vector.html), [VkConvertCooperativeVectorMatrixInfoNV](https://registry.khronos.org/vulkan/specs/latest/man/html/VkConvertCooperativeVectorMatrixInfoNV.html), [VkCooperativeMatrixFlexibleDimensionsPropertiesNV](https://registry.khronos.org/vulkan/specs/latest/man/html/VkCooperativeMatrixFlexibleDimensionsPropertiesNV.html), [VkCooperativeMatrixPropertiesKHR](https://registry.khronos.org/vulkan/specs/latest/man/html/VkCooperativeMatrixPropertiesKHR.html), [VkCooperativeVectorPropertiesNV](https://registry.khronos.org/vulkan/specs/latest/man/html/VkCooperativeVectorPropertiesNV.html)
 
-- `VK_COMPONENT_TYPE_UINT64_KHR` corresponds to SPIR-V `OpTypeInt` 64
-  0/1.
+## [](#_document_notes)Document Notes
 
-## <a href="#_see_also" class="anchor"></a>See Also
+For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#VkComponentTypeKHR)
 
-[VK_KHR_cooperative_matrix](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_KHR_cooperative_matrix.html),
-[VkCooperativeMatrixPropertiesKHR](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkCooperativeMatrixPropertiesKHR.html)
+This page is extracted from the Vulkan Specification. Fixes and changes should be made to the Specification, not directly.
 
-## <a href="#_document_notes" class="anchor"></a>Document Notes
+## [](#_copyright)Copyright
 
-For more information, see the <a
-href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#VkComponentTypeKHR"
-target="_blank" rel="noopener">Vulkan Specification</a>
-
-This page is extracted from the Vulkan Specification. Fixes and changes
-should be made to the Specification, not directly.
-
-## <a href="#_copyright" class="anchor"></a>Copyright
-
-Copyright 2014-2024 The Khronos Group Inc.
+Copyright 2014-2025 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
-
-Version 1.3.290  
-Last updated 2024-07-11 23:39:16 -0700

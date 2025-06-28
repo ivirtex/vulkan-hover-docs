@@ -2,54 +2,37 @@
 
 ## Name
 
-SubgroupEqMask - Mask of shader invocations in a subgroup with the same
-subgroup local invocation ID
+SubgroupEqMask - Mask of shader invocations in a subgroup with the same subgroup local invocation ID
 
 
 
-## <a href="#_description" class="anchor"></a>Description
+## [](#_description)Description
 
-`SubgroupEqMask`  
-Decorating a variable with the `SubgroupEqMask` builtin decoration will
-make that variable contain the *subgroup mask* of the current subgroup
-invocation. The bit corresponding to the `SubgroupLocalInvocationId` is
-set in the variable decorated with `SubgroupEqMask`. All other bits are
-set to zero.
+`SubgroupEqMask`
+
+Decorating a variable with the `SubgroupEqMask` builtin decoration will make that variable contain the *subgroup mask* of the current subgroup invocation. The bit corresponding to the `SubgroupLocalInvocationId` is set in the variable decorated with `SubgroupEqMask`. All other bits are set to zero.
 
 `SubgroupEqMaskKHR` is an alias of `SubgroupEqMask`.
 
 Valid Usage
 
-- <a href="#VUID-SubgroupEqMask-SubgroupEqMask-04370"
-  id="VUID-SubgroupEqMask-SubgroupEqMask-04370"></a>
-  VUID-SubgroupEqMask-SubgroupEqMask-04370  
-  The variable decorated with `SubgroupEqMask` **must** be declared
-  using the `Input` `Storage` `Class`
+- [](#VUID-SubgroupEqMask-SubgroupEqMask-04370)VUID-SubgroupEqMask-SubgroupEqMask-04370  
+  The variable decorated with `SubgroupEqMask` **must** be declared using the `Input` `Storage` `Class`
+- [](#VUID-SubgroupEqMask-SubgroupEqMask-04371)VUID-SubgroupEqMask-SubgroupEqMask-04371  
+  The variable decorated with `SubgroupEqMask` **must** be declared as a four-component vector of 32-bit integer values
 
-- <a href="#VUID-SubgroupEqMask-SubgroupEqMask-04371"
-  id="VUID-SubgroupEqMask-SubgroupEqMask-04371"></a>
-  VUID-SubgroupEqMask-SubgroupEqMask-04371  
-  The variable decorated with `SubgroupEqMask` **must** be declared as a
-  four-component vector of 32-bit integer values
-
-## <a href="#_see_also" class="anchor"></a>See Also
+## [](#_see_also)See Also
 
 No cross-references are available
 
-## <a href="#_document_notes" class="anchor"></a>Document Notes
+## [](#_document_notes)Document Notes
 
-For more information, see the <a
-href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#SubgroupEqMask"
-target="_blank" rel="noopener">Vulkan Specification</a>
+For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#SubgroupEqMask)
 
-This page is extracted from the Vulkan Specification. Fixes and changes
-should be made to the Specification, not directly.
+This page is extracted from the Vulkan Specification. Fixes and changes should be made to the Specification, not directly.
 
-## <a href="#_copyright" class="anchor"></a>Copyright
+## [](#_copyright)Copyright
 
-Copyright 2014-2024 The Khronos Group Inc.
+Copyright 2014-2025 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
-
-Version 1.3.290  
-Last updated 2024-07-11 23:39:16 -0700

@@ -1,47 +1,43 @@
-# VK_MAX_GLOBAL_PRIORITY_SIZE_KHR(3) Manual Page
+# VK\_MAX\_GLOBAL\_PRIORITY\_SIZE(3) Manual Page
 
 ## Name
 
-VK_MAX_GLOBAL_PRIORITY_SIZE_KHR - Length of an array of global queue
-priorities
+VK\_MAX\_GLOBAL\_PRIORITY\_SIZE - Length of an array of global queue priorities
 
 
 
-## <a href="#_c_specification" class="anchor"></a>C Specification
+## [](#_c_specification)C Specification
 
-`VK_MAX_GLOBAL_PRIORITY_SIZE_KHR` is the length of an array of
-[VkQueueGlobalPriorityKHR](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkQueueGlobalPriorityKHR.html) enumerants
-representing supported queue priorities, as returned in
-[VkQueueFamilyGlobalPriorityPropertiesKHR](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkQueueFamilyGlobalPriorityPropertiesKHR.html)::`priorities`.
+`VK_MAX_GLOBAL_PRIORITY_SIZE` is the length of an array of [VkQueueGlobalPriority](https://registry.khronos.org/vulkan/specs/latest/man/html/VkQueueGlobalPriority.html) enumerants representing supported queue priorities, as returned in [VkQueueFamilyGlobalPriorityProperties](https://registry.khronos.org/vulkan/specs/latest/man/html/VkQueueFamilyGlobalPriorityProperties.html)::`priorities`.
 
-``` c
-#define VK_MAX_GLOBAL_PRIORITY_SIZE_KHR   16U
+```c++
+#define VK_MAX_GLOBAL_PRIORITY_SIZE       16U
 ```
 
 or the equivalent
 
-``` c
-#define VK_MAX_GLOBAL_PRIORITY_SIZE_EXT   VK_MAX_GLOBAL_PRIORITY_SIZE_KHR
+```c++
+#define VK_MAX_GLOBAL_PRIORITY_SIZE_KHR   VK_MAX_GLOBAL_PRIORITY_SIZE
 ```
 
-## <a href="#_see_also" class="anchor"></a>See Also
+or the equivalent
 
-[VK_KHR_global_priority](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_KHR_global_priority.html)
+```c++
+#define VK_MAX_GLOBAL_PRIORITY_SIZE_EXT   VK_MAX_GLOBAL_PRIORITY_SIZE
+```
 
-## <a href="#_document_notes" class="anchor"></a>Document Notes
+## [](#_see_also)See Also
 
-For more information, see the <a
-href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#VK_MAX_GLOBAL_PRIORITY_SIZE_KHR"
-target="_blank" rel="noopener">Vulkan Specification</a>
+[VK\_VERSION\_1\_4](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_VERSION_1_4.html)
 
-This page is extracted from the Vulkan Specification. Fixes and changes
-should be made to the Specification, not directly.
+## [](#_document_notes)Document Notes
 
-## <a href="#_copyright" class="anchor"></a>Copyright
+For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#VK_MAX_GLOBAL_PRIORITY_SIZE)
 
-Copyright 2014-2024 The Khronos Group Inc.
+This page is extracted from the Vulkan Specification. Fixes and changes should be made to the Specification, not directly.
+
+## [](#_copyright)Copyright
+
+Copyright 2014-2025 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
-
-Version 1.3.290  
-Last updated 2024-07-11 23:39:16 -0700

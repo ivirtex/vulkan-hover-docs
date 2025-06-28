@@ -2,17 +2,15 @@
 
 ## Name
 
-vkGetExecutionGraphPipelineScratchSizeAMDX - Query scratch space
-required to dispatch an execution graph
+vkGetExecutionGraphPipelineScratchSizeAMDX - Query scratch space required to dispatch an execution graph
 
 
 
-## <a href="#_c_specification" class="anchor"></a>C Specification
+## [](#_c_specification)C Specification
 
-To query the scratch space required to dispatch an execution graph,
-call:
+To query the scratch space required to dispatch an execution graph, call:
 
-``` c
+```c++
 // Provided by VK_AMDX_shader_enqueue
 VkResult vkGetExecutionGraphPipelineScratchSizeAMDX(
     VkDevice                                    device,
@@ -20,81 +18,49 @@ VkResult vkGetExecutionGraphPipelineScratchSizeAMDX(
     VkExecutionGraphPipelineScratchSizeAMDX*    pSizeInfo);
 ```
 
-## <a href="#_parameters" class="anchor"></a>Parameters
+## [](#_parameters)Parameters
 
-- `device` is the that `executionGraph` was created on.
+- `device` is the logical device that `executionGraph` was created on.
+- `executionGraph` is the execution graph pipeline to query the scratch space for.
+- `pSizeInfo` is a pointer to a [VkExecutionGraphPipelineScratchSizeAMDX](https://registry.khronos.org/vulkan/specs/latest/man/html/VkExecutionGraphPipelineScratchSizeAMDX.html) structure that will contain the required scratch size.
 
-- `executionGraph` is the execution graph pipeline to query the scratch
-  space for.
+## [](#_description)Description
 
-- `pSizeInfo` is a pointer to a
-  [VkExecutionGraphPipelineScratchSizeAMDX](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkExecutionGraphPipelineScratchSizeAMDX.html)
-  structure that will contain the required scratch size.
-
-## <a href="#_description" class="anchor"></a>Description
-
-After this function returns, information about the scratch space
-required will be returned in `pSizeInfo`.
+After this function returns, information about the scratch space required will be returned in `pSizeInfo`.
 
 Valid Usage (Implicit)
 
-- <a
-  href="#VUID-vkGetExecutionGraphPipelineScratchSizeAMDX-device-parameter"
-  id="VUID-vkGetExecutionGraphPipelineScratchSizeAMDX-device-parameter"></a>
-  VUID-vkGetExecutionGraphPipelineScratchSizeAMDX-device-parameter  
-  `device` **must** be a valid [VkDevice](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkDevice.html) handle
-
-- <a
-  href="#VUID-vkGetExecutionGraphPipelineScratchSizeAMDX-executionGraph-parameter"
-  id="VUID-vkGetExecutionGraphPipelineScratchSizeAMDX-executionGraph-parameter"></a>
-  VUID-vkGetExecutionGraphPipelineScratchSizeAMDX-executionGraph-parameter  
-  `executionGraph` **must** be a valid [VkPipeline](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkPipeline.html)
-  handle
-
-- <a
-  href="#VUID-vkGetExecutionGraphPipelineScratchSizeAMDX-pSizeInfo-parameter"
-  id="VUID-vkGetExecutionGraphPipelineScratchSizeAMDX-pSizeInfo-parameter"></a>
-  VUID-vkGetExecutionGraphPipelineScratchSizeAMDX-pSizeInfo-parameter  
-  `pSizeInfo` **must** be a valid pointer to a
-  [VkExecutionGraphPipelineScratchSizeAMDX](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkExecutionGraphPipelineScratchSizeAMDX.html)
-  structure
-
-- <a
-  href="#VUID-vkGetExecutionGraphPipelineScratchSizeAMDX-executionGraph-parent"
-  id="VUID-vkGetExecutionGraphPipelineScratchSizeAMDX-executionGraph-parent"></a>
-  VUID-vkGetExecutionGraphPipelineScratchSizeAMDX-executionGraph-parent  
-  `executionGraph` **must** have been created, allocated, or retrieved
-  from `device`
+- [](#VUID-vkGetExecutionGraphPipelineScratchSizeAMDX-device-parameter)VUID-vkGetExecutionGraphPipelineScratchSizeAMDX-device-parameter  
+  `device` **must** be a valid [VkDevice](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDevice.html) handle
+- [](#VUID-vkGetExecutionGraphPipelineScratchSizeAMDX-executionGraph-parameter)VUID-vkGetExecutionGraphPipelineScratchSizeAMDX-executionGraph-parameter  
+  `executionGraph` **must** be a valid [VkPipeline](https://registry.khronos.org/vulkan/specs/latest/man/html/VkPipeline.html) handle
+- [](#VUID-vkGetExecutionGraphPipelineScratchSizeAMDX-pSizeInfo-parameter)VUID-vkGetExecutionGraphPipelineScratchSizeAMDX-pSizeInfo-parameter  
+  `pSizeInfo` **must** be a valid pointer to a [VkExecutionGraphPipelineScratchSizeAMDX](https://registry.khronos.org/vulkan/specs/latest/man/html/VkExecutionGraphPipelineScratchSizeAMDX.html) structure
+- [](#VUID-vkGetExecutionGraphPipelineScratchSizeAMDX-executionGraph-parent)VUID-vkGetExecutionGraphPipelineScratchSizeAMDX-executionGraph-parent  
+  `executionGraph` **must** have been created, allocated, or retrieved from `device`
 
 Return Codes
 
-On success, this command returns  
+On success, this command returns
+
 - `VK_SUCCESS`
 
-On failure, this command returns  
+On failure, this command returns
+
 - `VK_ERROR_OUT_OF_HOST_MEMORY`
 
-## <a href="#_see_also" class="anchor"></a>See Also
+## [](#_see_also)See Also
 
-[VK_AMDX_shader_enqueue](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_AMDX_shader_enqueue.html),
-[VkDevice](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkDevice.html),
-[VkExecutionGraphPipelineScratchSizeAMDX](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkExecutionGraphPipelineScratchSizeAMDX.html),
-[VkPipeline](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkPipeline.html)
+[VK\_AMDX\_shader\_enqueue](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_AMDX_shader_enqueue.html), [VkDevice](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDevice.html), [VkExecutionGraphPipelineScratchSizeAMDX](https://registry.khronos.org/vulkan/specs/latest/man/html/VkExecutionGraphPipelineScratchSizeAMDX.html), [VkPipeline](https://registry.khronos.org/vulkan/specs/latest/man/html/VkPipeline.html)
 
-## <a href="#_document_notes" class="anchor"></a>Document Notes
+## [](#_document_notes)Document Notes
 
-For more information, see the <a
-href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#vkGetExecutionGraphPipelineScratchSizeAMDX"
-target="_blank" rel="noopener">Vulkan Specification</a>
+For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#vkGetExecutionGraphPipelineScratchSizeAMDX)
 
-This page is extracted from the Vulkan Specification. Fixes and changes
-should be made to the Specification, not directly.
+This page is extracted from the Vulkan Specification. Fixes and changes should be made to the Specification, not directly.
 
-## <a href="#_copyright" class="anchor"></a>Copyright
+## [](#_copyright)Copyright
 
-Copyright 2014-2024 The Khronos Group Inc.
+Copyright 2014-2025 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
-
-Version 1.3.290  
-Last updated 2024-07-11 23:39:16 -0700

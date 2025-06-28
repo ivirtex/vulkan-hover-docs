@@ -2,17 +2,15 @@
 
 ## Name
 
-VkPipelineViewportDepthClipControlCreateInfoEXT - Structure specifying
-parameters of a newly created pipeline depth clip control state
+VkPipelineViewportDepthClipControlCreateInfoEXT - Structure specifying parameters of a newly created pipeline depth clip control state
 
 
 
-## <a href="#_c_specification" class="anchor"></a>C Specification
+## [](#_c_specification)C Specification
 
-The `VkPipelineViewportDepthClipControlCreateInfoEXT` structure is
-defined as:
+The `VkPipelineViewportDepthClipControlCreateInfoEXT` structure is defined as:
 
-``` c
+```c++
 // Provided by VK_EXT_depth_clip_control
 typedef struct VkPipelineViewportDepthClipControlCreateInfoEXT {
     VkStructureType    sType;
@@ -21,58 +19,36 @@ typedef struct VkPipelineViewportDepthClipControlCreateInfoEXT {
 } VkPipelineViewportDepthClipControlCreateInfoEXT;
 ```
 
-## <a href="#_members" class="anchor"></a>Members
+## [](#_members)Members
 
-- `sType` is a [VkStructureType](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkStructureType.html) value identifying
-  this structure.
+- `sType` is a [VkStructureType](https://registry.khronos.org/vulkan/specs/latest/man/html/VkStructureType.html) value identifying this structure.
+- `pNext` is `NULL` or a pointer to a structure extending this structure.
+- `negativeOneToOne` sets the zm in the *view volume* to -wc
 
-- `pNext` is `NULL` or a pointer to a structure extending this
-  structure.
-
-- `negativeOneToOne` sets the z<sub>m</sub> in the *view volume* to
-  -w<sub>c</sub>
-
-## <a href="#_description" class="anchor"></a>Description
+## [](#_description)Description
 
 Valid Usage
 
-- <a
-  href="#VUID-VkPipelineViewportDepthClipControlCreateInfoEXT-negativeOneToOne-06470"
-  id="VUID-VkPipelineViewportDepthClipControlCreateInfoEXT-negativeOneToOne-06470"></a>
-  VUID-VkPipelineViewportDepthClipControlCreateInfoEXT-negativeOneToOne-06470  
-  If <a
-  href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#features-depthClipControl"
-  target="_blank" rel="noopener"><code>depthClipControl</code></a> is
-  not enabled, `negativeOneToOne` **must** be `VK_FALSE`
+- [](#VUID-VkPipelineViewportDepthClipControlCreateInfoEXT-negativeOneToOne-06470)VUID-VkPipelineViewportDepthClipControlCreateInfoEXT-negativeOneToOne-06470  
+  If the [`depthClipControl`](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#features-depthClipControl) feature is not enabled, `negativeOneToOne` **must** be `VK_FALSE`
 
 Valid Usage (Implicit)
 
-- <a
-  href="#VUID-VkPipelineViewportDepthClipControlCreateInfoEXT-sType-sType"
-  id="VUID-VkPipelineViewportDepthClipControlCreateInfoEXT-sType-sType"></a>
-  VUID-VkPipelineViewportDepthClipControlCreateInfoEXT-sType-sType  
-  `sType` **must** be
-  `VK_STRUCTURE_TYPE_PIPELINE_VIEWPORT_DEPTH_CLIP_CONTROL_CREATE_INFO_EXT`
+- [](#VUID-VkPipelineViewportDepthClipControlCreateInfoEXT-sType-sType)VUID-VkPipelineViewportDepthClipControlCreateInfoEXT-sType-sType  
+  `sType` **must** be `VK_STRUCTURE_TYPE_PIPELINE_VIEWPORT_DEPTH_CLIP_CONTROL_CREATE_INFO_EXT`
 
-## <a href="#_see_also" class="anchor"></a>See Also
+## [](#_see_also)See Also
 
-[VK_EXT_depth_clip_control](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_EXT_depth_clip_control.html),
-[VkBool32](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkBool32.html), [VkStructureType](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkStructureType.html)
+[VK\_EXT\_depth\_clip\_control](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_EXT_depth_clip_control.html), [VkBool32](https://registry.khronos.org/vulkan/specs/latest/man/html/VkBool32.html), [VkStructureType](https://registry.khronos.org/vulkan/specs/latest/man/html/VkStructureType.html)
 
-## <a href="#_document_notes" class="anchor"></a>Document Notes
+## [](#_document_notes)Document Notes
 
-For more information, see the <a
-href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#VkPipelineViewportDepthClipControlCreateInfoEXT"
-target="_blank" rel="noopener">Vulkan Specification</a>
+For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#VkPipelineViewportDepthClipControlCreateInfoEXT)
 
-This page is extracted from the Vulkan Specification. Fixes and changes
-should be made to the Specification, not directly.
+This page is extracted from the Vulkan Specification. Fixes and changes should be made to the Specification, not directly.
 
-## <a href="#_copyright" class="anchor"></a>Copyright
+## [](#_copyright)Copyright
 
-Copyright 2014-2024 The Khronos Group Inc.
+Copyright 2014-2025 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
-
-Version 1.3.290  
-Last updated 2024-07-11 23:39:16 -0700

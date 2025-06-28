@@ -2,16 +2,15 @@
 
 ## Name
 
-vkGetImageSparseMemoryRequirements2 - Query the memory requirements for
-a sparse image
+vkGetImageSparseMemoryRequirements2 - Query the memory requirements for a sparse image
 
 
 
-## <a href="#_c_specification" class="anchor"></a>C Specification
+## [](#_c_specification)C Specification
 
 To query sparse memory requirements for an image, call:
 
-``` c
+```c++
 // Provided by VK_VERSION_1_1
 void vkGetImageSparseMemoryRequirements2(
     VkDevice                                    device,
@@ -22,7 +21,7 @@ void vkGetImageSparseMemoryRequirements2(
 
 or the equivalent command
 
-``` c
+```c++
 // Provided by VK_KHR_get_memory_requirements2
 void vkGetImageSparseMemoryRequirements2KHR(
     VkDevice                                    device,
@@ -31,75 +30,38 @@ void vkGetImageSparseMemoryRequirements2KHR(
     VkSparseImageMemoryRequirements2*           pSparseMemoryRequirements);
 ```
 
-## <a href="#_parameters" class="anchor"></a>Parameters
+## [](#_parameters)Parameters
 
 - `device` is the logical device that owns the image.
+- `pInfo` is a pointer to a [VkImageSparseMemoryRequirementsInfo2](https://registry.khronos.org/vulkan/specs/latest/man/html/VkImageSparseMemoryRequirementsInfo2.html) structure containing parameters required for the memory requirements query.
+- `pSparseMemoryRequirementCount` is a pointer to an integer related to the number of sparse memory requirements available or queried, as described below.
+- `pSparseMemoryRequirements` is either `NULL` or a pointer to an array of `VkSparseImageMemoryRequirements2` structures.
 
-- `pInfo` is a pointer to a `VkImageSparseMemoryRequirementsInfo2`
-  structure containing parameters required for the memory requirements
-  query.
-
-- `pSparseMemoryRequirementCount` is a pointer to an integer related to
-  the number of sparse memory requirements available or queried, as
-  described below.
-
-- `pSparseMemoryRequirements` is either `NULL` or a pointer to an array
-  of `VkSparseImageMemoryRequirements2` structures.
-
-## <a href="#_description" class="anchor"></a>Description
+## [](#_description)Description
 
 Valid Usage (Implicit)
 
-- <a href="#VUID-vkGetImageSparseMemoryRequirements2-device-parameter"
-  id="VUID-vkGetImageSparseMemoryRequirements2-device-parameter"></a>
-  VUID-vkGetImageSparseMemoryRequirements2-device-parameter  
-  `device` **must** be a valid [VkDevice](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkDevice.html) handle
+- [](#VUID-vkGetImageSparseMemoryRequirements2-device-parameter)VUID-vkGetImageSparseMemoryRequirements2-device-parameter  
+  `device` **must** be a valid [VkDevice](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDevice.html) handle
+- [](#VUID-vkGetImageSparseMemoryRequirements2-pInfo-parameter)VUID-vkGetImageSparseMemoryRequirements2-pInfo-parameter  
+  `pInfo` **must** be a valid pointer to a valid [VkImageSparseMemoryRequirementsInfo2](https://registry.khronos.org/vulkan/specs/latest/man/html/VkImageSparseMemoryRequirementsInfo2.html) structure
+- [](#VUID-vkGetImageSparseMemoryRequirements2-pSparseMemoryRequirementCount-parameter)VUID-vkGetImageSparseMemoryRequirements2-pSparseMemoryRequirementCount-parameter  
+  `pSparseMemoryRequirementCount` **must** be a valid pointer to a `uint32_t` value
+- [](#VUID-vkGetImageSparseMemoryRequirements2-pSparseMemoryRequirements-parameter)VUID-vkGetImageSparseMemoryRequirements2-pSparseMemoryRequirements-parameter  
+  If the value referenced by `pSparseMemoryRequirementCount` is not `0`, and `pSparseMemoryRequirements` is not `NULL`, `pSparseMemoryRequirements` **must** be a valid pointer to an array of `pSparseMemoryRequirementCount` [VkSparseImageMemoryRequirements2](https://registry.khronos.org/vulkan/specs/latest/man/html/VkSparseImageMemoryRequirements2.html) structures
 
-- <a href="#VUID-vkGetImageSparseMemoryRequirements2-pInfo-parameter"
-  id="VUID-vkGetImageSparseMemoryRequirements2-pInfo-parameter"></a>
-  VUID-vkGetImageSparseMemoryRequirements2-pInfo-parameter  
-  `pInfo` **must** be a valid pointer to a valid
-  [VkImageSparseMemoryRequirementsInfo2](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkImageSparseMemoryRequirementsInfo2.html)
-  structure
+## [](#_see_also)See Also
 
-- <a
-  href="#VUID-vkGetImageSparseMemoryRequirements2-pSparseMemoryRequirementCount-parameter"
-  id="VUID-vkGetImageSparseMemoryRequirements2-pSparseMemoryRequirementCount-parameter"></a>
-  VUID-vkGetImageSparseMemoryRequirements2-pSparseMemoryRequirementCount-parameter  
-  `pSparseMemoryRequirementCount` **must** be a valid pointer to a
-  `uint32_t` value
+[VK\_VERSION\_1\_1](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_VERSION_1_1.html), [VkDevice](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDevice.html), [VkImageSparseMemoryRequirementsInfo2](https://registry.khronos.org/vulkan/specs/latest/man/html/VkImageSparseMemoryRequirementsInfo2.html), [VkSparseImageMemoryRequirements2](https://registry.khronos.org/vulkan/specs/latest/man/html/VkSparseImageMemoryRequirements2.html)
 
-- <a
-  href="#VUID-vkGetImageSparseMemoryRequirements2-pSparseMemoryRequirements-parameter"
-  id="VUID-vkGetImageSparseMemoryRequirements2-pSparseMemoryRequirements-parameter"></a>
-  VUID-vkGetImageSparseMemoryRequirements2-pSparseMemoryRequirements-parameter  
-  If the value referenced by `pSparseMemoryRequirementCount` is not `0`,
-  and `pSparseMemoryRequirements` is not `NULL`,
-  `pSparseMemoryRequirements` **must** be a valid pointer to an array of
-  `pSparseMemoryRequirementCount`
-  [VkSparseImageMemoryRequirements2](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkSparseImageMemoryRequirements2.html)
-  structures
+## [](#_document_notes)Document Notes
 
-## <a href="#_see_also" class="anchor"></a>See Also
+For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#vkGetImageSparseMemoryRequirements2)
 
-[VK_VERSION_1_1](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_VERSION_1_1.html), [VkDevice](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkDevice.html),
-[VkImageSparseMemoryRequirementsInfo2](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkImageSparseMemoryRequirementsInfo2.html),
-[VkSparseImageMemoryRequirements2](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkSparseImageMemoryRequirements2.html)
+This page is extracted from the Vulkan Specification. Fixes and changes should be made to the Specification, not directly.
 
-## <a href="#_document_notes" class="anchor"></a>Document Notes
+## [](#_copyright)Copyright
 
-For more information, see the <a
-href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#vkGetImageSparseMemoryRequirements2"
-target="_blank" rel="noopener">Vulkan Specification</a>
-
-This page is extracted from the Vulkan Specification. Fixes and changes
-should be made to the Specification, not directly.
-
-## <a href="#_copyright" class="anchor"></a>Copyright
-
-Copyright 2014-2024 The Khronos Group Inc.
+Copyright 2014-2025 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
-
-Version 1.3.290  
-Last updated 2024-07-11 23:39:16 -0700

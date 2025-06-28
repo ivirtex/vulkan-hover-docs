@@ -2,16 +2,15 @@
 
 ## Name
 
-VkRenderPassStripeBeginInfoARM - Structure specifying striped rendering
-information
+VkRenderPassStripeBeginInfoARM - Structure specifying striped rendering information
 
 
 
-## <a href="#_c_specification" class="anchor"></a>C Specification
+## [](#_c_specification)C Specification
 
 The `VkRenderPassStripeBeginInfoARM` structure is defined as:
 
-``` c
+```c++
 // Provided by VK_ARM_render_pass_striped
 typedef struct VkRenderPassStripeBeginInfoARM {
     VkStructureType                     sType;
@@ -21,83 +20,45 @@ typedef struct VkRenderPassStripeBeginInfoARM {
 } VkRenderPassStripeBeginInfoARM;
 ```
 
-## <a href="#_members" class="anchor"></a>Members
+## [](#_members)Members
 
-- `sType` is a [VkStructureType](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkStructureType.html) value identifying
-  this structure.
+- `sType` is a [VkStructureType](https://registry.khronos.org/vulkan/specs/latest/man/html/VkStructureType.html) value identifying this structure.
+- `pNext` is `NULL` or a pointer to a structure extending this structure.
+- `stripeInfoCount` is the number of stripes in this render pass instance
+- `pStripeInfos` is a pointer to an array of `stripeInfoCount` [VkRenderPassStripeInfoARM](https://registry.khronos.org/vulkan/specs/latest/man/html/VkRenderPassStripeInfoARM.html) structures describing the stripes used by the render pass instance.
 
-- `pNext` is `NULL` or a pointer to a structure extending this
-  structure.
+## [](#_description)Description
 
-- `stripeInfoCount` is the number of stripes in this render pass
-  instance
-
-- `pStripeInfos` is a pointer to an array of `stripeInfoCount`
-  [VkRenderPassStripeInfoARM](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkRenderPassStripeInfoARM.html) structures
-  describing the stripes used by the render pass instance.
-
-## <a href="#_description" class="anchor"></a>Description
-
-This structure can be included in the `pNext` chain of
-[VkRenderPassBeginInfo](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkRenderPassBeginInfo.html) or
-[VkRenderingInfo](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkRenderingInfo.html) to define how the render pass
-instance is split into stripes.
+This structure can be included in the `pNext` chain of [VkRenderPassBeginInfo](https://registry.khronos.org/vulkan/specs/latest/man/html/VkRenderPassBeginInfo.html) or [VkRenderingInfo](https://registry.khronos.org/vulkan/specs/latest/man/html/VkRenderingInfo.html) to define how the render pass instance is split into stripes.
 
 Valid Usage
 
-- <a href="#VUID-VkRenderPassStripeBeginInfoARM-stripeInfoCount-09450"
-  id="VUID-VkRenderPassStripeBeginInfoARM-stripeInfoCount-09450"></a>
-  VUID-VkRenderPassStripeBeginInfoARM-stripeInfoCount-09450  
-  `stripeInfoCount` **must** be less than or equal to
-  `VkPhysicalDeviceRenderPassStripedPropertiesARM`::`maxRenderPassStripes`
-
-- <a href="#VUID-VkRenderPassStripeBeginInfoARM-stripeArea-09451"
-  id="VUID-VkRenderPassStripeBeginInfoARM-stripeArea-09451"></a>
-  VUID-VkRenderPassStripeBeginInfoARM-stripeArea-09451  
-  The `stripeArea` defined by each element of `pStripeInfos` **must**
-  not overlap the `stripeArea` of any other element
+- [](#VUID-VkRenderPassStripeBeginInfoARM-stripeInfoCount-09450)VUID-VkRenderPassStripeBeginInfoARM-stripeInfoCount-09450  
+  `stripeInfoCount` **must** be less than or equal to `VkPhysicalDeviceRenderPassStripedPropertiesARM`::`maxRenderPassStripes`
+- [](#VUID-VkRenderPassStripeBeginInfoARM-stripeArea-09451)VUID-VkRenderPassStripeBeginInfoARM-stripeArea-09451  
+  The `stripeArea` defined by each element of `pStripeInfos` **must** not overlap the `stripeArea` of any other element
 
 Valid Usage (Implicit)
 
-- <a href="#VUID-VkRenderPassStripeBeginInfoARM-sType-sType"
-  id="VUID-VkRenderPassStripeBeginInfoARM-sType-sType"></a>
-  VUID-VkRenderPassStripeBeginInfoARM-sType-sType  
-  `sType` **must** be
-  `VK_STRUCTURE_TYPE_RENDER_PASS_STRIPE_BEGIN_INFO_ARM`
-
-- <a href="#VUID-VkRenderPassStripeBeginInfoARM-pStripeInfos-parameter"
-  id="VUID-VkRenderPassStripeBeginInfoARM-pStripeInfos-parameter"></a>
-  VUID-VkRenderPassStripeBeginInfoARM-pStripeInfos-parameter  
-  `pStripeInfos` **must** be a valid pointer to an array of
-  `stripeInfoCount` valid
-  [VkRenderPassStripeInfoARM](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkRenderPassStripeInfoARM.html) structures
-
-- <a
-  href="#VUID-VkRenderPassStripeBeginInfoARM-stripeInfoCount-arraylength"
-  id="VUID-VkRenderPassStripeBeginInfoARM-stripeInfoCount-arraylength"></a>
-  VUID-VkRenderPassStripeBeginInfoARM-stripeInfoCount-arraylength  
+- [](#VUID-VkRenderPassStripeBeginInfoARM-sType-sType)VUID-VkRenderPassStripeBeginInfoARM-sType-sType  
+  `sType` **must** be `VK_STRUCTURE_TYPE_RENDER_PASS_STRIPE_BEGIN_INFO_ARM`
+- [](#VUID-VkRenderPassStripeBeginInfoARM-pStripeInfos-parameter)VUID-VkRenderPassStripeBeginInfoARM-pStripeInfos-parameter  
+  `pStripeInfos` **must** be a valid pointer to an array of `stripeInfoCount` valid [VkRenderPassStripeInfoARM](https://registry.khronos.org/vulkan/specs/latest/man/html/VkRenderPassStripeInfoARM.html) structures
+- [](#VUID-VkRenderPassStripeBeginInfoARM-stripeInfoCount-arraylength)VUID-VkRenderPassStripeBeginInfoARM-stripeInfoCount-arraylength  
   `stripeInfoCount` **must** be greater than `0`
 
-## <a href="#_see_also" class="anchor"></a>See Also
+## [](#_see_also)See Also
 
-[VK_ARM_render_pass_striped](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_ARM_render_pass_striped.html),
-[VkRenderPassStripeInfoARM](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkRenderPassStripeInfoARM.html),
-[VkStructureType](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkStructureType.html)
+[VK\_ARM\_render\_pass\_striped](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_ARM_render_pass_striped.html), [VkRenderPassStripeInfoARM](https://registry.khronos.org/vulkan/specs/latest/man/html/VkRenderPassStripeInfoARM.html), [VkStructureType](https://registry.khronos.org/vulkan/specs/latest/man/html/VkStructureType.html)
 
-## <a href="#_document_notes" class="anchor"></a>Document Notes
+## [](#_document_notes)Document Notes
 
-For more information, see the <a
-href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#VkRenderPassStripeBeginInfoARM"
-target="_blank" rel="noopener">Vulkan Specification</a>
+For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#VkRenderPassStripeBeginInfoARM)
 
-This page is extracted from the Vulkan Specification. Fixes and changes
-should be made to the Specification, not directly.
+This page is extracted from the Vulkan Specification. Fixes and changes should be made to the Specification, not directly.
 
-## <a href="#_copyright" class="anchor"></a>Copyright
+## [](#_copyright)Copyright
 
-Copyright 2014-2024 The Khronos Group Inc.
+Copyright 2014-2025 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
-
-Version 1.3.290  
-Last updated 2024-07-11 23:39:16 -0700

@@ -6,11 +6,11 @@ VkBufferMemoryRequirementsInfo2 - (None)
 
 
 
-## <a href="#_c_specification" class="anchor"></a>C Specification
+## [](#_c_specification)C Specification
 
 The `VkBufferMemoryRequirementsInfo2` structure is defined as:
 
-``` c
+```c++
 // Provided by VK_VERSION_1_1
 typedef struct VkBufferMemoryRequirementsInfo2 {
     VkStructureType    sType;
@@ -21,62 +21,40 @@ typedef struct VkBufferMemoryRequirementsInfo2 {
 
 or the equivalent
 
-``` c
+```c++
 // Provided by VK_KHR_get_memory_requirements2
 typedef VkBufferMemoryRequirementsInfo2 VkBufferMemoryRequirementsInfo2KHR;
 ```
 
-## <a href="#_members" class="anchor"></a>Members
+## [](#_members)Members
 
-- `sType` is a [VkStructureType](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkStructureType.html) value identifying
-  this structure.
-
-- `pNext` is `NULL` or a pointer to a structure extending this
-  structure.
-
+- `sType` is a [VkStructureType](https://registry.khronos.org/vulkan/specs/latest/man/html/VkStructureType.html) value identifying this structure.
+- `pNext` is `NULL` or a pointer to a structure extending this structure.
 - `buffer` is the buffer to query.
 
-## <a href="#_description" class="anchor"></a>Description
+## [](#_description)Description
 
 Valid Usage (Implicit)
 
-- <a href="#VUID-VkBufferMemoryRequirementsInfo2-sType-sType"
-  id="VUID-VkBufferMemoryRequirementsInfo2-sType-sType"></a>
-  VUID-VkBufferMemoryRequirementsInfo2-sType-sType  
-  `sType` **must** be
-  `VK_STRUCTURE_TYPE_BUFFER_MEMORY_REQUIREMENTS_INFO_2`
-
-- <a href="#VUID-VkBufferMemoryRequirementsInfo2-pNext-pNext"
-  id="VUID-VkBufferMemoryRequirementsInfo2-pNext-pNext"></a>
-  VUID-VkBufferMemoryRequirementsInfo2-pNext-pNext  
+- [](#VUID-VkBufferMemoryRequirementsInfo2-sType-sType)VUID-VkBufferMemoryRequirementsInfo2-sType-sType  
+  `sType` **must** be `VK_STRUCTURE_TYPE_BUFFER_MEMORY_REQUIREMENTS_INFO_2`
+- [](#VUID-VkBufferMemoryRequirementsInfo2-pNext-pNext)VUID-VkBufferMemoryRequirementsInfo2-pNext-pNext  
   `pNext` **must** be `NULL`
+- [](#VUID-VkBufferMemoryRequirementsInfo2-buffer-parameter)VUID-VkBufferMemoryRequirementsInfo2-buffer-parameter  
+  `buffer` **must** be a valid [VkBuffer](https://registry.khronos.org/vulkan/specs/latest/man/html/VkBuffer.html) handle
 
-- <a href="#VUID-VkBufferMemoryRequirementsInfo2-buffer-parameter"
-  id="VUID-VkBufferMemoryRequirementsInfo2-buffer-parameter"></a>
-  VUID-VkBufferMemoryRequirementsInfo2-buffer-parameter  
-  `buffer` **must** be a valid [VkBuffer](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkBuffer.html) handle
+## [](#_see_also)See Also
 
-## <a href="#_see_also" class="anchor"></a>See Also
+[VK\_VERSION\_1\_1](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_VERSION_1_1.html), [VkBuffer](https://registry.khronos.org/vulkan/specs/latest/man/html/VkBuffer.html), [VkStructureType](https://registry.khronos.org/vulkan/specs/latest/man/html/VkStructureType.html), [vkGetBufferMemoryRequirements2](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetBufferMemoryRequirements2.html), [vkGetBufferMemoryRequirements2KHR](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetBufferMemoryRequirements2KHR.html)
 
-[VK_VERSION_1_1](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_VERSION_1_1.html), [VkBuffer](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkBuffer.html),
-[VkStructureType](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkStructureType.html),
-[vkGetBufferMemoryRequirements2](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkGetBufferMemoryRequirements2.html),
-[vkGetBufferMemoryRequirements2KHR](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkGetBufferMemoryRequirements2KHR.html)
+## [](#_document_notes)Document Notes
 
-## <a href="#_document_notes" class="anchor"></a>Document Notes
+For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#VkBufferMemoryRequirementsInfo2)
 
-For more information, see the <a
-href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#VkBufferMemoryRequirementsInfo2"
-target="_blank" rel="noopener">Vulkan Specification</a>
+This page is extracted from the Vulkan Specification. Fixes and changes should be made to the Specification, not directly.
 
-This page is extracted from the Vulkan Specification. Fixes and changes
-should be made to the Specification, not directly.
+## [](#_copyright)Copyright
 
-## <a href="#_copyright" class="anchor"></a>Copyright
-
-Copyright 2014-2024 The Khronos Group Inc.
+Copyright 2014-2025 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
-
-Version 1.3.290  
-Last updated 2024-07-11 23:39:16 -0700

@@ -1,442 +1,310 @@
-# VK_EXT_shader_object(3) Manual Page
+# VK\_EXT\_shader\_object(3) Manual Page
 
 ## Name
 
-VK_EXT_shader_object - device extension
+VK\_EXT\_shader\_object - device extension
 
 
 
-## <a href="#_registered_extension_number" class="anchor"></a>Registered Extension Number
+## [](#_registered_extension_number)Registered Extension Number
 
 483
 
-## <a href="#_revision" class="anchor"></a>Revision
+## [](#_revision)Revision
 
 1
 
-## <a href="#_ratification_status" class="anchor"></a>Ratification Status
+## [](#_ratification_status)Ratification Status
 
 Ratified
 
-## <a href="#_extension_and_version_dependencies" class="anchor"></a>Extension and Version Dependencies
+## [](#_extension_and_version_dependencies)Extension and Version Dependencies
 
-        
-[VK_KHR_get_physical_device_properties2](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_KHR_get_physical_device_properties2.html)  
+         [VK\_KHR\_get\_physical\_device\_properties2](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_KHR_get_physical_device_properties2.html)  
          or  
-         [Version 1.1](#versions-1.1)  
+         [Vulkan Version 1.1](#versions-1.1)  
      and  
-     [VK_KHR_dynamic_rendering](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_KHR_dynamic_rendering.html)  
+     [VK\_KHR\_dynamic\_rendering](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_KHR_dynamic_rendering.html)  
 or  
-[Version 1.3](#versions-1.3)  
+[Vulkan Version 1.3](#versions-1.3)
 
-## <a href="#_api_interactions" class="anchor"></a>API Interactions
+## [](#_api_interactions)API Interactions
 
-- Interacts with VK_VERSION_1_1
+- Interacts with VK\_VERSION\_1\_1
+- Interacts with VK\_VERSION\_1\_3
+- Interacts with VK\_EXT\_blend\_operation\_advanced
+- Interacts with VK\_EXT\_conservative\_rasterization
+- Interacts with VK\_EXT\_depth\_clamp\_control
+- Interacts with VK\_EXT\_depth\_clip\_control
+- Interacts with VK\_EXT\_depth\_clip\_enable
+- Interacts with VK\_EXT\_fragment\_density\_map
+- Interacts with VK\_EXT\_line\_rasterization
+- Interacts with VK\_EXT\_mesh\_shader
+- Interacts with VK\_EXT\_provoking\_vertex
+- Interacts with VK\_EXT\_sample\_locations
+- Interacts with VK\_EXT\_subgroup\_size\_control
+- Interacts with VK\_EXT\_transform\_feedback
+- Interacts with VK\_KHR\_device\_group
+- Interacts with VK\_KHR\_fragment\_shading\_rate
+- Interacts with VK\_NV\_clip\_space\_w\_scaling
+- Interacts with VK\_NV\_coverage\_reduction\_mode
+- Interacts with VK\_NV\_fragment\_coverage\_to\_color
+- Interacts with VK\_NV\_framebuffer\_mixed\_samples
+- Interacts with VK\_NV\_mesh\_shader
+- Interacts with VK\_NV\_representative\_fragment\_test
+- Interacts with VK\_NV\_shading\_rate\_image
+- Interacts with VK\_NV\_viewport\_swizzle
 
-- Interacts with VK_VERSION_1_3
+## [](#_contact)Contact
 
-- Interacts with VK_EXT_blend_operation_advanced
+- Daniel Story [\[GitHub\]daniel-story](https://github.com/KhronosGroup/Vulkan-Docs/issues/new?body=%5BVK_EXT_shader_object%5D%20%40daniel-story%0A%2AHere%20describe%20the%20issue%20or%20question%20you%20have%20about%20the%20VK_EXT_shader_object%20extension%2A)
 
-- Interacts with VK_EXT_conservative_rasterization
+## [](#_extension_proposal)Extension Proposal
 
-- Interacts with VK_EXT_depth_clip_control
+[VK\_EXT\_shader\_object](https://github.com/KhronosGroup/Vulkan-Docs/tree/main/proposals/VK_EXT_shader_object.adoc)
 
-- Interacts with VK_EXT_depth_clip_enable
+## [](#_other_extension_metadata)Other Extension Metadata
 
-- Interacts with VK_EXT_fragment_density_map
+**Last Modified Date**
 
-- Interacts with VK_EXT_line_rasterization
-
-- Interacts with VK_EXT_mesh_shader
-
-- Interacts with VK_EXT_provoking_vertex
-
-- Interacts with VK_EXT_sample_locations
-
-- Interacts with VK_EXT_subgroup_size_control
-
-- Interacts with VK_EXT_transform_feedback
-
-- Interacts with VK_KHR_device_group
-
-- Interacts with VK_KHR_fragment_shading_rate
-
-- Interacts with VK_NV_clip_space_w_scaling
-
-- Interacts with VK_NV_coverage_reduction_mode
-
-- Interacts with VK_NV_fragment_coverage_to_color
-
-- Interacts with VK_NV_framebuffer_mixed_samples
-
-- Interacts with VK_NV_mesh_shader
-
-- Interacts with VK_NV_representative_fragment_test
-
-- Interacts with VK_NV_shading_rate_image
-
-- Interacts with VK_NV_viewport_swizzle
-
-## <a href="#_contact" class="anchor"></a>Contact
-
-- Daniel Story <a
-  href="https://github.com/KhronosGroup/Vulkan-Docs/issues/new?body=%5BVK_EXT_shader_object%5D%20@daniel-story%0A*Here%20describe%20the%20issue%20or%20question%20you%20have%20about%20the%20VK_EXT_shader_object%20extension*"
-  target="_blank" rel="nofollow noopener"><em></em>daniel-story</a>
-
-## <a href="#_extension_proposal" class="anchor"></a>Extension Proposal
-
-[VK_EXT_shader_object](https://github.com/KhronosGroup/Vulkan-Docs/tree/main/proposals/VK_EXT_shader_object.adoc)
-
-## <a href="#_other_extension_metadata" class="anchor"></a>Other Extension Metadata
-
-**Last Modified Date**  
 2023-03-30
 
-**Interactions and External Dependencies**  
-- Interacts with
-  [`VK_EXT_extended_dynamic_state`](VK_EXT_extended_dynamic_state.html)
+**Interactions and External Dependencies**
 
-- Interacts with
-  [`VK_EXT_extended_dynamic_state2`](VK_EXT_extended_dynamic_state2.html)
+- Interacts with `VK_EXT_extended_dynamic_state`
+- Interacts with `VK_EXT_extended_dynamic_state2`
+- Interacts with `VK_EXT_extended_dynamic_state3`
+- Interacts with `VK_EXT_vertex_input_dynamic_state`
 
-- Interacts with
-  [`VK_EXT_extended_dynamic_state3`](VK_EXT_extended_dynamic_state3.html)
+**IP Status**
 
-- Interacts with
-  [`VK_EXT_vertex_input_dynamic_state`](VK_EXT_vertex_input_dynamic_state.html)
-
-**IP Status**  
 No known IP claims.
 
-**Contributors**  
+**Contributors**
+
 - Piers Daniell, NVIDIA
-
 - Sandy Jamieson, Nintendo
-
 - Žiga Markuš, LunarG
-
 - Tobias Hector, AMD
-
 - Alex Walters, Imagination
-
 - Shahbaz Youssefi, Google
-
 - Ralph Potter, Samsung
-
 - Jan-Harald Fredriksen, ARM
-
 - Connor Abott, Valve
-
 - Arseny Kapoulkine, Roblox
-
 - Patrick Doane, Activision
-
 - Jeff Leger, Qualcomm
-
 - Stu Smith, AMD
-
 - Chris Glover, Google
-
 - Ricardo Garcia, Igalia
-
 - Faith Ekstrand, Collabora
-
 - Timur Kristóf, Valve
-
-- Constantine Shablya, Collabora
-
+- Caterina Shablia, Collabora
 - Daniel Koch, NVIDIA
-
 - Alyssa Rosenzweig, Collabora
-
 - Mike Blumenkrantz, Valve
-
 - Samuel Pitoiset, Valve
-
 - Qun Lin, AMD
-
 - Spencer Fricke, LunarG
-
 - Soroush Faghihi Kashani, Imagination
 
-## <a href="#_description" class="anchor"></a>Description
+## [](#_description)Description
 
-This extension introduces a new [VkShaderEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkShaderEXT.html) object
-type which represents a single compiled shader stage. Shader objects
-provide a more flexible alternative to [VkPipeline](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkPipeline.html)
-objects, which may be helpful in certain use cases.
+This extension introduces a new [VkShaderEXT](https://registry.khronos.org/vulkan/specs/latest/man/html/VkShaderEXT.html) object type which represents a single compiled shader stage. Shader objects provide a more flexible alternative to [VkPipeline](https://registry.khronos.org/vulkan/specs/latest/man/html/VkPipeline.html) objects, which may be helpful in certain use cases.
 
-## <a href="#_new_object_types" class="anchor"></a>New Object Types
+## [](#_new_object_types)New Object Types
 
-- [VkShaderEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkShaderEXT.html)
+- [VkShaderEXT](https://registry.khronos.org/vulkan/specs/latest/man/html/VkShaderEXT.html)
 
-## <a href="#_new_commands" class="anchor"></a>New Commands
+## [](#_new_commands)New Commands
 
-- [vkCmdBindShadersEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdBindShadersEXT.html)
+- [vkCmdBindShadersEXT](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdBindShadersEXT.html)
+- [vkCmdBindVertexBuffers2EXT](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdBindVertexBuffers2EXT.html)
+- [vkCmdSetAlphaToCoverageEnableEXT](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdSetAlphaToCoverageEnableEXT.html)
+- [vkCmdSetAlphaToOneEnableEXT](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdSetAlphaToOneEnableEXT.html)
+- [vkCmdSetColorBlendEnableEXT](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdSetColorBlendEnableEXT.html)
+- [vkCmdSetColorBlendEquationEXT](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdSetColorBlendEquationEXT.html)
+- [vkCmdSetColorWriteMaskEXT](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdSetColorWriteMaskEXT.html)
+- [vkCmdSetCullModeEXT](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdSetCullModeEXT.html)
+- [vkCmdSetDepthBiasEnableEXT](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdSetDepthBiasEnableEXT.html)
+- [vkCmdSetDepthBoundsTestEnableEXT](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdSetDepthBoundsTestEnableEXT.html)
+- [vkCmdSetDepthClampEnableEXT](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdSetDepthClampEnableEXT.html)
+- [vkCmdSetDepthCompareOpEXT](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdSetDepthCompareOpEXT.html)
+- [vkCmdSetDepthTestEnableEXT](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdSetDepthTestEnableEXT.html)
+- [vkCmdSetDepthWriteEnableEXT](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdSetDepthWriteEnableEXT.html)
+- [vkCmdSetFrontFaceEXT](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdSetFrontFaceEXT.html)
+- [vkCmdSetLogicOpEXT](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdSetLogicOpEXT.html)
+- [vkCmdSetLogicOpEnableEXT](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdSetLogicOpEnableEXT.html)
+- [vkCmdSetPatchControlPointsEXT](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdSetPatchControlPointsEXT.html)
+- [vkCmdSetPolygonModeEXT](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdSetPolygonModeEXT.html)
+- [vkCmdSetPrimitiveRestartEnableEXT](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdSetPrimitiveRestartEnableEXT.html)
+- [vkCmdSetPrimitiveTopologyEXT](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdSetPrimitiveTopologyEXT.html)
+- [vkCmdSetRasterizationSamplesEXT](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdSetRasterizationSamplesEXT.html)
+- [vkCmdSetRasterizerDiscardEnableEXT](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdSetRasterizerDiscardEnableEXT.html)
+- [vkCmdSetSampleMaskEXT](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdSetSampleMaskEXT.html)
+- [vkCmdSetScissorWithCountEXT](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdSetScissorWithCountEXT.html)
+- [vkCmdSetStencilOpEXT](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdSetStencilOpEXT.html)
+- [vkCmdSetStencilTestEnableEXT](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdSetStencilTestEnableEXT.html)
+- [vkCmdSetTessellationDomainOriginEXT](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdSetTessellationDomainOriginEXT.html)
+- [vkCmdSetVertexInputEXT](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdSetVertexInputEXT.html)
+- [vkCmdSetViewportWithCountEXT](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdSetViewportWithCountEXT.html)
+- [vkCreateShadersEXT](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCreateShadersEXT.html)
+- [vkDestroyShaderEXT](https://registry.khronos.org/vulkan/specs/latest/man/html/vkDestroyShaderEXT.html)
+- [vkGetShaderBinaryDataEXT](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetShaderBinaryDataEXT.html)
 
-- [vkCmdBindVertexBuffers2EXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdBindVertexBuffers2EXT.html)
+If [VK\_EXT\_blend\_operation\_advanced](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_EXT_blend_operation_advanced.html) is supported:
 
-- [vkCmdSetAlphaToCoverageEnableEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdSetAlphaToCoverageEnableEXT.html)
+- [vkCmdSetColorBlendAdvancedEXT](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdSetColorBlendAdvancedEXT.html)
 
-- [vkCmdSetAlphaToOneEnableEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdSetAlphaToOneEnableEXT.html)
+If [VK\_EXT\_conservative\_rasterization](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_EXT_conservative_rasterization.html) is supported:
 
-- [vkCmdSetColorBlendEnableEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdSetColorBlendEnableEXT.html)
+- [vkCmdSetConservativeRasterizationModeEXT](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdSetConservativeRasterizationModeEXT.html)
+- [vkCmdSetExtraPrimitiveOverestimationSizeEXT](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdSetExtraPrimitiveOverestimationSizeEXT.html)
 
-- [vkCmdSetColorBlendEquationEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdSetColorBlendEquationEXT.html)
+If [VK\_EXT\_depth\_clamp\_control](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_EXT_depth_clamp_control.html) is supported:
 
-- [vkCmdSetColorWriteMaskEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdSetColorWriteMaskEXT.html)
+- [vkCmdSetDepthClampRangeEXT](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdSetDepthClampRangeEXT.html)
 
-- [vkCmdSetCullModeEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdSetCullModeEXT.html)
+If [VK\_EXT\_depth\_clip\_control](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_EXT_depth_clip_control.html) is supported:
 
-- [vkCmdSetDepthBiasEnableEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdSetDepthBiasEnableEXT.html)
+- [vkCmdSetDepthClipNegativeOneToOneEXT](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdSetDepthClipNegativeOneToOneEXT.html)
 
-- [vkCmdSetDepthBoundsTestEnableEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdSetDepthBoundsTestEnableEXT.html)
+If [VK\_EXT\_depth\_clip\_enable](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_EXT_depth_clip_enable.html) is supported:
 
-- [vkCmdSetDepthClampEnableEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdSetDepthClampEnableEXT.html)
+- [vkCmdSetDepthClipEnableEXT](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdSetDepthClipEnableEXT.html)
 
-- [vkCmdSetDepthCompareOpEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdSetDepthCompareOpEXT.html)
+If [VK\_EXT\_line\_rasterization](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_EXT_line_rasterization.html) is supported:
 
-- [vkCmdSetDepthTestEnableEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdSetDepthTestEnableEXT.html)
+- [vkCmdSetLineRasterizationModeEXT](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdSetLineRasterizationModeEXT.html)
+- [vkCmdSetLineStippleEnableEXT](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdSetLineStippleEnableEXT.html)
 
-- [vkCmdSetDepthWriteEnableEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdSetDepthWriteEnableEXT.html)
+If [VK\_EXT\_provoking\_vertex](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_EXT_provoking_vertex.html) is supported:
 
-- [vkCmdSetFrontFaceEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdSetFrontFaceEXT.html)
+- [vkCmdSetProvokingVertexModeEXT](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdSetProvokingVertexModeEXT.html)
 
-- [vkCmdSetLogicOpEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdSetLogicOpEXT.html)
+If [VK\_EXT\_sample\_locations](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_EXT_sample_locations.html) is supported:
 
-- [vkCmdSetLogicOpEnableEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdSetLogicOpEnableEXT.html)
+- [vkCmdSetSampleLocationsEnableEXT](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdSetSampleLocationsEnableEXT.html)
 
-- [vkCmdSetPatchControlPointsEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdSetPatchControlPointsEXT.html)
+If [VK\_EXT\_transform\_feedback](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_EXT_transform_feedback.html) is supported:
 
-- [vkCmdSetPolygonModeEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdSetPolygonModeEXT.html)
+- [vkCmdSetRasterizationStreamEXT](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdSetRasterizationStreamEXT.html)
 
-- [vkCmdSetPrimitiveRestartEnableEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdSetPrimitiveRestartEnableEXT.html)
+If [VK\_NV\_clip\_space\_w\_scaling](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_NV_clip_space_w_scaling.html) is supported:
 
-- [vkCmdSetPrimitiveTopologyEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdSetPrimitiveTopologyEXT.html)
+- [vkCmdSetViewportWScalingEnableNV](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdSetViewportWScalingEnableNV.html)
 
-- [vkCmdSetRasterizationSamplesEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdSetRasterizationSamplesEXT.html)
+If [VK\_NV\_coverage\_reduction\_mode](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_NV_coverage_reduction_mode.html) is supported:
 
-- [vkCmdSetRasterizerDiscardEnableEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdSetRasterizerDiscardEnableEXT.html)
+- [vkCmdSetCoverageReductionModeNV](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdSetCoverageReductionModeNV.html)
 
-- [vkCmdSetSampleMaskEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdSetSampleMaskEXT.html)
+If [VK\_NV\_fragment\_coverage\_to\_color](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_NV_fragment_coverage_to_color.html) is supported:
 
-- [vkCmdSetScissorWithCountEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdSetScissorWithCountEXT.html)
+- [vkCmdSetCoverageToColorEnableNV](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdSetCoverageToColorEnableNV.html)
+- [vkCmdSetCoverageToColorLocationNV](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdSetCoverageToColorLocationNV.html)
 
-- [vkCmdSetStencilOpEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdSetStencilOpEXT.html)
+If [VK\_NV\_framebuffer\_mixed\_samples](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_NV_framebuffer_mixed_samples.html) is supported:
 
-- [vkCmdSetStencilTestEnableEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdSetStencilTestEnableEXT.html)
+- [vkCmdSetCoverageModulationModeNV](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdSetCoverageModulationModeNV.html)
+- [vkCmdSetCoverageModulationTableEnableNV](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdSetCoverageModulationTableEnableNV.html)
+- [vkCmdSetCoverageModulationTableNV](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdSetCoverageModulationTableNV.html)
 
-- [vkCmdSetTessellationDomainOriginEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdSetTessellationDomainOriginEXT.html)
+If [VK\_NV\_representative\_fragment\_test](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_NV_representative_fragment_test.html) is supported:
 
-- [vkCmdSetVertexInputEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdSetVertexInputEXT.html)
+- [vkCmdSetRepresentativeFragmentTestEnableNV](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdSetRepresentativeFragmentTestEnableNV.html)
 
-- [vkCmdSetViewportWithCountEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdSetViewportWithCountEXT.html)
+If [VK\_NV\_shading\_rate\_image](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_NV_shading_rate_image.html) is supported:
 
-- [vkCreateShadersEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCreateShadersEXT.html)
+- [vkCmdSetShadingRateImageEnableNV](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdSetShadingRateImageEnableNV.html)
 
-- [vkDestroyShaderEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkDestroyShaderEXT.html)
+If [VK\_NV\_viewport\_swizzle](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_NV_viewport_swizzle.html) is supported:
 
-- [vkGetShaderBinaryDataEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkGetShaderBinaryDataEXT.html)
+- [vkCmdSetViewportSwizzleNV](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdSetViewportSwizzleNV.html)
 
-If
-[VK_EXT_blend_operation_advanced](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_EXT_blend_operation_advanced.html)
-is supported:
+## [](#_new_structures)New Structures
 
-- [vkCmdSetColorBlendAdvancedEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdSetColorBlendAdvancedEXT.html)
+- [VkColorBlendAdvancedEXT](https://registry.khronos.org/vulkan/specs/latest/man/html/VkColorBlendAdvancedEXT.html)
+- [VkColorBlendEquationEXT](https://registry.khronos.org/vulkan/specs/latest/man/html/VkColorBlendEquationEXT.html)
+- [VkShaderCreateInfoEXT](https://registry.khronos.org/vulkan/specs/latest/man/html/VkShaderCreateInfoEXT.html)
+- [VkVertexInputAttributeDescription2EXT](https://registry.khronos.org/vulkan/specs/latest/man/html/VkVertexInputAttributeDescription2EXT.html)
+- [VkVertexInputBindingDescription2EXT](https://registry.khronos.org/vulkan/specs/latest/man/html/VkVertexInputBindingDescription2EXT.html)
+- Extending [VkPhysicalDeviceFeatures2](https://registry.khronos.org/vulkan/specs/latest/man/html/VkPhysicalDeviceFeatures2.html), [VkDeviceCreateInfo](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDeviceCreateInfo.html):
+  
+  - [VkPhysicalDeviceShaderObjectFeaturesEXT](https://registry.khronos.org/vulkan/specs/latest/man/html/VkPhysicalDeviceShaderObjectFeaturesEXT.html)
+- Extending [VkPhysicalDeviceProperties2](https://registry.khronos.org/vulkan/specs/latest/man/html/VkPhysicalDeviceProperties2.html):
+  
+  - [VkPhysicalDeviceShaderObjectPropertiesEXT](https://registry.khronos.org/vulkan/specs/latest/man/html/VkPhysicalDeviceShaderObjectPropertiesEXT.html)
+- Extending [VkPipelineShaderStageCreateInfo](https://registry.khronos.org/vulkan/specs/latest/man/html/VkPipelineShaderStageCreateInfo.html), [VkShaderCreateInfoEXT](https://registry.khronos.org/vulkan/specs/latest/man/html/VkShaderCreateInfoEXT.html):
+  
+  - [VkShaderRequiredSubgroupSizeCreateInfoEXT](https://registry.khronos.org/vulkan/specs/latest/man/html/VkShaderRequiredSubgroupSizeCreateInfoEXT.html)
 
-If
-[VK_EXT_conservative_rasterization](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_EXT_conservative_rasterization.html)
-is supported:
+## [](#_new_enums)New Enums
 
-- [vkCmdSetConservativeRasterizationModeEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdSetConservativeRasterizationModeEXT.html)
+- [VkShaderCodeTypeEXT](https://registry.khronos.org/vulkan/specs/latest/man/html/VkShaderCodeTypeEXT.html)
+- [VkShaderCreateFlagBitsEXT](https://registry.khronos.org/vulkan/specs/latest/man/html/VkShaderCreateFlagBitsEXT.html)
 
-- [vkCmdSetExtraPrimitiveOverestimationSizeEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdSetExtraPrimitiveOverestimationSizeEXT.html)
+## [](#_new_bitmasks)New Bitmasks
 
-If [VK_EXT_depth_clip_control](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_EXT_depth_clip_control.html) is
-supported:
+- [VkShaderCreateFlagsEXT](https://registry.khronos.org/vulkan/specs/latest/man/html/VkShaderCreateFlagsEXT.html)
 
-- [vkCmdSetDepthClipNegativeOneToOneEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdSetDepthClipNegativeOneToOneEXT.html)
-
-If [VK_EXT_depth_clip_enable](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_EXT_depth_clip_enable.html) is
-supported:
-
-- [vkCmdSetDepthClipEnableEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdSetDepthClipEnableEXT.html)
-
-If [VK_EXT_line_rasterization](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_EXT_line_rasterization.html) is
-supported:
-
-- [vkCmdSetLineRasterizationModeEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdSetLineRasterizationModeEXT.html)
-
-- [vkCmdSetLineStippleEnableEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdSetLineStippleEnableEXT.html)
-
-If [VK_EXT_provoking_vertex](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_EXT_provoking_vertex.html) is supported:
-
-- [vkCmdSetProvokingVertexModeEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdSetProvokingVertexModeEXT.html)
-
-If [VK_EXT_sample_locations](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_EXT_sample_locations.html) is supported:
-
-- [vkCmdSetSampleLocationsEnableEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdSetSampleLocationsEnableEXT.html)
-
-If [VK_EXT_transform_feedback](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_EXT_transform_feedback.html) is
-supported:
-
-- [vkCmdSetRasterizationStreamEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdSetRasterizationStreamEXT.html)
-
-If [VK_NV_clip_space_w_scaling](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_NV_clip_space_w_scaling.html) is
-supported:
-
-- [vkCmdSetViewportWScalingEnableNV](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdSetViewportWScalingEnableNV.html)
-
-If [VK_NV_coverage_reduction_mode](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_NV_coverage_reduction_mode.html)
-is supported:
-
-- [vkCmdSetCoverageReductionModeNV](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdSetCoverageReductionModeNV.html)
-
-If
-[VK_NV_fragment_coverage_to_color](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_NV_fragment_coverage_to_color.html)
-is supported:
-
-- [vkCmdSetCoverageToColorEnableNV](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdSetCoverageToColorEnableNV.html)
-
-- [vkCmdSetCoverageToColorLocationNV](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdSetCoverageToColorLocationNV.html)
-
-If
-[VK_NV_framebuffer_mixed_samples](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_NV_framebuffer_mixed_samples.html)
-is supported:
-
-- [vkCmdSetCoverageModulationModeNV](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdSetCoverageModulationModeNV.html)
-
-- [vkCmdSetCoverageModulationTableEnableNV](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdSetCoverageModulationTableEnableNV.html)
-
-- [vkCmdSetCoverageModulationTableNV](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdSetCoverageModulationTableNV.html)
-
-If
-[VK_NV_representative_fragment_test](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_NV_representative_fragment_test.html)
-is supported:
-
-- [vkCmdSetRepresentativeFragmentTestEnableNV](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdSetRepresentativeFragmentTestEnableNV.html)
-
-If [VK_NV_shading_rate_image](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_NV_shading_rate_image.html) is
-supported:
-
-- [vkCmdSetShadingRateImageEnableNV](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdSetShadingRateImageEnableNV.html)
-
-If [VK_NV_viewport_swizzle](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_NV_viewport_swizzle.html) is supported:
-
-- [vkCmdSetViewportSwizzleNV](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdSetViewportSwizzleNV.html)
-
-## <a href="#_new_structures" class="anchor"></a>New Structures
-
-- [VkColorBlendAdvancedEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkColorBlendAdvancedEXT.html)
-
-- [VkColorBlendEquationEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkColorBlendEquationEXT.html)
-
-- [VkShaderCreateInfoEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkShaderCreateInfoEXT.html)
-
-- [VkVertexInputAttributeDescription2EXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkVertexInputAttributeDescription2EXT.html)
-
-- [VkVertexInputBindingDescription2EXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkVertexInputBindingDescription2EXT.html)
-
-- Extending [VkPhysicalDeviceFeatures2](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkPhysicalDeviceFeatures2.html),
-  [VkDeviceCreateInfo](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkDeviceCreateInfo.html):
-
-  - [VkPhysicalDeviceShaderObjectFeaturesEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkPhysicalDeviceShaderObjectFeaturesEXT.html)
-
-- Extending
-  [VkPhysicalDeviceProperties2](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkPhysicalDeviceProperties2.html):
-
-  - [VkPhysicalDeviceShaderObjectPropertiesEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkPhysicalDeviceShaderObjectPropertiesEXT.html)
-
-- Extending
-  [VkPipelineShaderStageCreateInfo](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkPipelineShaderStageCreateInfo.html),
-  [VkShaderCreateInfoEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkShaderCreateInfoEXT.html):
-
-  - [VkShaderRequiredSubgroupSizeCreateInfoEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkShaderRequiredSubgroupSizeCreateInfoEXT.html)
-
-## <a href="#_new_enums" class="anchor"></a>New Enums
-
-- [VkShaderCodeTypeEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkShaderCodeTypeEXT.html)
-
-- [VkShaderCreateFlagBitsEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkShaderCreateFlagBitsEXT.html)
-
-## <a href="#_new_bitmasks" class="anchor"></a>New Bitmasks
-
-- [VkShaderCreateFlagsEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkShaderCreateFlagsEXT.html)
-
-## <a href="#_new_enum_constants" class="anchor"></a>New Enum Constants
+## [](#_new_enum_constants)New Enum Constants
 
 - `VK_EXT_SHADER_OBJECT_EXTENSION_NAME`
-
 - `VK_EXT_SHADER_OBJECT_SPEC_VERSION`
-
-- Extending [VkObjectType](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkObjectType.html):
-
+- Extending [VkObjectType](https://registry.khronos.org/vulkan/specs/latest/man/html/VkObjectType.html):
+  
   - `VK_OBJECT_TYPE_SHADER_EXT`
-
-- Extending [VkResult](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkResult.html):
-
+- Extending [VkResult](https://registry.khronos.org/vulkan/specs/latest/man/html/VkResult.html):
+  
   - `VK_ERROR_INCOMPATIBLE_SHADER_BINARY_EXT`
-
   - `VK_INCOMPATIBLE_SHADER_BINARY_EXT`
-
-- Extending [VkStructureType](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkStructureType.html):
-
+- Extending [VkStructureType](https://registry.khronos.org/vulkan/specs/latest/man/html/VkStructureType.html):
+  
   - `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SHADER_OBJECT_FEATURES_EXT`
-
   - `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SHADER_OBJECT_PROPERTIES_EXT`
-
   - `VK_STRUCTURE_TYPE_SHADER_CREATE_INFO_EXT`
-
   - `VK_STRUCTURE_TYPE_SHADER_REQUIRED_SUBGROUP_SIZE_CREATE_INFO_EXT`
-
   - `VK_STRUCTURE_TYPE_VERTEX_INPUT_ATTRIBUTE_DESCRIPTION_2_EXT`
-
   - `VK_STRUCTURE_TYPE_VERTEX_INPUT_BINDING_DESCRIPTION_2_EXT`
 
-If [VK_EXT_fragment_density_map](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_EXT_fragment_density_map.html) is
-supported:
+If [VK\_EXT\_fragment\_density\_map](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_EXT_fragment_density_map.html) is supported:
 
-- Extending [VkShaderCreateFlagBitsEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkShaderCreateFlagBitsEXT.html):
-
+- Extending [VkShaderCreateFlagBitsEXT](https://registry.khronos.org/vulkan/specs/latest/man/html/VkShaderCreateFlagBitsEXT.html):
+  
   - `VK_SHADER_CREATE_FRAGMENT_DENSITY_MAP_ATTACHMENT_BIT_EXT`
 
-If [VK_EXT_mesh_shader](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_EXT_mesh_shader.html) or
-[VK_NV_mesh_shader](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_NV_mesh_shader.html) is supported:
+If [VK\_EXT\_mesh\_shader](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_EXT_mesh_shader.html) or [VK\_NV\_mesh\_shader](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_NV_mesh_shader.html) is supported:
 
-- Extending [VkShaderCreateFlagBitsEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkShaderCreateFlagBitsEXT.html):
-
+- Extending [VkShaderCreateFlagBitsEXT](https://registry.khronos.org/vulkan/specs/latest/man/html/VkShaderCreateFlagBitsEXT.html):
+  
   - `VK_SHADER_CREATE_NO_TASK_SHADER_BIT_EXT`
 
-If [VK_EXT_subgroup_size_control](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_EXT_subgroup_size_control.html) or
-[Version 1.3](#versions-1.3) is supported:
+If [VK\_EXT\_subgroup\_size\_control](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_EXT_subgroup_size_control.html) or [Vulkan Version 1.3](#versions-1.3) is supported:
 
-- Extending [VkShaderCreateFlagBitsEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkShaderCreateFlagBitsEXT.html):
-
+- Extending [VkShaderCreateFlagBitsEXT](https://registry.khronos.org/vulkan/specs/latest/man/html/VkShaderCreateFlagBitsEXT.html):
+  
   - `VK_SHADER_CREATE_ALLOW_VARYING_SUBGROUP_SIZE_BIT_EXT`
-
   - `VK_SHADER_CREATE_REQUIRE_FULL_SUBGROUPS_BIT_EXT`
 
-If [VK_KHR_device_group](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_KHR_device_group.html) or [Version
-1.1](#versions-1.1) is supported:
+If [VK\_KHR\_device\_group](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_KHR_device_group.html) or [Vulkan Version 1.1](#versions-1.1) is supported:
 
-- Extending [VkShaderCreateFlagBitsEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkShaderCreateFlagBitsEXT.html):
-
+- Extending [VkShaderCreateFlagBitsEXT](https://registry.khronos.org/vulkan/specs/latest/man/html/VkShaderCreateFlagBitsEXT.html):
+  
   - `VK_SHADER_CREATE_DISPATCH_BASE_BIT_EXT`
 
-If [VK_KHR_fragment_shading_rate](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_KHR_fragment_shading_rate.html) is
-supported:
+If [VK\_KHR\_fragment\_shading\_rate](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_KHR_fragment_shading_rate.html) is supported:
 
-- Extending [VkShaderCreateFlagBitsEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkShaderCreateFlagBitsEXT.html):
-
+- Extending [VkShaderCreateFlagBitsEXT](https://registry.khronos.org/vulkan/specs/latest/man/html/VkShaderCreateFlagBitsEXT.html):
+  
   - `VK_SHADER_CREATE_FRAGMENT_SHADING_RATE_ATTACHMENT_BIT_EXT`
 
-## <a href="#_examples" class="anchor"></a>Examples
+## [](#_examples)Examples
 
 **Example 1**
 
 Create linked pair of vertex and fragment shaders.
 
-``` c
+```c++
 // Logical device created with the shaderObject feature enabled
 VkDevice device;
 
@@ -497,10 +365,9 @@ if (result != VK_SUCCESS)
 }
 ```
 
-Later, during command buffer recording, bind the linked shaders and
-draw.
+Later, during command buffer recording, bind the linked shaders and draw.
 
-``` c
+```c++
 // Command buffer in the recording state
 VkCommandBuffer commandBuffer;
 
@@ -552,7 +419,7 @@ vkCmdDraw(commandBuffer, 3, 1, 0, 0);
 
 Create unlinked vertex, geometry, and fragment shaders.
 
-``` c
+```c++
 // Logical device created with the shaderObject feature enabled
 VkDevice device;
 
@@ -668,10 +535,9 @@ if (result != VK_SUCCESS)
 }
 ```
 
-Later, during command buffer recording, bind the linked shaders in
-different combinations and draw.
+Later, during command buffer recording, bind the linked shaders in different combinations and draw.
 
-``` c
+```c++
 // Command buffer in the recording state
 VkCommandBuffer commandBuffer;
 
@@ -723,30 +589,24 @@ vkCmdBindShadersEXT(commandBuffer, 1, &vertexStage, &shaders[4]);
 vkCmdDraw(commandBuffer, 3, 1, 0, 0);
 ```
 
-## <a href="#_version_history" class="anchor"></a>Version History
+## [](#_version_history)Version History
 
 - Revision 1, 2023-03-30 (Daniel Story)
-
+  
   - Initial draft
 
-## <a href="#_see_also" class="anchor"></a>See Also
+## [](#_see_also)See Also
 
 No cross-references are available
 
-## <a href="#_document_notes" class="anchor"></a>Document Notes
+## [](#_document_notes)Document Notes
 
-For more information, see the <a
-href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#VK_EXT_shader_object"
-target="_blank" rel="noopener">Vulkan Specification</a>
+For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#VK_EXT_shader_object)
 
-This page is a generated document. Fixes and changes should be made to
-the generator scripts, not directly.
+This page is a generated document. Fixes and changes should be made to the generator scripts, not directly.
 
-## <a href="#_copyright" class="anchor"></a>Copyright
+## [](#_copyright)Copyright
 
-Copyright 2014-2024 The Khronos Group Inc.
+Copyright 2014-2025 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
-
-Version 1.3.290  
-Last updated 2024-07-11 23:39:16 -0700

@@ -2,17 +2,15 @@
 
 ## Name
 
-VkVertexInputBindingDescription - Structure specifying vertex input
-binding description
+VkVertexInputBindingDescription - Structure specifying vertex input binding description
 
 
 
-## <a href="#_c_specification" class="anchor"></a>C Specification
+## [](#_c_specification)C Specification
 
-Each vertex input binding is specified by the
-`VkVertexInputBindingDescription` structure, defined as:
+Each vertex input binding is specified by the `VkVertexInputBindingDescription` structure, defined as:
 
-``` c
+```c++
 // Provided by VK_VERSION_1_0
 typedef struct VkVertexInputBindingDescription {
     uint32_t             binding;
@@ -21,69 +19,40 @@ typedef struct VkVertexInputBindingDescription {
 } VkVertexInputBindingDescription;
 ```
 
-## <a href="#_members" class="anchor"></a>Members
+## [](#_members)Members
 
 - `binding` is the binding number that this structure describes.
+- `stride` is the byte stride between consecutive elements within the buffer.
+- `inputRate` is a [VkVertexInputRate](https://registry.khronos.org/vulkan/specs/latest/man/html/VkVertexInputRate.html) value specifying whether vertex attribute addressing is a function of the vertex index or of the instance index.
 
-- `stride` is the byte stride between consecutive elements within the
-  buffer.
-
-- `inputRate` is a [VkVertexInputRate](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkVertexInputRate.html) value
-  specifying whether vertex attribute addressing is a function of the
-  vertex index or of the instance index.
-
-## <a href="#_description" class="anchor"></a>Description
+## [](#_description)Description
 
 Valid Usage
 
-- <a href="#VUID-VkVertexInputBindingDescription-binding-00618"
-  id="VUID-VkVertexInputBindingDescription-binding-00618"></a>
-  VUID-VkVertexInputBindingDescription-binding-00618  
-  `binding` **must** be less than
-  `VkPhysicalDeviceLimits`::`maxVertexInputBindings`
-
-- <a href="#VUID-VkVertexInputBindingDescription-stride-00619"
-  id="VUID-VkVertexInputBindingDescription-stride-00619"></a>
-  VUID-VkVertexInputBindingDescription-stride-00619  
-  `stride` **must** be less than or equal to
-  `VkPhysicalDeviceLimits`::`maxVertexInputBindingStride`
-
-- <a href="#VUID-VkVertexInputBindingDescription-stride-04456"
-  id="VUID-VkVertexInputBindingDescription-stride-04456"></a>
-  VUID-VkVertexInputBindingDescription-stride-04456  
-  If the [`VK_KHR_portability_subset`](VK_KHR_portability_subset.html)
-  extension is enabled, `stride` **must** be a multiple of, and at least
-  as large as,
-  [VkPhysicalDevicePortabilitySubsetPropertiesKHR](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkPhysicalDevicePortabilitySubsetPropertiesKHR.html)::`minVertexInputBindingStrideAlignment`
+- [](#VUID-VkVertexInputBindingDescription-binding-00618)VUID-VkVertexInputBindingDescription-binding-00618  
+  `binding` **must** be less than `VkPhysicalDeviceLimits`::`maxVertexInputBindings`
+- [](#VUID-VkVertexInputBindingDescription-stride-00619)VUID-VkVertexInputBindingDescription-stride-00619  
+  `stride` **must** be less than or equal to `VkPhysicalDeviceLimits`::`maxVertexInputBindingStride`
+- [](#VUID-VkVertexInputBindingDescription-stride-04456)VUID-VkVertexInputBindingDescription-stride-04456  
+  If the `VK_KHR_portability_subset` extension is enabled, `stride` **must** be a multiple of, and at least as large as, [VkPhysicalDevicePortabilitySubsetPropertiesKHR](https://registry.khronos.org/vulkan/specs/latest/man/html/VkPhysicalDevicePortabilitySubsetPropertiesKHR.html)::`minVertexInputBindingStrideAlignment`
 
 Valid Usage (Implicit)
 
-- <a href="#VUID-VkVertexInputBindingDescription-inputRate-parameter"
-  id="VUID-VkVertexInputBindingDescription-inputRate-parameter"></a>
-  VUID-VkVertexInputBindingDescription-inputRate-parameter  
-  `inputRate` **must** be a valid
-  [VkVertexInputRate](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkVertexInputRate.html) value
+- [](#VUID-VkVertexInputBindingDescription-inputRate-parameter)VUID-VkVertexInputBindingDescription-inputRate-parameter  
+  `inputRate` **must** be a valid [VkVertexInputRate](https://registry.khronos.org/vulkan/specs/latest/man/html/VkVertexInputRate.html) value
 
-## <a href="#_see_also" class="anchor"></a>See Also
+## [](#_see_also)See Also
 
-[VK_VERSION_1_0](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_VERSION_1_0.html),
-[VkPipelineVertexInputStateCreateInfo](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkPipelineVertexInputStateCreateInfo.html),
-[VkVertexInputRate](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkVertexInputRate.html)
+[VK\_VERSION\_1\_0](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_VERSION_1_0.html), [VkPipelineVertexInputStateCreateInfo](https://registry.khronos.org/vulkan/specs/latest/man/html/VkPipelineVertexInputStateCreateInfo.html), [VkVertexInputRate](https://registry.khronos.org/vulkan/specs/latest/man/html/VkVertexInputRate.html)
 
-## <a href="#_document_notes" class="anchor"></a>Document Notes
+## [](#_document_notes)Document Notes
 
-For more information, see the <a
-href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#VkVertexInputBindingDescription"
-target="_blank" rel="noopener">Vulkan Specification</a>
+For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#VkVertexInputBindingDescription)
 
-This page is extracted from the Vulkan Specification. Fixes and changes
-should be made to the Specification, not directly.
+This page is extracted from the Vulkan Specification. Fixes and changes should be made to the Specification, not directly.
 
-## <a href="#_copyright" class="anchor"></a>Copyright
+## [](#_copyright)Copyright
 
-Copyright 2014-2024 The Khronos Group Inc.
+Copyright 2014-2025 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
-
-Version 1.3.290  
-Last updated 2024-07-11 23:39:16 -0700

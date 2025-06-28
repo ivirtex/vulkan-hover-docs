@@ -6,11 +6,11 @@ VkQueryLowLatencySupportNV - Structure used for NVIDIA Reflex Support
 
 
 
-## <a href="#_c_specification" class="anchor"></a>C Specification
+## [](#_c_specification)C Specification
 
 The `VkQueryLowLatencySupportNV` structure is defined as:
 
-``` c
+```c++
 // Provided by VK_NV_low_latency
 typedef struct VkQueryLowLatencySupportNV {
     VkStructureType    sType;
@@ -19,52 +19,35 @@ typedef struct VkQueryLowLatencySupportNV {
 } VkQueryLowLatencySupportNV;
 ```
 
-## <a href="#_members" class="anchor"></a>Members
+## [](#_members)Members
 
 This structure describes the following feature:
 
-- `sType` is a [VkStructureType](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkStructureType.html) value identifying
-  this structure.
-
-- `pNext` is `NULL` or a pointer to a structure extending this
-  structure.
-
+- `sType` is a [VkStructureType](https://registry.khronos.org/vulkan/specs/latest/man/html/VkStructureType.html) value identifying this structure.
+- `pNext` is `NULL` or a pointer to a structure extending this structure.
 - `pQueriedLowLatencyData` is used for NVIDIA Reflex Support.
 
-## <a href="#_description" class="anchor"></a>Description
+## [](#_description)Description
 
 Valid Usage (Implicit)
 
-- <a href="#VUID-VkQueryLowLatencySupportNV-sType-sType"
-  id="VUID-VkQueryLowLatencySupportNV-sType-sType"></a>
-  VUID-VkQueryLowLatencySupportNV-sType-sType  
+- [](#VUID-VkQueryLowLatencySupportNV-sType-sType)VUID-VkQueryLowLatencySupportNV-sType-sType  
   `sType` **must** be `VK_STRUCTURE_TYPE_QUERY_LOW_LATENCY_SUPPORT_NV`
-
-- <a
-  href="#VUID-VkQueryLowLatencySupportNV-pQueriedLowLatencyData-parameter"
-  id="VUID-VkQueryLowLatencySupportNV-pQueriedLowLatencyData-parameter"></a>
-  VUID-VkQueryLowLatencySupportNV-pQueriedLowLatencyData-parameter  
+- [](#VUID-VkQueryLowLatencySupportNV-pQueriedLowLatencyData-parameter)VUID-VkQueryLowLatencySupportNV-pQueriedLowLatencyData-parameter  
   `pQueriedLowLatencyData` **must** be a pointer value
 
-## <a href="#_see_also" class="anchor"></a>See Also
+## [](#_see_also)See Also
 
-[VK_NV_low_latency](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_NV_low_latency.html),
-[VkStructureType](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkStructureType.html)
+[VK\_NV\_low\_latency](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_NV_low_latency.html), [VkStructureType](https://registry.khronos.org/vulkan/specs/latest/man/html/VkStructureType.html)
 
-## <a href="#_document_notes" class="anchor"></a>Document Notes
+## [](#_document_notes)Document Notes
 
-For more information, see the <a
-href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#VkQueryLowLatencySupportNV"
-target="_blank" rel="noopener">Vulkan Specification</a>
+For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#VkQueryLowLatencySupportNV)
 
-This page is extracted from the Vulkan Specification. Fixes and changes
-should be made to the Specification, not directly.
+This page is extracted from the Vulkan Specification. Fixes and changes should be made to the Specification, not directly.
 
-## <a href="#_copyright" class="anchor"></a>Copyright
+## [](#_copyright)Copyright
 
-Copyright 2014-2024 The Khronos Group Inc.
+Copyright 2014-2025 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
-
-Version 1.3.290  
-Last updated 2024-07-11 23:39:16 -0700

@@ -2,30 +2,17 @@
 
 ## Name
 
-VkDescriptorPoolInlineUniformBlockCreateInfo - Structure specifying the
-maximum number of inline uniform block bindings of a newly created
-descriptor pool
+VkDescriptorPoolInlineUniformBlockCreateInfo - Structure specifying the maximum number of inline uniform block bindings of a newly created descriptor pool
 
 
 
-## <a href="#_c_specification" class="anchor"></a>C Specification
+## [](#_c_specification)C Specification
 
-In order to be able to allocate descriptor sets having <a
-href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#descriptorsets-inlineuniformblock"
-target="_blank" rel="noopener">inline uniform block</a> bindings the
-descriptor pool **must** be created with specifying the inline uniform
-block binding capacity of the descriptor pool, in addition to the total
-inline uniform data capacity in bytes which is specified through a
-[VkDescriptorPoolSize](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkDescriptorPoolSize.html) structure with a
-`descriptorType` value of `VK_DESCRIPTOR_TYPE_INLINE_UNIFORM_BLOCK`.
-This **can** be done by adding a
-`VkDescriptorPoolInlineUniformBlockCreateInfo` structure to the `pNext`
-chain of [VkDescriptorPoolCreateInfo](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkDescriptorPoolCreateInfo.html).
+In order to be able to allocate descriptor sets having [inline uniform block](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#descriptorsets-inlineuniformblock) bindings the descriptor pool **must** be created with specifying the inline uniform block binding capacity of the descriptor pool, in addition to the total inline uniform data capacity in bytes which is specified through a [VkDescriptorPoolSize](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDescriptorPoolSize.html) structure with a `descriptorType` value of `VK_DESCRIPTOR_TYPE_INLINE_UNIFORM_BLOCK`. This **can** be done by adding a `VkDescriptorPoolInlineUniformBlockCreateInfo` structure to the `pNext` chain of [VkDescriptorPoolCreateInfo](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDescriptorPoolCreateInfo.html).
 
-The `VkDescriptorPoolInlineUniformBlockCreateInfo` structure is defined
-as:
+The `VkDescriptorPoolInlineUniformBlockCreateInfo` structure is defined as:
 
-``` c
+```c++
 // Provided by VK_VERSION_1_3
 typedef struct VkDescriptorPoolInlineUniformBlockCreateInfo {
     VkStructureType    sType;
@@ -36,52 +23,36 @@ typedef struct VkDescriptorPoolInlineUniformBlockCreateInfo {
 
 or the equivalent
 
-``` c
+```c++
 // Provided by VK_EXT_inline_uniform_block
 typedef VkDescriptorPoolInlineUniformBlockCreateInfo VkDescriptorPoolInlineUniformBlockCreateInfoEXT;
 ```
 
-## <a href="#_members" class="anchor"></a>Members
+## [](#_members)Members
 
-- `sType` is a [VkStructureType](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkStructureType.html) value identifying
-  this structure.
+- `sType` is a [VkStructureType](https://registry.khronos.org/vulkan/specs/latest/man/html/VkStructureType.html) value identifying this structure.
+- `pNext` is `NULL` or a pointer to a structure extending this structure.
+- `maxInlineUniformBlockBindings` is the number of inline uniform block bindings to allocate.
 
-- `pNext` is `NULL` or a pointer to a structure extending this
-  structure.
-
-- `maxInlineUniformBlockBindings` is the number of inline uniform block
-  bindings to allocate.
-
-## <a href="#_description" class="anchor"></a>Description
+## [](#_description)Description
 
 Valid Usage (Implicit)
 
-- <a href="#VUID-VkDescriptorPoolInlineUniformBlockCreateInfo-sType-sType"
-  id="VUID-VkDescriptorPoolInlineUniformBlockCreateInfo-sType-sType"></a>
-  VUID-VkDescriptorPoolInlineUniformBlockCreateInfo-sType-sType  
-  `sType` **must** be
-  `VK_STRUCTURE_TYPE_DESCRIPTOR_POOL_INLINE_UNIFORM_BLOCK_CREATE_INFO`
+- [](#VUID-VkDescriptorPoolInlineUniformBlockCreateInfo-sType-sType)VUID-VkDescriptorPoolInlineUniformBlockCreateInfo-sType-sType  
+  `sType` **must** be `VK_STRUCTURE_TYPE_DESCRIPTOR_POOL_INLINE_UNIFORM_BLOCK_CREATE_INFO`
 
-## <a href="#_see_also" class="anchor"></a>See Also
+## [](#_see_also)See Also
 
-[VK_EXT_inline_uniform_block](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_EXT_inline_uniform_block.html),
-[VK_VERSION_1_3](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_VERSION_1_3.html),
-[VkStructureType](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkStructureType.html)
+[VK\_EXT\_inline\_uniform\_block](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_EXT_inline_uniform_block.html), [VK\_VERSION\_1\_3](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_VERSION_1_3.html), [VkStructureType](https://registry.khronos.org/vulkan/specs/latest/man/html/VkStructureType.html)
 
-## <a href="#_document_notes" class="anchor"></a>Document Notes
+## [](#_document_notes)Document Notes
 
-For more information, see the <a
-href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#VkDescriptorPoolInlineUniformBlockCreateInfo"
-target="_blank" rel="noopener">Vulkan Specification</a>
+For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#VkDescriptorPoolInlineUniformBlockCreateInfo)
 
-This page is extracted from the Vulkan Specification. Fixes and changes
-should be made to the Specification, not directly.
+This page is extracted from the Vulkan Specification. Fixes and changes should be made to the Specification, not directly.
 
-## <a href="#_copyright" class="anchor"></a>Copyright
+## [](#_copyright)Copyright
 
-Copyright 2014-2024 The Khronos Group Inc.
+Copyright 2014-2025 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
-
-Version 1.3.290  
-Last updated 2024-07-11 23:39:16 -0700

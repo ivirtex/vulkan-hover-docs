@@ -6,47 +6,31 @@ ShaderIndexAMDX - Index assigned to the shader within the workgraph
 
 
 
-## <a href="#_description" class="anchor"></a>Description
+## [](#_description)Description
 
-`ShaderIndexAMDX`  
-Decorating a variable with the `ShaderIndexAMDX` built-in decoration
-will make that variable contain the index of the shader specified when
-it was compiled, either via
-[VkPipelineShaderStageNodeCreateInfoAMDX](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkPipelineShaderStageNodeCreateInfoAMDX.html)::`index`
-or by the `ShaderIndexAMDX` execution mode.
+`ShaderIndexAMDX`
+
+Decorating a variable with the `ShaderIndexAMDX` built-in decoration will make that variable contain the index of the shader specified when it was compiled, either via [VkPipelineShaderStageNodeCreateInfoAMDX](https://registry.khronos.org/vulkan/specs/latest/man/html/VkPipelineShaderStageNodeCreateInfoAMDX.html)::`index` or by the `ShaderIndexAMDX` execution mode.
 
 Valid Usage
 
-- <a href="#VUID-ShaderIndexAMDX-ShaderIndexAMDX-09175"
-  id="VUID-ShaderIndexAMDX-ShaderIndexAMDX-09175"></a>
-  VUID-ShaderIndexAMDX-ShaderIndexAMDX-09175  
-  The variable decorated with `ShaderIndexAMDX` **must** be declared
-  using the `Input` `Storage` `Class`
+- [](#VUID-ShaderIndexAMDX-ShaderIndexAMDX-09175)VUID-ShaderIndexAMDX-ShaderIndexAMDX-09175  
+  The variable decorated with `ShaderIndexAMDX` **must** be declared using the `Input` `Storage` `Class`
+- [](#VUID-ShaderIndexAMDX-ShaderIndexAMDX-09176)VUID-ShaderIndexAMDX-ShaderIndexAMDX-09176  
+  The variable decorated with `ShaderIndexAMDX` **must** be declared as a scalar 32-bit integer value
 
-- <a href="#VUID-ShaderIndexAMDX-ShaderIndexAMDX-09176"
-  id="VUID-ShaderIndexAMDX-ShaderIndexAMDX-09176"></a>
-  VUID-ShaderIndexAMDX-ShaderIndexAMDX-09176  
-  The variable decorated with `ShaderIndexAMDX` **must** be declared as
-  a scalar 32-bit integer value
-
-## <a href="#_see_also" class="anchor"></a>See Also
+## [](#_see_also)See Also
 
 No cross-references are available
 
-## <a href="#_document_notes" class="anchor"></a>Document Notes
+## [](#_document_notes)Document Notes
 
-For more information, see the <a
-href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#ShaderIndexAMDX"
-target="_blank" rel="noopener">Vulkan Specification</a>
+For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#ShaderIndexAMDX)
 
-This page is extracted from the Vulkan Specification. Fixes and changes
-should be made to the Specification, not directly.
+This page is extracted from the Vulkan Specification. Fixes and changes should be made to the Specification, not directly.
 
-## <a href="#_copyright" class="anchor"></a>Copyright
+## [](#_copyright)Copyright
 
-Copyright 2014-2024 The Khronos Group Inc.
+Copyright 2014-2025 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
-
-Version 1.3.290  
-Last updated 2024-07-11 23:39:16 -0700

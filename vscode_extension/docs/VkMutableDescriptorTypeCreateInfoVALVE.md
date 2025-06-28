@@ -2,24 +2,17 @@
 
 ## Name
 
-VkMutableDescriptorTypeCreateInfoEXT - Structure describing the list of
-possible active descriptor types for mutable type descriptors
+VkMutableDescriptorTypeCreateInfoEXT - Structure describing the list of possible active descriptor types for mutable type descriptors
 
 
 
-## <a href="#_c_specification" class="anchor"></a>C Specification
+## [](#_c_specification)C Specification
 
-If the `pNext` chain of a
-[VkDescriptorSetLayoutCreateInfo](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkDescriptorSetLayoutCreateInfo.html)
-or [VkDescriptorPoolCreateInfo](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkDescriptorPoolCreateInfo.html)
-structure includes a
-[VkMutableDescriptorTypeCreateInfoEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkMutableDescriptorTypeCreateInfoEXT.html)
-structure, then that structure specifies Information about the possible
-descriptor types for mutable descriptor types.
+If the `pNext` chain of a [VkDescriptorSetLayoutCreateInfo](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDescriptorSetLayoutCreateInfo.html) or [VkDescriptorPoolCreateInfo](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDescriptorPoolCreateInfo.html) structure includes a [VkMutableDescriptorTypeCreateInfoEXT](https://registry.khronos.org/vulkan/specs/latest/man/html/VkMutableDescriptorTypeCreateInfoEXT.html) structure, then that structure specifies Information about the possible descriptor types for mutable descriptor types.
 
 The `VkMutableDescriptorTypeCreateInfoEXT` structure is defined as:
 
-``` c
+```c++
 // Provided by VK_EXT_mutable_descriptor_type
 typedef struct VkMutableDescriptorTypeCreateInfoEXT {
     VkStructureType                          sType;
@@ -31,75 +24,41 @@ typedef struct VkMutableDescriptorTypeCreateInfoEXT {
 
 or the equivalent
 
-``` c
+```c++
 // Provided by VK_VALVE_mutable_descriptor_type
 typedef VkMutableDescriptorTypeCreateInfoEXT VkMutableDescriptorTypeCreateInfoVALVE;
 ```
 
-## <a href="#_members" class="anchor"></a>Members
+## [](#_members)Members
 
-- `sType` is a [VkStructureType](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkStructureType.html) value identifying
-  this structure.
+- `sType` is a [VkStructureType](https://registry.khronos.org/vulkan/specs/latest/man/html/VkStructureType.html) value identifying this structure.
+- `pNext` is `NULL` or a pointer to a structure extending this structure.
+- `mutableDescriptorTypeListCount` is the number of elements in `pMutableDescriptorTypeLists`.
+- `pMutableDescriptorTypeLists` is a pointer to an array of `VkMutableDescriptorTypeListEXT` structures.
 
-- `pNext` is `NULL` or a pointer to a structure extending this
-  structure.
+## [](#_description)Description
 
-- `mutableDescriptorTypeListCount` is the number of elements in
-  `pMutableDescriptorTypeLists`.
-
-- `pMutableDescriptorTypeLists` is a pointer to an array of
-  `VkMutableDescriptorTypeListEXT` structures.
-
-## <a href="#_description" class="anchor"></a>Description
-
-If `mutableDescriptorTypeListCount` is zero or if this structure is not
-included in the `pNext` chain, the
-[VkMutableDescriptorTypeListEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkMutableDescriptorTypeListEXT.html)
-for each element is considered to be zero or `NULL` for each member.
-Otherwise, the descriptor set layout binding at
-[VkDescriptorSetLayoutCreateInfo](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkDescriptorSetLayoutCreateInfo.html)::`pBindings`\[i\]
-uses the descriptor type lists in
-[VkMutableDescriptorTypeCreateInfoEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkMutableDescriptorTypeCreateInfoEXT.html)::`pMutableDescriptorTypeLists`\[i\].
+If `mutableDescriptorTypeListCount` is zero or if this structure is not included in the `pNext` chain, the [VkMutableDescriptorTypeListEXT](https://registry.khronos.org/vulkan/specs/latest/man/html/VkMutableDescriptorTypeListEXT.html) for each element is considered to be zero or `NULL` for each member. Otherwise, the descriptor set layout binding at [VkDescriptorSetLayoutCreateInfo](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDescriptorSetLayoutCreateInfo.html)::`pBindings`\[i] uses the descriptor type lists in [VkMutableDescriptorTypeCreateInfoEXT](https://registry.khronos.org/vulkan/specs/latest/man/html/VkMutableDescriptorTypeCreateInfoEXT.html)::`pMutableDescriptorTypeLists`\[i].
 
 Valid Usage (Implicit)
 
-- <a href="#VUID-VkMutableDescriptorTypeCreateInfoEXT-sType-sType"
-  id="VUID-VkMutableDescriptorTypeCreateInfoEXT-sType-sType"></a>
-  VUID-VkMutableDescriptorTypeCreateInfoEXT-sType-sType  
-  `sType` **must** be
-  `VK_STRUCTURE_TYPE_MUTABLE_DESCRIPTOR_TYPE_CREATE_INFO_EXT`
+- [](#VUID-VkMutableDescriptorTypeCreateInfoEXT-sType-sType)VUID-VkMutableDescriptorTypeCreateInfoEXT-sType-sType  
+  `sType` **must** be `VK_STRUCTURE_TYPE_MUTABLE_DESCRIPTOR_TYPE_CREATE_INFO_EXT`
+- [](#VUID-VkMutableDescriptorTypeCreateInfoEXT-pMutableDescriptorTypeLists-parameter)VUID-VkMutableDescriptorTypeCreateInfoEXT-pMutableDescriptorTypeLists-parameter  
+  If `mutableDescriptorTypeListCount` is not `0`, `pMutableDescriptorTypeLists` **must** be a valid pointer to an array of `mutableDescriptorTypeListCount` valid [VkMutableDescriptorTypeListEXT](https://registry.khronos.org/vulkan/specs/latest/man/html/VkMutableDescriptorTypeListEXT.html) structures
 
-- <a
-  href="#VUID-VkMutableDescriptorTypeCreateInfoEXT-pMutableDescriptorTypeLists-parameter"
-  id="VUID-VkMutableDescriptorTypeCreateInfoEXT-pMutableDescriptorTypeLists-parameter"></a>
-  VUID-VkMutableDescriptorTypeCreateInfoEXT-pMutableDescriptorTypeLists-parameter  
-  If `mutableDescriptorTypeListCount` is not `0`,
-  `pMutableDescriptorTypeLists` **must** be a valid pointer to an array
-  of `mutableDescriptorTypeListCount` valid
-  [VkMutableDescriptorTypeListEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkMutableDescriptorTypeListEXT.html)
-  structures
+## [](#_see_also)See Also
 
-## <a href="#_see_also" class="anchor"></a>See Also
+[VK\_EXT\_mutable\_descriptor\_type](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_EXT_mutable_descriptor_type.html), [VK\_VALVE\_mutable\_descriptor\_type](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_VALVE_mutable_descriptor_type.html), [VkMutableDescriptorTypeListEXT](https://registry.khronos.org/vulkan/specs/latest/man/html/VkMutableDescriptorTypeListEXT.html), [VkStructureType](https://registry.khronos.org/vulkan/specs/latest/man/html/VkStructureType.html)
 
-[VK_EXT_mutable_descriptor_type](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_EXT_mutable_descriptor_type.html),
-[VK_VALVE_mutable_descriptor_type](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_VALVE_mutable_descriptor_type.html),
-[VkMutableDescriptorTypeListEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkMutableDescriptorTypeListEXT.html),
-[VkStructureType](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkStructureType.html)
+## [](#_document_notes)Document Notes
 
-## <a href="#_document_notes" class="anchor"></a>Document Notes
+For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#VkMutableDescriptorTypeCreateInfoEXT)
 
-For more information, see the <a
-href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#VkMutableDescriptorTypeCreateInfoEXT"
-target="_blank" rel="noopener">Vulkan Specification</a>
+This page is extracted from the Vulkan Specification. Fixes and changes should be made to the Specification, not directly.
 
-This page is extracted from the Vulkan Specification. Fixes and changes
-should be made to the Specification, not directly.
+## [](#_copyright)Copyright
 
-## <a href="#_copyright" class="anchor"></a>Copyright
-
-Copyright 2014-2024 The Khronos Group Inc.
+Copyright 2014-2025 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
-
-Version 1.3.290  
-Last updated 2024-07-11 23:39:16 -0700

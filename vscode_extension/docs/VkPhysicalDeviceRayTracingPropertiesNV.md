@@ -2,16 +2,15 @@
 
 ## Name
 
-VkPhysicalDeviceRayTracingPropertiesNV - Properties of the physical
-device for ray tracing
+VkPhysicalDeviceRayTracingPropertiesNV - Properties of the physical device for ray tracing
 
 
 
-## <a href="#_c_specification" class="anchor"></a>C Specification
+## [](#_c_specification)C Specification
 
 The `VkPhysicalDeviceRayTracingPropertiesNV` structure is defined as:
 
-``` c
+```c++
 // Provided by VK_NV_ray_tracing
 typedef struct VkPhysicalDeviceRayTracingPropertiesNV {
     VkStructureType    sType;
@@ -27,86 +26,44 @@ typedef struct VkPhysicalDeviceRayTracingPropertiesNV {
 } VkPhysicalDeviceRayTracingPropertiesNV;
 ```
 
-## <a href="#_members" class="anchor"></a>Members
+## [](#_members)Members
 
-- `sType` is a [VkStructureType](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkStructureType.html) value identifying
-  this structure.
-
-- `pNext` is `NULL` or a pointer to a structure extending this
-  structure.
-
+- `sType` is a [VkStructureType](https://registry.khronos.org/vulkan/specs/latest/man/html/VkStructureType.html) value identifying this structure.
+- `pNext` is `NULL` or a pointer to a structure extending this structure.
 - `shaderGroupHandleSize` is the size in bytes of the shader header.
+- []()`maxRecursionDepth` is the maximum number of levels of recursion allowed in a trace command.
+- `maxShaderGroupStride` is the maximum stride in bytes allowed between shader groups in the shader binding table.
+- `shaderGroupBaseAlignment` is the **required** alignment in bytes for the base of the shader binding table.
+- `maxGeometryCount` is the maximum number of geometries in the bottom level acceleration structure.
+- `maxInstanceCount` is the maximum number of instances in the top level acceleration structure.
+- `maxTriangleCount` is the maximum number of triangles in all geometries in the bottom level acceleration structure.
+- `maxDescriptorSetAccelerationStructures` is the maximum number of acceleration structure descriptors that are allowed in a descriptor set.
 
-- <span id="limits-maxRecursionDepth"></span> `maxRecursionDepth` is the
-  maximum number of levels of recursion allowed in a trace command.
+## [](#_description)Description
 
-- `maxShaderGroupStride` is the maximum stride in bytes allowed between
-  shader groups in the shader binding table.
+Due to the fact that the geometry, instance, and triangle counts are specified at acceleration structure creation as 32-bit values, `maxGeometryCount`, `maxInstanceCount`, and `maxTriangleCount` **must** not exceed 232-1.
 
-- `shaderGroupBaseAlignment` is the **required** alignment in bytes for
-  the base of the shader binding table.
+If the `VkPhysicalDeviceRayTracingPropertiesNV` structure is included in the `pNext` chain of the [VkPhysicalDeviceProperties2](https://registry.khronos.org/vulkan/specs/latest/man/html/VkPhysicalDeviceProperties2.html) structure passed to [vkGetPhysicalDeviceProperties2](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetPhysicalDeviceProperties2.html), it is filled in with each corresponding implementation-dependent property.
 
-- `maxGeometryCount` is the maximum number of geometries in the bottom
-  level acceleration structure.
-
-- `maxInstanceCount` is the maximum number of instances in the top level
-  acceleration structure.
-
-- `maxTriangleCount` is the maximum number of triangles in all
-  geometries in the bottom level acceleration structure.
-
-- `maxDescriptorSetAccelerationStructures` is the maximum number of
-  acceleration structure descriptors that are allowed in a descriptor
-  set.
-
-## <a href="#_description" class="anchor"></a>Description
-
-Due to the fact that the geometry, instance, and triangle counts are
-specified at acceleration structure creation as 32-bit values,
-`maxGeometryCount`, `maxInstanceCount`, and `maxTriangleCount` **must**
-not exceed 2<sup>32</sup>-1.
-
-If the `VkPhysicalDeviceRayTracingPropertiesNV` structure is included in
-the `pNext` chain of the
-[VkPhysicalDeviceProperties2](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkPhysicalDeviceProperties2.html)
-structure passed to
-[vkGetPhysicalDeviceProperties2](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkGetPhysicalDeviceProperties2.html),
-it is filled in with each corresponding implementation-dependent
-property.
-
-Limits specified by this structure **must** match those specified with
-the same name in
-[VkPhysicalDeviceAccelerationStructurePropertiesKHR](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkPhysicalDeviceAccelerationStructurePropertiesKHR.html)
-and
-[VkPhysicalDeviceRayTracingPipelinePropertiesKHR](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkPhysicalDeviceRayTracingPipelinePropertiesKHR.html).
+Limits specified by this structure **must** match those specified with the same name in [VkPhysicalDeviceAccelerationStructurePropertiesKHR](https://registry.khronos.org/vulkan/specs/latest/man/html/VkPhysicalDeviceAccelerationStructurePropertiesKHR.html) and [VkPhysicalDeviceRayTracingPipelinePropertiesKHR](https://registry.khronos.org/vulkan/specs/latest/man/html/VkPhysicalDeviceRayTracingPipelinePropertiesKHR.html).
 
 Valid Usage (Implicit)
 
-- <a href="#VUID-VkPhysicalDeviceRayTracingPropertiesNV-sType-sType"
-  id="VUID-VkPhysicalDeviceRayTracingPropertiesNV-sType-sType"></a>
-  VUID-VkPhysicalDeviceRayTracingPropertiesNV-sType-sType  
-  `sType` **must** be
-  `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_RAY_TRACING_PROPERTIES_NV`
+- [](#VUID-VkPhysicalDeviceRayTracingPropertiesNV-sType-sType)VUID-VkPhysicalDeviceRayTracingPropertiesNV-sType-sType  
+  `sType` **must** be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_RAY_TRACING_PROPERTIES_NV`
 
-## <a href="#_see_also" class="anchor"></a>See Also
+## [](#_see_also)See Also
 
-[VK_NV_ray_tracing](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_NV_ray_tracing.html),
-[VkStructureType](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkStructureType.html)
+[VK\_NV\_ray\_tracing](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_NV_ray_tracing.html), [VkStructureType](https://registry.khronos.org/vulkan/specs/latest/man/html/VkStructureType.html)
 
-## <a href="#_document_notes" class="anchor"></a>Document Notes
+## [](#_document_notes)Document Notes
 
-For more information, see the <a
-href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#VkPhysicalDeviceRayTracingPropertiesNV"
-target="_blank" rel="noopener">Vulkan Specification</a>
+For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#VkPhysicalDeviceRayTracingPropertiesNV)
 
-This page is extracted from the Vulkan Specification. Fixes and changes
-should be made to the Specification, not directly.
+This page is extracted from the Vulkan Specification. Fixes and changes should be made to the Specification, not directly.
 
-## <a href="#_copyright" class="anchor"></a>Copyright
+## [](#_copyright)Copyright
 
-Copyright 2014-2024 The Khronos Group Inc.
+Copyright 2014-2025 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
-
-Version 1.3.290  
-Last updated 2024-07-11 23:39:16 -0700

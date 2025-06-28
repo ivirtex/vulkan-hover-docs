@@ -6,11 +6,11 @@ VkMicromapVersionInfoEXT - Micromap version information
 
 
 
-## <a href="#_c_specification" class="anchor"></a>C Specification
+## [](#_c_specification)C Specification
 
 The `VkMicromapVersionInfoEXT` structure is defined as:
 
-``` c
+```c++
 // Provided by VK_EXT_opacity_micromap
 typedef struct VkMicromapVersionInfoEXT {
     VkStructureType    sType;
@@ -19,81 +19,39 @@ typedef struct VkMicromapVersionInfoEXT {
 } VkMicromapVersionInfoEXT;
 ```
 
-## <a href="#_members" class="anchor"></a>Members
+## [](#_members)Members
 
-- `sType` is a [VkStructureType](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkStructureType.html) value identifying
-  this structure.
+- `sType` is a [VkStructureType](https://registry.khronos.org/vulkan/specs/latest/man/html/VkStructureType.html) value identifying this structure.
+- `pNext` is `NULL` or a pointer to a structure extending this structure.
+- `pVersionData` is a pointer to the version header of a micromap as defined in [vkCmdCopyMicromapToMemoryEXT](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdCopyMicromapToMemoryEXT.html)
 
-- `pNext` is `NULL` or a pointer to a structure extending this
-  structure.
+## [](#_description)Description
 
-- `pVersionData` is a pointer to the version header of a micromap as
-  defined in
-  [vkCmdCopyMicromapToMemoryEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdCopyMicromapToMemoryEXT.html)
+Note
 
-## <a href="#_description" class="anchor"></a>Description
-
-<table>
-<colgroup>
-<col style="width: 50%" />
-<col style="width: 50%" />
-</colgroup>
-<tbody>
-<tr>
-<td class="icon"><em></em></td>
-<td class="content">Note
-<p><code>pVersionData</code> is a <em>pointer</em> to an array of
-2×<code>VK_UUID_SIZE</code> <code>uint8_t</code> values instead of two
-<code>VK_UUID_SIZE</code> arrays as the expected use case for this
-member is to be pointed at the header of a previously serialized
-micromap (via <a
-href="https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdCopyMicromapToMemoryEXT.html">vkCmdCopyMicromapToMemoryEXT</a>
-or <a
-href="vkCopyMicromapToMemoryEXT.html">vkCopyMicromapToMemoryEXT</a>)
-that is loaded in memory. Using arrays would necessitate extra memory
-copies of the UUIDs.</p></td>
-</tr>
-</tbody>
-</table>
+`pVersionData` is a *pointer* to an array of 2×`VK_UUID_SIZE` `uint8_t` values instead of two `VK_UUID_SIZE` arrays as the expected use case for this member is to be pointed at the header of a previously serialized micromap (via [vkCmdCopyMicromapToMemoryEXT](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdCopyMicromapToMemoryEXT.html) or [vkCopyMicromapToMemoryEXT](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCopyMicromapToMemoryEXT.html)) that is loaded in memory. Using arrays would necessitate extra memory copies of the UUIDs.
 
 Valid Usage (Implicit)
 
-- <a href="#VUID-VkMicromapVersionInfoEXT-sType-sType"
-  id="VUID-VkMicromapVersionInfoEXT-sType-sType"></a>
-  VUID-VkMicromapVersionInfoEXT-sType-sType  
+- [](#VUID-VkMicromapVersionInfoEXT-sType-sType)VUID-VkMicromapVersionInfoEXT-sType-sType  
   `sType` **must** be `VK_STRUCTURE_TYPE_MICROMAP_VERSION_INFO_EXT`
-
-- <a href="#VUID-VkMicromapVersionInfoEXT-pNext-pNext"
-  id="VUID-VkMicromapVersionInfoEXT-pNext-pNext"></a>
-  VUID-VkMicromapVersionInfoEXT-pNext-pNext  
+- [](#VUID-VkMicromapVersionInfoEXT-pNext-pNext)VUID-VkMicromapVersionInfoEXT-pNext-pNext  
   `pNext` **must** be `NULL`
+- [](#VUID-VkMicromapVersionInfoEXT-pVersionData-parameter)VUID-VkMicromapVersionInfoEXT-pVersionData-parameter  
+  `pVersionData` **must** be a valid pointer to an array of 2×VK\_UUID\_SIZE `uint8_t` values
 
-- <a href="#VUID-VkMicromapVersionInfoEXT-pVersionData-parameter"
-  id="VUID-VkMicromapVersionInfoEXT-pVersionData-parameter"></a>
-  VUID-VkMicromapVersionInfoEXT-pVersionData-parameter  
-  `pVersionData` **must** be a valid pointer to an array of
-  2×VK_UUID_SIZE `uint8_t` values
+## [](#_see_also)See Also
 
-## <a href="#_see_also" class="anchor"></a>See Also
+[VK\_EXT\_opacity\_micromap](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_EXT_opacity_micromap.html), [VkStructureType](https://registry.khronos.org/vulkan/specs/latest/man/html/VkStructureType.html), [vkGetDeviceMicromapCompatibilityEXT](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetDeviceMicromapCompatibilityEXT.html)
 
-[VK_EXT_opacity_micromap](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_EXT_opacity_micromap.html),
-[VkStructureType](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkStructureType.html),
-[vkGetDeviceMicromapCompatibilityEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkGetDeviceMicromapCompatibilityEXT.html)
+## [](#_document_notes)Document Notes
 
-## <a href="#_document_notes" class="anchor"></a>Document Notes
+For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#VkMicromapVersionInfoEXT)
 
-For more information, see the <a
-href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#VkMicromapVersionInfoEXT"
-target="_blank" rel="noopener">Vulkan Specification</a>
+This page is extracted from the Vulkan Specification. Fixes and changes should be made to the Specification, not directly.
 
-This page is extracted from the Vulkan Specification. Fixes and changes
-should be made to the Specification, not directly.
+## [](#_copyright)Copyright
 
-## <a href="#_copyright" class="anchor"></a>Copyright
-
-Copyright 2014-2024 The Khronos Group Inc.
+Copyright 2014-2025 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
-
-Version 1.3.290  
-Last updated 2024-07-11 23:39:16 -0700

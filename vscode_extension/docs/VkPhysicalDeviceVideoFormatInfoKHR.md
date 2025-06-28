@@ -2,16 +2,15 @@
 
 ## Name
 
-VkPhysicalDeviceVideoFormatInfoKHR - Structure specifying the codec
-video format
+VkPhysicalDeviceVideoFormatInfoKHR - Structure specifying the codec video format
 
 
 
-## <a href="#_c_specification" class="anchor"></a>C Specification
+## [](#_c_specification)C Specification
 
 The `VkPhysicalDeviceVideoFormatInfoKHR` structure is defined as:
 
-``` c
+```c++
 // Provided by VK_KHR_video_queue
 typedef struct VkPhysicalDeviceVideoFormatInfoKHR {
     VkStructureType      sType;
@@ -20,73 +19,39 @@ typedef struct VkPhysicalDeviceVideoFormatInfoKHR {
 } VkPhysicalDeviceVideoFormatInfoKHR;
 ```
 
-## <a href="#_members" class="anchor"></a>Members
+## [](#_members)Members
 
-- `sType` is a [VkStructureType](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkStructureType.html) value identifying
-  this structure.
+- `sType` is a [VkStructureType](https://registry.khronos.org/vulkan/specs/latest/man/html/VkStructureType.html) value identifying this structure.
+- `pNext` is `NULL` or a pointer to a structure extending this structure.
+- `imageUsage` is a bitmask of [VkImageUsageFlagBits](https://registry.khronos.org/vulkan/specs/latest/man/html/VkImageUsageFlagBits.html) specifying the intended usage of the video images.
 
-- `pNext` is `NULL` or a pointer to a structure extending this
-  structure.
-
-- `imageUsage` is a bitmask of
-  [VkImageUsageFlagBits](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkImageUsageFlagBits.html) specifying the
-  intended usage of the video images.
-
-## <a href="#_description" class="anchor"></a>Description
+## [](#_description)Description
 
 Valid Usage (Implicit)
 
-- <a href="#VUID-VkPhysicalDeviceVideoFormatInfoKHR-sType-sType"
-  id="VUID-VkPhysicalDeviceVideoFormatInfoKHR-sType-sType"></a>
-  VUID-VkPhysicalDeviceVideoFormatInfoKHR-sType-sType  
-  `sType` **must** be
-  `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_VIDEO_FORMAT_INFO_KHR`
-
-- <a href="#VUID-VkPhysicalDeviceVideoFormatInfoKHR-pNext-pNext"
-  id="VUID-VkPhysicalDeviceVideoFormatInfoKHR-pNext-pNext"></a>
-  VUID-VkPhysicalDeviceVideoFormatInfoKHR-pNext-pNext  
-  `pNext` **must** be `NULL` or a pointer to a valid instance of
-  [VkVideoProfileListInfoKHR](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkVideoProfileListInfoKHR.html)
-
-- <a href="#VUID-VkPhysicalDeviceVideoFormatInfoKHR-sType-unique"
-  id="VUID-VkPhysicalDeviceVideoFormatInfoKHR-sType-unique"></a>
-  VUID-VkPhysicalDeviceVideoFormatInfoKHR-sType-unique  
-  The `sType` value of each struct in the `pNext` chain **must** be
-  unique
-
-- <a href="#VUID-VkPhysicalDeviceVideoFormatInfoKHR-imageUsage-parameter"
-  id="VUID-VkPhysicalDeviceVideoFormatInfoKHR-imageUsage-parameter"></a>
-  VUID-VkPhysicalDeviceVideoFormatInfoKHR-imageUsage-parameter  
-  `imageUsage` **must** be a valid combination of
-  [VkImageUsageFlagBits](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkImageUsageFlagBits.html) values
-
-- <a
-  href="#VUID-VkPhysicalDeviceVideoFormatInfoKHR-imageUsage-requiredbitmask"
-  id="VUID-VkPhysicalDeviceVideoFormatInfoKHR-imageUsage-requiredbitmask"></a>
-  VUID-VkPhysicalDeviceVideoFormatInfoKHR-imageUsage-requiredbitmask  
+- [](#VUID-VkPhysicalDeviceVideoFormatInfoKHR-sType-sType)VUID-VkPhysicalDeviceVideoFormatInfoKHR-sType-sType  
+  `sType` **must** be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_VIDEO_FORMAT_INFO_KHR`
+- [](#VUID-VkPhysicalDeviceVideoFormatInfoKHR-pNext-pNext)VUID-VkPhysicalDeviceVideoFormatInfoKHR-pNext-pNext  
+  `pNext` **must** be `NULL` or a pointer to a valid instance of [VkVideoProfileListInfoKHR](https://registry.khronos.org/vulkan/specs/latest/man/html/VkVideoProfileListInfoKHR.html)
+- [](#VUID-VkPhysicalDeviceVideoFormatInfoKHR-sType-unique)VUID-VkPhysicalDeviceVideoFormatInfoKHR-sType-unique  
+  The `sType` value of each structure in the `pNext` chain **must** be unique
+- [](#VUID-VkPhysicalDeviceVideoFormatInfoKHR-imageUsage-parameter)VUID-VkPhysicalDeviceVideoFormatInfoKHR-imageUsage-parameter  
+  `imageUsage` **must** be a valid combination of [VkImageUsageFlagBits](https://registry.khronos.org/vulkan/specs/latest/man/html/VkImageUsageFlagBits.html) values
+- [](#VUID-VkPhysicalDeviceVideoFormatInfoKHR-imageUsage-requiredbitmask)VUID-VkPhysicalDeviceVideoFormatInfoKHR-imageUsage-requiredbitmask  
   `imageUsage` **must** not be `0`
 
-## <a href="#_see_also" class="anchor"></a>See Also
+## [](#_see_also)See Also
 
-[VK_KHR_video_queue](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_KHR_video_queue.html),
-[VkImageUsageFlags](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkImageUsageFlags.html),
-[VkStructureType](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkStructureType.html),
-[vkGetPhysicalDeviceVideoFormatPropertiesKHR](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkGetPhysicalDeviceVideoFormatPropertiesKHR.html)
+[VK\_KHR\_video\_queue](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_KHR_video_queue.html), [VkImageUsageFlags](https://registry.khronos.org/vulkan/specs/latest/man/html/VkImageUsageFlags.html), [VkStructureType](https://registry.khronos.org/vulkan/specs/latest/man/html/VkStructureType.html), [vkGetPhysicalDeviceVideoFormatPropertiesKHR](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetPhysicalDeviceVideoFormatPropertiesKHR.html)
 
-## <a href="#_document_notes" class="anchor"></a>Document Notes
+## [](#_document_notes)Document Notes
 
-For more information, see the <a
-href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#VkPhysicalDeviceVideoFormatInfoKHR"
-target="_blank" rel="noopener">Vulkan Specification</a>
+For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#VkPhysicalDeviceVideoFormatInfoKHR)
 
-This page is extracted from the Vulkan Specification. Fixes and changes
-should be made to the Specification, not directly.
+This page is extracted from the Vulkan Specification. Fixes and changes should be made to the Specification, not directly.
 
-## <a href="#_copyright" class="anchor"></a>Copyright
+## [](#_copyright)Copyright
 
-Copyright 2014-2024 The Khronos Group Inc.
+Copyright 2014-2025 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
-
-Version 1.3.290  
-Last updated 2024-07-11 23:39:16 -0700

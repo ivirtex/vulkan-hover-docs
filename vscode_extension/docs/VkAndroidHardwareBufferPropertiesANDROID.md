@@ -2,17 +2,15 @@
 
 ## Name
 
-VkAndroidHardwareBufferPropertiesANDROID - Properties of External Memory
-Android Hardware Buffers
+VkAndroidHardwareBufferPropertiesANDROID - Properties of External Memory Android Hardware Buffers
 
 
 
-## <a href="#_c_specification" class="anchor"></a>C Specification
+## [](#_c_specification)C Specification
 
-The `VkAndroidHardwareBufferPropertiesANDROID` structure returned is
-defined as:
+The `VkAndroidHardwareBufferPropertiesANDROID` structure returned is defined as:
 
-``` c
+```c++
 // Provided by VK_ANDROID_external_memory_android_hardware_buffer
 typedef struct VkAndroidHardwareBufferPropertiesANDROID {
     VkStructureType    sType;
@@ -22,68 +20,36 @@ typedef struct VkAndroidHardwareBufferPropertiesANDROID {
 } VkAndroidHardwareBufferPropertiesANDROID;
 ```
 
-## <a href="#_members" class="anchor"></a>Members
+## [](#_members)Members
 
-- `sType` is a [VkStructureType](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkStructureType.html) value identifying
-  this structure.
-
-- `pNext` is `NULL` or a pointer to a structure extending this
-  structure.
-
+- `sType` is a [VkStructureType](https://registry.khronos.org/vulkan/specs/latest/man/html/VkStructureType.html) value identifying this structure.
+- `pNext` is `NULL` or a pointer to a structure extending this structure.
 - `allocationSize` is the size of the external memory
+- `memoryTypeBits` is a bitmask containing one bit set for every memory type which the specified Android hardware buffer **can** be imported as.
 
-- `memoryTypeBits` is a bitmask containing one bit set for every memory
-  type which the specified Android hardware buffer **can** be imported
-  as.
-
-## <a href="#_description" class="anchor"></a>Description
+## [](#_description)Description
 
 Valid Usage (Implicit)
 
-- <a href="#VUID-VkAndroidHardwareBufferPropertiesANDROID-sType-sType"
-  id="VUID-VkAndroidHardwareBufferPropertiesANDROID-sType-sType"></a>
-  VUID-VkAndroidHardwareBufferPropertiesANDROID-sType-sType  
-  `sType` **must** be
-  `VK_STRUCTURE_TYPE_ANDROID_HARDWARE_BUFFER_PROPERTIES_ANDROID`
+- [](#VUID-VkAndroidHardwareBufferPropertiesANDROID-sType-sType)VUID-VkAndroidHardwareBufferPropertiesANDROID-sType-sType  
+  `sType` **must** be `VK_STRUCTURE_TYPE_ANDROID_HARDWARE_BUFFER_PROPERTIES_ANDROID`
+- [](#VUID-VkAndroidHardwareBufferPropertiesANDROID-pNext-pNext)VUID-VkAndroidHardwareBufferPropertiesANDROID-pNext-pNext  
+  Each `pNext` member of any structure (including this one) in the `pNext` chain **must** be either `NULL` or a pointer to a valid instance of [VkAndroidHardwareBufferFormatProperties2ANDROID](https://registry.khronos.org/vulkan/specs/latest/man/html/VkAndroidHardwareBufferFormatProperties2ANDROID.html), [VkAndroidHardwareBufferFormatPropertiesANDROID](https://registry.khronos.org/vulkan/specs/latest/man/html/VkAndroidHardwareBufferFormatPropertiesANDROID.html), or [VkAndroidHardwareBufferFormatResolvePropertiesANDROID](https://registry.khronos.org/vulkan/specs/latest/man/html/VkAndroidHardwareBufferFormatResolvePropertiesANDROID.html)
+- [](#VUID-VkAndroidHardwareBufferPropertiesANDROID-sType-unique)VUID-VkAndroidHardwareBufferPropertiesANDROID-sType-unique  
+  The `sType` value of each structure in the `pNext` chain **must** be unique
 
-- <a href="#VUID-VkAndroidHardwareBufferPropertiesANDROID-pNext-pNext"
-  id="VUID-VkAndroidHardwareBufferPropertiesANDROID-pNext-pNext"></a>
-  VUID-VkAndroidHardwareBufferPropertiesANDROID-pNext-pNext  
-  Each `pNext` member of any structure (including this one) in the
-  `pNext` chain **must** be either `NULL` or a pointer to a valid
-  instance of
-  [VkAndroidHardwareBufferFormatProperties2ANDROID](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkAndroidHardwareBufferFormatProperties2ANDROID.html),
-  [VkAndroidHardwareBufferFormatPropertiesANDROID](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkAndroidHardwareBufferFormatPropertiesANDROID.html),
-  or
-  [VkAndroidHardwareBufferFormatResolvePropertiesANDROID](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkAndroidHardwareBufferFormatResolvePropertiesANDROID.html)
+## [](#_see_also)See Also
 
-- <a href="#VUID-VkAndroidHardwareBufferPropertiesANDROID-sType-unique"
-  id="VUID-VkAndroidHardwareBufferPropertiesANDROID-sType-unique"></a>
-  VUID-VkAndroidHardwareBufferPropertiesANDROID-sType-unique  
-  The `sType` value of each struct in the `pNext` chain **must** be
-  unique
+[VK\_ANDROID\_external\_memory\_android\_hardware\_buffer](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_ANDROID_external_memory_android_hardware_buffer.html), [VkDeviceSize](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDeviceSize.html), [VkStructureType](https://registry.khronos.org/vulkan/specs/latest/man/html/VkStructureType.html), [vkGetAndroidHardwareBufferPropertiesANDROID](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetAndroidHardwareBufferPropertiesANDROID.html)
 
-## <a href="#_see_also" class="anchor"></a>See Also
+## [](#_document_notes)Document Notes
 
-[VK_ANDROID_external_memory_android_hardware_buffer](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_ANDROID_external_memory_android_hardware_buffer.html),
-[VkDeviceSize](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkDeviceSize.html),
-[VkStructureType](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkStructureType.html),
-[vkGetAndroidHardwareBufferPropertiesANDROID](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkGetAndroidHardwareBufferPropertiesANDROID.html)
+For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#VkAndroidHardwareBufferPropertiesANDROID)
 
-## <a href="#_document_notes" class="anchor"></a>Document Notes
+This page is extracted from the Vulkan Specification. Fixes and changes should be made to the Specification, not directly.
 
-For more information, see the <a
-href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#VkAndroidHardwareBufferPropertiesANDROID"
-target="_blank" rel="noopener">Vulkan Specification</a>
+## [](#_copyright)Copyright
 
-This page is extracted from the Vulkan Specification. Fixes and changes
-should be made to the Specification, not directly.
-
-## <a href="#_copyright" class="anchor"></a>Copyright
-
-Copyright 2014-2024 The Khronos Group Inc.
+Copyright 2014-2025 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
-
-Version 1.3.290  
-Last updated 2024-07-11 23:39:16 -0700

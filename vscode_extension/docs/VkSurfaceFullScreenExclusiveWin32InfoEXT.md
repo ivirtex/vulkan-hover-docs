@@ -2,17 +2,15 @@
 
 ## Name
 
-VkSurfaceFullScreenExclusiveWin32InfoEXT - Structure specifying
-additional creation parameters specific to Win32 fullscreen exclusive
-mode
+VkSurfaceFullScreenExclusiveWin32InfoEXT - Structure specifying additional creation parameters specific to Win32 fullscreen exclusive mode
 
 
 
-## <a href="#_c_specification" class="anchor"></a>C Specification
+## [](#_c_specification)C Specification
 
 The `VkSurfaceFullScreenExclusiveWin32InfoEXT` structure is defined as:
 
-``` c
+```c++
 // Provided by VK_KHR_win32_surface with VK_EXT_full_screen_exclusive
 typedef struct VkSurfaceFullScreenExclusiveWin32InfoEXT {
     VkStructureType    sType;
@@ -21,88 +19,44 @@ typedef struct VkSurfaceFullScreenExclusiveWin32InfoEXT {
 } VkSurfaceFullScreenExclusiveWin32InfoEXT;
 ```
 
-## <a href="#_members" class="anchor"></a>Members
+## [](#_members)Members
 
-- `sType` is a [VkStructureType](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkStructureType.html) value identifying
-  this structure.
+- `sType` is a [VkStructureType](https://registry.khronos.org/vulkan/specs/latest/man/html/VkStructureType.html) value identifying this structure.
+- `pNext` is `NULL` or a pointer to a structure extending this structure.
+- `hmonitor` is the Win32 `HMONITOR` handle identifying the display to create the surface with.
 
-- `pNext` is `NULL` or a pointer to a structure extending this
-  structure.
+## [](#_description)Description
 
-- `hmonitor` is the Win32 `HMONITOR` handle identifying the display to
-  create the surface with.
+Note
 
-## <a href="#_description" class="anchor"></a>Description
+If `hmonitor` is invalidated (e.g. the monitor is unplugged) during the lifetime of a swapchain created with this structure, operations on that swapchain will return `VK_ERROR_OUT_OF_DATE_KHR`.
 
-<table>
-<colgroup>
-<col style="width: 50%" />
-<col style="width: 50%" />
-</colgroup>
-<tbody>
-<tr>
-<td class="icon"><em></em></td>
-<td class="content">Note
-<p>If <code>hmonitor</code> is invalidated (e.g. the monitor is
-unplugged) during the lifetime of a swapchain created with this
-structure, operations on that swapchain will return
-<code>VK_ERROR_OUT_OF_DATE_KHR</code>.</p></td>
-</tr>
-</tbody>
-</table>
+Note
 
-<table>
-<colgroup>
-<col style="width: 50%" />
-<col style="width: 50%" />
-</colgroup>
-<tbody>
-<tr>
-<td class="icon"><em></em></td>
-<td class="content">Note
-<p>It is the responsibility of the application to change the display
-settings of the targeted Win32 display using the appropriate platform
-APIs. Such changes <strong>may</strong> alter the surface capabilities
-reported for the created surface.</p></td>
-</tr>
-</tbody>
-</table>
+It is the responsibility of the application to change the display settings of the targeted Win32 display using the appropriate platform APIs. Such changes **may** alter the surface capabilities reported for the created surface.
 
 Valid Usage
 
-- <a href="#VUID-VkSurfaceFullScreenExclusiveWin32InfoEXT-hmonitor-02673"
-  id="VUID-VkSurfaceFullScreenExclusiveWin32InfoEXT-hmonitor-02673"></a>
-  VUID-VkSurfaceFullScreenExclusiveWin32InfoEXT-hmonitor-02673  
+- [](#VUID-VkSurfaceFullScreenExclusiveWin32InfoEXT-hmonitor-02673)VUID-VkSurfaceFullScreenExclusiveWin32InfoEXT-hmonitor-02673  
   `hmonitor` **must** be a valid `HMONITOR`
 
 Valid Usage (Implicit)
 
-- <a href="#VUID-VkSurfaceFullScreenExclusiveWin32InfoEXT-sType-sType"
-  id="VUID-VkSurfaceFullScreenExclusiveWin32InfoEXT-sType-sType"></a>
-  VUID-VkSurfaceFullScreenExclusiveWin32InfoEXT-sType-sType  
-  `sType` **must** be
-  `VK_STRUCTURE_TYPE_SURFACE_FULL_SCREEN_EXCLUSIVE_WIN32_INFO_EXT`
+- [](#VUID-VkSurfaceFullScreenExclusiveWin32InfoEXT-sType-sType)VUID-VkSurfaceFullScreenExclusiveWin32InfoEXT-sType-sType  
+  `sType` **must** be `VK_STRUCTURE_TYPE_SURFACE_FULL_SCREEN_EXCLUSIVE_WIN32_INFO_EXT`
 
-## <a href="#_see_also" class="anchor"></a>See Also
+## [](#_see_also)See Also
 
-[VK_EXT_full_screen_exclusive](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_EXT_full_screen_exclusive.html),
-[VK_KHR_win32_surface](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_KHR_win32_surface.html),
-[VkStructureType](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkStructureType.html)
+[VK\_EXT\_full\_screen\_exclusive](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_EXT_full_screen_exclusive.html), [VK\_KHR\_win32\_surface](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_KHR_win32_surface.html), [VkStructureType](https://registry.khronos.org/vulkan/specs/latest/man/html/VkStructureType.html)
 
-## <a href="#_document_notes" class="anchor"></a>Document Notes
+## [](#_document_notes)Document Notes
 
-For more information, see the <a
-href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#VkSurfaceFullScreenExclusiveWin32InfoEXT"
-target="_blank" rel="noopener">Vulkan Specification</a>
+For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#VkSurfaceFullScreenExclusiveWin32InfoEXT)
 
-This page is extracted from the Vulkan Specification. Fixes and changes
-should be made to the Specification, not directly.
+This page is extracted from the Vulkan Specification. Fixes and changes should be made to the Specification, not directly.
 
-## <a href="#_copyright" class="anchor"></a>Copyright
+## [](#_copyright)Copyright
 
-Copyright 2014-2024 The Khronos Group Inc.
+Copyright 2014-2025 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
-
-Version 1.3.290  
-Last updated 2024-07-11 23:39:16 -0700

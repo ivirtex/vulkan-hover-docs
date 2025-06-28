@@ -2,17 +2,15 @@
 
 ## Name
 
-vkGetDeviceAccelerationStructureCompatibilityKHR - Check if a serialized
-acceleration structure is compatible with the current device
+vkGetDeviceAccelerationStructureCompatibilityKHR - Check if a serialized acceleration structure is compatible with the current device
 
 
 
-## <a href="#_c_specification" class="anchor"></a>C Specification
+## [](#_c_specification)C Specification
 
-To check if a serialized acceleration structure is compatible with the
-current device call:
+To check if a serialized acceleration structure is compatible with the current device call:
 
-``` c
+```c++
 // Provided by VK_KHR_acceleration_structure
 void vkGetDeviceAccelerationStructureCompatibilityKHR(
     VkDevice                                    device,
@@ -20,77 +18,40 @@ void vkGetDeviceAccelerationStructureCompatibilityKHR(
     VkAccelerationStructureCompatibilityKHR*    pCompatibility);
 ```
 
-## <a href="#_parameters" class="anchor"></a>Parameters
+## [](#_parameters)Parameters
 
 - `device` is the device to check the version against.
+- `pVersionInfo` is a pointer to a [VkAccelerationStructureVersionInfoKHR](https://registry.khronos.org/vulkan/specs/latest/man/html/VkAccelerationStructureVersionInfoKHR.html) structure specifying version information to check against the device.
+- `pCompatibility` is a pointer to a [VkAccelerationStructureCompatibilityKHR](https://registry.khronos.org/vulkan/specs/latest/man/html/VkAccelerationStructureCompatibilityKHR.html) value in which compatibility information is returned.
 
-- `pVersionInfo` is a pointer to a
-  [VkAccelerationStructureVersionInfoKHR](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkAccelerationStructureVersionInfoKHR.html)
-  structure specifying version information to check against the device.
-
-- `pCompatibility` is a pointer to a
-  [VkAccelerationStructureCompatibilityKHR](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkAccelerationStructureCompatibilityKHR.html)
-  value in which compatibility information is returned.
-
-## <a href="#_description" class="anchor"></a>Description
+## [](#_description)Description
 
 Valid Usage
 
-- <a
-  href="#VUID-vkGetDeviceAccelerationStructureCompatibilityKHR-accelerationStructure-08928"
-  id="VUID-vkGetDeviceAccelerationStructureCompatibilityKHR-accelerationStructure-08928"></a>
-  VUID-vkGetDeviceAccelerationStructureCompatibilityKHR-accelerationStructure-08928  
-  The <a
-  href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#features-accelerationStructure"
-  target="_blank"
-  rel="noopener"><code>VkPhysicalDeviceAccelerationStructureFeaturesKHR</code>::<code>accelerationStructure</code></a>
-  feature **must** be enabled
+- [](#VUID-vkGetDeviceAccelerationStructureCompatibilityKHR-accelerationStructure-08928)VUID-vkGetDeviceAccelerationStructureCompatibilityKHR-accelerationStructure-08928  
+  The [`VkPhysicalDeviceAccelerationStructureFeaturesKHR`::`accelerationStructure`](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#features-accelerationStructure) feature **must** be enabled
 
 Valid Usage (Implicit)
 
-- <a
-  href="#VUID-vkGetDeviceAccelerationStructureCompatibilityKHR-device-parameter"
-  id="VUID-vkGetDeviceAccelerationStructureCompatibilityKHR-device-parameter"></a>
-  VUID-vkGetDeviceAccelerationStructureCompatibilityKHR-device-parameter  
-  `device` **must** be a valid [VkDevice](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkDevice.html) handle
+- [](#VUID-vkGetDeviceAccelerationStructureCompatibilityKHR-device-parameter)VUID-vkGetDeviceAccelerationStructureCompatibilityKHR-device-parameter  
+  `device` **must** be a valid [VkDevice](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDevice.html) handle
+- [](#VUID-vkGetDeviceAccelerationStructureCompatibilityKHR-pVersionInfo-parameter)VUID-vkGetDeviceAccelerationStructureCompatibilityKHR-pVersionInfo-parameter  
+  `pVersionInfo` **must** be a valid pointer to a valid [VkAccelerationStructureVersionInfoKHR](https://registry.khronos.org/vulkan/specs/latest/man/html/VkAccelerationStructureVersionInfoKHR.html) structure
+- [](#VUID-vkGetDeviceAccelerationStructureCompatibilityKHR-pCompatibility-parameter)VUID-vkGetDeviceAccelerationStructureCompatibilityKHR-pCompatibility-parameter  
+  `pCompatibility` **must** be a valid pointer to a [VkAccelerationStructureCompatibilityKHR](https://registry.khronos.org/vulkan/specs/latest/man/html/VkAccelerationStructureCompatibilityKHR.html) value
 
-- <a
-  href="#VUID-vkGetDeviceAccelerationStructureCompatibilityKHR-pVersionInfo-parameter"
-  id="VUID-vkGetDeviceAccelerationStructureCompatibilityKHR-pVersionInfo-parameter"></a>
-  VUID-vkGetDeviceAccelerationStructureCompatibilityKHR-pVersionInfo-parameter  
-  `pVersionInfo` **must** be a valid pointer to a valid
-  [VkAccelerationStructureVersionInfoKHR](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkAccelerationStructureVersionInfoKHR.html)
-  structure
+## [](#_see_also)See Also
 
-- <a
-  href="#VUID-vkGetDeviceAccelerationStructureCompatibilityKHR-pCompatibility-parameter"
-  id="VUID-vkGetDeviceAccelerationStructureCompatibilityKHR-pCompatibility-parameter"></a>
-  VUID-vkGetDeviceAccelerationStructureCompatibilityKHR-pCompatibility-parameter  
-  `pCompatibility` **must** be a valid pointer to a
-  [VkAccelerationStructureCompatibilityKHR](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkAccelerationStructureCompatibilityKHR.html)
-  value
+[VK\_KHR\_acceleration\_structure](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_KHR_acceleration_structure.html), [VkAccelerationStructureCompatibilityKHR](https://registry.khronos.org/vulkan/specs/latest/man/html/VkAccelerationStructureCompatibilityKHR.html), [VkAccelerationStructureVersionInfoKHR](https://registry.khronos.org/vulkan/specs/latest/man/html/VkAccelerationStructureVersionInfoKHR.html), [VkDevice](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDevice.html)
 
-## <a href="#_see_also" class="anchor"></a>See Also
+## [](#_document_notes)Document Notes
 
-[VK_KHR_acceleration_structure](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_KHR_acceleration_structure.html),
-[VkAccelerationStructureCompatibilityKHR](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkAccelerationStructureCompatibilityKHR.html),
-[VkAccelerationStructureVersionInfoKHR](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkAccelerationStructureVersionInfoKHR.html),
-[VkDevice](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkDevice.html)
+For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#vkGetDeviceAccelerationStructureCompatibilityKHR)
 
-## <a href="#_document_notes" class="anchor"></a>Document Notes
+This page is extracted from the Vulkan Specification. Fixes and changes should be made to the Specification, not directly.
 
-For more information, see the <a
-href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#vkGetDeviceAccelerationStructureCompatibilityKHR"
-target="_blank" rel="noopener">Vulkan Specification</a>
+## [](#_copyright)Copyright
 
-This page is extracted from the Vulkan Specification. Fixes and changes
-should be made to the Specification, not directly.
-
-## <a href="#_copyright" class="anchor"></a>Copyright
-
-Copyright 2014-2024 The Khronos Group Inc.
+Copyright 2014-2025 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
-
-Version 1.3.290  
-Last updated 2024-07-11 23:39:16 -0700

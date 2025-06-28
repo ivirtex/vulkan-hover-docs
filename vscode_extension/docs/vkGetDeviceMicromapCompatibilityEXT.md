@@ -2,17 +2,15 @@
 
 ## Name
 
-vkGetDeviceMicromapCompatibilityEXT - Check if a serialized micromap is
-compatible with the current device
+vkGetDeviceMicromapCompatibilityEXT - Check if a serialized micromap is compatible with the current device
 
 
 
-## <a href="#_c_specification" class="anchor"></a>C Specification
+## [](#_c_specification)C Specification
 
-To check if a serialized micromap is compatible with the current device
-call:
+To check if a serialized micromap is compatible with the current device call:
 
-``` c
+```c++
 // Provided by VK_EXT_opacity_micromap
 void vkGetDeviceMicromapCompatibilityEXT(
     VkDevice                                    device,
@@ -20,73 +18,40 @@ void vkGetDeviceMicromapCompatibilityEXT(
     VkAccelerationStructureCompatibilityKHR*    pCompatibility);
 ```
 
-## <a href="#_parameters" class="anchor"></a>Parameters
+## [](#_parameters)Parameters
 
 - `device` is the device to check the version against.
+- `pVersionInfo` is a pointer to a [VkMicromapVersionInfoEXT](https://registry.khronos.org/vulkan/specs/latest/man/html/VkMicromapVersionInfoEXT.html) structure specifying version information to check against the device.
+- `pCompatibility` is a pointer to a [VkAccelerationStructureCompatibilityKHR](https://registry.khronos.org/vulkan/specs/latest/man/html/VkAccelerationStructureCompatibilityKHR.html) value in which compatibility information is returned.
 
-- `pVersionInfo` is a pointer to a
-  [VkMicromapVersionInfoEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkMicromapVersionInfoEXT.html) structure
-  specifying version information to check against the device.
-
-- `pCompatibility` is a pointer to a
-  [VkAccelerationStructureCompatibilityKHR](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkAccelerationStructureCompatibilityKHR.html)
-  value in which compatibility information is returned.
-
-## <a href="#_description" class="anchor"></a>Description
+## [](#_description)Description
 
 Valid Usage
 
-- <a href="#VUID-vkGetDeviceMicromapCompatibilityEXT-micromap-07551"
-  id="VUID-vkGetDeviceMicromapCompatibilityEXT-micromap-07551"></a>
-  VUID-vkGetDeviceMicromapCompatibilityEXT-micromap-07551  
-  The <a
-  href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#features-micromap"
-  target="_blank" rel="noopener"><code>micromap</code></a> feature
-  **must** be enabled
+- [](#VUID-vkGetDeviceMicromapCompatibilityEXT-micromap-07551)VUID-vkGetDeviceMicromapCompatibilityEXT-micromap-07551  
+  The [`micromap`](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#features-micromap) feature **must** be enabled
 
 Valid Usage (Implicit)
 
-- <a href="#VUID-vkGetDeviceMicromapCompatibilityEXT-device-parameter"
-  id="VUID-vkGetDeviceMicromapCompatibilityEXT-device-parameter"></a>
-  VUID-vkGetDeviceMicromapCompatibilityEXT-device-parameter  
-  `device` **must** be a valid [VkDevice](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkDevice.html) handle
+- [](#VUID-vkGetDeviceMicromapCompatibilityEXT-device-parameter)VUID-vkGetDeviceMicromapCompatibilityEXT-device-parameter  
+  `device` **must** be a valid [VkDevice](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDevice.html) handle
+- [](#VUID-vkGetDeviceMicromapCompatibilityEXT-pVersionInfo-parameter)VUID-vkGetDeviceMicromapCompatibilityEXT-pVersionInfo-parameter  
+  `pVersionInfo` **must** be a valid pointer to a valid [VkMicromapVersionInfoEXT](https://registry.khronos.org/vulkan/specs/latest/man/html/VkMicromapVersionInfoEXT.html) structure
+- [](#VUID-vkGetDeviceMicromapCompatibilityEXT-pCompatibility-parameter)VUID-vkGetDeviceMicromapCompatibilityEXT-pCompatibility-parameter  
+  `pCompatibility` **must** be a valid pointer to a [VkAccelerationStructureCompatibilityKHR](https://registry.khronos.org/vulkan/specs/latest/man/html/VkAccelerationStructureCompatibilityKHR.html) value
 
-- <a
-  href="#VUID-vkGetDeviceMicromapCompatibilityEXT-pVersionInfo-parameter"
-  id="VUID-vkGetDeviceMicromapCompatibilityEXT-pVersionInfo-parameter"></a>
-  VUID-vkGetDeviceMicromapCompatibilityEXT-pVersionInfo-parameter  
-  `pVersionInfo` **must** be a valid pointer to a valid
-  [VkMicromapVersionInfoEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkMicromapVersionInfoEXT.html) structure
+## [](#_see_also)See Also
 
-- <a
-  href="#VUID-vkGetDeviceMicromapCompatibilityEXT-pCompatibility-parameter"
-  id="VUID-vkGetDeviceMicromapCompatibilityEXT-pCompatibility-parameter"></a>
-  VUID-vkGetDeviceMicromapCompatibilityEXT-pCompatibility-parameter  
-  `pCompatibility` **must** be a valid pointer to a
-  [VkAccelerationStructureCompatibilityKHR](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkAccelerationStructureCompatibilityKHR.html)
-  value
+[VK\_EXT\_opacity\_micromap](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_EXT_opacity_micromap.html), [VkAccelerationStructureCompatibilityKHR](https://registry.khronos.org/vulkan/specs/latest/man/html/VkAccelerationStructureCompatibilityKHR.html), [VkDevice](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDevice.html), [VkMicromapVersionInfoEXT](https://registry.khronos.org/vulkan/specs/latest/man/html/VkMicromapVersionInfoEXT.html)
 
-## <a href="#_see_also" class="anchor"></a>See Also
+## [](#_document_notes)Document Notes
 
-[VK_EXT_opacity_micromap](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_EXT_opacity_micromap.html),
-[VkAccelerationStructureCompatibilityKHR](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkAccelerationStructureCompatibilityKHR.html),
-[VkDevice](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkDevice.html),
-[VkMicromapVersionInfoEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkMicromapVersionInfoEXT.html)
+For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#vkGetDeviceMicromapCompatibilityEXT)
 
-## <a href="#_document_notes" class="anchor"></a>Document Notes
+This page is extracted from the Vulkan Specification. Fixes and changes should be made to the Specification, not directly.
 
-For more information, see the <a
-href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#vkGetDeviceMicromapCompatibilityEXT"
-target="_blank" rel="noopener">Vulkan Specification</a>
+## [](#_copyright)Copyright
 
-This page is extracted from the Vulkan Specification. Fixes and changes
-should be made to the Specification, not directly.
-
-## <a href="#_copyright" class="anchor"></a>Copyright
-
-Copyright 2014-2024 The Khronos Group Inc.
+Copyright 2014-2025 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
-
-Version 1.3.290  
-Last updated 2024-07-11 23:39:16 -0700

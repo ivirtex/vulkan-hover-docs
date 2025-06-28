@@ -2,16 +2,15 @@
 
 ## Name
 
-VkMemoryGetRemoteAddressInfoNV - Structure describing a remote
-accessible address export operation
+VkMemoryGetRemoteAddressInfoNV - Structure describing a remote accessible address export operation
 
 
 
-## <a href="#_c_specification" class="anchor"></a>C Specification
+## [](#_c_specification)C Specification
 
 The `VkMemoryGetRemoteAddressInfoNV` structure is defined as:
 
-``` c
+```c++
 // Provided by VK_NV_external_memory_rdma
 typedef struct VkMemoryGetRemoteAddressInfoNV {
     VkStructureType                       sType;
@@ -21,78 +20,43 @@ typedef struct VkMemoryGetRemoteAddressInfoNV {
 } VkMemoryGetRemoteAddressInfoNV;
 ```
 
-## <a href="#_members" class="anchor"></a>Members
+## [](#_members)Members
 
-- `sType` is a [VkStructureType](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkStructureType.html) value identifying
-  this structure.
-
-- `pNext` is `NULL` or a pointer to a structure extending this
-  structure.
-
-- `memory` is the memory object from which the remote accessible address
-  will be exported.
-
+- `sType` is a [VkStructureType](https://registry.khronos.org/vulkan/specs/latest/man/html/VkStructureType.html) value identifying this structure.
+- `pNext` is `NULL` or a pointer to a structure extending this structure.
+- `memory` is the memory object from which the remote accessible address will be exported.
 - `handleType` is the type of handle requested.
 
-## <a href="#_description" class="anchor"></a>Description
+## [](#_description)Description
 
 Valid Usage
 
-- <a href="#VUID-VkMemoryGetRemoteAddressInfoNV-handleType-04966"
-  id="VUID-VkMemoryGetRemoteAddressInfoNV-handleType-04966"></a>
-  VUID-VkMemoryGetRemoteAddressInfoNV-handleType-04966  
-  `handleType` **must** have been included in
-  [VkExportMemoryAllocateInfo](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkExportMemoryAllocateInfo.html)::`handleTypes`
-  when `memory` was created
+- [](#VUID-VkMemoryGetRemoteAddressInfoNV-handleType-04966)VUID-VkMemoryGetRemoteAddressInfoNV-handleType-04966  
+  `handleType` **must** have been included in [VkExportMemoryAllocateInfo](https://registry.khronos.org/vulkan/specs/latest/man/html/VkExportMemoryAllocateInfo.html)::`handleTypes` when `memory` was created
 
 Valid Usage (Implicit)
 
-- <a href="#VUID-VkMemoryGetRemoteAddressInfoNV-sType-sType"
-  id="VUID-VkMemoryGetRemoteAddressInfoNV-sType-sType"></a>
-  VUID-VkMemoryGetRemoteAddressInfoNV-sType-sType  
-  `sType` **must** be
-  `VK_STRUCTURE_TYPE_MEMORY_GET_REMOTE_ADDRESS_INFO_NV`
-
-- <a href="#VUID-VkMemoryGetRemoteAddressInfoNV-pNext-pNext"
-  id="VUID-VkMemoryGetRemoteAddressInfoNV-pNext-pNext"></a>
-  VUID-VkMemoryGetRemoteAddressInfoNV-pNext-pNext  
+- [](#VUID-VkMemoryGetRemoteAddressInfoNV-sType-sType)VUID-VkMemoryGetRemoteAddressInfoNV-sType-sType  
+  `sType` **must** be `VK_STRUCTURE_TYPE_MEMORY_GET_REMOTE_ADDRESS_INFO_NV`
+- [](#VUID-VkMemoryGetRemoteAddressInfoNV-pNext-pNext)VUID-VkMemoryGetRemoteAddressInfoNV-pNext-pNext  
   `pNext` **must** be `NULL`
+- [](#VUID-VkMemoryGetRemoteAddressInfoNV-memory-parameter)VUID-VkMemoryGetRemoteAddressInfoNV-memory-parameter  
+  `memory` **must** be a valid [VkDeviceMemory](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDeviceMemory.html) handle
+- [](#VUID-VkMemoryGetRemoteAddressInfoNV-handleType-parameter)VUID-VkMemoryGetRemoteAddressInfoNV-handleType-parameter  
+  `handleType` **must** be a valid [VkExternalMemoryHandleTypeFlagBits](https://registry.khronos.org/vulkan/specs/latest/man/html/VkExternalMemoryHandleTypeFlagBits.html) value
 
-- <a href="#VUID-VkMemoryGetRemoteAddressInfoNV-memory-parameter"
-  id="VUID-VkMemoryGetRemoteAddressInfoNV-memory-parameter"></a>
-  VUID-VkMemoryGetRemoteAddressInfoNV-memory-parameter  
-  `memory` **must** be a valid [VkDeviceMemory](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkDeviceMemory.html)
-  handle
+## [](#_see_also)See Also
 
-- <a href="#VUID-VkMemoryGetRemoteAddressInfoNV-handleType-parameter"
-  id="VUID-VkMemoryGetRemoteAddressInfoNV-handleType-parameter"></a>
-  VUID-VkMemoryGetRemoteAddressInfoNV-handleType-parameter  
-  `handleType` **must** be a valid
-  [VkExternalMemoryHandleTypeFlagBits](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkExternalMemoryHandleTypeFlagBits.html)
-  value
+[VK\_NV\_external\_memory\_rdma](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_NV_external_memory_rdma.html), [VkDeviceMemory](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDeviceMemory.html), [VkExternalMemoryHandleTypeFlagBits](https://registry.khronos.org/vulkan/specs/latest/man/html/VkExternalMemoryHandleTypeFlagBits.html), [VkStructureType](https://registry.khronos.org/vulkan/specs/latest/man/html/VkStructureType.html), [vkGetMemoryRemoteAddressNV](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetMemoryRemoteAddressNV.html)
 
-## <a href="#_see_also" class="anchor"></a>See Also
+## [](#_document_notes)Document Notes
 
-[VK_NV_external_memory_rdma](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_NV_external_memory_rdma.html),
-[VkDeviceMemory](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkDeviceMemory.html),
-[VkExternalMemoryHandleTypeFlagBits](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkExternalMemoryHandleTypeFlagBits.html),
-[VkStructureType](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkStructureType.html),
-[vkGetMemoryRemoteAddressNV](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkGetMemoryRemoteAddressNV.html)
+For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#VkMemoryGetRemoteAddressInfoNV)
 
-## <a href="#_document_notes" class="anchor"></a>Document Notes
+This page is extracted from the Vulkan Specification. Fixes and changes should be made to the Specification, not directly.
 
-For more information, see the <a
-href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#VkMemoryGetRemoteAddressInfoNV"
-target="_blank" rel="noopener">Vulkan Specification</a>
+## [](#_copyright)Copyright
 
-This page is extracted from the Vulkan Specification. Fixes and changes
-should be made to the Specification, not directly.
-
-## <a href="#_copyright" class="anchor"></a>Copyright
-
-Copyright 2014-2024 The Khronos Group Inc.
+Copyright 2014-2025 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
-
-Version 1.3.290  
-Last updated 2024-07-11 23:39:16 -0700

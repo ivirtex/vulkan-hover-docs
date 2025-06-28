@@ -6,69 +6,57 @@ vkQueueNotifyOutOfBandNV - Notify out of band queue
 
 
 
-## <a href="#_c_specification" class="anchor"></a>C Specification
+## [](#_c_specification)C Specification
 
-An application can mark a queue as Out of Band to indicate that all
-`vkQueueSubmit` calls on this queue are ignored for latency evaluation
-by calling:
+To mark a queue as *out of band*, so that all `vkQueueSubmit` calls on the queue are ignored for latency evaluation, call:
 
-``` c
+```c++
 // Provided by VK_NV_low_latency2
 void vkQueueNotifyOutOfBandNV(
     VkQueue                                     queue,
     const VkOutOfBandQueueTypeInfoNV*           pQueueTypeInfo);
 ```
 
-## <a href="#_parameters" class="anchor"></a>Parameters
+## [](#_parameters)Parameters
 
 - `queue` is the VkQueue to be marked as out of band.
+- `pQueueTypeInfo` is a pointer to a [VkOutOfBandQueueTypeInfoNV](https://registry.khronos.org/vulkan/specs/latest/man/html/VkOutOfBandQueueTypeInfoNV.html) structure specifying the queue type.
 
-- `pQueueTypeInfo` is a pointer to a
-  [VkOutOfBandQueueTypeInfoNV](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkOutOfBandQueueTypeInfoNV.html)
-  structure specifying the queue type.
-
-## <a href="#_description" class="anchor"></a>Description
+## [](#_description)Description
 
 Valid Usage (Implicit)
 
-- <a href="#VUID-vkQueueNotifyOutOfBandNV-queue-parameter"
-  id="VUID-vkQueueNotifyOutOfBandNV-queue-parameter"></a>
-  VUID-vkQueueNotifyOutOfBandNV-queue-parameter  
-  `queue` **must** be a valid [VkQueue](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkQueue.html) handle
-
-- <a href="#VUID-vkQueueNotifyOutOfBandNV-pQueueTypeInfo-parameter"
-  id="VUID-vkQueueNotifyOutOfBandNV-pQueueTypeInfo-parameter"></a>
-  VUID-vkQueueNotifyOutOfBandNV-pQueueTypeInfo-parameter  
-  `pQueueTypeInfo` **must** be a valid pointer to a valid
-  [VkOutOfBandQueueTypeInfoNV](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkOutOfBandQueueTypeInfoNV.html)
-  structure
+- [](#VUID-vkQueueNotifyOutOfBandNV-queue-parameter)VUID-vkQueueNotifyOutOfBandNV-queue-parameter  
+  `queue` **must** be a valid [VkQueue](https://registry.khronos.org/vulkan/specs/latest/man/html/VkQueue.html) handle
+- [](#VUID-vkQueueNotifyOutOfBandNV-pQueueTypeInfo-parameter)VUID-vkQueueNotifyOutOfBandNV-pQueueTypeInfo-parameter  
+  `pQueueTypeInfo` **must** be a valid pointer to a valid [VkOutOfBandQueueTypeInfoNV](https://registry.khronos.org/vulkan/specs/latest/man/html/VkOutOfBandQueueTypeInfoNV.html) structure
 
 Command Properties
 
-| [Command Buffer Levels](#VkCommandBufferLevel) | [Render Pass Scope](#vkCmdBeginRenderPass) | [Video Coding Scope](#vkCmdBeginVideoCodingKHR) | [Supported Queue Types](#VkQueueFlagBits) | [Command Type](#fundamentals-queueoperation-command-types) |
-|----|----|----|----|----|
-| \- | \- | \- | Any | \- |
+     [Command Buffer Levels](#VkCommandBufferLevel) [Render Pass Scope](#vkCmdBeginRenderPass) [Video Coding Scope](#vkCmdBeginVideoCodingKHR) [Supported Queue Types](#VkQueueFlagBits) [Command Type](#fundamentals-queueoperation-command-types)
 
-## <a href="#_see_also" class="anchor"></a>See Also
+\-
 
-[VK_NV_low_latency2](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_NV_low_latency2.html),
-[VkOutOfBandQueueTypeInfoNV](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkOutOfBandQueueTypeInfoNV.html),
-[VkQueue](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkQueue.html)
+\-
 
-## <a href="#_document_notes" class="anchor"></a>Document Notes
+\-
 
-For more information, see the <a
-href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#vkQueueNotifyOutOfBandNV"
-target="_blank" rel="noopener">Vulkan Specification</a>
+Any
 
-This page is extracted from the Vulkan Specification. Fixes and changes
-should be made to the Specification, not directly.
+\-
 
-## <a href="#_copyright" class="anchor"></a>Copyright
+## [](#_see_also)See Also
 
-Copyright 2014-2024 The Khronos Group Inc.
+[VK\_NV\_low\_latency2](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_NV_low_latency2.html), [VkOutOfBandQueueTypeInfoNV](https://registry.khronos.org/vulkan/specs/latest/man/html/VkOutOfBandQueueTypeInfoNV.html), [VkQueue](https://registry.khronos.org/vulkan/specs/latest/man/html/VkQueue.html)
+
+## [](#_document_notes)Document Notes
+
+For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#vkQueueNotifyOutOfBandNV)
+
+This page is extracted from the Vulkan Specification. Fixes and changes should be made to the Specification, not directly.
+
+## [](#_copyright)Copyright
+
+Copyright 2014-2025 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
-
-Version 1.3.290  
-Last updated 2024-07-11 23:39:16 -0700

@@ -6,15 +6,11 @@ VkBlendOp - Framebuffer blending operations
 
 
 
-## <a href="#_c_specification" class="anchor"></a>C Specification
+## [](#_c_specification)C Specification
 
-Once the source and destination blend factors have been selected, they
-along with the source and destination components are passed to the
-blending operations. RGB and alpha components **can** use different
-operations. Possible values of [VkBlendOp](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkBlendOp.html), specifying
-the operations, are:
+Once the source and destination blend factors have been selected, they along with the source and destination components are passed to the blending operations. RGB and alpha components **can** use different operations. Possible values of [VkBlendOp](https://registry.khronos.org/vulkan/specs/latest/man/html/VkBlendOp.html), specifying the operations, are:
 
-``` c
+```c++
 // Provided by VK_VERSION_1_0
 typedef enum VkBlendOp {
     VK_BLEND_OP_ADD = 0,
@@ -117,136 +113,75 @@ typedef enum VkBlendOp {
 } VkBlendOp;
 ```
 
-## <a href="#_description" class="anchor"></a>Description
+## [](#_description)Description
 
-The semantics of the basic blend operations are described in the table
-below:
+The semantics of the basic blend operations are described in the table below:
 
-<table class="tableblock frame-all grid-all stretch">
-<caption>Table 1. Basic Blend Operations</caption>
-<colgroup>
-<col style="width: 45%" />
-<col style="width: 30%" />
-<col style="width: 25%" />
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-top"><a
-href="https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkBlendOp.html">VkBlendOp</a></th>
-<th class="tableblock halign-left valign-top">RGB Components</th>
-<th class="tableblock halign-left valign-top">Alpha Component</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td
-class="tableblock halign-left valign-top"><p><code>VK_BLEND_OP_ADD</code></p></td>
-<td class="tableblock halign-left valign-top"><p>R = R<sub>s0</sub> ×
-S<sub>r</sub> + R<sub>d</sub> × D<sub>r</sub><br />
-G = G<sub>s0</sub> × S<sub>g</sub> + G<sub>d</sub> × D<sub>g</sub><br />
-B = B<sub>s0</sub> × S<sub>b</sub> + B<sub>d</sub> ×
-D<sub>b</sub></p></td>
-<td class="tableblock halign-left valign-top"><p>A = A<sub>s0</sub> ×
-S<sub>a</sub> + A<sub>d</sub> × D<sub>a</sub></p></td>
-</tr>
-<tr>
-<td
-class="tableblock halign-left valign-top"><p><code>VK_BLEND_OP_SUBTRACT</code></p></td>
-<td class="tableblock halign-left valign-top"><p>R = R<sub>s0</sub> ×
-S<sub>r</sub> - R<sub>d</sub> × D<sub>r</sub><br />
-G = G<sub>s0</sub> × S<sub>g</sub> - G<sub>d</sub> × D<sub>g</sub><br />
-B = B<sub>s0</sub> × S<sub>b</sub> - B<sub>d</sub> ×
-D<sub>b</sub></p></td>
-<td class="tableblock halign-left valign-top"><p>A = A<sub>s0</sub> ×
-S<sub>a</sub> - A<sub>d</sub> × D<sub>a</sub></p></td>
-</tr>
-<tr>
-<td
-class="tableblock halign-left valign-top"><p><code>VK_BLEND_OP_REVERSE_SUBTRACT</code></p></td>
-<td class="tableblock halign-left valign-top"><p>R = R<sub>d</sub> ×
-D<sub>r</sub> - R<sub>s0</sub> × S<sub>r</sub><br />
-G = G<sub>d</sub> × D<sub>g</sub> - G<sub>s0</sub> × S<sub>g</sub><br />
-B = B<sub>d</sub> × D<sub>b</sub> - B<sub>s0</sub> ×
-S<sub>b</sub></p></td>
-<td class="tableblock halign-left valign-top"><p>A = A<sub>d</sub> ×
-D<sub>a</sub> - A<sub>s0</sub> × S<sub>a</sub></p></td>
-</tr>
-<tr>
-<td
-class="tableblock halign-left valign-top"><p><code>VK_BLEND_OP_MIN</code></p></td>
-<td class="tableblock halign-left valign-top"><p>R =
-min(R<sub>s0</sub>,R<sub>d</sub>)<br />
-G = min(G<sub>s0</sub>,G<sub>d</sub>)<br />
-B = min(B<sub>s0</sub>,B<sub>d</sub>)</p></td>
-<td class="tableblock halign-left valign-top"><p>A =
-min(A<sub>s0</sub>,A<sub>d</sub>)</p></td>
-</tr>
-<tr>
-<td
-class="tableblock halign-left valign-top"><p><code>VK_BLEND_OP_MAX</code></p></td>
-<td class="tableblock halign-left valign-top"><p>R =
-max(R<sub>s0</sub>,R<sub>d</sub>)<br />
-G = max(G<sub>s0</sub>,G<sub>d</sub>)<br />
-B = max(B<sub>s0</sub>,B<sub>d</sub>)</p></td>
-<td class="tableblock halign-left valign-top"><p>A =
-max(A<sub>s0</sub>,A<sub>d</sub>)</p></td>
-</tr>
-</tbody>
-</table>
+Table 1. Basic Blend Operations    [VkBlendOp](https://registry.khronos.org/vulkan/specs/latest/man/html/VkBlendOp.html) RGB Components Alpha Component
 
-Table 1. Basic Blend Operations
+`VK_BLEND_OP_ADD`
+
+R = Rs0 × Sr + Rd × Dr  
+G = Gs0 × Sg + Gd × Dg  
+B = Bs0 × Sb + Bd × Db
+
+A = As0 × Sa + Ad × Da
+
+`VK_BLEND_OP_SUBTRACT`
+
+R = Rs0 × Sr - Rd × Dr  
+G = Gs0 × Sg - Gd × Dg  
+B = Bs0 × Sb - Bd × Db
+
+A = As0 × Sa - Ad × Da
+
+`VK_BLEND_OP_REVERSE_SUBTRACT`
+
+R = Rd × Dr - Rs0 × Sr  
+G = Gd × Dg - Gs0 × Sg  
+B = Bd × Db - Bs0 × Sb
+
+A = Ad × Da - As0 × Sa
+
+`VK_BLEND_OP_MIN`
+
+R = min(Rs0,Rd)  
+G = min(Gs0,Gd)  
+B = min(Bs0,Bd)
+
+A = min(As0,Ad)
+
+`VK_BLEND_OP_MAX`
+
+R = max(Rs0,Rd)  
+G = max(Gs0,Gd)  
+B = max(Bs0,Bd)
+
+A = max(As0,Ad)
 
 In this table, the following conventions are used:
 
-- R<sub>s0</sub>, G<sub>s0</sub>, B<sub>s0</sub> and A<sub>s0</sub>
-  represent the first source color R, G, B, and A components,
-  respectively.
+- Rs0, Gs0, Bs0 and As0 represent the first source color R, G, B, and A components, respectively.
+- Rd, Gd, Bd and Ad represent the R, G, B, and A components of the destination color. That is, the color currently in the corresponding color attachment for this fragment/sample.
+- Sr, Sg, Sb and Sa represent the source blend factor R, G, B, and A components, respectively.
+- Dr, Dg, Db and Da represent the destination blend factor R, G, B, and A components, respectively.
 
-- R<sub>d</sub>, G<sub>d</sub>, B<sub>d</sub> and A<sub>d</sub>
-  represent the R, G, B, and A components of the destination color. That
-  is, the color currently in the corresponding color attachment for this
-  fragment/sample.
+The blending operation produces a new set of values R, G, B and A, which are written to the framebuffer attachment. If blending is not enabled for this attachment, then R, G, B and A are assigned Rs0, Gs0, Bs0 and As0, respectively.
 
-- S<sub>r</sub>, S<sub>g</sub>, S<sub>b</sub> and S<sub>a</sub>
-  represent the source blend factor R, G, B, and A components,
-  respectively.
+If the color attachment is fixed-point, the components of the source and destination values and blend factors are each clamped to \[0,1] or \[-1,1] respectively for an unsigned normalized or signed normalized color attachment prior to evaluating the blend operations. If the color attachment is floating-point, no clamping occurs.
 
-- D<sub>r</sub>, D<sub>g</sub>, D<sub>b</sub> and D<sub>a</sub>
-  represent the destination blend factor R, G, B, and A components,
-  respectively.
+## [](#_see_also)See Also
 
-The blending operation produces a new set of values R, G, B and A, which
-are written to the framebuffer attachment. If blending is not enabled
-for this attachment, then R, G, B and A are assigned R<sub>s0</sub>,
-G<sub>s0</sub>, B<sub>s0</sub> and A<sub>s0</sub>, respectively.
+[VK\_VERSION\_1\_0](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_VERSION_1_0.html), [VkColorBlendAdvancedEXT](https://registry.khronos.org/vulkan/specs/latest/man/html/VkColorBlendAdvancedEXT.html), [VkColorBlendEquationEXT](https://registry.khronos.org/vulkan/specs/latest/man/html/VkColorBlendEquationEXT.html), [VkPipelineColorBlendAttachmentState](https://registry.khronos.org/vulkan/specs/latest/man/html/VkPipelineColorBlendAttachmentState.html)
 
-If the color attachment is fixed-point, the components of the source and
-destination values and blend factors are each clamped to \[0,1\] or
-\[-1,1\] respectively for an unsigned normalized or signed normalized
-color attachment prior to evaluating the blend operations. If the color
-attachment is floating-point, no clamping occurs.
+## [](#_document_notes)Document Notes
 
-## <a href="#_see_also" class="anchor"></a>See Also
+For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#VkBlendOp)
 
-[VK_VERSION_1_0](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_VERSION_1_0.html),
-[VkColorBlendAdvancedEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkColorBlendAdvancedEXT.html),
-[VkColorBlendEquationEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkColorBlendEquationEXT.html),
-[VkPipelineColorBlendAttachmentState](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkPipelineColorBlendAttachmentState.html)
+This page is extracted from the Vulkan Specification. Fixes and changes should be made to the Specification, not directly.
 
-## <a href="#_document_notes" class="anchor"></a>Document Notes
+## [](#_copyright)Copyright
 
-For more information, see the <a
-href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#VkBlendOp"
-target="_blank" rel="noopener">Vulkan Specification</a>
-
-This page is extracted from the Vulkan Specification. Fixes and changes
-should be made to the Specification, not directly.
-
-## <a href="#_copyright" class="anchor"></a>Copyright
-
-Copyright 2014-2024 The Khronos Group Inc.
+Copyright 2014-2025 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
-
-Version 1.3.290  
-Last updated 2024-07-11 23:39:16 -0700

@@ -2,16 +2,15 @@
 
 ## Name
 
-vkGetPhysicalDeviceExternalBufferProperties - Query external handle
-types supported by buffers
+vkGetPhysicalDeviceExternalBufferProperties - Query external handle types supported by buffers
 
 
 
-## <a href="#_c_specification" class="anchor"></a>C Specification
+## [](#_c_specification)C Specification
 
 To query the external handle types supported by buffers, call:
 
-``` c
+```c++
 // Provided by VK_VERSION_1_1
 void vkGetPhysicalDeviceExternalBufferProperties(
     VkPhysicalDevice                            physicalDevice,
@@ -21,7 +20,7 @@ void vkGetPhysicalDeviceExternalBufferProperties(
 
 or the equivalent command
 
-``` c
+```c++
 // Provided by VK_KHR_external_memory_capabilities
 void vkGetPhysicalDeviceExternalBufferPropertiesKHR(
     VkPhysicalDevice                            physicalDevice,
@@ -29,68 +28,35 @@ void vkGetPhysicalDeviceExternalBufferPropertiesKHR(
     VkExternalBufferProperties*                 pExternalBufferProperties);
 ```
 
-## <a href="#_parameters" class="anchor"></a>Parameters
+## [](#_parameters)Parameters
 
-- `physicalDevice` is the physical device from which to query the buffer
-  capabilities.
+- `physicalDevice` is the physical device from which to query the buffer capabilities.
+- `pExternalBufferInfo` is a pointer to a [VkPhysicalDeviceExternalBufferInfo](https://registry.khronos.org/vulkan/specs/latest/man/html/VkPhysicalDeviceExternalBufferInfo.html) structure describing the parameters that would be consumed by [vkCreateBuffer](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCreateBuffer.html).
+- `pExternalBufferProperties` is a pointer to a [VkExternalBufferProperties](https://registry.khronos.org/vulkan/specs/latest/man/html/VkExternalBufferProperties.html) structure in which capabilities are returned.
 
-- `pExternalBufferInfo` is a pointer to a
-  [VkPhysicalDeviceExternalBufferInfo](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkPhysicalDeviceExternalBufferInfo.html)
-  structure describing the parameters that would be consumed by
-  [vkCreateBuffer](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCreateBuffer.html).
-
-- `pExternalBufferProperties` is a pointer to a
-  [VkExternalBufferProperties](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkExternalBufferProperties.html)
-  structure in which capabilities are returned.
-
-## <a href="#_description" class="anchor"></a>Description
+## [](#_description)Description
 
 Valid Usage (Implicit)
 
-- <a
-  href="#VUID-vkGetPhysicalDeviceExternalBufferProperties-physicalDevice-parameter"
-  id="VUID-vkGetPhysicalDeviceExternalBufferProperties-physicalDevice-parameter"></a>
-  VUID-vkGetPhysicalDeviceExternalBufferProperties-physicalDevice-parameter  
-  `physicalDevice` **must** be a valid
-  [VkPhysicalDevice](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkPhysicalDevice.html) handle
+- [](#VUID-vkGetPhysicalDeviceExternalBufferProperties-physicalDevice-parameter)VUID-vkGetPhysicalDeviceExternalBufferProperties-physicalDevice-parameter  
+  `physicalDevice` **must** be a valid [VkPhysicalDevice](https://registry.khronos.org/vulkan/specs/latest/man/html/VkPhysicalDevice.html) handle
+- [](#VUID-vkGetPhysicalDeviceExternalBufferProperties-pExternalBufferInfo-parameter)VUID-vkGetPhysicalDeviceExternalBufferProperties-pExternalBufferInfo-parameter  
+  `pExternalBufferInfo` **must** be a valid pointer to a valid [VkPhysicalDeviceExternalBufferInfo](https://registry.khronos.org/vulkan/specs/latest/man/html/VkPhysicalDeviceExternalBufferInfo.html) structure
+- [](#VUID-vkGetPhysicalDeviceExternalBufferProperties-pExternalBufferProperties-parameter)VUID-vkGetPhysicalDeviceExternalBufferProperties-pExternalBufferProperties-parameter  
+  `pExternalBufferProperties` **must** be a valid pointer to a [VkExternalBufferProperties](https://registry.khronos.org/vulkan/specs/latest/man/html/VkExternalBufferProperties.html) structure
 
-- <a
-  href="#VUID-vkGetPhysicalDeviceExternalBufferProperties-pExternalBufferInfo-parameter"
-  id="VUID-vkGetPhysicalDeviceExternalBufferProperties-pExternalBufferInfo-parameter"></a>
-  VUID-vkGetPhysicalDeviceExternalBufferProperties-pExternalBufferInfo-parameter  
-  `pExternalBufferInfo` **must** be a valid pointer to a valid
-  [VkPhysicalDeviceExternalBufferInfo](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkPhysicalDeviceExternalBufferInfo.html)
-  structure
+## [](#_see_also)See Also
 
-- <a
-  href="#VUID-vkGetPhysicalDeviceExternalBufferProperties-pExternalBufferProperties-parameter"
-  id="VUID-vkGetPhysicalDeviceExternalBufferProperties-pExternalBufferProperties-parameter"></a>
-  VUID-vkGetPhysicalDeviceExternalBufferProperties-pExternalBufferProperties-parameter  
-  `pExternalBufferProperties` **must** be a valid pointer to a
-  [VkExternalBufferProperties](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkExternalBufferProperties.html)
-  structure
+[VK\_VERSION\_1\_1](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_VERSION_1_1.html), [VkExternalBufferProperties](https://registry.khronos.org/vulkan/specs/latest/man/html/VkExternalBufferProperties.html), [VkPhysicalDevice](https://registry.khronos.org/vulkan/specs/latest/man/html/VkPhysicalDevice.html), [VkPhysicalDeviceExternalBufferInfo](https://registry.khronos.org/vulkan/specs/latest/man/html/VkPhysicalDeviceExternalBufferInfo.html)
 
-## <a href="#_see_also" class="anchor"></a>See Also
+## [](#_document_notes)Document Notes
 
-[VK_VERSION_1_1](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_VERSION_1_1.html),
-[VkExternalBufferProperties](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkExternalBufferProperties.html),
-[VkPhysicalDevice](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkPhysicalDevice.html),
-[VkPhysicalDeviceExternalBufferInfo](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkPhysicalDeviceExternalBufferInfo.html)
+For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#vkGetPhysicalDeviceExternalBufferProperties)
 
-## <a href="#_document_notes" class="anchor"></a>Document Notes
+This page is extracted from the Vulkan Specification. Fixes and changes should be made to the Specification, not directly.
 
-For more information, see the <a
-href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#vkGetPhysicalDeviceExternalBufferProperties"
-target="_blank" rel="noopener">Vulkan Specification</a>
+## [](#_copyright)Copyright
 
-This page is extracted from the Vulkan Specification. Fixes and changes
-should be made to the Specification, not directly.
-
-## <a href="#_copyright" class="anchor"></a>Copyright
-
-Copyright 2014-2024 The Khronos Group Inc.
+Copyright 2014-2025 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
-
-Version 1.3.290  
-Last updated 2024-07-11 23:39:16 -0700
