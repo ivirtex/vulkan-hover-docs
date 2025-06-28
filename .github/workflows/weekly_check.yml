@@ -74,7 +74,7 @@ jobs:
         run: docs_generator generate https://registry.khronos.org/vulkan/specs/latest/man/html/ --path ../vscode_extension/docs
 
       - name: Save latest commit SHA
-        run: echo "${{ env.LATEST_COMMIT }}" > vscode_extension/docs/.last_update
+        run: echo "${{ env.LATEST_COMMIT }}" > ../vscode_extension/docs/.last_update
 
       - name: Commit changes
         run: |
