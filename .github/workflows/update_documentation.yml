@@ -43,6 +43,9 @@ jobs:
   run_docs_generator:
     name: Run docs_generator
     runs-on: ubuntu-latest
+    permissions:
+      contents: write  # Allow writing to the repository
+      pull-requests: write  # Allow creating pull requests
     needs: check_for_updates
     if: needs.check_for_updates.outputs.should_run_gen == 'true'
     env:
