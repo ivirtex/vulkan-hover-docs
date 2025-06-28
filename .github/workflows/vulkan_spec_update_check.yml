@@ -1,0 +1,64 @@
+name: Vulkan Spec Update Check
+on:
+  schedule:
+    - cron: '0 0 * * 0'  # Every Sunday at midnight
+
+jobs:
+  # Check for latest commit SHA in https://github.com/KhronosGroup/Vulkan-Docs
+  check_for_updates:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Vulkan-Docs repository
+        uses: actions/checkout@v4
+        with:
+          repository: KhronosGroup/Vulkan-Docs
+          
+      - name: Get latest commit SHA in Vulkan-Docs
+        run: echo "latest_commit=$(git rev-parse HEAD)" >> $GITHUB_ENV
+
+      - name: Compare with stored SHA
+        run: |
+          if [ -f vscode_extension/docs/.last_update ]; then
+            last_commit=$(cat vscode_extension/docs/.last_update)
+          else
+            last_commit=""
+          fi
+
+          if [ "$last_commit" != "$latest_commit" ]; then
+            echo "New Vulkan-Docs commit found: $latest_commit"
+            echo "new_commit=true" >> $GITHUB_ENV
+          else
+            echo "No new Vulkan-Docs commit found."
+            echo "new_commit=false" >> $GITHUB_ENV
+          fi
+        
+  run_docs_generator:
+    runs-on: ubuntu-latest
+    needs: check_for_updates
+    if: github.env.new_commit == 'true'
+    steps:
+      - name: Checkout docs_generator repository
+        uses: actions/checkout@v4
+        with:
+          repository: ivirtex/vulkan-hover-docs
+
+      - name: Setup Go
+        uses: actions/setup-go@v4
+
+      - name: Install dependencies
+        run: go mod tidy
+
+      - name: Install executable
+        run: go install 
+
+      - name: Run docs_generator
+        run: docs_generator generate \
+          --url https://registry.khronos.org/vulkan/specs/latest/man/html/ \
+          --path vscode_extension/docs
+
+      - name: Create pull request
+        run: gh pr create \
+          --title "Update Vulkan documentation to SHA ${{ github.env.latest_commit }}" \
+          --base main \
+          --head update-vulkan-docs \
+          --label "documentation"
