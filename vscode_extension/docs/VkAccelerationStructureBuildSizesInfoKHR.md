@@ -2,18 +2,15 @@
 
 ## Name
 
-VkAccelerationStructureBuildSizesInfoKHR - Structure specifying build
-sizes for an acceleration structure
+VkAccelerationStructureBuildSizesInfoKHR - Structure specifying build sizes for an acceleration structure
 
 
 
-## <a href="#_c_specification" class="anchor"></a>C Specification
+## [](#_c_specification)C Specification
 
-The `VkAccelerationStructureBuildSizesInfoKHR` structure describes the
-required build sizes for an acceleration structure and scratch buffers
-and is defined as:
+The `VkAccelerationStructureBuildSizesInfoKHR` structure describes the required build sizes for an acceleration structure and scratch buffers and is defined as:
 
-``` c
+```c++
 // Provided by VK_KHR_acceleration_structure
 typedef struct VkAccelerationStructureBuildSizesInfoKHR {
     VkStructureType    sType;
@@ -24,60 +21,35 @@ typedef struct VkAccelerationStructureBuildSizesInfoKHR {
 } VkAccelerationStructureBuildSizesInfoKHR;
 ```
 
-## <a href="#_members" class="anchor"></a>Members
+## [](#_members)Members
 
-- `sType` is a [VkStructureType](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkStructureType.html) value identifying
-  this structure.
+- `sType` is a [VkStructureType](https://registry.khronos.org/vulkan/specs/latest/man/html/VkStructureType.html) value identifying this structure.
+- `pNext` is `NULL` or a pointer to a structure extending this structure.
+- `accelerationStructureSize` is the size in bytes required in a [VkAccelerationStructureKHR](https://registry.khronos.org/vulkan/specs/latest/man/html/VkAccelerationStructureKHR.html) for a build or update operation.
+- `updateScratchSize` is the size in bytes required in a scratch buffer for an update operation.
+- `buildScratchSize` is the size in bytes required in a scratch buffer for a build operation.
 
-- `pNext` is `NULL` or a pointer to a structure extending this
-  structure.
-
-- `accelerationStructureSize` is the size in bytes required in a
-  [VkAccelerationStructureKHR](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkAccelerationStructureKHR.html) for a
-  build or update operation.
-
-- `updateScratchSize` is the size in bytes required in a scratch buffer
-  for an update operation.
-
-- `buildScratchSize` is the size in bytes required in a scratch buffer
-  for a build operation.
-
-## <a href="#_description" class="anchor"></a>Description
+## [](#_description)Description
 
 Valid Usage (Implicit)
 
-- <a href="#VUID-VkAccelerationStructureBuildSizesInfoKHR-sType-sType"
-  id="VUID-VkAccelerationStructureBuildSizesInfoKHR-sType-sType"></a>
-  VUID-VkAccelerationStructureBuildSizesInfoKHR-sType-sType  
-  `sType` **must** be
-  `VK_STRUCTURE_TYPE_ACCELERATION_STRUCTURE_BUILD_SIZES_INFO_KHR`
-
-- <a href="#VUID-VkAccelerationStructureBuildSizesInfoKHR-pNext-pNext"
-  id="VUID-VkAccelerationStructureBuildSizesInfoKHR-pNext-pNext"></a>
-  VUID-VkAccelerationStructureBuildSizesInfoKHR-pNext-pNext  
+- [](#VUID-VkAccelerationStructureBuildSizesInfoKHR-sType-sType)VUID-VkAccelerationStructureBuildSizesInfoKHR-sType-sType  
+  `sType` **must** be `VK_STRUCTURE_TYPE_ACCELERATION_STRUCTURE_BUILD_SIZES_INFO_KHR`
+- [](#VUID-VkAccelerationStructureBuildSizesInfoKHR-pNext-pNext)VUID-VkAccelerationStructureBuildSizesInfoKHR-pNext-pNext  
   `pNext` **must** be `NULL`
 
-## <a href="#_see_also" class="anchor"></a>See Also
+## [](#_see_also)See Also
 
-[VK_KHR_acceleration_structure](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_KHR_acceleration_structure.html),
-[VkDeviceSize](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkDeviceSize.html),
-[VkStructureType](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkStructureType.html),
-[vkGetAccelerationStructureBuildSizesKHR](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkGetAccelerationStructureBuildSizesKHR.html)
+[VK\_KHR\_acceleration\_structure](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_KHR_acceleration_structure.html), [VkDeviceSize](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDeviceSize.html), [VkStructureType](https://registry.khronos.org/vulkan/specs/latest/man/html/VkStructureType.html), [vkGetAccelerationStructureBuildSizesKHR](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetAccelerationStructureBuildSizesKHR.html), [vkGetClusterAccelerationStructureBuildSizesNV](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetClusterAccelerationStructureBuildSizesNV.html), [vkGetPartitionedAccelerationStructuresBuildSizesNV](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetPartitionedAccelerationStructuresBuildSizesNV.html)
 
-## <a href="#_document_notes" class="anchor"></a>Document Notes
+## [](#_document_notes)Document Notes
 
-For more information, see the <a
-href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#VkAccelerationStructureBuildSizesInfoKHR"
-target="_blank" rel="noopener">Vulkan Specification</a>
+For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#VkAccelerationStructureBuildSizesInfoKHR)
 
-This page is extracted from the Vulkan Specification. Fixes and changes
-should be made to the Specification, not directly.
+This page is extracted from the Vulkan Specification. Fixes and changes should be made to the Specification, not directly.
 
-## <a href="#_copyright" class="anchor"></a>Copyright
+## [](#_copyright)Copyright
 
-Copyright 2014-2024 The Khronos Group Inc.
+Copyright 2014-2025 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
-
-Version 1.3.290  
-Last updated 2024-07-11 23:39:16 -0700

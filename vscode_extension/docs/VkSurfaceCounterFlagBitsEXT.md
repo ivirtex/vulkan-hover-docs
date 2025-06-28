@@ -6,46 +6,35 @@ VkSurfaceCounterFlagBitsEXT - Surface-relative counter types
 
 
 
-## <a href="#_c_specification" class="anchor"></a>C Specification
+## [](#_c_specification)C Specification
 
-Bits which **can** be set in
-[VkSurfaceCapabilities2EXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkSurfaceCapabilities2EXT.html)::`supportedSurfaceCounters`,
-indicating supported surface counter types, are:
+Bits which **can** be set in [VkSurfaceCapabilities2EXT](https://registry.khronos.org/vulkan/specs/latest/man/html/VkSurfaceCapabilities2EXT.html)::`supportedSurfaceCounters`, indicating supported surface counter types, are:
 
-``` c
+```c++
 // Provided by VK_EXT_display_surface_counter
 typedef enum VkSurfaceCounterFlagBitsEXT {
     VK_SURFACE_COUNTER_VBLANK_BIT_EXT = 0x00000001,
+  // VK_SURFACE_COUNTER_VBLANK_EXT is a deprecated alias
     VK_SURFACE_COUNTER_VBLANK_EXT = VK_SURFACE_COUNTER_VBLANK_BIT_EXT,
 } VkSurfaceCounterFlagBitsEXT;
 ```
 
-## <a href="#_description" class="anchor"></a>Description
+## [](#_description)Description
 
-- `VK_SURFACE_COUNTER_VBLANK_BIT_EXT` specifies a counter incrementing
-  once every time a vertical blanking period occurs on the display
-  associated with the surface.
+- `VK_SURFACE_COUNTER_VBLANK_BIT_EXT` specifies a counter incrementing once every time a vertical blanking period occurs on the display associated with the surface.
 
-## <a href="#_see_also" class="anchor"></a>See Also
+## [](#_see_also)See Also
 
-[VK_EXT_display_surface_counter](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_EXT_display_surface_counter.html),
-[VkSurfaceCounterFlagsEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkSurfaceCounterFlagsEXT.html),
-[vkGetSwapchainCounterEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkGetSwapchainCounterEXT.html)
+[VK\_EXT\_display\_surface\_counter](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_EXT_display_surface_counter.html), [VkSurfaceCounterFlagsEXT](https://registry.khronos.org/vulkan/specs/latest/man/html/VkSurfaceCounterFlagsEXT.html), [vkGetSwapchainCounterEXT](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetSwapchainCounterEXT.html)
 
-## <a href="#_document_notes" class="anchor"></a>Document Notes
+## [](#_document_notes)Document Notes
 
-For more information, see the <a
-href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#VkSurfaceCounterFlagBitsEXT"
-target="_blank" rel="noopener">Vulkan Specification</a>
+For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#VkSurfaceCounterFlagBitsEXT)
 
-This page is extracted from the Vulkan Specification. Fixes and changes
-should be made to the Specification, not directly.
+This page is extracted from the Vulkan Specification. Fixes and changes should be made to the Specification, not directly.
 
-## <a href="#_copyright" class="anchor"></a>Copyright
+## [](#_copyright)Copyright
 
-Copyright 2014-2024 The Khronos Group Inc.
+Copyright 2014-2025 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
-
-Version 1.3.290  
-Last updated 2024-07-11 23:39:16 -0700

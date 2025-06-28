@@ -1,118 +1,92 @@
-# VK_NV_per_stage_descriptor_set(3) Manual Page
+# VK\_NV\_per\_stage\_descriptor\_set(3) Manual Page
 
 ## Name
 
-VK_NV_per_stage_descriptor_set - device extension
+VK\_NV\_per\_stage\_descriptor\_set - device extension
 
 
 
-## <a href="#_registered_extension_number" class="anchor"></a>Registered Extension Number
+## [](#_registered_extension_number)Registered Extension Number
 
 517
 
-## <a href="#_revision" class="anchor"></a>Revision
+## [](#_revision)Revision
 
 1
 
-## <a href="#_ratification_status" class="anchor"></a>Ratification Status
+## [](#_ratification_status)Ratification Status
 
 Not ratified
 
-## <a href="#_extension_and_version_dependencies" class="anchor"></a>Extension and Version Dependencies
+## [](#_extension_and_version_dependencies)Extension and Version Dependencies
 
-[VK_KHR_maintenance6](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_KHR_maintenance6.html)  
+[VK\_KHR\_maintenance6](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_KHR_maintenance6.html)  
+or  
+[Vulkan Version 1.4](#versions-1.4)
 
-## <a href="#_contact" class="anchor"></a>Contact
+## [](#_contact)Contact
 
-- Piers Daniell <a
-  href="https://github.com/KhronosGroup/Vulkan-Docs/issues/new?body=%5BVK_NV_per_stage_descriptor_set%5D%20@pdaniell-nv%0A*Here%20describe%20the%20issue%20or%20question%20you%20have%20about%20the%20VK_NV_per_stage_descriptor_set%20extension*"
-  target="_blank" rel="nofollow noopener"><em></em>pdaniell-nv</a>
+- Piers Daniell [\[GitHub\]pdaniell-nv](https://github.com/KhronosGroup/Vulkan-Docs/issues/new?body=%5BVK_NV_per_stage_descriptor_set%5D%20%40pdaniell-nv%0A%2AHere%20describe%20the%20issue%20or%20question%20you%20have%20about%20the%20VK_NV_per_stage_descriptor_set%20extension%2A)
 
-## <a href="#_other_extension_metadata" class="anchor"></a>Other Extension Metadata
+## [](#_other_extension_metadata)Other Extension Metadata
 
-**Last Modified Date**  
+**Last Modified Date**
+
 2023-10-16
 
-**IP Status**  
+**IP Status**
+
 No known IP claims.
 
-**Contributors**  
+**Contributors**
+
 - Daniel Story, Nintendo
 
-## <a href="#_description" class="anchor"></a>Description
+## [](#_description)Description
 
-This extension introduces a new descriptor set layout creation flag that
-allows bindings in a descriptor set to be scoped to each shader stage.
-This means that shaders bound at the same time **may** use completely
-different descriptor set layouts without any restrictions on
-compatibility, and that the descriptor limits that would otherwise apply
-to the union of all stages together instead apply to each stage
-individually. It also means that descriptors shared by multiple stages
-**must** be bound to each stage or set of stages that use a unique
-descriptor set layout using their specific per stage descriptor set
-layout(s).
+This extension introduces a new descriptor set layout creation flag that allows bindings in a descriptor set to be scoped to each shader stage. This means that shaders bound at the same time **may** use completely different descriptor set layouts without any restrictions on compatibility, and that the descriptor limits that would otherwise apply to the union of all stages together instead apply to each stage individually. It also means that descriptors shared by multiple stages **must** be bound to each stage or set of stages that use a unique descriptor set layout using their specific per stage descriptor set layout(s).
 
-This extension also allows each of the new descriptor binding functions
-from VK_KHR_maintenance6 to have their
-[VkPipelineLayout](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkPipelineLayout.html) member be optionally set to
-[VK_NULL_HANDLE](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_NULL_HANDLE.html), in which case the pipeline layout
-information is taken from a
-[VkPipelineLayoutCreateInfo](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkPipelineLayoutCreateInfo.html) structure
-in the `pNext` chain. This enables descriptors to be directly bound
-using descriptor set layouts without applications needing to create and
-manage [VkPipelineLayout](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkPipelineLayout.html) objects at command
-recording time.
+This extension also allows each of the new descriptor binding functions from VK\_KHR\_maintenance6 to have their [VkPipelineLayout](https://registry.khronos.org/vulkan/specs/latest/man/html/VkPipelineLayout.html) member be optionally set to [VK\_NULL\_HANDLE](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_NULL_HANDLE.html), in which case the pipeline layout information is taken from a [VkPipelineLayoutCreateInfo](https://registry.khronos.org/vulkan/specs/latest/man/html/VkPipelineLayoutCreateInfo.html) structure in the `pNext` chain. This enables descriptors to be directly bound using descriptor set layouts without applications needing to create and manage [VkPipelineLayout](https://registry.khronos.org/vulkan/specs/latest/man/html/VkPipelineLayout.html) objects at command recording time.
 
-## <a href="#_new_structures" class="anchor"></a>New Structures
+## [](#_new_structures)New Structures
 
-- Extending [VkPhysicalDeviceFeatures2](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkPhysicalDeviceFeatures2.html),
-  [VkDeviceCreateInfo](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkDeviceCreateInfo.html):
+- Extending [VkPhysicalDeviceFeatures2](https://registry.khronos.org/vulkan/specs/latest/man/html/VkPhysicalDeviceFeatures2.html), [VkDeviceCreateInfo](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDeviceCreateInfo.html):
+  
+  - [VkPhysicalDevicePerStageDescriptorSetFeaturesNV](https://registry.khronos.org/vulkan/specs/latest/man/html/VkPhysicalDevicePerStageDescriptorSetFeaturesNV.html)
 
-  - [VkPhysicalDevicePerStageDescriptorSetFeaturesNV](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkPhysicalDevicePerStageDescriptorSetFeaturesNV.html)
-
-## <a href="#_new_enum_constants" class="anchor"></a>New Enum Constants
+## [](#_new_enum_constants)New Enum Constants
 
 - `VK_NV_PER_STAGE_DESCRIPTOR_SET_EXTENSION_NAME`
-
 - `VK_NV_PER_STAGE_DESCRIPTOR_SET_SPEC_VERSION`
-
-- Extending
-  [VkDescriptorSetLayoutCreateFlagBits](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkDescriptorSetLayoutCreateFlagBits.html):
-
+- Extending [VkDescriptorSetLayoutCreateFlagBits](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDescriptorSetLayoutCreateFlagBits.html):
+  
   - `VK_DESCRIPTOR_SET_LAYOUT_CREATE_PER_STAGE_BIT_NV`
-
-- Extending [VkStructureType](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkStructureType.html):
-
+- Extending [VkStructureType](https://registry.khronos.org/vulkan/specs/latest/man/html/VkStructureType.html):
+  
   - `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_PER_STAGE_DESCRIPTOR_SET_FEATURES_NV`
 
-## <a href="#_issues" class="anchor"></a>Issues
+## [](#_issues)Issues
 
 None
 
-## <a href="#_version_history" class="anchor"></a>Version History
+## [](#_version_history)Version History
 
 - Revision 1, 2023-10-16 (Piers Daniell)
-
+  
   - Initial draft
 
-## <a href="#_see_also" class="anchor"></a>See Also
+## [](#_see_also)See Also
 
 No cross-references are available
 
-## <a href="#_document_notes" class="anchor"></a>Document Notes
+## [](#_document_notes)Document Notes
 
-For more information, see the <a
-href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#VK_NV_per_stage_descriptor_set"
-target="_blank" rel="noopener">Vulkan Specification</a>
+For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#VK_NV_per_stage_descriptor_set)
 
-This page is a generated document. Fixes and changes should be made to
-the generator scripts, not directly.
+This page is a generated document. Fixes and changes should be made to the generator scripts, not directly.
 
-## <a href="#_copyright" class="anchor"></a>Copyright
+## [](#_copyright)Copyright
 
-Copyright 2014-2024 The Khronos Group Inc.
+Copyright 2014-2025 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
-
-Version 1.3.290  
-Last updated 2024-07-11 23:39:16 -0700

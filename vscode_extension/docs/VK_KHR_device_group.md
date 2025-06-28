@@ -1,352 +1,265 @@
-# VK_KHR_device_group(3) Manual Page
+# VK\_KHR\_device\_group(3) Manual Page
 
 ## Name
 
-VK_KHR_device_group - device extension
+VK\_KHR\_device\_group - device extension
 
 
 
-## <a href="#_registered_extension_number" class="anchor"></a>Registered Extension Number
+## [](#_registered_extension_number)Registered Extension Number
 
 61
 
-## <a href="#_revision" class="anchor"></a>Revision
+## [](#_revision)Revision
 
 4
 
-## <a href="#_ratification_status" class="anchor"></a>Ratification Status
+## [](#_ratification_status)Ratification Status
 
 Ratified
 
-## <a href="#_extension_and_version_dependencies" class="anchor"></a>Extension and Version Dependencies
+## [](#_extension_and_version_dependencies)Extension and Version Dependencies
 
-[VK_KHR_device_group_creation](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_KHR_device_group_creation.html)  
+[VK\_KHR\_device\_group\_creation](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_KHR_device_group_creation.html)
 
-## <a href="#_api_interactions" class="anchor"></a>API Interactions
+## [](#_api_interactions)API Interactions
 
-- Interacts with VK_KHR_bind_memory2
+- Interacts with VK\_KHR\_bind\_memory2
+- Interacts with VK\_KHR\_surface
+- Interacts with VK\_KHR\_swapchain
 
-- Interacts with VK_KHR_surface
+## [](#_spir_v_dependencies)SPIR-V Dependencies
 
-- Interacts with VK_KHR_swapchain
+- [SPV\_KHR\_device\_group](https://github.khronos.org/SPIRV-Registry/extensions/KHR/SPV_KHR_device_group.html)
 
-## <a href="#_spir_v_dependencies" class="anchor"></a>SPIR-V Dependencies
+## [](#_deprecation_state)Deprecation State
 
-- [SPV_KHR_device_group](https://htmlpreview.github.io/?https://github.com/KhronosGroup/SPIRV-Registry/blob/main/extensions/KHR/SPV_KHR_device_group.html)
+- *Promoted* to [Vulkan 1.1](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#versions-1.1-promotions)
 
-## <a href="#_deprecation_state" class="anchor"></a>Deprecation State
+## [](#_contact)Contact
 
-- *Promoted* to <a
-  href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#versions-1.1-promotions"
-  target="_blank" rel="noopener">Vulkan 1.1</a>
+- Jeff Bolz [\[GitHub\]jeffbolznv](https://github.com/KhronosGroup/Vulkan-Docs/issues/new?body=%5BVK_KHR_device_group%5D%20%40jeffbolznv%0A%2AHere%20describe%20the%20issue%20or%20question%20you%20have%20about%20the%20VK_KHR_device_group%20extension%2A)
 
-## <a href="#_contact" class="anchor"></a>Contact
+## [](#_other_extension_metadata)Other Extension Metadata
 
-- Jeff Bolz <a
-  href="https://github.com/KhronosGroup/Vulkan-Docs/issues/new?body=%5BVK_KHR_device_group%5D%20@jeffbolznv%0A*Here%20describe%20the%20issue%20or%20question%20you%20have%20about%20the%20VK_KHR_device_group%20extension*"
-  target="_blank" rel="nofollow noopener"><em></em>jeffbolznv</a>
+**Last Modified Date**
 
-## <a href="#_other_extension_metadata" class="anchor"></a>Other Extension Metadata
-
-**Last Modified Date**  
 2017-10-10
 
-**IP Status**  
+**IP Status**
+
 No known IP claims.
 
-**Contributors**  
-- Jeff Bolz, NVIDIA
+**Contributors**
 
+- Jeff Bolz, NVIDIA
 - Tobias Hector, Imagination Technologies
 
-## <a href="#_description" class="anchor"></a>Description
+## [](#_description)Description
 
-This extension provides functionality to use a logical device that
-consists of multiple physical devices, as created with the
-[`VK_KHR_device_group_creation`](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_KHR_device_group_creation.html)
-extension. A device group can allocate memory across the subdevices,
-bind memory from one subdevice to a resource on another subdevice,
-record command buffers where some work executes on an arbitrary subset
-of the subdevices, and potentially present a swapchain image from one or
-more subdevices.
+This extension provides functionality to use a logical device that consists of multiple physical devices, as created with the `VK_KHR_device_group_creation` extension. A device group can allocate memory across the subdevices, bind memory from one subdevice to a resource on another subdevice, record command buffers where some work executes on an arbitrary subset of the subdevices, and potentially present a swapchain image from one or more subdevices.
 
-## <a href="#_promotion_to_vulkan_1_1" class="anchor"></a>Promotion to Vulkan 1.1
+## [](#_promotion_to_vulkan_1_1)Promotion to Vulkan 1.1
 
-The following enums, types and commands are included as interactions
-with [`VK_KHR_swapchain`](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_KHR_swapchain.html):
+The following enums, types and commands are included as interactions with `VK_KHR_swapchain`:
 
 - `VK_STRUCTURE_TYPE_DEVICE_GROUP_PRESENT_CAPABILITIES_KHR`
-
 - `VK_STRUCTURE_TYPE_IMAGE_SWAPCHAIN_CREATE_INFO_KHR`
-
 - `VK_STRUCTURE_TYPE_BIND_IMAGE_MEMORY_SWAPCHAIN_INFO_KHR`
-
 - `VK_STRUCTURE_TYPE_ACQUIRE_NEXT_IMAGE_INFO_KHR`
-
 - `VK_STRUCTURE_TYPE_DEVICE_GROUP_PRESENT_INFO_KHR`
-
 - `VK_STRUCTURE_TYPE_DEVICE_GROUP_SWAPCHAIN_CREATE_INFO_KHR`
-
 - `VK_SWAPCHAIN_CREATE_SPLIT_INSTANCE_BIND_REGIONS_BIT_KHR`
+- [VkDeviceGroupPresentModeFlagBitsKHR](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDeviceGroupPresentModeFlagBitsKHR.html)
+- [VkDeviceGroupPresentCapabilitiesKHR](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDeviceGroupPresentCapabilitiesKHR.html)
+- [VkImageSwapchainCreateInfoKHR](https://registry.khronos.org/vulkan/specs/latest/man/html/VkImageSwapchainCreateInfoKHR.html)
+- [VkBindImageMemorySwapchainInfoKHR](https://registry.khronos.org/vulkan/specs/latest/man/html/VkBindImageMemorySwapchainInfoKHR.html)
+- [VkAcquireNextImageInfoKHR](https://registry.khronos.org/vulkan/specs/latest/man/html/VkAcquireNextImageInfoKHR.html)
+- [VkDeviceGroupPresentInfoKHR](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDeviceGroupPresentInfoKHR.html)
+- [VkDeviceGroupSwapchainCreateInfoKHR](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDeviceGroupSwapchainCreateInfoKHR.html)
+- [vkGetDeviceGroupPresentCapabilitiesKHR](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetDeviceGroupPresentCapabilitiesKHR.html)
+- [vkGetDeviceGroupSurfacePresentModesKHR](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetDeviceGroupSurfacePresentModesKHR.html)
+- [vkGetPhysicalDevicePresentRectanglesKHR](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetPhysicalDevicePresentRectanglesKHR.html)
+- [vkAcquireNextImage2KHR](https://registry.khronos.org/vulkan/specs/latest/man/html/vkAcquireNextImage2KHR.html)
 
-- [VkDeviceGroupPresentModeFlagBitsKHR](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkDeviceGroupPresentModeFlagBitsKHR.html)
+If Vulkan 1.1 and `VK_KHR_swapchain` are supported, these are included by `VK_KHR_swapchain`.
 
-- [VkDeviceGroupPresentCapabilitiesKHR](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkDeviceGroupPresentCapabilitiesKHR.html)
+The base functionality in this extension is included in core Vulkan 1.1, with the KHR suffix omitted. The original type, enum, and command names are still available as aliases of the core functionality.
 
-- [VkImageSwapchainCreateInfoKHR](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkImageSwapchainCreateInfoKHR.html)
+## [](#_new_commands)New Commands
 
-- [VkBindImageMemorySwapchainInfoKHR](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkBindImageMemorySwapchainInfoKHR.html)
+- [vkCmdDispatchBaseKHR](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdDispatchBaseKHR.html)
+- [vkCmdSetDeviceMaskKHR](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdSetDeviceMaskKHR.html)
+- [vkGetDeviceGroupPeerMemoryFeaturesKHR](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetDeviceGroupPeerMemoryFeaturesKHR.html)
 
-- [VkAcquireNextImageInfoKHR](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkAcquireNextImageInfoKHR.html)
+If [VK\_KHR\_surface](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_KHR_surface.html) is supported:
 
-- [VkDeviceGroupPresentInfoKHR](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkDeviceGroupPresentInfoKHR.html)
+- [vkGetDeviceGroupPresentCapabilitiesKHR](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetDeviceGroupPresentCapabilitiesKHR.html)
+- [vkGetDeviceGroupSurfacePresentModesKHR](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetDeviceGroupSurfacePresentModesKHR.html)
+- [vkGetPhysicalDevicePresentRectanglesKHR](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetPhysicalDevicePresentRectanglesKHR.html)
 
-- [VkDeviceGroupSwapchainCreateInfoKHR](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkDeviceGroupSwapchainCreateInfoKHR.html)
+If [VK\_KHR\_swapchain](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_KHR_swapchain.html) is supported:
 
-- [vkGetDeviceGroupPresentCapabilitiesKHR](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkGetDeviceGroupPresentCapabilitiesKHR.html)
+- [vkAcquireNextImage2KHR](https://registry.khronos.org/vulkan/specs/latest/man/html/vkAcquireNextImage2KHR.html)
 
-- [vkGetDeviceGroupSurfacePresentModesKHR](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkGetDeviceGroupSurfacePresentModesKHR.html)
+## [](#_new_structures)New Structures
 
-- [vkGetPhysicalDevicePresentRectanglesKHR](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkGetPhysicalDevicePresentRectanglesKHR.html)
+- Extending [VkBindSparseInfo](https://registry.khronos.org/vulkan/specs/latest/man/html/VkBindSparseInfo.html):
+  
+  - [VkDeviceGroupBindSparseInfoKHR](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDeviceGroupBindSparseInfoKHR.html)
+- Extending [VkCommandBufferBeginInfo](https://registry.khronos.org/vulkan/specs/latest/man/html/VkCommandBufferBeginInfo.html):
+  
+  - [VkDeviceGroupCommandBufferBeginInfoKHR](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDeviceGroupCommandBufferBeginInfoKHR.html)
+- Extending [VkMemoryAllocateInfo](https://registry.khronos.org/vulkan/specs/latest/man/html/VkMemoryAllocateInfo.html):
+  
+  - [VkMemoryAllocateFlagsInfoKHR](https://registry.khronos.org/vulkan/specs/latest/man/html/VkMemoryAllocateFlagsInfoKHR.html)
+- Extending [VkRenderPassBeginInfo](https://registry.khronos.org/vulkan/specs/latest/man/html/VkRenderPassBeginInfo.html), [VkRenderingInfo](https://registry.khronos.org/vulkan/specs/latest/man/html/VkRenderingInfo.html):
+  
+  - [VkDeviceGroupRenderPassBeginInfoKHR](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDeviceGroupRenderPassBeginInfoKHR.html)
+- Extending [VkSubmitInfo](https://registry.khronos.org/vulkan/specs/latest/man/html/VkSubmitInfo.html):
+  
+  - [VkDeviceGroupSubmitInfoKHR](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDeviceGroupSubmitInfoKHR.html)
 
-- [vkAcquireNextImage2KHR](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkAcquireNextImage2KHR.html)
+If [VK\_KHR\_bind\_memory2](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_KHR_bind_memory2.html) is supported:
 
-If Vulkan 1.1 and [`VK_KHR_swapchain`](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_KHR_swapchain.html) are
-supported, these are included by `VK_KHR_swapchain`.
+- Extending [VkBindBufferMemoryInfo](https://registry.khronos.org/vulkan/specs/latest/man/html/VkBindBufferMemoryInfo.html):
+  
+  - [VkBindBufferMemoryDeviceGroupInfoKHR](https://registry.khronos.org/vulkan/specs/latest/man/html/VkBindBufferMemoryDeviceGroupInfoKHR.html)
+- Extending [VkBindImageMemoryInfo](https://registry.khronos.org/vulkan/specs/latest/man/html/VkBindImageMemoryInfo.html):
+  
+  - [VkBindImageMemoryDeviceGroupInfoKHR](https://registry.khronos.org/vulkan/specs/latest/man/html/VkBindImageMemoryDeviceGroupInfoKHR.html)
 
-The base functionality in this extension is included in core Vulkan 1.1,
-with the KHR suffix omitted. The original type, enum and command names
-are still available as aliases of the core functionality.
+If [VK\_KHR\_surface](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_KHR_surface.html) is supported:
 
-## <a href="#_new_commands" class="anchor"></a>New Commands
+- [VkDeviceGroupPresentCapabilitiesKHR](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDeviceGroupPresentCapabilitiesKHR.html)
 
-- [vkCmdDispatchBaseKHR](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdDispatchBaseKHR.html)
+If [VK\_KHR\_swapchain](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_KHR_swapchain.html) is supported:
 
-- [vkCmdSetDeviceMaskKHR](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdSetDeviceMaskKHR.html)
+- [VkAcquireNextImageInfoKHR](https://registry.khronos.org/vulkan/specs/latest/man/html/VkAcquireNextImageInfoKHR.html)
+- Extending [VkBindImageMemoryInfo](https://registry.khronos.org/vulkan/specs/latest/man/html/VkBindImageMemoryInfo.html):
+  
+  - [VkBindImageMemorySwapchainInfoKHR](https://registry.khronos.org/vulkan/specs/latest/man/html/VkBindImageMemorySwapchainInfoKHR.html)
+- Extending [VkImageCreateInfo](https://registry.khronos.org/vulkan/specs/latest/man/html/VkImageCreateInfo.html):
+  
+  - [VkImageSwapchainCreateInfoKHR](https://registry.khronos.org/vulkan/specs/latest/man/html/VkImageSwapchainCreateInfoKHR.html)
+- Extending [VkPresentInfoKHR](https://registry.khronos.org/vulkan/specs/latest/man/html/VkPresentInfoKHR.html):
+  
+  - [VkDeviceGroupPresentInfoKHR](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDeviceGroupPresentInfoKHR.html)
+- Extending [VkSwapchainCreateInfoKHR](https://registry.khronos.org/vulkan/specs/latest/man/html/VkSwapchainCreateInfoKHR.html):
+  
+  - [VkDeviceGroupSwapchainCreateInfoKHR](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDeviceGroupSwapchainCreateInfoKHR.html)
 
-- [vkGetDeviceGroupPeerMemoryFeaturesKHR](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkGetDeviceGroupPeerMemoryFeaturesKHR.html)
+## [](#_new_enums)New Enums
 
-If [VK_KHR_surface](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_KHR_surface.html) is supported:
+- [VkMemoryAllocateFlagBitsKHR](https://registry.khronos.org/vulkan/specs/latest/man/html/VkMemoryAllocateFlagBitsKHR.html)
+- [VkPeerMemoryFeatureFlagBitsKHR](https://registry.khronos.org/vulkan/specs/latest/man/html/VkPeerMemoryFeatureFlagBitsKHR.html)
 
-- [vkGetDeviceGroupPresentCapabilitiesKHR](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkGetDeviceGroupPresentCapabilitiesKHR.html)
+If [VK\_KHR\_surface](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_KHR_surface.html) is supported:
 
-- [vkGetDeviceGroupSurfacePresentModesKHR](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkGetDeviceGroupSurfacePresentModesKHR.html)
+- [VkDeviceGroupPresentModeFlagBitsKHR](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDeviceGroupPresentModeFlagBitsKHR.html)
 
-- [vkGetPhysicalDevicePresentRectanglesKHR](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkGetPhysicalDevicePresentRectanglesKHR.html)
+## [](#_new_bitmasks)New Bitmasks
 
-If [VK_KHR_swapchain](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_KHR_swapchain.html) is supported:
+- [VkMemoryAllocateFlagsKHR](https://registry.khronos.org/vulkan/specs/latest/man/html/VkMemoryAllocateFlagsKHR.html)
+- [VkPeerMemoryFeatureFlagsKHR](https://registry.khronos.org/vulkan/specs/latest/man/html/VkPeerMemoryFeatureFlagsKHR.html)
 
-- [vkAcquireNextImage2KHR](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkAcquireNextImage2KHR.html)
+If [VK\_KHR\_surface](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_KHR_surface.html) is supported:
 
-## <a href="#_new_structures" class="anchor"></a>New Structures
+- [VkDeviceGroupPresentModeFlagsKHR](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDeviceGroupPresentModeFlagsKHR.html)
 
-- Extending [VkBindSparseInfo](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkBindSparseInfo.html):
-
-  - [VkDeviceGroupBindSparseInfoKHR](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkDeviceGroupBindSparseInfoKHR.html)
-
-- Extending [VkCommandBufferBeginInfo](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkCommandBufferBeginInfo.html):
-
-  - [VkDeviceGroupCommandBufferBeginInfoKHR](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkDeviceGroupCommandBufferBeginInfoKHR.html)
-
-- Extending [VkMemoryAllocateInfo](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkMemoryAllocateInfo.html):
-
-  - [VkMemoryAllocateFlagsInfoKHR](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkMemoryAllocateFlagsInfoKHR.html)
-
-- Extending [VkRenderPassBeginInfo](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkRenderPassBeginInfo.html),
-  [VkRenderingInfo](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkRenderingInfo.html):
-
-  - [VkDeviceGroupRenderPassBeginInfoKHR](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkDeviceGroupRenderPassBeginInfoKHR.html)
-
-- Extending [VkSubmitInfo](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkSubmitInfo.html):
-
-  - [VkDeviceGroupSubmitInfoKHR](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkDeviceGroupSubmitInfoKHR.html)
-
-If [VK_KHR_bind_memory2](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_KHR_bind_memory2.html) is supported:
-
-- Extending [VkBindBufferMemoryInfo](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkBindBufferMemoryInfo.html):
-
-  - [VkBindBufferMemoryDeviceGroupInfoKHR](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkBindBufferMemoryDeviceGroupInfoKHR.html)
-
-- Extending [VkBindImageMemoryInfo](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkBindImageMemoryInfo.html):
-
-  - [VkBindImageMemoryDeviceGroupInfoKHR](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkBindImageMemoryDeviceGroupInfoKHR.html)
-
-If [VK_KHR_surface](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_KHR_surface.html) is supported:
-
-- [VkDeviceGroupPresentCapabilitiesKHR](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkDeviceGroupPresentCapabilitiesKHR.html)
-
-If [VK_KHR_swapchain](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_KHR_swapchain.html) is supported:
-
-- [VkAcquireNextImageInfoKHR](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkAcquireNextImageInfoKHR.html)
-
-- Extending [VkBindImageMemoryInfo](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkBindImageMemoryInfo.html):
-
-  - [VkBindImageMemorySwapchainInfoKHR](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkBindImageMemorySwapchainInfoKHR.html)
-
-- Extending [VkImageCreateInfo](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkImageCreateInfo.html):
-
-  - [VkImageSwapchainCreateInfoKHR](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkImageSwapchainCreateInfoKHR.html)
-
-- Extending [VkPresentInfoKHR](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkPresentInfoKHR.html):
-
-  - [VkDeviceGroupPresentInfoKHR](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkDeviceGroupPresentInfoKHR.html)
-
-- Extending [VkSwapchainCreateInfoKHR](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkSwapchainCreateInfoKHR.html):
-
-  - [VkDeviceGroupSwapchainCreateInfoKHR](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkDeviceGroupSwapchainCreateInfoKHR.html)
-
-## <a href="#_new_enums" class="anchor"></a>New Enums
-
-- [VkMemoryAllocateFlagBitsKHR](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkMemoryAllocateFlagBitsKHR.html)
-
-- [VkPeerMemoryFeatureFlagBitsKHR](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkPeerMemoryFeatureFlagBitsKHR.html)
-
-If [VK_KHR_surface](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_KHR_surface.html) is supported:
-
-- [VkDeviceGroupPresentModeFlagBitsKHR](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkDeviceGroupPresentModeFlagBitsKHR.html)
-
-## <a href="#_new_bitmasks" class="anchor"></a>New Bitmasks
-
-- [VkMemoryAllocateFlagsKHR](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkMemoryAllocateFlagsKHR.html)
-
-- [VkPeerMemoryFeatureFlagsKHR](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkPeerMemoryFeatureFlagsKHR.html)
-
-If [VK_KHR_surface](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_KHR_surface.html) is supported:
-
-- [VkDeviceGroupPresentModeFlagsKHR](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkDeviceGroupPresentModeFlagsKHR.html)
-
-## <a href="#_new_enum_constants" class="anchor"></a>New Enum Constants
+## [](#_new_enum_constants)New Enum Constants
 
 - `VK_KHR_DEVICE_GROUP_EXTENSION_NAME`
-
 - `VK_KHR_DEVICE_GROUP_SPEC_VERSION`
-
-- Extending [VkDependencyFlagBits](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkDependencyFlagBits.html):
-
+- Extending [VkDependencyFlagBits](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDependencyFlagBits.html):
+  
   - `VK_DEPENDENCY_DEVICE_GROUP_BIT_KHR`
-
-- Extending [VkMemoryAllocateFlagBits](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkMemoryAllocateFlagBits.html):
-
+- Extending [VkMemoryAllocateFlagBits](https://registry.khronos.org/vulkan/specs/latest/man/html/VkMemoryAllocateFlagBits.html):
+  
   - `VK_MEMORY_ALLOCATE_DEVICE_MASK_BIT_KHR`
-
-- Extending
-  [VkPeerMemoryFeatureFlagBits](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkPeerMemoryFeatureFlagBits.html):
-
+- Extending [VkPeerMemoryFeatureFlagBits](https://registry.khronos.org/vulkan/specs/latest/man/html/VkPeerMemoryFeatureFlagBits.html):
+  
   - `VK_PEER_MEMORY_FEATURE_COPY_DST_BIT_KHR`
-
   - `VK_PEER_MEMORY_FEATURE_COPY_SRC_BIT_KHR`
-
   - `VK_PEER_MEMORY_FEATURE_GENERIC_DST_BIT_KHR`
-
   - `VK_PEER_MEMORY_FEATURE_GENERIC_SRC_BIT_KHR`
-
-- Extending [VkPipelineCreateFlagBits](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkPipelineCreateFlagBits.html):
-
+- Extending [VkPipelineCreateFlagBits](https://registry.khronos.org/vulkan/specs/latest/man/html/VkPipelineCreateFlagBits.html):
+  
+  - `VK_PIPELINE_CREATE_DISPATCH_BASE_BIT_KHR`
   - `VK_PIPELINE_CREATE_DISPATCH_BASE_KHR`
-
   - `VK_PIPELINE_CREATE_VIEW_INDEX_FROM_DEVICE_INDEX_BIT_KHR`
-
-- Extending [VkStructureType](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkStructureType.html):
-
+- Extending [VkStructureType](https://registry.khronos.org/vulkan/specs/latest/man/html/VkStructureType.html):
+  
   - `VK_STRUCTURE_TYPE_DEVICE_GROUP_BIND_SPARSE_INFO_KHR`
-
   - `VK_STRUCTURE_TYPE_DEVICE_GROUP_COMMAND_BUFFER_BEGIN_INFO_KHR`
-
   - `VK_STRUCTURE_TYPE_DEVICE_GROUP_RENDER_PASS_BEGIN_INFO_KHR`
-
   - `VK_STRUCTURE_TYPE_DEVICE_GROUP_SUBMIT_INFO_KHR`
-
   - `VK_STRUCTURE_TYPE_MEMORY_ALLOCATE_FLAGS_INFO_KHR`
 
-If [VK_KHR_bind_memory2](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_KHR_bind_memory2.html) is supported:
+If [VK\_KHR\_bind\_memory2](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_KHR_bind_memory2.html) is supported:
 
-- Extending [VkImageCreateFlagBits](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkImageCreateFlagBits.html):
-
+- Extending [VkImageCreateFlagBits](https://registry.khronos.org/vulkan/specs/latest/man/html/VkImageCreateFlagBits.html):
+  
   - `VK_IMAGE_CREATE_SPLIT_INSTANCE_BIND_REGIONS_BIT_KHR`
-
-- Extending [VkStructureType](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkStructureType.html):
-
+- Extending [VkStructureType](https://registry.khronos.org/vulkan/specs/latest/man/html/VkStructureType.html):
+  
   - `VK_STRUCTURE_TYPE_BIND_BUFFER_MEMORY_DEVICE_GROUP_INFO_KHR`
-
   - `VK_STRUCTURE_TYPE_BIND_IMAGE_MEMORY_DEVICE_GROUP_INFO_KHR`
 
-If [VK_KHR_surface](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_KHR_surface.html) is supported:
+If [VK\_KHR\_surface](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_KHR_surface.html) is supported:
 
-- Extending [VkStructureType](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkStructureType.html):
-
+- Extending [VkStructureType](https://registry.khronos.org/vulkan/specs/latest/man/html/VkStructureType.html):
+  
   - `VK_STRUCTURE_TYPE_DEVICE_GROUP_PRESENT_CAPABILITIES_KHR`
 
-If [VK_KHR_swapchain](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_KHR_swapchain.html) is supported:
+If [VK\_KHR\_swapchain](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_KHR_swapchain.html) is supported:
 
-- Extending [VkStructureType](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkStructureType.html):
-
+- Extending [VkStructureType](https://registry.khronos.org/vulkan/specs/latest/man/html/VkStructureType.html):
+  
   - `VK_STRUCTURE_TYPE_ACQUIRE_NEXT_IMAGE_INFO_KHR`
-
   - `VK_STRUCTURE_TYPE_BIND_IMAGE_MEMORY_SWAPCHAIN_INFO_KHR`
-
   - `VK_STRUCTURE_TYPE_DEVICE_GROUP_PRESENT_INFO_KHR`
-
   - `VK_STRUCTURE_TYPE_DEVICE_GROUP_SWAPCHAIN_CREATE_INFO_KHR`
-
   - `VK_STRUCTURE_TYPE_IMAGE_SWAPCHAIN_CREATE_INFO_KHR`
-
-- Extending
-  [VkSwapchainCreateFlagBitsKHR](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkSwapchainCreateFlagBitsKHR.html):
-
+- Extending [VkSwapchainCreateFlagBitsKHR](https://registry.khronos.org/vulkan/specs/latest/man/html/VkSwapchainCreateFlagBitsKHR.html):
+  
   - `VK_SWAPCHAIN_CREATE_SPLIT_INSTANCE_BIND_REGIONS_BIT_KHR`
 
-## <a href="#_new_built_in_variables" class="anchor"></a>New Built-in Variables
+## [](#_new_built_in_variables)New Built-in Variables
 
-- <a
-  href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#interfaces-builtin-variables-deviceindex"
-  target="_blank" rel="noopener"><code>DeviceIndex</code></a>
+- [`DeviceIndex`](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#interfaces-builtin-variables-deviceindex)
 
-## <a href="#_new_spir_v_capabilities" class="anchor"></a>New SPIR-V Capabilities
+## [](#_new_spir_v_capabilities)New SPIR-V Capabilities
 
-- <a
-  href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#spirvenv-capabilities-table-DeviceGroup"
-  target="_blank" rel="noopener"><code>DeviceGroup</code></a>
+- [`DeviceGroup`](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#spirvenv-capabilities-table-DeviceGroup)
 
-## <a href="#_version_history" class="anchor"></a>Version History
+## [](#_version_history)Version History
 
 - Revision 1, 2016-10-19 (Jeff Bolz)
-
+  
   - Internal revisions
-
 - Revision 2, 2017-05-19 (Tobias Hector)
-
-  - Removed extended memory bind functions to VK_KHR_bind_memory2, added
-    dependency on that extension, and device-group-specific structs for
-    those functions.
-
+  
+  - Removed extended memory bind functions to VK\_KHR\_bind\_memory2, added dependency on that extension, and device-group-specific structs for those functions.
 - Revision 3, 2017-10-06 (Ian Elliott)
-
-  - Corrected Vulkan 1.1 interactions with the WSI extensions. All
-    Vulkan 1.1 WSI interactions are with the VK_KHR_swapchain extension.
-
+  
+  - Corrected Vulkan 1.1 interactions with the WSI extensions. All Vulkan 1.1 WSI interactions are with the VK\_KHR\_swapchain extension.
 - Revision 4, 2017-10-10 (Jeff Bolz)
+  
+  - Rename “SFR” bits and structure members to use the phrase “split instance bind regions”.
 
-  - Rename “SFR” bits and structure members to use the phrase “split
-    instance bind regions”.
-
-## <a href="#_see_also" class="anchor"></a>See Also
+## [](#_see_also)See Also
 
 No cross-references are available
 
-## <a href="#_document_notes" class="anchor"></a>Document Notes
+## [](#_document_notes)Document Notes
 
-For more information, see the <a
-href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#VK_KHR_device_group"
-target="_blank" rel="noopener">Vulkan Specification</a>
+For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#VK_KHR_device_group)
 
-This page is a generated document. Fixes and changes should be made to
-the generator scripts, not directly.
+This page is a generated document. Fixes and changes should be made to the generator scripts, not directly.
 
-## <a href="#_copyright" class="anchor"></a>Copyright
+## [](#_copyright)Copyright
 
-Copyright 2014-2024 The Khronos Group Inc.
+Copyright 2014-2025 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
-
-Version 1.3.290  
-Last updated 2024-07-11 23:39:16 -0700

@@ -6,11 +6,11 @@ vkCreateOpticalFlowSessionNV - Creates an optical flow session object
 
 
 
-## <a href="#_c_specification" class="anchor"></a>C Specification
+## [](#_c_specification)C Specification
 
 To create an optical flow session object, call:
 
-``` c
+```c++
 // Provided by VK_NV_optical_flow
 VkResult vkCreateOpticalFlowSessionNV(
     VkDevice                                    device,
@@ -19,86 +19,51 @@ VkResult vkCreateOpticalFlowSessionNV(
     VkOpticalFlowSessionNV*                     pSession);
 ```
 
-## <a href="#_parameters" class="anchor"></a>Parameters
+## [](#_parameters)Parameters
 
-- `device` is the logical device that creates the optical flow session
-  object.
+- `device` is the logical device that creates the optical flow session object.
+- `pCreateInfo` is a pointer to a [VkOpticalFlowSessionCreateInfoNV](https://registry.khronos.org/vulkan/specs/latest/man/html/VkOpticalFlowSessionCreateInfoNV.html) structure containing parameters specifying the creation of the optical flow session.
+- `pAllocator` controls host memory allocation as described in the [Memory Allocation](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#memory-allocation) chapter.
+- `pSession` is a pointer to a [VkOpticalFlowSessionNV](https://registry.khronos.org/vulkan/specs/latest/man/html/VkOpticalFlowSessionNV.html) handle specifying the optical flow session object which will be created by this function when it returns `VK_SUCCESS`
 
-- `pCreateInfo` is a pointer to a
-  [VkOpticalFlowSessionCreateInfoNV](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkOpticalFlowSessionCreateInfoNV.html)
-  structure containing parameters specifying the creation of the optical
-  flow session.
-
-- `pAllocator` controls host memory allocation as described in the <a
-  href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#memory-allocation"
-  target="_blank" rel="noopener">Memory Allocation</a> chapter.
-
-- `pSession` is a pointer to a
-  [VkOpticalFlowSessionNV](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkOpticalFlowSessionNV.html) handle
-  specifying the optical flow session object which will be created by
-  this function when it returns `VK_SUCCESS`
-
-## <a href="#_description" class="anchor"></a>Description
+## [](#_description)Description
 
 Valid Usage (Implicit)
 
-- <a href="#VUID-vkCreateOpticalFlowSessionNV-device-parameter"
-  id="VUID-vkCreateOpticalFlowSessionNV-device-parameter"></a>
-  VUID-vkCreateOpticalFlowSessionNV-device-parameter  
-  `device` **must** be a valid [VkDevice](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkDevice.html) handle
-
-- <a href="#VUID-vkCreateOpticalFlowSessionNV-pCreateInfo-parameter"
-  id="VUID-vkCreateOpticalFlowSessionNV-pCreateInfo-parameter"></a>
-  VUID-vkCreateOpticalFlowSessionNV-pCreateInfo-parameter  
-  `pCreateInfo` **must** be a valid pointer to a valid
-  [VkOpticalFlowSessionCreateInfoNV](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkOpticalFlowSessionCreateInfoNV.html)
-  structure
-
-- <a href="#VUID-vkCreateOpticalFlowSessionNV-pAllocator-parameter"
-  id="VUID-vkCreateOpticalFlowSessionNV-pAllocator-parameter"></a>
-  VUID-vkCreateOpticalFlowSessionNV-pAllocator-parameter  
-  If `pAllocator` is not `NULL`, `pAllocator` **must** be a valid
-  pointer to a valid [VkAllocationCallbacks](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkAllocationCallbacks.html)
-  structure
-
-- <a href="#VUID-vkCreateOpticalFlowSessionNV-pSession-parameter"
-  id="VUID-vkCreateOpticalFlowSessionNV-pSession-parameter"></a>
-  VUID-vkCreateOpticalFlowSessionNV-pSession-parameter  
-  `pSession` **must** be a valid pointer to a
-  [VkOpticalFlowSessionNV](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkOpticalFlowSessionNV.html) handle
+- [](#VUID-vkCreateOpticalFlowSessionNV-device-parameter)VUID-vkCreateOpticalFlowSessionNV-device-parameter  
+  `device` **must** be a valid [VkDevice](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDevice.html) handle
+- [](#VUID-vkCreateOpticalFlowSessionNV-pCreateInfo-parameter)VUID-vkCreateOpticalFlowSessionNV-pCreateInfo-parameter  
+  `pCreateInfo` **must** be a valid pointer to a valid [VkOpticalFlowSessionCreateInfoNV](https://registry.khronos.org/vulkan/specs/latest/man/html/VkOpticalFlowSessionCreateInfoNV.html) structure
+- [](#VUID-vkCreateOpticalFlowSessionNV-pAllocator-parameter)VUID-vkCreateOpticalFlowSessionNV-pAllocator-parameter  
+  If `pAllocator` is not `NULL`, `pAllocator` **must** be a valid pointer to a valid [VkAllocationCallbacks](https://registry.khronos.org/vulkan/specs/latest/man/html/VkAllocationCallbacks.html) structure
+- [](#VUID-vkCreateOpticalFlowSessionNV-pSession-parameter)VUID-vkCreateOpticalFlowSessionNV-pSession-parameter  
+  `pSession` **must** be a valid pointer to a [VkOpticalFlowSessionNV](https://registry.khronos.org/vulkan/specs/latest/man/html/VkOpticalFlowSessionNV.html) handle
+- [](#VUID-vkCreateOpticalFlowSessionNV-device-queuecount)VUID-vkCreateOpticalFlowSessionNV-device-queuecount  
+  The device **must** have been created with at least `1` queue
 
 Return Codes
 
-On success, this command returns  
+On success, this command returns
+
 - `VK_SUCCESS`
 
-On failure, this command returns  
-- `VK_ERROR_OUT_OF_HOST_MEMORY`
+On failure, this command returns
 
+- `VK_ERROR_OUT_OF_HOST_MEMORY`
 - `VK_ERROR_INITIALIZATION_FAILED`
 
-## <a href="#_see_also" class="anchor"></a>See Also
+## [](#_see_also)See Also
 
-[VK_NV_optical_flow](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_NV_optical_flow.html),
-[VkAllocationCallbacks](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkAllocationCallbacks.html),
-[VkDevice](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkDevice.html),
-[VkOpticalFlowSessionCreateInfoNV](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkOpticalFlowSessionCreateInfoNV.html),
-[VkOpticalFlowSessionNV](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkOpticalFlowSessionNV.html)
+[VK\_NV\_optical\_flow](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_NV_optical_flow.html), [VkAllocationCallbacks](https://registry.khronos.org/vulkan/specs/latest/man/html/VkAllocationCallbacks.html), [VkDevice](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDevice.html), [VkOpticalFlowSessionCreateInfoNV](https://registry.khronos.org/vulkan/specs/latest/man/html/VkOpticalFlowSessionCreateInfoNV.html), [VkOpticalFlowSessionNV](https://registry.khronos.org/vulkan/specs/latest/man/html/VkOpticalFlowSessionNV.html)
 
-## <a href="#_document_notes" class="anchor"></a>Document Notes
+## [](#_document_notes)Document Notes
 
-For more information, see the <a
-href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#vkCreateOpticalFlowSessionNV"
-target="_blank" rel="noopener">Vulkan Specification</a>
+For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#vkCreateOpticalFlowSessionNV)
 
-This page is extracted from the Vulkan Specification. Fixes and changes
-should be made to the Specification, not directly.
+This page is extracted from the Vulkan Specification. Fixes and changes should be made to the Specification, not directly.
 
-## <a href="#_copyright" class="anchor"></a>Copyright
+## [](#_copyright)Copyright
 
-Copyright 2014-2024 The Khronos Group Inc.
+Copyright 2014-2025 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
-
-Version 1.3.290  
-Last updated 2024-07-11 23:39:16 -0700

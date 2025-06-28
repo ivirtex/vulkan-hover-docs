@@ -1,211 +1,137 @@
-# VK_EXT_shader_subgroup_ballot(3) Manual Page
+# VK\_EXT\_shader\_subgroup\_ballot(3) Manual Page
 
 ## Name
 
-VK_EXT_shader_subgroup_ballot - device extension
+VK\_EXT\_shader\_subgroup\_ballot - device extension
 
 
 
-## <a href="#_registered_extension_number" class="anchor"></a>Registered Extension Number
+## [](#_registered_extension_number)Registered Extension Number
 
 65
 
-## <a href="#_revision" class="anchor"></a>Revision
+## [](#_revision)Revision
 
 1
 
-## <a href="#_ratification_status" class="anchor"></a>Ratification Status
+## [](#_ratification_status)Ratification Status
 
 Not ratified
 
-## <a href="#_extension_and_version_dependencies" class="anchor"></a>Extension and Version Dependencies
+## [](#_extension_and_version_dependencies)Extension and Version Dependencies
 
 None
 
-## <a href="#_spir_v_dependencies" class="anchor"></a>SPIR-V Dependencies
+## [](#_spir_v_dependencies)SPIR-V Dependencies
 
-- [SPV_KHR_shader_ballot](https://htmlpreview.github.io/?https://github.com/KhronosGroup/SPIRV-Registry/blob/main/extensions/KHR/SPV_KHR_shader_ballot.html)
+- [SPV\_KHR\_shader\_ballot](https://github.khronos.org/SPIRV-Registry/extensions/KHR/SPV_KHR_shader_ballot.html)
 
-## <a href="#_deprecation_state" class="anchor"></a>Deprecation State
+## [](#_deprecation_state)Deprecation State
 
-- *Deprecated* by <a
-  href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#versions-1.2-new-features"
-  target="_blank" rel="noopener">Vulkan 1.2</a>
+- *Deprecated* by [Vulkan 1.2](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#versions-1.2-new-features)
 
-## <a href="#_contact" class="anchor"></a>Contact
+## [](#_contact)Contact
 
-- Daniel Koch <a
-  href="https://github.com/KhronosGroup/Vulkan-Docs/issues/new?body=%5BVK_EXT_shader_subgroup_ballot%5D%20@dgkoch%0A*Here%20describe%20the%20issue%20or%20question%20you%20have%20about%20the%20VK_EXT_shader_subgroup_ballot%20extension*"
-  target="_blank" rel="nofollow noopener"><em></em>dgkoch</a>
+- Daniel Koch [\[GitHub\]dgkoch](https://github.com/KhronosGroup/Vulkan-Docs/issues/new?body=%5BVK_EXT_shader_subgroup_ballot%5D%20%40dgkoch%0A%2AHere%20describe%20the%20issue%20or%20question%20you%20have%20about%20the%20VK_EXT_shader_subgroup_ballot%20extension%2A)
 
-## <a href="#_other_extension_metadata" class="anchor"></a>Other Extension Metadata
+## [](#_other_extension_metadata)Other Extension Metadata
 
-**Last Modified Date**  
+**Last Modified Date**
+
 2016-11-28
 
-**IP Status**  
+**IP Status**
+
 No known IP claims.
 
-**Interactions and External Dependencies**  
-- This extension provides API support for
-  [`GL_ARB_shader_ballot`](https://registry.khronos.org/OpenGL/extensions/ARB/ARB_shader_ballot.txt)
+**Interactions and External Dependencies**
 
-**Contributors**  
+- This extension provides API support for [`GL_ARB_shader_ballot`](https://registry.khronos.org/OpenGL/extensions/ARB/ARB_shader_ballot.txt)
+
+**Contributors**
+
 - Jeff Bolz, NVIDIA
-
 - Neil Henning, Codeplay
-
 - Daniel Koch, NVIDIA Corporation
 
-## <a href="#_description" class="anchor"></a>Description
+## [](#_description)Description
 
-This extension adds support for the following SPIR-V extension in
-Vulkan:
+This extension adds support for the following SPIR-V extension in Vulkan:
 
 - `SPV_KHR_shader_ballot`
 
-This extension provides the ability for a group of invocations, which
-execute in parallel, to do limited forms of cross-invocation
-communication via a group broadcast of an invocation value, or broadcast
-of a bit array representing a predicate value from each invocation in
-the group.
+This extension provides the ability for a group of invocations, which execute in parallel, to do limited forms of cross-invocation communication via a group broadcast of an invocation value, or broadcast of a bit array representing a predicate value from each invocation in the group.
 
-This extension provides access to a number of additional built-in shader
-variables in Vulkan:
+This extension provides access to a number of additional built-in shader variables in Vulkan:
 
-- `SubgroupEqMaskKHR`, containing the subgroup mask of the current
-  subgroup invocation,
+- `SubgroupEqMaskKHR`, containing the subgroup mask of the current subgroup invocation,
+- `SubgroupGeMaskKHR`, containing the subgroup mask of the invocations greater than or equal to the current invocation,
+- `SubgroupGtMaskKHR`, containing the subgroup mask of the invocations greater than the current invocation,
+- `SubgroupLeMaskKHR`, containing the subgroup mask of the invocations less than or equal to the current invocation,
+- `SubgroupLtMaskKHR`, containing the subgroup mask of the invocations less than the current invocation,
+- `SubgroupLocalInvocationId`, containing the index of an invocation within a subgroup, and
+- `SubgroupSize`, containing the maximum number of invocations in a subgroup.
 
-- `SubgroupGeMaskKHR`, containing the subgroup mask of the invocations
-  greater than or equal to the current invocation,
-
-- `SubgroupGtMaskKHR`, containing the subgroup mask of the invocations
-  greater than the current invocation,
-
-- `SubgroupLeMaskKHR`, containing the subgroup mask of the invocations
-  less than or equal to the current invocation,
-
-- `SubgroupLtMaskKHR`, containing the subgroup mask of the invocations
-  less than the current invocation,
-
-- `SubgroupLocalInvocationId`, containing the index of an invocation
-  within a subgroup, and
-
-- `SubgroupSize`, containing the maximum number of invocations in a
-  subgroup.
-
-Additionally, this extension provides access to the new SPIR-V
-instructions:
+Additionally, this extension provides access to the new SPIR-V instructions:
 
 - `OpSubgroupBallotKHR`,
-
 - `OpSubgroupFirstInvocationKHR`, and
-
 - `OpSubgroupReadInvocationKHR`,
 
-When using GLSL source-based shader languages, the following variables
-and shader functions from GL_ARB_shader_ballot can map to these SPIR-V
-built-in decorations and instructions:
+When using GLSL source-based shader languages, the following variables and shader functions from GL\_ARB\_shader\_ballot can map to these SPIR-V built-in decorations and instructions:
 
 - `in uint64_t gl_SubGroupEqMaskARB;` → `SubgroupEqMaskKHR`,
-
 - `in uint64_t gl_SubGroupGeMaskARB;` → `SubgroupGeMaskKHR`,
-
 - `in uint64_t gl_SubGroupGtMaskARB;` → `SubgroupGtMaskKHR`,
-
 - `in uint64_t gl_SubGroupLeMaskARB;` → `SubgroupLeMaskKHR`,
-
 - `in uint64_t gl_SubGroupLtMaskARB;` → `SubgroupLtMaskKHR`,
-
 - `in uint gl_SubGroupInvocationARB;` → `SubgroupLocalInvocationId`,
-
 - `uniform uint gl_SubGroupSizeARB;` → `SubgroupSize`,
-
 - `ballotARB`() → `OpSubgroupBallotKHR`,
-
 - `readFirstInvocationARB`() → `OpSubgroupFirstInvocationKHR`, and
-
 - `readInvocationARB`() → `OpSubgroupReadInvocationKHR`.
 
-## <a href="#_deprecated_by_vulkan_1_2" class="anchor"></a>Deprecated by Vulkan 1.2
+## [](#_deprecated_by_vulkan_1_2)Deprecated by Vulkan 1.2
 
-Most of the functionality in this extension is superseded by the core
-Vulkan 1.1
-<a href="VkPhysicalDeviceSubgroupProperties.html" target="_blank"
-rel="noopener">subgroup operations</a>. However, Vulkan 1.1 required the
-`OpGroupNonUniformBroadcast` “Id” to be constant. This restriction was
-removed in Vulkan 1.2 with the addition of the <a
-href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#features-subgroupBroadcastDynamicId"
-target="_blank"
-rel="noopener"><code>subgroupBroadcastDynamicId</code></a> feature.
+Most of the functionality in this extension is superseded by the core Vulkan 1.1 [subgroup operations](https://registry.khronos.org/vulkan/specs/latest/man/html/VkPhysicalDeviceSubgroupProperties.html). However, Vulkan 1.1 required the `OpGroupNonUniformBroadcast` “Id” to be constant. This restriction was removed in Vulkan 1.2 with the addition of the [`subgroupBroadcastDynamicId`](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#features-subgroupBroadcastDynamicId) feature.
 
-## <a href="#_new_enum_constants" class="anchor"></a>New Enum Constants
+## [](#_new_enum_constants)New Enum Constants
 
 - `VK_EXT_SHADER_SUBGROUP_BALLOT_EXTENSION_NAME`
-
 - `VK_EXT_SHADER_SUBGROUP_BALLOT_SPEC_VERSION`
 
-## <a href="#_new_built_in_variables" class="anchor"></a>New Built-In Variables
+## [](#_new_built_in_variables)New Built-In Variables
 
-- <a
-  href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#interfaces-builtin-variables-sgeq"
-  target="_blank" rel="noopener"><code>SubgroupEqMaskKHR</code></a>
+- [`SubgroupEqMaskKHR`](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#interfaces-builtin-variables-sgeq)
+- [`SubgroupGeMaskKHR`](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#interfaces-builtin-variables-sgge)
+- [`SubgroupGtMaskKHR`](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#interfaces-builtin-variables-sggt)
+- [`SubgroupLeMaskKHR`](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#interfaces-builtin-variables-sgle)
+- [`SubgroupLtMaskKHR`](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#interfaces-builtin-variables-sglt)
+- [`SubgroupLocalInvocationId`](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#interfaces-builtin-variables-sgli)
+- [`SubgroupSize`](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#interfaces-builtin-variables-sgs)
 
-- <a
-  href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#interfaces-builtin-variables-sgge"
-  target="_blank" rel="noopener"><code>SubgroupGeMaskKHR</code></a>
+## [](#_new_spir_v_capabilities)New SPIR-V Capabilities
 
-- <a
-  href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#interfaces-builtin-variables-sggt"
-  target="_blank" rel="noopener"><code>SubgroupGtMaskKHR</code></a>
+- [`SubgroupBallotKHR`](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#spirvenv-capabilities-table-SubgroupBallotKHR)
 
-- <a
-  href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#interfaces-builtin-variables-sgle"
-  target="_blank" rel="noopener"><code>SubgroupLeMaskKHR</code></a>
-
-- <a
-  href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#interfaces-builtin-variables-sglt"
-  target="_blank" rel="noopener"><code>SubgroupLtMaskKHR</code></a>
-
-- <a
-  href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#interfaces-builtin-variables-sgli"
-  target="_blank"
-  rel="noopener"><code>SubgroupLocalInvocationId</code></a>
-
-- <a
-  href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#interfaces-builtin-variables-sgs"
-  target="_blank" rel="noopener"><code>SubgroupSize</code></a>
-
-## <a href="#_new_spir_v_capabilities" class="anchor"></a>New SPIR-V Capabilities
-
-- <a
-  href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#spirvenv-capabilities-table-SubgroupBallotKHR"
-  target="_blank" rel="noopener"><code>SubgroupBallotKHR</code></a>
-
-## <a href="#_version_history" class="anchor"></a>Version History
+## [](#_version_history)Version History
 
 - Revision 1, 2016-11-28 (Daniel Koch)
-
+  
   - Initial draft
 
-## <a href="#_see_also" class="anchor"></a>See Also
+## [](#_see_also)See Also
 
 No cross-references are available
 
-## <a href="#_document_notes" class="anchor"></a>Document Notes
+## [](#_document_notes)Document Notes
 
-For more information, see the <a
-href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#VK_EXT_shader_subgroup_ballot"
-target="_blank" rel="noopener">Vulkan Specification</a>
+For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#VK_EXT_shader_subgroup_ballot)
 
-This page is a generated document. Fixes and changes should be made to
-the generator scripts, not directly.
+This page is a generated document. Fixes and changes should be made to the generator scripts, not directly.
 
-## <a href="#_copyright" class="anchor"></a>Copyright
+## [](#_copyright)Copyright
 
-Copyright 2014-2024 The Khronos Group Inc.
+Copyright 2014-2025 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
-
-Version 1.3.290  
-Last updated 2024-07-11 23:39:16 -0700

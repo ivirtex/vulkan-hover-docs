@@ -6,50 +6,34 @@ VkPrivateDataSlot - Opaque handle to a private data slot object
 
 
 
-## <a href="#_c_specification" class="anchor"></a>C Specification
+## [](#_c_specification)C Specification
 
 Private data slots are represented by `VkPrivateDataSlot` handles:
 
-``` c
+```c++
 // Provided by VK_VERSION_1_3
 VK_DEFINE_NON_DISPATCHABLE_HANDLE(VkPrivateDataSlot)
 ```
 
 or the equivalent
 
-``` c
+```c++
 // Provided by VK_EXT_private_data
 typedef VkPrivateDataSlot VkPrivateDataSlotEXT;
 ```
 
-## <a href="#_see_also" class="anchor"></a>See Also
+## [](#_see_also)See Also
 
-[VK_DEFINE_NON_DISPATCHABLE_HANDLE](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_DEFINE_NON_DISPATCHABLE_HANDLE.html),
-[VK_EXT_private_data](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_EXT_private_data.html),
-[VK_VERSION_1_3](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_VERSION_1_3.html),
-[vkCreatePrivateDataSlot](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCreatePrivateDataSlot.html),
-[vkCreatePrivateDataSlotEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCreatePrivateDataSlotEXT.html),
-[vkDestroyPrivateDataSlot](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkDestroyPrivateDataSlot.html),
-[vkDestroyPrivateDataSlotEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkDestroyPrivateDataSlotEXT.html),
-[vkGetPrivateData](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkGetPrivateData.html),
-[vkGetPrivateDataEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkGetPrivateDataEXT.html),
-[vkSetPrivateData](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkSetPrivateData.html),
-[vkSetPrivateDataEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkSetPrivateDataEXT.html)
+[VK\_DEFINE\_NON\_DISPATCHABLE\_HANDLE](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_DEFINE_NON_DISPATCHABLE_HANDLE.html), [VK\_EXT\_private\_data](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_EXT_private_data.html), [VK\_VERSION\_1\_3](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_VERSION_1_3.html), [vkCreatePrivateDataSlot](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCreatePrivateDataSlot.html), [vkCreatePrivateDataSlotEXT](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCreatePrivateDataSlotEXT.html), [vkDestroyPrivateDataSlot](https://registry.khronos.org/vulkan/specs/latest/man/html/vkDestroyPrivateDataSlot.html), [vkDestroyPrivateDataSlotEXT](https://registry.khronos.org/vulkan/specs/latest/man/html/vkDestroyPrivateDataSlotEXT.html), [vkGetPrivateData](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetPrivateData.html), [vkGetPrivateDataEXT](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetPrivateDataEXT.html), [vkSetPrivateData](https://registry.khronos.org/vulkan/specs/latest/man/html/vkSetPrivateData.html), [vkSetPrivateDataEXT](https://registry.khronos.org/vulkan/specs/latest/man/html/vkSetPrivateDataEXT.html)
 
-## <a href="#_document_notes" class="anchor"></a>Document Notes
+## [](#_document_notes)Document Notes
 
-For more information, see the <a
-href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#VkPrivateDataSlot"
-target="_blank" rel="noopener">Vulkan Specification</a>
+For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#VkPrivateDataSlot)
 
-This page is extracted from the Vulkan Specification. Fixes and changes
-should be made to the Specification, not directly.
+This page is extracted from the Vulkan Specification. Fixes and changes should be made to the Specification, not directly.
 
-## <a href="#_copyright" class="anchor"></a>Copyright
+## [](#_copyright)Copyright
 
-Copyright 2014-2024 The Khronos Group Inc.
+Copyright 2014-2025 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
-
-Version 1.3.290  
-Last updated 2024-07-11 23:39:16 -0700

@@ -6,13 +6,11 @@ VkValidationCheckEXT - Specify validation checks to disable
 
 
 
-## <a href="#_c_specification" class="anchor"></a>C Specification
+## [](#_c_specification)C Specification
 
-Possible values of elements of the
-[VkValidationFlagsEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkValidationFlagsEXT.html)::`pDisabledValidationChecks`
-array, specifying validation checks to be disabled, are:
+Possible values of elements of the [VkValidationFlagsEXT](https://registry.khronos.org/vulkan/specs/latest/man/html/VkValidationFlagsEXT.html)::`pDisabledValidationChecks` array, specifying validation checks to be disabled, are:
 
-``` c
+```c++
 // Provided by VK_EXT_validation_flags
 typedef enum VkValidationCheckEXT {
     VK_VALIDATION_CHECK_ALL_EXT = 0,
@@ -20,33 +18,23 @@ typedef enum VkValidationCheckEXT {
 } VkValidationCheckEXT;
 ```
 
-## <a href="#_description" class="anchor"></a>Description
+## [](#_description)Description
 
-- `VK_VALIDATION_CHECK_ALL_EXT` specifies that all validation checks are
-  disabled.
+- `VK_VALIDATION_CHECK_ALL_EXT` specifies that all validation checks are disabled.
+- `VK_VALIDATION_CHECK_SHADERS_EXT` specifies that shader validation is disabled.
 
-- `VK_VALIDATION_CHECK_SHADERS_EXT` specifies that shader validation is
-  disabled.
+## [](#_see_also)See Also
 
-## <a href="#_see_also" class="anchor"></a>See Also
+[VK\_EXT\_validation\_flags](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_EXT_validation_flags.html), [VkValidationFlagsEXT](https://registry.khronos.org/vulkan/specs/latest/man/html/VkValidationFlagsEXT.html)
 
-[VK_EXT_validation_flags](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_EXT_validation_flags.html),
-[VkValidationFlagsEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkValidationFlagsEXT.html)
+## [](#_document_notes)Document Notes
 
-## <a href="#_document_notes" class="anchor"></a>Document Notes
+For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#VkValidationCheckEXT)
 
-For more information, see the <a
-href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#VkValidationCheckEXT"
-target="_blank" rel="noopener">Vulkan Specification</a>
+This page is extracted from the Vulkan Specification. Fixes and changes should be made to the Specification, not directly.
 
-This page is extracted from the Vulkan Specification. Fixes and changes
-should be made to the Specification, not directly.
+## [](#_copyright)Copyright
 
-## <a href="#_copyright" class="anchor"></a>Copyright
-
-Copyright 2014-2024 The Khronos Group Inc.
+Copyright 2014-2025 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
-
-Version 1.3.290  
-Last updated 2024-07-11 23:39:16 -0700

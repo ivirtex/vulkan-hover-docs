@@ -2,20 +2,17 @@
 
 ## Name
 
-VkVideoDecodeUsageInfoKHR - Structure specifying video decode usage
-information
+VkVideoDecodeUsageInfoKHR - Structure specifying video decode usage information
 
 
 
-## <a href="#_c_specification" class="anchor"></a>C Specification
+## [](#_c_specification)C Specification
 
-Additional information about the video decode use case **can** be
-provided by adding a `VkVideoDecodeUsageInfoKHR` structure to the
-`pNext` chain of [VkVideoProfileInfoKHR](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkVideoProfileInfoKHR.html).
+Additional information about the video decode use case **can** be provided by adding a `VkVideoDecodeUsageInfoKHR` structure to the `pNext` chain of [VkVideoProfileInfoKHR](https://registry.khronos.org/vulkan/specs/latest/man/html/VkVideoProfileInfoKHR.html).
 
 The `VkVideoDecodeUsageInfoKHR` structure is defined as:
 
-``` c
+```c++
 // Provided by VK_KHR_video_decode_queue
 typedef struct VkVideoDecodeUsageInfoKHR {
     VkStructureType               sType;
@@ -24,54 +21,33 @@ typedef struct VkVideoDecodeUsageInfoKHR {
 } VkVideoDecodeUsageInfoKHR;
 ```
 
-## <a href="#_members" class="anchor"></a>Members
+## [](#_members)Members
 
-- `sType` is a [VkStructureType](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkStructureType.html) value identifying
-  this structure.
+- `sType` is a [VkStructureType](https://registry.khronos.org/vulkan/specs/latest/man/html/VkStructureType.html) value identifying this structure.
+- `pNext` is `NULL` or a pointer to a structure extending this structure.
+- `videoUsageHints` is a bitmask of [VkVideoDecodeUsageFlagBitsKHR](https://registry.khronos.org/vulkan/specs/latest/man/html/VkVideoDecodeUsageFlagBitsKHR.html) specifying hints about the intended use of the video decode profile.
 
-- `pNext` is `NULL` or a pointer to a structure extending this
-  structure.
-
-- `videoUsageHints` is a bitmask of
-  [VkVideoDecodeUsageFlagBitsKHR](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkVideoDecodeUsageFlagBitsKHR.html)
-  specifying hints about the intended use of the video decode profile.
-
-## <a href="#_description" class="anchor"></a>Description
+## [](#_description)Description
 
 Valid Usage (Implicit)
 
-- <a href="#VUID-VkVideoDecodeUsageInfoKHR-sType-sType"
-  id="VUID-VkVideoDecodeUsageInfoKHR-sType-sType"></a>
-  VUID-VkVideoDecodeUsageInfoKHR-sType-sType  
+- [](#VUID-VkVideoDecodeUsageInfoKHR-sType-sType)VUID-VkVideoDecodeUsageInfoKHR-sType-sType  
   `sType` **must** be `VK_STRUCTURE_TYPE_VIDEO_DECODE_USAGE_INFO_KHR`
+- [](#VUID-VkVideoDecodeUsageInfoKHR-videoUsageHints-parameter)VUID-VkVideoDecodeUsageInfoKHR-videoUsageHints-parameter  
+  `videoUsageHints` **must** be a valid combination of [VkVideoDecodeUsageFlagBitsKHR](https://registry.khronos.org/vulkan/specs/latest/man/html/VkVideoDecodeUsageFlagBitsKHR.html) values
 
-- <a href="#VUID-VkVideoDecodeUsageInfoKHR-videoUsageHints-parameter"
-  id="VUID-VkVideoDecodeUsageInfoKHR-videoUsageHints-parameter"></a>
-  VUID-VkVideoDecodeUsageInfoKHR-videoUsageHints-parameter  
-  `videoUsageHints` **must** be a valid combination of
-  [VkVideoDecodeUsageFlagBitsKHR](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkVideoDecodeUsageFlagBitsKHR.html)
-  values
+## [](#_see_also)See Also
 
-## <a href="#_see_also" class="anchor"></a>See Also
+[VK\_KHR\_video\_decode\_queue](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_KHR_video_decode_queue.html), [VkStructureType](https://registry.khronos.org/vulkan/specs/latest/man/html/VkStructureType.html), [VkVideoDecodeUsageFlagsKHR](https://registry.khronos.org/vulkan/specs/latest/man/html/VkVideoDecodeUsageFlagsKHR.html)
 
-[VK_KHR_video_decode_queue](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_KHR_video_decode_queue.html),
-[VkStructureType](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkStructureType.html),
-[VkVideoDecodeUsageFlagsKHR](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkVideoDecodeUsageFlagsKHR.html)
+## [](#_document_notes)Document Notes
 
-## <a href="#_document_notes" class="anchor"></a>Document Notes
+For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#VkVideoDecodeUsageInfoKHR)
 
-For more information, see the <a
-href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#VkVideoDecodeUsageInfoKHR"
-target="_blank" rel="noopener">Vulkan Specification</a>
+This page is extracted from the Vulkan Specification. Fixes and changes should be made to the Specification, not directly.
 
-This page is extracted from the Vulkan Specification. Fixes and changes
-should be made to the Specification, not directly.
+## [](#_copyright)Copyright
 
-## <a href="#_copyright" class="anchor"></a>Copyright
-
-Copyright 2014-2024 The Khronos Group Inc.
+Copyright 2014-2025 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
-
-Version 1.3.290  
-Last updated 2024-07-11 23:39:16 -0700

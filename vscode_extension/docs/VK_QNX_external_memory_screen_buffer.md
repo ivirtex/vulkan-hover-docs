@@ -1,152 +1,118 @@
-# VK_QNX_external_memory_screen_buffer(3) Manual Page
+# VK\_QNX\_external\_memory\_screen\_buffer(3) Manual Page
 
 ## Name
 
-VK_QNX_external_memory_screen_buffer - device extension
+VK\_QNX\_external\_memory\_screen\_buffer - device extension
 
 
 
-## <a href="#_registered_extension_number" class="anchor"></a>Registered Extension Number
+## [](#_registered_extension_number)Registered Extension Number
 
 530
 
-## <a href="#_revision" class="anchor"></a>Revision
+## [](#_revision)Revision
 
 1
 
-## <a href="#_ratification_status" class="anchor"></a>Ratification Status
+## [](#_ratification_status)Ratification Status
 
 Not ratified
 
-## <a href="#_extension_and_version_dependencies" class="anchor"></a>Extension and Version Dependencies
+## [](#_extension_and_version_dependencies)Extension and Version Dependencies
 
-        
-[VK_KHR_sampler_ycbcr_conversion](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_KHR_sampler_ycbcr_conversion.html)  
+         [VK\_KHR\_sampler\_ycbcr\_conversion](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_KHR_sampler_ycbcr_conversion.html)  
          and  
-         [VK_KHR_external_memory](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_KHR_external_memory.html)  
+         [VK\_KHR\_external\_memory](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_KHR_external_memory.html)  
          and  
-        
-[VK_KHR_dedicated_allocation](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_KHR_dedicated_allocation.html)  
+         [VK\_KHR\_dedicated\_allocation](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_KHR_dedicated_allocation.html)  
      or  
-     [Version 1.1](#versions-1.1)  
+     [Vulkan Version 1.1](#versions-1.1)  
 and  
-[VK_EXT_queue_family_foreign](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_EXT_queue_family_foreign.html)  
+[VK\_EXT\_queue\_family\_foreign](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_EXT_queue_family_foreign.html)
 
-## <a href="#_contact" class="anchor"></a>Contact
+## [](#_contact)Contact
 
-- Mike Gorchak <a
-  href="https://github.com/KhronosGroup/Vulkan-Docs/issues/new?body=%5BVK_QNX_external_memory_screen_buffer%5D%20@mgorchak-blackberry%0A*Here%20describe%20the%20issue%20or%20question%20you%20have%20about%20the%20VK_QNX_external_memory_screen_buffer%20extension*"
-  target="_blank" rel="nofollow noopener"><em></em>mgorchak-blackberry</a>
+- Mike Gorchak [\[GitHub\]mgorchak-blackberry](https://github.com/KhronosGroup/Vulkan-Docs/issues/new?body=%5BVK_QNX_external_memory_screen_buffer%5D%20%40mgorchak-blackberry%0A%2AHere%20describe%20the%20issue%20or%20question%20you%20have%20about%20the%20VK_QNX_external_memory_screen_buffer%20extension%2A)
+- Aaron Ruby [\[GitHub\]aruby-blackberry](https://github.com/KhronosGroup/Vulkan-Docs/issues/new?body=%5BVK_QNX_external_memory_screen_buffer%5D%20%40aruby-blackberry%0A%2AHere%20describe%20the%20issue%20or%20question%20you%20have%20about%20the%20VK_QNX_external_memory_screen_buffer%20extension%2A)
 
-- Aaron Ruby <a
-  href="https://github.com/KhronosGroup/Vulkan-Docs/issues/new?body=%5BVK_QNX_external_memory_screen_buffer%5D%20@aruby-blackberry%0A*Here%20describe%20the%20issue%20or%20question%20you%20have%20about%20the%20VK_QNX_external_memory_screen_buffer%20extension*"
-  target="_blank" rel="nofollow noopener"><em></em>aruby-blackberry</a>
+## [](#_other_extension_metadata)Other Extension Metadata
 
-## <a href="#_other_extension_metadata" class="anchor"></a>Other Extension Metadata
+**Last Modified Date**
 
-**Last Modified Date**  
 2023-05-17
 
-**IP Status**  
+**IP Status**
+
 No known IP claims.
 
-**Contributors**  
-- Mike Gorchak, QNX / Blackberry Limited
+**Contributors**
 
+- Mike Gorchak, QNX / Blackberry Limited
 - Aaron Ruby, QNX / Blackberry Limited
 
-## <a href="#_description" class="anchor"></a>Description
+## [](#_description)Description
 
-This extension enables an application to import QNX Screen
-`_screen_buffer` objects created outside of the Vulkan device into
-Vulkan memory objects, where they can be bound to images and buffers.
+This extension enables an application to import QNX Screen `_screen_buffer` objects created outside of the Vulkan device into Vulkan memory objects, where they can be bound to images and buffers.
 
-Some `_screen_buffer` images have implementation-defined *external
-formats* that **may** not correspond to Vulkan formats. Sampler
-Y′C<sub>B</sub>C<sub>R</sub> conversion **can** be used to sample from
-these images and convert them to a known color space.
+Some `_screen_buffer` images have implementation-defined *external formats* that **may** not correspond to Vulkan formats. Sampler Y′CBCR conversion **can** be used to sample from these images and convert them to a known color space.
 
-`_screen_buffer` is strongly typed, so naming the handle type is
-redundant. The internal layout and therefore size of a `_screen_buffer`
-image may depend on native usage flags that do not have corresponding
-Vulkan counterparts.
+`_screen_buffer` is strongly typed, so naming the handle type is redundant. The internal layout and therefore size of a `_screen_buffer` image may depend on native usage flags that do not have corresponding Vulkan counterparts.
 
-## <a href="#_new_commands" class="anchor"></a>New Commands
+## [](#_new_commands)New Commands
 
-- [vkGetScreenBufferPropertiesQNX](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkGetScreenBufferPropertiesQNX.html)
+- [vkGetScreenBufferPropertiesQNX](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetScreenBufferPropertiesQNX.html)
 
-## <a href="#_new_structures" class="anchor"></a>New Structures
+## [](#_new_structures)New Structures
 
-- [VkScreenBufferPropertiesQNX](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkScreenBufferPropertiesQNX.html)
+- [VkScreenBufferPropertiesQNX](https://registry.khronos.org/vulkan/specs/latest/man/html/VkScreenBufferPropertiesQNX.html)
+- Extending [VkImageCreateInfo](https://registry.khronos.org/vulkan/specs/latest/man/html/VkImageCreateInfo.html), [VkSamplerYcbcrConversionCreateInfo](https://registry.khronos.org/vulkan/specs/latest/man/html/VkSamplerYcbcrConversionCreateInfo.html):
+  
+  - [VkExternalFormatQNX](https://registry.khronos.org/vulkan/specs/latest/man/html/VkExternalFormatQNX.html)
+- Extending [VkMemoryAllocateInfo](https://registry.khronos.org/vulkan/specs/latest/man/html/VkMemoryAllocateInfo.html):
+  
+  - [VkImportScreenBufferInfoQNX](https://registry.khronos.org/vulkan/specs/latest/man/html/VkImportScreenBufferInfoQNX.html)
+- Extending [VkPhysicalDeviceFeatures2](https://registry.khronos.org/vulkan/specs/latest/man/html/VkPhysicalDeviceFeatures2.html), [VkDeviceCreateInfo](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDeviceCreateInfo.html):
+  
+  - [VkPhysicalDeviceExternalMemoryScreenBufferFeaturesQNX](https://registry.khronos.org/vulkan/specs/latest/man/html/VkPhysicalDeviceExternalMemoryScreenBufferFeaturesQNX.html)
+- Extending [VkScreenBufferPropertiesQNX](https://registry.khronos.org/vulkan/specs/latest/man/html/VkScreenBufferPropertiesQNX.html):
+  
+  - [VkScreenBufferFormatPropertiesQNX](https://registry.khronos.org/vulkan/specs/latest/man/html/VkScreenBufferFormatPropertiesQNX.html)
 
-- Extending [VkImageCreateInfo](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkImageCreateInfo.html),
-  [VkSamplerYcbcrConversionCreateInfo](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkSamplerYcbcrConversionCreateInfo.html):
-
-  - [VkExternalFormatQNX](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkExternalFormatQNX.html)
-
-- Extending [VkMemoryAllocateInfo](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkMemoryAllocateInfo.html):
-
-  - [VkImportScreenBufferInfoQNX](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkImportScreenBufferInfoQNX.html)
-
-- Extending [VkPhysicalDeviceFeatures2](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkPhysicalDeviceFeatures2.html),
-  [VkDeviceCreateInfo](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkDeviceCreateInfo.html):
-
-  - [VkPhysicalDeviceExternalMemoryScreenBufferFeaturesQNX](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkPhysicalDeviceExternalMemoryScreenBufferFeaturesQNX.html)
-
-- Extending
-  [VkScreenBufferPropertiesQNX](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkScreenBufferPropertiesQNX.html):
-
-  - [VkScreenBufferFormatPropertiesQNX](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkScreenBufferFormatPropertiesQNX.html)
-
-## <a href="#_new_enum_constants" class="anchor"></a>New Enum Constants
+## [](#_new_enum_constants)New Enum Constants
 
 - `VK_QNX_EXTERNAL_MEMORY_SCREEN_BUFFER_EXTENSION_NAME`
-
 - `VK_QNX_EXTERNAL_MEMORY_SCREEN_BUFFER_SPEC_VERSION`
-
-- Extending
-  [VkExternalMemoryHandleTypeFlagBits](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkExternalMemoryHandleTypeFlagBits.html):
-
+- Extending [VkExternalMemoryHandleTypeFlagBits](https://registry.khronos.org/vulkan/specs/latest/man/html/VkExternalMemoryHandleTypeFlagBits.html):
+  
   - `VK_EXTERNAL_MEMORY_HANDLE_TYPE_SCREEN_BUFFER_BIT_QNX`
-
-- Extending [VkStructureType](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkStructureType.html):
-
+- Extending [VkStructureType](https://registry.khronos.org/vulkan/specs/latest/man/html/VkStructureType.html):
+  
   - `VK_STRUCTURE_TYPE_EXTERNAL_FORMAT_QNX`
-
   - `VK_STRUCTURE_TYPE_IMPORT_SCREEN_BUFFER_INFO_QNX`
-
   - `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_EXTERNAL_MEMORY_SCREEN_BUFFER_FEATURES_QNX`
-
   - `VK_STRUCTURE_TYPE_SCREEN_BUFFER_FORMAT_PROPERTIES_QNX`
-
   - `VK_STRUCTURE_TYPE_SCREEN_BUFFER_PROPERTIES_QNX`
 
-## <a href="#_issues" class="anchor"></a>Issues
+## [](#_issues)Issues
 
-## <a href="#_version_history" class="anchor"></a>Version History
+## [](#_version_history)Version History
 
 - Revision 1, 2023-05-17 (Mike Gorchak)
-
+  
   - Initial version
 
-## <a href="#_see_also" class="anchor"></a>See Also
+## [](#_see_also)See Also
 
 No cross-references are available
 
-## <a href="#_document_notes" class="anchor"></a>Document Notes
+## [](#_document_notes)Document Notes
 
-For more information, see the <a
-href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#VK_QNX_external_memory_screen_buffer"
-target="_blank" rel="noopener">Vulkan Specification</a>
+For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#VK_QNX_external_memory_screen_buffer)
 
-This page is a generated document. Fixes and changes should be made to
-the generator scripts, not directly.
+This page is a generated document. Fixes and changes should be made to the generator scripts, not directly.
 
-## <a href="#_copyright" class="anchor"></a>Copyright
+## [](#_copyright)Copyright
 
-Copyright 2014-2024 The Khronos Group Inc.
+Copyright 2014-2025 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
-
-Version 1.3.290  
-Last updated 2024-07-11 23:39:16 -0700

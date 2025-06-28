@@ -2,17 +2,15 @@
 
 ## Name
 
-VkPhysicalDeviceTimelineSemaphoreProperties - Structure describing
-timeline semaphore properties that can be supported by an implementation
+VkPhysicalDeviceTimelineSemaphoreProperties - Structure describing timeline semaphore properties that can be supported by an implementation
 
 
 
-## <a href="#_c_specification" class="anchor"></a>C Specification
+## [](#_c_specification)C Specification
 
-The `VkPhysicalDeviceTimelineSemaphoreProperties` structure is defined
-as:
+The `VkPhysicalDeviceTimelineSemaphoreProperties` structure is defined as:
 
-``` c
+```c++
 // Provided by VK_VERSION_1_2
 typedef struct VkPhysicalDeviceTimelineSemaphoreProperties {
     VkStructureType    sType;
@@ -23,62 +21,39 @@ typedef struct VkPhysicalDeviceTimelineSemaphoreProperties {
 
 or the equivalent
 
-``` c
+```c++
 // Provided by VK_KHR_timeline_semaphore
 typedef VkPhysicalDeviceTimelineSemaphoreProperties VkPhysicalDeviceTimelineSemaphorePropertiesKHR;
 ```
 
-## <a href="#_members" class="anchor"></a>Members
+## [](#_members)Members
 
-- `sType` is a [VkStructureType](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkStructureType.html) value identifying
-  this structure.
+- `sType` is a [VkStructureType](https://registry.khronos.org/vulkan/specs/latest/man/html/VkStructureType.html) value identifying this structure.
+- `pNext` is `NULL` or a pointer to a structure extending this structure.
 
-- `pNext` is `NULL` or a pointer to a structure extending this
-  structure.
+## [](#_description)Description
 
-## <a href="#_description" class="anchor"></a>Description
+- []()`maxTimelineSemaphoreValueDifference` indicates the maximum difference allowed by the implementation between the current value of a timeline semaphore and any pending signal or wait operations.
 
-- <span id="extension-limits-maxTimelineSemaphoreValueDifference"></span>
-  `maxTimelineSemaphoreValueDifference` indicates the maximum difference
-  allowed by the implementation between the current value of a timeline
-  semaphore and any pending signal or wait operations.
-
-If the `VkPhysicalDeviceTimelineSemaphoreProperties` structure is
-included in the `pNext` chain of the
-[VkPhysicalDeviceProperties2](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkPhysicalDeviceProperties2.html)
-structure passed to
-[vkGetPhysicalDeviceProperties2](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkGetPhysicalDeviceProperties2.html),
-it is filled in with each corresponding implementation-dependent
-property.
+If the `VkPhysicalDeviceTimelineSemaphoreProperties` structure is included in the `pNext` chain of the [VkPhysicalDeviceProperties2](https://registry.khronos.org/vulkan/specs/latest/man/html/VkPhysicalDeviceProperties2.html) structure passed to [vkGetPhysicalDeviceProperties2](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetPhysicalDeviceProperties2.html), it is filled in with each corresponding implementation-dependent property.
 
 Valid Usage (Implicit)
 
-- <a href="#VUID-VkPhysicalDeviceTimelineSemaphoreProperties-sType-sType"
-  id="VUID-VkPhysicalDeviceTimelineSemaphoreProperties-sType-sType"></a>
-  VUID-VkPhysicalDeviceTimelineSemaphoreProperties-sType-sType  
-  `sType` **must** be
-  `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_TIMELINE_SEMAPHORE_PROPERTIES`
+- [](#VUID-VkPhysicalDeviceTimelineSemaphoreProperties-sType-sType)VUID-VkPhysicalDeviceTimelineSemaphoreProperties-sType-sType  
+  `sType` **must** be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_TIMELINE_SEMAPHORE_PROPERTIES`
 
-## <a href="#_see_also" class="anchor"></a>See Also
+## [](#_see_also)See Also
 
-[VK_KHR_timeline_semaphore](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_KHR_timeline_semaphore.html),
-[VK_VERSION_1_2](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_VERSION_1_2.html),
-[VkStructureType](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkStructureType.html)
+[VK\_KHR\_timeline\_semaphore](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_KHR_timeline_semaphore.html), [VK\_VERSION\_1\_2](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_VERSION_1_2.html), [VkStructureType](https://registry.khronos.org/vulkan/specs/latest/man/html/VkStructureType.html)
 
-## <a href="#_document_notes" class="anchor"></a>Document Notes
+## [](#_document_notes)Document Notes
 
-For more information, see the <a
-href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#VkPhysicalDeviceTimelineSemaphoreProperties"
-target="_blank" rel="noopener">Vulkan Specification</a>
+For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#VkPhysicalDeviceTimelineSemaphoreProperties)
 
-This page is extracted from the Vulkan Specification. Fixes and changes
-should be made to the Specification, not directly.
+This page is extracted from the Vulkan Specification. Fixes and changes should be made to the Specification, not directly.
 
-## <a href="#_copyright" class="anchor"></a>Copyright
+## [](#_copyright)Copyright
 
-Copyright 2014-2024 The Khronos Group Inc.
+Copyright 2014-2025 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
-
-Version 1.3.290  
-Last updated 2024-07-11 23:39:16 -0700

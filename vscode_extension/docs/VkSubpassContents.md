@@ -2,18 +2,15 @@
 
 ## Name
 
-VkSubpassContents - Specify how commands in the first subpass of a
-render pass are provided
+VkSubpassContents - Specify how commands in the first subpass of a render pass are provided
 
 
 
-## <a href="#_c_specification" class="anchor"></a>C Specification
+## [](#_c_specification)C Specification
 
-Possible values of
-[vkCmdBeginRenderPass](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdBeginRenderPass.html)::`contents`,
-specifying how the commands in the first subpass will be provided, are:
+Possible values of [vkCmdBeginRenderPass](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdBeginRenderPass.html)::`contents`, specifying how the commands in the first subpass will be provided, are:
 
-``` c
+```c++
 // Provided by VK_VERSION_1_0
 typedef enum VkSubpassContents {
     VK_SUBPASS_CONTENTS_INLINE = 0,
@@ -25,46 +22,24 @@ typedef enum VkSubpassContents {
 } VkSubpassContents;
 ```
 
-## <a href="#_description" class="anchor"></a>Description
+## [](#_description)Description
 
-- `VK_SUBPASS_CONTENTS_INLINE` specifies that the contents of the
-  subpass will be recorded inline in the primary command buffer, and
-  secondary command buffers **must** not be executed within the subpass.
+- `VK_SUBPASS_CONTENTS_INLINE` specifies that the contents of the subpass will be recorded inline in the primary command buffer, and secondary command buffers **must** not be executed within the subpass.
+- `VK_SUBPASS_CONTENTS_SECONDARY_COMMAND_BUFFERS` specifies that the contents are recorded in secondary command buffers that will be called from the primary command buffer, and [vkCmdExecuteCommands](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdExecuteCommands.html) is the only valid command in the command buffer until [vkCmdNextSubpass](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdNextSubpass.html) or [vkCmdEndRenderPass](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdEndRenderPass.html).
+- `VK_SUBPASS_CONTENTS_INLINE_AND_SECONDARY_COMMAND_BUFFERS_KHR` specifies that the contents of the subpass **can** be recorded both inline and in secondary command buffers executed from this command buffer with [vkCmdExecuteCommands](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdExecuteCommands.html).
 
-- `VK_SUBPASS_CONTENTS_SECONDARY_COMMAND_BUFFERS` specifies that the
-  contents are recorded in secondary command buffers that will be called
-  from the primary command buffer, and
-  [vkCmdExecuteCommands](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdExecuteCommands.html) is the only valid
-  command in the command buffer until
-  [vkCmdNextSubpass](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdNextSubpass.html) or
-  [vkCmdEndRenderPass](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdEndRenderPass.html).
+## [](#_see_also)See Also
 
-- `VK_SUBPASS_CONTENTS_INLINE_AND_SECONDARY_COMMAND_BUFFERS_KHR`
-  specifies that the contents of the subpass **can** be recorded both
-  inline and in secondary command buffers executed from this command
-  buffer with [vkCmdExecuteCommands](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdExecuteCommands.html).
+[VK\_VERSION\_1\_0](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_VERSION_1_0.html), [VkSubpassBeginInfo](https://registry.khronos.org/vulkan/specs/latest/man/html/VkSubpassBeginInfo.html), [vkCmdBeginRenderPass](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdBeginRenderPass.html), [vkCmdNextSubpass](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdNextSubpass.html)
 
-## <a href="#_see_also" class="anchor"></a>See Also
+## [](#_document_notes)Document Notes
 
-[VK_VERSION_1_0](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_VERSION_1_0.html),
-[VkSubpassBeginInfo](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkSubpassBeginInfo.html),
-[vkCmdBeginRenderPass](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdBeginRenderPass.html),
-[vkCmdNextSubpass](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdNextSubpass.html)
+For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#VkSubpassContents)
 
-## <a href="#_document_notes" class="anchor"></a>Document Notes
+This page is extracted from the Vulkan Specification. Fixes and changes should be made to the Specification, not directly.
 
-For more information, see the <a
-href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#VkSubpassContents"
-target="_blank" rel="noopener">Vulkan Specification</a>
+## [](#_copyright)Copyright
 
-This page is extracted from the Vulkan Specification. Fixes and changes
-should be made to the Specification, not directly.
-
-## <a href="#_copyright" class="anchor"></a>Copyright
-
-Copyright 2014-2024 The Khronos Group Inc.
+Copyright 2014-2025 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
-
-Version 1.3.290  
-Last updated 2024-07-11 23:39:16 -0700

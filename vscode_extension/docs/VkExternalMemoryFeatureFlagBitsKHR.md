@@ -2,18 +2,15 @@
 
 ## Name
 
-VkExternalMemoryFeatureFlagBits - Bitmask specifying features of an
-external memory handle type
+VkExternalMemoryFeatureFlagBits - Bitmask specifying features of an external memory handle type
 
 
 
-## <a href="#_c_specification" class="anchor"></a>C Specification
+## [](#_c_specification)C Specification
 
-Bits which **may** be set in
-[VkExternalMemoryProperties](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkExternalMemoryProperties.html)::`externalMemoryFeatures`,
-specifying features of an external memory handle type, are:
+Bits which **may** be set in [VkExternalMemoryProperties](https://registry.khronos.org/vulkan/specs/latest/man/html/VkExternalMemoryProperties.html)::`externalMemoryFeatures`, specifying features of an external memory handle type, are:
 
-``` c
+```c++
 // Provided by VK_VERSION_1_1
 typedef enum VkExternalMemoryFeatureFlagBits {
     VK_EXTERNAL_MEMORY_FEATURE_DEDICATED_ONLY_BIT = 0x00000001,
@@ -30,76 +27,40 @@ typedef enum VkExternalMemoryFeatureFlagBits {
 
 or the equivalent
 
-``` c
+```c++
 // Provided by VK_KHR_external_memory_capabilities
 typedef VkExternalMemoryFeatureFlagBits VkExternalMemoryFeatureFlagBitsKHR;
 ```
 
-## <a href="#_description" class="anchor"></a>Description
+## [](#_description)Description
 
-- `VK_EXTERNAL_MEMORY_FEATURE_DEDICATED_ONLY_BIT` specifies that images
-  or buffers created with the specified parameters and handle type
-  **must** use the mechanisms defined by
-  [VkMemoryDedicatedRequirements](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkMemoryDedicatedRequirements.html)
-  and
-  [VkMemoryDedicatedAllocateInfo](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkMemoryDedicatedAllocateInfo.html) to
-  create (or import) a dedicated allocation for the image or buffer.
+- `VK_EXTERNAL_MEMORY_FEATURE_DEDICATED_ONLY_BIT` specifies that tensors, images or buffers created with the specified parameters and handle type **must** use the mechanisms defined by [VkMemoryDedicatedRequirements](https://registry.khronos.org/vulkan/specs/latest/man/html/VkMemoryDedicatedRequirements.html) and [VkMemoryDedicatedAllocateInfo](https://registry.khronos.org/vulkan/specs/latest/man/html/VkMemoryDedicatedAllocateInfo.html) or [VkMemoryDedicatedAllocateInfoTensorARM](https://registry.khronos.org/vulkan/specs/latest/man/html/VkMemoryDedicatedAllocateInfoTensorARM.html) to create (or import) a dedicated allocation for the tensor, image or buffer.
+- `VK_EXTERNAL_MEMORY_FEATURE_EXPORTABLE_BIT` specifies that handles of this type **can** be exported from Vulkan memory objects.
+- `VK_EXTERNAL_MEMORY_FEATURE_IMPORTABLE_BIT` specifies that handles of this type **can** be imported as Vulkan memory objects.
 
-- `VK_EXTERNAL_MEMORY_FEATURE_EXPORTABLE_BIT` specifies that handles of
-  this type **can** be exported from Vulkan memory objects.
-
-- `VK_EXTERNAL_MEMORY_FEATURE_IMPORTABLE_BIT` specifies that handles of
-  this type **can** be imported as Vulkan memory objects.
-
-Because their semantics in external APIs roughly align with that of an
-image or buffer with a dedicated allocation in Vulkan, implementations
-are **required** to report
-`VK_EXTERNAL_MEMORY_FEATURE_DEDICATED_ONLY_BIT` for the following
-external handle types:
+Because their semantics in external APIs roughly align with that of an image or buffer with a dedicated allocation in Vulkan, implementations are **required** to report `VK_EXTERNAL_MEMORY_FEATURE_DEDICATED_ONLY_BIT` for the following external handle types:
 
 - `VK_EXTERNAL_MEMORY_HANDLE_TYPE_D3D11_TEXTURE_BIT`
-
 - `VK_EXTERNAL_MEMORY_HANDLE_TYPE_D3D11_TEXTURE_KMT_BIT`
-
 - `VK_EXTERNAL_MEMORY_HANDLE_TYPE_D3D12_RESOURCE_BIT`
-
-- `VK_EXTERNAL_MEMORY_HANDLE_TYPE_ANDROID_HARDWARE_BUFFER_BIT_ANDROID`
-  for images only
-
+- `VK_EXTERNAL_MEMORY_HANDLE_TYPE_ANDROID_HARDWARE_BUFFER_BIT_ANDROID` for images only
 - `VK_EXTERNAL_MEMORY_HANDLE_TYPE_SCREEN_BUFFER_BIT_QNX` for images only
+- `VK_EXTERNAL_MEMORY_HANDLE_TYPE_MTLTEXTURE_BIT_EXT`
 
-Implementations **must** not report
-`VK_EXTERNAL_MEMORY_FEATURE_DEDICATED_ONLY_BIT` for buffers with
-external handle type
-`VK_EXTERNAL_MEMORY_HANDLE_TYPE_ANDROID_HARDWARE_BUFFER_BIT_ANDROID`.
-Implementations **must** not report
-`VK_EXTERNAL_MEMORY_FEATURE_DEDICATED_ONLY_BIT` for buffers with
-external handle type
-`VK_EXTERNAL_MEMORY_HANDLE_TYPE_SCREEN_BUFFER_BIT_QNX`. Implementations
-**must** not report `VK_EXTERNAL_MEMORY_FEATURE_DEDICATED_ONLY_BIT` for
-images or buffers with external handle type
-`VK_EXTERNAL_MEMORY_HANDLE_TYPE_HOST_ALLOCATION_BIT_EXT`, or
-`VK_EXTERNAL_MEMORY_HANDLE_TYPE_HOST_MAPPED_FOREIGN_MEMORY_BIT_EXT`.
+Implementations **must** not report `VK_EXTERNAL_MEMORY_FEATURE_DEDICATED_ONLY_BIT` for buffers with external handle type `VK_EXTERNAL_MEMORY_HANDLE_TYPE_ANDROID_HARDWARE_BUFFER_BIT_ANDROID`. Implementations **must** not report `VK_EXTERNAL_MEMORY_FEATURE_DEDICATED_ONLY_BIT` for buffers with external handle type `VK_EXTERNAL_MEMORY_HANDLE_TYPE_SCREEN_BUFFER_BIT_QNX`. Implementations **must** not report `VK_EXTERNAL_MEMORY_FEATURE_DEDICATED_ONLY_BIT` for tensors, images or buffers with external handle type `VK_EXTERNAL_MEMORY_HANDLE_TYPE_HOST_ALLOCATION_BIT_EXT`, or `VK_EXTERNAL_MEMORY_HANDLE_TYPE_HOST_MAPPED_FOREIGN_MEMORY_BIT_EXT`.
 
-## <a href="#_see_also" class="anchor"></a>See Also
+## [](#_see_also)See Also
 
-[VK_VERSION_1_1](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_VERSION_1_1.html),
-[VkExternalMemoryFeatureFlags](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkExternalMemoryFeatureFlags.html)
+[VK\_VERSION\_1\_1](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_VERSION_1_1.html), [VkExternalMemoryFeatureFlags](https://registry.khronos.org/vulkan/specs/latest/man/html/VkExternalMemoryFeatureFlags.html)
 
-## <a href="#_document_notes" class="anchor"></a>Document Notes
+## [](#_document_notes)Document Notes
 
-For more information, see the <a
-href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#VkExternalMemoryFeatureFlagBits"
-target="_blank" rel="noopener">Vulkan Specification</a>
+For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#VkExternalMemoryFeatureFlagBits)
 
-This page is extracted from the Vulkan Specification. Fixes and changes
-should be made to the Specification, not directly.
+This page is extracted from the Vulkan Specification. Fixes and changes should be made to the Specification, not directly.
 
-## <a href="#_copyright" class="anchor"></a>Copyright
+## [](#_copyright)Copyright
 
-Copyright 2014-2024 The Khronos Group Inc.
+Copyright 2014-2025 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
-
-Version 1.3.290  
-Last updated 2024-07-11 23:39:16 -0700

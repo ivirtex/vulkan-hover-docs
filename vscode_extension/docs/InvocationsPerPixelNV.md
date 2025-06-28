@@ -2,61 +2,37 @@
 
 ## Name
 
-InvocationsPerPixelNV - Number of fragment shader invocations for the
-current pixel
+InvocationsPerPixelNV - Number of fragment shader invocations for the current pixel
 
 
 
-## <a href="#_description" class="anchor"></a>Description
+## [](#_description)Description
 
-`InvocationsPerPixelNV`  
-Decorating a variable with the `InvocationsPerPixelNV` built-in
-decoration will make that variable contain the maximum number of
-fragment shader invocations per pixel, as derived from the effective
-shading rate for the fragment. If a primitive does not fully cover a
-pixel, the number of fragment shader invocations for that pixel **may**
-be less than the value of `InvocationsPerPixelNV`. If the shading rate
-indicates a fragment covering multiple pixels, then
-`InvocationsPerPixelNV` will be one.
+`InvocationsPerPixelNV`
+
+Decorating a variable with the `InvocationsPerPixelNV` built-in decoration will make that variable contain the maximum number of fragment shader invocations per pixel, as derived from the effective shading rate for the fragment. If a primitive does not fully cover a pixel, the number of fragment shader invocations for that pixel **may** be less than the value of `InvocationsPerPixelNV`. If the shading rate indicates a fragment covering multiple pixels, then `InvocationsPerPixelNV` will be one.
 
 Valid Usage
 
-- <a href="#VUID-InvocationsPerPixelNV-InvocationsPerPixelNV-04260"
-  id="VUID-InvocationsPerPixelNV-InvocationsPerPixelNV-04260"></a>
-  VUID-InvocationsPerPixelNV-InvocationsPerPixelNV-04260  
-  The `InvocationsPerPixelNV` decoration **must** be used only within
-  the `Fragment` `Execution` `Model`
+- [](#VUID-InvocationsPerPixelNV-InvocationsPerPixelNV-04260)VUID-InvocationsPerPixelNV-InvocationsPerPixelNV-04260  
+  The `InvocationsPerPixelNV` decoration **must** be used only within the `Fragment` `Execution` `Model`
+- [](#VUID-InvocationsPerPixelNV-InvocationsPerPixelNV-04261)VUID-InvocationsPerPixelNV-InvocationsPerPixelNV-04261  
+  The variable decorated with `InvocationsPerPixelNV` **must** be declared using the `Input` `Storage` `Class`
+- [](#VUID-InvocationsPerPixelNV-InvocationsPerPixelNV-04262)VUID-InvocationsPerPixelNV-InvocationsPerPixelNV-04262  
+  The variable decorated with `InvocationsPerPixelNV` **must** be declared as a scalar 32-bit integer value
 
-- <a href="#VUID-InvocationsPerPixelNV-InvocationsPerPixelNV-04261"
-  id="VUID-InvocationsPerPixelNV-InvocationsPerPixelNV-04261"></a>
-  VUID-InvocationsPerPixelNV-InvocationsPerPixelNV-04261  
-  The variable decorated with `InvocationsPerPixelNV` **must** be
-  declared using the `Input` `Storage` `Class`
-
-- <a href="#VUID-InvocationsPerPixelNV-InvocationsPerPixelNV-04262"
-  id="VUID-InvocationsPerPixelNV-InvocationsPerPixelNV-04262"></a>
-  VUID-InvocationsPerPixelNV-InvocationsPerPixelNV-04262  
-  The variable decorated with `InvocationsPerPixelNV` **must** be
-  declared as a scalar 32-bit integer value
-
-## <a href="#_see_also" class="anchor"></a>See Also
+## [](#_see_also)See Also
 
 No cross-references are available
 
-## <a href="#_document_notes" class="anchor"></a>Document Notes
+## [](#_document_notes)Document Notes
 
-For more information, see the <a
-href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#InvocationsPerPixelNV"
-target="_blank" rel="noopener">Vulkan Specification</a>
+For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#InvocationsPerPixelNV)
 
-This page is extracted from the Vulkan Specification. Fixes and changes
-should be made to the Specification, not directly.
+This page is extracted from the Vulkan Specification. Fixes and changes should be made to the Specification, not directly.
 
-## <a href="#_copyright" class="anchor"></a>Copyright
+## [](#_copyright)Copyright
 
-Copyright 2014-2024 The Khronos Group Inc.
+Copyright 2014-2025 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
-
-Version 1.3.290  
-Last updated 2024-07-11 23:39:16 -0700

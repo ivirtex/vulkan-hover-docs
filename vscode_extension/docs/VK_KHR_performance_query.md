@@ -1,245 +1,176 @@
-# VK_KHR_performance_query(3) Manual Page
+# VK\_KHR\_performance\_query(3) Manual Page
 
 ## Name
 
-VK_KHR_performance_query - device extension
+VK\_KHR\_performance\_query - device extension
 
 
 
-## <a href="#_registered_extension_number" class="anchor"></a>Registered Extension Number
+## [](#_registered_extension_number)Registered Extension Number
 
 117
 
-## <a href="#_revision" class="anchor"></a>Revision
+## [](#_revision)Revision
 
 1
 
-## <a href="#_ratification_status" class="anchor"></a>Ratification Status
+## [](#_ratification_status)Ratification Status
 
 Ratified
 
-## <a href="#_extension_and_version_dependencies" class="anchor"></a>Extension and Version Dependencies
+## [](#_extension_and_version_dependencies)Extension and Version Dependencies
 
-[VK_KHR_get_physical_device_properties2](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_KHR_get_physical_device_properties2.html)  
+[VK\_KHR\_get\_physical\_device\_properties2](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_KHR_get_physical_device_properties2.html)  
 or  
-[Version 1.1](#versions-1.1)  
+[Vulkan Version 1.1](#versions-1.1)
 
-## <a href="#_special_use" class="anchor"></a>Special Use
+## [](#_special_use)Special Use
 
-- <a
-  href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#extendingvulkan-compatibility-specialuse"
-  target="_blank" rel="noopener">Developer tools</a>
+- [Developer tools](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#extendingvulkan-compatibility-specialuse)
 
-## <a href="#_contact" class="anchor"></a>Contact
+## [](#_contact)Contact
 
-- Alon Or-bach <a
-  href="https://github.com/KhronosGroup/Vulkan-Docs/issues/new?body=%5BVK_KHR_performance_query%5D%20@alonorbach%0A*Here%20describe%20the%20issue%20or%20question%20you%20have%20about%20the%20VK_KHR_performance_query%20extension*"
-  target="_blank" rel="nofollow noopener"><em></em>alonorbach</a>
+- Alon Or-bach [\[GitHub\]alonorbach](https://github.com/KhronosGroup/Vulkan-Docs/issues/new?body=%5BVK_KHR_performance_query%5D%20%40alonorbach%0A%2AHere%20describe%20the%20issue%20or%20question%20you%20have%20about%20the%20VK_KHR_performance_query%20extension%2A)
 
-## <a href="#_other_extension_metadata" class="anchor"></a>Other Extension Metadata
+## [](#_other_extension_metadata)Other Extension Metadata
 
-**Last Modified Date**  
+**Last Modified Date**
+
 2019-10-08
 
-**IP Status**  
+**IP Status**
+
 No known IP claims.
 
-**Contributors**  
+**Contributors**
+
 - Jesse Barker, Unity Technologies
-
 - Kenneth Benzie, Codeplay
-
 - Jan-Harald Fredriksen, ARM
-
 - Jeff Leger, Qualcomm
-
 - Jesse Hall, Google
-
 - Tobias Hector, AMD
-
 - Neil Henning, Codeplay
-
 - Baldur Karlsson
-
 - Lionel Landwerlin, Intel
-
 - Peter Lohrmann, AMD
-
 - Alon Or-bach, Samsung
-
 - Daniel Rakos, AMD
-
 - Niklas Smedberg, Unity Technologies
-
 - Igor Ostrowski, Intel
 
-## <a href="#_description" class="anchor"></a>Description
+## [](#_description)Description
 
-The `VK_KHR_performance_query` extension adds a mechanism to allow
-querying of performance counters for use in applications and by
-profiling tools.
+The `VK_KHR_performance_query` extension adds a mechanism to allow querying of performance counters for use in applications and by profiling tools.
 
-Each queue family **may** expose counters that **can** be enabled on a
-queue of that family. We extend [VkQueryType](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkQueryType.html) to add a
-new query type for performance queries, and chain a structure on
-[VkQueryPoolCreateInfo](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkQueryPoolCreateInfo.html) to specify the
-performance queries to enable.
+Each queue family **may** expose counters that **can** be enabled on a queue of that family. We extend [VkQueryType](https://registry.khronos.org/vulkan/specs/latest/man/html/VkQueryType.html) to add a new query type for performance queries, and chain a structure on [VkQueryPoolCreateInfo](https://registry.khronos.org/vulkan/specs/latest/man/html/VkQueryPoolCreateInfo.html) to specify the performance queries to enable.
 
-## <a href="#_new_commands" class="anchor"></a>New Commands
+## [](#_new_commands)New Commands
 
-- [vkAcquireProfilingLockKHR](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkAcquireProfilingLockKHR.html)
+- [vkAcquireProfilingLockKHR](https://registry.khronos.org/vulkan/specs/latest/man/html/vkAcquireProfilingLockKHR.html)
+- [vkEnumeratePhysicalDeviceQueueFamilyPerformanceQueryCountersKHR](https://registry.khronos.org/vulkan/specs/latest/man/html/vkEnumeratePhysicalDeviceQueueFamilyPerformanceQueryCountersKHR.html)
+- [vkGetPhysicalDeviceQueueFamilyPerformanceQueryPassesKHR](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetPhysicalDeviceQueueFamilyPerformanceQueryPassesKHR.html)
+- [vkReleaseProfilingLockKHR](https://registry.khronos.org/vulkan/specs/latest/man/html/vkReleaseProfilingLockKHR.html)
 
-- [vkEnumeratePhysicalDeviceQueueFamilyPerformanceQueryCountersKHR](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkEnumeratePhysicalDeviceQueueFamilyPerformanceQueryCountersKHR.html)
+## [](#_new_structures)New Structures
 
-- [vkGetPhysicalDeviceQueueFamilyPerformanceQueryPassesKHR](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkGetPhysicalDeviceQueueFamilyPerformanceQueryPassesKHR.html)
+- [VkAcquireProfilingLockInfoKHR](https://registry.khronos.org/vulkan/specs/latest/man/html/VkAcquireProfilingLockInfoKHR.html)
+- [VkPerformanceCounterDescriptionKHR](https://registry.khronos.org/vulkan/specs/latest/man/html/VkPerformanceCounterDescriptionKHR.html)
+- [VkPerformanceCounterKHR](https://registry.khronos.org/vulkan/specs/latest/man/html/VkPerformanceCounterKHR.html)
+- Extending [VkPhysicalDeviceFeatures2](https://registry.khronos.org/vulkan/specs/latest/man/html/VkPhysicalDeviceFeatures2.html), [VkDeviceCreateInfo](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDeviceCreateInfo.html):
+  
+  - [VkPhysicalDevicePerformanceQueryFeaturesKHR](https://registry.khronos.org/vulkan/specs/latest/man/html/VkPhysicalDevicePerformanceQueryFeaturesKHR.html)
+- Extending [VkPhysicalDeviceProperties2](https://registry.khronos.org/vulkan/specs/latest/man/html/VkPhysicalDeviceProperties2.html):
+  
+  - [VkPhysicalDevicePerformanceQueryPropertiesKHR](https://registry.khronos.org/vulkan/specs/latest/man/html/VkPhysicalDevicePerformanceQueryPropertiesKHR.html)
+- Extending [VkQueryPoolCreateInfo](https://registry.khronos.org/vulkan/specs/latest/man/html/VkQueryPoolCreateInfo.html):
+  
+  - [VkQueryPoolPerformanceCreateInfoKHR](https://registry.khronos.org/vulkan/specs/latest/man/html/VkQueryPoolPerformanceCreateInfoKHR.html)
+- Extending [VkSubmitInfo](https://registry.khronos.org/vulkan/specs/latest/man/html/VkSubmitInfo.html), [VkSubmitInfo2](https://registry.khronos.org/vulkan/specs/latest/man/html/VkSubmitInfo2.html):
+  
+  - [VkPerformanceQuerySubmitInfoKHR](https://registry.khronos.org/vulkan/specs/latest/man/html/VkPerformanceQuerySubmitInfoKHR.html)
 
-- [vkReleaseProfilingLockKHR](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkReleaseProfilingLockKHR.html)
+## [](#_new_unions)New Unions
 
-## <a href="#_new_structures" class="anchor"></a>New Structures
+- [VkPerformanceCounterResultKHR](https://registry.khronos.org/vulkan/specs/latest/man/html/VkPerformanceCounterResultKHR.html)
 
-- [VkAcquireProfilingLockInfoKHR](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkAcquireProfilingLockInfoKHR.html)
+## [](#_new_enums)New Enums
 
-- [VkPerformanceCounterDescriptionKHR](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkPerformanceCounterDescriptionKHR.html)
+- [VkAcquireProfilingLockFlagBitsKHR](https://registry.khronos.org/vulkan/specs/latest/man/html/VkAcquireProfilingLockFlagBitsKHR.html)
+- [VkPerformanceCounterDescriptionFlagBitsKHR](https://registry.khronos.org/vulkan/specs/latest/man/html/VkPerformanceCounterDescriptionFlagBitsKHR.html)
+- [VkPerformanceCounterScopeKHR](https://registry.khronos.org/vulkan/specs/latest/man/html/VkPerformanceCounterScopeKHR.html)
+- [VkPerformanceCounterStorageKHR](https://registry.khronos.org/vulkan/specs/latest/man/html/VkPerformanceCounterStorageKHR.html)
+- [VkPerformanceCounterUnitKHR](https://registry.khronos.org/vulkan/specs/latest/man/html/VkPerformanceCounterUnitKHR.html)
 
-- [VkPerformanceCounterKHR](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkPerformanceCounterKHR.html)
+## [](#_new_bitmasks)New Bitmasks
 
-- Extending [VkPhysicalDeviceFeatures2](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkPhysicalDeviceFeatures2.html),
-  [VkDeviceCreateInfo](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkDeviceCreateInfo.html):
+- [VkAcquireProfilingLockFlagsKHR](https://registry.khronos.org/vulkan/specs/latest/man/html/VkAcquireProfilingLockFlagsKHR.html)
+- [VkPerformanceCounterDescriptionFlagsKHR](https://registry.khronos.org/vulkan/specs/latest/man/html/VkPerformanceCounterDescriptionFlagsKHR.html)
 
-  - [VkPhysicalDevicePerformanceQueryFeaturesKHR](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkPhysicalDevicePerformanceQueryFeaturesKHR.html)
-
-- Extending
-  [VkPhysicalDeviceProperties2](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkPhysicalDeviceProperties2.html):
-
-  - [VkPhysicalDevicePerformanceQueryPropertiesKHR](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkPhysicalDevicePerformanceQueryPropertiesKHR.html)
-
-- Extending [VkQueryPoolCreateInfo](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkQueryPoolCreateInfo.html):
-
-  - [VkQueryPoolPerformanceCreateInfoKHR](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkQueryPoolPerformanceCreateInfoKHR.html)
-
-- Extending [VkSubmitInfo](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkSubmitInfo.html),
-  [VkSubmitInfo2](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkSubmitInfo2.html):
-
-  - [VkPerformanceQuerySubmitInfoKHR](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkPerformanceQuerySubmitInfoKHR.html)
-
-## <a href="#_new_unions" class="anchor"></a>New Unions
-
-- [VkPerformanceCounterResultKHR](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkPerformanceCounterResultKHR.html)
-
-## <a href="#_new_enums" class="anchor"></a>New Enums
-
-- [VkAcquireProfilingLockFlagBitsKHR](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkAcquireProfilingLockFlagBitsKHR.html)
-
-- [VkPerformanceCounterDescriptionFlagBitsKHR](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkPerformanceCounterDescriptionFlagBitsKHR.html)
-
-- [VkPerformanceCounterScopeKHR](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkPerformanceCounterScopeKHR.html)
-
-- [VkPerformanceCounterStorageKHR](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkPerformanceCounterStorageKHR.html)
-
-- [VkPerformanceCounterUnitKHR](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkPerformanceCounterUnitKHR.html)
-
-## <a href="#_new_bitmasks" class="anchor"></a>New Bitmasks
-
-- [VkAcquireProfilingLockFlagsKHR](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkAcquireProfilingLockFlagsKHR.html)
-
-- [VkPerformanceCounterDescriptionFlagsKHR](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkPerformanceCounterDescriptionFlagsKHR.html)
-
-## <a href="#_new_enum_constants" class="anchor"></a>New Enum Constants
+## [](#_new_enum_constants)New Enum Constants
 
 - `VK_KHR_PERFORMANCE_QUERY_EXTENSION_NAME`
-
 - `VK_KHR_PERFORMANCE_QUERY_SPEC_VERSION`
-
-- Extending [VkQueryType](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkQueryType.html):
-
+- Extending [VkQueryType](https://registry.khronos.org/vulkan/specs/latest/man/html/VkQueryType.html):
+  
   - `VK_QUERY_TYPE_PERFORMANCE_QUERY_KHR`
-
-- Extending [VkStructureType](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkStructureType.html):
-
+- Extending [VkStructureType](https://registry.khronos.org/vulkan/specs/latest/man/html/VkStructureType.html):
+  
   - `VK_STRUCTURE_TYPE_ACQUIRE_PROFILING_LOCK_INFO_KHR`
-
   - `VK_STRUCTURE_TYPE_PERFORMANCE_COUNTER_DESCRIPTION_KHR`
-
   - `VK_STRUCTURE_TYPE_PERFORMANCE_COUNTER_KHR`
-
   - `VK_STRUCTURE_TYPE_PERFORMANCE_QUERY_SUBMIT_INFO_KHR`
-
   - `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_PERFORMANCE_QUERY_FEATURES_KHR`
-
   - `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_PERFORMANCE_QUERY_PROPERTIES_KHR`
-
   - `VK_STRUCTURE_TYPE_QUERY_POOL_PERFORMANCE_CREATE_INFO_KHR`
 
-## <a href="#_issues" class="anchor"></a>Issues
+## [](#_issues)Issues
 
-1\) Should this extension include a mechanism to begin a query in
-command buffer *A* and end the query in command buffer *B*?
+1\) Should this extension include a mechanism to begin a query in command buffer *A* and end the query in command buffer *B*?
 
-**RESOLVED** No - queries are tied to command buffer creation and thus
-have to be encapsulated within a single command buffer.
+**RESOLVED** No - queries are tied to command buffer creation and thus have to be encapsulated within a single command buffer.
 
-2\) Should this extension include a mechanism to begin and end queries
-globally on the queue, not using the existing command buffer commands?
+2\) Should this extension include a mechanism to begin and end queries globally on the queue, not using the existing command buffer commands?
 
 **RESOLVED** No - for the same reasoning as the resolution of 1).
 
 3\) Should this extension expose counters that require multiple passes?
 
-**RESOLVED** Yes - users should re-submit a command buffer with the same
-commands in it multiple times, specifying the pass to count as the query
-parameter in VkPerformanceQuerySubmitInfoKHR.
+**RESOLVED** Yes - users should re-submit a command buffer with the same commands in it multiple times, specifying the pass to count as the query parameter in VkPerformanceQuerySubmitInfoKHR.
 
 4\) How to handle counters across parallel workloads?
 
-**RESOLVED** In the spirit of Vulkan, a counter description flag
-`VK_PERFORMANCE_COUNTER_DESCRIPTION_CONCURRENTLY_IMPACTED_BIT_KHR`
-denotes that the accuracy of a counter result is affected by parallel
-workloads.
+**RESOLVED** In the spirit of Vulkan, a counter description flag `VK_PERFORMANCE_COUNTER_DESCRIPTION_CONCURRENTLY_IMPACTED_BIT_KHR` denotes that the accuracy of a counter result is affected by parallel workloads.
 
 5\) How to handle secondary command buffers?
 
-**RESOLVED** Secondary command buffers inherit any counter pass index
-specified in the parent primary command buffer. Note: this is no longer
-an issue after change from issue 10 resolution
+**RESOLVED** Secondary command buffers inherit any counter pass index specified in the parent primary command buffer. Note: this is no longer an issue after change from issue 10 resolution
 
 6\) What commands does the profiling lock have to be held for?
 
-**RESOLVED** For any command buffer that is being queried with a
-performance query pool, the profiling lock **must** be held while that
-command buffer is in the *recording*, *executable*, or *pending state*.
+**RESOLVED** For any command buffer that is being queried with a performance query pool, the profiling lock **must** be held while that command buffer is in the *recording*, *executable*, or *pending state*.
 
-7\) Should we support
-[vkCmdCopyQueryPoolResults](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdCopyQueryPoolResults.html)?
+7\) Should we support [vkCmdCopyQueryPoolResults](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdCopyQueryPoolResults.html)?
 
 **RESOLVED** Yes.
 
 8\) Should we allow performance queries to interact with multiview?
 
-**RESOLVED** Yes, but the performance queries must be performed once for
-each pass per view.
+**RESOLVED** Yes, but the performance queries must be performed once for each pass per view.
 
 9\) Should a `queryCount > 1` be usable for performance queries?
 
-**RESOLVED** Yes. Some vendors will have costly performance counter
-query pool creation, and would rather if a certain set of counters were
-to be used multiple times that a `queryCount > 1` can be used to
-amortize the instantiation cost.
+**RESOLVED** Yes. Some vendors will have costly performance counter query pool creation, and would rather if a certain set of counters were to be used multiple times that a `queryCount > 1` can be used to amortize the instantiation cost.
 
-10\) Should we introduce an indirect mechanism to set the counter pass
-index?
+10\) Should we introduce an indirect mechanism to set the counter pass index?
 
-**RESOLVED** Specify the counter pass index at submit time instead, to
-avoid requiring re-recording of command buffers when multiple counter
-passes are needed.
+**RESOLVED** Specify the counter pass index at submit time instead, to avoid requiring re-recording of command buffers when multiple counter passes are needed.
 
-## <a href="#_examples" class="anchor"></a>Examples
+## [](#_examples)Examples
 
-The following example shows how to find what performance counters a
-queue family supports, setup a query pool to record these performance
-counters, how to add the query pool to the command buffer to record
-information, and how to get the results from the query pool.
+The following example shows how to find what performance counters a queue family supports, setup a query pool to record these performance counters, how to add the query pool to the command buffer to record information, and how to get the results from the query pool.
 
-``` c
+```c++
 // A previously created physical device
 VkPhysicalDevice physicalDevice;
 
@@ -451,28 +382,22 @@ switch (counters[0].storage) {
 }
 ```
 
-## <a href="#_version_history" class="anchor"></a>Version History
+## [](#_version_history)Version History
 
 - Revision 1, 2019-10-08
 
-## <a href="#_see_also" class="anchor"></a>See Also
+## [](#_see_also)See Also
 
 No cross-references are available
 
-## <a href="#_document_notes" class="anchor"></a>Document Notes
+## [](#_document_notes)Document Notes
 
-For more information, see the <a
-href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#VK_KHR_performance_query"
-target="_blank" rel="noopener">Vulkan Specification</a>
+For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#VK_KHR_performance_query)
 
-This page is a generated document. Fixes and changes should be made to
-the generator scripts, not directly.
+This page is a generated document. Fixes and changes should be made to the generator scripts, not directly.
 
-## <a href="#_copyright" class="anchor"></a>Copyright
+## [](#_copyright)Copyright
 
-Copyright 2014-2024 The Khronos Group Inc.
+Copyright 2014-2025 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
-
-Version 1.3.290  
-Last updated 2024-07-11 23:39:16 -0700

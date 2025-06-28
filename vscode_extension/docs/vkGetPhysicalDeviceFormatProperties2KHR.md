@@ -2,17 +2,15 @@
 
 ## Name
 
-vkGetPhysicalDeviceFormatProperties2 - Lists physical device's format
-capabilities
+vkGetPhysicalDeviceFormatProperties2 - Lists physical device's format capabilities
 
 
 
-## <a href="#_c_specification" class="anchor"></a>C Specification
+## [](#_c_specification)C Specification
 
-To query supported format features which are properties of the physical
-device, call:
+To query supported format features which are properties of the physical device, call:
 
-``` c
+```c++
 // Provided by VK_VERSION_1_1
 void vkGetPhysicalDeviceFormatProperties2(
     VkPhysicalDevice                            physicalDevice,
@@ -22,7 +20,7 @@ void vkGetPhysicalDeviceFormatProperties2(
 
 or the equivalent command
 
-``` c
+```c++
 // Provided by VK_KHR_get_physical_device_properties2
 void vkGetPhysicalDeviceFormatProperties2KHR(
     VkPhysicalDevice                            physicalDevice,
@@ -30,65 +28,37 @@ void vkGetPhysicalDeviceFormatProperties2KHR(
     VkFormatProperties2*                        pFormatProperties);
 ```
 
-## <a href="#_parameters" class="anchor"></a>Parameters
+## [](#_parameters)Parameters
 
-- `physicalDevice` is the physical device from which to query the format
-  properties.
-
+- `physicalDevice` is the physical device from which to query the format properties.
 - `format` is the format whose properties are queried.
+- `pFormatProperties` is a pointer to a [VkFormatProperties2](https://registry.khronos.org/vulkan/specs/latest/man/html/VkFormatProperties2.html) structure in which physical device properties for `format` are returned.
 
-- `pFormatProperties` is a pointer to a
-  [VkFormatProperties2](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkFormatProperties2.html) structure in which
-  physical device properties for `format` are returned.
+## [](#_description)Description
 
-## <a href="#_description" class="anchor"></a>Description
-
-`vkGetPhysicalDeviceFormatProperties2` behaves similarly to
-[vkGetPhysicalDeviceFormatProperties](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkGetPhysicalDeviceFormatProperties.html),
-with the ability to return extended information in a `pNext` chain of
-output structures.
+`vkGetPhysicalDeviceFormatProperties2` behaves similarly to [vkGetPhysicalDeviceFormatProperties](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetPhysicalDeviceFormatProperties.html), with the ability to return extended information in a `pNext` chain of output structures.
 
 Valid Usage (Implicit)
 
-- <a
-  href="#VUID-vkGetPhysicalDeviceFormatProperties2-physicalDevice-parameter"
-  id="VUID-vkGetPhysicalDeviceFormatProperties2-physicalDevice-parameter"></a>
-  VUID-vkGetPhysicalDeviceFormatProperties2-physicalDevice-parameter  
-  `physicalDevice` **must** be a valid
-  [VkPhysicalDevice](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkPhysicalDevice.html) handle
+- [](#VUID-vkGetPhysicalDeviceFormatProperties2-physicalDevice-parameter)VUID-vkGetPhysicalDeviceFormatProperties2-physicalDevice-parameter  
+  `physicalDevice` **must** be a valid [VkPhysicalDevice](https://registry.khronos.org/vulkan/specs/latest/man/html/VkPhysicalDevice.html) handle
+- [](#VUID-vkGetPhysicalDeviceFormatProperties2-format-parameter)VUID-vkGetPhysicalDeviceFormatProperties2-format-parameter  
+  `format` **must** be a valid [VkFormat](https://registry.khronos.org/vulkan/specs/latest/man/html/VkFormat.html) value
+- [](#VUID-vkGetPhysicalDeviceFormatProperties2-pFormatProperties-parameter)VUID-vkGetPhysicalDeviceFormatProperties2-pFormatProperties-parameter  
+  `pFormatProperties` **must** be a valid pointer to a [VkFormatProperties2](https://registry.khronos.org/vulkan/specs/latest/man/html/VkFormatProperties2.html) structure
 
-- <a href="#VUID-vkGetPhysicalDeviceFormatProperties2-format-parameter"
-  id="VUID-vkGetPhysicalDeviceFormatProperties2-format-parameter"></a>
-  VUID-vkGetPhysicalDeviceFormatProperties2-format-parameter  
-  `format` **must** be a valid [VkFormat](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkFormat.html) value
+## [](#_see_also)See Also
 
-- <a
-  href="#VUID-vkGetPhysicalDeviceFormatProperties2-pFormatProperties-parameter"
-  id="VUID-vkGetPhysicalDeviceFormatProperties2-pFormatProperties-parameter"></a>
-  VUID-vkGetPhysicalDeviceFormatProperties2-pFormatProperties-parameter  
-  `pFormatProperties` **must** be a valid pointer to a
-  [VkFormatProperties2](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkFormatProperties2.html) structure
+[VK\_VERSION\_1\_1](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_VERSION_1_1.html), [VkFormat](https://registry.khronos.org/vulkan/specs/latest/man/html/VkFormat.html), [VkFormatProperties2](https://registry.khronos.org/vulkan/specs/latest/man/html/VkFormatProperties2.html), [VkPhysicalDevice](https://registry.khronos.org/vulkan/specs/latest/man/html/VkPhysicalDevice.html)
 
-## <a href="#_see_also" class="anchor"></a>See Also
+## [](#_document_notes)Document Notes
 
-[VK_VERSION_1_1](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_VERSION_1_1.html), [VkFormat](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkFormat.html),
-[VkFormatProperties2](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkFormatProperties2.html),
-[VkPhysicalDevice](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkPhysicalDevice.html)
+For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#vkGetPhysicalDeviceFormatProperties2)
 
-## <a href="#_document_notes" class="anchor"></a>Document Notes
+This page is extracted from the Vulkan Specification. Fixes and changes should be made to the Specification, not directly.
 
-For more information, see the <a
-href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#vkGetPhysicalDeviceFormatProperties2"
-target="_blank" rel="noopener">Vulkan Specification</a>
+## [](#_copyright)Copyright
 
-This page is extracted from the Vulkan Specification. Fixes and changes
-should be made to the Specification, not directly.
-
-## <a href="#_copyright" class="anchor"></a>Copyright
-
-Copyright 2014-2024 The Khronos Group Inc.
+Copyright 2014-2025 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
-
-Version 1.3.290  
-Last updated 2024-07-11 23:39:16 -0700

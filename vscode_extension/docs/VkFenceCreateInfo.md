@@ -2,16 +2,15 @@
 
 ## Name
 
-VkFenceCreateInfo - Structure specifying parameters of a newly created
-fence
+VkFenceCreateInfo - Structure specifying parameters of a newly created fence
 
 
 
-## <a href="#_c_specification" class="anchor"></a>C Specification
+## [](#_c_specification)C Specification
 
 The `VkFenceCreateInfo` structure is defined as:
 
-``` c
+```c++
 // Provided by VK_VERSION_1_0
 typedef struct VkFenceCreateInfo {
     VkStructureType       sType;
@@ -20,68 +19,37 @@ typedef struct VkFenceCreateInfo {
 } VkFenceCreateInfo;
 ```
 
-## <a href="#_members" class="anchor"></a>Members
+## [](#_members)Members
 
-- `sType` is a [VkStructureType](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkStructureType.html) value identifying
-  this structure.
+- `sType` is a [VkStructureType](https://registry.khronos.org/vulkan/specs/latest/man/html/VkStructureType.html) value identifying this structure.
+- `pNext` is `NULL` or a pointer to a structure extending this structure.
+- `flags` is a bitmask of [VkFenceCreateFlagBits](https://registry.khronos.org/vulkan/specs/latest/man/html/VkFenceCreateFlagBits.html) specifying the initial state and behavior of the fence.
 
-- `pNext` is `NULL` or a pointer to a structure extending this
-  structure.
-
-- `flags` is a bitmask of
-  [VkFenceCreateFlagBits](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkFenceCreateFlagBits.html) specifying the
-  initial state and behavior of the fence.
-
-## <a href="#_description" class="anchor"></a>Description
+## [](#_description)Description
 
 Valid Usage (Implicit)
 
-- <a href="#VUID-VkFenceCreateInfo-sType-sType"
-  id="VUID-VkFenceCreateInfo-sType-sType"></a>
-  VUID-VkFenceCreateInfo-sType-sType  
+- [](#VUID-VkFenceCreateInfo-sType-sType)VUID-VkFenceCreateInfo-sType-sType  
   `sType` **must** be `VK_STRUCTURE_TYPE_FENCE_CREATE_INFO`
+- [](#VUID-VkFenceCreateInfo-pNext-pNext)VUID-VkFenceCreateInfo-pNext-pNext  
+  Each `pNext` member of any structure (including this one) in the `pNext` chain **must** be either `NULL` or a pointer to a valid instance of [VkExportFenceCreateInfo](https://registry.khronos.org/vulkan/specs/latest/man/html/VkExportFenceCreateInfo.html) or [VkExportFenceWin32HandleInfoKHR](https://registry.khronos.org/vulkan/specs/latest/man/html/VkExportFenceWin32HandleInfoKHR.html)
+- [](#VUID-VkFenceCreateInfo-sType-unique)VUID-VkFenceCreateInfo-sType-unique  
+  The `sType` value of each structure in the `pNext` chain **must** be unique
+- [](#VUID-VkFenceCreateInfo-flags-parameter)VUID-VkFenceCreateInfo-flags-parameter  
+  `flags` **must** be a valid combination of [VkFenceCreateFlagBits](https://registry.khronos.org/vulkan/specs/latest/man/html/VkFenceCreateFlagBits.html) values
 
-- <a href="#VUID-VkFenceCreateInfo-pNext-pNext"
-  id="VUID-VkFenceCreateInfo-pNext-pNext"></a>
-  VUID-VkFenceCreateInfo-pNext-pNext  
-  Each `pNext` member of any structure (including this one) in the
-  `pNext` chain **must** be either `NULL` or a pointer to a valid
-  instance of [VkExportFenceCreateInfo](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkExportFenceCreateInfo.html) or
-  [VkExportFenceWin32HandleInfoKHR](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkExportFenceWin32HandleInfoKHR.html)
+## [](#_see_also)See Also
 
-- <a href="#VUID-VkFenceCreateInfo-sType-unique"
-  id="VUID-VkFenceCreateInfo-sType-unique"></a>
-  VUID-VkFenceCreateInfo-sType-unique  
-  The `sType` value of each struct in the `pNext` chain **must** be
-  unique
+[VK\_VERSION\_1\_0](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_VERSION_1_0.html), [VkFenceCreateFlags](https://registry.khronos.org/vulkan/specs/latest/man/html/VkFenceCreateFlags.html), [VkStructureType](https://registry.khronos.org/vulkan/specs/latest/man/html/VkStructureType.html), [vkCreateFence](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCreateFence.html)
 
-- <a href="#VUID-VkFenceCreateInfo-flags-parameter"
-  id="VUID-VkFenceCreateInfo-flags-parameter"></a>
-  VUID-VkFenceCreateInfo-flags-parameter  
-  `flags` **must** be a valid combination of
-  [VkFenceCreateFlagBits](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkFenceCreateFlagBits.html) values
+## [](#_document_notes)Document Notes
 
-## <a href="#_see_also" class="anchor"></a>See Also
+For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#VkFenceCreateInfo)
 
-[VK_VERSION_1_0](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_VERSION_1_0.html),
-[VkFenceCreateFlags](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkFenceCreateFlags.html),
-[VkStructureType](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkStructureType.html),
-[vkCreateFence](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCreateFence.html)
+This page is extracted from the Vulkan Specification. Fixes and changes should be made to the Specification, not directly.
 
-## <a href="#_document_notes" class="anchor"></a>Document Notes
+## [](#_copyright)Copyright
 
-For more information, see the <a
-href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#VkFenceCreateInfo"
-target="_blank" rel="noopener">Vulkan Specification</a>
-
-This page is extracted from the Vulkan Specification. Fixes and changes
-should be made to the Specification, not directly.
-
-## <a href="#_copyright" class="anchor"></a>Copyright
-
-Copyright 2014-2024 The Khronos Group Inc.
+Copyright 2014-2025 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
-
-Version 1.3.290  
-Last updated 2024-07-11 23:39:16 -0700

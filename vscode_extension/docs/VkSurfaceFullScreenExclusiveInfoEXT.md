@@ -2,21 +2,17 @@
 
 ## Name
 
-VkSurfaceFullScreenExclusiveInfoEXT - Structure specifying the preferred
-full-screen transition behavior
+VkSurfaceFullScreenExclusiveInfoEXT - Structure specifying the preferred full-screen transition behavior
 
 
 
-## <a href="#_c_specification" class="anchor"></a>C Specification
+## [](#_c_specification)C Specification
 
-If the `pNext` chain of
-[VkSwapchainCreateInfoKHR](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkSwapchainCreateInfoKHR.html) includes a
-`VkSurfaceFullScreenExclusiveInfoEXT` structure, then that structure
-specifies the application’s preferred full-screen transition behavior.
+If the `pNext` chain of [VkSwapchainCreateInfoKHR](https://registry.khronos.org/vulkan/specs/latest/man/html/VkSwapchainCreateInfoKHR.html) includes a `VkSurfaceFullScreenExclusiveInfoEXT` structure, then that structure specifies the application’s preferred full-screen transition behavior.
 
 The `VkSurfaceFullScreenExclusiveInfoEXT` structure is defined as:
 
-``` c
+```c++
 // Provided by VK_EXT_full_screen_exclusive
 typedef struct VkSurfaceFullScreenExclusiveInfoEXT {
     VkStructureType             sType;
@@ -25,58 +21,35 @@ typedef struct VkSurfaceFullScreenExclusiveInfoEXT {
 } VkSurfaceFullScreenExclusiveInfoEXT;
 ```
 
-## <a href="#_members" class="anchor"></a>Members
+## [](#_members)Members
 
-- `sType` is a [VkStructureType](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkStructureType.html) value identifying
-  this structure.
+- `sType` is a [VkStructureType](https://registry.khronos.org/vulkan/specs/latest/man/html/VkStructureType.html) value identifying this structure.
+- `pNext` is `NULL` or a pointer to a structure extending this structure.
+- `fullScreenExclusive` is a [VkFullScreenExclusiveEXT](https://registry.khronos.org/vulkan/specs/latest/man/html/VkFullScreenExclusiveEXT.html) value specifying the preferred full-screen transition behavior.
 
-- `pNext` is `NULL` or a pointer to a structure extending this
-  structure.
+## [](#_description)Description
 
-- `fullScreenExclusive` is a
-  [VkFullScreenExclusiveEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkFullScreenExclusiveEXT.html) value
-  specifying the preferred full-screen transition behavior.
-
-## <a href="#_description" class="anchor"></a>Description
-
-If this structure is not present, `fullScreenExclusive` is considered to
-be `VK_FULL_SCREEN_EXCLUSIVE_DEFAULT_EXT`.
+If this structure is not present, `fullScreenExclusive` is considered to be `VK_FULL_SCREEN_EXCLUSIVE_DEFAULT_EXT`.
 
 Valid Usage (Implicit)
 
-- <a href="#VUID-VkSurfaceFullScreenExclusiveInfoEXT-sType-sType"
-  id="VUID-VkSurfaceFullScreenExclusiveInfoEXT-sType-sType"></a>
-  VUID-VkSurfaceFullScreenExclusiveInfoEXT-sType-sType  
-  `sType` **must** be
-  `VK_STRUCTURE_TYPE_SURFACE_FULL_SCREEN_EXCLUSIVE_INFO_EXT`
+- [](#VUID-VkSurfaceFullScreenExclusiveInfoEXT-sType-sType)VUID-VkSurfaceFullScreenExclusiveInfoEXT-sType-sType  
+  `sType` **must** be `VK_STRUCTURE_TYPE_SURFACE_FULL_SCREEN_EXCLUSIVE_INFO_EXT`
+- [](#VUID-VkSurfaceFullScreenExclusiveInfoEXT-fullScreenExclusive-parameter)VUID-VkSurfaceFullScreenExclusiveInfoEXT-fullScreenExclusive-parameter  
+  `fullScreenExclusive` **must** be a valid [VkFullScreenExclusiveEXT](https://registry.khronos.org/vulkan/specs/latest/man/html/VkFullScreenExclusiveEXT.html) value
 
-- <a
-  href="#VUID-VkSurfaceFullScreenExclusiveInfoEXT-fullScreenExclusive-parameter"
-  id="VUID-VkSurfaceFullScreenExclusiveInfoEXT-fullScreenExclusive-parameter"></a>
-  VUID-VkSurfaceFullScreenExclusiveInfoEXT-fullScreenExclusive-parameter  
-  `fullScreenExclusive` **must** be a valid
-  [VkFullScreenExclusiveEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkFullScreenExclusiveEXT.html) value
+## [](#_see_also)See Also
 
-## <a href="#_see_also" class="anchor"></a>See Also
+[VK\_EXT\_full\_screen\_exclusive](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_EXT_full_screen_exclusive.html), [VkFullScreenExclusiveEXT](https://registry.khronos.org/vulkan/specs/latest/man/html/VkFullScreenExclusiveEXT.html), [VkStructureType](https://registry.khronos.org/vulkan/specs/latest/man/html/VkStructureType.html)
 
-[VK_EXT_full_screen_exclusive](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_EXT_full_screen_exclusive.html),
-[VkFullScreenExclusiveEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkFullScreenExclusiveEXT.html),
-[VkStructureType](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkStructureType.html)
+## [](#_document_notes)Document Notes
 
-## <a href="#_document_notes" class="anchor"></a>Document Notes
+For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#VkSurfaceFullScreenExclusiveInfoEXT)
 
-For more information, see the <a
-href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#VkSurfaceFullScreenExclusiveInfoEXT"
-target="_blank" rel="noopener">Vulkan Specification</a>
+This page is extracted from the Vulkan Specification. Fixes and changes should be made to the Specification, not directly.
 
-This page is extracted from the Vulkan Specification. Fixes and changes
-should be made to the Specification, not directly.
+## [](#_copyright)Copyright
 
-## <a href="#_copyright" class="anchor"></a>Copyright
-
-Copyright 2014-2024 The Khronos Group Inc.
+Copyright 2014-2025 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
-
-Version 1.3.290  
-Last updated 2024-07-11 23:39:16 -0700

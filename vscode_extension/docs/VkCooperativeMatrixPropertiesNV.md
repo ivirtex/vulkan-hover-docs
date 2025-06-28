@@ -2,16 +2,15 @@
 
 ## Name
 
-VkCooperativeMatrixPropertiesNV - Structure specifying cooperative
-matrix properties
+VkCooperativeMatrixPropertiesNV - Structure specifying cooperative matrix properties
 
 
 
-## <a href="#_c_specification" class="anchor"></a>C Specification
+## [](#_c_specification)C Specification
 
 The `VkCooperativeMatrixPropertiesNV` structure is defined as:
 
-``` c
+```c++
 // Provided by VK_NV_cooperative_matrix
 typedef struct VkCooperativeMatrixPropertiesNV {
     VkStructureType      sType;
@@ -27,78 +26,44 @@ typedef struct VkCooperativeMatrixPropertiesNV {
 } VkCooperativeMatrixPropertiesNV;
 ```
 
-## <a href="#_members" class="anchor"></a>Members
+## [](#_members)Members
 
-- `sType` is a [VkStructureType](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkStructureType.html) value identifying
-  this structure.
-
-- `pNext` is `NULL` or a pointer to a structure extending this
-  structure.
-
+- `sType` is a [VkStructureType](https://registry.khronos.org/vulkan/specs/latest/man/html/VkStructureType.html) value identifying this structure.
+- `pNext` is `NULL` or a pointer to a structure extending this structure.
 - `MSize` is the number of rows in matrices A, C, and D.
-
 - `KSize` is the number of columns in matrix A and rows in matrix B.
-
 - `NSize` is the number of columns in matrices B, C, D.
+- `AType` is the component type of matrix A, of type [VkComponentTypeNV](https://registry.khronos.org/vulkan/specs/latest/man/html/VkComponentTypeNV.html).
+- `BType` is the component type of matrix B, of type [VkComponentTypeNV](https://registry.khronos.org/vulkan/specs/latest/man/html/VkComponentTypeNV.html).
+- `CType` is the component type of matrix C, of type [VkComponentTypeNV](https://registry.khronos.org/vulkan/specs/latest/man/html/VkComponentTypeNV.html).
+- `DType` is the component type of matrix D, of type [VkComponentTypeNV](https://registry.khronos.org/vulkan/specs/latest/man/html/VkComponentTypeNV.html).
+- `scope` is the scope of all the matrix types, of type [VkScopeNV](https://registry.khronos.org/vulkan/specs/latest/man/html/VkScopeNV.html).
 
-- `AType` is the component type of matrix A, of type
-  [VkComponentTypeNV](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkComponentTypeNV.html).
+## [](#_description)Description
 
-- `BType` is the component type of matrix B, of type
-  [VkComponentTypeNV](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkComponentTypeNV.html).
+If some types are preferred over other types (e.g. for performance), they **should** appear earlier in the list enumerated by [vkGetPhysicalDeviceCooperativeMatrixPropertiesNV](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetPhysicalDeviceCooperativeMatrixPropertiesNV.html).
 
-- `CType` is the component type of matrix C, of type
-  [VkComponentTypeNV](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkComponentTypeNV.html).
-
-- `DType` is the component type of matrix D, of type
-  [VkComponentTypeNV](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkComponentTypeNV.html).
-
-- `scope` is the scope of all the matrix types, of type
-  [VkScopeNV](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkScopeNV.html).
-
-## <a href="#_description" class="anchor"></a>Description
-
-If some types are preferred over other types (e.g. for performance),
-they **should** appear earlier in the list enumerated by
-[vkGetPhysicalDeviceCooperativeMatrixPropertiesNV](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkGetPhysicalDeviceCooperativeMatrixPropertiesNV.html).
-
-At least one entry in the list **must** have power of two values for all
-of `MSize`, `KSize`, and `NSize`.
+At least one entry in the list **must** have power of two values for all of `MSize`, `KSize`, and `NSize`.
 
 Valid Usage (Implicit)
 
-- <a href="#VUID-VkCooperativeMatrixPropertiesNV-sType-sType"
-  id="VUID-VkCooperativeMatrixPropertiesNV-sType-sType"></a>
-  VUID-VkCooperativeMatrixPropertiesNV-sType-sType  
-  `sType` **must** be
-  `VK_STRUCTURE_TYPE_COOPERATIVE_MATRIX_PROPERTIES_NV`
-
-- <a href="#VUID-VkCooperativeMatrixPropertiesNV-pNext-pNext"
-  id="VUID-VkCooperativeMatrixPropertiesNV-pNext-pNext"></a>
-  VUID-VkCooperativeMatrixPropertiesNV-pNext-pNext  
+- [](#VUID-VkCooperativeMatrixPropertiesNV-sType-sType)VUID-VkCooperativeMatrixPropertiesNV-sType-sType  
+  `sType` **must** be `VK_STRUCTURE_TYPE_COOPERATIVE_MATRIX_PROPERTIES_NV`
+- [](#VUID-VkCooperativeMatrixPropertiesNV-pNext-pNext)VUID-VkCooperativeMatrixPropertiesNV-pNext-pNext  
   `pNext` **must** be `NULL`
 
-## <a href="#_see_also" class="anchor"></a>See Also
+## [](#_see_also)See Also
 
-[VK_NV_cooperative_matrix](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_NV_cooperative_matrix.html),
-[VkComponentTypeNV](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkComponentTypeNV.html),
-[VkScopeNV](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkScopeNV.html), [VkStructureType](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkStructureType.html),
-[vkGetPhysicalDeviceCooperativeMatrixPropertiesNV](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkGetPhysicalDeviceCooperativeMatrixPropertiesNV.html)
+[VK\_NV\_cooperative\_matrix](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_NV_cooperative_matrix.html), [VkComponentTypeNV](https://registry.khronos.org/vulkan/specs/latest/man/html/VkComponentTypeNV.html), [VkScopeNV](https://registry.khronos.org/vulkan/specs/latest/man/html/VkScopeNV.html), [VkStructureType](https://registry.khronos.org/vulkan/specs/latest/man/html/VkStructureType.html), [vkGetPhysicalDeviceCooperativeMatrixPropertiesNV](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetPhysicalDeviceCooperativeMatrixPropertiesNV.html)
 
-## <a href="#_document_notes" class="anchor"></a>Document Notes
+## [](#_document_notes)Document Notes
 
-For more information, see the <a
-href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#VkCooperativeMatrixPropertiesNV"
-target="_blank" rel="noopener">Vulkan Specification</a>
+For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#VkCooperativeMatrixPropertiesNV)
 
-This page is extracted from the Vulkan Specification. Fixes and changes
-should be made to the Specification, not directly.
+This page is extracted from the Vulkan Specification. Fixes and changes should be made to the Specification, not directly.
 
-## <a href="#_copyright" class="anchor"></a>Copyright
+## [](#_copyright)Copyright
 
-Copyright 2014-2024 The Khronos Group Inc.
+Copyright 2014-2025 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
-
-Version 1.3.290  
-Last updated 2024-07-11 23:39:16 -0700

@@ -2,17 +2,15 @@
 
 ## Name
 
-vkGetDeviceMemoryCommitment - Query the current commitment for a
-VkDeviceMemory
+vkGetDeviceMemoryCommitment - Query the current commitment for a VkDeviceMemory
 
 
 
-## <a href="#_c_specification" class="anchor"></a>C Specification
+## [](#_c_specification)C Specification
 
-To determine the amount of lazily-allocated memory that is currently
-committed for a memory object, call:
+To determine the amount of lazily-allocated memory that is currently committed for a memory object, call:
 
-``` c
+```c++
 // Provided by VK_VERSION_1_0
 void vkGetDeviceMemoryCommitment(
     VkDevice                                    device,
@@ -20,78 +18,46 @@ void vkGetDeviceMemoryCommitment(
     VkDeviceSize*                               pCommittedMemoryInBytes);
 ```
 
-## <a href="#_parameters" class="anchor"></a>Parameters
+## [](#_parameters)Parameters
 
 - `device` is the logical device that owns the memory.
-
 - `memory` is the memory object being queried.
+- `pCommittedMemoryInBytes` is a pointer to a [VkDeviceSize](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDeviceSize.html) value in which the number of bytes currently committed is returned, on success.
 
-- `pCommittedMemoryInBytes` is a pointer to a
-  [VkDeviceSize](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkDeviceSize.html) value in which the number of bytes
-  currently committed is returned, on success.
+## [](#_description)Description
 
-## <a href="#_description" class="anchor"></a>Description
+The implementation **may** update the commitment at any time, and the value returned by this query **may** be out of date.
 
-The implementation **may** update the commitment at any time, and the
-value returned by this query **may** be out of date.
-
-The implementation guarantees to allocate any committed memory from the
-`heapIndex` indicated by the memory type that the memory object was
-created with.
+The implementation guarantees to allocate any committed memory from the `heapIndex` indicated by the memory type that the memory object was created with.
 
 Valid Usage
 
-- <a href="#VUID-vkGetDeviceMemoryCommitment-memory-00690"
-  id="VUID-vkGetDeviceMemoryCommitment-memory-00690"></a>
-  VUID-vkGetDeviceMemoryCommitment-memory-00690  
-  `memory` **must** have been created with a memory type that reports
-  `VK_MEMORY_PROPERTY_LAZILY_ALLOCATED_BIT`
+- [](#VUID-vkGetDeviceMemoryCommitment-memory-00690)VUID-vkGetDeviceMemoryCommitment-memory-00690  
+  `memory` **must** have been created with a memory type that reports `VK_MEMORY_PROPERTY_LAZILY_ALLOCATED_BIT`
 
 Valid Usage (Implicit)
 
-- <a href="#VUID-vkGetDeviceMemoryCommitment-device-parameter"
-  id="VUID-vkGetDeviceMemoryCommitment-device-parameter"></a>
-  VUID-vkGetDeviceMemoryCommitment-device-parameter  
-  `device` **must** be a valid [VkDevice](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkDevice.html) handle
+- [](#VUID-vkGetDeviceMemoryCommitment-device-parameter)VUID-vkGetDeviceMemoryCommitment-device-parameter  
+  `device` **must** be a valid [VkDevice](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDevice.html) handle
+- [](#VUID-vkGetDeviceMemoryCommitment-memory-parameter)VUID-vkGetDeviceMemoryCommitment-memory-parameter  
+  `memory` **must** be a valid [VkDeviceMemory](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDeviceMemory.html) handle
+- [](#VUID-vkGetDeviceMemoryCommitment-pCommittedMemoryInBytes-parameter)VUID-vkGetDeviceMemoryCommitment-pCommittedMemoryInBytes-parameter  
+  `pCommittedMemoryInBytes` **must** be a valid pointer to a [VkDeviceSize](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDeviceSize.html) value
+- [](#VUID-vkGetDeviceMemoryCommitment-memory-parent)VUID-vkGetDeviceMemoryCommitment-memory-parent  
+  `memory` **must** have been created, allocated, or retrieved from `device`
 
-- <a href="#VUID-vkGetDeviceMemoryCommitment-memory-parameter"
-  id="VUID-vkGetDeviceMemoryCommitment-memory-parameter"></a>
-  VUID-vkGetDeviceMemoryCommitment-memory-parameter  
-  `memory` **must** be a valid [VkDeviceMemory](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkDeviceMemory.html)
-  handle
+## [](#_see_also)See Also
 
-- <a
-  href="#VUID-vkGetDeviceMemoryCommitment-pCommittedMemoryInBytes-parameter"
-  id="VUID-vkGetDeviceMemoryCommitment-pCommittedMemoryInBytes-parameter"></a>
-  VUID-vkGetDeviceMemoryCommitment-pCommittedMemoryInBytes-parameter  
-  `pCommittedMemoryInBytes` **must** be a valid pointer to a
-  [VkDeviceSize](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkDeviceSize.html) value
+[VK\_VERSION\_1\_0](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_VERSION_1_0.html), [VkDevice](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDevice.html), [VkDeviceMemory](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDeviceMemory.html), [VkDeviceSize](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDeviceSize.html)
 
-- <a href="#VUID-vkGetDeviceMemoryCommitment-memory-parent"
-  id="VUID-vkGetDeviceMemoryCommitment-memory-parent"></a>
-  VUID-vkGetDeviceMemoryCommitment-memory-parent  
-  `memory` **must** have been created, allocated, or retrieved from
-  `device`
+## [](#_document_notes)Document Notes
 
-## <a href="#_see_also" class="anchor"></a>See Also
+For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#vkGetDeviceMemoryCommitment)
 
-[VK_VERSION_1_0](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_VERSION_1_0.html), [VkDevice](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkDevice.html),
-[VkDeviceMemory](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkDeviceMemory.html), [VkDeviceSize](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkDeviceSize.html)
+This page is extracted from the Vulkan Specification. Fixes and changes should be made to the Specification, not directly.
 
-## <a href="#_document_notes" class="anchor"></a>Document Notes
+## [](#_copyright)Copyright
 
-For more information, see the <a
-href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#vkGetDeviceMemoryCommitment"
-target="_blank" rel="noopener">Vulkan Specification</a>
-
-This page is extracted from the Vulkan Specification. Fixes and changes
-should be made to the Specification, not directly.
-
-## <a href="#_copyright" class="anchor"></a>Copyright
-
-Copyright 2014-2024 The Khronos Group Inc.
+Copyright 2014-2025 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
-
-Version 1.3.290  
-Last updated 2024-07-11 23:39:16 -0700

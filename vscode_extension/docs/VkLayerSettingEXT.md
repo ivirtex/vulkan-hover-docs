@@ -6,13 +6,11 @@ VkLayerSettingEXT - Specify a layer capability to configure
 
 
 
-## <a href="#_c_specification" class="anchor"></a>C Specification
+## [](#_c_specification)C Specification
 
-The values of elements of the
-[VkLayerSettingsCreateInfoEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkLayerSettingsCreateInfoEXT.html)::`pSettings`
-array, specifying layer settings to be configured, are:
+The values of elements of the [VkLayerSettingsCreateInfoEXT](https://registry.khronos.org/vulkan/specs/latest/man/html/VkLayerSettingsCreateInfoEXT.html)::`pSettings` array, specifying layer settings to be configured, are:
 
-``` c
+```c++
 // Provided by VK_EXT_layer_settings
 typedef struct VkLayerSettingEXT {
     const char*              pLayerName;
@@ -23,75 +21,44 @@ typedef struct VkLayerSettingEXT {
 } VkLayerSettingEXT;
 ```
 
-## <a href="#_members" class="anchor"></a>Members
+## [](#_members)Members
 
-- `pLayerName` is a pointer to a null-terminated UTF-8 string naming the
-  layer to configure the setting from.
+- `pLayerName` is a pointer to a null-terminated UTF-8 string naming the layer to configure the setting from.
+- `pSettingName` is a pointer to a null-terminated UTF-8 string naming the setting to configure. Values of `pSettingName` that are unknown to the layer are ignored.
+- `type` is a [VkLayerSettingTypeEXT](https://registry.khronos.org/vulkan/specs/latest/man/html/VkLayerSettingTypeEXT.html) value specifying the type of the `pValues` values.
+- `valueCount` is the number of values used to configure the layer setting.
+- `pValues` is a pointer to an array of `valueCount` values of the type indicated by `type` to configure the layer setting.
 
-- `pSettingName` is a pointer to a null-terminated UTF-8 string naming
-  the setting to configure. Unknown `pSettingName` by the layer are
-  ignored.
+## [](#_description)Description
 
-- `type` is a [VkLayerSettingTypeEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkLayerSettingTypeEXT.html) value
-  specifying the type of the `pValues` values.
+When multiple [VkLayerSettingsCreateInfoEXT](https://registry.khronos.org/vulkan/specs/latest/man/html/VkLayerSettingsCreateInfoEXT.html) structures are chained and the same `pSettingName` is referenced for the same `pLayerName`, the value of the first reference of the layer setting is used.
 
-- `count` is the number of values used to configure the layer setting.
+Valid Usage
 
-- `pValues` is a pointer to an array of `count` values of the type
-  indicated by `type` to configure the layer setting.
-
-## <a href="#_description" class="anchor"></a>Description
-
-When multiple
-[VkLayerSettingsCreateInfoEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkLayerSettingsCreateInfoEXT.html)
-structures are chained and the same `pSettingName` is referenced for the
-same `pLayerName`, the value of the first reference of the layer setting
-is used.
+- [](#VUID-VkLayerSettingEXT-valueCount-10070)VUID-VkLayerSettingEXT-valueCount-10070  
+  If `valueCount` is not `0`, `pValues` **must** be a valid pointer to an array of `valueCount` values of the type indicated by `type`
 
 Valid Usage (Implicit)
 
-- <a href="#VUID-VkLayerSettingEXT-pLayerName-parameter"
-  id="VUID-VkLayerSettingEXT-pLayerName-parameter"></a>
-  VUID-VkLayerSettingEXT-pLayerName-parameter  
+- [](#VUID-VkLayerSettingEXT-pLayerName-parameter)VUID-VkLayerSettingEXT-pLayerName-parameter  
   `pLayerName` **must** be a null-terminated UTF-8 string
-
-- <a href="#VUID-VkLayerSettingEXT-pSettingName-parameter"
-  id="VUID-VkLayerSettingEXT-pSettingName-parameter"></a>
-  VUID-VkLayerSettingEXT-pSettingName-parameter  
+- [](#VUID-VkLayerSettingEXT-pSettingName-parameter)VUID-VkLayerSettingEXT-pSettingName-parameter  
   `pSettingName` **must** be a null-terminated UTF-8 string
+- [](#VUID-VkLayerSettingEXT-type-parameter)VUID-VkLayerSettingEXT-type-parameter  
+  `type` **must** be a valid [VkLayerSettingTypeEXT](https://registry.khronos.org/vulkan/specs/latest/man/html/VkLayerSettingTypeEXT.html) value
 
-- <a href="#VUID-VkLayerSettingEXT-type-parameter"
-  id="VUID-VkLayerSettingEXT-type-parameter"></a>
-  VUID-VkLayerSettingEXT-type-parameter  
-  `type` **must** be a valid
-  [VkLayerSettingTypeEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkLayerSettingTypeEXT.html) value
+## [](#_see_also)See Also
 
-- <a href="#VUID-VkLayerSettingEXT-pValues-parameter"
-  id="VUID-VkLayerSettingEXT-pValues-parameter"></a>
-  VUID-VkLayerSettingEXT-pValues-parameter  
-  If `valueCount` is not `0`, `pValues` **must** be a valid pointer to
-  an array of `valueCount` bytes
+[VK\_EXT\_layer\_settings](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_EXT_layer_settings.html), [VkLayerSettingTypeEXT](https://registry.khronos.org/vulkan/specs/latest/man/html/VkLayerSettingTypeEXT.html), [VkLayerSettingsCreateInfoEXT](https://registry.khronos.org/vulkan/specs/latest/man/html/VkLayerSettingsCreateInfoEXT.html)
 
-## <a href="#_see_also" class="anchor"></a>See Also
+## [](#_document_notes)Document Notes
 
-[VK_EXT_layer_settings](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_EXT_layer_settings.html),
-[VkLayerSettingTypeEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkLayerSettingTypeEXT.html),
-[VkLayerSettingsCreateInfoEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkLayerSettingsCreateInfoEXT.html)
+For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#VkLayerSettingEXT)
 
-## <a href="#_document_notes" class="anchor"></a>Document Notes
+This page is extracted from the Vulkan Specification. Fixes and changes should be made to the Specification, not directly.
 
-For more information, see the <a
-href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#VkLayerSettingEXT"
-target="_blank" rel="noopener">Vulkan Specification</a>
+## [](#_copyright)Copyright
 
-This page is extracted from the Vulkan Specification. Fixes and changes
-should be made to the Specification, not directly.
-
-## <a href="#_copyright" class="anchor"></a>Copyright
-
-Copyright 2014-2024 The Khronos Group Inc.
+Copyright 2014-2025 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
-
-Version 1.3.290  
-Last updated 2024-07-11 23:39:16 -0700

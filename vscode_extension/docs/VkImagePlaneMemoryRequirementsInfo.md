@@ -2,20 +2,17 @@
 
 ## Name
 
-VkImagePlaneMemoryRequirementsInfo - Structure specifying image plane
-for memory requirements
+VkImagePlaneMemoryRequirementsInfo - Structure specifying image plane for memory requirements
 
 
 
-## <a href="#_c_specification" class="anchor"></a>C Specification
+## [](#_c_specification)C Specification
 
-To determine the memory requirements for a plane of a disjoint image,
-add a `VkImagePlaneMemoryRequirementsInfo` structure to the `pNext`
-chain of the `VkImageMemoryRequirementsInfo2` structure.
+To determine the memory requirements for a plane of a disjoint image, add a `VkImagePlaneMemoryRequirementsInfo` structure to the `pNext` chain of the `VkImageMemoryRequirementsInfo2` structure.
 
 The `VkImagePlaneMemoryRequirementsInfo` structure is defined as:
 
-``` c
+```c++
 // Provided by VK_VERSION_1_1
 typedef struct VkImagePlaneMemoryRequirementsInfo {
     VkStructureType          sType;
@@ -26,80 +23,45 @@ typedef struct VkImagePlaneMemoryRequirementsInfo {
 
 or the equivalent
 
-``` c
+```c++
 // Provided by VK_KHR_sampler_ycbcr_conversion
 typedef VkImagePlaneMemoryRequirementsInfo VkImagePlaneMemoryRequirementsInfoKHR;
 ```
 
-## <a href="#_members" class="anchor"></a>Members
+## [](#_members)Members
 
-- `sType` is a [VkStructureType](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkStructureType.html) value identifying
-  this structure.
+- `sType` is a [VkStructureType](https://registry.khronos.org/vulkan/specs/latest/man/html/VkStructureType.html) value identifying this structure.
+- `pNext` is `NULL` or a pointer to a structure extending this structure.
+- `planeAspect` is a [VkImageAspectFlagBits](https://registry.khronos.org/vulkan/specs/latest/man/html/VkImageAspectFlagBits.html) value specifying the aspect corresponding to the image plane to query.
 
-- `pNext` is `NULL` or a pointer to a structure extending this
-  structure.
-
-- `planeAspect` is a [VkImageAspectFlagBits](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkImageAspectFlagBits.html)
-  value specifying the aspect corresponding to the image plane to query.
-
-## <a href="#_description" class="anchor"></a>Description
+## [](#_description)Description
 
 Valid Usage
 
-- <a href="#VUID-VkImagePlaneMemoryRequirementsInfo-planeAspect-02281"
-  id="VUID-VkImagePlaneMemoryRequirementsInfo-planeAspect-02281"></a>
-  VUID-VkImagePlaneMemoryRequirementsInfo-planeAspect-02281  
-  If the image’s `tiling` is `VK_IMAGE_TILING_LINEAR` or
-  `VK_IMAGE_TILING_OPTIMAL`, then `planeAspect` **must** be a single
-  valid <a
-  href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#formats-planes-image-aspect"
-  target="_blank" rel="noopener">multi-planar aspect mask</a> bit
-
-- <a href="#VUID-VkImagePlaneMemoryRequirementsInfo-planeAspect-02282"
-  id="VUID-VkImagePlaneMemoryRequirementsInfo-planeAspect-02282"></a>
-  VUID-VkImagePlaneMemoryRequirementsInfo-planeAspect-02282  
-  If the image’s `tiling` is `VK_IMAGE_TILING_DRM_FORMAT_MODIFIER_EXT`,
-  then `planeAspect` **must** be a single valid *memory plane* for the
-  image (that is, `aspectMask` **must** specify a plane index that is
-  less than the
-  [VkDrmFormatModifierPropertiesEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkDrmFormatModifierPropertiesEXT.html)::`drmFormatModifierPlaneCount`
-  associated with the image’s `format` and
-  [VkImageDrmFormatModifierPropertiesEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkImageDrmFormatModifierPropertiesEXT.html)::`drmFormatModifier`)
+- [](#VUID-VkImagePlaneMemoryRequirementsInfo-planeAspect-02281)VUID-VkImagePlaneMemoryRequirementsInfo-planeAspect-02281  
+  If the image’s `tiling` is `VK_IMAGE_TILING_LINEAR` or `VK_IMAGE_TILING_OPTIMAL`, then `planeAspect` **must** be a single valid [multi-planar aspect mask](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#formats-multiplanar-image-aspect) bit
+- [](#VUID-VkImagePlaneMemoryRequirementsInfo-planeAspect-02282)VUID-VkImagePlaneMemoryRequirementsInfo-planeAspect-02282  
+  If the image’s `tiling` is `VK_IMAGE_TILING_DRM_FORMAT_MODIFIER_EXT`, then `planeAspect` **must** be a single valid *memory plane* for the image (that is, `aspectMask` **must** specify a plane index that is less than the [VkDrmFormatModifierPropertiesEXT](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDrmFormatModifierPropertiesEXT.html)::`drmFormatModifierPlaneCount` associated with the image’s `format` and [VkImageDrmFormatModifierPropertiesEXT](https://registry.khronos.org/vulkan/specs/latest/man/html/VkImageDrmFormatModifierPropertiesEXT.html)::`drmFormatModifier`)
 
 Valid Usage (Implicit)
 
-- <a href="#VUID-VkImagePlaneMemoryRequirementsInfo-sType-sType"
-  id="VUID-VkImagePlaneMemoryRequirementsInfo-sType-sType"></a>
-  VUID-VkImagePlaneMemoryRequirementsInfo-sType-sType  
-  `sType` **must** be
-  `VK_STRUCTURE_TYPE_IMAGE_PLANE_MEMORY_REQUIREMENTS_INFO`
+- [](#VUID-VkImagePlaneMemoryRequirementsInfo-sType-sType)VUID-VkImagePlaneMemoryRequirementsInfo-sType-sType  
+  `sType` **must** be `VK_STRUCTURE_TYPE_IMAGE_PLANE_MEMORY_REQUIREMENTS_INFO`
+- [](#VUID-VkImagePlaneMemoryRequirementsInfo-planeAspect-parameter)VUID-VkImagePlaneMemoryRequirementsInfo-planeAspect-parameter  
+  `planeAspect` **must** be a valid [VkImageAspectFlagBits](https://registry.khronos.org/vulkan/specs/latest/man/html/VkImageAspectFlagBits.html) value
 
-- <a href="#VUID-VkImagePlaneMemoryRequirementsInfo-planeAspect-parameter"
-  id="VUID-VkImagePlaneMemoryRequirementsInfo-planeAspect-parameter"></a>
-  VUID-VkImagePlaneMemoryRequirementsInfo-planeAspect-parameter  
-  `planeAspect` **must** be a valid
-  [VkImageAspectFlagBits](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkImageAspectFlagBits.html) value
+## [](#_see_also)See Also
 
-## <a href="#_see_also" class="anchor"></a>See Also
+[VK\_VERSION\_1\_1](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_VERSION_1_1.html), [VkImageAspectFlagBits](https://registry.khronos.org/vulkan/specs/latest/man/html/VkImageAspectFlagBits.html), [VkStructureType](https://registry.khronos.org/vulkan/specs/latest/man/html/VkStructureType.html)
 
-[VK_VERSION_1_1](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_VERSION_1_1.html),
-[VkImageAspectFlagBits](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkImageAspectFlagBits.html),
-[VkStructureType](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkStructureType.html)
+## [](#_document_notes)Document Notes
 
-## <a href="#_document_notes" class="anchor"></a>Document Notes
+For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#VkImagePlaneMemoryRequirementsInfo)
 
-For more information, see the <a
-href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#VkImagePlaneMemoryRequirementsInfo"
-target="_blank" rel="noopener">Vulkan Specification</a>
+This page is extracted from the Vulkan Specification. Fixes and changes should be made to the Specification, not directly.
 
-This page is extracted from the Vulkan Specification. Fixes and changes
-should be made to the Specification, not directly.
+## [](#_copyright)Copyright
 
-## <a href="#_copyright" class="anchor"></a>Copyright
-
-Copyright 2014-2024 The Khronos Group Inc.
+Copyright 2014-2025 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
-
-Version 1.3.290  
-Last updated 2024-07-11 23:39:16 -0700

@@ -1,157 +1,120 @@
-# VK_EXT_display_control(3) Manual Page
+# VK\_EXT\_display\_control(3) Manual Page
 
 ## Name
 
-VK_EXT_display_control - device extension
+VK\_EXT\_display\_control - device extension
 
 
 
-## <a href="#_registered_extension_number" class="anchor"></a>Registered Extension Number
+## [](#_registered_extension_number)Registered Extension Number
 
 92
 
-## <a href="#_revision" class="anchor"></a>Revision
+## [](#_revision)Revision
 
 1
 
-## <a href="#_ratification_status" class="anchor"></a>Ratification Status
+## [](#_ratification_status)Ratification Status
 
-Not ratified
+Ratified
 
-## <a href="#_extension_and_version_dependencies" class="anchor"></a>Extension and Version Dependencies
+## [](#_extension_and_version_dependencies)Extension and Version Dependencies
 
-[VK_EXT_display_surface_counter](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_EXT_display_surface_counter.html)  
+[VK\_EXT\_display\_surface\_counter](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_EXT_display_surface_counter.html)  
 and  
-[VK_KHR_swapchain](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_KHR_swapchain.html)  
+[VK\_KHR\_swapchain](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_KHR_swapchain.html)
 
-## <a href="#_contact" class="anchor"></a>Contact
+## [](#_contact)Contact
 
-- James Jones <a
-  href="https://github.com/KhronosGroup/Vulkan-Docs/issues/new?body=%5BVK_EXT_display_control%5D%20@cubanismo%0A*Here%20describe%20the%20issue%20or%20question%20you%20have%20about%20the%20VK_EXT_display_control%20extension*"
-  target="_blank" rel="nofollow noopener"><em></em>cubanismo</a>
+- James Jones [\[GitHub\]cubanismo](https://github.com/KhronosGroup/Vulkan-Docs/issues/new?body=%5BVK_EXT_display_control%5D%20%40cubanismo%0A%2AHere%20describe%20the%20issue%20or%20question%20you%20have%20about%20the%20VK_EXT_display_control%20extension%2A)
 
-## <a href="#_other_extension_metadata" class="anchor"></a>Other Extension Metadata
+## [](#_other_extension_metadata)Other Extension Metadata
 
-**Last Modified Date**  
+**Last Modified Date**
+
 2016-12-13
 
-**IP Status**  
+**IP Status**
+
 No known IP claims.
 
-**Contributors**  
+**Contributors**
+
 - Pierre Boudier, NVIDIA
-
 - James Jones, NVIDIA
-
 - Damien Leone, NVIDIA
-
 - Pierre-Loup Griffais, Valve
-
 - Daniel Vetter, Intel
 
-## <a href="#_description" class="anchor"></a>Description
+## [](#_description)Description
 
-This extension defines a set of utility functions for use with the
-[`VK_KHR_display`](VK_KHR_display.html) and
-[`VK_KHR_display_swapchain`](VK_KHR_display_swapchain.html) extensions.
+This extension defines a set of utility functions for use with the `VK_KHR_display` and `VK_KHR_display_swapchain` extensions.
 
-## <a href="#_new_commands" class="anchor"></a>New Commands
+## [](#_new_commands)New Commands
 
-- [vkDisplayPowerControlEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkDisplayPowerControlEXT.html)
+- [vkDisplayPowerControlEXT](https://registry.khronos.org/vulkan/specs/latest/man/html/vkDisplayPowerControlEXT.html)
+- [vkGetSwapchainCounterEXT](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetSwapchainCounterEXT.html)
+- [vkRegisterDeviceEventEXT](https://registry.khronos.org/vulkan/specs/latest/man/html/vkRegisterDeviceEventEXT.html)
+- [vkRegisterDisplayEventEXT](https://registry.khronos.org/vulkan/specs/latest/man/html/vkRegisterDisplayEventEXT.html)
 
-- [vkGetSwapchainCounterEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkGetSwapchainCounterEXT.html)
+## [](#_new_structures)New Structures
 
-- [vkRegisterDeviceEventEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkRegisterDeviceEventEXT.html)
+- [VkDeviceEventInfoEXT](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDeviceEventInfoEXT.html)
+- [VkDisplayEventInfoEXT](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDisplayEventInfoEXT.html)
+- [VkDisplayPowerInfoEXT](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDisplayPowerInfoEXT.html)
+- Extending [VkSwapchainCreateInfoKHR](https://registry.khronos.org/vulkan/specs/latest/man/html/VkSwapchainCreateInfoKHR.html):
+  
+  - [VkSwapchainCounterCreateInfoEXT](https://registry.khronos.org/vulkan/specs/latest/man/html/VkSwapchainCounterCreateInfoEXT.html)
 
-- [vkRegisterDisplayEventEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkRegisterDisplayEventEXT.html)
+## [](#_new_enums)New Enums
 
-## <a href="#_new_structures" class="anchor"></a>New Structures
+- [VkDeviceEventTypeEXT](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDeviceEventTypeEXT.html)
+- [VkDisplayEventTypeEXT](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDisplayEventTypeEXT.html)
+- [VkDisplayPowerStateEXT](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDisplayPowerStateEXT.html)
 
-- [VkDeviceEventInfoEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkDeviceEventInfoEXT.html)
-
-- [VkDisplayEventInfoEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkDisplayEventInfoEXT.html)
-
-- [VkDisplayPowerInfoEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkDisplayPowerInfoEXT.html)
-
-- Extending [VkSwapchainCreateInfoKHR](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkSwapchainCreateInfoKHR.html):
-
-  - [VkSwapchainCounterCreateInfoEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkSwapchainCounterCreateInfoEXT.html)
-
-## <a href="#_new_enums" class="anchor"></a>New Enums
-
-- [VkDeviceEventTypeEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkDeviceEventTypeEXT.html)
-
-- [VkDisplayEventTypeEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkDisplayEventTypeEXT.html)
-
-- [VkDisplayPowerStateEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkDisplayPowerStateEXT.html)
-
-## <a href="#_new_enum_constants" class="anchor"></a>New Enum Constants
+## [](#_new_enum_constants)New Enum Constants
 
 - `VK_EXT_DISPLAY_CONTROL_EXTENSION_NAME`
-
 - `VK_EXT_DISPLAY_CONTROL_SPEC_VERSION`
-
-- Extending [VkStructureType](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkStructureType.html):
-
+- Extending [VkStructureType](https://registry.khronos.org/vulkan/specs/latest/man/html/VkStructureType.html):
+  
   - `VK_STRUCTURE_TYPE_DEVICE_EVENT_INFO_EXT`
-
   - `VK_STRUCTURE_TYPE_DISPLAY_EVENT_INFO_EXT`
-
   - `VK_STRUCTURE_TYPE_DISPLAY_POWER_INFO_EXT`
-
   - `VK_STRUCTURE_TYPE_SWAPCHAIN_COUNTER_CREATE_INFO_EXT`
 
-## <a href="#_issues" class="anchor"></a>Issues
+## [](#_issues)Issues
 
-1\) Should this extension add an explicit “WaitForVsync” API or a fence
-signaled at vsync that the application can wait on?
+1\) Should this extension add an explicit “WaitForVsync” API or a fence signaled at vsync that the application can wait on?
 
-**RESOLVED**: A fence. A separate API could later be provided that
-allows exporting the fence to a native object that could be inserted
-into standard run loops on POSIX and Windows systems.
+**RESOLVED**: A fence. A separate API could later be provided that allows exporting the fence to a native object that could be inserted into standard run loops on POSIX and Windows systems.
 
-2\) Should callbacks be added for a vsync event, or in general to
-monitor events in Vulkan?
+2\) Should callbacks be added for a vsync event, or in general to monitor events in Vulkan?
 
-**RESOLVED**: No, fences should be used. Some events are generated by
-interrupts which are managed in the kernel. In order to use a callback
-provided by the application, drivers would need to have the userspace
-driver spawn threads that would wait on the kernel event, and hence the
-callbacks could be difficult for the application to synchronize with its
-other work given they would arrive on a foreign thread.
+**RESOLVED**: No, fences should be used. Some events are generated by interrupts which are managed in the kernel. In order to use a callback provided by the application, drivers would need to have the userspace driver spawn threads that would wait on the kernel event, and hence the callbacks could be difficult for the application to synchronize with its other work given they would arrive on a foreign thread.
 
 3\) Should vblank or scanline events be exposed?
 
-**RESOLVED**: Vblank events. Scanline events could be added by a
-separate extension, but the latency of processing an interrupt and
-waking up a userspace event is high enough that the accuracy of a
-scanline event would be rather low. Further, per-scanline interrupts are
-not supported by all hardware.
+**RESOLVED**: Vblank events. Scanline events could be added by a separate extension, but the latency of processing an interrupt and waking up a userspace event is high enough that the accuracy of a scanline event would be rather low. Further, per-scanline interrupts are not supported by all hardware.
 
-## <a href="#_version_history" class="anchor"></a>Version History
+## [](#_version_history)Version History
 
 - Revision 1, 2016-12-13 (James Jones)
-
+  
   - Initial draft
 
-## <a href="#_see_also" class="anchor"></a>See Also
+## [](#_see_also)See Also
 
 No cross-references are available
 
-## <a href="#_document_notes" class="anchor"></a>Document Notes
+## [](#_document_notes)Document Notes
 
-For more information, see the <a
-href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#VK_EXT_display_control"
-target="_blank" rel="noopener">Vulkan Specification</a>
+For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#VK_EXT_display_control)
 
-This page is a generated document. Fixes and changes should be made to
-the generator scripts, not directly.
+This page is a generated document. Fixes and changes should be made to the generator scripts, not directly.
 
-## <a href="#_copyright" class="anchor"></a>Copyright
+## [](#_copyright)Copyright
 
-Copyright 2014-2024 The Khronos Group Inc.
+Copyright 2014-2025 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
-
-Version 1.3.290  
-Last updated 2024-07-11 23:39:16 -0700

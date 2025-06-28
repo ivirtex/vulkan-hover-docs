@@ -2,18 +2,15 @@
 
 ## Name
 
-VkPhysicalDevicePipelineLibraryGroupHandlesFeaturesEXT - Structure
-describing whether querying shader group handles from a pipeline library
-is supported by the implementation
+VkPhysicalDevicePipelineLibraryGroupHandlesFeaturesEXT - Structure describing whether querying shader group handles from a pipeline library is supported by the implementation
 
 
 
-## <a href="#_c_specification" class="anchor"></a>C Specification
+## [](#_c_specification)C Specification
 
-The `VkPhysicalDevicePipelineLibraryGroupHandlesFeaturesEXT` structure
-is defined as:
+The `VkPhysicalDevicePipelineLibraryGroupHandlesFeaturesEXT` structure is defined as:
 
-``` c
+```c++
 // Provided by VK_EXT_pipeline_library_group_handles
 typedef struct VkPhysicalDevicePipelineLibraryGroupHandlesFeaturesEXT {
     VkStructureType    sType;
@@ -22,57 +19,33 @@ typedef struct VkPhysicalDevicePipelineLibraryGroupHandlesFeaturesEXT {
 } VkPhysicalDevicePipelineLibraryGroupHandlesFeaturesEXT;
 ```
 
-## <a href="#_members" class="anchor"></a>Members
+## [](#_members)Members
 
 This structure describes the following features:
 
-- <span id="features-pipelineLibraryGroupHandles"></span>
-  `pipelineLibraryGroupHandles` indicates whether the implementation
-  supports querying group handles directly from a ray tracing pipeline
-  library, and guarantees bitwise identical group handles for such
-  libraries when linked into other pipelines.
+- []()`pipelineLibraryGroupHandles` indicates whether the implementation supports querying group handles directly from a ray tracing pipeline library, and guarantees bitwise identical group handles for such libraries when linked into other pipelines.
 
-## <a href="#_description" class="anchor"></a>Description
+## [](#_description)Description
 
-If the `VkPhysicalDevicePipelineLibraryGroupHandlesFeaturesEXT`
-structure is included in the `pNext` chain of the
-[VkPhysicalDeviceFeatures2](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkPhysicalDeviceFeatures2.html) structure
-passed to
-[vkGetPhysicalDeviceFeatures2](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkGetPhysicalDeviceFeatures2.html), it is
-filled in to indicate whether each corresponding feature is supported.
-`VkPhysicalDevicePipelineLibraryGroupHandlesFeaturesEXT` **can** also be
-used in the `pNext` chain of
-[VkDeviceCreateInfo](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkDeviceCreateInfo.html) to selectively enable
-these features.
+If the `VkPhysicalDevicePipelineLibraryGroupHandlesFeaturesEXT` structure is included in the `pNext` chain of the [VkPhysicalDeviceFeatures2](https://registry.khronos.org/vulkan/specs/latest/man/html/VkPhysicalDeviceFeatures2.html) structure passed to [vkGetPhysicalDeviceFeatures2](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetPhysicalDeviceFeatures2.html), it is filled in to indicate whether each corresponding feature is supported. If the application wishes to use a [VkDevice](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDevice.html) with any features described by `VkPhysicalDevicePipelineLibraryGroupHandlesFeaturesEXT`, it **must** add an instance of the structure, with the desired feature members set to `VK_TRUE`, to the `pNext` chain of [VkDeviceCreateInfo](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDeviceCreateInfo.html) when creating the [VkDevice](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDevice.html).
 
 Valid Usage (Implicit)
 
-- <a
-  href="#VUID-VkPhysicalDevicePipelineLibraryGroupHandlesFeaturesEXT-sType-sType"
-  id="VUID-VkPhysicalDevicePipelineLibraryGroupHandlesFeaturesEXT-sType-sType"></a>
-  VUID-VkPhysicalDevicePipelineLibraryGroupHandlesFeaturesEXT-sType-sType  
-  `sType` **must** be
-  `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_PIPELINE_LIBRARY_GROUP_HANDLES_FEATURES_EXT`
+- [](#VUID-VkPhysicalDevicePipelineLibraryGroupHandlesFeaturesEXT-sType-sType)VUID-VkPhysicalDevicePipelineLibraryGroupHandlesFeaturesEXT-sType-sType  
+  `sType` **must** be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_PIPELINE_LIBRARY_GROUP_HANDLES_FEATURES_EXT`
 
-## <a href="#_see_also" class="anchor"></a>See Also
+## [](#_see_also)See Also
 
-[VK_EXT_pipeline_library_group_handles](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_EXT_pipeline_library_group_handles.html),
-[VkBool32](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkBool32.html), [VkStructureType](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkStructureType.html)
+[VK\_EXT\_pipeline\_library\_group\_handles](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_EXT_pipeline_library_group_handles.html), [VkBool32](https://registry.khronos.org/vulkan/specs/latest/man/html/VkBool32.html), [VkStructureType](https://registry.khronos.org/vulkan/specs/latest/man/html/VkStructureType.html)
 
-## <a href="#_document_notes" class="anchor"></a>Document Notes
+## [](#_document_notes)Document Notes
 
-For more information, see the <a
-href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#VkPhysicalDevicePipelineLibraryGroupHandlesFeaturesEXT"
-target="_blank" rel="noopener">Vulkan Specification</a>
+For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#VkPhysicalDevicePipelineLibraryGroupHandlesFeaturesEXT)
 
-This page is extracted from the Vulkan Specification. Fixes and changes
-should be made to the Specification, not directly.
+This page is extracted from the Vulkan Specification. Fixes and changes should be made to the Specification, not directly.
 
-## <a href="#_copyright" class="anchor"></a>Copyright
+## [](#_copyright)Copyright
 
-Copyright 2014-2024 The Khronos Group Inc.
+Copyright 2014-2025 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
-
-Version 1.3.290  
-Last updated 2024-07-11 23:39:16 -0700

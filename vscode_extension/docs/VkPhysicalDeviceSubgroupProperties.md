@@ -2,16 +2,15 @@
 
 ## Name
 
-VkPhysicalDeviceSubgroupProperties - Structure describing subgroup
-support for an implementation
+VkPhysicalDeviceSubgroupProperties - Structure describing subgroup support for an implementation
 
 
 
-## <a href="#_c_specification" class="anchor"></a>C Specification
+## [](#_c_specification)C Specification
 
 The `VkPhysicalDeviceSubgroupProperties` structure is defined as:
 
-``` c
+```c++
 // Provided by VK_VERSION_1_1
 typedef struct VkPhysicalDeviceSubgroupProperties {
     VkStructureType           sType;
@@ -23,151 +22,49 @@ typedef struct VkPhysicalDeviceSubgroupProperties {
 } VkPhysicalDeviceSubgroupProperties;
 ```
 
-## <a href="#_members" class="anchor"></a>Members
+## [](#_members)Members
 
-- `sType` is a [VkStructureType](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkStructureType.html) value identifying
-  this structure.
+- `sType` is a [VkStructureType](https://registry.khronos.org/vulkan/specs/latest/man/html/VkStructureType.html) value identifying this structure.
+- `pNext` is `NULL` or a pointer to a structure extending this structure.
 
-- `pNext` is `NULL` or a pointer to a structure extending this
-  structure.
+## [](#_description)Description
 
-## <a href="#_description" class="anchor"></a>Description
+- []()`subgroupSize` is the default number of invocations in each subgroup. `subgroupSize` is at least 1 if any of the physical device’s queues support `VK_QUEUE_GRAPHICS_BIT` or `VK_QUEUE_COMPUTE_BIT`. `subgroupSize` is a power-of-two.
+- []()`supportedStages` is a bitfield of [VkShaderStageFlagBits](https://registry.khronos.org/vulkan/specs/latest/man/html/VkShaderStageFlagBits.html) describing the shader stages that [group operations](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#shaders-group-operations) with [subgroup scope](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#shaders-scope-subgroup) are supported in. `supportedStages` will have the `VK_SHADER_STAGE_COMPUTE_BIT` bit set if any of the physical device’s queues support `VK_QUEUE_COMPUTE_BIT`.
+- []()`supportedOperations` is a bitmask of [VkSubgroupFeatureFlagBits](https://registry.khronos.org/vulkan/specs/latest/man/html/VkSubgroupFeatureFlagBits.html) specifying the sets of [group operations](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#shaders-group-operations) with [subgroup scope](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#shaders-scope-subgroup) supported on this device. `supportedOperations` will have the `VK_SUBGROUP_FEATURE_BASIC_BIT` bit set if any of the physical device’s queues support `VK_QUEUE_GRAPHICS_BIT` or `VK_QUEUE_COMPUTE_BIT`.
+- []()`quadOperationsInAllStages` is a boolean specifying whether [quad group operations](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#shaders-quad-operations) are available in all stages, or are restricted to fragment and compute stages.
 
-- <span id="extension-limits-subgroupSize"></span> `subgroupSize` is the
-  default number of invocations in each subgroup. `subgroupSize` is at
-  least 1 if any of the physical device’s queues support
-  `VK_QUEUE_GRAPHICS_BIT` or `VK_QUEUE_COMPUTE_BIT`. `subgroupSize` is a
-  power-of-two.
+If the `VkPhysicalDeviceSubgroupProperties` structure is included in the `pNext` chain of the [VkPhysicalDeviceProperties2](https://registry.khronos.org/vulkan/specs/latest/man/html/VkPhysicalDeviceProperties2.html) structure passed to [vkGetPhysicalDeviceProperties2](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetPhysicalDeviceProperties2.html), it is filled in with each corresponding implementation-dependent property.
 
-- <span id="extension-limits-subgroupSupportedStages"></span>
-  `supportedStages` is a bitfield of
-  [VkShaderStageFlagBits](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkShaderStageFlagBits.html) describing the
-  shader stages that <a
-  href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#shaders-group-operations"
-  target="_blank" rel="noopener">group operations</a> with <a
-  href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#shaders-scope-subgroup"
-  target="_blank" rel="noopener">subgroup scope</a> are supported in.
-  `supportedStages` will have the `VK_SHADER_STAGE_COMPUTE_BIT` bit set
-  if any of the physical device’s queues support `VK_QUEUE_COMPUTE_BIT`.
+If `supportedOperations` includes [`VK_SUBGROUP_FEATURE_QUAD_BIT`](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#features-subgroup-quad), or the [`shaderSubgroupUniformControlFlow`](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#features-shaderSubgroupUniformControlFlow) feature is enabled, `subgroupSize` **must** be greater than or equal to 4.
 
-- <span id="extension-limits-subgroupSupportedOperations"></span>
-  `supportedOperations` is a bitmask of
-  [VkSubgroupFeatureFlagBits](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkSubgroupFeatureFlagBits.html) specifying
-  the sets of <a
-  href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#shaders-group-operations"
-  target="_blank" rel="noopener">group operations</a> with <a
-  href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#shaders-scope-subgroup"
-  target="_blank" rel="noopener">subgroup scope</a> supported on this
-  device. `supportedOperations` will have the
-  `VK_SUBGROUP_FEATURE_BASIC_BIT` bit set if any of the physical
-  device’s queues support `VK_QUEUE_GRAPHICS_BIT` or
-  `VK_QUEUE_COMPUTE_BIT`.
+If the [`shaderQuadControl`](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#features-shaderQuadControl) feature is supported, `supportedOperations` **must** include [`VK_SUBGROUP_FEATURE_QUAD_BIT`](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#features-subgroup-quad).
 
-- <span id="extension-limits-subgroupQuadOperationsInAllStages"></span>
-  `quadOperationsInAllStages` is a boolean specifying whether <a
-  href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#shaders-quad-operations"
-  target="_blank" rel="noopener">quad group operations</a> are available
-  in all stages, or are restricted to fragment and compute stages.
+If [VK\_KHR\_shader\_subgroup\_rotate](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_KHR_shader_subgroup_rotate.html) is supported, and the implementation advertises support with a [VkExtensionProperties](https://registry.khronos.org/vulkan/specs/latest/man/html/VkExtensionProperties.html)::`specVersion` greater than or equal to 2, and the [`shaderSubgroupRotate`](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#features-shaderSubgroupRotate) feature is supported, `VK_SUBGROUP_FEATURE_ROTATE_BIT` **must** be returned in [VkPhysicalDeviceVulkan11Properties](https://registry.khronos.org/vulkan/specs/latest/man/html/VkPhysicalDeviceVulkan11Properties.html)::`subgroupSupportedOperations` and [VkPhysicalDeviceSubgroupProperties](https://registry.khronos.org/vulkan/specs/latest/man/html/VkPhysicalDeviceSubgroupProperties.html)::`supportedOperations`. If [VK\_KHR\_shader\_subgroup\_rotate](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_KHR_shader_subgroup_rotate.html) is supported, and the implementation advertises support with a [VkExtensionProperties](https://registry.khronos.org/vulkan/specs/latest/man/html/VkExtensionProperties.html)::`specVersion` greater than or equal to 2, and the [`shaderSubgroupRotateClustered`](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#features-shaderSubgroupRotateClustered) feature is supported, `VK_SUBGROUP_FEATURE_ROTATE_CLUSTERED_BIT` **must** be returned in [VkPhysicalDeviceVulkan11Properties](https://registry.khronos.org/vulkan/specs/latest/man/html/VkPhysicalDeviceVulkan11Properties.html)::`subgroupSupportedOperations` and [VkPhysicalDeviceSubgroupProperties](https://registry.khronos.org/vulkan/specs/latest/man/html/VkPhysicalDeviceSubgroupProperties.html)::`supportedOperations`.
 
-If the `VkPhysicalDeviceSubgroupProperties` structure is included in the
-`pNext` chain of the
-[VkPhysicalDeviceProperties2](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkPhysicalDeviceProperties2.html)
-structure passed to
-[vkGetPhysicalDeviceProperties2](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkGetPhysicalDeviceProperties2.html),
-it is filled in with each corresponding implementation-dependent
-property.
+If Vulkan 1.4 is supported, `VK_SUBGROUP_FEATURE_ROTATE_BIT` and `VK_SUBGROUP_FEATURE_ROTATE_CLUSTERED_BIT` **must** be returned in [VkPhysicalDeviceSubgroupProperties](https://registry.khronos.org/vulkan/specs/latest/man/html/VkPhysicalDeviceSubgroupProperties.html)::`supportedOperations` and [VkPhysicalDeviceVulkan11Properties](https://registry.khronos.org/vulkan/specs/latest/man/html/VkPhysicalDeviceVulkan11Properties.html)::`subgroupSupportedOperations`
 
-If `supportedOperations` includes <a
-href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#features-subgroup-quad"
-target="_blank"
-rel="noopener"><code>VK_SUBGROUP_FEATURE_QUAD_BIT</code></a>, or <a
-href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#features-shaderSubgroupUniformControlFlow"
-target="_blank"
-rel="noopener"><code>shaderSubgroupUniformControlFlow</code></a> is
-enabled, `subgroupSize` **must** be greater than or equal to 4.
+Note
 
-If the <a
-href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#features-shaderQuadControl"
-target="_blank" rel="noopener"><code>shaderQuadControl</code></a>
-feature is supported, `supportedOperations` **must** include <a
-href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#features-subgroup-quad"
-target="_blank"
-rel="noopener"><code>VK_SUBGROUP_FEATURE_QUAD_BIT</code></a>.
-
-If [VK_KHR_shader_subgroup_rotate](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_KHR_shader_subgroup_rotate.html)
-is supported, and the implementation advertises support with a
-[VkExtensionProperties](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkExtensionProperties.html)::`specVersion`
-greater than or equal to 2, and <a
-href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#features-shaderSubgroupRotate"
-target="_blank" rel="noopener"><code>shaderSubgroupRotate</code></a> is
-supported, `VK_SUBGROUP_FEATURE_ROTATE_BIT_KHR` **must** be returned in
-`supportedOperations`. If
-[VK_KHR_shader_subgroup_rotate](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_KHR_shader_subgroup_rotate.html) is
-supported, and the implementation advertises support with a
-[VkExtensionProperties](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkExtensionProperties.html)::`specVersion`
-greater than or equal to 2, and <a
-href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#features-shaderSubgroupRotateClustered"
-target="_blank"
-rel="noopener"><code>shaderSubgroupRotateClustered</code></a> is
-supported, `VK_SUBGROUP_FEATURE_ROTATE_CLUSTERED_BIT_KHR` **must** be
-returned in `supportedOperations`.
-
-<table>
-<colgroup>
-<col style="width: 50%" />
-<col style="width: 50%" />
-</colgroup>
-<tbody>
-<tr>
-<td class="icon"><em></em></td>
-<td class="content">Note
-<p><code>VK_SUBGROUP_FEATURE_ROTATE_BIT_KHR</code> and
-<code>VK_SUBGROUP_FEATURE_ROTATE_CLUSTERED_BIT_KHR</code> were added in
-version 2 of the <a
-href="https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_KHR_shader_subgroup_rotate.html">VK_KHR_shader_subgroup_rotate</a>
-extension, after the initial release, so there are implementations that
-do not advertise these bits. Applications should use the <a
-href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#features-shaderSubgroupRotate"
-target="_blank" rel="noopener"><code>shaderSubgroupRotate</code></a> and
-<a
-href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#features-shaderSubgroupRotateClustered"
-target="_blank"
-rel="noopener"><code>shaderSubgroupRotateClustered</code></a> features
-to determine and enable support. These bits are advertised here for
-consistency and for future dependencies.</p></td>
-</tr>
-</tbody>
-</table>
+`VK_SUBGROUP_FEATURE_ROTATE_BIT` and `VK_SUBGROUP_FEATURE_ROTATE_CLUSTERED_BIT` were added in version 2 of the [VK\_KHR\_shader\_subgroup\_rotate](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_KHR_shader_subgroup_rotate.html) extension, after the initial release, so there are implementations that do not advertise these bits. Applications should use the [`shaderSubgroupRotate`](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#features-shaderSubgroupRotate) and [`shaderSubgroupRotateClustered`](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#features-shaderSubgroupRotateClustered) features to determine and enable support. These bits are advertised here for consistency and for future dependencies.
 
 Valid Usage (Implicit)
 
-- <a href="#VUID-VkPhysicalDeviceSubgroupProperties-sType-sType"
-  id="VUID-VkPhysicalDeviceSubgroupProperties-sType-sType"></a>
-  VUID-VkPhysicalDeviceSubgroupProperties-sType-sType  
-  `sType` **must** be
-  `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SUBGROUP_PROPERTIES`
+- [](#VUID-VkPhysicalDeviceSubgroupProperties-sType-sType)VUID-VkPhysicalDeviceSubgroupProperties-sType-sType  
+  `sType` **must** be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SUBGROUP_PROPERTIES`
 
-## <a href="#_see_also" class="anchor"></a>See Also
+## [](#_see_also)See Also
 
-[VK_VERSION_1_1](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_VERSION_1_1.html), [VkBool32](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkBool32.html),
-[VkShaderStageFlags](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkShaderStageFlags.html),
-[VkStructureType](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkStructureType.html),
-[VkSubgroupFeatureFlags](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkSubgroupFeatureFlags.html)
+[VK\_VERSION\_1\_1](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_VERSION_1_1.html), [VkBool32](https://registry.khronos.org/vulkan/specs/latest/man/html/VkBool32.html), [VkShaderStageFlags](https://registry.khronos.org/vulkan/specs/latest/man/html/VkShaderStageFlags.html), [VkStructureType](https://registry.khronos.org/vulkan/specs/latest/man/html/VkStructureType.html), [VkSubgroupFeatureFlags](https://registry.khronos.org/vulkan/specs/latest/man/html/VkSubgroupFeatureFlags.html)
 
-## <a href="#_document_notes" class="anchor"></a>Document Notes
+## [](#_document_notes)Document Notes
 
-For more information, see the <a
-href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#VkPhysicalDeviceSubgroupProperties"
-target="_blank" rel="noopener">Vulkan Specification</a>
+For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#VkPhysicalDeviceSubgroupProperties)
 
-This page is extracted from the Vulkan Specification. Fixes and changes
-should be made to the Specification, not directly.
+This page is extracted from the Vulkan Specification. Fixes and changes should be made to the Specification, not directly.
 
-## <a href="#_copyright" class="anchor"></a>Copyright
+## [](#_copyright)Copyright
 
-Copyright 2014-2024 The Khronos Group Inc.
+Copyright 2014-2025 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
-
-Version 1.3.290  
-Last updated 2024-07-11 23:39:16 -0700

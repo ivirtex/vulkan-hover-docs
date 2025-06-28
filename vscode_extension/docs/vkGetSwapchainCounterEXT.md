@@ -6,13 +6,11 @@ vkGetSwapchainCounterEXT - Query the current value of a surface counter
 
 
 
-## <a href="#_c_specification" class="anchor"></a>C Specification
+## [](#_c_specification)C Specification
 
-The requested counters become active when the first presentation command
-for the associated swapchain is processed by the presentation engine. To
-query the value of an active counter, use:
+The requested counters become active when the first presentation command for the associated swapchain is processed by the presentation engine. To query the value of an active counter, use:
 
-``` c
+```c++
 // Provided by VK_EXT_display_control
 VkResult vkGetSwapchainCounterEXT(
     VkDevice                                    device,
@@ -21,94 +19,59 @@ VkResult vkGetSwapchainCounterEXT(
     uint64_t*                                   pCounterValue);
 ```
 
-## <a href="#_parameters" class="anchor"></a>Parameters
+## [](#_parameters)Parameters
 
-- `device` is the [VkDevice](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkDevice.html) associated with `swapchain`.
-
+- `device` is the [VkDevice](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDevice.html) associated with `swapchain`.
 - `swapchain` is the swapchain from which to query the counter value.
-
-- `counter` is a
-  [VkSurfaceCounterFlagBitsEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkSurfaceCounterFlagBitsEXT.html) value
-  specifying the counter to query.
-
+- `counter` is a [VkSurfaceCounterFlagBitsEXT](https://registry.khronos.org/vulkan/specs/latest/man/html/VkSurfaceCounterFlagBitsEXT.html) value specifying the counter to query.
 - `pCounterValue` will return the current value of the counter.
 
-## <a href="#_description" class="anchor"></a>Description
+## [](#_description)Description
 
-If a counter is not available because the swapchain is out of date, the
-implementation **may** return `VK_ERROR_OUT_OF_DATE_KHR`.
+If a counter is not available because the swapchain is out of date, the implementation **may** return `VK_ERROR_OUT_OF_DATE_KHR`.
 
 Valid Usage
 
-- <a href="#VUID-vkGetSwapchainCounterEXT-swapchain-01245"
-  id="VUID-vkGetSwapchainCounterEXT-swapchain-01245"></a>
-  VUID-vkGetSwapchainCounterEXT-swapchain-01245  
-  One or more present commands on `swapchain` **must** have been
-  processed by the presentation engine
+- [](#VUID-vkGetSwapchainCounterEXT-swapchain-01245)VUID-vkGetSwapchainCounterEXT-swapchain-01245  
+  One or more present commands on `swapchain` **must** have been processed by the presentation engine
 
 Valid Usage (Implicit)
 
-- <a href="#VUID-vkGetSwapchainCounterEXT-device-parameter"
-  id="VUID-vkGetSwapchainCounterEXT-device-parameter"></a>
-  VUID-vkGetSwapchainCounterEXT-device-parameter  
-  `device` **must** be a valid [VkDevice](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkDevice.html) handle
-
-- <a href="#VUID-vkGetSwapchainCounterEXT-swapchain-parameter"
-  id="VUID-vkGetSwapchainCounterEXT-swapchain-parameter"></a>
-  VUID-vkGetSwapchainCounterEXT-swapchain-parameter  
-  `swapchain` **must** be a valid [VkSwapchainKHR](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkSwapchainKHR.html)
-  handle
-
-- <a href="#VUID-vkGetSwapchainCounterEXT-counter-parameter"
-  id="VUID-vkGetSwapchainCounterEXT-counter-parameter"></a>
-  VUID-vkGetSwapchainCounterEXT-counter-parameter  
-  `counter` **must** be a valid
-  [VkSurfaceCounterFlagBitsEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkSurfaceCounterFlagBitsEXT.html) value
-
-- <a href="#VUID-vkGetSwapchainCounterEXT-pCounterValue-parameter"
-  id="VUID-vkGetSwapchainCounterEXT-pCounterValue-parameter"></a>
-  VUID-vkGetSwapchainCounterEXT-pCounterValue-parameter  
+- [](#VUID-vkGetSwapchainCounterEXT-device-parameter)VUID-vkGetSwapchainCounterEXT-device-parameter  
+  `device` **must** be a valid [VkDevice](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDevice.html) handle
+- [](#VUID-vkGetSwapchainCounterEXT-swapchain-parameter)VUID-vkGetSwapchainCounterEXT-swapchain-parameter  
+  `swapchain` **must** be a valid [VkSwapchainKHR](https://registry.khronos.org/vulkan/specs/latest/man/html/VkSwapchainKHR.html) handle
+- [](#VUID-vkGetSwapchainCounterEXT-counter-parameter)VUID-vkGetSwapchainCounterEXT-counter-parameter  
+  `counter` **must** be a valid [VkSurfaceCounterFlagBitsEXT](https://registry.khronos.org/vulkan/specs/latest/man/html/VkSurfaceCounterFlagBitsEXT.html) value
+- [](#VUID-vkGetSwapchainCounterEXT-pCounterValue-parameter)VUID-vkGetSwapchainCounterEXT-pCounterValue-parameter  
   `pCounterValue` **must** be a valid pointer to a `uint64_t` value
-
-- <a href="#VUID-vkGetSwapchainCounterEXT-swapchain-parent"
-  id="VUID-vkGetSwapchainCounterEXT-swapchain-parent"></a>
-  VUID-vkGetSwapchainCounterEXT-swapchain-parent  
-  `swapchain` **must** have been created, allocated, or retrieved from
-  `device`
+- [](#VUID-vkGetSwapchainCounterEXT-swapchain-parent)VUID-vkGetSwapchainCounterEXT-swapchain-parent  
+  `swapchain` **must** have been created, allocated, or retrieved from `device`
 
 Return Codes
 
-On success, this command returns  
+On success, this command returns
+
 - `VK_SUCCESS`
 
-On failure, this command returns  
+On failure, this command returns
+
 - `VK_ERROR_OUT_OF_HOST_MEMORY`
-
 - `VK_ERROR_DEVICE_LOST`
-
 - `VK_ERROR_OUT_OF_DATE_KHR`
 
-## <a href="#_see_also" class="anchor"></a>See Also
+## [](#_see_also)See Also
 
-[VK_EXT_display_control](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_EXT_display_control.html),
-[VkDevice](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkDevice.html),
-[VkSurfaceCounterFlagBitsEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkSurfaceCounterFlagBitsEXT.html),
-[VkSwapchainKHR](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkSwapchainKHR.html)
+[VK\_EXT\_display\_control](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_EXT_display_control.html), [VkDevice](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDevice.html), [VkSurfaceCounterFlagBitsEXT](https://registry.khronos.org/vulkan/specs/latest/man/html/VkSurfaceCounterFlagBitsEXT.html), [VkSwapchainKHR](https://registry.khronos.org/vulkan/specs/latest/man/html/VkSwapchainKHR.html)
 
-## <a href="#_document_notes" class="anchor"></a>Document Notes
+## [](#_document_notes)Document Notes
 
-For more information, see the <a
-href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#vkGetSwapchainCounterEXT"
-target="_blank" rel="noopener">Vulkan Specification</a>
+For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#vkGetSwapchainCounterEXT)
 
-This page is extracted from the Vulkan Specification. Fixes and changes
-should be made to the Specification, not directly.
+This page is extracted from the Vulkan Specification. Fixes and changes should be made to the Specification, not directly.
 
-## <a href="#_copyright" class="anchor"></a>Copyright
+## [](#_copyright)Copyright
 
-Copyright 2014-2024 The Khronos Group Inc.
+Copyright 2014-2025 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
-
-Version 1.3.290  
-Last updated 2024-07-11 23:39:16 -0700

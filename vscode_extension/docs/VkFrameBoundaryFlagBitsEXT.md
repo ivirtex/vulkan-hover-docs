@@ -2,48 +2,37 @@
 
 ## Name
 
-VkFrameBoundaryFlagBitsEXT - Bitmask specifying whether a queue
-submission is the last one for a given frame
+VkFrameBoundaryFlagBitsEXT - Bitmask specifying whether a queue submission is the last one for a given frame
 
 
 
-## <a href="#_c_specification" class="anchor"></a>C Specification
+## [](#_c_specification)C Specification
 
-The bit which **can** be set in
-[VkFrameBoundaryEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkFrameBoundaryEXT.html)::`flags` is:
+The bit which **can** be set in [VkFrameBoundaryEXT](https://registry.khronos.org/vulkan/specs/latest/man/html/VkFrameBoundaryEXT.html)::`flags` is:
 
-``` c
+```c++
 // Provided by VK_EXT_frame_boundary
 typedef enum VkFrameBoundaryFlagBitsEXT {
     VK_FRAME_BOUNDARY_FRAME_END_BIT_EXT = 0x00000001,
 } VkFrameBoundaryFlagBitsEXT;
 ```
 
-## <a href="#_description" class="anchor"></a>Description
+## [](#_description)Description
 
-- `VK_FRAME_BOUNDARY_FRAME_END_BIT_EXT` specifies that this queue
-  submission is the last one for this frame, i.e. once this queue
-  submission has terminated, then the work for this frame is completed.
+- `VK_FRAME_BOUNDARY_FRAME_END_BIT_EXT` specifies that this queue submission is the last one for this frame, i.e. once this queue submission has terminated, then the work for this frame is completed.
 
-## <a href="#_see_also" class="anchor"></a>See Also
+## [](#_see_also)See Also
 
-[VK_EXT_frame_boundary](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_EXT_frame_boundary.html),
-[VkFrameBoundaryFlagsEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkFrameBoundaryFlagsEXT.html)
+[VK\_EXT\_frame\_boundary](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_EXT_frame_boundary.html), [VkFrameBoundaryFlagsEXT](https://registry.khronos.org/vulkan/specs/latest/man/html/VkFrameBoundaryFlagsEXT.html)
 
-## <a href="#_document_notes" class="anchor"></a>Document Notes
+## [](#_document_notes)Document Notes
 
-For more information, see the <a
-href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#VkFrameBoundaryFlagBitsEXT"
-target="_blank" rel="noopener">Vulkan Specification</a>
+For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#VkFrameBoundaryFlagBitsEXT)
 
-This page is extracted from the Vulkan Specification. Fixes and changes
-should be made to the Specification, not directly.
+This page is extracted from the Vulkan Specification. Fixes and changes should be made to the Specification, not directly.
 
-## <a href="#_copyright" class="anchor"></a>Copyright
+## [](#_copyright)Copyright
 
-Copyright 2014-2024 The Khronos Group Inc.
+Copyright 2014-2025 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
-
-Version 1.3.290  
-Last updated 2024-07-11 23:39:16 -0700

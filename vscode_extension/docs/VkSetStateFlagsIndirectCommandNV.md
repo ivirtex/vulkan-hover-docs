@@ -2,53 +2,41 @@
 
 ## Name
 
-VkSetStateFlagsIndirectCommandNV - Structure specifying input data for a
-single state flag command token
+VkSetStateFlagsIndirectCommandNV - Structure specifying input data for a single state flag command token
 
 
 
-## <a href="#_c_specification" class="anchor"></a>C Specification
+## [](#_c_specification)C Specification
 
-The `VkSetStateFlagsIndirectCommandNV` structure specifies the input
-data for the `VK_INDIRECT_COMMANDS_TOKEN_TYPE_STATE_FLAGS_NV` token.
-Which state is changed depends on the
-[VkIndirectStateFlagBitsNV](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkIndirectStateFlagBitsNV.html) specified at
-`VkIndirectCommandsLayoutNV` creation time.
+The `VkSetStateFlagsIndirectCommandNV` structure specifies the input data for the `VK_INDIRECT_COMMANDS_TOKEN_TYPE_STATE_FLAGS_NV` token. Which state is changed depends on the [VkIndirectStateFlagBitsNV](https://registry.khronos.org/vulkan/specs/latest/man/html/VkIndirectStateFlagBitsNV.html) specified at `VkIndirectCommandsLayoutNV` creation time.
 
-``` c
+```c++
 // Provided by VK_NV_device_generated_commands
 typedef struct VkSetStateFlagsIndirectCommandNV {
     uint32_t    data;
 } VkSetStateFlagsIndirectCommandNV;
 ```
 
-## <a href="#_members" class="anchor"></a>Members
+## [](#_members)Members
 
 - `data` encodes packed state that this command alters.
+  
+  - Bit `0`: If set represents `VK_FRONT_FACE_CLOCKWISE`, otherwise `VK_FRONT_FACE_COUNTER_CLOCKWISE`
 
-  - Bit `0`: If set represents `VK_FRONT_FACE_CLOCKWISE`, otherwise
-    `VK_FRONT_FACE_COUNTER_CLOCKWISE`
+## [](#_description)Description
 
-## <a href="#_description" class="anchor"></a>Description
+## [](#_see_also)See Also
 
-## <a href="#_see_also" class="anchor"></a>See Also
+[VK\_NV\_device\_generated\_commands](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_NV_device_generated_commands.html)
 
-[VK_NV_device_generated_commands](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_NV_device_generated_commands.html)
+## [](#_document_notes)Document Notes
 
-## <a href="#_document_notes" class="anchor"></a>Document Notes
+For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#VkSetStateFlagsIndirectCommandNV)
 
-For more information, see the <a
-href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#VkSetStateFlagsIndirectCommandNV"
-target="_blank" rel="noopener">Vulkan Specification</a>
+This page is extracted from the Vulkan Specification. Fixes and changes should be made to the Specification, not directly.
 
-This page is extracted from the Vulkan Specification. Fixes and changes
-should be made to the Specification, not directly.
+## [](#_copyright)Copyright
 
-## <a href="#_copyright" class="anchor"></a>Copyright
-
-Copyright 2014-2024 The Khronos Group Inc.
+Copyright 2014-2025 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
-
-Version 1.3.290  
-Last updated 2024-07-11 23:39:16 -0700

@@ -2,73 +2,52 @@
 
 ## Name
 
-VkPhysicalDeviceShaderEnqueueFeaturesAMDX - Structure describing whether
-shader enqueue within execution graphs are supported by the
-implementation
+VkPhysicalDeviceShaderEnqueueFeaturesAMDX - Structure describing whether shader enqueue within execution graphs are supported by the implementation
 
 
 
-## <a href="#_c_specification" class="anchor"></a>C Specification
+## [](#_c_specification)C Specification
 
 The `VkPhysicalDeviceShaderEnqueueFeaturesAMDX` structure is defined as:
 
-``` c
+```c++
 // Provided by VK_AMDX_shader_enqueue
 typedef struct VkPhysicalDeviceShaderEnqueueFeaturesAMDX {
     VkStructureType    sType;
     void*              pNext;
     VkBool32           shaderEnqueue;
+    VkBool32           shaderMeshEnqueue;
 } VkPhysicalDeviceShaderEnqueueFeaturesAMDX;
 ```
 
-## <a href="#_members" class="anchor"></a>Members
+## [](#_members)Members
 
 This structure describes the following feature:
 
-- <span id="features-shaderEnqueue"></span> `shaderEnqueue` indicates
-  whether the implementation supports <a
-  href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#executiongraphs"
-  target="_blank" rel="noopener">execution graphs</a>.
+- []()`shaderEnqueue` indicates whether the implementation supports [execution graphs](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#executiongraphs).
+- []()`shaderMeshEnqueue` indicates whether the implementation supports [mesh nodes in execution graphs](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#executiongraphs-meshnodes).
 
-## <a href="#_description" class="anchor"></a>Description
+## [](#_description)Description
 
-If the `VkPhysicalDeviceShaderEnqueueFeaturesAMDX` structure is included
-in the `pNext` chain of the
-[VkPhysicalDeviceFeatures2](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkPhysicalDeviceFeatures2.html) structure
-passed to
-[vkGetPhysicalDeviceFeatures2](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkGetPhysicalDeviceFeatures2.html), it is
-filled in to indicate whether each corresponding feature is supported.
-`VkPhysicalDeviceShaderEnqueueFeaturesAMDX` **can** also be used in the
-`pNext` chain of [VkDeviceCreateInfo](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkDeviceCreateInfo.html) to
-selectively enable these features.
+If the `VkPhysicalDeviceShaderEnqueueFeaturesAMDX` structure is included in the `pNext` chain of the [VkPhysicalDeviceFeatures2](https://registry.khronos.org/vulkan/specs/latest/man/html/VkPhysicalDeviceFeatures2.html) structure passed to [vkGetPhysicalDeviceFeatures2](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetPhysicalDeviceFeatures2.html), it is filled in to indicate whether each corresponding feature is supported. If the application wishes to use a [VkDevice](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDevice.html) with any features described by `VkPhysicalDeviceShaderEnqueueFeaturesAMDX`, it **must** add an instance of the structure, with the desired feature members set to `VK_TRUE`, to the `pNext` chain of [VkDeviceCreateInfo](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDeviceCreateInfo.html) when creating the [VkDevice](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDevice.html).
 
 Valid Usage (Implicit)
 
-- <a href="#VUID-VkPhysicalDeviceShaderEnqueueFeaturesAMDX-sType-sType"
-  id="VUID-VkPhysicalDeviceShaderEnqueueFeaturesAMDX-sType-sType"></a>
-  VUID-VkPhysicalDeviceShaderEnqueueFeaturesAMDX-sType-sType  
-  `sType` **must** be
-  `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SHADER_ENQUEUE_FEATURES_AMDX`
+- [](#VUID-VkPhysicalDeviceShaderEnqueueFeaturesAMDX-sType-sType)VUID-VkPhysicalDeviceShaderEnqueueFeaturesAMDX-sType-sType  
+  `sType` **must** be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SHADER_ENQUEUE_FEATURES_AMDX`
 
-## <a href="#_see_also" class="anchor"></a>See Also
+## [](#_see_also)See Also
 
-[VK_AMDX_shader_enqueue](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_AMDX_shader_enqueue.html),
-[VkBool32](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkBool32.html), [VkStructureType](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkStructureType.html)
+[VK\_AMDX\_shader\_enqueue](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_AMDX_shader_enqueue.html), [VkBool32](https://registry.khronos.org/vulkan/specs/latest/man/html/VkBool32.html), [VkStructureType](https://registry.khronos.org/vulkan/specs/latest/man/html/VkStructureType.html)
 
-## <a href="#_document_notes" class="anchor"></a>Document Notes
+## [](#_document_notes)Document Notes
 
-For more information, see the <a
-href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#VkPhysicalDeviceShaderEnqueueFeaturesAMDX"
-target="_blank" rel="noopener">Vulkan Specification</a>
+For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#VkPhysicalDeviceShaderEnqueueFeaturesAMDX)
 
-This page is extracted from the Vulkan Specification. Fixes and changes
-should be made to the Specification, not directly.
+This page is extracted from the Vulkan Specification. Fixes and changes should be made to the Specification, not directly.
 
-## <a href="#_copyright" class="anchor"></a>Copyright
+## [](#_copyright)Copyright
 
-Copyright 2014-2024 The Khronos Group Inc.
+Copyright 2014-2025 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
-
-Version 1.3.290  
-Last updated 2024-07-11 23:39:16 -0700

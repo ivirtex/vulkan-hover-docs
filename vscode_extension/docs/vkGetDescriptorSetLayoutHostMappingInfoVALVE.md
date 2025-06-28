@@ -2,18 +2,15 @@
 
 ## Name
 
-vkGetDescriptorSetLayoutHostMappingInfoVALVE - Stub description of
-vkGetDescriptorSetLayoutHostMappingInfoVALVE
+vkGetDescriptorSetLayoutHostMappingInfoVALVE - Stub description of vkGetDescriptorSetLayoutHostMappingInfoVALVE
 
 
 
-## <a href="#_c_specification" class="anchor"></a>C Specification
+## [](#_c_specification)C Specification
 
-There is currently no specification language written for this command.
-This section acts only as placeholder and to avoid dead links in the
-specification and reference pages.
+There is currently no specification language written for this command. This section acts only as placeholder and to avoid dead links in the specification and reference pages.
 
-``` c
+```c++
 // Provided by VK_VALVE_descriptor_set_host_mapping
 void vkGetDescriptorSetLayoutHostMappingInfoVALVE(
     VkDevice                                    device,
@@ -21,53 +18,29 @@ void vkGetDescriptorSetLayoutHostMappingInfoVALVE(
     VkDescriptorSetLayoutHostMappingInfoVALVE*  pHostMapping);
 ```
 
-## <a href="#_description" class="anchor"></a>Description
+## [](#_description)Description
 
 Valid Usage (Implicit)
 
-- <a
-  href="#VUID-vkGetDescriptorSetLayoutHostMappingInfoVALVE-device-parameter"
-  id="VUID-vkGetDescriptorSetLayoutHostMappingInfoVALVE-device-parameter"></a>
-  VUID-vkGetDescriptorSetLayoutHostMappingInfoVALVE-device-parameter  
-  `device` **must** be a valid [VkDevice](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkDevice.html) handle
+- [](#VUID-vkGetDescriptorSetLayoutHostMappingInfoVALVE-device-parameter)VUID-vkGetDescriptorSetLayoutHostMappingInfoVALVE-device-parameter  
+  `device` **must** be a valid [VkDevice](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDevice.html) handle
+- [](#VUID-vkGetDescriptorSetLayoutHostMappingInfoVALVE-pBindingReference-parameter)VUID-vkGetDescriptorSetLayoutHostMappingInfoVALVE-pBindingReference-parameter  
+  `pBindingReference` **must** be a valid pointer to a valid [VkDescriptorSetBindingReferenceVALVE](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDescriptorSetBindingReferenceVALVE.html) structure
+- [](#VUID-vkGetDescriptorSetLayoutHostMappingInfoVALVE-pHostMapping-parameter)VUID-vkGetDescriptorSetLayoutHostMappingInfoVALVE-pHostMapping-parameter  
+  `pHostMapping` **must** be a valid pointer to a [VkDescriptorSetLayoutHostMappingInfoVALVE](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDescriptorSetLayoutHostMappingInfoVALVE.html) structure
 
-- <a
-  href="#VUID-vkGetDescriptorSetLayoutHostMappingInfoVALVE-pBindingReference-parameter"
-  id="VUID-vkGetDescriptorSetLayoutHostMappingInfoVALVE-pBindingReference-parameter"></a>
-  VUID-vkGetDescriptorSetLayoutHostMappingInfoVALVE-pBindingReference-parameter  
-  `pBindingReference` **must** be a valid pointer to a valid
-  [VkDescriptorSetBindingReferenceVALVE](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkDescriptorSetBindingReferenceVALVE.html)
-  structure
+## [](#_see_also)See Also
 
-- <a
-  href="#VUID-vkGetDescriptorSetLayoutHostMappingInfoVALVE-pHostMapping-parameter"
-  id="VUID-vkGetDescriptorSetLayoutHostMappingInfoVALVE-pHostMapping-parameter"></a>
-  VUID-vkGetDescriptorSetLayoutHostMappingInfoVALVE-pHostMapping-parameter  
-  `pHostMapping` **must** be a valid pointer to a
-  [VkDescriptorSetLayoutHostMappingInfoVALVE](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkDescriptorSetLayoutHostMappingInfoVALVE.html)
-  structure
+[VK\_VALVE\_descriptor\_set\_host\_mapping](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_VALVE_descriptor_set_host_mapping.html), [VkDescriptorSetBindingReferenceVALVE](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDescriptorSetBindingReferenceVALVE.html), [VkDescriptorSetLayoutHostMappingInfoVALVE](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDescriptorSetLayoutHostMappingInfoVALVE.html), [VkDevice](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDevice.html)
 
-## <a href="#_see_also" class="anchor"></a>See Also
+## [](#_document_notes)Document Notes
 
-[VK_VALVE_descriptor_set_host_mapping](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_VALVE_descriptor_set_host_mapping.html),
-[VkDescriptorSetBindingReferenceVALVE](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkDescriptorSetBindingReferenceVALVE.html),
-[VkDescriptorSetLayoutHostMappingInfoVALVE](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkDescriptorSetLayoutHostMappingInfoVALVE.html),
-[VkDevice](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkDevice.html)
+For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#vkGetDescriptorSetLayoutHostMappingInfoVALVE)
 
-## <a href="#_document_notes" class="anchor"></a>Document Notes
+This page is extracted from the Vulkan Specification. Fixes and changes should be made to the Specification, not directly.
 
-For more information, see the <a
-href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#vkGetDescriptorSetLayoutHostMappingInfoVALVE"
-target="_blank" rel="noopener">Vulkan Specification</a>
+## [](#_copyright)Copyright
 
-This page is extracted from the Vulkan Specification. Fixes and changes
-should be made to the Specification, not directly.
-
-## <a href="#_copyright" class="anchor"></a>Copyright
-
-Copyright 2014-2024 The Khronos Group Inc.
+Copyright 2014-2025 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
-
-Version 1.3.290  
-Last updated 2024-07-11 23:39:16 -0700

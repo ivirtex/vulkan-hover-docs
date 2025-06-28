@@ -6,13 +6,11 @@ VkDepthBiasRepresentationEXT - Specify the depth bias representation
 
 
 
-## <a href="#_c_specification" class="anchor"></a>C Specification
+## [](#_c_specification)C Specification
 
-Possible values of
-[VkDepthBiasRepresentationInfoEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkDepthBiasRepresentationInfoEXT.html)::`depthBiasRepresentation`,
-specifying the depth bias representation are:
+Possible values of [VkDepthBiasRepresentationInfoEXT](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDepthBiasRepresentationInfoEXT.html)::`depthBiasRepresentation`, specifying the depth bias representation are:
 
-``` c
+```c++
 // Provided by VK_EXT_depth_bias_control
 typedef enum VkDepthBiasRepresentationEXT {
     VK_DEPTH_BIAS_REPRESENTATION_LEAST_REPRESENTABLE_VALUE_FORMAT_EXT = 0,
@@ -21,44 +19,24 @@ typedef enum VkDepthBiasRepresentationEXT {
 } VkDepthBiasRepresentationEXT;
 ```
 
-## <a href="#_description" class="anchor"></a>Description
+## [](#_description)Description
 
-- `VK_DEPTH_BIAS_REPRESENTATION_LEAST_REPRESENTABLE_VALUE_FORMAT_EXT`
-  specifies that the depth bias representation is a factor of the
-  format’s r as described in <a
-  href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#primsrast-depthbias-computation"
-  class="bare" target="_blank"
-  rel="noopener">https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#primsrast-depthbias-computation</a>.
+- `VK_DEPTH_BIAS_REPRESENTATION_LEAST_REPRESENTABLE_VALUE_FORMAT_EXT` specifies that the depth bias representation is a factor of the format’s r as described in [https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#primsrast-depthbias-computation](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#primsrast-depthbias-computation).
+- `VK_DEPTH_BIAS_REPRESENTATION_LEAST_REPRESENTABLE_VALUE_FORCE_UNORM_EXT` specifies that the depth bias representation is a factor of a constant r defined by the bit-size or mantissa of the format as described in [https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#primsrast-depthbias-computation](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#primsrast-depthbias-computation).
+- `VK_DEPTH_BIAS_REPRESENTATION_FLOAT_EXT` specifies that the depth bias representation is a factor of constant r equal to 1.
 
-- `VK_DEPTH_BIAS_REPRESENTATION_LEAST_REPRESENTABLE_VALUE_FORCE_UNORM_EXT`
-  specifies that the depth bias representation is a factor of a constant
-  r defined by the bit-size or mantissa of the format as described in <a
-  href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#primsrast-depthbias-computation"
-  class="bare" target="_blank"
-  rel="noopener">https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#primsrast-depthbias-computation</a>.
+## [](#_see_also)See Also
 
-- `VK_DEPTH_BIAS_REPRESENTATION_FLOAT_EXT` specifies that the depth bias
-  representation is a factor of constant r equal to 1.
+[VK\_EXT\_depth\_bias\_control](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_EXT_depth_bias_control.html), [VkDepthBiasRepresentationInfoEXT](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDepthBiasRepresentationInfoEXT.html)
 
-## <a href="#_see_also" class="anchor"></a>See Also
+## [](#_document_notes)Document Notes
 
-[VK_EXT_depth_bias_control](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_EXT_depth_bias_control.html),
-[VkDepthBiasRepresentationInfoEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkDepthBiasRepresentationInfoEXT.html)
+For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#VkDepthBiasRepresentationEXT)
 
-## <a href="#_document_notes" class="anchor"></a>Document Notes
+This page is extracted from the Vulkan Specification. Fixes and changes should be made to the Specification, not directly.
 
-For more information, see the <a
-href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#VkDepthBiasRepresentationEXT"
-target="_blank" rel="noopener">Vulkan Specification</a>
+## [](#_copyright)Copyright
 
-This page is extracted from the Vulkan Specification. Fixes and changes
-should be made to the Specification, not directly.
-
-## <a href="#_copyright" class="anchor"></a>Copyright
-
-Copyright 2014-2024 The Khronos Group Inc.
+Copyright 2014-2025 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
-
-Version 1.3.290  
-Last updated 2024-07-11 23:39:16 -0700

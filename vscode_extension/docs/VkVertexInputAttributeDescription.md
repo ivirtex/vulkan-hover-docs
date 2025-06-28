@@ -2,17 +2,15 @@
 
 ## Name
 
-VkVertexInputAttributeDescription - Structure specifying vertex input
-attribute description
+VkVertexInputAttributeDescription - Structure specifying vertex input attribute description
 
 
 
-## <a href="#_c_specification" class="anchor"></a>C Specification
+## [](#_c_specification)C Specification
 
-Each vertex input attribute is specified by the
-`VkVertexInputAttributeDescription` structure, defined as:
+Each vertex input attribute is specified by the `VkVertexInputAttributeDescription` structure, defined as:
 
-``` c
+```c++
 // Provided by VK_VERSION_1_0
 typedef struct VkVertexInputAttributeDescription {
     uint32_t    location;
@@ -22,87 +20,45 @@ typedef struct VkVertexInputAttributeDescription {
 } VkVertexInputAttributeDescription;
 ```
 
-## <a href="#_members" class="anchor"></a>Members
+## [](#_members)Members
 
 - `location` is the shader input location number for this attribute.
-
-- `binding` is the binding number which this attribute takes its data
-  from.
-
+- `binding` is the binding number which this attribute takes its data from.
 - `format` is the size and type of the vertex attribute data.
+- `offset` is a byte offset of this attribute relative to the start of an element in the vertex input binding.
 
-- `offset` is a byte offset of this attribute relative to the start of
-  an element in the vertex input binding.
-
-## <a href="#_description" class="anchor"></a>Description
+## [](#_description)Description
 
 Valid Usage
 
-- <a href="#VUID-VkVertexInputAttributeDescription-location-00620"
-  id="VUID-VkVertexInputAttributeDescription-location-00620"></a>
-  VUID-VkVertexInputAttributeDescription-location-00620  
-  `location` **must** be less than
-  `VkPhysicalDeviceLimits`::`maxVertexInputAttributes`
-
-- <a href="#VUID-VkVertexInputAttributeDescription-binding-00621"
-  id="VUID-VkVertexInputAttributeDescription-binding-00621"></a>
-  VUID-VkVertexInputAttributeDescription-binding-00621  
-  `binding` **must** be less than
-  `VkPhysicalDeviceLimits`::`maxVertexInputBindings`
-
-- <a href="#VUID-VkVertexInputAttributeDescription-offset-00622"
-  id="VUID-VkVertexInputAttributeDescription-offset-00622"></a>
-  VUID-VkVertexInputAttributeDescription-offset-00622  
-  `offset` **must** be less than or equal to
-  `VkPhysicalDeviceLimits`::`maxVertexInputAttributeOffset`
-
-- <a href="#VUID-VkVertexInputAttributeDescription-format-00623"
-  id="VUID-VkVertexInputAttributeDescription-format-00623"></a>
-  VUID-VkVertexInputAttributeDescription-format-00623  
-  The <a
-  href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#resources-buffer-view-format-features"
-  target="_blank" rel="noopener">format features</a> of `format`
-  **must** contain `VK_FORMAT_FEATURE_VERTEX_BUFFER_BIT`
-
-- <a
-  href="#VUID-VkVertexInputAttributeDescription-vertexAttributeAccessBeyondStride-04457"
-  id="VUID-VkVertexInputAttributeDescription-vertexAttributeAccessBeyondStride-04457"></a>
-  VUID-VkVertexInputAttributeDescription-vertexAttributeAccessBeyondStride-04457  
-  If the [`VK_KHR_portability_subset`](VK_KHR_portability_subset.html)
-  extension is enabled, and
-  [VkPhysicalDevicePortabilitySubsetFeaturesKHR](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkPhysicalDevicePortabilitySubsetFeaturesKHR.html)::`vertexAttributeAccessBeyondStride`
-  is `VK_FALSE`, the sum of `offset` plus the size of the vertex
-  attribute data described by `format` **must** not be greater than
-  `stride` in the
-  [VkVertexInputBindingDescription](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkVertexInputBindingDescription.html)
-  referenced in `binding`
+- [](#VUID-VkVertexInputAttributeDescription-location-00620)VUID-VkVertexInputAttributeDescription-location-00620  
+  `location` **must** be less than `VkPhysicalDeviceLimits`::`maxVertexInputAttributes`
+- [](#VUID-VkVertexInputAttributeDescription-binding-00621)VUID-VkVertexInputAttributeDescription-binding-00621  
+  `binding` **must** be less than `VkPhysicalDeviceLimits`::`maxVertexInputBindings`
+- [](#VUID-VkVertexInputAttributeDescription-offset-00622)VUID-VkVertexInputAttributeDescription-offset-00622  
+  `offset` **must** be less than or equal to `VkPhysicalDeviceLimits`::`maxVertexInputAttributeOffset`
+- [](#VUID-VkVertexInputAttributeDescription-format-00623)VUID-VkVertexInputAttributeDescription-format-00623  
+  The [format features](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#resources-buffer-view-format-features) of `format` **must** contain `VK_FORMAT_FEATURE_VERTEX_BUFFER_BIT`
+- [](#VUID-VkVertexInputAttributeDescription-vertexAttributeAccessBeyondStride-04457)VUID-VkVertexInputAttributeDescription-vertexAttributeAccessBeyondStride-04457  
+  If the `VK_KHR_portability_subset` extension is enabled, and [VkPhysicalDevicePortabilitySubsetFeaturesKHR](https://registry.khronos.org/vulkan/specs/latest/man/html/VkPhysicalDevicePortabilitySubsetFeaturesKHR.html)::`vertexAttributeAccessBeyondStride` is `VK_FALSE`, the sum of `offset` plus the size of the vertex attribute data described by `format` **must** not be greater than `stride` in the [VkVertexInputBindingDescription](https://registry.khronos.org/vulkan/specs/latest/man/html/VkVertexInputBindingDescription.html) referenced in `binding`
 
 Valid Usage (Implicit)
 
-- <a href="#VUID-VkVertexInputAttributeDescription-format-parameter"
-  id="VUID-VkVertexInputAttributeDescription-format-parameter"></a>
-  VUID-VkVertexInputAttributeDescription-format-parameter  
-  `format` **must** be a valid [VkFormat](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkFormat.html) value
+- [](#VUID-VkVertexInputAttributeDescription-format-parameter)VUID-VkVertexInputAttributeDescription-format-parameter  
+  `format` **must** be a valid [VkFormat](https://registry.khronos.org/vulkan/specs/latest/man/html/VkFormat.html) value
 
-## <a href="#_see_also" class="anchor"></a>See Also
+## [](#_see_also)See Also
 
-[VK_VERSION_1_0](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_VERSION_1_0.html), [VkFormat](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkFormat.html),
-[VkPipelineVertexInputStateCreateInfo](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkPipelineVertexInputStateCreateInfo.html)
+[VK\_VERSION\_1\_0](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_VERSION_1_0.html), [VkFormat](https://registry.khronos.org/vulkan/specs/latest/man/html/VkFormat.html), [VkPipelineVertexInputStateCreateInfo](https://registry.khronos.org/vulkan/specs/latest/man/html/VkPipelineVertexInputStateCreateInfo.html)
 
-## <a href="#_document_notes" class="anchor"></a>Document Notes
+## [](#_document_notes)Document Notes
 
-For more information, see the <a
-href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#VkVertexInputAttributeDescription"
-target="_blank" rel="noopener">Vulkan Specification</a>
+For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#VkVertexInputAttributeDescription)
 
-This page is extracted from the Vulkan Specification. Fixes and changes
-should be made to the Specification, not directly.
+This page is extracted from the Vulkan Specification. Fixes and changes should be made to the Specification, not directly.
 
-## <a href="#_copyright" class="anchor"></a>Copyright
+## [](#_copyright)Copyright
 
-Copyright 2014-2024 The Khronos Group Inc.
+Copyright 2014-2025 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
-
-Version 1.3.290  
-Last updated 2024-07-11 23:39:16 -0700

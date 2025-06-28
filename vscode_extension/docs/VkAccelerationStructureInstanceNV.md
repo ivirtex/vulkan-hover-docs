@@ -2,24 +2,17 @@
 
 ## Name
 
-VkAccelerationStructureInstanceKHR - Structure specifying a single
-acceleration structure instance for building into an acceleration
-structure geometry
+VkAccelerationStructureInstanceKHR - Structure specifying a single acceleration structure instance for building into an acceleration structure geometry
 
 
 
-## <a href="#_c_specification" class="anchor"></a>C Specification
+## [](#_c_specification)C Specification
 
-*Acceleration structure instances* **can** be built into top-level
-acceleration structures. Each acceleration structure instance is a
-separate entry in the top-level acceleration structure which includes
-all the geometry of a bottom-level acceleration structure at a
-transformed location. Multiple instances **can** point to the same
-bottom level acceleration structure.
+*Acceleration structure instances* **can** be built into top-level acceleration structures. Each acceleration structure instance is a separate entry in the top-level acceleration structure which includes all the geometry of a bottom-level acceleration structure at a transformed location. Multiple instances **can** point to the same bottom level acceleration structure.
 
 An acceleration structure instance is defined by the structure:
 
-``` c
+```c++
 // Provided by VK_KHR_acceleration_structure
 typedef struct VkAccelerationStructureInstanceKHR {
     VkTransformMatrixKHR          transform;
@@ -33,100 +26,56 @@ typedef struct VkAccelerationStructureInstanceKHR {
 
 or the equivalent
 
-``` c
+```c++
 // Provided by VK_NV_ray_tracing
 typedef VkAccelerationStructureInstanceKHR VkAccelerationStructureInstanceNV;
 ```
 
-## <a href="#_members" class="anchor"></a>Members
+## [](#_members)Members
 
-- `transform` is a [VkTransformMatrixKHR](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkTransformMatrixKHR.html)
-  structure describing a transformation to be applied to the
-  acceleration structure.
+- `transform` is a [VkTransformMatrixKHR](https://registry.khronos.org/vulkan/specs/latest/man/html/VkTransformMatrixKHR.html) structure describing a transformation to be applied to the acceleration structure.
+- `instanceCustomIndex` is a 24-bit application-specified index value accessible to ray shaders in the `InstanceCustomIndexKHR` built-in.
+- `mask` is an 8-bit visibility mask for the geometry. The instance **may** only be hit if `Cull Mask & instance.mask != 0`
+- `instanceShaderBindingTableRecordOffset` is a 24-bit offset used in calculating the hit shader binding table index.
+- `flags` is an 8-bit mask of [VkGeometryInstanceFlagBitsKHR](https://registry.khronos.org/vulkan/specs/latest/man/html/VkGeometryInstanceFlagBitsKHR.html) values to apply to this instance.
+- `accelerationStructureReference` is either :
+  
+  - a device address containing the value obtained from [vkGetAccelerationStructureDeviceAddressKHR](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetAccelerationStructureDeviceAddressKHR.html) or [vkGetAccelerationStructureHandleNV](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetAccelerationStructureHandleNV.html) (used by device operations which reference acceleration structures) or,
+  - a device address containing a bottom level cluster acceleration structure built using [vkCmdBuildClusterAccelerationStructureIndirectNV](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdBuildClusterAccelerationStructureIndirectNV.html)
+  - a [VkAccelerationStructureKHR](https://registry.khronos.org/vulkan/specs/latest/man/html/VkAccelerationStructureKHR.html) object (used by host operations which reference acceleration structures).
 
-- `instanceCustomIndex` is a 24-bit application-specified index value
-  accessible to ray shaders in the `InstanceCustomIndexKHR` built-in.
+## [](#_description)Description
 
-- `mask` is an 8-bit visibility mask for the geometry. The instance
-  **may** only be hit if `Cull Mask & instance.mask != 0`
+The C language specification does not define the ordering of bit-fields, but in practice, this structure produces the correct layout with existing compilers. The intended bit pattern is for the following:
 
-- `instanceShaderBindingTableRecordOffset` is a 24-bit offset used in
-  calculating the hit shader binding table index.
-
-- `flags` is an 8-bit mask of
-  [VkGeometryInstanceFlagBitsKHR](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkGeometryInstanceFlagBitsKHR.html)
-  values to apply to this instance.
-
-- `accelerationStructureReference` is either:
-
-  - a device address containing the value obtained from
-    [vkGetAccelerationStructureDeviceAddressKHR](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkGetAccelerationStructureDeviceAddressKHR.html)
-    or
-    [vkGetAccelerationStructureHandleNV](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkGetAccelerationStructureHandleNV.html)
-    (used by device operations which reference acceleration structures)
-    or,
-
-  - a [VkAccelerationStructureKHR](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkAccelerationStructureKHR.html)
-    object (used by host operations which reference acceleration
-    structures).
-
-## <a href="#_description" class="anchor"></a>Description
-
-The C language specification does not define the ordering of bit-fields,
-but in practice, this struct produces the correct layout with existing
-compilers. The intended bit pattern is for the following:
-
-- `instanceCustomIndex` and `mask` occupy the same memory as if a single
-  `uint32_t` was specified in their place
-
-  - `instanceCustomIndex` occupies the 24 least significant bits of that
-    memory
-
+- `instanceCustomIndex` and `mask` occupy the same memory as if a single `uint32_t` was specified in their place
+  
+  - `instanceCustomIndex` occupies the 24 least significant bits of that memory
   - `mask` occupies the 8 most significant bits of that memory
-
-- `instanceShaderBindingTableRecordOffset` and `flags` occupy the same
-  memory as if a single `uint32_t` was specified in their place
-
-  - `instanceShaderBindingTableRecordOffset` occupies the 24 least
-    significant bits of that memory
-
+- `instanceShaderBindingTableRecordOffset` and `flags` occupy the same memory as if a single `uint32_t` was specified in their place
+  
+  - `instanceShaderBindingTableRecordOffset` occupies the 24 least significant bits of that memory
   - `flags` occupies the 8 most significant bits of that memory
 
-If a compiler produces code that diverges from that pattern,
-applications **must** employ another method to set values according to
-the correct bit pattern.
+If a compiler produces code that diverges from that pattern, applications **must** employ another method to set values according to the correct bit pattern.
 
 Valid Usage (Implicit)
 
-- <a href="#VUID-VkAccelerationStructureInstanceKHR-flags-parameter"
-  id="VUID-VkAccelerationStructureInstanceKHR-flags-parameter"></a>
-  VUID-VkAccelerationStructureInstanceKHR-flags-parameter  
-  `flags` **must** be a valid combination of
-  [VkGeometryInstanceFlagBitsKHR](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkGeometryInstanceFlagBitsKHR.html)
-  values
+- [](#VUID-VkAccelerationStructureInstanceKHR-flags-parameter)VUID-VkAccelerationStructureInstanceKHR-flags-parameter  
+  `flags` **must** be a valid combination of [VkGeometryInstanceFlagBitsKHR](https://registry.khronos.org/vulkan/specs/latest/man/html/VkGeometryInstanceFlagBitsKHR.html) values
 
-## <a href="#_see_also" class="anchor"></a>See Also
+## [](#_see_also)See Also
 
-[VK_KHR_acceleration_structure](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_KHR_acceleration_structure.html),
-[VK_NV_ray_tracing](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_NV_ray_tracing.html),
-[VkAccelerationStructureMotionInstanceDataNV](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkAccelerationStructureMotionInstanceDataNV.html),
-[VkGeometryInstanceFlagsKHR](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkGeometryInstanceFlagsKHR.html),
-[VkTransformMatrixKHR](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkTransformMatrixKHR.html)
+[VK\_KHR\_acceleration\_structure](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_KHR_acceleration_structure.html), [VK\_NV\_ray\_tracing](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_NV_ray_tracing.html), [VkAccelerationStructureMotionInstanceDataNV](https://registry.khronos.org/vulkan/specs/latest/man/html/VkAccelerationStructureMotionInstanceDataNV.html), [VkGeometryInstanceFlagsKHR](https://registry.khronos.org/vulkan/specs/latest/man/html/VkGeometryInstanceFlagsKHR.html), [VkTransformMatrixKHR](https://registry.khronos.org/vulkan/specs/latest/man/html/VkTransformMatrixKHR.html)
 
-## <a href="#_document_notes" class="anchor"></a>Document Notes
+## [](#_document_notes)Document Notes
 
-For more information, see the <a
-href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#VkAccelerationStructureInstanceKHR"
-target="_blank" rel="noopener">Vulkan Specification</a>
+For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#VkAccelerationStructureInstanceKHR)
 
-This page is extracted from the Vulkan Specification. Fixes and changes
-should be made to the Specification, not directly.
+This page is extracted from the Vulkan Specification. Fixes and changes should be made to the Specification, not directly.
 
-## <a href="#_copyright" class="anchor"></a>Copyright
+## [](#_copyright)Copyright
 
-Copyright 2014-2024 The Khronos Group Inc.
+Copyright 2014-2025 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
-
-Version 1.3.290  
-Last updated 2024-07-11 23:39:16 -0700

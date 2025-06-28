@@ -2,18 +2,15 @@
 
 ## Name
 
-VkOpticalFlowSessionCreatePrivateDataInfoNV - Structure for NV internal
-use only
+VkOpticalFlowSessionCreatePrivateDataInfoNV - Structure for NV internal use only
 
 
 
-## <a href="#_c_specification" class="anchor"></a>C Specification
+## [](#_c_specification)C Specification
 
-The
-[VkOpticalFlowSessionCreatePrivateDataInfoNV](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkOpticalFlowSessionCreatePrivateDataInfoNV.html)
-structure is for NV internal use only and is defined as:
+The [VkOpticalFlowSessionCreatePrivateDataInfoNV](https://registry.khronos.org/vulkan/specs/latest/man/html/VkOpticalFlowSessionCreatePrivateDataInfoNV.html) structure is for NV internal use only and is defined as:
 
-``` c
+```c++
 // Provided by VK_NV_optical_flow
 typedef struct VkOpticalFlowSessionCreatePrivateDataInfoNV {
     VkStructureType    sType;
@@ -24,59 +21,35 @@ typedef struct VkOpticalFlowSessionCreatePrivateDataInfoNV {
 } VkOpticalFlowSessionCreatePrivateDataInfoNV;
 ```
 
-## <a href="#_members" class="anchor"></a>Members
+## [](#_members)Members
 
-- `sType` is a [VkStructureType](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkStructureType.html) value identifying
-  this structure.
-
-- `pNext` is `NULL` or a pointer to a structure extending this
-  structure.
-
-- `id` is an identifier for data which is passed at a memory location
-  specified in
-  `VkOpticalFlowSessionCreatePrivateDataInfoNV`::`pPrivateData`.
-
-- `size` is the size of data in bytes which is passed at a memory
-  location specified in
-  `VkOpticalFlowSessionCreatePrivateDataInfoNV`::`pPrivateData`.
-
+- `sType` is a [VkStructureType](https://registry.khronos.org/vulkan/specs/latest/man/html/VkStructureType.html) value identifying this structure.
+- `pNext` is `NULL` or a pointer to a structure extending this structure.
+- `id` is an identifier for data which is passed at a memory location specified in `VkOpticalFlowSessionCreatePrivateDataInfoNV`::`pPrivateData`.
+- `size` is the size of data in bytes which is passed at a memory location specified in `VkOpticalFlowSessionCreatePrivateDataInfoNV`::`pPrivateData`.
 - `pPrivateData` is a pointer to NV internal data.
 
-## <a href="#_description" class="anchor"></a>Description
+## [](#_description)Description
 
 Valid Usage (Implicit)
 
-- <a href="#VUID-VkOpticalFlowSessionCreatePrivateDataInfoNV-sType-sType"
-  id="VUID-VkOpticalFlowSessionCreatePrivateDataInfoNV-sType-sType"></a>
-  VUID-VkOpticalFlowSessionCreatePrivateDataInfoNV-sType-sType  
-  `sType` **must** be
-  `VK_STRUCTURE_TYPE_OPTICAL_FLOW_SESSION_CREATE_PRIVATE_DATA_INFO_NV`
-
-- <a
-  href="#VUID-VkOpticalFlowSessionCreatePrivateDataInfoNV-pPrivateData-parameter"
-  id="VUID-VkOpticalFlowSessionCreatePrivateDataInfoNV-pPrivateData-parameter"></a>
-  VUID-VkOpticalFlowSessionCreatePrivateDataInfoNV-pPrivateData-parameter  
+- [](#VUID-VkOpticalFlowSessionCreatePrivateDataInfoNV-sType-sType)VUID-VkOpticalFlowSessionCreatePrivateDataInfoNV-sType-sType  
+  `sType` **must** be `VK_STRUCTURE_TYPE_OPTICAL_FLOW_SESSION_CREATE_PRIVATE_DATA_INFO_NV`
+- [](#VUID-VkOpticalFlowSessionCreatePrivateDataInfoNV-pPrivateData-parameter)VUID-VkOpticalFlowSessionCreatePrivateDataInfoNV-pPrivateData-parameter  
   `pPrivateData` **must** be a pointer value
 
-## <a href="#_see_also" class="anchor"></a>See Also
+## [](#_see_also)See Also
 
-[VK_NV_optical_flow](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_NV_optical_flow.html),
-[VkStructureType](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkStructureType.html)
+[VK\_NV\_optical\_flow](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_NV_optical_flow.html), [VkStructureType](https://registry.khronos.org/vulkan/specs/latest/man/html/VkStructureType.html)
 
-## <a href="#_document_notes" class="anchor"></a>Document Notes
+## [](#_document_notes)Document Notes
 
-For more information, see the <a
-href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#VkOpticalFlowSessionCreatePrivateDataInfoNV"
-target="_blank" rel="noopener">Vulkan Specification</a>
+For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#VkOpticalFlowSessionCreatePrivateDataInfoNV)
 
-This page is extracted from the Vulkan Specification. Fixes and changes
-should be made to the Specification, not directly.
+This page is extracted from the Vulkan Specification. Fixes and changes should be made to the Specification, not directly.
 
-## <a href="#_copyright" class="anchor"></a>Copyright
+## [](#_copyright)Copyright
 
-Copyright 2014-2024 The Khronos Group Inc.
+Copyright 2014-2025 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
-
-Version 1.3.290  
-Last updated 2024-07-11 23:39:16 -0700

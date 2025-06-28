@@ -1,170 +1,110 @@
-# VK_NV_viewport_array2(3) Manual Page
+# VK\_NV\_viewport\_array2(3) Manual Page
 
 ## Name
 
-VK_NV_viewport_array2 - device extension
+VK\_NV\_viewport\_array2 - device extension
 
 
 
-## <a href="#_registered_extension_number" class="anchor"></a>Registered Extension Number
+## [](#_registered_extension_number)Registered Extension Number
 
 97
 
-## <a href="#_revision" class="anchor"></a>Revision
+## [](#_revision)Revision
 
 1
 
-## <a href="#_ratification_status" class="anchor"></a>Ratification Status
+## [](#_ratification_status)Ratification Status
 
 Not ratified
 
-## <a href="#_extension_and_version_dependencies" class="anchor"></a>Extension and Version Dependencies
+## [](#_extension_and_version_dependencies)Extension and Version Dependencies
 
 None
 
-## <a href="#_spir_v_dependencies" class="anchor"></a>SPIR-V Dependencies
+## [](#_spir_v_dependencies)SPIR-V Dependencies
 
-- [SPV_NV_viewport_array2](https://htmlpreview.github.io/?https://github.com/KhronosGroup/SPIRV-Registry/blob/main/extensions/NV/SPV_NV_viewport_array2.html)
+- [SPV\_NV\_viewport\_array2](https://github.khronos.org/SPIRV-Registry/extensions/NV/SPV_NV_viewport_array2.html)
 
-## <a href="#_contact" class="anchor"></a>Contact
+## [](#_contact)Contact
 
-- Daniel Koch <a
-  href="https://github.com/KhronosGroup/Vulkan-Docs/issues/new?body=%5BVK_NV_viewport_array2%5D%20@dgkoch%0A*Here%20describe%20the%20issue%20or%20question%20you%20have%20about%20the%20VK_NV_viewport_array2%20extension*"
-  target="_blank" rel="nofollow noopener"><em></em>dgkoch</a>
+- Daniel Koch [\[GitHub\]dgkoch](https://github.com/KhronosGroup/Vulkan-Docs/issues/new?body=%5BVK_NV_viewport_array2%5D%20%40dgkoch%0A%2AHere%20describe%20the%20issue%20or%20question%20you%20have%20about%20the%20VK_NV_viewport_array2%20extension%2A)
 
-## <a href="#_other_extension_metadata" class="anchor"></a>Other Extension Metadata
+## [](#_other_extension_metadata)Other Extension Metadata
 
-**Last Modified Date**  
+**Last Modified Date**
+
 2017-02-15
 
-**Interactions and External Dependencies**  
-- This extension provides API support for
-  [`GL_NV_viewport_array2`](https://registry.khronos.org/OpenGL/extensions/NV/NV_viewport_array2.txt)
+**Interactions and External Dependencies**
 
-- This extension requires the `geometryShader` and `multiViewport`
-  features.
+- This extension provides API support for [`GL_NV_viewport_array2`](https://registry.khronos.org/OpenGL/extensions/NV/NV_viewport_array2.txt)
+- This extension requires the [`geometryShader`](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#features-geometryShader) and [`multiViewport`](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#features-multiViewport) features.
+- This extension interacts with the [`tessellationShader`](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#features-tessellationShader) feature.
 
-- This extension interacts with the `tessellationShader` feature.
+**Contributors**
 
-**Contributors**  
 - Piers Daniell, NVIDIA
-
 - Jeff Bolz, NVIDIA
 
-## <a href="#_description" class="anchor"></a>Description
+## [](#_description)Description
 
-This extension adds support for the following SPIR-V extension in
-Vulkan:
+This extension adds support for the following SPIR-V extension in Vulkan:
 
 - `SPV_NV_viewport_array2`
 
-which allows a single primitive to be broadcast to multiple viewports
-and/or multiple layers. A new shader built-in output `ViewportMaskNV` is
-provided, which allows a single primitive to be output to multiple
-viewports simultaneously. Also, a new SPIR-V decoration is added to
-control whether the effective viewport index is added into the variable
-decorated with the `Layer` built-in decoration. These capabilities allow
-a single primitive to be output to multiple layers simultaneously.
+which allows a single primitive to be broadcast to multiple viewports and/or multiple layers. A new shader built-in output `ViewportMaskNV` is provided, which allows a single primitive to be output to multiple viewports simultaneously. Also, a new SPIR-V decoration is added to control whether the effective viewport index is added into the variable decorated with the `Layer` built-in decoration. These capabilities allow a single primitive to be output to multiple layers simultaneously.
 
-This extension allows variables decorated with the `Layer` and
-`ViewportIndex` built-ins to be exported from vertex or tessellation
-shaders, using the `ShaderViewportIndexLayerNV` capability.
+This extension allows variables decorated with the `Layer` and `ViewportIndex` built-ins to be exported from vertex or tessellation shaders, using the `ShaderViewportIndexLayerNV` capability.
 
-This extension adds a new `ViewportMaskNV` built-in decoration that is
-available for output variables in vertex, tessellation evaluation, and
-geometry shaders, and a new `ViewportRelativeNV` decoration that can be
-added on variables decorated with `Layer` when using the
-`ShaderViewportMaskNV` capability.
+This extension adds a new `ViewportMaskNV` built-in decoration that is available for output variables in vertex, tessellation evaluation, and geometry shaders, and a new `ViewportRelativeNV` decoration that can be added on variables decorated with `Layer` when using the `ShaderViewportMaskNV` capability.
 
-When using GLSL source-based shading languages, the
-`gl_ViewportMask`\[\] built-in output variable and `viewport_relative`
-layout qualifier from `GL_NV_viewport_array2` map to the
-`ViewportMaskNV` and `ViewportRelativeNV` decorations, respectively.
-Behavior is described in the `GL_NV_viewport_array2` extension
-specification.
+When using GLSL source-based shading languages, the `gl_ViewportMask`\[] built-in output variable and `viewport_relative` layout qualifier from `GL_NV_viewport_array2` map to the `ViewportMaskNV` and `ViewportRelativeNV` decorations, respectively. Behavior is described in the `GL_NV_viewport_array2` extension specification.
 
-<table>
-<colgroup>
-<col style="width: 50%" />
-<col style="width: 50%" />
-</colgroup>
-<tbody>
-<tr>
-<td class="icon"><em></em></td>
-<td class="content">Note
-<p>The <code>ShaderViewportIndexLayerNV</code> capability is equivalent
-to the <code>ShaderViewportIndexLayerEXT</code> capability added by <a
-href="VK_EXT_shader_viewport_index_layer.html"><code>VK_EXT_shader_viewport_index_layer</code></a>.</p></td>
-</tr>
-</tbody>
-</table>
+Note
 
-## <a href="#_new_enum_constants" class="anchor"></a>New Enum Constants
+The `ShaderViewportIndexLayerNV` capability is equivalent to the `ShaderViewportIndexLayerEXT` capability added by `VK_EXT_shader_viewport_index_layer`.
+
+## [](#_new_enum_constants)New Enum Constants
 
 - `VK_NV_VIEWPORT_ARRAY2_EXTENSION_NAME`
-
 - `VK_NV_VIEWPORT_ARRAY2_SPEC_VERSION`
-
 - `VK_NV_VIEWPORT_ARRAY_2_EXTENSION_NAME`
-
 - `VK_NV_VIEWPORT_ARRAY_2_SPEC_VERSION`
 
-## <a href="#_new_or_modified_built_in_variables" class="anchor"></a>New or Modified Built-In Variables
+## [](#_new_or_modified_built_in_variables)New or Modified Built-In Variables
 
-- (modified) <a
-  href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#interfaces-builtin-variables-layer"
-  target="_blank" rel="noopener"><code>Layer</code></a>
+- (modified) [`Layer`](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#interfaces-builtin-variables-layer)
+- (modified) [`ViewportIndex`](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#interfaces-builtin-variables-viewportindex)
+- [`ViewportMaskNV`](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#interfaces-builtin-variables-viewportmask)
 
-- (modified) <a
-  href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#interfaces-builtin-variables-viewportindex"
-  target="_blank" rel="noopener"><code>ViewportIndex</code></a>
+## [](#_new_variable_decoration)New Variable Decoration
 
-- <a
-  href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#interfaces-builtin-variables-viewportmask"
-  target="_blank" rel="noopener"><code>ViewportMaskNV</code></a>
+- [`ViewportRelativeNV` in `Layer`](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#interfaces-builtin-variables-layer)
 
-## <a href="#_new_variable_decoration" class="anchor"></a>New Variable Decoration
+## [](#_new_spir_v_capabilities)New SPIR-V Capabilities
 
-- <a
-  href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#interfaces-builtin-variables-layer"
-  target="_blank" rel="noopener"><code>ViewportRelativeNV</code> in
-  <code>Layer</code></a>
+- [`ShaderViewportIndexLayerNV`](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#spirvenv-capabilities-table-ShaderViewportIndexLayerEXT)
+- [`ShaderViewportMaskNV`](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#spirvenv-capabilities-table-ShaderViewportMaskNV)
 
-## <a href="#_new_spir_v_capabilities" class="anchor"></a>New SPIR-V Capabilities
-
-- <a
-  href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#spirvenv-capabilities-table-ShaderViewportIndexLayerNV"
-  target="_blank"
-  rel="noopener"><code>ShaderViewportIndexLayerNV</code></a>
-
-- <a
-  href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#spirvenv-capabilities-table-ShaderViewportMaskNV"
-  target="_blank" rel="noopener"><code>ShaderViewportMaskNV</code></a>
-
-## <a href="#_version_history" class="anchor"></a>Version History
+## [](#_version_history)Version History
 
 - Revision 1, 2017-02-15 (Daniel Koch)
-
+  
   - Internal revisions
 
-## <a href="#_see_also" class="anchor"></a>See Also
+## [](#_see_also)See Also
 
 No cross-references are available
 
-## <a href="#_document_notes" class="anchor"></a>Document Notes
+## [](#_document_notes)Document Notes
 
-For more information, see the <a
-href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#VK_NV_viewport_array2"
-target="_blank" rel="noopener">Vulkan Specification</a>
+For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#VK_NV_viewport_array2)
 
-This page is a generated document. Fixes and changes should be made to
-the generator scripts, not directly.
+This page is a generated document. Fixes and changes should be made to the generator scripts, not directly.
 
-## <a href="#_copyright" class="anchor"></a>Copyright
+## [](#_copyright)Copyright
 
-Copyright 2014-2024 The Khronos Group Inc.
+Copyright 2014-2025 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
-
-Version 1.3.290  
-Last updated 2024-07-11 23:39:16 -0700

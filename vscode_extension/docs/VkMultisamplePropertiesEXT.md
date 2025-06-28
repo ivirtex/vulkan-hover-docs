@@ -2,16 +2,15 @@
 
 ## Name
 
-VkMultisamplePropertiesEXT - Structure returning information about
-sample count specific additional multisampling capabilities
+VkMultisamplePropertiesEXT - Structure returning information about sample count specific additional multisampling capabilities
 
 
 
-## <a href="#_c_specification" class="anchor"></a>C Specification
+## [](#_c_specification)C Specification
 
 The `VkMultisamplePropertiesEXT` structure is defined as
 
-``` c
+```c++
 // Provided by VK_EXT_sample_locations
 typedef struct VkMultisamplePropertiesEXT {
     VkStructureType    sType;
@@ -20,51 +19,33 @@ typedef struct VkMultisamplePropertiesEXT {
 } VkMultisamplePropertiesEXT;
 ```
 
-## <a href="#_members" class="anchor"></a>Members
+## [](#_members)Members
 
-- `sType` is a [VkStructureType](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkStructureType.html) value identifying
-  this structure.
+- `sType` is a [VkStructureType](https://registry.khronos.org/vulkan/specs/latest/man/html/VkStructureType.html) value identifying this structure.
+- `pNext` is `NULL` or a pointer to a structure extending this structure.
+- `maxSampleLocationGridSize` is the maximum size of the pixel grid in which sample locations **can** vary.
 
-- `pNext` is `NULL` or a pointer to a structure extending this
-  structure.
-
-- `maxSampleLocationGridSize` is the maximum size of the pixel grid in
-  which sample locations **can** vary.
-
-## <a href="#_description" class="anchor"></a>Description
+## [](#_description)Description
 
 Valid Usage (Implicit)
 
-- <a href="#VUID-VkMultisamplePropertiesEXT-sType-sType"
-  id="VUID-VkMultisamplePropertiesEXT-sType-sType"></a>
-  VUID-VkMultisamplePropertiesEXT-sType-sType  
+- [](#VUID-VkMultisamplePropertiesEXT-sType-sType)VUID-VkMultisamplePropertiesEXT-sType-sType  
   `sType` **must** be `VK_STRUCTURE_TYPE_MULTISAMPLE_PROPERTIES_EXT`
-
-- <a href="#VUID-VkMultisamplePropertiesEXT-pNext-pNext"
-  id="VUID-VkMultisamplePropertiesEXT-pNext-pNext"></a>
-  VUID-VkMultisamplePropertiesEXT-pNext-pNext  
+- [](#VUID-VkMultisamplePropertiesEXT-pNext-pNext)VUID-VkMultisamplePropertiesEXT-pNext-pNext  
   `pNext` **must** be `NULL`
 
-## <a href="#_see_also" class="anchor"></a>See Also
+## [](#_see_also)See Also
 
-[VK_EXT_sample_locations](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_EXT_sample_locations.html),
-[VkExtent2D](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkExtent2D.html), [VkStructureType](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkStructureType.html),
-[vkGetPhysicalDeviceMultisamplePropertiesEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkGetPhysicalDeviceMultisamplePropertiesEXT.html)
+[VK\_EXT\_sample\_locations](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_EXT_sample_locations.html), [VkExtent2D](https://registry.khronos.org/vulkan/specs/latest/man/html/VkExtent2D.html), [VkStructureType](https://registry.khronos.org/vulkan/specs/latest/man/html/VkStructureType.html), [vkGetPhysicalDeviceMultisamplePropertiesEXT](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetPhysicalDeviceMultisamplePropertiesEXT.html)
 
-## <a href="#_document_notes" class="anchor"></a>Document Notes
+## [](#_document_notes)Document Notes
 
-For more information, see the <a
-href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#VkMultisamplePropertiesEXT"
-target="_blank" rel="noopener">Vulkan Specification</a>
+For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#VkMultisamplePropertiesEXT)
 
-This page is extracted from the Vulkan Specification. Fixes and changes
-should be made to the Specification, not directly.
+This page is extracted from the Vulkan Specification. Fixes and changes should be made to the Specification, not directly.
 
-## <a href="#_copyright" class="anchor"></a>Copyright
+## [](#_copyright)Copyright
 
-Copyright 2014-2024 The Khronos Group Inc.
+Copyright 2014-2025 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
-
-Version 1.3.290  
-Last updated 2024-07-11 23:39:16 -0700

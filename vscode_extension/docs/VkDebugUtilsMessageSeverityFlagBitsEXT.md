@@ -2,19 +2,15 @@
 
 ## Name
 
-VkDebugUtilsMessageSeverityFlagBitsEXT - Bitmask specifying which
-severities of events cause a debug messenger callback
+VkDebugUtilsMessageSeverityFlagBitsEXT - Bitmask specifying which severities of events cause a debug messenger callback
 
 
 
-## <a href="#_c_specification" class="anchor"></a>C Specification
+## [](#_c_specification)C Specification
 
-Bits which **can** be set in
-[VkDebugUtilsMessengerCreateInfoEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkDebugUtilsMessengerCreateInfoEXT.html)::`messageSeverity`,
-specifying event severities which cause a debug messenger to call the
-callback, are:
+Bits which **can** be set in [VkDebugUtilsMessengerCreateInfoEXT](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDebugUtilsMessengerCreateInfoEXT.html)::`messageSeverity`, specifying event severities which cause a debug messenger to call the callback, are:
 
-``` c
+```c++
 // Provided by VK_EXT_debug_utils
 typedef enum VkDebugUtilsMessageSeverityFlagBitsEXT {
     VK_DEBUG_UTILS_MESSAGE_SEVERITY_VERBOSE_BIT_EXT = 0x00000001,
@@ -24,75 +20,39 @@ typedef enum VkDebugUtilsMessageSeverityFlagBitsEXT {
 } VkDebugUtilsMessageSeverityFlagBitsEXT;
 ```
 
-## <a href="#_description" class="anchor"></a>Description
+## [](#_description)Description
 
-- `VK_DEBUG_UTILS_MESSAGE_SEVERITY_VERBOSE_BIT_EXT` specifies the most
-  verbose output indicating all diagnostic messages from the Vulkan
-  loader, layers, and drivers should be captured.
+- `VK_DEBUG_UTILS_MESSAGE_SEVERITY_VERBOSE_BIT_EXT` specifies the most verbose output indicating all diagnostic messages from the Vulkan loader, layers, and drivers should be captured.
+- `VK_DEBUG_UTILS_MESSAGE_SEVERITY_INFO_BIT_EXT` specifies an informational message such as resource details that may be handy when debugging an application.
+- `VK_DEBUG_UTILS_MESSAGE_SEVERITY_WARNING_BIT_EXT` specifies use of Vulkan that **may** expose an application bug. Such cases may not be immediately harmful, such as a fragment shader outputting to a location with no attachment. Other cases **may** point to behavior that is almost certainly bad when unintended such as using an image whose memory has not been filled. In general if you see a warning but you know that the behavior is intended/desired, then simply ignore the warning.
+- `VK_DEBUG_UTILS_MESSAGE_SEVERITY_ERROR_BIT_EXT` specifies that the application has violated a valid usage condition of the specification.
 
-- `VK_DEBUG_UTILS_MESSAGE_SEVERITY_INFO_BIT_EXT` specifies an
-  informational message such as resource details that may be handy when
-  debugging an application.
+Note
 
-- `VK_DEBUG_UTILS_MESSAGE_SEVERITY_WARNING_BIT_EXT` specifies use of
-  Vulkan that **may** expose an application bug. Such cases may not be
-  immediately harmful, such as a fragment shader outputting to a
-  location with no attachment. Other cases **may** point to behavior
-  that is almost certainly bad when unintended such as using an image
-  whose memory has not been filled. In general if you see a warning but
-  you know that the behavior is intended/desired, then simply ignore the
-  warning.
+The values of [VkDebugUtilsMessageSeverityFlagBitsEXT](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDebugUtilsMessageSeverityFlagBitsEXT.html) are sorted based on severity. The higher the flag value, the more severe the message. This allows for simple boolean operation comparisons when looking at [VkDebugUtilsMessageSeverityFlagBitsEXT](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDebugUtilsMessageSeverityFlagBitsEXT.html) values.
 
-- `VK_DEBUG_UTILS_MESSAGE_SEVERITY_ERROR_BIT_EXT` specifies that the
-  application has violated a valid usage condition of the specification.
+For example:
 
-<table>
-<colgroup>
-<col style="width: 50%" />
-<col style="width: 50%" />
-</colgroup>
-<tbody>
-<tr>
-<td class="icon"><em></em></td>
-<td class="content">Note
-<p>The values of <a
-href="VkDebugUtilsMessageSeverityFlagBitsEXT.html">VkDebugUtilsMessageSeverityFlagBitsEXT</a>
-are sorted based on severity. The higher the flag value, the more severe
-the message. This allows for simple boolean operation comparisons when
-looking at <a
-href="VkDebugUtilsMessageSeverityFlagBitsEXT.html">VkDebugUtilsMessageSeverityFlagBitsEXT</a>
-values.</p>
-<p>For example:</p>
-<pre class="c"><code>    if (messageSeverity &gt;= VK_DEBUG_UTILS_MESSAGE_SEVERITY_WARNING_BIT_EXT) {
+```c++
+    if (messageSeverity >= VK_DEBUG_UTILS_MESSAGE_SEVERITY_WARNING_BIT_EXT) {
         // Do something for warnings and errors
-    }</code></pre>
-<p>In addition, space has been left between the enums to allow for later
-addition of new severities in between the existing values.</p></td>
-</tr>
-</tbody>
-</table>
+    }
+```
 
-## <a href="#_see_also" class="anchor"></a>See Also
+In addition, space has been left between the enums to allow for later addition of new severities in between the existing values.
 
-[PFN_vkDebugUtilsMessengerCallbackEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/PFN_vkDebugUtilsMessengerCallbackEXT.html),
-[VK_EXT_debug_utils](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_EXT_debug_utils.html),
-[VkDebugUtilsMessageSeverityFlagsEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkDebugUtilsMessageSeverityFlagsEXT.html),
-[vkSubmitDebugUtilsMessageEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkSubmitDebugUtilsMessageEXT.html)
+## [](#_see_also)See Also
 
-## <a href="#_document_notes" class="anchor"></a>Document Notes
+[PFN\_vkDebugUtilsMessengerCallbackEXT](https://registry.khronos.org/vulkan/specs/latest/man/html/PFN_vkDebugUtilsMessengerCallbackEXT.html), [VK\_EXT\_debug\_utils](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_EXT_debug_utils.html), [VkDebugUtilsMessageSeverityFlagsEXT](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDebugUtilsMessageSeverityFlagsEXT.html), [vkSubmitDebugUtilsMessageEXT](https://registry.khronos.org/vulkan/specs/latest/man/html/vkSubmitDebugUtilsMessageEXT.html)
 
-For more information, see the <a
-href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#VkDebugUtilsMessageSeverityFlagBitsEXT"
-target="_blank" rel="noopener">Vulkan Specification</a>
+## [](#_document_notes)Document Notes
 
-This page is extracted from the Vulkan Specification. Fixes and changes
-should be made to the Specification, not directly.
+For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#VkDebugUtilsMessageSeverityFlagBitsEXT)
 
-## <a href="#_copyright" class="anchor"></a>Copyright
+This page is extracted from the Vulkan Specification. Fixes and changes should be made to the Specification, not directly.
 
-Copyright 2014-2024 The Khronos Group Inc.
+## [](#_copyright)Copyright
+
+Copyright 2014-2025 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
-
-Version 1.3.290  
-Last updated 2024-07-11 23:39:16 -0700

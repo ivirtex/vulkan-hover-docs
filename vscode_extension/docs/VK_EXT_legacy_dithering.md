@@ -1,151 +1,117 @@
-# VK_EXT_legacy_dithering(3) Manual Page
+# VK\_EXT\_legacy\_dithering(3) Manual Page
 
 ## Name
 
-VK_EXT_legacy_dithering - device extension
+VK\_EXT\_legacy\_dithering - device extension
 
 
 
-## <a href="#_registered_extension_number" class="anchor"></a>Registered Extension Number
+## [](#_registered_extension_number)Registered Extension Number
 
 466
 
-## <a href="#_revision" class="anchor"></a>Revision
+## [](#_revision)Revision
 
 2
 
-## <a href="#_ratification_status" class="anchor"></a>Ratification Status
+## [](#_ratification_status)Ratification Status
 
-Not ratified
+Ratified
 
-## <a href="#_extension_and_version_dependencies" class="anchor"></a>Extension and Version Dependencies
+## [](#_extension_and_version_dependencies)Extension and Version Dependencies
 
-[VK_KHR_get_physical_device_properties2](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_KHR_get_physical_device_properties2.html)  
+[VK\_KHR\_get\_physical\_device\_properties2](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_KHR_get_physical_device_properties2.html)  
 or  
-[Version 1.1](#versions-1.1)  
+[Vulkan Version 1.1](#versions-1.1)
 
-## <a href="#_api_interactions" class="anchor"></a>API Interactions
+## [](#_api_interactions)API Interactions
 
-- Interacts with VK_VERSION_1_3
+- Interacts with VK\_VERSION\_1\_3
+- Interacts with VK\_VERSION\_1\_4
+- Interacts with VK\_KHR\_dynamic\_rendering
+- Interacts with VK\_KHR\_maintenance5
 
-- Interacts with VK_KHR_dynamic_rendering
+## [](#_special_use)Special Use
 
-- Interacts with VK_KHR_maintenance5
+- [OpenGL / ES support](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#extendingvulkan-compatibility-specialuse)
 
-## <a href="#_special_use" class="anchor"></a>Special Use
+## [](#_contact)Contact
 
-- <a
-  href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#extendingvulkan-compatibility-specialuse"
-  target="_blank" rel="noopener">OpenGL / ES support</a>
+- Shahbaz Youssefi [\[GitHub\]syoussefi](https://github.com/KhronosGroup/Vulkan-Docs/issues/new?body=%5BVK_EXT_legacy_dithering%5D%20%40syoussefi%0A%2AHere%20describe%20the%20issue%20or%20question%20you%20have%20about%20the%20VK_EXT_legacy_dithering%20extension%2A)
 
-## <a href="#_contact" class="anchor"></a>Contact
+## [](#_extension_proposal)Extension Proposal
 
-- Shahbaz Youssefi <a
-  href="https://github.com/KhronosGroup/Vulkan-Docs/issues/new?body=%5BVK_EXT_legacy_dithering%5D%20@syoussefi%0A*Here%20describe%20the%20issue%20or%20question%20you%20have%20about%20the%20VK_EXT_legacy_dithering%20extension*"
-  target="_blank" rel="nofollow noopener"><em></em>syoussefi</a>
+[VK\_EXT\_legacy\_dithering](https://github.com/KhronosGroup/Vulkan-Docs/tree/main/proposals/VK_EXT_legacy_dithering.adoc)
 
-## <a href="#_extension_proposal" class="anchor"></a>Extension Proposal
+## [](#_other_extension_metadata)Other Extension Metadata
 
-[VK_EXT_legacy_dithering](https://github.com/KhronosGroup/Vulkan-Docs/tree/main/proposals/VK_EXT_legacy_dithering.adoc)
+**Last Modified Date**
 
-## <a href="#_other_extension_metadata" class="anchor"></a>Other Extension Metadata
-
-**Last Modified Date**  
 2024-02-22
 
-**Contributors**  
+**Contributors**
+
 - Shahbaz Youssefi, Google
-
 - Graeme Leese, Broadcom
-
 - Jan-Harald Fredriksen, Arm
 
-## <a href="#_description" class="anchor"></a>Description
+## [](#_description)Description
 
-This extension exposes a hardware feature used by some vendors to
-implement OpenGL’s dithering. The purpose of this extension is to
-support layering OpenGL over Vulkan, by allowing the layer to take
-advantage of the same hardware feature and provide equivalent dithering
-to OpenGL applications.
+This extension exposes a hardware feature used by some vendors to implement OpenGL’s dithering. The purpose of this extension is to support layering OpenGL over Vulkan, by allowing the layer to take advantage of the same hardware feature and provide equivalent dithering to OpenGL applications.
 
-## <a href="#_new_structures" class="anchor"></a>New Structures
+## [](#_new_structures)New Structures
 
-- Extending [VkPhysicalDeviceFeatures2](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkPhysicalDeviceFeatures2.html),
-  [VkDeviceCreateInfo](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkDeviceCreateInfo.html):
+- Extending [VkPhysicalDeviceFeatures2](https://registry.khronos.org/vulkan/specs/latest/man/html/VkPhysicalDeviceFeatures2.html), [VkDeviceCreateInfo](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDeviceCreateInfo.html):
+  
+  - [VkPhysicalDeviceLegacyDitheringFeaturesEXT](https://registry.khronos.org/vulkan/specs/latest/man/html/VkPhysicalDeviceLegacyDitheringFeaturesEXT.html)
 
-  - [VkPhysicalDeviceLegacyDitheringFeaturesEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkPhysicalDeviceLegacyDitheringFeaturesEXT.html)
-
-## <a href="#_new_enum_constants" class="anchor"></a>New Enum Constants
+## [](#_new_enum_constants)New Enum Constants
 
 - `VK_EXT_LEGACY_DITHERING_EXTENSION_NAME`
-
 - `VK_EXT_LEGACY_DITHERING_SPEC_VERSION`
-
-- Extending [VkStructureType](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkStructureType.html):
-
+- Extending [VkStructureType](https://registry.khronos.org/vulkan/specs/latest/man/html/VkStructureType.html):
+  
   - `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_LEGACY_DITHERING_FEATURES_EXT`
-
-- Extending
-  [VkSubpassDescriptionFlagBits](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkSubpassDescriptionFlagBits.html):
-
+- Extending [VkSubpassDescriptionFlagBits](https://registry.khronos.org/vulkan/specs/latest/man/html/VkSubpassDescriptionFlagBits.html):
+  
   - `VK_SUBPASS_DESCRIPTION_ENABLE_LEGACY_DITHERING_BIT_EXT`
 
-If [VK_KHR_dynamic_rendering](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_KHR_dynamic_rendering.html) or [Version
-1.3](#versions-1.3) and [VK_KHR_maintenance5](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_KHR_maintenance5.html)
-is supported:
+If [VK\_KHR\_dynamic\_rendering](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_KHR_dynamic_rendering.html) or [Vulkan Version 1.3](#versions-1.3) and [VK\_KHR\_maintenance5](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_KHR_maintenance5.html) or [Vulkan Version 1.4](#versions-1.4) is supported:
 
-- Extending
-  [VkPipelineCreateFlagBits2KHR](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkPipelineCreateFlagBits2KHR.html):
-
+- Extending [VkPipelineCreateFlagBits2](https://registry.khronos.org/vulkan/specs/latest/man/html/VkPipelineCreateFlagBits2.html):
+  
   - `VK_PIPELINE_CREATE_2_ENABLE_LEGACY_DITHERING_BIT_EXT`
-
-- Extending [VkRenderingFlagBits](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkRenderingFlagBits.html):
-
+- Extending [VkRenderingFlagBits](https://registry.khronos.org/vulkan/specs/latest/man/html/VkRenderingFlagBits.html):
+  
   - `VK_RENDERING_ENABLE_LEGACY_DITHERING_BIT_EXT`
 
-## <a href="#_version_history" class="anchor"></a>Version History
+## [](#_version_history)Version History
 
 - Revision 1, 2022-03-31 (Shahbaz Youssefi)
-
+  
   - Internal revisions
-
 - Revision 2, 2024-02-22 (Shahbaz Youssefi)
-
+  
   - Added pipeline create flag to support dynamic rendering
 
-## <a href="#_issues" class="anchor"></a>Issues
+## [](#_issues)Issues
 
-1\) In OpenGL, the dither state can change dynamically. Should this
-extension add a pipeline state for dither?
+1\) In OpenGL, the dither state can change dynamically. Should this extension add a pipeline state for dither?
 
-**RESOLVED**: No. Changing dither state is rarely, if ever, done during
-rendering. Every surveyed Android application either entirely disables
-dither, explicitly enables it, or uses the default state (which is
-enabled). Additionally, on some hardware dither can only be specified in
-a render pass granularity, so a change in dither state would necessarily
-need to cause a render pass break. This extension considers dynamic
-changes in OpenGL dither state a theoretical situation, and expects the
-layer to break the render pass in such a situation without any practical
-downsides.
+**RESOLVED**: No. Changing dither state is rarely, if ever, done during rendering. Every surveyed Android application either entirely disables dither, explicitly enables it, or uses the default state (which is enabled). Additionally, on some hardware dither can only be specified in a render pass granularity, so a change in dither state would necessarily need to cause a render pass break. This extension considers dynamic changes in OpenGL dither state a theoretical situation, and expects the layer to break the render pass in such a situation without any practical downsides.
 
-## <a href="#_see_also" class="anchor"></a>See Also
+## [](#_see_also)See Also
 
 No cross-references are available
 
-## <a href="#_document_notes" class="anchor"></a>Document Notes
+## [](#_document_notes)Document Notes
 
-For more information, see the <a
-href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#VK_EXT_legacy_dithering"
-target="_blank" rel="noopener">Vulkan Specification</a>
+For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#VK_EXT_legacy_dithering)
 
-This page is a generated document. Fixes and changes should be made to
-the generator scripts, not directly.
+This page is a generated document. Fixes and changes should be made to the generator scripts, not directly.
 
-## <a href="#_copyright" class="anchor"></a>Copyright
+## [](#_copyright)Copyright
 
-Copyright 2014-2024 The Khronos Group Inc.
+Copyright 2014-2025 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
-
-Version 1.3.290  
-Last updated 2024-07-11 23:39:16 -0700

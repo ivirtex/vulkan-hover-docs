@@ -2,16 +2,15 @@
 
 ## Name
 
-VkCommandPoolCreateInfo - Structure specifying parameters of a newly
-created command pool
+VkCommandPoolCreateInfo - Structure specifying parameters of a newly created command pool
 
 
 
-## <a href="#_c_specification" class="anchor"></a>C Specification
+## [](#_c_specification)C Specification
 
 The `VkCommandPoolCreateInfo` structure is defined as:
 
-``` c
+```c++
 // Provided by VK_VERSION_1_0
 typedef struct VkCommandPoolCreateInfo {
     VkStructureType             sType;
@@ -21,78 +20,47 @@ typedef struct VkCommandPoolCreateInfo {
 } VkCommandPoolCreateInfo;
 ```
 
-## <a href="#_members" class="anchor"></a>Members
+## [](#_members)Members
 
-- `sType` is a [VkStructureType](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkStructureType.html) value identifying
-  this structure.
+- `sType` is a [VkStructureType](https://registry.khronos.org/vulkan/specs/latest/man/html/VkStructureType.html) value identifying this structure.
+- `pNext` is `NULL` or a pointer to a structure extending this structure.
+- `flags` is a bitmask of [VkCommandPoolCreateFlagBits](https://registry.khronos.org/vulkan/specs/latest/man/html/VkCommandPoolCreateFlagBits.html) indicating usage behavior for the pool and command buffers allocated from it.
+- `queueFamilyIndex` designates a queue family as described in section [Queue Family Properties](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#devsandqueues-queueprops). All command buffers allocated from this command pool **must** be submitted on queues from the same queue family.
 
-- `pNext` is `NULL` or a pointer to a structure extending this
-  structure.
-
-- `flags` is a bitmask of
-  [VkCommandPoolCreateFlagBits](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkCommandPoolCreateFlagBits.html)
-  indicating usage behavior for the pool and command buffers allocated
-  from it.
-
-- `queueFamilyIndex` designates a queue family as described in section
-  <a
-  href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#devsandqueues-queueprops"
-  target="_blank" rel="noopener">Queue Family Properties</a>. All
-  command buffers allocated from this command pool **must** be submitted
-  on queues from the same queue family.
-
-## <a href="#_description" class="anchor"></a>Description
+## [](#_description)Description
 
 Valid Usage
 
-- <a href="#VUID-VkCommandPoolCreateInfo-flags-02860"
-  id="VUID-VkCommandPoolCreateInfo-flags-02860"></a>
-  VUID-VkCommandPoolCreateInfo-flags-02860  
-  If the <a
-  href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#features-protectedMemory"
-  target="_blank" rel="noopener"><code>protectedMemory</code></a>
-  feature is not enabled, the `VK_COMMAND_POOL_CREATE_PROTECTED_BIT` bit
-  of `flags` **must** not be set
+- [](#VUID-VkCommandPoolCreateInfo-flags-02860)VUID-VkCommandPoolCreateInfo-flags-02860  
+  If the [`protectedMemory`](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#features-protectedMemory) feature is not enabled, the `VK_COMMAND_POOL_CREATE_PROTECTED_BIT` bit of `flags` **must** not be set
+- [](#VUID-VkCommandPoolCreateInfo-pNext-09908)VUID-VkCommandPoolCreateInfo-pNext-09908  
+  If the `pNext` chain includes a [VkDataGraphProcessingEngineCreateInfoARM](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDataGraphProcessingEngineCreateInfoARM.html) structure, then `queueFamilyIndex` **must** designate a queue family that supports `VK_QUEUE_DATA_GRAPH_BIT_ARM`
+- [](#VUID-VkCommandPoolCreateInfo-pNext-09909)VUID-VkCommandPoolCreateInfo-pNext-09909  
+  If the `pNext` chain includes a [VkDataGraphProcessingEngineCreateInfoARM](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDataGraphProcessingEngineCreateInfoARM.html) structure, then the queue family designated by `queueFamilyIndex` **must** support the data graph processing engines specified in the [VkDataGraphProcessingEngineCreateInfoARM](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDataGraphProcessingEngineCreateInfoARM.html) structure
 
 Valid Usage (Implicit)
 
-- <a href="#VUID-VkCommandPoolCreateInfo-sType-sType"
-  id="VUID-VkCommandPoolCreateInfo-sType-sType"></a>
-  VUID-VkCommandPoolCreateInfo-sType-sType  
+- [](#VUID-VkCommandPoolCreateInfo-sType-sType)VUID-VkCommandPoolCreateInfo-sType-sType  
   `sType` **must** be `VK_STRUCTURE_TYPE_COMMAND_POOL_CREATE_INFO`
+- [](#VUID-VkCommandPoolCreateInfo-pNext-pNext)VUID-VkCommandPoolCreateInfo-pNext-pNext  
+  `pNext` **must** be `NULL` or a pointer to a valid instance of [VkDataGraphProcessingEngineCreateInfoARM](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDataGraphProcessingEngineCreateInfoARM.html)
+- [](#VUID-VkCommandPoolCreateInfo-sType-unique)VUID-VkCommandPoolCreateInfo-sType-unique  
+  The `sType` value of each structure in the `pNext` chain **must** be unique
+- [](#VUID-VkCommandPoolCreateInfo-flags-parameter)VUID-VkCommandPoolCreateInfo-flags-parameter  
+  `flags` **must** be a valid combination of [VkCommandPoolCreateFlagBits](https://registry.khronos.org/vulkan/specs/latest/man/html/VkCommandPoolCreateFlagBits.html) values
 
-- <a href="#VUID-VkCommandPoolCreateInfo-pNext-pNext"
-  id="VUID-VkCommandPoolCreateInfo-pNext-pNext"></a>
-  VUID-VkCommandPoolCreateInfo-pNext-pNext  
-  `pNext` **must** be `NULL`
+## [](#_see_also)See Also
 
-- <a href="#VUID-VkCommandPoolCreateInfo-flags-parameter"
-  id="VUID-VkCommandPoolCreateInfo-flags-parameter"></a>
-  VUID-VkCommandPoolCreateInfo-flags-parameter  
-  `flags` **must** be a valid combination of
-  [VkCommandPoolCreateFlagBits](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkCommandPoolCreateFlagBits.html) values
+[VK\_VERSION\_1\_0](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_VERSION_1_0.html), [VkCommandPoolCreateFlags](https://registry.khronos.org/vulkan/specs/latest/man/html/VkCommandPoolCreateFlags.html), [VkStructureType](https://registry.khronos.org/vulkan/specs/latest/man/html/VkStructureType.html), [vkCreateCommandPool](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCreateCommandPool.html)
 
-## <a href="#_see_also" class="anchor"></a>See Also
+## [](#_document_notes)Document Notes
 
-[VK_VERSION_1_0](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_VERSION_1_0.html),
-[VkCommandPoolCreateFlags](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkCommandPoolCreateFlags.html),
-[VkStructureType](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkStructureType.html),
-[vkCreateCommandPool](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCreateCommandPool.html)
+For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#VkCommandPoolCreateInfo)
 
-## <a href="#_document_notes" class="anchor"></a>Document Notes
+This page is extracted from the Vulkan Specification. Fixes and changes should be made to the Specification, not directly.
 
-For more information, see the <a
-href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#VkCommandPoolCreateInfo"
-target="_blank" rel="noopener">Vulkan Specification</a>
+## [](#_copyright)Copyright
 
-This page is extracted from the Vulkan Specification. Fixes and changes
-should be made to the Specification, not directly.
-
-## <a href="#_copyright" class="anchor"></a>Copyright
-
-Copyright 2014-2024 The Khronos Group Inc.
+Copyright 2014-2025 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
-
-Version 1.3.290  
-Last updated 2024-07-11 23:39:16 -0700

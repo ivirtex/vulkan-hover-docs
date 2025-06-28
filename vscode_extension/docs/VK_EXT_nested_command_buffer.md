@@ -1,129 +1,99 @@
-# VK_EXT_nested_command_buffer(3) Manual Page
+# VK\_EXT\_nested\_command\_buffer(3) Manual Page
 
 ## Name
 
-VK_EXT_nested_command_buffer - device extension
+VK\_EXT\_nested\_command\_buffer - device extension
 
 
 
-## <a href="#_registered_extension_number" class="anchor"></a>Registered Extension Number
+## [](#_registered_extension_number)Registered Extension Number
 
 452
 
-## <a href="#_revision" class="anchor"></a>Revision
+## [](#_revision)Revision
 
 1
 
-## <a href="#_ratification_status" class="anchor"></a>Ratification Status
+## [](#_ratification_status)Ratification Status
 
 Ratified
 
-## <a href="#_extension_and_version_dependencies" class="anchor"></a>Extension and Version Dependencies
+## [](#_extension_and_version_dependencies)Extension and Version Dependencies
 
-[VK_KHR_get_physical_device_properties2](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_KHR_get_physical_device_properties2.html)  
+[VK\_KHR\_get\_physical\_device\_properties2](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_KHR_get_physical_device_properties2.html)  
 or  
-[Version 1.1](#versions-1.1)  
+[Vulkan Version 1.1](#versions-1.1)
 
-## <a href="#_contact" class="anchor"></a>Contact
+## [](#_contact)Contact
 
-- Piers Daniell <a
-  href="https://github.com/KhronosGroup/Vulkan-Docs/issues/new?body=%5BVK_EXT_nested_command_buffer%5D%20@pdaniell-nv%0A*Here%20describe%20the%20issue%20or%20question%20you%20have%20about%20the%20VK_EXT_nested_command_buffer%20extension*"
-  target="_blank" rel="nofollow noopener"><em></em>pdaniell-nv</a>
+- Piers Daniell [\[GitHub\]pdaniell-nv](https://github.com/KhronosGroup/Vulkan-Docs/issues/new?body=%5BVK_EXT_nested_command_buffer%5D%20%40pdaniell-nv%0A%2AHere%20describe%20the%20issue%20or%20question%20you%20have%20about%20the%20VK_EXT_nested_command_buffer%20extension%2A)
 
-## <a href="#_other_extension_metadata" class="anchor"></a>Other Extension Metadata
+## [](#_other_extension_metadata)Other Extension Metadata
 
-**Last Modified Date**  
+**Last Modified Date**
+
 2023-09-18
 
-**Contributors**  
+**Contributors**
+
 - Daniel Story, Nintendo
-
 - Peter Kohaut, NVIDIA
-
 - Shahbaz Youssefi, Google
-
 - Slawomir Grajewski, Intel
-
 - Stu Smith, AMD
 
-## <a href="#_description" class="anchor"></a>Description
+## [](#_description)Description
 
-With core Vulkan it is not legal to call
-[vkCmdExecuteCommands](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdExecuteCommands.html) when recording a
-secondary command buffer. This extension relaxes that restriction,
-allowing secondary command buffers to execute other secondary command
-buffers.
+With core Vulkan it is not legal to call [vkCmdExecuteCommands](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdExecuteCommands.html) when recording a secondary command buffer. This extension relaxes that restriction, allowing secondary command buffers to execute other secondary command buffers.
 
-## <a href="#_new_structures" class="anchor"></a>New Structures
+## [](#_new_structures)New Structures
 
-- Extending [VkPhysicalDeviceFeatures2](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkPhysicalDeviceFeatures2.html),
-  [VkDeviceCreateInfo](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkDeviceCreateInfo.html):
+- Extending [VkPhysicalDeviceFeatures2](https://registry.khronos.org/vulkan/specs/latest/man/html/VkPhysicalDeviceFeatures2.html), [VkDeviceCreateInfo](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDeviceCreateInfo.html):
+  
+  - [VkPhysicalDeviceNestedCommandBufferFeaturesEXT](https://registry.khronos.org/vulkan/specs/latest/man/html/VkPhysicalDeviceNestedCommandBufferFeaturesEXT.html)
+- Extending [VkPhysicalDeviceProperties2](https://registry.khronos.org/vulkan/specs/latest/man/html/VkPhysicalDeviceProperties2.html):
+  
+  - [VkPhysicalDeviceNestedCommandBufferPropertiesEXT](https://registry.khronos.org/vulkan/specs/latest/man/html/VkPhysicalDeviceNestedCommandBufferPropertiesEXT.html)
 
-  - [VkPhysicalDeviceNestedCommandBufferFeaturesEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkPhysicalDeviceNestedCommandBufferFeaturesEXT.html)
-
-- Extending
-  [VkPhysicalDeviceProperties2](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkPhysicalDeviceProperties2.html):
-
-  - [VkPhysicalDeviceNestedCommandBufferPropertiesEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkPhysicalDeviceNestedCommandBufferPropertiesEXT.html)
-
-## <a href="#_new_enum_constants" class="anchor"></a>New Enum Constants
+## [](#_new_enum_constants)New Enum Constants
 
 - `VK_EXT_NESTED_COMMAND_BUFFER_EXTENSION_NAME`
-
 - `VK_EXT_NESTED_COMMAND_BUFFER_SPEC_VERSION`
-
-- Extending [VkRenderingFlagBits](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkRenderingFlagBits.html):
-
+- Extending [VkRenderingFlagBits](https://registry.khronos.org/vulkan/specs/latest/man/html/VkRenderingFlagBits.html):
+  
   - `VK_RENDERING_CONTENTS_INLINE_BIT_EXT`
-
-- Extending [VkStructureType](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkStructureType.html):
-
+- Extending [VkStructureType](https://registry.khronos.org/vulkan/specs/latest/man/html/VkStructureType.html):
+  
   - `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_NESTED_COMMAND_BUFFER_FEATURES_EXT`
-
   - `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_NESTED_COMMAND_BUFFER_PROPERTIES_EXT`
-
-- Extending [VkSubpassContents](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkSubpassContents.html):
-
+- Extending [VkSubpassContents](https://registry.khronos.org/vulkan/specs/latest/man/html/VkSubpassContents.html):
+  
   - `VK_SUBPASS_CONTENTS_INLINE_AND_SECONDARY_COMMAND_BUFFERS_EXT`
 
-## <a href="#_issues" class="anchor"></a>Issues
+## [](#_issues)Issues
 
-1\) The Command Buffer Levels property for the Vulkan commands comes
-from the `cmdbufferlevel` attribute in `vk.xml` for the command, and it
-is currently not possible to modify this attribute based on whether an
-extension is enabled. For this extension we want the `cmdbufferlevel`
-attribute for vkCmdExecuteCommands to be `primary,secondary` when this
-extension is enabled and `primary` otherwise.
+1\) The Command Buffer Levels property for the Vulkan commands comes from the `cmdbufferlevel` attribute in `vk.xml` for the command, and it is currently not possible to modify this attribute based on whether an extension is enabled. For this extension we want the `cmdbufferlevel` attribute for vkCmdExecuteCommands to be `primary,secondary` when this extension is enabled and `primary` otherwise.
 
-**RESOLVED**: The `cmdbufferlevel` attribute for
-[vkCmdExecuteCommands](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdExecuteCommands.html) has been changed to
-`primary,secondary` and a new VUID added to prohibit recording this
-command in a secondary command buffer unless this extension is enabled.
+**RESOLVED**: The `cmdbufferlevel` attribute for [vkCmdExecuteCommands](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdExecuteCommands.html) has been changed to `primary,secondary` and a new VUID added to prohibit recording this command in a secondary command buffer unless this extension is enabled.
 
-## <a href="#_version_history" class="anchor"></a>Version History
+## [](#_version_history)Version History
 
 - Revision 1, 2023-09-18 (Piers Daniell)
-
+  
   - Internal revisions
 
-## <a href="#_see_also" class="anchor"></a>See Also
+## [](#_see_also)See Also
 
 No cross-references are available
 
-## <a href="#_document_notes" class="anchor"></a>Document Notes
+## [](#_document_notes)Document Notes
 
-For more information, see the <a
-href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#VK_EXT_nested_command_buffer"
-target="_blank" rel="noopener">Vulkan Specification</a>
+For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#VK_EXT_nested_command_buffer)
 
-This page is a generated document. Fixes and changes should be made to
-the generator scripts, not directly.
+This page is a generated document. Fixes and changes should be made to the generator scripts, not directly.
 
-## <a href="#_copyright" class="anchor"></a>Copyright
+## [](#_copyright)Copyright
 
-Copyright 2014-2024 The Khronos Group Inc.
+Copyright 2014-2025 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
-
-Version 1.3.290  
-Last updated 2024-07-11 23:39:16 -0700

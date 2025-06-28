@@ -2,18 +2,15 @@
 
 ## Name
 
-VkPhysicalDeviceRasterizationOrderAttachmentAccessFeaturesEXT -
-Structure describing whether rasterization order attachment access can
-be supported by an implementation
+VkPhysicalDeviceRasterizationOrderAttachmentAccessFeaturesEXT - Structure describing whether rasterization order attachment access can be supported by an implementation
 
 
 
-## <a href="#_c_specification" class="anchor"></a>C Specification
+## [](#_c_specification)C Specification
 
-The `VkPhysicalDeviceRasterizationOrderAttachmentAccessFeaturesEXT`
-structure is defined as:
+The `VkPhysicalDeviceRasterizationOrderAttachmentAccessFeaturesEXT` structure is defined as:
 
-``` c
+```c++
 // Provided by VK_EXT_rasterization_order_attachment_access
 typedef struct VkPhysicalDeviceRasterizationOrderAttachmentAccessFeaturesEXT {
     VkStructureType    sType;
@@ -26,77 +23,42 @@ typedef struct VkPhysicalDeviceRasterizationOrderAttachmentAccessFeaturesEXT {
 
 or the equivalent
 
-``` c
+```c++
 // Provided by VK_ARM_rasterization_order_attachment_access
 typedef VkPhysicalDeviceRasterizationOrderAttachmentAccessFeaturesEXT VkPhysicalDeviceRasterizationOrderAttachmentAccessFeaturesARM;
 ```
 
-## <a href="#_members" class="anchor"></a>Members
+## [](#_members)Members
 
 This structure describes the following features:
 
-- `sType` is a [VkStructureType](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkStructureType.html) value identifying
-  this structure.
+- `sType` is a [VkStructureType](https://registry.khronos.org/vulkan/specs/latest/man/html/VkStructureType.html) value identifying this structure.
+- `pNext` is `NULL` or a pointer to a structure extending this structure.
+- []()`rasterizationOrderColorAttachmentAccess` indicates that rasterization order access to color and input attachments is supported by the implementation.
+- []()`rasterizationOrderDepthAttachmentAccess` indicates that rasterization order access to the depth aspect of depth/stencil and input attachments is supported by the implementation.
+- []()`rasterizationOrderStencilAttachmentAccess` indicates that rasterization order access to the stencil aspect of depth/stencil and input attachments is supported by the implementation.
 
-- `pNext` is `NULL` or a pointer to a structure extending this
-  structure.
+## [](#_description)Description
 
-- <span id="features-rasterizationOrderColorAttachmentAccess"></span>
-  `rasterizationOrderColorAttachmentAccess` indicates that rasterization
-  order access to color and input attachments is supported by the
-  implementation.
-
-- <span id="features-rasterizationOrderDepthAttachmentAccess"></span>
-  `rasterizationOrderDepthAttachmentAccess` indicates that rasterization
-  order access to the depth aspect of depth/stencil and input
-  attachments is supported by the implementation.
-
-- <span id="features-rasterizationOrderStencilAttachmentAccess"></span>
-  `rasterizationOrderStencilAttachmentAccess` indicates that
-  rasterization order access to the stencil aspect of depth/stencil and
-  input attachments is supported by the implementation.
-
-## <a href="#_description" class="anchor"></a>Description
-
-If the `VkPhysicalDeviceRasterizationOrderAttachmentAccessFeaturesEXT`
-structure is included in the `pNext` chain of the
-[VkPhysicalDeviceFeatures2](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkPhysicalDeviceFeatures2.html) structure
-passed to
-[vkGetPhysicalDeviceFeatures2](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkGetPhysicalDeviceFeatures2.html), it is
-filled in to indicate whether each corresponding feature is supported.
-`VkPhysicalDeviceRasterizationOrderAttachmentAccessFeaturesEXT` **can**
-also be used in the `pNext` chain of
-[VkDeviceCreateInfo](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkDeviceCreateInfo.html) to selectively enable
-these features.
+If the `VkPhysicalDeviceRasterizationOrderAttachmentAccessFeaturesEXT` structure is included in the `pNext` chain of the [VkPhysicalDeviceFeatures2](https://registry.khronos.org/vulkan/specs/latest/man/html/VkPhysicalDeviceFeatures2.html) structure passed to [vkGetPhysicalDeviceFeatures2](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetPhysicalDeviceFeatures2.html), it is filled in to indicate whether each corresponding feature is supported. If the application wishes to use a [VkDevice](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDevice.html) with any features described by `VkPhysicalDeviceRasterizationOrderAttachmentAccessFeaturesEXT`, it **must** add an instance of the structure, with the desired feature members set to `VK_TRUE`, to the `pNext` chain of [VkDeviceCreateInfo](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDeviceCreateInfo.html) when creating the [VkDevice](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDevice.html).
 
 Valid Usage (Implicit)
 
-- <a
-  href="#VUID-VkPhysicalDeviceRasterizationOrderAttachmentAccessFeaturesEXT-sType-sType"
-  id="VUID-VkPhysicalDeviceRasterizationOrderAttachmentAccessFeaturesEXT-sType-sType"></a>
-  VUID-VkPhysicalDeviceRasterizationOrderAttachmentAccessFeaturesEXT-sType-sType  
-  `sType` **must** be
-  `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_RASTERIZATION_ORDER_ATTACHMENT_ACCESS_FEATURES_EXT`
+- [](#VUID-VkPhysicalDeviceRasterizationOrderAttachmentAccessFeaturesEXT-sType-sType)VUID-VkPhysicalDeviceRasterizationOrderAttachmentAccessFeaturesEXT-sType-sType  
+  `sType` **must** be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_RASTERIZATION_ORDER_ATTACHMENT_ACCESS_FEATURES_EXT`
 
-## <a href="#_see_also" class="anchor"></a>See Also
+## [](#_see_also)See Also
 
-[VK_EXT_rasterization_order_attachment_access](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_EXT_rasterization_order_attachment_access.html),
-[VkBool32](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkBool32.html), [VkStructureType](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkStructureType.html)
+[VK\_EXT\_rasterization\_order\_attachment\_access](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_EXT_rasterization_order_attachment_access.html), [VkBool32](https://registry.khronos.org/vulkan/specs/latest/man/html/VkBool32.html), [VkStructureType](https://registry.khronos.org/vulkan/specs/latest/man/html/VkStructureType.html)
 
-## <a href="#_document_notes" class="anchor"></a>Document Notes
+## [](#_document_notes)Document Notes
 
-For more information, see the <a
-href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#VkPhysicalDeviceRasterizationOrderAttachmentAccessFeaturesEXT"
-target="_blank" rel="noopener">Vulkan Specification</a>
+For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#VkPhysicalDeviceRasterizationOrderAttachmentAccessFeaturesEXT)
 
-This page is extracted from the Vulkan Specification. Fixes and changes
-should be made to the Specification, not directly.
+This page is extracted from the Vulkan Specification. Fixes and changes should be made to the Specification, not directly.
 
-## <a href="#_copyright" class="anchor"></a>Copyright
+## [](#_copyright)Copyright
 
-Copyright 2014-2024 The Khronos Group Inc.
+Copyright 2014-2025 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
-
-Version 1.3.290  
-Last updated 2024-07-11 23:39:16 -0700

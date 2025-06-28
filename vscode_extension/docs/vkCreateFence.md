@@ -6,11 +6,11 @@ vkCreateFence - Create a new fence object
 
 
 
-## <a href="#_c_specification" class="anchor"></a>C Specification
+## [](#_c_specification)C Specification
 
 To create a fence, call:
 
-``` c
+```c++
 // Provided by VK_VERSION_1_0
 VkResult vkCreateFence(
     VkDevice                                    device,
@@ -19,80 +19,51 @@ VkResult vkCreateFence(
     VkFence*                                    pFence);
 ```
 
-## <a href="#_parameters" class="anchor"></a>Parameters
+## [](#_parameters)Parameters
 
 - `device` is the logical device that creates the fence.
+- `pCreateInfo` is a pointer to a [VkFenceCreateInfo](https://registry.khronos.org/vulkan/specs/latest/man/html/VkFenceCreateInfo.html) structure containing information about how the fence is to be created.
+- `pAllocator` controls host memory allocation as described in the [Memory Allocation](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#memory-allocation) chapter.
+- `pFence` is a pointer to a handle in which the resulting fence object is returned.
 
-- `pCreateInfo` is a pointer to a
-  [VkFenceCreateInfo](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkFenceCreateInfo.html) structure containing
-  information about how the fence is to be created.
-
-- `pAllocator` controls host memory allocation as described in the <a
-  href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#memory-allocation"
-  target="_blank" rel="noopener">Memory Allocation</a> chapter.
-
-- `pFence` is a pointer to a handle in which the resulting fence object
-  is returned.
-
-## <a href="#_description" class="anchor"></a>Description
+## [](#_description)Description
 
 Valid Usage (Implicit)
 
-- <a href="#VUID-vkCreateFence-device-parameter"
-  id="VUID-vkCreateFence-device-parameter"></a>
-  VUID-vkCreateFence-device-parameter  
-  `device` **must** be a valid [VkDevice](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkDevice.html) handle
-
-- <a href="#VUID-vkCreateFence-pCreateInfo-parameter"
-  id="VUID-vkCreateFence-pCreateInfo-parameter"></a>
-  VUID-vkCreateFence-pCreateInfo-parameter  
-  `pCreateInfo` **must** be a valid pointer to a valid
-  [VkFenceCreateInfo](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkFenceCreateInfo.html) structure
-
-- <a href="#VUID-vkCreateFence-pAllocator-parameter"
-  id="VUID-vkCreateFence-pAllocator-parameter"></a>
-  VUID-vkCreateFence-pAllocator-parameter  
-  If `pAllocator` is not `NULL`, `pAllocator` **must** be a valid
-  pointer to a valid [VkAllocationCallbacks](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkAllocationCallbacks.html)
-  structure
-
-- <a href="#VUID-vkCreateFence-pFence-parameter"
-  id="VUID-vkCreateFence-pFence-parameter"></a>
-  VUID-vkCreateFence-pFence-parameter  
-  `pFence` **must** be a valid pointer to a [VkFence](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkFence.html)
-  handle
+- [](#VUID-vkCreateFence-device-parameter)VUID-vkCreateFence-device-parameter  
+  `device` **must** be a valid [VkDevice](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDevice.html) handle
+- [](#VUID-vkCreateFence-pCreateInfo-parameter)VUID-vkCreateFence-pCreateInfo-parameter  
+  `pCreateInfo` **must** be a valid pointer to a valid [VkFenceCreateInfo](https://registry.khronos.org/vulkan/specs/latest/man/html/VkFenceCreateInfo.html) structure
+- [](#VUID-vkCreateFence-pAllocator-parameter)VUID-vkCreateFence-pAllocator-parameter  
+  If `pAllocator` is not `NULL`, `pAllocator` **must** be a valid pointer to a valid [VkAllocationCallbacks](https://registry.khronos.org/vulkan/specs/latest/man/html/VkAllocationCallbacks.html) structure
+- [](#VUID-vkCreateFence-pFence-parameter)VUID-vkCreateFence-pFence-parameter  
+  `pFence` **must** be a valid pointer to a [VkFence](https://registry.khronos.org/vulkan/specs/latest/man/html/VkFence.html) handle
+- [](#VUID-vkCreateFence-device-queuecount)VUID-vkCreateFence-device-queuecount  
+  The device **must** have been created with at least `1` queue
 
 Return Codes
 
-On success, this command returns  
+On success, this command returns
+
 - `VK_SUCCESS`
 
-On failure, this command returns  
-- `VK_ERROR_OUT_OF_HOST_MEMORY`
+On failure, this command returns
 
+- `VK_ERROR_OUT_OF_HOST_MEMORY`
 - `VK_ERROR_OUT_OF_DEVICE_MEMORY`
 
-## <a href="#_see_also" class="anchor"></a>See Also
+## [](#_see_also)See Also
 
-[VK_VERSION_1_0](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_VERSION_1_0.html),
-[VkAllocationCallbacks](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkAllocationCallbacks.html),
-[VkDevice](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkDevice.html), [VkFence](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkFence.html),
-[VkFenceCreateInfo](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkFenceCreateInfo.html)
+[VK\_VERSION\_1\_0](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_VERSION_1_0.html), [VkAllocationCallbacks](https://registry.khronos.org/vulkan/specs/latest/man/html/VkAllocationCallbacks.html), [VkDevice](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDevice.html), [VkFence](https://registry.khronos.org/vulkan/specs/latest/man/html/VkFence.html), [VkFenceCreateInfo](https://registry.khronos.org/vulkan/specs/latest/man/html/VkFenceCreateInfo.html)
 
-## <a href="#_document_notes" class="anchor"></a>Document Notes
+## [](#_document_notes)Document Notes
 
-For more information, see the <a
-href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#vkCreateFence"
-target="_blank" rel="noopener">Vulkan Specification</a>
+For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#vkCreateFence)
 
-This page is extracted from the Vulkan Specification. Fixes and changes
-should be made to the Specification, not directly.
+This page is extracted from the Vulkan Specification. Fixes and changes should be made to the Specification, not directly.
 
-## <a href="#_copyright" class="anchor"></a>Copyright
+## [](#_copyright)Copyright
 
-Copyright 2014-2024 The Khronos Group Inc.
+Copyright 2014-2025 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
-
-Version 1.3.290  
-Last updated 2024-07-11 23:39:16 -0700

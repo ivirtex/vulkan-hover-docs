@@ -2,21 +2,17 @@
 
 ## Name
 
-VkSurfaceProtectedCapabilitiesKHR - Structure describing capability of a
-surface to be protected
+VkSurfaceProtectedCapabilitiesKHR - Structure describing capability of a surface to be protected
 
 
 
-## <a href="#_c_specification" class="anchor"></a>C Specification
+## [](#_c_specification)C Specification
 
-An application queries if a protected [VkSurfaceKHR](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkSurfaceKHR.html)
-is displayable on a specific windowing system using
-`VkSurfaceProtectedCapabilitiesKHR`, which **can** be passed in `pNext`
-parameter of `VkSurfaceCapabilities2KHR`.
+An application queries if a protected [VkSurfaceKHR](https://registry.khronos.org/vulkan/specs/latest/man/html/VkSurfaceKHR.html) is displayable on a specific windowing system using `VkSurfaceProtectedCapabilitiesKHR`, which **can** be passed in `pNext` parameter of `VkSurfaceCapabilities2KHR`.
 
 The `VkSurfaceProtectedCapabilitiesKHR` structure is defined as:
 
-``` c
+```c++
 // Provided by VK_KHR_surface_protected_capabilities
 typedef struct VkSurfaceProtectedCapabilitiesKHR {
     VkStructureType    sType;
@@ -25,63 +21,33 @@ typedef struct VkSurfaceProtectedCapabilitiesKHR {
 } VkSurfaceProtectedCapabilitiesKHR;
 ```
 
-## <a href="#_members" class="anchor"></a>Members
+## [](#_members)Members
 
-- `sType` is a [VkStructureType](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkStructureType.html) value identifying
-  this structure.
+- `sType` is a [VkStructureType](https://registry.khronos.org/vulkan/specs/latest/man/html/VkStructureType.html) value identifying this structure.
+- `pNext` is `NULL` or a pointer to a structure extending this structure.
+- `supportsProtected` specifies whether a protected swapchain created from [VkPhysicalDeviceSurfaceInfo2KHR](https://registry.khronos.org/vulkan/specs/latest/man/html/VkPhysicalDeviceSurfaceInfo2KHR.html)::`surface` for a particular windowing system **can** be displayed on screen or not. If `supportsProtected` is `VK_TRUE`, then creation of swapchains with the `VK_SWAPCHAIN_CREATE_PROTECTED_BIT_KHR` flag set **must** be supported for `surface`.
 
-- `pNext` is `NULL` or a pointer to a structure extending this
-  structure.
+## [](#_description)Description
 
-- `supportsProtected` specifies whether a protected swapchain created
-  from
-  [VkPhysicalDeviceSurfaceInfo2KHR](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkPhysicalDeviceSurfaceInfo2KHR.html)::`surface`
-  for a particular windowing system **can** be displayed on screen or
-  not. If `supportsProtected` is `VK_TRUE`, then creation of swapchains
-  with the `VK_SWAPCHAIN_CREATE_PROTECTED_BIT_KHR` flag set **must** be
-  supported for `surface`.
-
-## <a href="#_description" class="anchor"></a>Description
-
-If the [`VK_GOOGLE_surfaceless_query`](VK_GOOGLE_surfaceless_query.html)
-extension is enabled, the value returned in `supportsProtected` will be
-identical for every valid surface created on this physical device, and
-so in the
-[vkGetPhysicalDeviceSurfaceCapabilities2KHR](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkGetPhysicalDeviceSurfaceCapabilities2KHR.html)
-call,
-[VkPhysicalDeviceSurfaceInfo2KHR](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkPhysicalDeviceSurfaceInfo2KHR.html)::`surface`
-**can** be [VK_NULL_HANDLE](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_NULL_HANDLE.html). In that case, the
-contents of
-[VkSurfaceCapabilities2KHR](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkSurfaceCapabilities2KHR.html)::`surfaceCapabilities`
-as well as any other struct chained to it will be undefined.
+If the `VK_GOOGLE_surfaceless_query` extension is enabled, the value returned in `supportsProtected` will be identical for every valid surface created on this physical device, and so in the [vkGetPhysicalDeviceSurfaceCapabilities2KHR](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetPhysicalDeviceSurfaceCapabilities2KHR.html) call, [VkPhysicalDeviceSurfaceInfo2KHR](https://registry.khronos.org/vulkan/specs/latest/man/html/VkPhysicalDeviceSurfaceInfo2KHR.html)::`surface` **can** be [VK\_NULL\_HANDLE](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_NULL_HANDLE.html). In that case, the contents of [VkSurfaceCapabilities2KHR](https://registry.khronos.org/vulkan/specs/latest/man/html/VkSurfaceCapabilities2KHR.html)::`surfaceCapabilities` as well as any other structure chained to it will be undefined.
 
 Valid Usage (Implicit)
 
-- <a href="#VUID-VkSurfaceProtectedCapabilitiesKHR-sType-sType"
-  id="VUID-VkSurfaceProtectedCapabilitiesKHR-sType-sType"></a>
-  VUID-VkSurfaceProtectedCapabilitiesKHR-sType-sType  
-  `sType` **must** be
-  `VK_STRUCTURE_TYPE_SURFACE_PROTECTED_CAPABILITIES_KHR`
+- [](#VUID-VkSurfaceProtectedCapabilitiesKHR-sType-sType)VUID-VkSurfaceProtectedCapabilitiesKHR-sType-sType  
+  `sType` **must** be `VK_STRUCTURE_TYPE_SURFACE_PROTECTED_CAPABILITIES_KHR`
 
-## <a href="#_see_also" class="anchor"></a>See Also
+## [](#_see_also)See Also
 
-[VK_KHR_surface_protected_capabilities](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_KHR_surface_protected_capabilities.html),
-[VkBool32](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkBool32.html), [VkStructureType](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkStructureType.html)
+[VK\_KHR\_surface\_protected\_capabilities](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_KHR_surface_protected_capabilities.html), [VkBool32](https://registry.khronos.org/vulkan/specs/latest/man/html/VkBool32.html), [VkStructureType](https://registry.khronos.org/vulkan/specs/latest/man/html/VkStructureType.html)
 
-## <a href="#_document_notes" class="anchor"></a>Document Notes
+## [](#_document_notes)Document Notes
 
-For more information, see the <a
-href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#VkSurfaceProtectedCapabilitiesKHR"
-target="_blank" rel="noopener">Vulkan Specification</a>
+For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#VkSurfaceProtectedCapabilitiesKHR)
 
-This page is extracted from the Vulkan Specification. Fixes and changes
-should be made to the Specification, not directly.
+This page is extracted from the Vulkan Specification. Fixes and changes should be made to the Specification, not directly.
 
-## <a href="#_copyright" class="anchor"></a>Copyright
+## [](#_copyright)Copyright
 
-Copyright 2014-2024 The Khronos Group Inc.
+Copyright 2014-2025 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
-
-Version 1.3.290  
-Last updated 2024-07-11 23:39:16 -0700

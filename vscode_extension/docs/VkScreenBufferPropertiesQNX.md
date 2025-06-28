@@ -2,16 +2,15 @@
 
 ## Name
 
-VkScreenBufferPropertiesQNX - Properties of External Memory QNX Screen
-Buffers
+VkScreenBufferPropertiesQNX - Properties of External Memory QNX Screen Buffers
 
 
 
-## <a href="#_c_specification" class="anchor"></a>C Specification
+## [](#_c_specification)C Specification
 
 The `VkScreenBufferPropertiesQNX` structure returned is defined as:
 
-``` c
+```c++
 // Provided by VK_QNX_external_memory_screen_buffer
 typedef struct VkScreenBufferPropertiesQNX {
     VkStructureType    sType;
@@ -21,61 +20,36 @@ typedef struct VkScreenBufferPropertiesQNX {
 } VkScreenBufferPropertiesQNX;
 ```
 
-## <a href="#_members" class="anchor"></a>Members
+## [](#_members)Members
 
-- `sType` is a [VkStructureType](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkStructureType.html) value identifying
-  this structure.
-
-- `pNext` is `NULL` or a pointer to a structure extending this
-  structure.
-
+- `sType` is a [VkStructureType](https://registry.khronos.org/vulkan/specs/latest/man/html/VkStructureType.html) value identifying this structure.
+- `pNext` is `NULL` or a pointer to a structure extending this structure.
 - `allocationSize` is the size of the external memory.
+- `memoryTypeBits` is a bitmask containing one bit set for every memory type which the specified Screen buffer **can** be imported as.
 
-- `memoryTypeBits` is a bitmask containing one bit set for every memory
-  type which the specified Screen buffer **can** be imported as.
-
-## <a href="#_description" class="anchor"></a>Description
+## [](#_description)Description
 
 Valid Usage (Implicit)
 
-- <a href="#VUID-VkScreenBufferPropertiesQNX-sType-sType"
-  id="VUID-VkScreenBufferPropertiesQNX-sType-sType"></a>
-  VUID-VkScreenBufferPropertiesQNX-sType-sType  
+- [](#VUID-VkScreenBufferPropertiesQNX-sType-sType)VUID-VkScreenBufferPropertiesQNX-sType-sType  
   `sType` **must** be `VK_STRUCTURE_TYPE_SCREEN_BUFFER_PROPERTIES_QNX`
+- [](#VUID-VkScreenBufferPropertiesQNX-pNext-pNext)VUID-VkScreenBufferPropertiesQNX-pNext-pNext  
+  `pNext` **must** be `NULL` or a pointer to a valid instance of [VkScreenBufferFormatPropertiesQNX](https://registry.khronos.org/vulkan/specs/latest/man/html/VkScreenBufferFormatPropertiesQNX.html)
+- [](#VUID-VkScreenBufferPropertiesQNX-sType-unique)VUID-VkScreenBufferPropertiesQNX-sType-unique  
+  The `sType` value of each structure in the `pNext` chain **must** be unique
 
-- <a href="#VUID-VkScreenBufferPropertiesQNX-pNext-pNext"
-  id="VUID-VkScreenBufferPropertiesQNX-pNext-pNext"></a>
-  VUID-VkScreenBufferPropertiesQNX-pNext-pNext  
-  `pNext` **must** be `NULL` or a pointer to a valid instance of
-  [VkScreenBufferFormatPropertiesQNX](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkScreenBufferFormatPropertiesQNX.html)
+## [](#_see_also)See Also
 
-- <a href="#VUID-VkScreenBufferPropertiesQNX-sType-unique"
-  id="VUID-VkScreenBufferPropertiesQNX-sType-unique"></a>
-  VUID-VkScreenBufferPropertiesQNX-sType-unique  
-  The `sType` value of each struct in the `pNext` chain **must** be
-  unique
+[VK\_QNX\_external\_memory\_screen\_buffer](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_QNX_external_memory_screen_buffer.html), [VkDeviceSize](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDeviceSize.html), [VkStructureType](https://registry.khronos.org/vulkan/specs/latest/man/html/VkStructureType.html), [vkGetScreenBufferPropertiesQNX](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetScreenBufferPropertiesQNX.html)
 
-## <a href="#_see_also" class="anchor"></a>See Also
+## [](#_document_notes)Document Notes
 
-[VK_QNX_external_memory_screen_buffer](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_QNX_external_memory_screen_buffer.html),
-[VkDeviceSize](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkDeviceSize.html),
-[VkStructureType](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkStructureType.html),
-[vkGetScreenBufferPropertiesQNX](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkGetScreenBufferPropertiesQNX.html)
+For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#VkScreenBufferPropertiesQNX)
 
-## <a href="#_document_notes" class="anchor"></a>Document Notes
+This page is extracted from the Vulkan Specification. Fixes and changes should be made to the Specification, not directly.
 
-For more information, see the <a
-href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#VkScreenBufferPropertiesQNX"
-target="_blank" rel="noopener">Vulkan Specification</a>
+## [](#_copyright)Copyright
 
-This page is extracted from the Vulkan Specification. Fixes and changes
-should be made to the Specification, not directly.
-
-## <a href="#_copyright" class="anchor"></a>Copyright
-
-Copyright 2014-2024 The Khronos Group Inc.
+Copyright 2014-2025 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
-
-Version 1.3.290  
-Last updated 2024-07-11 23:39:16 -0700

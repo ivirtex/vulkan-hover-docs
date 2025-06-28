@@ -6,17 +6,20 @@ VkGeometryTypeKHR - Enum specifying which type of geometry is provided
 
 
 
-## <a href="#_c_specification" class="anchor"></a>C Specification
+## [](#_c_specification)C Specification
 
-Geometry types are specified by
-[VkGeometryTypeKHR](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkGeometryTypeKHR.html), which takes values:
+Geometry types are specified by [VkGeometryTypeKHR](https://registry.khronos.org/vulkan/specs/latest/man/html/VkGeometryTypeKHR.html), which takes values:
 
-``` c
+```c++
 // Provided by VK_KHR_acceleration_structure
 typedef enum VkGeometryTypeKHR {
     VK_GEOMETRY_TYPE_TRIANGLES_KHR = 0,
     VK_GEOMETRY_TYPE_AABBS_KHR = 1,
     VK_GEOMETRY_TYPE_INSTANCES_KHR = 2,
+  // Provided by VK_NV_ray_tracing_linear_swept_spheres
+    VK_GEOMETRY_TYPE_SPHERES_NV = 1000429004,
+  // Provided by VK_NV_ray_tracing_linear_swept_spheres
+    VK_GEOMETRY_TYPE_LINEAR_SWEPT_SPHERES_NV = 1000429005,
   // Provided by VK_NV_ray_tracing
     VK_GEOMETRY_TYPE_TRIANGLES_NV = VK_GEOMETRY_TYPE_TRIANGLES_KHR,
   // Provided by VK_NV_ray_tracing
@@ -26,43 +29,31 @@ typedef enum VkGeometryTypeKHR {
 
 or the equivalent
 
-``` c
+```c++
 // Provided by VK_NV_ray_tracing
 typedef VkGeometryTypeKHR VkGeometryTypeNV;
 ```
 
-## <a href="#_description" class="anchor"></a>Description
+## [](#_description)Description
 
-- `VK_GEOMETRY_TYPE_TRIANGLES_KHR` specifies a geometry type consisting
-  of triangles.
+- `VK_GEOMETRY_TYPE_TRIANGLES_KHR` specifies a geometry type consisting of [triangles](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#ray-tracing-triangle-primitive).
+- `VK_GEOMETRY_TYPE_AABBS_KHR` specifies a geometry type consisting of [axis-aligned bounding boxes](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#aabb-primitive).
+- `VK_GEOMETRY_TYPE_INSTANCES_KHR` specifies a geometry type consisting of acceleration structure instances.
+- `VK_GEOMETRY_TYPE_SPHERES_NV` specifies a geometry type consisting of [spheres](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#sphere-primitive).
+- `VK_GEOMETRY_TYPE_LINEAR_SWEPT_SPHERES_NV` specifies a geometry type consisting of [linear swept spheres](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#linear-swept-sphere-primitive).
 
-- `VK_GEOMETRY_TYPE_AABBS_KHR` specifies a geometry type consisting of
-  axis-aligned bounding boxes.
+## [](#_see_also)See Also
 
-- `VK_GEOMETRY_TYPE_INSTANCES_KHR` specifies a geometry type consisting
-  of acceleration structure instances.
+[VK\_KHR\_acceleration\_structure](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_KHR_acceleration_structure.html), [VK\_NV\_ray\_tracing](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_NV_ray_tracing.html), [VkAccelerationStructureGeometryKHR](https://registry.khronos.org/vulkan/specs/latest/man/html/VkAccelerationStructureGeometryKHR.html), [VkGeometryNV](https://registry.khronos.org/vulkan/specs/latest/man/html/VkGeometryNV.html)
 
-## <a href="#_see_also" class="anchor"></a>See Also
+## [](#_document_notes)Document Notes
 
-[VK_KHR_acceleration_structure](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_KHR_acceleration_structure.html),
-[VK_NV_ray_tracing](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_NV_ray_tracing.html),
-[VkAccelerationStructureGeometryKHR](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkAccelerationStructureGeometryKHR.html),
-[VkGeometryNV](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkGeometryNV.html)
+For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#VkGeometryTypeKHR)
 
-## <a href="#_document_notes" class="anchor"></a>Document Notes
+This page is extracted from the Vulkan Specification. Fixes and changes should be made to the Specification, not directly.
 
-For more information, see the <a
-href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#VkGeometryTypeKHR"
-target="_blank" rel="noopener">Vulkan Specification</a>
+## [](#_copyright)Copyright
 
-This page is extracted from the Vulkan Specification. Fixes and changes
-should be made to the Specification, not directly.
-
-## <a href="#_copyright" class="anchor"></a>Copyright
-
-Copyright 2014-2024 The Khronos Group Inc.
+Copyright 2014-2025 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
-
-Version 1.3.290  
-Last updated 2024-07-11 23:39:16 -0700

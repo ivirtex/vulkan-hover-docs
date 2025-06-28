@@ -2,17 +2,15 @@
 
 ## Name
 
-VkRayTracingPipelineInterfaceCreateInfoKHR - Structure specifying
-additional interface information when using libraries
+VkRayTracingPipelineInterfaceCreateInfoKHR - Structure specifying additional interface information when using libraries
 
 
 
-## <a href="#_c_specification" class="anchor"></a>C Specification
+## [](#_c_specification)C Specification
 
-The `VkRayTracingPipelineInterfaceCreateInfoKHR` structure is defined
-as:
+The `VkRayTracingPipelineInterfaceCreateInfoKHR` structure is defined as:
 
-``` c
+```c++
 // Provided by VK_KHR_ray_tracing_pipeline
 typedef struct VkRayTracingPipelineInterfaceCreateInfoKHR {
     VkStructureType    sType;
@@ -22,94 +20,45 @@ typedef struct VkRayTracingPipelineInterfaceCreateInfoKHR {
 } VkRayTracingPipelineInterfaceCreateInfoKHR;
 ```
 
-## <a href="#_members" class="anchor"></a>Members
+## [](#_members)Members
 
-- `sType` is a [VkStructureType](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkStructureType.html) value identifying
-  this structure.
+- `sType` is a [VkStructureType](https://registry.khronos.org/vulkan/specs/latest/man/html/VkStructureType.html) value identifying this structure.
+- `pNext` is `NULL` or a pointer to a structure extending this structure.
+- `maxPipelineRayPayloadSize` is the maximum payload size in bytes used by any shader in the pipeline.
+- `maxPipelineRayHitAttributeSize` is the maximum attribute structure size in bytes used by any shader in the pipeline.
 
-- `pNext` is `NULL` or a pointer to a structure extending this
-  structure.
+## [](#_description)Description
 
-- `maxPipelineRayPayloadSize` is the maximum payload size in bytes used
-  by any shader in the pipeline.
+`maxPipelineRayPayloadSize` is calculated as the maximum size of the block (in bytes) declared in the `RayPayloadKHR` or `IncomingRayPayloadKHR` storage classes. `maxPipelineRayHitAttributeSize` is calculated as the maximum size of any block (in bytes) declared in the `HitAttributeKHR` storage class. As variables in these storage classes do not have explicit offsets, the size should be calculated as if each variable has a [scalar alignment](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#interfaces-alignment-requirements) equal to the largest scalar alignment of any of the block’s members.
 
-- `maxPipelineRayHitAttributeSize` is the maximum attribute structure
-  size in bytes used by any shader in the pipeline.
+Note
 
-## <a href="#_description" class="anchor"></a>Description
-
-`maxPipelineRayPayloadSize` is calculated as the maximum number of bytes
-used by any block declared in the `RayPayloadKHR` or
-`IncomingRayPayloadKHR` storage classes.
-`maxPipelineRayHitAttributeSize` is calculated as the maximum number of
-bytes used by any block declared in the `HitAttributeKHR` storage class.
-As variables in these storage classes do not have explicit offsets, the
-size should be calculated as if each variable has a <a
-href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#interfaces-alignment-requirements"
-target="_blank" rel="noopener">scalar alignment</a> equal to the largest
-scalar alignment of any of the block’s members.
-
-<table>
-<colgroup>
-<col style="width: 50%" />
-<col style="width: 50%" />
-</colgroup>
-<tbody>
-<tr>
-<td class="icon"><em></em></td>
-<td class="content">Note
-<p>There is no explicit upper limit for
-<code>maxPipelineRayPayloadSize</code>, but in practice it should be
-kept as small as possible. Similar to invocation local memory, it must
-be allocated for each shader invocation and for devices which support
-many simultaneous invocations, this storage can rapidly be exhausted,
-resulting in failure.</p></td>
-</tr>
-</tbody>
-</table>
+There is no explicit upper limit for `maxPipelineRayPayloadSize`, but in practice it should be kept as small as possible. Similar to invocation local memory, it must be allocated for each shader invocation and for devices which support many simultaneous invocations, this storage can rapidly be exhausted, resulting in failure.
 
 Valid Usage
 
-- <a
-  href="#VUID-VkRayTracingPipelineInterfaceCreateInfoKHR-maxPipelineRayHitAttributeSize-03605"
-  id="VUID-VkRayTracingPipelineInterfaceCreateInfoKHR-maxPipelineRayHitAttributeSize-03605"></a>
-  VUID-VkRayTracingPipelineInterfaceCreateInfoKHR-maxPipelineRayHitAttributeSize-03605  
-  `maxPipelineRayHitAttributeSize` **must** be less than or equal to
-  [VkPhysicalDeviceRayTracingPipelinePropertiesKHR](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkPhysicalDeviceRayTracingPipelinePropertiesKHR.html)::`maxRayHitAttributeSize`
+- [](#VUID-VkRayTracingPipelineInterfaceCreateInfoKHR-maxPipelineRayHitAttributeSize-03605)VUID-VkRayTracingPipelineInterfaceCreateInfoKHR-maxPipelineRayHitAttributeSize-03605  
+  `maxPipelineRayHitAttributeSize` **must** be less than or equal to [VkPhysicalDeviceRayTracingPipelinePropertiesKHR](https://registry.khronos.org/vulkan/specs/latest/man/html/VkPhysicalDeviceRayTracingPipelinePropertiesKHR.html)::`maxRayHitAttributeSize`
 
 Valid Usage (Implicit)
 
-- <a href="#VUID-VkRayTracingPipelineInterfaceCreateInfoKHR-sType-sType"
-  id="VUID-VkRayTracingPipelineInterfaceCreateInfoKHR-sType-sType"></a>
-  VUID-VkRayTracingPipelineInterfaceCreateInfoKHR-sType-sType  
-  `sType` **must** be
-  `VK_STRUCTURE_TYPE_RAY_TRACING_PIPELINE_INTERFACE_CREATE_INFO_KHR`
-
-- <a href="#VUID-VkRayTracingPipelineInterfaceCreateInfoKHR-pNext-pNext"
-  id="VUID-VkRayTracingPipelineInterfaceCreateInfoKHR-pNext-pNext"></a>
-  VUID-VkRayTracingPipelineInterfaceCreateInfoKHR-pNext-pNext  
+- [](#VUID-VkRayTracingPipelineInterfaceCreateInfoKHR-sType-sType)VUID-VkRayTracingPipelineInterfaceCreateInfoKHR-sType-sType  
+  `sType` **must** be `VK_STRUCTURE_TYPE_RAY_TRACING_PIPELINE_INTERFACE_CREATE_INFO_KHR`
+- [](#VUID-VkRayTracingPipelineInterfaceCreateInfoKHR-pNext-pNext)VUID-VkRayTracingPipelineInterfaceCreateInfoKHR-pNext-pNext  
   `pNext` **must** be `NULL`
 
-## <a href="#_see_also" class="anchor"></a>See Also
+## [](#_see_also)See Also
 
-[VK_KHR_ray_tracing_pipeline](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_KHR_ray_tracing_pipeline.html),
-[VkRayTracingPipelineCreateInfoKHR](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkRayTracingPipelineCreateInfoKHR.html),
-[VkStructureType](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkStructureType.html)
+[VK\_KHR\_ray\_tracing\_pipeline](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_KHR_ray_tracing_pipeline.html), [VkRayTracingPipelineCreateInfoKHR](https://registry.khronos.org/vulkan/specs/latest/man/html/VkRayTracingPipelineCreateInfoKHR.html), [VkStructureType](https://registry.khronos.org/vulkan/specs/latest/man/html/VkStructureType.html)
 
-## <a href="#_document_notes" class="anchor"></a>Document Notes
+## [](#_document_notes)Document Notes
 
-For more information, see the <a
-href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#VkRayTracingPipelineInterfaceCreateInfoKHR"
-target="_blank" rel="noopener">Vulkan Specification</a>
+For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#VkRayTracingPipelineInterfaceCreateInfoKHR)
 
-This page is extracted from the Vulkan Specification. Fixes and changes
-should be made to the Specification, not directly.
+This page is extracted from the Vulkan Specification. Fixes and changes should be made to the Specification, not directly.
 
-## <a href="#_copyright" class="anchor"></a>Copyright
+## [](#_copyright)Copyright
 
-Copyright 2014-2024 The Khronos Group Inc.
+Copyright 2014-2025 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
-
-Version 1.3.290  
-Last updated 2024-07-11 23:39:16 -0700

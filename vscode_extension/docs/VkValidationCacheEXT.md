@@ -6,52 +6,29 @@ VkValidationCacheEXT - Opaque handle to a validation cache object
 
 
 
-## <a href="#_c_specification" class="anchor"></a>C Specification
+## [](#_c_specification)C Specification
 
-Validation cache objects allow the result of internal validation to be
-reused, both within a single application run and between multiple runs.
-Reuse within a single run is achieved by passing the same validation
-cache object when creating supported Vulkan objects. Reuse across runs
-of an application is achieved by retrieving validation cache contents in
-one run of an application, saving the contents, and using them to
-preinitialize a validation cache on a subsequent run. The contents of
-the validation cache objects are managed by the validation layers.
-Applications **can** manage the host memory consumed by a validation
-cache object and control the amount of data retrieved from a validation
-cache object.
+Validation cache objects allow the result of internal validation to be reused, both within a single application run and between multiple runs. Reuse within a single run is achieved by passing the same validation cache object when creating supported Vulkan objects. Reuse across runs of an application is achieved by retrieving validation cache contents in one run of an application, saving the contents, and using them to preinitialize a validation cache on a subsequent run. The contents of the validation cache objects are managed by the validation layers. Applications **can** manage the host memory consumed by a validation cache object and control the amount of data retrieved from a validation cache object.
 
-Validation cache objects are represented by `VkValidationCacheEXT`
-handles:
+Validation cache objects are represented by `VkValidationCacheEXT` handles:
 
-``` c
+```c++
 // Provided by VK_EXT_validation_cache
 VK_DEFINE_NON_DISPATCHABLE_HANDLE(VkValidationCacheEXT)
 ```
 
-## <a href="#_see_also" class="anchor"></a>See Also
+## [](#_see_also)See Also
 
-[VK_DEFINE_NON_DISPATCHABLE_HANDLE](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_DEFINE_NON_DISPATCHABLE_HANDLE.html),
-[VK_EXT_validation_cache](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_EXT_validation_cache.html),
-[VkShaderModuleValidationCacheCreateInfoEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkShaderModuleValidationCacheCreateInfoEXT.html),
-[vkCreateValidationCacheEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCreateValidationCacheEXT.html),
-[vkDestroyValidationCacheEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkDestroyValidationCacheEXT.html),
-[vkGetValidationCacheDataEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkGetValidationCacheDataEXT.html),
-[vkMergeValidationCachesEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkMergeValidationCachesEXT.html)
+[VK\_DEFINE\_NON\_DISPATCHABLE\_HANDLE](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_DEFINE_NON_DISPATCHABLE_HANDLE.html), [VK\_EXT\_validation\_cache](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_EXT_validation_cache.html), [VkShaderModuleValidationCacheCreateInfoEXT](https://registry.khronos.org/vulkan/specs/latest/man/html/VkShaderModuleValidationCacheCreateInfoEXT.html), [vkCreateValidationCacheEXT](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCreateValidationCacheEXT.html), [vkDestroyValidationCacheEXT](https://registry.khronos.org/vulkan/specs/latest/man/html/vkDestroyValidationCacheEXT.html), [vkGetValidationCacheDataEXT](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetValidationCacheDataEXT.html), [vkMergeValidationCachesEXT](https://registry.khronos.org/vulkan/specs/latest/man/html/vkMergeValidationCachesEXT.html)
 
-## <a href="#_document_notes" class="anchor"></a>Document Notes
+## [](#_document_notes)Document Notes
 
-For more information, see the <a
-href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#VkValidationCacheEXT"
-target="_blank" rel="noopener">Vulkan Specification</a>
+For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#VkValidationCacheEXT)
 
-This page is extracted from the Vulkan Specification. Fixes and changes
-should be made to the Specification, not directly.
+This page is extracted from the Vulkan Specification. Fixes and changes should be made to the Specification, not directly.
 
-## <a href="#_copyright" class="anchor"></a>Copyright
+## [](#_copyright)Copyright
 
-Copyright 2014-2024 The Khronos Group Inc.
+Copyright 2014-2025 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
-
-Version 1.3.290  
-Last updated 2024-07-11 23:39:16 -0700

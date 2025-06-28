@@ -1,142 +1,116 @@
-# VK_EXT_pipeline_creation_feedback(3) Manual Page
+# VK\_EXT\_pipeline\_creation\_feedback(3) Manual Page
 
 ## Name
 
-VK_EXT_pipeline_creation_feedback - device extension
+VK\_EXT\_pipeline\_creation\_feedback - device extension
 
 
 
-## <a href="#_registered_extension_number" class="anchor"></a>Registered Extension Number
+## [](#_registered_extension_number)Registered Extension Number
 
 193
 
-## <a href="#_revision" class="anchor"></a>Revision
+## [](#_revision)Revision
 
 1
 
-## <a href="#_ratification_status" class="anchor"></a>Ratification Status
+## [](#_ratification_status)Ratification Status
 
 Not ratified
 
-## <a href="#_extension_and_version_dependencies" class="anchor"></a>Extension and Version Dependencies
+## [](#_extension_and_version_dependencies)Extension and Version Dependencies
 
 None
 
-## <a href="#_deprecation_state" class="anchor"></a>Deprecation State
+## [](#_deprecation_state)Deprecation State
 
-- *Promoted* to <a
-  href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#versions-1.3-promotions"
-  target="_blank" rel="noopener">Vulkan 1.3</a>
+- *Promoted* to [Vulkan 1.3](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#versions-1.3-promotions)
 
-## <a href="#_special_use" class="anchor"></a>Special Use
+## [](#_special_use)Special Use
 
-- <a
-  href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#extendingvulkan-compatibility-specialuse"
-  target="_blank" rel="noopener">Developer tools</a>
+- [Developer tools](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#extendingvulkan-compatibility-specialuse)
 
-## <a href="#_contact" class="anchor"></a>Contact
+## [](#_contact)Contact
 
-- Jean-Francois Roy <a
-  href="https://github.com/KhronosGroup/Vulkan-Docs/issues/new?body=%5BVK_EXT_pipeline_creation_feedback%5D%20@jfroy%0A*Here%20describe%20the%20issue%20or%20question%20you%20have%20about%20the%20VK_EXT_pipeline_creation_feedback%20extension*"
-  target="_blank" rel="nofollow noopener"><em></em>jfroy</a>
+- Jean-Francois Roy [\[GitHub\]jfroy](https://github.com/KhronosGroup/Vulkan-Docs/issues/new?body=%5BVK_EXT_pipeline_creation_feedback%5D%20%40jfroy%0A%2AHere%20describe%20the%20issue%20or%20question%20you%20have%20about%20the%20VK_EXT_pipeline_creation_feedback%20extension%2A)
 
-## <a href="#_other_extension_metadata" class="anchor"></a>Other Extension Metadata
+## [](#_other_extension_metadata)Other Extension Metadata
 
-**Last Modified Date**  
+**Last Modified Date**
+
 2019-03-12
 
-**IP Status**  
+**IP Status**
+
 No known IP claims.
 
-**Contributors**  
+**Contributors**
+
 - Jean-Francois Roy, Google
-
 - Hai Nguyen, Google
-
 - Andrew Ellem, Google
-
 - Bob Fraser, Google
-
 - Sujeevan Rajayogam, Google
-
 - Jan-Harald Fredriksen, ARM
-
 - Jeff Leger, Qualcomm Technologies, Inc.
-
 - Jeff Bolz, NVIDIA
-
 - Daniel Koch, NVIDIA
-
 - Neil Henning, AMD
 
-## <a href="#_description" class="anchor"></a>Description
+## [](#_description)Description
 
-This extension adds a mechanism to provide feedback to an application
-about pipeline creation, with the specific goal of allowing a feedback
-loop between build systems and in-the-field application executions to
-ensure effective pipeline caches are shipped to customers.
+This extension adds a mechanism to provide feedback to an application about pipeline creation, with the specific goal of allowing a feedback loop between build systems and in-the-field application executions to ensure effective pipeline caches are shipped to customers.
 
-## <a href="#_new_structures" class="anchor"></a>New Structures
+## [](#_new_structures)New Structures
 
-- [VkPipelineCreationFeedbackEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkPipelineCreationFeedbackEXT.html)
+- [VkPipelineCreationFeedbackEXT](https://registry.khronos.org/vulkan/specs/latest/man/html/VkPipelineCreationFeedbackEXT.html)
+- Extending [VkGraphicsPipelineCreateInfo](https://registry.khronos.org/vulkan/specs/latest/man/html/VkGraphicsPipelineCreateInfo.html), [VkComputePipelineCreateInfo](https://registry.khronos.org/vulkan/specs/latest/man/html/VkComputePipelineCreateInfo.html), [VkRayTracingPipelineCreateInfoNV](https://registry.khronos.org/vulkan/specs/latest/man/html/VkRayTracingPipelineCreateInfoNV.html), [VkRayTracingPipelineCreateInfoKHR](https://registry.khronos.org/vulkan/specs/latest/man/html/VkRayTracingPipelineCreateInfoKHR.html), [VkExecutionGraphPipelineCreateInfoAMDX](https://registry.khronos.org/vulkan/specs/latest/man/html/VkExecutionGraphPipelineCreateInfoAMDX.html), [VkDataGraphPipelineCreateInfoARM](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDataGraphPipelineCreateInfoARM.html):
+  
+  - [VkPipelineCreationFeedbackCreateInfoEXT](https://registry.khronos.org/vulkan/specs/latest/man/html/VkPipelineCreationFeedbackCreateInfoEXT.html)
 
-- Extending
-  [VkGraphicsPipelineCreateInfo](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkGraphicsPipelineCreateInfo.html),
-  [VkComputePipelineCreateInfo](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkComputePipelineCreateInfo.html),
-  [VkRayTracingPipelineCreateInfoNV](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkRayTracingPipelineCreateInfoNV.html),
-  [VkRayTracingPipelineCreateInfoKHR](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkRayTracingPipelineCreateInfoKHR.html),
-  [VkExecutionGraphPipelineCreateInfoAMDX](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkExecutionGraphPipelineCreateInfoAMDX.html):
+## [](#_new_enums)New Enums
 
-  - [VkPipelineCreationFeedbackCreateInfoEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkPipelineCreationFeedbackCreateInfoEXT.html)
+- [VkPipelineCreationFeedbackFlagBitsEXT](https://registry.khronos.org/vulkan/specs/latest/man/html/VkPipelineCreationFeedbackFlagBitsEXT.html)
 
-## <a href="#_new_enums" class="anchor"></a>New Enums
+## [](#_new_bitmasks)New Bitmasks
 
-- [VkPipelineCreationFeedbackFlagBitsEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkPipelineCreationFeedbackFlagBitsEXT.html)
+- [VkPipelineCreationFeedbackFlagsEXT](https://registry.khronos.org/vulkan/specs/latest/man/html/VkPipelineCreationFeedbackFlagsEXT.html)
 
-## <a href="#_new_bitmasks" class="anchor"></a>New Bitmasks
-
-- [VkPipelineCreationFeedbackFlagsEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkPipelineCreationFeedbackFlagsEXT.html)
-
-## <a href="#_new_enum_constants" class="anchor"></a>New Enum Constants
+## [](#_new_enum_constants)New Enum Constants
 
 - `VK_EXT_PIPELINE_CREATION_FEEDBACK_EXTENSION_NAME`
-
 - `VK_EXT_PIPELINE_CREATION_FEEDBACK_SPEC_VERSION`
-
-- Extending [VkStructureType](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkStructureType.html):
-
+- Extending [VkPipelineCreationFeedbackFlagBits](https://registry.khronos.org/vulkan/specs/latest/man/html/VkPipelineCreationFeedbackFlagBits.html):
+  
+  - `VK_PIPELINE_CREATION_FEEDBACK_APPLICATION_PIPELINE_CACHE_HIT_BIT_EXT`
+  - `VK_PIPELINE_CREATION_FEEDBACK_BASE_PIPELINE_ACCELERATION_BIT_EXT`
+  - `VK_PIPELINE_CREATION_FEEDBACK_VALID_BIT_EXT`
+- Extending [VkStructureType](https://registry.khronos.org/vulkan/specs/latest/man/html/VkStructureType.html):
+  
   - `VK_STRUCTURE_TYPE_PIPELINE_CREATION_FEEDBACK_CREATE_INFO_EXT`
 
-## <a href="#_promotion_to_vulkan_1_3" class="anchor"></a>Promotion to Vulkan 1.3
+## [](#_promotion_to_vulkan_1_3)Promotion to Vulkan 1.3
 
-Functionality in this extension is included in core Vulkan 1.3, with the
-EXT suffix omitted. The original type, enum and command names are still
-available as aliases of the core functionality.
+Vulkan APIs in this extension are included in core Vulkan 1.3, with the EXT suffix omitted. External interactions defined by this extension, such as SPIR-V token names, retain their original names. The original Vulkan API names are still available as aliases of the core functionality.
 
-## <a href="#_version_history" class="anchor"></a>Version History
+## [](#_version_history)Version History
 
 - Revision 1, 2019-03-12 (Jean-Francois Roy)
-
+  
   - Initial revision
 
-## <a href="#_see_also" class="anchor"></a>See Also
+## [](#_see_also)See Also
 
 No cross-references are available
 
-## <a href="#_document_notes" class="anchor"></a>Document Notes
+## [](#_document_notes)Document Notes
 
-For more information, see the <a
-href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#VK_EXT_pipeline_creation_feedback"
-target="_blank" rel="noopener">Vulkan Specification</a>
+For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#VK_EXT_pipeline_creation_feedback)
 
-This page is a generated document. Fixes and changes should be made to
-the generator scripts, not directly.
+This page is a generated document. Fixes and changes should be made to the generator scripts, not directly.
 
-## <a href="#_copyright" class="anchor"></a>Copyright
+## [](#_copyright)Copyright
 
-Copyright 2014-2024 The Khronos Group Inc.
+Copyright 2014-2025 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
-
-Version 1.3.290  
-Last updated 2024-07-11 23:39:16 -0700

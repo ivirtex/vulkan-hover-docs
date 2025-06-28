@@ -6,12 +6,11 @@ VkShaderModuleIdentifierEXT - A unique identifier for a shader module
 
 
 
-## <a href="#_c_specification" class="anchor"></a>C Specification
+## [](#_c_specification)C Specification
 
-[VkShaderModuleIdentifierEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkShaderModuleIdentifierEXT.html)
-represents a shader module identifier returned by the implementation.
+[VkShaderModuleIdentifierEXT](https://registry.khronos.org/vulkan/specs/latest/man/html/VkShaderModuleIdentifierEXT.html) represents a shader module identifier returned by the implementation.
 
-``` c
+```c++
 // Provided by VK_EXT_shader_module_identifier
 typedef struct VkShaderModuleIdentifierEXT {
     VkStructureType    sType;
@@ -21,65 +20,40 @@ typedef struct VkShaderModuleIdentifierEXT {
 } VkShaderModuleIdentifierEXT;
 ```
 
-## <a href="#_members" class="anchor"></a>Members
+## [](#_members)Members
 
-- `sType` is a [VkStructureType](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkStructureType.html) value identifying
-  this structure.
-
-- `pNext` is `NULL` or a pointer to a structure extending this
-  structure.
-
-- `identifierSize` is the size, in bytes, of valid data returned in
-  `identifier`.
-
+- `sType` is a [VkStructureType](https://registry.khronos.org/vulkan/specs/latest/man/html/VkStructureType.html) value identifying this structure.
+- `pNext` is `NULL` or a pointer to a structure extending this structure.
+- `identifierSize` is the size, in bytes, of valid data returned in `identifier`.
 - `identifier` is a buffer of opaque data specifying an identifier.
 
-## <a href="#_description" class="anchor"></a>Description
+## [](#_description)Description
 
-Any returned values beyond the first `identifierSize` bytes are
-undefined. Implementations **must** return an `identifierSize` greater
-than 0, and less-or-equal to `VK_MAX_SHADER_MODULE_IDENTIFIER_SIZE_EXT`.
+Any returned values beyond the first `identifierSize` bytes are undefined. Implementations **must** return an `identifierSize` greater than 0, and less-or-equal to `VK_MAX_SHADER_MODULE_IDENTIFIER_SIZE_EXT`.
 
-Two identifiers are considered equal if `identifierSize` is equal and
-the first `identifierSize` bytes of `identifier` compare equal.
+Two identifiers are considered equal if `identifierSize` is equal and the first `identifierSize` bytes of `identifier` compare equal.
 
-Implementations **may** return a different `identifierSize` for
-different modules. Implementations **should** ensure that
-`identifierSize` is large enough to uniquely define a shader module.
+Implementations **may** return a different `identifierSize` for different modules. Implementations **should** ensure that `identifierSize` is large enough to uniquely define a shader module.
 
 Valid Usage (Implicit)
 
-- <a href="#VUID-VkShaderModuleIdentifierEXT-sType-sType"
-  id="VUID-VkShaderModuleIdentifierEXT-sType-sType"></a>
-  VUID-VkShaderModuleIdentifierEXT-sType-sType  
+- [](#VUID-VkShaderModuleIdentifierEXT-sType-sType)VUID-VkShaderModuleIdentifierEXT-sType-sType  
   `sType` **must** be `VK_STRUCTURE_TYPE_SHADER_MODULE_IDENTIFIER_EXT`
-
-- <a href="#VUID-VkShaderModuleIdentifierEXT-pNext-pNext"
-  id="VUID-VkShaderModuleIdentifierEXT-pNext-pNext"></a>
-  VUID-VkShaderModuleIdentifierEXT-pNext-pNext  
+- [](#VUID-VkShaderModuleIdentifierEXT-pNext-pNext)VUID-VkShaderModuleIdentifierEXT-pNext-pNext  
   `pNext` **must** be `NULL`
 
-## <a href="#_see_also" class="anchor"></a>See Also
+## [](#_see_also)See Also
 
-[VK_EXT_shader_module_identifier](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_EXT_shader_module_identifier.html),
-[VkStructureType](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkStructureType.html),
-[vkGetShaderModuleCreateInfoIdentifierEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkGetShaderModuleCreateInfoIdentifierEXT.html),
-[vkGetShaderModuleIdentifierEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkGetShaderModuleIdentifierEXT.html)
+[VK\_EXT\_shader\_module\_identifier](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_EXT_shader_module_identifier.html), [VkStructureType](https://registry.khronos.org/vulkan/specs/latest/man/html/VkStructureType.html), [vkGetShaderModuleCreateInfoIdentifierEXT](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetShaderModuleCreateInfoIdentifierEXT.html), [vkGetShaderModuleIdentifierEXT](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetShaderModuleIdentifierEXT.html)
 
-## <a href="#_document_notes" class="anchor"></a>Document Notes
+## [](#_document_notes)Document Notes
 
-For more information, see the <a
-href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#VkShaderModuleIdentifierEXT"
-target="_blank" rel="noopener">Vulkan Specification</a>
+For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#VkShaderModuleIdentifierEXT)
 
-This page is extracted from the Vulkan Specification. Fixes and changes
-should be made to the Specification, not directly.
+This page is extracted from the Vulkan Specification. Fixes and changes should be made to the Specification, not directly.
 
-## <a href="#_copyright" class="anchor"></a>Copyright
+## [](#_copyright)Copyright
 
-Copyright 2014-2024 The Khronos Group Inc.
+Copyright 2014-2025 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
-
-Version 1.3.290  
-Last updated 2024-07-11 23:39:16 -0700

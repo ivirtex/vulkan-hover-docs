@@ -1,130 +1,103 @@
-# VK_KHR_swapchain_mutable_format(3) Manual Page
+# VK\_KHR\_swapchain\_mutable\_format(3) Manual Page
 
 ## Name
 
-VK_KHR_swapchain_mutable_format - device extension
+VK\_KHR\_swapchain\_mutable\_format - device extension
 
 
 
-## <a href="#_registered_extension_number" class="anchor"></a>Registered Extension Number
+## [](#_registered_extension_number)Registered Extension Number
 
 201
 
-## <a href="#_revision" class="anchor"></a>Revision
+## [](#_revision)Revision
 
 1
 
-## <a href="#_ratification_status" class="anchor"></a>Ratification Status
+## [](#_ratification_status)Ratification Status
 
 Ratified
 
-## <a href="#_extension_and_version_dependencies" class="anchor"></a>Extension and Version Dependencies
+## [](#_extension_and_version_dependencies)Extension and Version Dependencies
 
-[VK_KHR_swapchain](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_KHR_swapchain.html)  
+[VK\_KHR\_swapchain](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_KHR_swapchain.html)  
 and  
-     [VK_KHR_maintenance2](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_KHR_maintenance2.html)  
+     [VK\_KHR\_maintenance2](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_KHR_maintenance2.html)  
      or  
-     [Version 1.1](#versions-1.1)  
+     [Vulkan Version 1.1](#versions-1.1)  
 and  
-     [VK_KHR_image_format_list](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_KHR_image_format_list.html)  
+     [VK\_KHR\_image\_format\_list](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_KHR_image_format_list.html)  
      or  
-     [Version 1.2](#versions-1.2)  
+     [Vulkan Version 1.2](#versions-1.2)
 
-## <a href="#_contact" class="anchor"></a>Contact
+## [](#_contact)Contact
 
-- Daniel Rakos <a
-  href="https://github.com/KhronosGroup/Vulkan-Docs/issues/new?body=%5BVK_KHR_swapchain_mutable_format%5D%20@drakos-amd%0A*Here%20describe%20the%20issue%20or%20question%20you%20have%20about%20the%20VK_KHR_swapchain_mutable_format%20extension*"
-  target="_blank" rel="nofollow noopener"><em></em>drakos-amd</a>
+- Daniel Rakos [\[GitHub\]drakos-amd](https://github.com/KhronosGroup/Vulkan-Docs/issues/new?body=%5BVK_KHR_swapchain_mutable_format%5D%20%40drakos-amd%0A%2AHere%20describe%20the%20issue%20or%20question%20you%20have%20about%20the%20VK_KHR_swapchain_mutable_format%20extension%2A)
 
-## <a href="#_other_extension_metadata" class="anchor"></a>Other Extension Metadata
+## [](#_other_extension_metadata)Other Extension Metadata
 
-**Last Modified Date**  
+**Last Modified Date**
+
 2018-03-28
 
-**IP Status**  
+**IP Status**
+
 No known IP claims.
 
-**Contributors**  
+**Contributors**
+
 - Faith Ekstrand, Intel
-
 - Jan-Harald Fredriksen, ARM
-
 - Jesse Hall, Google
-
 - Daniel Rakos, AMD
-
 - Ray Smith, ARM
 
-## <a href="#_description" class="anchor"></a>Description
+## [](#_description)Description
 
-This extension allows processing of swapchain images as different
-formats to that used by the window system, which is particularly useful
-for switching between sRGB and linear RGB formats.
+This extension allows processing of swapchain images as different formats to that used by the window system, which is particularly useful for switching between sRGB and linear RGB formats.
 
-It adds a new swapchain creation flag that enables creating image views
-from presentable images with a different format than the one used to
-create the swapchain.
+It adds a new swapchain creation flag that enables creating image views from presentable images with a different format than the one used to create the swapchain.
 
-## <a href="#_new_enum_constants" class="anchor"></a>New Enum Constants
+## [](#_new_enum_constants)New Enum Constants
 
 - `VK_KHR_SWAPCHAIN_MUTABLE_FORMAT_EXTENSION_NAME`
-
 - `VK_KHR_SWAPCHAIN_MUTABLE_FORMAT_SPEC_VERSION`
-
-- Extending
-  [VkSwapchainCreateFlagBitsKHR](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkSwapchainCreateFlagBitsKHR.html):
-
+- Extending [VkSwapchainCreateFlagBitsKHR](https://registry.khronos.org/vulkan/specs/latest/man/html/VkSwapchainCreateFlagBitsKHR.html):
+  
   - `VK_SWAPCHAIN_CREATE_MUTABLE_FORMAT_BIT_KHR`
 
-## <a href="#_issues" class="anchor"></a>Issues
+## [](#_issues)Issues
 
 1\) Are there any new capabilities needed?
 
-**RESOLVED**: No. It is expected that all implementations exposing this
-extension support swapchain image format mutability.
+**RESOLVED**: No. It is expected that all implementations exposing this extension support swapchain image format mutability.
 
 2\) Do we need a separate `VK_SWAPCHAIN_CREATE_EXTENDED_USAGE_BIT_KHR`?
 
-**RESOLVED**: No. This extension requires `VK_KHR_maintenance2` and
-presentable images of swapchains created with
-`VK_SWAPCHAIN_CREATE_MUTABLE_FORMAT_BIT_KHR` are created internally in a
-way equivalent to specifying both `VK_IMAGE_CREATE_MUTABLE_FORMAT_BIT`
-and `VK_IMAGE_CREATE_EXTENDED_USAGE_BIT_KHR`.
+**RESOLVED**: No. This extension requires `VK_KHR_maintenance2` and presentable images of swapchains created with `VK_SWAPCHAIN_CREATE_MUTABLE_FORMAT_BIT_KHR` are created internally in a way equivalent to specifying both `VK_IMAGE_CREATE_MUTABLE_FORMAT_BIT` and `VK_IMAGE_CREATE_EXTENDED_USAGE_BIT_KHR`.
 
-3\) Do we need a separate structure to allow specifying an image format
-list for swapchains?
+3\) Do we need a separate structure to allow specifying an image format list for swapchains?
 
-**RESOLVED**: No. We simply use the same
-[VkImageFormatListCreateInfoKHR](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkImageFormatListCreateInfoKHR.html)
-structure introduced by `VK_KHR_image_format_list`. The structure is
-required to be included in the `pNext` chain of
-[VkSwapchainCreateInfoKHR](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkSwapchainCreateInfoKHR.html) for swapchains
-created with `VK_SWAPCHAIN_CREATE_MUTABLE_FORMAT_BIT_KHR`.
+**RESOLVED**: No. We simply use the same [VkImageFormatListCreateInfoKHR](https://registry.khronos.org/vulkan/specs/latest/man/html/VkImageFormatListCreateInfoKHR.html) structure introduced by `VK_KHR_image_format_list`. The structure is required to be included in the `pNext` chain of [VkSwapchainCreateInfoKHR](https://registry.khronos.org/vulkan/specs/latest/man/html/VkSwapchainCreateInfoKHR.html) for swapchains created with `VK_SWAPCHAIN_CREATE_MUTABLE_FORMAT_BIT_KHR`.
 
-## <a href="#_version_history" class="anchor"></a>Version History
+## [](#_version_history)Version History
 
 - Revision 1, 2018-03-28 (Daniel Rakos)
-
+  
   - Internal revisions.
 
-## <a href="#_see_also" class="anchor"></a>See Also
+## [](#_see_also)See Also
 
 No cross-references are available
 
-## <a href="#_document_notes" class="anchor"></a>Document Notes
+## [](#_document_notes)Document Notes
 
-For more information, see the <a
-href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#VK_KHR_swapchain_mutable_format"
-target="_blank" rel="noopener">Vulkan Specification</a>
+For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#VK_KHR_swapchain_mutable_format)
 
-This page is a generated document. Fixes and changes should be made to
-the generator scripts, not directly.
+This page is a generated document. Fixes and changes should be made to the generator scripts, not directly.
 
-## <a href="#_copyright" class="anchor"></a>Copyright
+## [](#_copyright)Copyright
 
-Copyright 2014-2024 The Khronos Group Inc.
+Copyright 2014-2025 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
-
-Version 1.3.290  
-Last updated 2024-07-11 23:39:16 -0700

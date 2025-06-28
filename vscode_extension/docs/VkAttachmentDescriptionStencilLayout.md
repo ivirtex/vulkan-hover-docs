@@ -2,16 +2,19 @@
 
 ## Name
 
-VkAttachmentDescriptionStencilLayout - Structure specifying an
-attachment description
+VkAttachmentDescriptionStencilLayout - Structure specifying an attachment description
 
 
 
-## <a href="#_c_specification" class="anchor"></a>C Specification
+## [](#_c_specification)C Specification
 
 The `VkAttachmentDescriptionStencilLayout` structure is defined as:
 
-``` c
+Warning
+
+This functionality is deprecated by [Vulkan Version 1.4](#versions-1.4). See [Deprecated Functionality](#deprecation-dynamicrendering) for more information.
+
+```c++
 // Provided by VK_VERSION_1_2
 typedef struct VkAttachmentDescriptionStencilLayout {
     VkStructureType    sType;
@@ -23,107 +26,50 @@ typedef struct VkAttachmentDescriptionStencilLayout {
 
 or the equivalent
 
-``` c
+```c++
 // Provided by VK_KHR_separate_depth_stencil_layouts
 typedef VkAttachmentDescriptionStencilLayout VkAttachmentDescriptionStencilLayoutKHR;
 ```
 
-## <a href="#_members" class="anchor"></a>Members
+## [](#_members)Members
 
-- `sType` is a [VkStructureType](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkStructureType.html) value identifying
-  this structure.
+- `sType` is a [VkStructureType](https://registry.khronos.org/vulkan/specs/latest/man/html/VkStructureType.html) value identifying this structure.
+- `pNext` is `NULL` or a pointer to a structure extending this structure.
+- `stencilInitialLayout` is the layout the stencil aspect of the attachment image subresource will be in when a render pass instance begins.
+- `stencilFinalLayout` is the layout the stencil aspect of the attachment image subresource will be transitioned to when a render pass instance ends.
 
-- `pNext` is `NULL` or a pointer to a structure extending this
-  structure.
-
-- `stencilInitialLayout` is the layout the stencil aspect of the
-  attachment image subresource will be in when a render pass instance
-  begins.
-
-- `stencilFinalLayout` is the layout the stencil aspect of the
-  attachment image subresource will be transitioned to when a render
-  pass instance ends.
-
-## <a href="#_description" class="anchor"></a>Description
+## [](#_description)Description
 
 Valid Usage
 
-- <a
-  href="#VUID-VkAttachmentDescriptionStencilLayout-stencilInitialLayout-03308"
-  id="VUID-VkAttachmentDescriptionStencilLayout-stencilInitialLayout-03308"></a>
-  VUID-VkAttachmentDescriptionStencilLayout-stencilInitialLayout-03308  
-  `stencilInitialLayout` **must** not be
-  `VK_IMAGE_LAYOUT_COLOR_ATTACHMENT_OPTIMAL`,
-  `VK_IMAGE_LAYOUT_DEPTH_ATTACHMENT_OPTIMAL`,
-  `VK_IMAGE_LAYOUT_DEPTH_READ_ONLY_OPTIMAL`,
-  `VK_IMAGE_LAYOUT_DEPTH_STENCIL_ATTACHMENT_OPTIMAL`,
-  `VK_IMAGE_LAYOUT_DEPTH_STENCIL_READ_ONLY_OPTIMAL`,
-  `VK_IMAGE_LAYOUT_DEPTH_ATTACHMENT_STENCIL_READ_ONLY_OPTIMAL`, or
-  `VK_IMAGE_LAYOUT_DEPTH_READ_ONLY_STENCIL_ATTACHMENT_OPTIMAL`
-
-- <a
-  href="#VUID-VkAttachmentDescriptionStencilLayout-stencilFinalLayout-03309"
-  id="VUID-VkAttachmentDescriptionStencilLayout-stencilFinalLayout-03309"></a>
-  VUID-VkAttachmentDescriptionStencilLayout-stencilFinalLayout-03309  
-  `stencilFinalLayout` **must** not be
-  `VK_IMAGE_LAYOUT_COLOR_ATTACHMENT_OPTIMAL`,
-  `VK_IMAGE_LAYOUT_DEPTH_ATTACHMENT_OPTIMAL`,
-  `VK_IMAGE_LAYOUT_DEPTH_READ_ONLY_OPTIMAL`,
-  `VK_IMAGE_LAYOUT_DEPTH_STENCIL_ATTACHMENT_OPTIMAL`,
-  `VK_IMAGE_LAYOUT_DEPTH_STENCIL_READ_ONLY_OPTIMAL`,
-  `VK_IMAGE_LAYOUT_DEPTH_ATTACHMENT_STENCIL_READ_ONLY_OPTIMAL`, or
-  `VK_IMAGE_LAYOUT_DEPTH_READ_ONLY_STENCIL_ATTACHMENT_OPTIMAL`
-
-- <a
-  href="#VUID-VkAttachmentDescriptionStencilLayout-stencilFinalLayout-03310"
-  id="VUID-VkAttachmentDescriptionStencilLayout-stencilFinalLayout-03310"></a>
-  VUID-VkAttachmentDescriptionStencilLayout-stencilFinalLayout-03310  
-  `stencilFinalLayout` **must** not be `VK_IMAGE_LAYOUT_UNDEFINED` or
-  `VK_IMAGE_LAYOUT_PREINITIALIZED`
+- [](#VUID-VkAttachmentDescriptionStencilLayout-stencilInitialLayout-03308)VUID-VkAttachmentDescriptionStencilLayout-stencilInitialLayout-03308  
+  `stencilInitialLayout` **must** not be `VK_IMAGE_LAYOUT_COLOR_ATTACHMENT_OPTIMAL`, `VK_IMAGE_LAYOUT_DEPTH_ATTACHMENT_OPTIMAL`, `VK_IMAGE_LAYOUT_DEPTH_READ_ONLY_OPTIMAL`, `VK_IMAGE_LAYOUT_DEPTH_STENCIL_ATTACHMENT_OPTIMAL`, `VK_IMAGE_LAYOUT_DEPTH_STENCIL_READ_ONLY_OPTIMAL`, `VK_IMAGE_LAYOUT_DEPTH_ATTACHMENT_STENCIL_READ_ONLY_OPTIMAL`, or `VK_IMAGE_LAYOUT_DEPTH_READ_ONLY_STENCIL_ATTACHMENT_OPTIMAL`
+- [](#VUID-VkAttachmentDescriptionStencilLayout-stencilFinalLayout-03309)VUID-VkAttachmentDescriptionStencilLayout-stencilFinalLayout-03309  
+  `stencilFinalLayout` **must** not be `VK_IMAGE_LAYOUT_COLOR_ATTACHMENT_OPTIMAL`, `VK_IMAGE_LAYOUT_DEPTH_ATTACHMENT_OPTIMAL`, `VK_IMAGE_LAYOUT_DEPTH_READ_ONLY_OPTIMAL`, `VK_IMAGE_LAYOUT_DEPTH_STENCIL_ATTACHMENT_OPTIMAL`, `VK_IMAGE_LAYOUT_DEPTH_STENCIL_READ_ONLY_OPTIMAL`, `VK_IMAGE_LAYOUT_DEPTH_ATTACHMENT_STENCIL_READ_ONLY_OPTIMAL`, or `VK_IMAGE_LAYOUT_DEPTH_READ_ONLY_STENCIL_ATTACHMENT_OPTIMAL`
+- [](#VUID-VkAttachmentDescriptionStencilLayout-stencilFinalLayout-03310)VUID-VkAttachmentDescriptionStencilLayout-stencilFinalLayout-03310  
+  `stencilFinalLayout` **must** not be `VK_IMAGE_LAYOUT_UNDEFINED` or `VK_IMAGE_LAYOUT_ZERO_INITIALIZED_EXT` or `VK_IMAGE_LAYOUT_PREINITIALIZED`
 
 Valid Usage (Implicit)
 
-- <a href="#VUID-VkAttachmentDescriptionStencilLayout-sType-sType"
-  id="VUID-VkAttachmentDescriptionStencilLayout-sType-sType"></a>
-  VUID-VkAttachmentDescriptionStencilLayout-sType-sType  
-  `sType` **must** be
-  `VK_STRUCTURE_TYPE_ATTACHMENT_DESCRIPTION_STENCIL_LAYOUT`
+- [](#VUID-VkAttachmentDescriptionStencilLayout-sType-sType)VUID-VkAttachmentDescriptionStencilLayout-sType-sType  
+  `sType` **must** be `VK_STRUCTURE_TYPE_ATTACHMENT_DESCRIPTION_STENCIL_LAYOUT`
+- [](#VUID-VkAttachmentDescriptionStencilLayout-stencilInitialLayout-parameter)VUID-VkAttachmentDescriptionStencilLayout-stencilInitialLayout-parameter  
+  `stencilInitialLayout` **must** be a valid [VkImageLayout](https://registry.khronos.org/vulkan/specs/latest/man/html/VkImageLayout.html) value
+- [](#VUID-VkAttachmentDescriptionStencilLayout-stencilFinalLayout-parameter)VUID-VkAttachmentDescriptionStencilLayout-stencilFinalLayout-parameter  
+  `stencilFinalLayout` **must** be a valid [VkImageLayout](https://registry.khronos.org/vulkan/specs/latest/man/html/VkImageLayout.html) value
 
-- <a
-  href="#VUID-VkAttachmentDescriptionStencilLayout-stencilInitialLayout-parameter"
-  id="VUID-VkAttachmentDescriptionStencilLayout-stencilInitialLayout-parameter"></a>
-  VUID-VkAttachmentDescriptionStencilLayout-stencilInitialLayout-parameter  
-  `stencilInitialLayout` **must** be a valid
-  [VkImageLayout](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkImageLayout.html) value
+## [](#_see_also)See Also
 
-- <a
-  href="#VUID-VkAttachmentDescriptionStencilLayout-stencilFinalLayout-parameter"
-  id="VUID-VkAttachmentDescriptionStencilLayout-stencilFinalLayout-parameter"></a>
-  VUID-VkAttachmentDescriptionStencilLayout-stencilFinalLayout-parameter  
-  `stencilFinalLayout` **must** be a valid
-  [VkImageLayout](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkImageLayout.html) value
+[VK\_KHR\_separate\_depth\_stencil\_layouts](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_KHR_separate_depth_stencil_layouts.html), [VK\_VERSION\_1\_2](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_VERSION_1_2.html), [VkImageLayout](https://registry.khronos.org/vulkan/specs/latest/man/html/VkImageLayout.html), [VkStructureType](https://registry.khronos.org/vulkan/specs/latest/man/html/VkStructureType.html)
 
-## <a href="#_see_also" class="anchor"></a>See Also
+## [](#_document_notes)Document Notes
 
-[VK_KHR_separate_depth_stencil_layouts](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_KHR_separate_depth_stencil_layouts.html),
-[VK_VERSION_1_2](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_VERSION_1_2.html),
-[VkImageLayout](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkImageLayout.html),
-[VkStructureType](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkStructureType.html)
+For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#VkAttachmentDescriptionStencilLayout)
 
-## <a href="#_document_notes" class="anchor"></a>Document Notes
+This page is extracted from the Vulkan Specification. Fixes and changes should be made to the Specification, not directly.
 
-For more information, see the <a
-href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#VkAttachmentDescriptionStencilLayout"
-target="_blank" rel="noopener">Vulkan Specification</a>
+## [](#_copyright)Copyright
 
-This page is extracted from the Vulkan Specification. Fixes and changes
-should be made to the Specification, not directly.
-
-## <a href="#_copyright" class="anchor"></a>Copyright
-
-Copyright 2014-2024 The Khronos Group Inc.
+Copyright 2014-2025 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
-
-Version 1.3.290  
-Last updated 2024-07-11 23:39:16 -0700

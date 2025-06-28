@@ -1,121 +1,102 @@
-# VK_MVK_macos_surface(3) Manual Page
+# VK\_MVK\_macos\_surface(3) Manual Page
 
 ## Name
 
-VK_MVK_macos_surface - instance extension
+VK\_MVK\_macos\_surface - instance extension
 
 
 
-## <a href="#_registered_extension_number" class="anchor"></a>Registered Extension Number
+## [](#_registered_extension_number)Registered Extension Number
 
 124
 
-## <a href="#_revision" class="anchor"></a>Revision
+## [](#_revision)Revision
 
 3
 
-## <a href="#_ratification_status" class="anchor"></a>Ratification Status
+## [](#_ratification_status)Ratification Status
 
 Not ratified
 
-## <a href="#_extension_and_version_dependencies" class="anchor"></a>Extension and Version Dependencies
+## [](#_extension_and_version_dependencies)Extension and Version Dependencies
 
-[VK_KHR_surface](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_KHR_surface.html)  
+[VK\_KHR\_surface](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_KHR_surface.html)
 
-## <a href="#_deprecation_state" class="anchor"></a>Deprecation State
+## [](#_deprecation_state)Deprecation State
 
-- *Deprecated* by [VK_EXT_metal_surface](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_EXT_metal_surface.html)
-  extension
+- *Deprecated* by [VK\_EXT\_metal\_surface](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_EXT_metal_surface.html) extension
 
-## <a href="#_contact" class="anchor"></a>Contact
+## [](#_contact)Contact
 
-- Bill Hollings <a
-  href="https://github.com/KhronosGroup/Vulkan-Docs/issues/new?body=%5BVK_MVK_macos_surface%5D%20@billhollings%0A*Here%20describe%20the%20issue%20or%20question%20you%20have%20about%20the%20VK_MVK_macos_surface%20extension*"
-  target="_blank" rel="nofollow noopener"><em></em>billhollings</a>
+- Bill Hollings [\[GitHub\]billhollings](https://github.com/KhronosGroup/Vulkan-Docs/issues/new?body=%5BVK_MVK_macos_surface%5D%20%40billhollings%0A%2AHere%20describe%20the%20issue%20or%20question%20you%20have%20about%20the%20VK_MVK_macos_surface%20extension%2A)
 
-## <a href="#_other_extension_metadata" class="anchor"></a>Other Extension Metadata
+## [](#_other_extension_metadata)Other Extension Metadata
 
-**Last Modified Date**  
+**Last Modified Date**
+
 2020-07-31
 
-**IP Status**  
+**IP Status**
+
 No known IP claims.
 
-**Contributors**  
+**Contributors**
+
 - Bill Hollings, The Brenwill Workshop Ltd.
 
-## <a href="#_description" class="anchor"></a>Description
+## [](#_description)Description
 
-The `VK_MVK_macos_surface` extension is an instance extension. It
-provides a mechanism to create a [VkSurfaceKHR](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkSurfaceKHR.html)
-object (defined by the [`VK_KHR_surface`](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_KHR_surface.html)
-extension) based on an `NSView`, the native surface type of macOS, which
-is underpinned by a [CAMetalLayer](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/CAMetalLayer.html), to support
-rendering to the surface using Apple’s Metal framework.
+The `VK_MVK_macos_surface` extension is an instance extension. It provides a mechanism to create a [VkSurfaceKHR](https://registry.khronos.org/vulkan/specs/latest/man/html/VkSurfaceKHR.html) object (defined by the `VK_KHR_surface` extension) based on an `NSView`, the native surface type of macOS, which is underpinned by a [CAMetalLayer](https://registry.khronos.org/vulkan/specs/latest/man/html/CAMetalLayer.html), to support rendering to the surface using Apple’s Metal framework.
 
-## <a href="#_deprecation_by_vk_ext_metal_surface" class="anchor"></a>Deprecation by `VK_EXT_metal_surface`
+## [](#_deprecation_by_vk_ext_metal_surface)Deprecation by `VK_EXT_metal_surface`
 
-The `VK_MVK_macos_surface` extension is considered deprecated and has
-been superseded by the
-[`VK_EXT_metal_surface`](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_EXT_metal_surface.html) extension.
+The `VK_MVK_macos_surface` extension is considered deprecated and has been superseded by the `VK_EXT_metal_surface` extension.
 
-## <a href="#_new_commands" class="anchor"></a>New Commands
+## [](#_new_commands)New Commands
 
-- [vkCreateMacOSSurfaceMVK](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCreateMacOSSurfaceMVK.html)
+- [vkCreateMacOSSurfaceMVK](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCreateMacOSSurfaceMVK.html)
 
-## <a href="#_new_structures" class="anchor"></a>New Structures
+## [](#_new_structures)New Structures
 
-- [VkMacOSSurfaceCreateInfoMVK](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkMacOSSurfaceCreateInfoMVK.html)
+- [VkMacOSSurfaceCreateInfoMVK](https://registry.khronos.org/vulkan/specs/latest/man/html/VkMacOSSurfaceCreateInfoMVK.html)
 
-## <a href="#_new_bitmasks" class="anchor"></a>New Bitmasks
+## [](#_new_bitmasks)New Bitmasks
 
-- [VkMacOSSurfaceCreateFlagsMVK](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkMacOSSurfaceCreateFlagsMVK.html)
+- [VkMacOSSurfaceCreateFlagsMVK](https://registry.khronos.org/vulkan/specs/latest/man/html/VkMacOSSurfaceCreateFlagsMVK.html)
 
-## <a href="#_new_enum_constants" class="anchor"></a>New Enum Constants
+## [](#_new_enum_constants)New Enum Constants
 
 - `VK_MVK_MACOS_SURFACE_EXTENSION_NAME`
-
 - `VK_MVK_MACOS_SURFACE_SPEC_VERSION`
-
-- Extending [VkStructureType](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkStructureType.html):
-
+- Extending [VkStructureType](https://registry.khronos.org/vulkan/specs/latest/man/html/VkStructureType.html):
+  
   - `VK_STRUCTURE_TYPE_MACOS_SURFACE_CREATE_INFO_MVK`
 
-## <a href="#_version_history" class="anchor"></a>Version History
+## [](#_version_history)Version History
 
 - Revision 1, 2017-02-15 (Bill Hollings)
-
+  
   - Initial draft.
-
 - Revision 2, 2017-02-24 (Bill Hollings)
-
-  - Minor syntax fix to emphasize firm requirement for `NSView` to be
-    backed by a `CAMetalLayer`.
-
+  
+  - Minor syntax fix to emphasize firm requirement for `NSView` to be backed by a `CAMetalLayer`.
 - Revision 3, 2020-07-31 (Bill Hollings)
-
+  
   - Update documentation on requirements for `NSView`.
-
   - Mark as deprecated by `VK_EXT_metal_surface`.
 
-## <a href="#_see_also" class="anchor"></a>See Also
+## [](#_see_also)See Also
 
 No cross-references are available
 
-## <a href="#_document_notes" class="anchor"></a>Document Notes
+## [](#_document_notes)Document Notes
 
-For more information, see the <a
-href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#VK_MVK_macos_surface"
-target="_blank" rel="noopener">Vulkan Specification</a>
+For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#VK_MVK_macos_surface)
 
-This page is a generated document. Fixes and changes should be made to
-the generator scripts, not directly.
+This page is a generated document. Fixes and changes should be made to the generator scripts, not directly.
 
-## <a href="#_copyright" class="anchor"></a>Copyright
+## [](#_copyright)Copyright
 
-Copyright 2014-2024 The Khronos Group Inc.
+Copyright 2014-2025 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
-
-Version 1.3.290  
-Last updated 2024-07-11 23:39:16 -0700

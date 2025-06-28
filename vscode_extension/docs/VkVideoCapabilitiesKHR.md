@@ -2,16 +2,15 @@
 
 ## Name
 
-VkVideoCapabilitiesKHR - Structure describing general video capabilities
-for a video profile
+VkVideoCapabilitiesKHR - Structure describing general video capabilities for a video profile
 
 
 
-## <a href="#_c_specification" class="anchor"></a>C Specification
+## [](#_c_specification)C Specification
 
 The `VkVideoCapabilitiesKHR` structure is defined as:
 
-``` c
+```c++
 // Provided by VK_KHR_video_queue
 typedef struct VkVideoCapabilitiesKHR {
     VkStructureType              sType;
@@ -28,119 +27,47 @@ typedef struct VkVideoCapabilitiesKHR {
 } VkVideoCapabilitiesKHR;
 ```
 
-## <a href="#_members" class="anchor"></a>Members
+## [](#_members)Members
 
-- `sType` is a [VkStructureType](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkStructureType.html) value identifying
-  this structure.
-
-- `pNext` is `NULL` or a pointer to a structure extending this
-  structure.
-
-- `flags` is a bitmask of
-  [VkVideoCapabilityFlagBitsKHR](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkVideoCapabilityFlagBitsKHR.html)
-  specifying capability flags.
-
-- `minBitstreamBufferOffsetAlignment` is the minimum alignment for
-  bitstream buffer offsets.
-
-- `minBitstreamBufferSizeAlignment` is the minimum alignment for
-  bitstream buffer range sizes.
-
-- `pictureAccessGranularity` is the granularity at which image access to
-  video picture resources happen.
-
+- `sType` is a [VkStructureType](https://registry.khronos.org/vulkan/specs/latest/man/html/VkStructureType.html) value identifying this structure.
+- `pNext` is `NULL` or a pointer to a structure extending this structure.
+- `flags` is a bitmask of [VkVideoCapabilityFlagBitsKHR](https://registry.khronos.org/vulkan/specs/latest/man/html/VkVideoCapabilityFlagBitsKHR.html) specifying capability flags.
+- `minBitstreamBufferOffsetAlignment` is the minimum alignment for bitstream buffer offsets.
+- `minBitstreamBufferSizeAlignment` is the minimum alignment for bitstream buffer range sizes.
+- `pictureAccessGranularity` is the granularity at which image access to video picture resources happen.
 - `minCodedExtent` is the minimum width and height of the coded frames.
-
 - `maxCodedExtent` is the maximum width and height of the coded frames.
+- `maxDpbSlots` is the maximum number of [DPB slots](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#dpb-slot) supported by a single video session.
+- `maxActiveReferencePictures` is the maximum number of [active reference pictures](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#active-reference-pictures) a single video coding operation **can** use.
+- []()`stdHeaderVersion` is a [VkExtensionProperties](https://registry.khronos.org/vulkan/specs/latest/man/html/VkExtensionProperties.html) structure reporting the Video Std header name and version supported for the video profile.
 
-- `maxDpbSlots` is the maximum number of <a
-  href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#dpb-slot"
-  target="_blank" rel="noopener">DPB slots</a> supported by a single
-  video session.
+## [](#_description)Description
 
-- `maxActiveReferencePictures` is the maximum number of <a
-  href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#active-reference-pictures"
-  target="_blank" rel="noopener">active reference pictures</a> a single
-  video coding operation **can** use.
+Note
 
-- <span id="video-std-header-version"></span> `stdHeaderVersion` is a
-  [VkExtensionProperties](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkExtensionProperties.html) structure
-  reporting the Video Std header name and version supported for the
-  video profile.
-
-## <a href="#_description" class="anchor"></a>Description
-
-<table>
-<colgroup>
-<col style="width: 50%" />
-<col style="width: 50%" />
-</colgroup>
-<tbody>
-<tr>
-<td class="icon"><em></em></td>
-<td class="content">Note
-<p>It is common for video compression standards to allow using all
-reference pictures associated with active DPB slots as active reference
-pictures, hence for video decode profiles the values returned in
-<code>maxDpbSlots</code> and <code>maxActiveReferencePictures</code> are
-often equal. Similarly, in case of video decode profiles supporting
-field pictures the value of <code>maxActiveReferencePictures</code>
-often equals <code>maxDpbSlots</code> × 2.</p></td>
-</tr>
-</tbody>
-</table>
+It is common for video compression standards to allow using all reference pictures associated with active DPB slots as active reference pictures, hence for video decode profiles the values returned in `maxDpbSlots` and `maxActiveReferencePictures` are often equal. Similarly, in case of video decode profiles supporting field pictures the value of `maxActiveReferencePictures` often equals `maxDpbSlots` × 2.
 
 Valid Usage (Implicit)
 
-- <a href="#VUID-VkVideoCapabilitiesKHR-sType-sType"
-  id="VUID-VkVideoCapabilitiesKHR-sType-sType"></a>
-  VUID-VkVideoCapabilitiesKHR-sType-sType  
+- [](#VUID-VkVideoCapabilitiesKHR-sType-sType)VUID-VkVideoCapabilitiesKHR-sType-sType  
   `sType` **must** be `VK_STRUCTURE_TYPE_VIDEO_CAPABILITIES_KHR`
+- [](#VUID-VkVideoCapabilitiesKHR-pNext-pNext)VUID-VkVideoCapabilitiesKHR-pNext-pNext  
+  Each `pNext` member of any structure (including this one) in the `pNext` chain **must** be either `NULL` or a pointer to a valid instance of [VkVideoDecodeAV1CapabilitiesKHR](https://registry.khronos.org/vulkan/specs/latest/man/html/VkVideoDecodeAV1CapabilitiesKHR.html), [VkVideoDecodeCapabilitiesKHR](https://registry.khronos.org/vulkan/specs/latest/man/html/VkVideoDecodeCapabilitiesKHR.html), [VkVideoDecodeH264CapabilitiesKHR](https://registry.khronos.org/vulkan/specs/latest/man/html/VkVideoDecodeH264CapabilitiesKHR.html), [VkVideoDecodeH265CapabilitiesKHR](https://registry.khronos.org/vulkan/specs/latest/man/html/VkVideoDecodeH265CapabilitiesKHR.html), [VkVideoDecodeVP9CapabilitiesKHR](https://registry.khronos.org/vulkan/specs/latest/man/html/VkVideoDecodeVP9CapabilitiesKHR.html), [VkVideoEncodeAV1CapabilitiesKHR](https://registry.khronos.org/vulkan/specs/latest/man/html/VkVideoEncodeAV1CapabilitiesKHR.html), [VkVideoEncodeAV1QuantizationMapCapabilitiesKHR](https://registry.khronos.org/vulkan/specs/latest/man/html/VkVideoEncodeAV1QuantizationMapCapabilitiesKHR.html), [VkVideoEncodeCapabilitiesKHR](https://registry.khronos.org/vulkan/specs/latest/man/html/VkVideoEncodeCapabilitiesKHR.html), [VkVideoEncodeH264CapabilitiesKHR](https://registry.khronos.org/vulkan/specs/latest/man/html/VkVideoEncodeH264CapabilitiesKHR.html), [VkVideoEncodeH264QuantizationMapCapabilitiesKHR](https://registry.khronos.org/vulkan/specs/latest/man/html/VkVideoEncodeH264QuantizationMapCapabilitiesKHR.html), [VkVideoEncodeH265CapabilitiesKHR](https://registry.khronos.org/vulkan/specs/latest/man/html/VkVideoEncodeH265CapabilitiesKHR.html), [VkVideoEncodeH265QuantizationMapCapabilitiesKHR](https://registry.khronos.org/vulkan/specs/latest/man/html/VkVideoEncodeH265QuantizationMapCapabilitiesKHR.html), or [VkVideoEncodeQuantizationMapCapabilitiesKHR](https://registry.khronos.org/vulkan/specs/latest/man/html/VkVideoEncodeQuantizationMapCapabilitiesKHR.html)
+- [](#VUID-VkVideoCapabilitiesKHR-sType-unique)VUID-VkVideoCapabilitiesKHR-sType-unique  
+  The `sType` value of each structure in the `pNext` chain **must** be unique
 
-- <a href="#VUID-VkVideoCapabilitiesKHR-pNext-pNext"
-  id="VUID-VkVideoCapabilitiesKHR-pNext-pNext"></a>
-  VUID-VkVideoCapabilitiesKHR-pNext-pNext  
-  Each `pNext` member of any structure (including this one) in the
-  `pNext` chain **must** be either `NULL` or a pointer to a valid
-  instance of
-  [VkVideoDecodeAV1CapabilitiesKHR](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkVideoDecodeAV1CapabilitiesKHR.html),
-  [VkVideoDecodeCapabilitiesKHR](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkVideoDecodeCapabilitiesKHR.html),
-  [VkVideoDecodeH264CapabilitiesKHR](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkVideoDecodeH264CapabilitiesKHR.html),
-  [VkVideoDecodeH265CapabilitiesKHR](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkVideoDecodeH265CapabilitiesKHR.html),
-  [VkVideoEncodeCapabilitiesKHR](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkVideoEncodeCapabilitiesKHR.html),
-  [VkVideoEncodeH264CapabilitiesKHR](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkVideoEncodeH264CapabilitiesKHR.html),
-  or
-  [VkVideoEncodeH265CapabilitiesKHR](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkVideoEncodeH265CapabilitiesKHR.html)
+## [](#_see_also)See Also
 
-- <a href="#VUID-VkVideoCapabilitiesKHR-sType-unique"
-  id="VUID-VkVideoCapabilitiesKHR-sType-unique"></a>
-  VUID-VkVideoCapabilitiesKHR-sType-unique  
-  The `sType` value of each struct in the `pNext` chain **must** be
-  unique
+[VK\_KHR\_video\_queue](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_KHR_video_queue.html), [VkDeviceSize](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDeviceSize.html), [VkExtensionProperties](https://registry.khronos.org/vulkan/specs/latest/man/html/VkExtensionProperties.html), [VkExtent2D](https://registry.khronos.org/vulkan/specs/latest/man/html/VkExtent2D.html), [VkStructureType](https://registry.khronos.org/vulkan/specs/latest/man/html/VkStructureType.html), [VkVideoCapabilityFlagsKHR](https://registry.khronos.org/vulkan/specs/latest/man/html/VkVideoCapabilityFlagsKHR.html), [vkGetPhysicalDeviceVideoCapabilitiesKHR](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetPhysicalDeviceVideoCapabilitiesKHR.html)
 
-## <a href="#_see_also" class="anchor"></a>See Also
+## [](#_document_notes)Document Notes
 
-[VK_KHR_video_queue](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_KHR_video_queue.html),
-[VkDeviceSize](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkDeviceSize.html),
-[VkExtensionProperties](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkExtensionProperties.html),
-[VkExtent2D](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkExtent2D.html), [VkStructureType](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkStructureType.html),
-[VkVideoCapabilityFlagsKHR](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkVideoCapabilityFlagsKHR.html),
-[vkGetPhysicalDeviceVideoCapabilitiesKHR](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkGetPhysicalDeviceVideoCapabilitiesKHR.html)
+For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#VkVideoCapabilitiesKHR)
 
-## <a href="#_document_notes" class="anchor"></a>Document Notes
+This page is extracted from the Vulkan Specification. Fixes and changes should be made to the Specification, not directly.
 
-For more information, see the <a
-href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#VkVideoCapabilitiesKHR"
-target="_blank" rel="noopener">Vulkan Specification</a>
+## [](#_copyright)Copyright
 
-This page is extracted from the Vulkan Specification. Fixes and changes
-should be made to the Specification, not directly.
-
-## <a href="#_copyright" class="anchor"></a>Copyright
-
-Copyright 2014-2024 The Khronos Group Inc.
+Copyright 2014-2025 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
-
-Version 1.3.290  
-Last updated 2024-07-11 23:39:16 -0700

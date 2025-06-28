@@ -1,166 +1,126 @@
-# VK_NV_displacement_micromap(3) Manual Page
+# VK\_NV\_displacement\_micromap(3) Manual Page
 
 ## Name
 
-VK_NV_displacement_micromap - device extension
+VK\_NV\_displacement\_micromap - device extension
 
 
 
-## <a href="#_registered_extension_number" class="anchor"></a>Registered Extension Number
+## [](#_registered_extension_number)Registered Extension Number
 
 398
 
-## <a href="#_revision" class="anchor"></a>Revision
+## [](#_revision)Revision
 
 2
 
-## <a href="#_ratification_status" class="anchor"></a>Ratification Status
+## [](#_ratification_status)Ratification Status
 
 Not ratified
 
-## <a href="#_extension_and_version_dependencies" class="anchor"></a>Extension and Version Dependencies
+## [](#_extension_and_version_dependencies)Extension and Version Dependencies
 
-[VK_EXT_opacity_micromap](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_EXT_opacity_micromap.html)  
+[VK\_EXT\_opacity\_micromap](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_EXT_opacity_micromap.html)
 
-- **This is a *provisional* extension and **must** be used with caution.
-  See the <a
-  href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#boilerplate-provisional-header"
-  target="_blank" rel="noopener">description</a> of provisional header
-  files for enablement and stability details.**
+- **This is a *provisional* extension and must be used with caution. See the [description](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#boilerplate-provisional-header) of provisional header files for enablement and stability details.**
 
-## <a href="#_contact" class="anchor"></a>Contact
+## [](#_deprecation_state)Deprecation State
 
-- Christoph Kubisch <a
-  href="https://github.com/KhronosGroup/Vulkan-Docs/issues/new?body=%5BVK_NV_displacement_micromap%5D%20@pixeljetstream%0A*Here%20describe%20the%20issue%20or%20question%20you%20have%20about%20the%20VK_NV_displacement_micromap%20extension*"
-  target="_blank" rel="nofollow noopener"><em></em>pixeljetstream</a>
+- *Deprecated* by [VK\_NV\_cluster\_acceleration\_structure](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_NV_cluster_acceleration_structure.html) extension
 
-- Eric Werness <a
-  href="https://github.com/KhronosGroup/Vulkan-Docs/issues/new?body=%5BVK_NV_displacement_micromap%5D%20@ewerness-nv%0A*Here%20describe%20the%20issue%20or%20question%20you%20have%20about%20the%20VK_NV_displacement_micromap%20extension*"
-  target="_blank" rel="nofollow noopener"><em></em>ewerness-nv</a>
+## [](#_contact)Contact
 
-## <a href="#_other_extension_metadata" class="anchor"></a>Other Extension Metadata
+- Christoph Kubisch [\[GitHub\]pixeljetstream](https://github.com/KhronosGroup/Vulkan-Docs/issues/new?body=%5BVK_NV_displacement_micromap%5D%20%40pixeljetstream%0A%2AHere%20describe%20the%20issue%20or%20question%20you%20have%20about%20the%20VK_NV_displacement_micromap%20extension%2A)
+- Eric Werness [\[GitHub\]ewerness-nv](https://github.com/KhronosGroup/Vulkan-Docs/issues/new?body=%5BVK_NV_displacement_micromap%5D%20%40ewerness-nv%0A%2AHere%20describe%20the%20issue%20or%20question%20you%20have%20about%20the%20VK_NV_displacement_micromap%20extension%2A)
 
-**Last Modified Date**  
+## [](#_other_extension_metadata)Other Extension Metadata
+
+**Last Modified Date**
+
 2023-03-17
 
-**Interactions and External Dependencies**  
+**Interactions and External Dependencies**
+
 TBD
 
-**Contributors**  
-- Christoph Kubisch, NVIDIA
+**Contributors**
 
+- Christoph Kubisch, NVIDIA
 - Eric Werness, NVIDIA
 
-## <a href="#_description" class="anchor"></a>Description
+## [](#_description)Description
 
-Ray tracing can very efficiently render from geometry which has very
-fine detail, but when using only a basic triangle representation, memory
-consumption can be an issue. This extension adds the ability to add a
-*displacement map* to add more detail to triangles in an acceleration
-structure with an efficient in-memory format. The format is externally
-visible to allow the application to compress its internal geometry
-representations into the compressed format ahead of time. This format
-adds displacements along a defined vector to subtriangle vertices which
-are subdivided from the main triangles.
+Ray tracing can very efficiently render from geometry which has very fine detail, but when using only a basic triangle representation, memory consumption can be an issue. This extension adds the ability to add a *displacement map* to add more detail to triangles in an acceleration structure with an efficient in-memory format. The format is externally visible to allow the application to compress its internal geometry representations into the compressed format ahead of time. This format adds displacements along a defined vector to subtriangle vertices which are subdivided from the main triangles.
 
 This extension provides:
 
-- a new [VkMicromapTypeEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkMicromapTypeEXT.html) format for the
-  displacement micromap,
+- a new [VkMicromapTypeEXT](https://registry.khronos.org/vulkan/specs/latest/man/html/VkMicromapTypeEXT.html) format for the displacement micromap,
+- a structure to extend [VkAccelerationStructureGeometryTrianglesDataKHR](https://registry.khronos.org/vulkan/specs/latest/man/html/VkAccelerationStructureGeometryTrianglesDataKHR.html) to attach a displacement micromap to the geometry of the acceleration structure,
+- enums extending [VkBuildAccelerationStructureFlagBitsKHR](https://registry.khronos.org/vulkan/specs/latest/man/html/VkBuildAccelerationStructureFlagBitsKHR.html) to allow for updates.
 
-- a structure to extend
-  [VkAccelerationStructureGeometryTrianglesDataKHR](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkAccelerationStructureGeometryTrianglesDataKHR.html)
-  to attach a displacement micromap to the geometry of the acceleration
-  structure,
+## [](#_new_structures)New Structures
 
-- enums extending
-  [VkBuildAccelerationStructureFlagBitsKHR](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkBuildAccelerationStructureFlagBitsKHR.html)
-  to allow for updates.
+- Extending [VkAccelerationStructureGeometryTrianglesDataKHR](https://registry.khronos.org/vulkan/specs/latest/man/html/VkAccelerationStructureGeometryTrianglesDataKHR.html):
+  
+  - [VkAccelerationStructureTrianglesDisplacementMicromapNV](https://registry.khronos.org/vulkan/specs/latest/man/html/VkAccelerationStructureTrianglesDisplacementMicromapNV.html)
+- Extending [VkPhysicalDeviceFeatures2](https://registry.khronos.org/vulkan/specs/latest/man/html/VkPhysicalDeviceFeatures2.html), [VkDeviceCreateInfo](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDeviceCreateInfo.html):
+  
+  - [VkPhysicalDeviceDisplacementMicromapFeaturesNV](https://registry.khronos.org/vulkan/specs/latest/man/html/VkPhysicalDeviceDisplacementMicromapFeaturesNV.html)
+- Extending [VkPhysicalDeviceProperties2](https://registry.khronos.org/vulkan/specs/latest/man/html/VkPhysicalDeviceProperties2.html):
+  
+  - [VkPhysicalDeviceDisplacementMicromapPropertiesNV](https://registry.khronos.org/vulkan/specs/latest/man/html/VkPhysicalDeviceDisplacementMicromapPropertiesNV.html)
 
-## <a href="#_new_structures" class="anchor"></a>New Structures
+## [](#_new_enums)New Enums
 
-- Extending
-  [VkAccelerationStructureGeometryTrianglesDataKHR](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkAccelerationStructureGeometryTrianglesDataKHR.html):
+- [VkDisplacementMicromapFormatNV](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDisplacementMicromapFormatNV.html)
 
-  - [VkAccelerationStructureTrianglesDisplacementMicromapNV](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkAccelerationStructureTrianglesDisplacementMicromapNV.html)
-
-- Extending [VkPhysicalDeviceFeatures2](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkPhysicalDeviceFeatures2.html),
-  [VkDeviceCreateInfo](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkDeviceCreateInfo.html):
-
-  - [VkPhysicalDeviceDisplacementMicromapFeaturesNV](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkPhysicalDeviceDisplacementMicromapFeaturesNV.html)
-
-- Extending
-  [VkPhysicalDeviceProperties2](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkPhysicalDeviceProperties2.html):
-
-  - [VkPhysicalDeviceDisplacementMicromapPropertiesNV](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkPhysicalDeviceDisplacementMicromapPropertiesNV.html)
-
-## <a href="#_new_enums" class="anchor"></a>New Enums
-
-- [VkDisplacementMicromapFormatNV](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkDisplacementMicromapFormatNV.html)
-
-## <a href="#_new_enum_constants" class="anchor"></a>New Enum Constants
+## [](#_new_enum_constants)New Enum Constants
 
 - `VK_NV_DISPLACEMENT_MICROMAP_EXTENSION_NAME`
-
 - `VK_NV_DISPLACEMENT_MICROMAP_SPEC_VERSION`
-
-- Extending
-  [VkBuildAccelerationStructureFlagBitsKHR](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkBuildAccelerationStructureFlagBitsKHR.html):
-
+- Extending [VkBuildAccelerationStructureFlagBitsKHR](https://registry.khronos.org/vulkan/specs/latest/man/html/VkBuildAccelerationStructureFlagBitsKHR.html):
+  
+  - `VK_BUILD_ACCELERATION_STRUCTURE_ALLOW_DISPLACEMENT_MICROMAP_UPDATE_BIT_NV`
   - `VK_BUILD_ACCELERATION_STRUCTURE_ALLOW_DISPLACEMENT_MICROMAP_UPDATE_NV`
-
-- Extending [VkMicromapTypeEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkMicromapTypeEXT.html):
-
+- Extending [VkMicromapTypeEXT](https://registry.khronos.org/vulkan/specs/latest/man/html/VkMicromapTypeEXT.html):
+  
   - `VK_MICROMAP_TYPE_DISPLACEMENT_MICROMAP_NV`
-
-- Extending [VkPipelineCreateFlagBits](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkPipelineCreateFlagBits.html):
-
+- Extending [VkPipelineCreateFlagBits](https://registry.khronos.org/vulkan/specs/latest/man/html/VkPipelineCreateFlagBits.html):
+  
   - `VK_PIPELINE_CREATE_RAY_TRACING_DISPLACEMENT_MICROMAP_BIT_NV`
-
-- Extending [VkStructureType](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkStructureType.html):
-
+- Extending [VkStructureType](https://registry.khronos.org/vulkan/specs/latest/man/html/VkStructureType.html):
+  
   - `VK_STRUCTURE_TYPE_ACCELERATION_STRUCTURE_TRIANGLES_DISPLACEMENT_MICROMAP_NV`
-
   - `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_DISPLACEMENT_MICROMAP_FEATURES_NV`
-
   - `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_DISPLACEMENT_MICROMAP_PROPERTIES_NV`
 
-## <a href="#_issues" class="anchor"></a>Issues
+## [](#_issues)Issues
 
-\(1\) What is the status of this extension?
+(1) What is the status of this extension?
 
-- Provisional and expected to change. The broad structure and encoding
-  format are stable, but there will likely be changes to the structures,
-  enumerant values, and shader interface.
+- Deprecated. The VK\_NV\_cluster\_acceleration\_structure extension is not a one-to-one replacement for this extension but enables similar performance improvements for high-tessellation geometry and is considered the preferred direction to improve high-tessellation geometry performance.
 
-## <a href="#_version_history" class="anchor"></a>Version History
+## [](#_version_history)Version History
 
 - Revision 1, 2023-03-17 (Eric Werness)
-
+  
   - Initial public revision
-
 - Revision 2, 2023-07-07 (Eric Werness)
-
+  
   - Add shader support for decode intrinsics
 
-## <a href="#_see_also" class="anchor"></a>See Also
+## [](#_see_also)See Also
 
 No cross-references are available
 
-## <a href="#_document_notes" class="anchor"></a>Document Notes
+## [](#_document_notes)Document Notes
 
-For more information, see the <a
-href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#VK_NV_displacement_micromap"
-target="_blank" rel="noopener">Vulkan Specification</a>
+For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#VK_NV_displacement_micromap)
 
-This page is a generated document. Fixes and changes should be made to
-the generator scripts, not directly.
+This page is a generated document. Fixes and changes should be made to the generator scripts, not directly.
 
-## <a href="#_copyright" class="anchor"></a>Copyright
+## [](#_copyright)Copyright
 
-Copyright 2014-2024 The Khronos Group Inc.
+Copyright 2014-2025 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
-
-Version 1.3.290  
-Last updated 2024-07-11 23:39:16 -0700

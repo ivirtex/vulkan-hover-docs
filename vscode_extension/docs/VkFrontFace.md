@@ -6,24 +6,17 @@ VkFrontFace - Interpret polygon front-facing orientation
 
 
 
-## <a href="#_c_specification" class="anchor"></a>C Specification
+## [](#_c_specification)C Specification
 
-The first step of polygon rasterization is to determine whether the
-triangle is *back-facing* or *front-facing*. This determination is made
-based on the sign of the (clipped or unclipped) polygon’s area computed
-in framebuffer coordinates. One way to compute this area is:
+The first step of polygon rasterization is to determine whether the triangle is *back-facing* or *front-facing*. This determination is made based on the sign of the (clipped or unclipped) polygon’s area computed in framebuffer coordinates. One way to compute this area is:
 
 a=−21​i=0∑n−1​xfi​yfi⊕1​−xfi⊕1​yfi​
 
-where xfi​ and yfi​ are the x and y framebuffer coordinates of the ith
-vertex of the n-vertex polygon (vertices are numbered starting at zero
-for the purposes of this computation) and i ⊕ 1 is (i + 1) mod n.
+where xfi​ and yfi​ are the x and y framebuffer coordinates of the ith vertex of the n-vertex polygon (vertices are numbered starting at zero for the purposes of this computation) and i ⊕ 1 is (i + 1) mod n.
 
-The interpretation of the sign of a is determined by the
-[VkPipelineRasterizationStateCreateInfo](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkPipelineRasterizationStateCreateInfo.html)::`frontFace`
-property of the currently active pipeline. Possible values are:
+The interpretation of the sign of a is determined by the [VkPipelineRasterizationStateCreateInfo](https://registry.khronos.org/vulkan/specs/latest/man/html/VkPipelineRasterizationStateCreateInfo.html)::`frontFace` property of the currently active pipeline. Possible values are:
 
-``` c
+```c++
 // Provided by VK_VERSION_1_0
 typedef enum VkFrontFace {
     VK_FRONT_FACE_COUNTER_CLOCKWISE = 0,
@@ -31,38 +24,25 @@ typedef enum VkFrontFace {
 } VkFrontFace;
 ```
 
-## <a href="#_description" class="anchor"></a>Description
+## [](#_description)Description
 
-- `VK_FRONT_FACE_COUNTER_CLOCKWISE` specifies that a triangle with
-  positive area is considered front-facing.
+- `VK_FRONT_FACE_COUNTER_CLOCKWISE` specifies that a triangle with positive area is considered front-facing.
+- `VK_FRONT_FACE_CLOCKWISE` specifies that a triangle with negative area is considered front-facing.
 
-- `VK_FRONT_FACE_CLOCKWISE` specifies that a triangle with negative area
-  is considered front-facing.
+Any triangle which is not front-facing is back-facing, including zero-area triangles.
 
-Any triangle which is not front-facing is back-facing, including
-zero-area triangles.
+## [](#_see_also)See Also
 
-## <a href="#_see_also" class="anchor"></a>See Also
+[VK\_VERSION\_1\_0](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_VERSION_1_0.html), [VkPipelineRasterizationStateCreateInfo](https://registry.khronos.org/vulkan/specs/latest/man/html/VkPipelineRasterizationStateCreateInfo.html), [vkCmdSetFrontFace](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdSetFrontFace.html), [vkCmdSetFrontFaceEXT](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdSetFrontFaceEXT.html)
 
-[VK_VERSION_1_0](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_VERSION_1_0.html),
-[VkPipelineRasterizationStateCreateInfo](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkPipelineRasterizationStateCreateInfo.html),
-[vkCmdSetFrontFace](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdSetFrontFace.html),
-[vkCmdSetFrontFaceEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdSetFrontFaceEXT.html)
+## [](#_document_notes)Document Notes
 
-## <a href="#_document_notes" class="anchor"></a>Document Notes
+For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#VkFrontFace)
 
-For more information, see the <a
-href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#VkFrontFace"
-target="_blank" rel="noopener">Vulkan Specification</a>
+This page is extracted from the Vulkan Specification. Fixes and changes should be made to the Specification, not directly.
 
-This page is extracted from the Vulkan Specification. Fixes and changes
-should be made to the Specification, not directly.
+## [](#_copyright)Copyright
 
-## <a href="#_copyright" class="anchor"></a>Copyright
-
-Copyright 2014-2024 The Khronos Group Inc.
+Copyright 2014-2025 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
-
-Version 1.3.290  
-Last updated 2024-07-11 23:39:16 -0700

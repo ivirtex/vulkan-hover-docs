@@ -2,56 +2,43 @@
 
 ## Name
 
-VkStencilFaceFlagBits - Bitmask specifying sets of stencil state for
-which to update the compare mask
+VkStencilFaceFlagBits - Bitmask specifying sets of stencil state for which to update the compare mask
 
 
 
-## <a href="#_c_specification" class="anchor"></a>C Specification
+## [](#_c_specification)C Specification
 
 `VkStencilFaceFlagBits` values are:
 
-``` c
+```c++
 // Provided by VK_VERSION_1_0
 typedef enum VkStencilFaceFlagBits {
     VK_STENCIL_FACE_FRONT_BIT = 0x00000001,
     VK_STENCIL_FACE_BACK_BIT = 0x00000002,
     VK_STENCIL_FACE_FRONT_AND_BACK = 0x00000003,
+  // VK_STENCIL_FRONT_AND_BACK is a deprecated alias
     VK_STENCIL_FRONT_AND_BACK = VK_STENCIL_FACE_FRONT_AND_BACK,
 } VkStencilFaceFlagBits;
 ```
 
-## <a href="#_description" class="anchor"></a>Description
+## [](#_description)Description
 
-- `VK_STENCIL_FACE_FRONT_BIT` specifies that only the front set of
-  stencil state is updated.
+- `VK_STENCIL_FACE_FRONT_BIT` specifies that only the front set of stencil state is updated.
+- `VK_STENCIL_FACE_BACK_BIT` specifies that only the back set of stencil state is updated.
+- `VK_STENCIL_FACE_FRONT_AND_BACK` is the combination of `VK_STENCIL_FACE_FRONT_BIT` and `VK_STENCIL_FACE_BACK_BIT`, and specifies that both sets of stencil state are updated.
 
-- `VK_STENCIL_FACE_BACK_BIT` specifies that only the back set of stencil
-  state is updated.
+## [](#_see_also)See Also
 
-- `VK_STENCIL_FACE_FRONT_AND_BACK` is the combination of
-  `VK_STENCIL_FACE_FRONT_BIT` and `VK_STENCIL_FACE_BACK_BIT`, and
-  specifies that both sets of stencil state are updated.
+[VK\_VERSION\_1\_0](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_VERSION_1_0.html), [VkStencilFaceFlags](https://registry.khronos.org/vulkan/specs/latest/man/html/VkStencilFaceFlags.html)
 
-## <a href="#_see_also" class="anchor"></a>See Also
+## [](#_document_notes)Document Notes
 
-[VK_VERSION_1_0](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_VERSION_1_0.html),
-[VkStencilFaceFlags](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkStencilFaceFlags.html)
+For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#VkStencilFaceFlagBits)
 
-## <a href="#_document_notes" class="anchor"></a>Document Notes
+This page is extracted from the Vulkan Specification. Fixes and changes should be made to the Specification, not directly.
 
-For more information, see the <a
-href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#VkStencilFaceFlagBits"
-target="_blank" rel="noopener">Vulkan Specification</a>
+## [](#_copyright)Copyright
 
-This page is extracted from the Vulkan Specification. Fixes and changes
-should be made to the Specification, not directly.
-
-## <a href="#_copyright" class="anchor"></a>Copyright
-
-Copyright 2014-2024 The Khronos Group Inc.
+Copyright 2014-2025 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
-
-Version 1.3.290  
-Last updated 2024-07-11 23:39:16 -0700

@@ -2,17 +2,15 @@
 
 ## Name
 
-VkExportMetalObjectTypeFlagBitsEXT - Bitmask specifying Metal object
-types that can be exported from a Vulkan object
+VkExportMetalObjectTypeFlagBitsEXT - Bitmask specifying Metal object types that can be exported from a Vulkan object
 
 
 
-## <a href="#_c_specification" class="anchor"></a>C Specification
+## [](#_c_specification)C Specification
 
-Bits which indicate the types of Metal objects that may be exported from
-a corresponding Vulkan object are:
+Bits which indicate the types of Metal objects that may be exported from a corresponding Vulkan object are:
 
-``` c
+```c++
 // Provided by VK_EXT_metal_objects
 typedef enum VkExportMetalObjectTypeFlagBitsEXT {
     VK_EXPORT_METAL_OBJECT_TYPE_METAL_DEVICE_BIT_EXT = 0x00000001,
@@ -24,46 +22,27 @@ typedef enum VkExportMetalObjectTypeFlagBitsEXT {
 } VkExportMetalObjectTypeFlagBitsEXT;
 ```
 
-## <a href="#_description" class="anchor"></a>Description
+## [](#_description)Description
 
-- `VK_EXPORT_METAL_OBJECT_TYPE_METAL_DEVICE_BIT_EXT` indicates a Metal
-  `MTLDevice` may be exported.
+- `VK_EXPORT_METAL_OBJECT_TYPE_METAL_DEVICE_BIT_EXT` specifies that a Metal `MTLDevice` may be exported.
+- `VK_EXPORT_METAL_OBJECT_TYPE_METAL_COMMAND_QUEUE_BIT_EXT` specifies that a Metal `MTLCommandQueue` may be exported.
+- `VK_EXPORT_METAL_OBJECT_TYPE_METAL_BUFFER_BIT_EXT` specifies that a Metal `MTLBuffer` may be exported.
+- `VK_EXPORT_METAL_OBJECT_TYPE_METAL_TEXTURE_BIT_EXT` specifies that a Metal `MTLTexture` may be exported.
+- `VK_EXPORT_METAL_OBJECT_TYPE_METAL_IOSURFACE_BIT_EXT` specifies that a Metal `IOSurface` may be exported.
+- `VK_EXPORT_METAL_OBJECT_TYPE_METAL_SHARED_EVENT_BIT_EXT` specifies that a Metal `MTLSharedEvent` may be exported.
 
-- `VK_EXPORT_METAL_OBJECT_TYPE_METAL_COMMAND_QUEUE_BIT_EXT` indicates a
-  Metal `MTLCommandQueue` may be exported.
+## [](#_see_also)See Also
 
-- `VK_EXPORT_METAL_OBJECT_TYPE_METAL_BUFFER_BIT_EXT` indicates a Metal
-  `MTLBuffer` may be exported.
+[VK\_EXT\_metal\_objects](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_EXT_metal_objects.html), [VkExportMetalObjectCreateInfoEXT](https://registry.khronos.org/vulkan/specs/latest/man/html/VkExportMetalObjectCreateInfoEXT.html), [VkExportMetalObjectTypeFlagsEXT](https://registry.khronos.org/vulkan/specs/latest/man/html/VkExportMetalObjectTypeFlagsEXT.html)
 
-- `VK_EXPORT_METAL_OBJECT_TYPE_METAL_TEXTURE_BIT_EXT` indicates a Metal
-  `MTLTexture` may be exported.
+## [](#_document_notes)Document Notes
 
-- `VK_EXPORT_METAL_OBJECT_TYPE_METAL_IOSURFACE_BIT_EXT` indicates a
-  Metal `IOSurface` may be exported.
+For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#VkExportMetalObjectTypeFlagBitsEXT)
 
-- `VK_EXPORT_METAL_OBJECT_TYPE_METAL_SHARED_EVENT_BIT_EXT` indicates a
-  Metal `MTLSharedEvent` may be exported.
+This page is extracted from the Vulkan Specification. Fixes and changes should be made to the Specification, not directly.
 
-## <a href="#_see_also" class="anchor"></a>See Also
+## [](#_copyright)Copyright
 
-[VK_EXT_metal_objects](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_EXT_metal_objects.html),
-[VkExportMetalObjectCreateInfoEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkExportMetalObjectCreateInfoEXT.html),
-[VkExportMetalObjectTypeFlagsEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkExportMetalObjectTypeFlagsEXT.html)
-
-## <a href="#_document_notes" class="anchor"></a>Document Notes
-
-For more information, see the <a
-href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#VkExportMetalObjectTypeFlagBitsEXT"
-target="_blank" rel="noopener">Vulkan Specification</a>
-
-This page is extracted from the Vulkan Specification. Fixes and changes
-should be made to the Specification, not directly.
-
-## <a href="#_copyright" class="anchor"></a>Copyright
-
-Copyright 2014-2024 The Khronos Group Inc.
+Copyright 2014-2025 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
-
-Version 1.3.290  
-Last updated 2024-07-11 23:39:16 -0700

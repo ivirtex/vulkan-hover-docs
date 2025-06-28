@@ -2,16 +2,19 @@
 
 ## Name
 
-VkRenderPassAttachmentBeginInfo - Structure specifying images to be used
-as framebuffer attachments
+VkRenderPassAttachmentBeginInfo - Structure specifying images to be used as framebuffer attachments
 
 
 
-## <a href="#_c_specification" class="anchor"></a>C Specification
+## [](#_c_specification)C Specification
 
 The `VkRenderPassAttachmentBeginInfo` structure is defined as:
 
-``` c
+Warning
+
+This functionality is deprecated by [Vulkan Version 1.4](#versions-1.4). See [Deprecated Functionality](#deprecation-dynamicrendering) for more information.
+
+```c++
 // Provided by VK_VERSION_1_2
 typedef struct VkRenderPassAttachmentBeginInfo {
     VkStructureType       sType;
@@ -23,95 +26,50 @@ typedef struct VkRenderPassAttachmentBeginInfo {
 
 or the equivalent
 
-``` c
+```c++
 // Provided by VK_KHR_imageless_framebuffer
 typedef VkRenderPassAttachmentBeginInfo VkRenderPassAttachmentBeginInfoKHR;
 ```
 
-## <a href="#_members" class="anchor"></a>Members
+## [](#_members)Members
 
-- `sType` is a [VkStructureType](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkStructureType.html) value identifying
-  this structure.
-
-- `pNext` is `NULL` or a pointer to a structure extending this
-  structure.
-
+- `sType` is a [VkStructureType](https://registry.khronos.org/vulkan/specs/latest/man/html/VkStructureType.html) value identifying this structure.
+- `pNext` is `NULL` or a pointer to a structure extending this structure.
 - `attachmentCount` is the number of attachments.
+- `pAttachments` is a pointer to an array of `VkImageView` handles, each of which will be used as the corresponding attachment in the render pass instance.
 
-- `pAttachments` is a pointer to an array of `VkImageView` handles, each
-  of which will be used as the corresponding attachment in the render
-  pass instance.
-
-## <a href="#_description" class="anchor"></a>Description
+## [](#_description)Description
 
 Valid Usage
 
-- <a href="#VUID-VkRenderPassAttachmentBeginInfo-pAttachments-03218"
-  id="VUID-VkRenderPassAttachmentBeginInfo-pAttachments-03218"></a>
-  VUID-VkRenderPassAttachmentBeginInfo-pAttachments-03218  
-  Each element of `pAttachments` **must** only specify a single mip
-  level
-
-- <a href="#VUID-VkRenderPassAttachmentBeginInfo-pAttachments-03219"
-  id="VUID-VkRenderPassAttachmentBeginInfo-pAttachments-03219"></a>
-  VUID-VkRenderPassAttachmentBeginInfo-pAttachments-03219  
-  Each element of `pAttachments` **must** have been created with the <a
-  href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#resources-image-views-identity-mappings"
-  target="_blank" rel="noopener">identity swizzle</a>
-
-- <a href="#VUID-VkRenderPassAttachmentBeginInfo-pAttachments-04114"
-  id="VUID-VkRenderPassAttachmentBeginInfo-pAttachments-04114"></a>
-  VUID-VkRenderPassAttachmentBeginInfo-pAttachments-04114  
-  Each element of `pAttachments` **must** have been created with
-  [VkImageViewCreateInfo](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkImageViewCreateInfo.html)::`viewType` not
-  equal to `VK_IMAGE_VIEW_TYPE_3D`
-
-- <a href="#VUID-VkRenderPassAttachmentBeginInfo-pAttachments-07010"
-  id="VUID-VkRenderPassAttachmentBeginInfo-pAttachments-07010"></a>
-  VUID-VkRenderPassAttachmentBeginInfo-pAttachments-07010  
-  If <a
-  href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#subpass-multisampledrendertosinglesampled"
-  target="_blank" rel="noopener">multisampled-render-to-single-sampled</a>
-  is enabled for any subpass, all element of `pAttachments` which have a
-  sample count equal to `VK_SAMPLE_COUNT_1_BIT` **must** have a format
-  that supports the sample count specified in
-  [VkMultisampledRenderToSingleSampledInfoEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkMultisampledRenderToSingleSampledInfoEXT.html)::`rasterizationSamples`
+- [](#VUID-VkRenderPassAttachmentBeginInfo-pAttachments-03218)VUID-VkRenderPassAttachmentBeginInfo-pAttachments-03218  
+  Each element of `pAttachments` **must** only specify a single mip level
+- [](#VUID-VkRenderPassAttachmentBeginInfo-pAttachments-03219)VUID-VkRenderPassAttachmentBeginInfo-pAttachments-03219  
+  Each element of `pAttachments` **must** have been created with the [identity swizzle](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#resources-image-views-identity-mappings)
+- [](#VUID-VkRenderPassAttachmentBeginInfo-pAttachments-04114)VUID-VkRenderPassAttachmentBeginInfo-pAttachments-04114  
+  Each element of `pAttachments` **must** have been created with [VkImageViewCreateInfo](https://registry.khronos.org/vulkan/specs/latest/man/html/VkImageViewCreateInfo.html)::`viewType` not equal to `VK_IMAGE_VIEW_TYPE_3D`
+- [](#VUID-VkRenderPassAttachmentBeginInfo-pAttachments-07010)VUID-VkRenderPassAttachmentBeginInfo-pAttachments-07010  
+  If [multisampled-render-to-single-sampled](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#subpass-multisampledrendertosinglesampled) is enabled for any subpass, all element of `pAttachments` which have a sample count equal to `VK_SAMPLE_COUNT_1_BIT` **must** have a format that supports the sample count specified in [VkMultisampledRenderToSingleSampledInfoEXT](https://registry.khronos.org/vulkan/specs/latest/man/html/VkMultisampledRenderToSingleSampledInfoEXT.html)::`rasterizationSamples`
 
 Valid Usage (Implicit)
 
-- <a href="#VUID-VkRenderPassAttachmentBeginInfo-sType-sType"
-  id="VUID-VkRenderPassAttachmentBeginInfo-sType-sType"></a>
-  VUID-VkRenderPassAttachmentBeginInfo-sType-sType  
-  `sType` **must** be
-  `VK_STRUCTURE_TYPE_RENDER_PASS_ATTACHMENT_BEGIN_INFO`
+- [](#VUID-VkRenderPassAttachmentBeginInfo-sType-sType)VUID-VkRenderPassAttachmentBeginInfo-sType-sType  
+  `sType` **must** be `VK_STRUCTURE_TYPE_RENDER_PASS_ATTACHMENT_BEGIN_INFO`
+- [](#VUID-VkRenderPassAttachmentBeginInfo-pAttachments-parameter)VUID-VkRenderPassAttachmentBeginInfo-pAttachments-parameter  
+  If `attachmentCount` is not `0`, `pAttachments` **must** be a valid pointer to an array of `attachmentCount` valid [VkImageView](https://registry.khronos.org/vulkan/specs/latest/man/html/VkImageView.html) handles
 
-- <a href="#VUID-VkRenderPassAttachmentBeginInfo-pAttachments-parameter"
-  id="VUID-VkRenderPassAttachmentBeginInfo-pAttachments-parameter"></a>
-  VUID-VkRenderPassAttachmentBeginInfo-pAttachments-parameter  
-  If `attachmentCount` is not `0`, `pAttachments` **must** be a valid
-  pointer to an array of `attachmentCount` valid
-  [VkImageView](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkImageView.html) handles
+## [](#_see_also)See Also
 
-## <a href="#_see_also" class="anchor"></a>See Also
+[VK\_KHR\_imageless\_framebuffer](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_KHR_imageless_framebuffer.html), [VK\_VERSION\_1\_2](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_VERSION_1_2.html), [VkImageView](https://registry.khronos.org/vulkan/specs/latest/man/html/VkImageView.html), [VkStructureType](https://registry.khronos.org/vulkan/specs/latest/man/html/VkStructureType.html)
 
-[VK_KHR_imageless_framebuffer](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_KHR_imageless_framebuffer.html),
-[VK_VERSION_1_2](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_VERSION_1_2.html), [VkImageView](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkImageView.html),
-[VkStructureType](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkStructureType.html)
+## [](#_document_notes)Document Notes
 
-## <a href="#_document_notes" class="anchor"></a>Document Notes
+For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#VkRenderPassAttachmentBeginInfo)
 
-For more information, see the <a
-href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#VkRenderPassAttachmentBeginInfo"
-target="_blank" rel="noopener">Vulkan Specification</a>
+This page is extracted from the Vulkan Specification. Fixes and changes should be made to the Specification, not directly.
 
-This page is extracted from the Vulkan Specification. Fixes and changes
-should be made to the Specification, not directly.
+## [](#_copyright)Copyright
 
-## <a href="#_copyright" class="anchor"></a>Copyright
-
-Copyright 2014-2024 The Khronos Group Inc.
+Copyright 2014-2025 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
-
-Version 1.3.290  
-Last updated 2024-07-11 23:39:16 -0700

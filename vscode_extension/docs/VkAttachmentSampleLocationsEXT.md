@@ -2,16 +2,19 @@
 
 ## Name
 
-VkAttachmentSampleLocationsEXT - Structure specifying the sample
-locations state to use in the initial layout transition of attachments
+VkAttachmentSampleLocationsEXT - Structure specifying the sample locations state to use in the initial layout transition of attachments
 
 
 
-## <a href="#_c_specification" class="anchor"></a>C Specification
+## [](#_c_specification)C Specification
 
 The `VkAttachmentSampleLocationsEXT` structure is defined as:
 
-``` c
+Warning
+
+This functionality is deprecated by [Vulkan Version 1.4](#versions-1.4). See [Deprecated Functionality](#deprecation-dynamicrendering) for more information.
+
+```c++
 // Provided by VK_EXT_sample_locations
 typedef struct VkAttachmentSampleLocationsEXT {
     uint32_t                    attachmentIndex;
@@ -19,63 +22,37 @@ typedef struct VkAttachmentSampleLocationsEXT {
 } VkAttachmentSampleLocationsEXT;
 ```
 
-## <a href="#_members" class="anchor"></a>Members
+## [](#_members)Members
 
-- `attachmentIndex` is the index of the attachment for which the sample
-  locations state is provided.
+- `attachmentIndex` is the index of the attachment for which the sample locations state is provided.
+- `sampleLocationsInfo` is the sample locations state to use for the layout transition of the given attachment from the initial layout of the attachment to the image layout specified for the attachment in the first subpass using it.
 
-- `sampleLocationsInfo` is the sample locations state to use for the
-  layout transition of the given attachment from the initial layout of
-  the attachment to the image layout specified for the attachment in the
-  first subpass using it.
+## [](#_description)Description
 
-## <a href="#_description" class="anchor"></a>Description
-
-If the image referenced by the framebuffer attachment at index
-`attachmentIndex` was not created with
-`VK_IMAGE_CREATE_SAMPLE_LOCATIONS_COMPATIBLE_DEPTH_BIT_EXT` then the
-values specified in `sampleLocationsInfo` are ignored.
+If the image referenced by the framebuffer attachment at index `attachmentIndex` was not created with `VK_IMAGE_CREATE_SAMPLE_LOCATIONS_COMPATIBLE_DEPTH_BIT_EXT` then the values specified in `sampleLocationsInfo` are ignored.
 
 Valid Usage
 
-- <a href="#VUID-VkAttachmentSampleLocationsEXT-attachmentIndex-01531"
-  id="VUID-VkAttachmentSampleLocationsEXT-attachmentIndex-01531"></a>
-  VUID-VkAttachmentSampleLocationsEXT-attachmentIndex-01531  
-  `attachmentIndex` **must** be less than the `attachmentCount`
-  specified in [VkRenderPassCreateInfo](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkRenderPassCreateInfo.html) the
-  render pass specified by
-  [VkRenderPassBeginInfo](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkRenderPassBeginInfo.html)::`renderPass` was
-  created with
+- [](#VUID-VkAttachmentSampleLocationsEXT-attachmentIndex-01531)VUID-VkAttachmentSampleLocationsEXT-attachmentIndex-01531  
+  `attachmentIndex` **must** be less than the `attachmentCount` specified in [VkRenderPassCreateInfo](https://registry.khronos.org/vulkan/specs/latest/man/html/VkRenderPassCreateInfo.html) the render pass specified by [VkRenderPassBeginInfo](https://registry.khronos.org/vulkan/specs/latest/man/html/VkRenderPassBeginInfo.html)::`renderPass` was created with
 
 Valid Usage (Implicit)
 
-- <a
-  href="#VUID-VkAttachmentSampleLocationsEXT-sampleLocationsInfo-parameter"
-  id="VUID-VkAttachmentSampleLocationsEXT-sampleLocationsInfo-parameter"></a>
-  VUID-VkAttachmentSampleLocationsEXT-sampleLocationsInfo-parameter  
-  `sampleLocationsInfo` **must** be a valid
-  [VkSampleLocationsInfoEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkSampleLocationsInfoEXT.html) structure
+- [](#VUID-VkAttachmentSampleLocationsEXT-sampleLocationsInfo-parameter)VUID-VkAttachmentSampleLocationsEXT-sampleLocationsInfo-parameter  
+  `sampleLocationsInfo` **must** be a valid [VkSampleLocationsInfoEXT](https://registry.khronos.org/vulkan/specs/latest/man/html/VkSampleLocationsInfoEXT.html) structure
 
-## <a href="#_see_also" class="anchor"></a>See Also
+## [](#_see_also)See Also
 
-[VK_EXT_sample_locations](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_EXT_sample_locations.html),
-[VkRenderPassSampleLocationsBeginInfoEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkRenderPassSampleLocationsBeginInfoEXT.html),
-[VkSampleLocationsInfoEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkSampleLocationsInfoEXT.html)
+[VK\_EXT\_sample\_locations](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_EXT_sample_locations.html), [VkRenderPassSampleLocationsBeginInfoEXT](https://registry.khronos.org/vulkan/specs/latest/man/html/VkRenderPassSampleLocationsBeginInfoEXT.html), [VkSampleLocationsInfoEXT](https://registry.khronos.org/vulkan/specs/latest/man/html/VkSampleLocationsInfoEXT.html)
 
-## <a href="#_document_notes" class="anchor"></a>Document Notes
+## [](#_document_notes)Document Notes
 
-For more information, see the <a
-href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#VkAttachmentSampleLocationsEXT"
-target="_blank" rel="noopener">Vulkan Specification</a>
+For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#VkAttachmentSampleLocationsEXT)
 
-This page is extracted from the Vulkan Specification. Fixes and changes
-should be made to the Specification, not directly.
+This page is extracted from the Vulkan Specification. Fixes and changes should be made to the Specification, not directly.
 
-## <a href="#_copyright" class="anchor"></a>Copyright
+## [](#_copyright)Copyright
 
-Copyright 2014-2024 The Khronos Group Inc.
+Copyright 2014-2025 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
-
-Version 1.3.290  
-Last updated 2024-07-11 23:39:16 -0700

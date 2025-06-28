@@ -2,19 +2,15 @@
 
 ## Name
 
-VkDeviceMemoryReportEventTypeEXT - Events that can occur on a device
-memory object
+VkDeviceMemoryReportEventTypeEXT - Events that can occur on a device memory object
 
 
 
-## <a href="#_c_specification" class="anchor"></a>C Specification
+## [](#_c_specification)C Specification
 
-Possible values of
-[VkDeviceMemoryReportCallbackDataEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkDeviceMemoryReportCallbackDataEXT.html)::`type`,
-specifying event types which cause the device driver to call the
-callback, are:
+Possible values of [VkDeviceMemoryReportCallbackDataEXT](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDeviceMemoryReportCallbackDataEXT.html)::`type`, specifying event types which cause the device driver to call the callback, are:
 
-``` c
+```c++
 // Provided by VK_EXT_device_memory_report
 typedef enum VkDeviceMemoryReportEventTypeEXT {
     VK_DEVICE_MEMORY_REPORT_EVENT_TYPE_ALLOCATE_EXT = 0,
@@ -25,45 +21,26 @@ typedef enum VkDeviceMemoryReportEventTypeEXT {
 } VkDeviceMemoryReportEventTypeEXT;
 ```
 
-## <a href="#_description" class="anchor"></a>Description
+## [](#_description)Description
 
-- `VK_DEVICE_MEMORY_REPORT_EVENT_TYPE_ALLOCATE_EXT` specifies this event
-  corresponds to the allocation of an internal device memory object or a
-  [VkDeviceMemory](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkDeviceMemory.html).
+- `VK_DEVICE_MEMORY_REPORT_EVENT_TYPE_ALLOCATE_EXT` specifies this event corresponds to the allocation of an internal device memory object or a [VkDeviceMemory](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDeviceMemory.html).
+- `VK_DEVICE_MEMORY_REPORT_EVENT_TYPE_FREE_EXT` specifies this event corresponds to the deallocation of an internally-allocated device memory object or a [VkDeviceMemory](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDeviceMemory.html).
+- `VK_DEVICE_MEMORY_REPORT_EVENT_TYPE_IMPORT_EXT` specifies this event corresponds to the import of an external memory object.
+- `VK_DEVICE_MEMORY_REPORT_EVENT_TYPE_UNIMPORT_EXT` specifies this event is the release of an imported external memory object.
+- `VK_DEVICE_MEMORY_REPORT_EVENT_TYPE_ALLOCATION_FAILED_EXT` specifies this event corresponds to the failed allocation of an internal device memory object or a [VkDeviceMemory](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDeviceMemory.html).
 
-- `VK_DEVICE_MEMORY_REPORT_EVENT_TYPE_FREE_EXT` specifies this event
-  corresponds to the deallocation of an internally-allocated device
-  memory object or a [VkDeviceMemory](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkDeviceMemory.html).
+## [](#_see_also)See Also
 
-- `VK_DEVICE_MEMORY_REPORT_EVENT_TYPE_IMPORT_EXT` specifies this event
-  corresponds to the import of an external memory object.
+[VK\_EXT\_device\_memory\_report](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_EXT_device_memory_report.html), [VkDeviceMemoryReportCallbackDataEXT](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDeviceMemoryReportCallbackDataEXT.html)
 
-- `VK_DEVICE_MEMORY_REPORT_EVENT_TYPE_UNIMPORT_EXT` specifies this event
-  is the release of an imported external memory object.
+## [](#_document_notes)Document Notes
 
-- `VK_DEVICE_MEMORY_REPORT_EVENT_TYPE_ALLOCATION_FAILED_EXT` specifies
-  this event corresponds to the failed allocation of an internal device
-  memory object or a [VkDeviceMemory](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkDeviceMemory.html).
+For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#VkDeviceMemoryReportEventTypeEXT)
 
-## <a href="#_see_also" class="anchor"></a>See Also
+This page is extracted from the Vulkan Specification. Fixes and changes should be made to the Specification, not directly.
 
-[VK_EXT_device_memory_report](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_EXT_device_memory_report.html),
-[VkDeviceMemoryReportCallbackDataEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkDeviceMemoryReportCallbackDataEXT.html)
+## [](#_copyright)Copyright
 
-## <a href="#_document_notes" class="anchor"></a>Document Notes
-
-For more information, see the <a
-href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#VkDeviceMemoryReportEventTypeEXT"
-target="_blank" rel="noopener">Vulkan Specification</a>
-
-This page is extracted from the Vulkan Specification. Fixes and changes
-should be made to the Specification, not directly.
-
-## <a href="#_copyright" class="anchor"></a>Copyright
-
-Copyright 2014-2024 The Khronos Group Inc.
+Copyright 2014-2025 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
-
-Version 1.3.290  
-Last updated 2024-07-11 23:39:16 -0700

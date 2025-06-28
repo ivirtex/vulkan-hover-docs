@@ -2,16 +2,15 @@
 
 ## Name
 
-VkCudaModuleCreateInfoNV - Structure specifying the parameters to create
-a CUDA Module
+VkCudaModuleCreateInfoNV - Structure specifying the parameters to create a CUDA Module
 
 
 
-## <a href="#_c_specification" class="anchor"></a>C Specification
+## [](#_c_specification)C Specification
 
 The `VkCudaModuleCreateInfoNV` structure is defined as:
 
-``` c
+```c++
 // Provided by VK_NV_cuda_kernel_launch
 typedef struct VkCudaModuleCreateInfoNV {
     VkStructureType    sType;
@@ -21,70 +20,43 @@ typedef struct VkCudaModuleCreateInfoNV {
 } VkCudaModuleCreateInfoNV;
 ```
 
-## <a href="#_members" class="anchor"></a>Members
+## [](#_members)Members
 
-- `sType` is a [VkStructureType](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkStructureType.html) value identifying
-  this structure.
-
-- `pNext` **may** be `NULL` or **may** be a pointer to a structure
-  extending this structure.
-
+- `sType` is a [VkStructureType](https://registry.khronos.org/vulkan/specs/latest/man/html/VkStructureType.html) value identifying this structure.
+- `pNext` **may** be `NULL` or **may** be a pointer to a structure extending this structure.
 - `dataSize` is the length of the `pData` array.
-
 - `pData` is a pointer to CUDA code
 
-## <a href="#_description" class="anchor"></a>Description
+## [](#_description)Description
 
 Valid Usage
 
-- <a href="#VUID-VkCudaModuleCreateInfoNV-dataSize-09413"
-  id="VUID-VkCudaModuleCreateInfoNV-dataSize-09413"></a>
-  VUID-VkCudaModuleCreateInfoNV-dataSize-09413  
-  `dataSize` **must** be the total size in bytes of the PTX files or
-  binary cache passed to `pData`
+- [](#VUID-VkCudaModuleCreateInfoNV-dataSize-09413)VUID-VkCudaModuleCreateInfoNV-dataSize-09413  
+  `dataSize` **must** be the total size in bytes of the PTX files or binary cache passed to `pData`
 
 Valid Usage (Implicit)
 
-- <a href="#VUID-VkCudaModuleCreateInfoNV-sType-sType"
-  id="VUID-VkCudaModuleCreateInfoNV-sType-sType"></a>
-  VUID-VkCudaModuleCreateInfoNV-sType-sType  
+- [](#VUID-VkCudaModuleCreateInfoNV-sType-sType)VUID-VkCudaModuleCreateInfoNV-sType-sType  
   `sType` **must** be `VK_STRUCTURE_TYPE_CUDA_MODULE_CREATE_INFO_NV`
-
-- <a href="#VUID-VkCudaModuleCreateInfoNV-pNext-pNext"
-  id="VUID-VkCudaModuleCreateInfoNV-pNext-pNext"></a>
-  VUID-VkCudaModuleCreateInfoNV-pNext-pNext  
+- [](#VUID-VkCudaModuleCreateInfoNV-pNext-pNext)VUID-VkCudaModuleCreateInfoNV-pNext-pNext  
   `pNext` **must** be `NULL`
-
-- <a href="#VUID-VkCudaModuleCreateInfoNV-pData-parameter"
-  id="VUID-VkCudaModuleCreateInfoNV-pData-parameter"></a>
-  VUID-VkCudaModuleCreateInfoNV-pData-parameter  
+- [](#VUID-VkCudaModuleCreateInfoNV-pData-parameter)VUID-VkCudaModuleCreateInfoNV-pData-parameter  
   `pData` **must** be a valid pointer to an array of `dataSize` bytes
-
-- <a href="#VUID-VkCudaModuleCreateInfoNV-dataSize-arraylength"
-  id="VUID-VkCudaModuleCreateInfoNV-dataSize-arraylength"></a>
-  VUID-VkCudaModuleCreateInfoNV-dataSize-arraylength  
+- [](#VUID-VkCudaModuleCreateInfoNV-dataSize-arraylength)VUID-VkCudaModuleCreateInfoNV-dataSize-arraylength  
   `dataSize` **must** be greater than `0`
 
-## <a href="#_see_also" class="anchor"></a>See Also
+## [](#_see_also)See Also
 
-[VK_NV_cuda_kernel_launch](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_NV_cuda_kernel_launch.html),
-[VkStructureType](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkStructureType.html),
-[vkCreateCudaModuleNV](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCreateCudaModuleNV.html)
+[VK\_NV\_cuda\_kernel\_launch](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_NV_cuda_kernel_launch.html), [VkStructureType](https://registry.khronos.org/vulkan/specs/latest/man/html/VkStructureType.html), [vkCreateCudaModuleNV](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCreateCudaModuleNV.html)
 
-## <a href="#_document_notes" class="anchor"></a>Document Notes
+## [](#_document_notes)Document Notes
 
-For more information, see the <a
-href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#VkCudaModuleCreateInfoNV"
-target="_blank" rel="noopener">Vulkan Specification</a>
+For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#VkCudaModuleCreateInfoNV)
 
-This page is extracted from the Vulkan Specification. Fixes and changes
-should be made to the Specification, not directly.
+This page is extracted from the Vulkan Specification. Fixes and changes should be made to the Specification, not directly.
 
-## <a href="#_copyright" class="anchor"></a>Copyright
+## [](#_copyright)Copyright
 
-Copyright 2014-2024 The Khronos Group Inc.
+Copyright 2014-2025 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
-
-Version 1.3.290  
-Last updated 2024-07-11 23:39:16 -0700

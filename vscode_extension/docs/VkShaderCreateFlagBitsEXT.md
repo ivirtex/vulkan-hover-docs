@@ -2,18 +2,15 @@
 
 ## Name
 
-VkShaderCreateFlagBitsEXT - Bitmask controlling how a shader object is
-created
+VkShaderCreateFlagBitsEXT - Bitmask controlling how a shader object is created
 
 
 
-## <a href="#_c_specification" class="anchor"></a>C Specification
+## [](#_c_specification)C Specification
 
-Possible values of the `flags` member of
-[VkShaderCreateInfoEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkShaderCreateInfoEXT.html) specifying how a
-shader object is created, are:
+Possible values of the `flags` member of [VkShaderCreateInfoEXT](https://registry.khronos.org/vulkan/specs/latest/man/html/VkShaderCreateInfoEXT.html) specifying how a shader object is created, are:
 
-``` c
+```c++
 // Provided by VK_EXT_shader_object
 typedef enum VkShaderCreateFlagBitsEXT {
     VK_SHADER_CREATE_LINK_STAGE_BIT_EXT = 0x00000001,
@@ -29,63 +26,34 @@ typedef enum VkShaderCreateFlagBitsEXT {
     VK_SHADER_CREATE_FRAGMENT_SHADING_RATE_ATTACHMENT_BIT_EXT = 0x00000020,
   // Provided by VK_EXT_fragment_density_map with VK_EXT_shader_object
     VK_SHADER_CREATE_FRAGMENT_DENSITY_MAP_ATTACHMENT_BIT_EXT = 0x00000040,
+  // Provided by VK_EXT_device_generated_commands
+    VK_SHADER_CREATE_INDIRECT_BINDABLE_BIT_EXT = 0x00000080,
 } VkShaderCreateFlagBitsEXT;
 ```
 
-## <a href="#_description" class="anchor"></a>Description
+## [](#_description)Description
 
-- `VK_SHADER_CREATE_LINK_STAGE_BIT_EXT` specifies that a shader is
-  linked to all other shaders created in the same
-  [vkCreateShadersEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCreateShadersEXT.html) call whose
-  [VkShaderCreateInfoEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkShaderCreateInfoEXT.html) structures'
-  `flags` include `VK_SHADER_CREATE_LINK_STAGE_BIT_EXT`.
+- `VK_SHADER_CREATE_LINK_STAGE_BIT_EXT` specifies that a shader is linked to all other shaders created in the same [vkCreateShadersEXT](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCreateShadersEXT.html) call whose [VkShaderCreateInfoEXT](https://registry.khronos.org/vulkan/specs/latest/man/html/VkShaderCreateInfoEXT.html) structures' `flags` include `VK_SHADER_CREATE_LINK_STAGE_BIT_EXT`.
+- `VK_SHADER_CREATE_ALLOW_VARYING_SUBGROUP_SIZE_BIT_EXT` specifies that the [`SubgroupSize`](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#interfaces-builtin-variables-sgs) **may** vary in a task, mesh, or compute shader.
+- `VK_SHADER_CREATE_REQUIRE_FULL_SUBGROUPS_BIT_EXT` specifies that the subgroup sizes **must** be launched with all invocations active in a task, mesh, or compute shader.
+- `VK_SHADER_CREATE_NO_TASK_SHADER_BIT_EXT` specifies that a mesh shader **must** only be used without a task shader. Otherwise, the mesh shader **must** only be used with a task shader.
+- `VK_SHADER_CREATE_DISPATCH_BASE_BIT_EXT` specifies that a compute shader **can** be used with [vkCmdDispatchBase](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdDispatchBase.html) with a non-zero base workgroup.
+- `VK_SHADER_CREATE_FRAGMENT_SHADING_RATE_ATTACHMENT_BIT_EXT` specifies that a fragment shader **can** be used with a fragment shading rate attachment.
+- `VK_SHADER_CREATE_FRAGMENT_DENSITY_MAP_ATTACHMENT_BIT_EXT` specifies that a fragment shader **can** be used with a fragment density map attachment.
+- `VK_SHADER_CREATE_INDIRECT_BINDABLE_BIT_EXT` specifies that the shader **can** be used in combination with [https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#device-generated-commands](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#device-generated-commands).
 
-- `VK_SHADER_CREATE_ALLOW_VARYING_SUBGROUP_SIZE_BIT_EXT` specifies that
-  the <a
-  href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#interfaces-builtin-variables-sgs"
-  target="_blank" rel="noopener"><code>SubgroupSize</code></a> **may**
-  vary in a task, mesh, or compute shader.
+## [](#_see_also)See Also
 
-- `VK_SHADER_CREATE_REQUIRE_FULL_SUBGROUPS_BIT_EXT` specifies that the
-  subgroup sizes **must** be launched with all invocations active in a
-  task, mesh, or compute shader.
+[VK\_EXT\_shader\_object](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_EXT_shader_object.html), [VkShaderCreateFlagsEXT](https://registry.khronos.org/vulkan/specs/latest/man/html/VkShaderCreateFlagsEXT.html)
 
-- `VK_SHADER_CREATE_NO_TASK_SHADER_BIT_EXT` specifies that a mesh shader
-  **must** only be used without a task shader. Otherwise, the mesh
-  shader **must** only be used with a task shader.
+## [](#_document_notes)Document Notes
 
-- `VK_SHADER_CREATE_DISPATCH_BASE_BIT_EXT` specifies that a compute
-  shader **can** be used with
-  [vkCmdDispatchBase](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdDispatchBase.html) with a non-zero base
-  workgroup.
+For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#VkShaderCreateFlagBitsEXT)
 
-- `VK_SHADER_CREATE_FRAGMENT_SHADING_RATE_ATTACHMENT_BIT_EXT` specifies
-  that a fragment shader **can** be used with a fragment shading rate
-  attachment.
+This page is extracted from the Vulkan Specification. Fixes and changes should be made to the Specification, not directly.
 
-- `VK_SHADER_CREATE_FRAGMENT_DENSITY_MAP_ATTACHMENT_BIT_EXT` specifies
-  that a fragment shader **can** be used with a fragment density map
-  attachment.
+## [](#_copyright)Copyright
 
-## <a href="#_see_also" class="anchor"></a>See Also
-
-[VK_EXT_shader_object](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_EXT_shader_object.html),
-[VkShaderCreateFlagsEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkShaderCreateFlagsEXT.html)
-
-## <a href="#_document_notes" class="anchor"></a>Document Notes
-
-For more information, see the <a
-href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#VkShaderCreateFlagBitsEXT"
-target="_blank" rel="noopener">Vulkan Specification</a>
-
-This page is extracted from the Vulkan Specification. Fixes and changes
-should be made to the Specification, not directly.
-
-## <a href="#_copyright" class="anchor"></a>Copyright
-
-Copyright 2014-2024 The Khronos Group Inc.
+Copyright 2014-2025 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
-
-Version 1.3.290  
-Last updated 2024-07-11 23:39:16 -0700

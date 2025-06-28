@@ -2,17 +2,15 @@
 
 ## Name
 
-VkFullScreenExclusiveEXT - Hint values an application can specify
-affecting full-screen transition behavior
+VkFullScreenExclusiveEXT - Hint values an application can specify affecting full-screen transition behavior
 
 
 
-## <a href="#_c_specification" class="anchor"></a>C Specification
+## [](#_c_specification)C Specification
 
-Possible values of
-`VkSurfaceFullScreenExclusiveInfoEXT`::`fullScreenExclusive` are:
+Possible values of `VkSurfaceFullScreenExclusiveInfoEXT`::`fullScreenExclusive` are:
 
-``` c
+```c++
 // Provided by VK_EXT_full_screen_exclusive
 typedef enum VkFullScreenExclusiveEXT {
     VK_FULL_SCREEN_EXCLUSIVE_DEFAULT_EXT = 0,
@@ -22,49 +20,25 @@ typedef enum VkFullScreenExclusiveEXT {
 } VkFullScreenExclusiveEXT;
 ```
 
-## <a href="#_description" class="anchor"></a>Description
+## [](#_description)Description
 
-- `VK_FULL_SCREEN_EXCLUSIVE_DEFAULT_EXT` indicates the implementation
-  **should** determine the appropriate full-screen method by whatever
-  means it deems appropriate.
+- `VK_FULL_SCREEN_EXCLUSIVE_DEFAULT_EXT` specifies that the implementation **should** determine the appropriate full-screen method by whatever means it deems appropriate.
+- `VK_FULL_SCREEN_EXCLUSIVE_ALLOWED_EXT` specifies that the implementation **may** use full-screen exclusive mechanisms when available. Such mechanisms **may** result in better performance and/or the availability of different presentation capabilities, but **may** require a more disruptive transition during swapchain initialization, first presentation and/or destruction.
+- `VK_FULL_SCREEN_EXCLUSIVE_DISALLOWED_EXT` specifies that the implementation **should** avoid using full-screen mechanisms which rely on disruptive transitions.
+- `VK_FULL_SCREEN_EXCLUSIVE_APPLICATION_CONTROLLED_EXT` specifies that the application will manage full-screen exclusive mode by using the [vkAcquireFullScreenExclusiveModeEXT](https://registry.khronos.org/vulkan/specs/latest/man/html/vkAcquireFullScreenExclusiveModeEXT.html) and [vkReleaseFullScreenExclusiveModeEXT](https://registry.khronos.org/vulkan/specs/latest/man/html/vkReleaseFullScreenExclusiveModeEXT.html) commands.
 
-- `VK_FULL_SCREEN_EXCLUSIVE_ALLOWED_EXT` indicates the implementation
-  **may** use full-screen exclusive mechanisms when available. Such
-  mechanisms **may** result in better performance and/or the
-  availability of different presentation capabilities, but **may**
-  require a more disruptive transition during swapchain initialization,
-  first presentation and/or destruction.
+## [](#_see_also)See Also
 
-- `VK_FULL_SCREEN_EXCLUSIVE_DISALLOWED_EXT` indicates the implementation
-  **should** avoid using full-screen mechanisms which rely on disruptive
-  transitions.
+[VK\_EXT\_full\_screen\_exclusive](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_EXT_full_screen_exclusive.html), [VkSurfaceFullScreenExclusiveInfoEXT](https://registry.khronos.org/vulkan/specs/latest/man/html/VkSurfaceFullScreenExclusiveInfoEXT.html)
 
-- `VK_FULL_SCREEN_EXCLUSIVE_APPLICATION_CONTROLLED_EXT` indicates the
-  application will manage full-screen exclusive mode by using the
-  [vkAcquireFullScreenExclusiveModeEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkAcquireFullScreenExclusiveModeEXT.html)
-  and
-  [vkReleaseFullScreenExclusiveModeEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkReleaseFullScreenExclusiveModeEXT.html)
-  commands.
+## [](#_document_notes)Document Notes
 
-## <a href="#_see_also" class="anchor"></a>See Also
+For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#VkFullScreenExclusiveEXT)
 
-[VK_EXT_full_screen_exclusive](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_EXT_full_screen_exclusive.html),
-[VkSurfaceFullScreenExclusiveInfoEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkSurfaceFullScreenExclusiveInfoEXT.html)
+This page is extracted from the Vulkan Specification. Fixes and changes should be made to the Specification, not directly.
 
-## <a href="#_document_notes" class="anchor"></a>Document Notes
+## [](#_copyright)Copyright
 
-For more information, see the <a
-href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#VkFullScreenExclusiveEXT"
-target="_blank" rel="noopener">Vulkan Specification</a>
-
-This page is extracted from the Vulkan Specification. Fixes and changes
-should be made to the Specification, not directly.
-
-## <a href="#_copyright" class="anchor"></a>Copyright
-
-Copyright 2014-2024 The Khronos Group Inc.
+Copyright 2014-2025 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
-
-Version 1.3.290  
-Last updated 2024-07-11 23:39:16 -0700

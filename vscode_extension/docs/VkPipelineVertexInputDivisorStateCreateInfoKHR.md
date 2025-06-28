@@ -1,106 +1,71 @@
-# VkPipelineVertexInputDivisorStateCreateInfoKHR(3) Manual Page
+# VkPipelineVertexInputDivisorStateCreateInfo(3) Manual Page
 
 ## Name
 
-VkPipelineVertexInputDivisorStateCreateInfoKHR - Structure specifying
-vertex attributes assignment during instanced rendering
+VkPipelineVertexInputDivisorStateCreateInfo - Structure specifying vertex attributes assignment during instanced rendering
 
 
 
-## <a href="#_c_specification" class="anchor"></a>C Specification
+## [](#_c_specification)C Specification
 
-If the <a
-href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#features-vertexAttributeInstanceRateDivisor"
-target="_blank"
-rel="noopener"><code>vertexAttributeInstanceRateDivisor</code></a>
-feature is enabled and the `pNext` chain of
-[VkPipelineVertexInputStateCreateInfo](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkPipelineVertexInputStateCreateInfo.html)
-includes a `VkPipelineVertexInputDivisorStateCreateInfoKHR` structure,
-then that structure controls how vertex attributes are assigned to an
-instance when instanced rendering is enabled.
+If the [`vertexAttributeInstanceRateDivisor`](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#features-vertexAttributeInstanceRateDivisor) feature is enabled and the `pNext` chain of [VkPipelineVertexInputStateCreateInfo](https://registry.khronos.org/vulkan/specs/latest/man/html/VkPipelineVertexInputStateCreateInfo.html) includes a `VkPipelineVertexInputDivisorStateCreateInfo` structure, then that structure controls how vertex attributes are assigned to an instance when instanced rendering is enabled.
 
-The `VkPipelineVertexInputDivisorStateCreateInfoKHR` structure is
-defined as:
+The `VkPipelineVertexInputDivisorStateCreateInfo` structure is defined as:
 
-``` c
-// Provided by VK_KHR_vertex_attribute_divisor
-typedef struct VkPipelineVertexInputDivisorStateCreateInfoKHR {
-    VkStructureType                                     sType;
-    const void*                                         pNext;
-    uint32_t                                            vertexBindingDivisorCount;
-    const VkVertexInputBindingDivisorDescriptionKHR*    pVertexBindingDivisors;
-} VkPipelineVertexInputDivisorStateCreateInfoKHR;
+```c++
+// Provided by VK_VERSION_1_4
+typedef struct VkPipelineVertexInputDivisorStateCreateInfo {
+    VkStructureType                                  sType;
+    const void*                                      pNext;
+    uint32_t                                         vertexBindingDivisorCount;
+    const VkVertexInputBindingDivisorDescription*    pVertexBindingDivisors;
+} VkPipelineVertexInputDivisorStateCreateInfo;
 ```
 
 or the equivalent
 
-``` c
-// Provided by VK_EXT_vertex_attribute_divisor
-typedef VkPipelineVertexInputDivisorStateCreateInfoKHR VkPipelineVertexInputDivisorStateCreateInfoEXT;
+```c++
+// Provided by VK_KHR_vertex_attribute_divisor
+typedef VkPipelineVertexInputDivisorStateCreateInfo VkPipelineVertexInputDivisorStateCreateInfoKHR;
 ```
 
-## <a href="#_members" class="anchor"></a>Members
+or the equivalent
 
-- `sType` is a [VkStructureType](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkStructureType.html) value identifying
-  this structure.
+```c++
+// Provided by VK_EXT_vertex_attribute_divisor
+typedef VkPipelineVertexInputDivisorStateCreateInfo VkPipelineVertexInputDivisorStateCreateInfoEXT;
+```
 
-- `pNext` is `NULL` or a pointer to a structure extending this
-  structure.
+## [](#_members)Members
 
-- `vertexBindingDivisorCount` is the number of elements in the
-  `pVertexBindingDivisors` array.
+- `sType` is a [VkStructureType](https://registry.khronos.org/vulkan/specs/latest/man/html/VkStructureType.html) value identifying this structure.
+- `pNext` is `NULL` or a pointer to a structure extending this structure.
+- `vertexBindingDivisorCount` is the number of elements in the `pVertexBindingDivisors` array.
+- `pVertexBindingDivisors` is a pointer to an array of [VkVertexInputBindingDivisorDescription](https://registry.khronos.org/vulkan/specs/latest/man/html/VkVertexInputBindingDivisorDescription.html) structures specifying the divisor value for each binding.
 
-- `pVertexBindingDivisors` is a pointer to an array of
-  [VkVertexInputBindingDivisorDescriptionKHR](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkVertexInputBindingDivisorDescriptionKHR.html)
-  structures specifying the divisor value for each binding.
-
-## <a href="#_description" class="anchor"></a>Description
+## [](#_description)Description
 
 Valid Usage (Implicit)
 
-- <a
-  href="#VUID-VkPipelineVertexInputDivisorStateCreateInfoKHR-sType-sType"
-  id="VUID-VkPipelineVertexInputDivisorStateCreateInfoKHR-sType-sType"></a>
-  VUID-VkPipelineVertexInputDivisorStateCreateInfoKHR-sType-sType  
-  `sType` **must** be
-  `VK_STRUCTURE_TYPE_PIPELINE_VERTEX_INPUT_DIVISOR_STATE_CREATE_INFO_KHR`
-
-- <a
-  href="#VUID-VkPipelineVertexInputDivisorStateCreateInfoKHR-pVertexBindingDivisors-parameter"
-  id="VUID-VkPipelineVertexInputDivisorStateCreateInfoKHR-pVertexBindingDivisors-parameter"></a>
-  VUID-VkPipelineVertexInputDivisorStateCreateInfoKHR-pVertexBindingDivisors-parameter  
-  `pVertexBindingDivisors` **must** be a valid pointer to an array of
-  `vertexBindingDivisorCount`
-  [VkVertexInputBindingDivisorDescriptionKHR](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkVertexInputBindingDivisorDescriptionKHR.html)
-  structures
-
-- <a
-  href="#VUID-VkPipelineVertexInputDivisorStateCreateInfoKHR-vertexBindingDivisorCount-arraylength"
-  id="VUID-VkPipelineVertexInputDivisorStateCreateInfoKHR-vertexBindingDivisorCount-arraylength"></a>
-  VUID-VkPipelineVertexInputDivisorStateCreateInfoKHR-vertexBindingDivisorCount-arraylength  
+- [](#VUID-VkPipelineVertexInputDivisorStateCreateInfo-sType-sType)VUID-VkPipelineVertexInputDivisorStateCreateInfo-sType-sType  
+  `sType` **must** be `VK_STRUCTURE_TYPE_PIPELINE_VERTEX_INPUT_DIVISOR_STATE_CREATE_INFO`
+- [](#VUID-VkPipelineVertexInputDivisorStateCreateInfo-pVertexBindingDivisors-parameter)VUID-VkPipelineVertexInputDivisorStateCreateInfo-pVertexBindingDivisors-parameter  
+  `pVertexBindingDivisors` **must** be a valid pointer to an array of `vertexBindingDivisorCount` [VkVertexInputBindingDivisorDescription](https://registry.khronos.org/vulkan/specs/latest/man/html/VkVertexInputBindingDivisorDescription.html) structures
+- [](#VUID-VkPipelineVertexInputDivisorStateCreateInfo-vertexBindingDivisorCount-arraylength)VUID-VkPipelineVertexInputDivisorStateCreateInfo-vertexBindingDivisorCount-arraylength  
   `vertexBindingDivisorCount` **must** be greater than `0`
 
-## <a href="#_see_also" class="anchor"></a>See Also
+## [](#_see_also)See Also
 
-[VK_EXT_vertex_attribute_divisor](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_EXT_vertex_attribute_divisor.html),
-[VK_KHR_vertex_attribute_divisor](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_KHR_vertex_attribute_divisor.html),
-[VkStructureType](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkStructureType.html),
-[VkVertexInputBindingDivisorDescriptionKHR](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkVertexInputBindingDivisorDescriptionKHR.html)
+[VK\_EXT\_vertex\_attribute\_divisor](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_EXT_vertex_attribute_divisor.html), [VK\_KHR\_vertex\_attribute\_divisor](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_KHR_vertex_attribute_divisor.html), [VK\_VERSION\_1\_4](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_VERSION_1_4.html), [VkStructureType](https://registry.khronos.org/vulkan/specs/latest/man/html/VkStructureType.html), [VkVertexInputBindingDivisorDescription](https://registry.khronos.org/vulkan/specs/latest/man/html/VkVertexInputBindingDivisorDescription.html)
 
-## <a href="#_document_notes" class="anchor"></a>Document Notes
+## [](#_document_notes)Document Notes
 
-For more information, see the <a
-href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#VkPipelineVertexInputDivisorStateCreateInfoKHR"
-target="_blank" rel="noopener">Vulkan Specification</a>
+For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#VkPipelineVertexInputDivisorStateCreateInfo)
 
-This page is extracted from the Vulkan Specification. Fixes and changes
-should be made to the Specification, not directly.
+This page is extracted from the Vulkan Specification. Fixes and changes should be made to the Specification, not directly.
 
-## <a href="#_copyright" class="anchor"></a>Copyright
+## [](#_copyright)Copyright
 
-Copyright 2014-2024 The Khronos Group Inc.
+Copyright 2014-2025 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
-
-Version 1.3.290  
-Last updated 2024-07-11 23:39:16 -0700

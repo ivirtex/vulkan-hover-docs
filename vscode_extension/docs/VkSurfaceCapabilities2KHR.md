@@ -2,16 +2,15 @@
 
 ## Name
 
-VkSurfaceCapabilities2KHR - Structure describing capabilities of a
-surface
+VkSurfaceCapabilities2KHR - Structure describing capabilities of a surface
 
 
 
-## <a href="#_c_specification" class="anchor"></a>C Specification
+## [](#_c_specification)C Specification
 
 The `VkSurfaceCapabilities2KHR` structure is defined as:
 
-``` c
+```c++
 // Provided by VK_KHR_get_surface_capabilities2
 typedef struct VkSurfaceCapabilities2KHR {
     VkStructureType             sType;
@@ -20,86 +19,41 @@ typedef struct VkSurfaceCapabilities2KHR {
 } VkSurfaceCapabilities2KHR;
 ```
 
-## <a href="#_members" class="anchor"></a>Members
+## [](#_members)Members
 
-- `sType` is a [VkStructureType](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkStructureType.html) value identifying
-  this structure.
+- `sType` is a [VkStructureType](https://registry.khronos.org/vulkan/specs/latest/man/html/VkStructureType.html) value identifying this structure.
+- `pNext` is `NULL` or a pointer to a structure extending this structure.
+- `surfaceCapabilities` is a [VkSurfaceCapabilitiesKHR](https://registry.khronos.org/vulkan/specs/latest/man/html/VkSurfaceCapabilitiesKHR.html) structure describing the capabilities of the specified surface.
 
-- `pNext` is `NULL` or a pointer to a structure extending this
-  structure.
+## [](#_description)Description
 
-- `surfaceCapabilities` is a
-  [VkSurfaceCapabilitiesKHR](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkSurfaceCapabilitiesKHR.html) structure
-  describing the capabilities of the specified surface.
-
-## <a href="#_description" class="anchor"></a>Description
-
-If the [`VK_GOOGLE_surfaceless_query`](VK_GOOGLE_surfaceless_query.html)
-extension is enabled and
-[VkPhysicalDeviceSurfaceInfo2KHR](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkPhysicalDeviceSurfaceInfo2KHR.html)::`surface`
-in the
-[vkGetPhysicalDeviceSurfaceCapabilities2KHR](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkGetPhysicalDeviceSurfaceCapabilities2KHR.html)
-call is [VK_NULL_HANDLE](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_NULL_HANDLE.html), the values returned in
-`minImageCount`, `maxImageCount`, `currentExtent`, and
-`currentTransform` will not reflect that of any surface and will instead
-be as such:
+If the `VK_GOOGLE_surfaceless_query` extension is enabled and [VkPhysicalDeviceSurfaceInfo2KHR](https://registry.khronos.org/vulkan/specs/latest/man/html/VkPhysicalDeviceSurfaceInfo2KHR.html)::`surface` in the [vkGetPhysicalDeviceSurfaceCapabilities2KHR](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetPhysicalDeviceSurfaceCapabilities2KHR.html) call is [VK\_NULL\_HANDLE](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_NULL_HANDLE.html), the values returned in `minImageCount`, `maxImageCount`, `currentExtent`, and `currentTransform` will not reflect that of any surface and will instead be as such:
 
 - `minImageCount` and `maxImageCount` will be 0xFFFFFFFF
-
 - `currentExtent` will be (0xFFFFFFFF, 0xFFFFFFFF)
-
 - `currentTransform` will be `VK_SURFACE_TRANSFORM_INHERIT_BIT_KHR`
 
 Valid Usage (Implicit)
 
-- <a href="#VUID-VkSurfaceCapabilities2KHR-sType-sType"
-  id="VUID-VkSurfaceCapabilities2KHR-sType-sType"></a>
-  VUID-VkSurfaceCapabilities2KHR-sType-sType  
+- [](#VUID-VkSurfaceCapabilities2KHR-sType-sType)VUID-VkSurfaceCapabilities2KHR-sType-sType  
   `sType` **must** be `VK_STRUCTURE_TYPE_SURFACE_CAPABILITIES_2_KHR`
+- [](#VUID-VkSurfaceCapabilities2KHR-pNext-pNext)VUID-VkSurfaceCapabilities2KHR-pNext-pNext  
+  Each `pNext` member of any structure (including this one) in the `pNext` chain **must** be either `NULL` or a pointer to a valid instance of [VkDisplayNativeHdrSurfaceCapabilitiesAMD](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDisplayNativeHdrSurfaceCapabilitiesAMD.html), [VkLatencySurfaceCapabilitiesNV](https://registry.khronos.org/vulkan/specs/latest/man/html/VkLatencySurfaceCapabilitiesNV.html), [VkSharedPresentSurfaceCapabilitiesKHR](https://registry.khronos.org/vulkan/specs/latest/man/html/VkSharedPresentSurfaceCapabilitiesKHR.html), [VkSurfaceCapabilitiesFullScreenExclusiveEXT](https://registry.khronos.org/vulkan/specs/latest/man/html/VkSurfaceCapabilitiesFullScreenExclusiveEXT.html), [VkSurfaceCapabilitiesPresentBarrierNV](https://registry.khronos.org/vulkan/specs/latest/man/html/VkSurfaceCapabilitiesPresentBarrierNV.html), [VkSurfaceCapabilitiesPresentId2KHR](https://registry.khronos.org/vulkan/specs/latest/man/html/VkSurfaceCapabilitiesPresentId2KHR.html), [VkSurfaceCapabilitiesPresentWait2KHR](https://registry.khronos.org/vulkan/specs/latest/man/html/VkSurfaceCapabilitiesPresentWait2KHR.html), [VkSurfacePresentModeCompatibilityEXT](https://registry.khronos.org/vulkan/specs/latest/man/html/VkSurfacePresentModeCompatibilityEXT.html), [VkSurfacePresentScalingCapabilitiesEXT](https://registry.khronos.org/vulkan/specs/latest/man/html/VkSurfacePresentScalingCapabilitiesEXT.html), or [VkSurfaceProtectedCapabilitiesKHR](https://registry.khronos.org/vulkan/specs/latest/man/html/VkSurfaceProtectedCapabilitiesKHR.html)
+- [](#VUID-VkSurfaceCapabilities2KHR-sType-unique)VUID-VkSurfaceCapabilities2KHR-sType-unique  
+  The `sType` value of each structure in the `pNext` chain **must** be unique
 
-- <a href="#VUID-VkSurfaceCapabilities2KHR-pNext-pNext"
-  id="VUID-VkSurfaceCapabilities2KHR-pNext-pNext"></a>
-  VUID-VkSurfaceCapabilities2KHR-pNext-pNext  
-  Each `pNext` member of any structure (including this one) in the
-  `pNext` chain **must** be either `NULL` or a pointer to a valid
-  instance of
-  [VkDisplayNativeHdrSurfaceCapabilitiesAMD](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkDisplayNativeHdrSurfaceCapabilitiesAMD.html),
-  [VkLatencySurfaceCapabilitiesNV](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkLatencySurfaceCapabilitiesNV.html),
-  [VkSharedPresentSurfaceCapabilitiesKHR](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkSharedPresentSurfaceCapabilitiesKHR.html),
-  [VkSurfaceCapabilitiesFullScreenExclusiveEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkSurfaceCapabilitiesFullScreenExclusiveEXT.html),
-  [VkSurfaceCapabilitiesPresentBarrierNV](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkSurfaceCapabilitiesPresentBarrierNV.html),
-  [VkSurfacePresentModeCompatibilityEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkSurfacePresentModeCompatibilityEXT.html),
-  [VkSurfacePresentScalingCapabilitiesEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkSurfacePresentScalingCapabilitiesEXT.html),
-  or
-  [VkSurfaceProtectedCapabilitiesKHR](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkSurfaceProtectedCapabilitiesKHR.html)
+## [](#_see_also)See Also
 
-- <a href="#VUID-VkSurfaceCapabilities2KHR-sType-unique"
-  id="VUID-VkSurfaceCapabilities2KHR-sType-unique"></a>
-  VUID-VkSurfaceCapabilities2KHR-sType-unique  
-  The `sType` value of each struct in the `pNext` chain **must** be
-  unique
+[VK\_KHR\_get\_surface\_capabilities2](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_KHR_get_surface_capabilities2.html), [VkStructureType](https://registry.khronos.org/vulkan/specs/latest/man/html/VkStructureType.html), [VkSurfaceCapabilitiesKHR](https://registry.khronos.org/vulkan/specs/latest/man/html/VkSurfaceCapabilitiesKHR.html), [vkGetPhysicalDeviceSurfaceCapabilities2KHR](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetPhysicalDeviceSurfaceCapabilities2KHR.html)
 
-## <a href="#_see_also" class="anchor"></a>See Also
+## [](#_document_notes)Document Notes
 
-[VK_KHR_get_surface_capabilities2](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_KHR_get_surface_capabilities2.html),
-[VkStructureType](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkStructureType.html),
-[VkSurfaceCapabilitiesKHR](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkSurfaceCapabilitiesKHR.html),
-[vkGetPhysicalDeviceSurfaceCapabilities2KHR](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkGetPhysicalDeviceSurfaceCapabilities2KHR.html)
+For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#VkSurfaceCapabilities2KHR)
 
-## <a href="#_document_notes" class="anchor"></a>Document Notes
+This page is extracted from the Vulkan Specification. Fixes and changes should be made to the Specification, not directly.
 
-For more information, see the <a
-href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#VkSurfaceCapabilities2KHR"
-target="_blank" rel="noopener">Vulkan Specification</a>
+## [](#_copyright)Copyright
 
-This page is extracted from the Vulkan Specification. Fixes and changes
-should be made to the Specification, not directly.
-
-## <a href="#_copyright" class="anchor"></a>Copyright
-
-Copyright 2014-2024 The Khronos Group Inc.
+Copyright 2014-2025 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
-
-Version 1.3.290  
-Last updated 2024-07-11 23:39:16 -0700

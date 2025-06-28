@@ -2,18 +2,15 @@
 
 ## Name
 
-VkPhysicalDeviceSeparateDepthStencilLayoutsFeatures - Structure
-describing whether the implementation can do depth and stencil image
-barriers separately
+VkPhysicalDeviceSeparateDepthStencilLayoutsFeatures - Structure describing whether the implementation can do depth and stencil image barriers separately
 
 
 
-## <a href="#_c_specification" class="anchor"></a>C Specification
+## [](#_c_specification)C Specification
 
-The `VkPhysicalDeviceSeparateDepthStencilLayoutsFeatures` structure is
-defined as:
+The `VkPhysicalDeviceSeparateDepthStencilLayoutsFeatures` structure is defined as:
 
-``` c
+```c++
 // Provided by VK_VERSION_1_2
 typedef struct VkPhysicalDeviceSeparateDepthStencilLayoutsFeatures {
     VkStructureType    sType;
@@ -24,72 +21,41 @@ typedef struct VkPhysicalDeviceSeparateDepthStencilLayoutsFeatures {
 
 or the equivalent
 
-``` c
+```c++
 // Provided by VK_KHR_separate_depth_stencil_layouts
 typedef VkPhysicalDeviceSeparateDepthStencilLayoutsFeatures VkPhysicalDeviceSeparateDepthStencilLayoutsFeaturesKHR;
 ```
 
-## <a href="#_members" class="anchor"></a>Members
+## [](#_members)Members
 
 This structure describes the following feature:
 
-- `sType` is a [VkStructureType](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkStructureType.html) value identifying
-  this structure.
+- `sType` is a [VkStructureType](https://registry.khronos.org/vulkan/specs/latest/man/html/VkStructureType.html) value identifying this structure.
+- `pNext` is `NULL` or a pointer to a structure extending this structure.
 
-- `pNext` is `NULL` or a pointer to a structure extending this
-  structure.
+## [](#_description)Description
 
-## <a href="#_description" class="anchor"></a>Description
+- []()`separateDepthStencilLayouts` indicates whether the implementation supports a `VkImageMemoryBarrier` for a depth/stencil image with only one of `VK_IMAGE_ASPECT_DEPTH_BIT` or `VK_IMAGE_ASPECT_STENCIL_BIT` set, and whether `VK_IMAGE_LAYOUT_DEPTH_ATTACHMENT_OPTIMAL`, `VK_IMAGE_LAYOUT_DEPTH_READ_ONLY_OPTIMAL`, `VK_IMAGE_LAYOUT_STENCIL_ATTACHMENT_OPTIMAL`, or `VK_IMAGE_LAYOUT_STENCIL_READ_ONLY_OPTIMAL` can be used.
 
-- <span id="extension-features-separateDepthStencilLayouts"></span>
-  `separateDepthStencilLayouts` indicates whether the implementation
-  supports a `VkImageMemoryBarrier` for a depth/stencil image with only
-  one of `VK_IMAGE_ASPECT_DEPTH_BIT` or `VK_IMAGE_ASPECT_STENCIL_BIT`
-  set, and whether `VK_IMAGE_LAYOUT_DEPTH_ATTACHMENT_OPTIMAL`,
-  `VK_IMAGE_LAYOUT_DEPTH_READ_ONLY_OPTIMAL`,
-  `VK_IMAGE_LAYOUT_STENCIL_ATTACHMENT_OPTIMAL`, or
-  `VK_IMAGE_LAYOUT_STENCIL_READ_ONLY_OPTIMAL` can be used.
-
-If the `VkPhysicalDeviceSeparateDepthStencilLayoutsFeatures` structure
-is included in the `pNext` chain of the
-[VkPhysicalDeviceFeatures2](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkPhysicalDeviceFeatures2.html) structure
-passed to
-[vkGetPhysicalDeviceFeatures2](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkGetPhysicalDeviceFeatures2.html), it is
-filled in to indicate whether each corresponding feature is supported.
-`VkPhysicalDeviceSeparateDepthStencilLayoutsFeatures` **can** also be
-used in the `pNext` chain of
-[VkDeviceCreateInfo](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkDeviceCreateInfo.html) to selectively enable
-these features.
+If the `VkPhysicalDeviceSeparateDepthStencilLayoutsFeatures` structure is included in the `pNext` chain of the [VkPhysicalDeviceFeatures2](https://registry.khronos.org/vulkan/specs/latest/man/html/VkPhysicalDeviceFeatures2.html) structure passed to [vkGetPhysicalDeviceFeatures2](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetPhysicalDeviceFeatures2.html), it is filled in to indicate whether each corresponding feature is supported. If the application wishes to use a [VkDevice](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDevice.html) with any features described by `VkPhysicalDeviceSeparateDepthStencilLayoutsFeatures`, it **must** add an instance of the structure, with the desired feature members set to `VK_TRUE`, to the `pNext` chain of [VkDeviceCreateInfo](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDeviceCreateInfo.html) when creating the [VkDevice](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDevice.html).
 
 Valid Usage (Implicit)
 
-- <a
-  href="#VUID-VkPhysicalDeviceSeparateDepthStencilLayoutsFeatures-sType-sType"
-  id="VUID-VkPhysicalDeviceSeparateDepthStencilLayoutsFeatures-sType-sType"></a>
-  VUID-VkPhysicalDeviceSeparateDepthStencilLayoutsFeatures-sType-sType  
-  `sType` **must** be
-  `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SEPARATE_DEPTH_STENCIL_LAYOUTS_FEATURES`
+- [](#VUID-VkPhysicalDeviceSeparateDepthStencilLayoutsFeatures-sType-sType)VUID-VkPhysicalDeviceSeparateDepthStencilLayoutsFeatures-sType-sType  
+  `sType` **must** be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SEPARATE_DEPTH_STENCIL_LAYOUTS_FEATURES`
 
-## <a href="#_see_also" class="anchor"></a>See Also
+## [](#_see_also)See Also
 
-[VK_KHR_separate_depth_stencil_layouts](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_KHR_separate_depth_stencil_layouts.html),
-[VK_VERSION_1_2](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_VERSION_1_2.html), [VkBool32](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkBool32.html),
-[VkStructureType](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkStructureType.html)
+[VK\_KHR\_separate\_depth\_stencil\_layouts](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_KHR_separate_depth_stencil_layouts.html), [VK\_VERSION\_1\_2](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_VERSION_1_2.html), [VkBool32](https://registry.khronos.org/vulkan/specs/latest/man/html/VkBool32.html), [VkStructureType](https://registry.khronos.org/vulkan/specs/latest/man/html/VkStructureType.html)
 
-## <a href="#_document_notes" class="anchor"></a>Document Notes
+## [](#_document_notes)Document Notes
 
-For more information, see the <a
-href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#VkPhysicalDeviceSeparateDepthStencilLayoutsFeatures"
-target="_blank" rel="noopener">Vulkan Specification</a>
+For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#VkPhysicalDeviceSeparateDepthStencilLayoutsFeatures)
 
-This page is extracted from the Vulkan Specification. Fixes and changes
-should be made to the Specification, not directly.
+This page is extracted from the Vulkan Specification. Fixes and changes should be made to the Specification, not directly.
 
-## <a href="#_copyright" class="anchor"></a>Copyright
+## [](#_copyright)Copyright
 
-Copyright 2014-2024 The Khronos Group Inc.
+Copyright 2014-2025 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
-
-Version 1.3.290  
-Last updated 2024-07-11 23:39:16 -0700

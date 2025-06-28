@@ -2,16 +2,15 @@
 
 ## Name
 
-VkDeviceMemoryOpaqueCaptureAddressInfo - Structure specifying the memory
-object to query an address for
+VkDeviceMemoryOpaqueCaptureAddressInfo - Structure specifying the memory object to query an address for
 
 
 
-## <a href="#_c_specification" class="anchor"></a>C Specification
+## [](#_c_specification)C Specification
 
 The `VkDeviceMemoryOpaqueCaptureAddressInfo` structure is defined as:
 
-``` c
+```c++
 // Provided by VK_VERSION_1_2
 typedef struct VkDeviceMemoryOpaqueCaptureAddressInfo {
     VkStructureType    sType;
@@ -22,73 +21,45 @@ typedef struct VkDeviceMemoryOpaqueCaptureAddressInfo {
 
 or the equivalent
 
-``` c
+```c++
 // Provided by VK_KHR_buffer_device_address
 typedef VkDeviceMemoryOpaqueCaptureAddressInfo VkDeviceMemoryOpaqueCaptureAddressInfoKHR;
 ```
 
-## <a href="#_members" class="anchor"></a>Members
+## [](#_members)Members
 
-- `sType` is a [VkStructureType](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkStructureType.html) value identifying
-  this structure.
-
-- `pNext` is `NULL` or a pointer to a structure extending this
-  structure.
-
+- `sType` is a [VkStructureType](https://registry.khronos.org/vulkan/specs/latest/man/html/VkStructureType.html) value identifying this structure.
+- `pNext` is `NULL` or a pointer to a structure extending this structure.
 - `memory` specifies the memory whose address is being queried.
 
-## <a href="#_description" class="anchor"></a>Description
+## [](#_description)Description
 
 Valid Usage
 
-- <a href="#VUID-VkDeviceMemoryOpaqueCaptureAddressInfo-memory-03336"
-  id="VUID-VkDeviceMemoryOpaqueCaptureAddressInfo-memory-03336"></a>
-  VUID-VkDeviceMemoryOpaqueCaptureAddressInfo-memory-03336  
-  `memory` **must** have been allocated with
-  `VK_MEMORY_ALLOCATE_DEVICE_ADDRESS_BIT`
+- [](#VUID-VkDeviceMemoryOpaqueCaptureAddressInfo-memory-03336)VUID-VkDeviceMemoryOpaqueCaptureAddressInfo-memory-03336  
+  `memory` **must** have been allocated with `VK_MEMORY_ALLOCATE_DEVICE_ADDRESS_BIT`
 
 Valid Usage (Implicit)
 
-- <a href="#VUID-VkDeviceMemoryOpaqueCaptureAddressInfo-sType-sType"
-  id="VUID-VkDeviceMemoryOpaqueCaptureAddressInfo-sType-sType"></a>
-  VUID-VkDeviceMemoryOpaqueCaptureAddressInfo-sType-sType  
-  `sType` **must** be
-  `VK_STRUCTURE_TYPE_DEVICE_MEMORY_OPAQUE_CAPTURE_ADDRESS_INFO`
-
-- <a href="#VUID-VkDeviceMemoryOpaqueCaptureAddressInfo-pNext-pNext"
-  id="VUID-VkDeviceMemoryOpaqueCaptureAddressInfo-pNext-pNext"></a>
-  VUID-VkDeviceMemoryOpaqueCaptureAddressInfo-pNext-pNext  
+- [](#VUID-VkDeviceMemoryOpaqueCaptureAddressInfo-sType-sType)VUID-VkDeviceMemoryOpaqueCaptureAddressInfo-sType-sType  
+  `sType` **must** be `VK_STRUCTURE_TYPE_DEVICE_MEMORY_OPAQUE_CAPTURE_ADDRESS_INFO`
+- [](#VUID-VkDeviceMemoryOpaqueCaptureAddressInfo-pNext-pNext)VUID-VkDeviceMemoryOpaqueCaptureAddressInfo-pNext-pNext  
   `pNext` **must** be `NULL`
+- [](#VUID-VkDeviceMemoryOpaqueCaptureAddressInfo-memory-parameter)VUID-VkDeviceMemoryOpaqueCaptureAddressInfo-memory-parameter  
+  `memory` **must** be a valid [VkDeviceMemory](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDeviceMemory.html) handle
 
-- <a href="#VUID-VkDeviceMemoryOpaqueCaptureAddressInfo-memory-parameter"
-  id="VUID-VkDeviceMemoryOpaqueCaptureAddressInfo-memory-parameter"></a>
-  VUID-VkDeviceMemoryOpaqueCaptureAddressInfo-memory-parameter  
-  `memory` **must** be a valid [VkDeviceMemory](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkDeviceMemory.html)
-  handle
+## [](#_see_also)See Also
 
-## <a href="#_see_also" class="anchor"></a>See Also
+[VK\_KHR\_buffer\_device\_address](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_KHR_buffer_device_address.html), [VK\_VERSION\_1\_2](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_VERSION_1_2.html), [VkDeviceMemory](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDeviceMemory.html), [VkStructureType](https://registry.khronos.org/vulkan/specs/latest/man/html/VkStructureType.html), [vkGetDeviceMemoryOpaqueCaptureAddress](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetDeviceMemoryOpaqueCaptureAddress.html), [vkGetDeviceMemoryOpaqueCaptureAddressKHR](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetDeviceMemoryOpaqueCaptureAddressKHR.html)
 
-[VK_KHR_buffer_device_address](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_KHR_buffer_device_address.html),
-[VK_VERSION_1_2](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_VERSION_1_2.html),
-[VkDeviceMemory](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkDeviceMemory.html),
-[VkStructureType](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkStructureType.html),
-[vkGetDeviceMemoryOpaqueCaptureAddress](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkGetDeviceMemoryOpaqueCaptureAddress.html),
-[vkGetDeviceMemoryOpaqueCaptureAddressKHR](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkGetDeviceMemoryOpaqueCaptureAddressKHR.html)
+## [](#_document_notes)Document Notes
 
-## <a href="#_document_notes" class="anchor"></a>Document Notes
+For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#VkDeviceMemoryOpaqueCaptureAddressInfo)
 
-For more information, see the <a
-href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#VkDeviceMemoryOpaqueCaptureAddressInfo"
-target="_blank" rel="noopener">Vulkan Specification</a>
+This page is extracted from the Vulkan Specification. Fixes and changes should be made to the Specification, not directly.
 
-This page is extracted from the Vulkan Specification. Fixes and changes
-should be made to the Specification, not directly.
+## [](#_copyright)Copyright
 
-## <a href="#_copyright" class="anchor"></a>Copyright
-
-Copyright 2014-2024 The Khronos Group Inc.
+Copyright 2014-2025 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
-
-Version 1.3.290  
-Last updated 2024-07-11 23:39:16 -0700

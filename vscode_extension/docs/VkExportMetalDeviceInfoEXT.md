@@ -2,22 +2,17 @@
 
 ## Name
 
-VkExportMetalDeviceInfoEXT - Structure that identifies a VkDevice object
-and corresponding Metal MTLDevice object
+VkExportMetalDeviceInfoEXT - Structure that identifies a VkDevice object and corresponding Metal MTLDevice object
 
 
 
-## <a href="#_c_specification" class="anchor"></a>C Specification
+## [](#_c_specification)C Specification
 
-To export the Metal `MTLDevice` object underlying the
-[VkPhysicalDevice](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkPhysicalDevice.html) associated with a
-[VkDevice](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkDevice.html) object, include a `VkExportMetalDeviceInfoEXT`
-structure in the `pNext` chain of the `pMetalObjectsInfo` parameter of a
-[vkExportMetalObjectsEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkExportMetalObjectsEXT.html) call.
+To export the Metal `MTLDevice` object underlying the [VkPhysicalDevice](https://registry.khronos.org/vulkan/specs/latest/man/html/VkPhysicalDevice.html) associated with a [VkDevice](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDevice.html) object, include a `VkExportMetalDeviceInfoEXT` structure in the `pNext` chain of the `pMetalObjectsInfo` parameter of a [vkExportMetalObjectsEXT](https://registry.khronos.org/vulkan/specs/latest/man/html/vkExportMetalObjectsEXT.html) call.
 
 The `VkExportMetalDeviceInfoEXT` structure is defined as:
 
-``` c
+```c++
 // Provided by VK_EXT_metal_objects
 typedef struct VkExportMetalDeviceInfoEXT {
     VkStructureType    sType;
@@ -26,49 +21,31 @@ typedef struct VkExportMetalDeviceInfoEXT {
 } VkExportMetalDeviceInfoEXT;
 ```
 
-## <a href="#_members" class="anchor"></a>Members
+## [](#_members)Members
 
-- `sType` is a [VkStructureType](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkStructureType.html) value identifying
-  this structure.
+- `sType` is a [VkStructureType](https://registry.khronos.org/vulkan/specs/latest/man/html/VkStructureType.html) value identifying this structure.
+- `pNext` is `NULL` or a pointer to a structure extending this structure.
+- `mtlDevice` is the Metal `id<MTLDevice>` object underlying the [VkPhysicalDevice](https://registry.khronos.org/vulkan/specs/latest/man/html/VkPhysicalDevice.html) associated with the [VkDevice](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDevice.html) object identified in the call. The implementation will return the `MTLDevice` in this member, or it will return `NULL` if no `MTLDevice` could be found underlying the [VkPhysicalDevice](https://registry.khronos.org/vulkan/specs/latest/man/html/VkPhysicalDevice.html) object.
 
-- `pNext` is `NULL` or a pointer to a structure extending this
-  structure.
-
-- `mtlDevice` is the Metal `id<MTLDevice>` object underlying the
-  [VkPhysicalDevice](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkPhysicalDevice.html) associated with the
-  [VkDevice](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkDevice.html) object identified in the call. The
-  implementation will return the `MTLDevice` in this member, or it will
-  return `NULL` if no `MTLDevice` could be found underlying the
-  [VkPhysicalDevice](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkPhysicalDevice.html) object.
-
-## <a href="#_description" class="anchor"></a>Description
+## [](#_description)Description
 
 Valid Usage (Implicit)
 
-- <a href="#VUID-VkExportMetalDeviceInfoEXT-sType-sType"
-  id="VUID-VkExportMetalDeviceInfoEXT-sType-sType"></a>
-  VUID-VkExportMetalDeviceInfoEXT-sType-sType  
+- [](#VUID-VkExportMetalDeviceInfoEXT-sType-sType)VUID-VkExportMetalDeviceInfoEXT-sType-sType  
   `sType` **must** be `VK_STRUCTURE_TYPE_EXPORT_METAL_DEVICE_INFO_EXT`
 
-## <a href="#_see_also" class="anchor"></a>See Also
+## [](#_see_also)See Also
 
-[VK_EXT_metal_objects](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_EXT_metal_objects.html),
-[VkStructureType](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkStructureType.html)
+[VK\_EXT\_metal\_objects](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_EXT_metal_objects.html), [VkStructureType](https://registry.khronos.org/vulkan/specs/latest/man/html/VkStructureType.html)
 
-## <a href="#_document_notes" class="anchor"></a>Document Notes
+## [](#_document_notes)Document Notes
 
-For more information, see the <a
-href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#VkExportMetalDeviceInfoEXT"
-target="_blank" rel="noopener">Vulkan Specification</a>
+For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#VkExportMetalDeviceInfoEXT)
 
-This page is extracted from the Vulkan Specification. Fixes and changes
-should be made to the Specification, not directly.
+This page is extracted from the Vulkan Specification. Fixes and changes should be made to the Specification, not directly.
 
-## <a href="#_copyright" class="anchor"></a>Copyright
+## [](#_copyright)Copyright
 
-Copyright 2014-2024 The Khronos Group Inc.
+Copyright 2014-2025 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
-
-Version 1.3.290  
-Last updated 2024-07-11 23:39:16 -0700

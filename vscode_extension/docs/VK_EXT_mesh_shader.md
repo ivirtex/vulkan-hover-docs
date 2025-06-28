@@ -1,271 +1,200 @@
-# VK_EXT_mesh_shader(3) Manual Page
+# VK\_EXT\_mesh\_shader(3) Manual Page
 
 ## Name
 
-VK_EXT_mesh_shader - device extension
+VK\_EXT\_mesh\_shader - device extension
 
 
 
-## <a href="#_registered_extension_number" class="anchor"></a>Registered Extension Number
+## [](#_registered_extension_number)Registered Extension Number
 
 329
 
-## <a href="#_revision" class="anchor"></a>Revision
+## [](#_revision)Revision
 
 1
 
-## <a href="#_ratification_status" class="anchor"></a>Ratification Status
+## [](#_ratification_status)Ratification Status
 
-Not ratified
+Ratified
 
-## <a href="#_extension_and_version_dependencies" class="anchor"></a>Extension and Version Dependencies
+## [](#_extension_and_version_dependencies)Extension and Version Dependencies
 
-[VK_KHR_spirv_1_4](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_KHR_spirv_1_4.html)  
+[VK\_KHR\_spirv\_1\_4](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_KHR_spirv_1_4.html)  
+or  
+[Vulkan Version 1.2](#versions-1.2)
 
-## <a href="#_api_interactions" class="anchor"></a>API Interactions
+## [](#_api_interactions)API Interactions
 
-- Interacts with VK_NV_device_generated_commands
+- Interacts with VK\_VERSION\_1\_2
+- Interacts with VK\_EXT\_device\_generated\_commands
+- Interacts with VK\_KHR\_draw\_indirect\_count
+- Interacts with VK\_KHR\_fragment\_shading\_rate
+- Interacts with VK\_NV\_device\_generated\_commands
+- Interacts with VkPhysicalDeviceMeshShaderFeaturesEXT::primitiveFragmentShadingRateMeshShader
 
-## <a href="#_spir_v_dependencies" class="anchor"></a>SPIR-V Dependencies
+## [](#_spir_v_dependencies)SPIR-V Dependencies
 
-- [SPV_EXT_mesh_shader](https://htmlpreview.github.io/?https://github.com/KhronosGroup/SPIRV-Registry/blob/main/extensions/EXT/SPV_EXT_mesh_shader.html)
+- [SPV\_EXT\_mesh\_shader](https://github.khronos.org/SPIRV-Registry/extensions/EXT/SPV_EXT_mesh_shader.html)
 
-## <a href="#_contact" class="anchor"></a>Contact
+## [](#_contact)Contact
 
-- Christoph Kubisch <a
-  href="https://github.com/KhronosGroup/Vulkan-Docs/issues/new?body=%5BVK_EXT_mesh_shader%5D%20@pixeljetstream%0A*Here%20describe%20the%20issue%20or%20question%20you%20have%20about%20the%20VK_EXT_mesh_shader%20extension*"
-  target="_blank" rel="nofollow noopener"><em></em>pixeljetstream</a>
+- Christoph Kubisch [\[GitHub\]pixeljetstream](https://github.com/KhronosGroup/Vulkan-Docs/issues/new?body=%5BVK_EXT_mesh_shader%5D%20%40pixeljetstream%0A%2AHere%20describe%20the%20issue%20or%20question%20you%20have%20about%20the%20VK_EXT_mesh_shader%20extension%2A)
 
-## <a href="#_extension_proposal" class="anchor"></a>Extension Proposal
+## [](#_extension_proposal)Extension Proposal
 
-[VK_EXT_mesh_shader](https://github.com/KhronosGroup/Vulkan-Docs/tree/main/proposals/VK_EXT_mesh_shader.adoc)
+[VK\_EXT\_mesh\_shader](https://github.com/KhronosGroup/Vulkan-Docs/tree/main/proposals/VK_EXT_mesh_shader.adoc)
 
-## <a href="#_other_extension_metadata" class="anchor"></a>Other Extension Metadata
+## [](#_other_extension_metadata)Other Extension Metadata
 
-**Last Modified Date**  
+**Last Modified Date**
+
 2022-01-20
 
-**Interactions and External Dependencies**  
-- This extension provides API support for
-  [`GLSL_EXT_mesh_shader`](https://github.com/KhronosGroup/GLSL/blob/main/extensions/ext/GLSL_EXT_mesh_shader.txt)
+**Interactions and External Dependencies**
 
+- This extension provides API support for [`GLSL_EXT_mesh_shader`](https://github.com/KhronosGroup/GLSL/blob/main/extensions/ext/GLSL_EXT_mesh_shader.txt)
 - Interacts with Vulkan 1.1
+- Interacts with `VK_KHR_multiview`
+- Interacts with `VK_KHR_fragment_shading_rate`
 
-- Interacts with [`VK_KHR_multiview`](VK_KHR_multiview.html)
+**Contributors**
 
-- Interacts with
-  [`VK_KHR_fragment_shading_rate`](VK_KHR_fragment_shading_rate.html)
-
-**Contributors**  
 - Christoph Kubisch, NVIDIA
-
 - Pat Brown, NVIDIA
-
 - Jeff Bolz, NVIDIA
-
 - Daniel Koch, NVIDIA
-
 - Piers Daniell, NVIDIA
-
 - Pierre Boudier, NVIDIA
-
 - Patrick Mours, NVIDIA
-
 - David Zhao Akeley, NVIDIA
-
 - Kedarnath Thangudu, NVIDIA
-
 - Timur Kristóf, Valve
-
 - Hans-Kristian Arntzen, Valve
-
 - Philip Rebohle, Valve
-
 - Mike Blumenkrantz, Valve
-
 - Slawomir Grajewski, Intel
-
 - Michal Pietrasiuk, Intel
-
 - Mariusz Merecki, Intel
-
 - Tom Olson, ARM
-
 - Jan-Harald Fredriksen, ARM
-
 - Sandeep Kakarlapudi, ARM
-
 - Ruihao Zhang, QUALCOMM
-
 - Ricardo Garcia, Igalia, S.L.
-
 - Tobias Hector, AMD
-
 - Stu Smith, AMD
 
-## <a href="#_description" class="anchor"></a>Description
+## [](#_description)Description
 
-This extension provides a new mechanism allowing applications to
-generate collections of geometric primitives via programmable mesh
-shading. It is an alternative to the existing programmable primitive
-shading pipeline, which relied on generating input primitives by a fixed
-function assembler as well as fixed function vertex fetch.
+This extension provides a new mechanism allowing applications to generate collections of geometric primitives via programmable mesh shading. It is an alternative to the existing programmable primitive shading pipeline, which relied on generating input primitives by a fixed function assembler as well as fixed function vertex fetch.
 
-This extension also adds support for the following SPIR-V extension in
-Vulkan:
+This extension also adds support for the following SPIR-V extension in Vulkan:
 
-- [`SPV_EXT_mesh_shader`](https://htmlpreview.github.io/?https://github.com/KhronosGroup/SPIRV-Registry/blob/main/extensions/EXT/SPV_EXT_mesh_shader.html)
+- [`SPV_EXT_mesh_shader`](https://github.khronos.org/SPIRV-Registry/extensions/EXT/SPV_EXT_mesh_shader.html)
 
-## <a href="#_new_commands" class="anchor"></a>New Commands
+## [](#_new_commands)New Commands
 
-- [vkCmdDrawMeshTasksEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdDrawMeshTasksEXT.html)
+- [vkCmdDrawMeshTasksEXT](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdDrawMeshTasksEXT.html)
+- [vkCmdDrawMeshTasksIndirectEXT](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdDrawMeshTasksIndirectEXT.html)
 
-- [vkCmdDrawMeshTasksIndirectCountEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdDrawMeshTasksIndirectCountEXT.html)
+If [VK\_KHR\_draw\_indirect\_count](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_KHR_draw_indirect_count.html) or [Vulkan Version 1.2](#versions-1.2) is supported:
 
-- [vkCmdDrawMeshTasksIndirectEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdDrawMeshTasksIndirectEXT.html)
+- [vkCmdDrawMeshTasksIndirectCountEXT](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdDrawMeshTasksIndirectCountEXT.html)
 
-## <a href="#_new_structures" class="anchor"></a>New Structures
+## [](#_new_structures)New Structures
 
-- [VkDrawMeshTasksIndirectCommandEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkDrawMeshTasksIndirectCommandEXT.html)
+- [VkDrawMeshTasksIndirectCommandEXT](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDrawMeshTasksIndirectCommandEXT.html)
+- Extending [VkPhysicalDeviceFeatures2](https://registry.khronos.org/vulkan/specs/latest/man/html/VkPhysicalDeviceFeatures2.html), [VkDeviceCreateInfo](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDeviceCreateInfo.html):
+  
+  - [VkPhysicalDeviceMeshShaderFeaturesEXT](https://registry.khronos.org/vulkan/specs/latest/man/html/VkPhysicalDeviceMeshShaderFeaturesEXT.html)
+- Extending [VkPhysicalDeviceProperties2](https://registry.khronos.org/vulkan/specs/latest/man/html/VkPhysicalDeviceProperties2.html):
+  
+  - [VkPhysicalDeviceMeshShaderPropertiesEXT](https://registry.khronos.org/vulkan/specs/latest/man/html/VkPhysicalDeviceMeshShaderPropertiesEXT.html)
 
-- Extending [VkPhysicalDeviceFeatures2](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkPhysicalDeviceFeatures2.html),
-  [VkDeviceCreateInfo](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkDeviceCreateInfo.html):
-
-  - [VkPhysicalDeviceMeshShaderFeaturesEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkPhysicalDeviceMeshShaderFeaturesEXT.html)
-
-- Extending
-  [VkPhysicalDeviceProperties2](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkPhysicalDeviceProperties2.html):
-
-  - [VkPhysicalDeviceMeshShaderPropertiesEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkPhysicalDeviceMeshShaderPropertiesEXT.html)
-
-## <a href="#_new_enum_constants" class="anchor"></a>New Enum Constants
+## [](#_new_enum_constants)New Enum Constants
 
 - `VK_EXT_MESH_SHADER_EXTENSION_NAME`
-
 - `VK_EXT_MESH_SHADER_SPEC_VERSION`
-
-- Extending [VkPipelineStageFlagBits](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkPipelineStageFlagBits.html):
-
+- Extending [VkPipelineStageFlagBits](https://registry.khronos.org/vulkan/specs/latest/man/html/VkPipelineStageFlagBits.html):
+  
   - `VK_PIPELINE_STAGE_MESH_SHADER_BIT_EXT`
-
   - `VK_PIPELINE_STAGE_TASK_SHADER_BIT_EXT`
-
-- Extending
-  [VkQueryPipelineStatisticFlagBits](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkQueryPipelineStatisticFlagBits.html):
-
+- Extending [VkQueryPipelineStatisticFlagBits](https://registry.khronos.org/vulkan/specs/latest/man/html/VkQueryPipelineStatisticFlagBits.html):
+  
   - `VK_QUERY_PIPELINE_STATISTIC_MESH_SHADER_INVOCATIONS_BIT_EXT`
-
   - `VK_QUERY_PIPELINE_STATISTIC_TASK_SHADER_INVOCATIONS_BIT_EXT`
-
-- Extending [VkQueryType](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkQueryType.html):
-
+- Extending [VkQueryType](https://registry.khronos.org/vulkan/specs/latest/man/html/VkQueryType.html):
+  
   - `VK_QUERY_TYPE_MESH_PRIMITIVES_GENERATED_EXT`
-
-- Extending [VkShaderStageFlagBits](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkShaderStageFlagBits.html):
-
+- Extending [VkShaderStageFlagBits](https://registry.khronos.org/vulkan/specs/latest/man/html/VkShaderStageFlagBits.html):
+  
   - `VK_SHADER_STAGE_MESH_BIT_EXT`
-
   - `VK_SHADER_STAGE_TASK_BIT_EXT`
-
-- Extending [VkStructureType](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkStructureType.html):
-
+- Extending [VkStructureType](https://registry.khronos.org/vulkan/specs/latest/man/html/VkStructureType.html):
+  
   - `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_MESH_SHADER_FEATURES_EXT`
-
   - `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_MESH_SHADER_PROPERTIES_EXT`
 
-If
-[VK_NV_device_generated_commands](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_NV_device_generated_commands.html)
-is supported:
+If [VK\_EXT\_device\_generated\_commands](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_EXT_device_generated_commands.html) is supported:
 
-- Extending
-  [VkIndirectCommandsTokenTypeNV](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkIndirectCommandsTokenTypeNV.html):
+- Extending [VkIndirectCommandsTokenTypeEXT](https://registry.khronos.org/vulkan/specs/latest/man/html/VkIndirectCommandsTokenTypeEXT.html):
+  
+  - `VK_INDIRECT_COMMANDS_TOKEN_TYPE_DRAW_MESH_TASKS_COUNT_EXT`
+  - `VK_INDIRECT_COMMANDS_TOKEN_TYPE_DRAW_MESH_TASKS_EXT`
 
+If [VK\_NV\_device\_generated\_commands](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_NV_device_generated_commands.html) is supported:
+
+- Extending [VkIndirectCommandsTokenTypeNV](https://registry.khronos.org/vulkan/specs/latest/man/html/VkIndirectCommandsTokenTypeNV.html):
+  
   - `VK_INDIRECT_COMMANDS_TOKEN_TYPE_DRAW_MESH_TASKS_NV`
 
-## <a href="#_new_or_modified_built_in_variables" class="anchor"></a>New or Modified Built-In Variables
+## [](#_new_or_modified_built_in_variables)New or Modified Built-In Variables
 
-- <a
-  href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#interfaces-builtin-variables-cullprimitive"
-  target="_blank" rel="noopener">CullPrimitiveEXT</a>
-
-- <a
-  href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#interfaces-builtin-variables-primitivepointindices"
-  target="_blank" rel="noopener">PrimitivePointIndicesEXT</a>
-
-- <a
-  href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#interfaces-builtin-variables-primitivelineindices"
-  target="_blank" rel="noopener">PrimitiveLineIndicesEXT</a>
-
-- <a
-  href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#interfaces-builtin-variables-primitivetriangleindices"
-  target="_blank" rel="noopener">PrimitiveTriangleIndicesEXT</a>
-
+- [CullPrimitiveEXT](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#interfaces-builtin-variables-cullprimitive)
+- [PrimitivePointIndicesEXT](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#interfaces-builtin-variables-primitivepointindices)
+- [PrimitiveLineIndicesEXT](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#interfaces-builtin-variables-primitivelineindices)
+- [PrimitiveTriangleIndicesEXT](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#interfaces-builtin-variables-primitivetriangleindices)
 - (modified)`Position`
-
 - (modified)`PointSize`
-
 - (modified)`ClipDistance`
-
 - (modified)`CullDistance`
-
 - (modified)`PrimitiveId`
-
 - (modified)`Layer`
-
 - (modified)`ViewportIndex`
-
 - (modified)`NumWorkgroups`
-
 - (modified)`WorkgroupSize`
-
 - (modified)`WorkgroupId`
-
 - (modified)`LocalInvocationId`
-
 - (modified)`GlobalInvocationId`
-
 - (modified)`LocalInvocationIndex`
-
 - (modified)`NumSubgroups`
-
 - (modified)`SubgroupId`
-
 - (modified)`DrawIndex`
-
 - (modified)`PrimitiveShadingRateKHR`
-
 - (modified)`ViewIndex`
 
-## <a href="#_new_spir_v_capability" class="anchor"></a>New SPIR-V Capability
+## [](#_new_spir_v_capability)New SPIR-V Capability
 
-- <a
-  href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#spirvenv-capabilities-table-MeshShadingEXT"
-  target="_blank" rel="noopener"><code>MeshShadingEXT</code></a>
+- [`MeshShadingEXT`](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#spirvenv-capabilities-table-MeshShadingEXT)
 
-## <a href="#_version_history" class="anchor"></a>Version History
+## [](#_version_history)Version History
 
 - Revision 1, 2022-03-08 (Christoph Kubisch, Daniel Koch, Patrick Mours)
-
+  
   - Initial revision
 
-## <a href="#_see_also" class="anchor"></a>See Also
+## [](#_see_also)See Also
 
 No cross-references are available
 
-## <a href="#_document_notes" class="anchor"></a>Document Notes
+## [](#_document_notes)Document Notes
 
-For more information, see the <a
-href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#VK_EXT_mesh_shader"
-target="_blank" rel="noopener">Vulkan Specification</a>
+For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#VK_EXT_mesh_shader)
 
-This page is a generated document. Fixes and changes should be made to
-the generator scripts, not directly.
+This page is a generated document. Fixes and changes should be made to the generator scripts, not directly.
 
-## <a href="#_copyright" class="anchor"></a>Copyright
+## [](#_copyright)Copyright
 
-Copyright 2014-2024 The Khronos Group Inc.
+Copyright 2014-2025 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
-
-Version 1.3.290  
-Last updated 2024-07-11 23:39:16 -0700

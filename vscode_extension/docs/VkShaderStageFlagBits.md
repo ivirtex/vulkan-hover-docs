@@ -6,12 +6,11 @@ VkShaderStageFlagBits - Bitmask specifying a pipeline stage
 
 
 
-## <a href="#_c_specification" class="anchor"></a>C Specification
+## [](#_c_specification)C Specification
 
-Bits which **can** be set by commands and structures, specifying one or
-more shader stages, are:
+Bits which **can** be set by commands and structures, specifying one or more shader stages, are:
 
-``` c
+```c++
 // Provided by VK_VERSION_1_0
 typedef enum VkShaderStageFlagBits {
     VK_SHADER_STAGE_VERTEX_BIT = 0x00000001,
@@ -61,90 +60,42 @@ typedef enum VkShaderStageFlagBits {
 } VkShaderStageFlagBits;
 ```
 
-## <a href="#_description" class="anchor"></a>Description
+## [](#_description)Description
 
 - `VK_SHADER_STAGE_VERTEX_BIT` specifies the vertex stage.
-
-- `VK_SHADER_STAGE_TESSELLATION_CONTROL_BIT` specifies the tessellation
-  control stage.
-
-- `VK_SHADER_STAGE_TESSELLATION_EVALUATION_BIT` specifies the
-  tessellation evaluation stage.
-
+- `VK_SHADER_STAGE_TESSELLATION_CONTROL_BIT` specifies the tessellation control stage.
+- `VK_SHADER_STAGE_TESSELLATION_EVALUATION_BIT` specifies the tessellation evaluation stage.
 - `VK_SHADER_STAGE_GEOMETRY_BIT` specifies the geometry stage.
-
 - `VK_SHADER_STAGE_FRAGMENT_BIT` specifies the fragment stage.
-
 - `VK_SHADER_STAGE_COMPUTE_BIT` specifies the compute stage.
-
-- `VK_SHADER_STAGE_ALL_GRAPHICS` is a combination of bits used as
-  shorthand to specify all graphics stages defined above (excluding the
-  compute stage).
-
-- `VK_SHADER_STAGE_ALL` is a combination of bits used as shorthand to
-  specify all shader stages supported by the device, including all
-  additional stages which are introduced by extensions.
-
+- `VK_SHADER_STAGE_ALL_GRAPHICS` is a combination of bits used as shorthand to specify all graphics stages defined above (excluding the compute stage).
+- `VK_SHADER_STAGE_ALL` is a combination of bits used as shorthand to specify all shader stages supported by the device, including all additional stages which are introduced by extensions.
 - `VK_SHADER_STAGE_TASK_BIT_EXT` specifies the task stage.
-
 - `VK_SHADER_STAGE_MESH_BIT_EXT` specifies the mesh stage.
-
-- `VK_SHADER_STAGE_CLUSTER_CULLING_BIT_HUAWEI` specifies the cluster
-  culling stage.
-
+- `VK_SHADER_STAGE_CLUSTER_CULLING_BIT_HUAWEI` specifies the cluster culling stage.
 - `VK_SHADER_STAGE_RAYGEN_BIT_KHR` specifies the ray generation stage.
-
 - `VK_SHADER_STAGE_ANY_HIT_BIT_KHR` specifies the any-hit stage.
-
 - `VK_SHADER_STAGE_CLOSEST_HIT_BIT_KHR` specifies the closest hit stage.
-
 - `VK_SHADER_STAGE_MISS_BIT_KHR` specifies the miss stage.
-
-- `VK_SHADER_STAGE_INTERSECTION_BIT_KHR` specifies the intersection
-  stage.
-
+- `VK_SHADER_STAGE_INTERSECTION_BIT_KHR` specifies the intersection stage.
 - `VK_SHADER_STAGE_CALLABLE_BIT_KHR` specifies the callable stage.
 
-<table>
-<colgroup>
-<col style="width: 50%" />
-<col style="width: 50%" />
-</colgroup>
-<tbody>
-<tr>
-<td class="icon"><em></em></td>
-<td class="content">Note
-<p><code>VK_SHADER_STAGE_ALL_GRAPHICS</code> only includes the original
-five graphics stages included in Vulkan 1.0, and not any stages added by
-extensions. Thus, it may not have the desired effect in all
-cases.</p></td>
-</tr>
-</tbody>
-</table>
+Note
 
-## <a href="#_see_also" class="anchor"></a>See Also
+`VK_SHADER_STAGE_ALL_GRAPHICS` only includes the original five graphics stages included in Vulkan 1.0, and not any stages added by extensions. Thus, it may not have the desired effect in all cases.
 
-[VK_VERSION_1_0](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_VERSION_1_0.html),
-[VkPipelineShaderStageCreateInfo](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkPipelineShaderStageCreateInfo.html),
-[VkShaderCreateInfoEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkShaderCreateInfoEXT.html),
-[VkShaderStageFlags](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkShaderStageFlags.html),
-[vkCmdBindShadersEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdBindShadersEXT.html),
-[vkGetShaderInfoAMD](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkGetShaderInfoAMD.html)
+## [](#_see_also)See Also
 
-## <a href="#_document_notes" class="anchor"></a>Document Notes
+[VK\_VERSION\_1\_0](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_VERSION_1_0.html), [VkPipelineShaderStageCreateInfo](https://registry.khronos.org/vulkan/specs/latest/man/html/VkPipelineShaderStageCreateInfo.html), [VkShaderCreateInfoEXT](https://registry.khronos.org/vulkan/specs/latest/man/html/VkShaderCreateInfoEXT.html), [VkShaderStageFlags](https://registry.khronos.org/vulkan/specs/latest/man/html/VkShaderStageFlags.html), [vkCmdBindShadersEXT](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdBindShadersEXT.html), [vkGetShaderInfoAMD](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetShaderInfoAMD.html)
 
-For more information, see the <a
-href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#VkShaderStageFlagBits"
-target="_blank" rel="noopener">Vulkan Specification</a>
+## [](#_document_notes)Document Notes
 
-This page is extracted from the Vulkan Specification. Fixes and changes
-should be made to the Specification, not directly.
+For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#VkShaderStageFlagBits)
 
-## <a href="#_copyright" class="anchor"></a>Copyright
+This page is extracted from the Vulkan Specification. Fixes and changes should be made to the Specification, not directly.
 
-Copyright 2014-2024 The Khronos Group Inc.
+## [](#_copyright)Copyright
+
+Copyright 2014-2025 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
-
-Version 1.3.290  
-Last updated 2024-07-11 23:39:16 -0700

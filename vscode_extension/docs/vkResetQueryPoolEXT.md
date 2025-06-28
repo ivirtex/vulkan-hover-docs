@@ -6,11 +6,11 @@ vkResetQueryPool - Reset queries in a query pool
 
 
 
-## <a href="#_c_specification" class="anchor"></a>C Specification
+## [](#_c_specification)C Specification
 
 To reset a range of queries in a query pool on the host, call:
 
-``` c
+```c++
 // Provided by VK_VERSION_1_2
 void vkResetQueryPool(
     VkDevice                                    device,
@@ -21,7 +21,7 @@ void vkResetQueryPool(
 
 or the equivalent command
 
-``` c
+```c++
 // Provided by VK_EXT_host_query_reset
 void vkResetQueryPoolEXT(
     VkDevice                                    device,
@@ -30,102 +30,56 @@ void vkResetQueryPoolEXT(
     uint32_t                                    queryCount);
 ```
 
-## <a href="#_parameters" class="anchor"></a>Parameters
+## [](#_parameters)Parameters
 
 - `device` is the logical device that owns the query pool.
-
-- `queryPool` is the handle of the query pool managing the queries being
-  reset.
-
+- `queryPool` is the handle of the query pool managing the queries being reset.
 - `firstQuery` is the initial query index to reset.
-
 - `queryCount` is the number of queries to reset.
 
-## <a href="#_description" class="anchor"></a>Description
+## [](#_description)Description
 
-This command sets the status of query indices \[`firstQuery`,
-`firstQuery` + `queryCount` - 1\] to unavailable.
+This command sets the status of query indices \[`firstQuery`, `firstQuery` + `queryCount` - 1] to unavailable.
 
-If `queryPool` is `VK_QUERY_TYPE_PERFORMANCE_QUERY_KHR` this command
-sets the status of query indices \[`firstQuery`, `firstQuery` +
-`queryCount` - 1\] to unavailable for each pass.
+If `queryPool` is `VK_QUERY_TYPE_PERFORMANCE_QUERY_KHR` this command sets the status of query indices \[`firstQuery`, `firstQuery` + `queryCount` - 1] to unavailable for each pass.
 
 Valid Usage
 
-- <a href="#VUID-vkResetQueryPool-firstQuery-09436"
-  id="VUID-vkResetQueryPool-firstQuery-09436"></a>
-  VUID-vkResetQueryPool-firstQuery-09436  
-  `firstQuery` **must** be less than the number of queries in
-  `queryPool`
+- [](#VUID-vkResetQueryPool-firstQuery-09436)VUID-vkResetQueryPool-firstQuery-09436  
+  `firstQuery` **must** be less than the number of queries in `queryPool`
+- [](#VUID-vkResetQueryPool-firstQuery-09437)VUID-vkResetQueryPool-firstQuery-09437  
+  The sum of `firstQuery` and `queryCount` **must** be less than or equal to the number of queries in `queryPool`
 
-- <a href="#VUID-vkResetQueryPool-firstQuery-09437"
-  id="VUID-vkResetQueryPool-firstQuery-09437"></a>
-  VUID-vkResetQueryPool-firstQuery-09437  
-  The sum of `firstQuery` and `queryCount` **must** be less than or
-  equal to the number of queries in `queryPool`
+<!--THE END-->
 
-<!-- -->
-
-- <a href="#VUID-vkResetQueryPool-None-02665"
-  id="VUID-vkResetQueryPool-None-02665"></a>
-  VUID-vkResetQueryPool-None-02665  
-  The <a
-  href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#features-hostQueryReset"
-  target="_blank" rel="noopener"><code>hostQueryReset</code></a> feature
-  **must** be enabled
-
-- <a href="#VUID-vkResetQueryPool-firstQuery-02741"
-  id="VUID-vkResetQueryPool-firstQuery-02741"></a>
-  VUID-vkResetQueryPool-firstQuery-02741  
-  Submitted commands that refer to the range specified by `firstQuery`
-  and `queryCount` in `queryPool` **must** have completed execution
-
-- <a href="#VUID-vkResetQueryPool-firstQuery-02742"
-  id="VUID-vkResetQueryPool-firstQuery-02742"></a>
-  VUID-vkResetQueryPool-firstQuery-02742  
-  The range of queries specified by `firstQuery` and `queryCount` in
-  `queryPool` **must** not be in use by calls to
-  [vkGetQueryPoolResults](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkGetQueryPoolResults.html) or
-  `vkResetQueryPool` in other threads
+- [](#VUID-vkResetQueryPool-None-02665)VUID-vkResetQueryPool-None-02665  
+  The [`hostQueryReset`](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#features-hostQueryReset) feature **must** be enabled
+- [](#VUID-vkResetQueryPool-firstQuery-02741)VUID-vkResetQueryPool-firstQuery-02741  
+  Submitted commands that refer to the range specified by `firstQuery` and `queryCount` in `queryPool` **must** have completed execution
+- [](#VUID-vkResetQueryPool-firstQuery-02742)VUID-vkResetQueryPool-firstQuery-02742  
+  The range of queries specified by `firstQuery` and `queryCount` in `queryPool` **must** not be in use by calls to [vkGetQueryPoolResults](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetQueryPoolResults.html) or `vkResetQueryPool` in other threads
 
 Valid Usage (Implicit)
 
-- <a href="#VUID-vkResetQueryPool-device-parameter"
-  id="VUID-vkResetQueryPool-device-parameter"></a>
-  VUID-vkResetQueryPool-device-parameter  
-  `device` **must** be a valid [VkDevice](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkDevice.html) handle
+- [](#VUID-vkResetQueryPool-device-parameter)VUID-vkResetQueryPool-device-parameter  
+  `device` **must** be a valid [VkDevice](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDevice.html) handle
+- [](#VUID-vkResetQueryPool-queryPool-parameter)VUID-vkResetQueryPool-queryPool-parameter  
+  `queryPool` **must** be a valid [VkQueryPool](https://registry.khronos.org/vulkan/specs/latest/man/html/VkQueryPool.html) handle
+- [](#VUID-vkResetQueryPool-queryPool-parent)VUID-vkResetQueryPool-queryPool-parent  
+  `queryPool` **must** have been created, allocated, or retrieved from `device`
 
-- <a href="#VUID-vkResetQueryPool-queryPool-parameter"
-  id="VUID-vkResetQueryPool-queryPool-parameter"></a>
-  VUID-vkResetQueryPool-queryPool-parameter  
-  `queryPool` **must** be a valid [VkQueryPool](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkQueryPool.html) handle
+## [](#_see_also)See Also
 
-- <a href="#VUID-vkResetQueryPool-queryPool-parent"
-  id="VUID-vkResetQueryPool-queryPool-parent"></a>
-  VUID-vkResetQueryPool-queryPool-parent  
-  `queryPool` **must** have been created, allocated, or retrieved from
-  `device`
+[VK\_EXT\_host\_query\_reset](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_EXT_host_query_reset.html), [VK\_VERSION\_1\_2](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_VERSION_1_2.html), [VkDevice](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDevice.html), [VkQueryPool](https://registry.khronos.org/vulkan/specs/latest/man/html/VkQueryPool.html)
 
-## <a href="#_see_also" class="anchor"></a>See Also
+## [](#_document_notes)Document Notes
 
-[VK_EXT_host_query_reset](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_EXT_host_query_reset.html),
-[VK_VERSION_1_2](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_VERSION_1_2.html), [VkDevice](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkDevice.html),
-[VkQueryPool](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkQueryPool.html)
+For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#vkResetQueryPool)
 
-## <a href="#_document_notes" class="anchor"></a>Document Notes
+This page is extracted from the Vulkan Specification. Fixes and changes should be made to the Specification, not directly.
 
-For more information, see the <a
-href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#vkResetQueryPool"
-target="_blank" rel="noopener">Vulkan Specification</a>
+## [](#_copyright)Copyright
 
-This page is extracted from the Vulkan Specification. Fixes and changes
-should be made to the Specification, not directly.
-
-## <a href="#_copyright" class="anchor"></a>Copyright
-
-Copyright 2014-2024 The Khronos Group Inc.
+Copyright 2014-2025 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
-
-Version 1.3.290  
-Last updated 2024-07-11 23:39:16 -0700

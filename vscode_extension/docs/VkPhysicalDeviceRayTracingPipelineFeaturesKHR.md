@@ -2,17 +2,15 @@
 
 ## Name
 
-VkPhysicalDeviceRayTracingPipelineFeaturesKHR - Structure describing the
-ray tracing features that can be supported by an implementation
+VkPhysicalDeviceRayTracingPipelineFeaturesKHR - Structure describing the ray tracing features that can be supported by an implementation
 
 
 
-## <a href="#_c_specification" class="anchor"></a>C Specification
+## [](#_c_specification)C Specification
 
-The `VkPhysicalDeviceRayTracingPipelineFeaturesKHR` structure is defined
-as:
+The `VkPhysicalDeviceRayTracingPipelineFeaturesKHR` structure is defined as:
 
-``` c
+```c++
 // Provided by VK_KHR_ray_tracing_pipeline
 typedef struct VkPhysicalDeviceRayTracingPipelineFeaturesKHR {
     VkStructureType    sType;
@@ -25,97 +23,44 @@ typedef struct VkPhysicalDeviceRayTracingPipelineFeaturesKHR {
 } VkPhysicalDeviceRayTracingPipelineFeaturesKHR;
 ```
 
-## <a href="#_members" class="anchor"></a>Members
+## [](#_members)Members
 
 This structure describes the following features:
 
-- `sType` is a [VkStructureType](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkStructureType.html) value identifying
-  this structure.
+- `sType` is a [VkStructureType](https://registry.khronos.org/vulkan/specs/latest/man/html/VkStructureType.html) value identifying this structure.
+- `pNext` is `NULL` or a pointer to a structure extending this structure.
+- []()`rayTracingPipeline` indicates whether the implementation supports the ray tracing pipeline functionality. See [Ray Tracing](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#ray-tracing).
+- []()`rayTracingPipelineShaderGroupHandleCaptureReplay` indicates whether the implementation supports saving and reusing shader group handles, e.g. for trace capture and replay.
+- []()`rayTracingPipelineShaderGroupHandleCaptureReplayMixed` indicates whether the implementation supports reuse of shader group handles being arbitrarily mixed with creation of non-reused shader group handles. If this is `VK_FALSE`, all reused shader group handles **must** be specified before any non-reused handles **may** be created.
+- []()`rayTracingPipelineTraceRaysIndirect` indicates whether the implementation supports indirect ray tracing commands, e.g. [vkCmdTraceRaysIndirectKHR](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdTraceRaysIndirectKHR.html).
+- []()`rayTraversalPrimitiveCulling` indicates whether the implementation supports [primitive culling during ray traversal](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#ray-traversal-culling-primitive).
 
-- `pNext` is `NULL` or a pointer to a structure extending this
-  structure.
+## [](#_description)Description
 
-- <span id="features-rayTracingPipeline"></span> `rayTracingPipeline`
-  indicates whether the implementation supports the ray tracing pipeline
-  functionality. See <a
-  href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#ray-tracing"
-  target="_blank" rel="noopener">Ray Tracing</a>.
-
-- <span id="features-rayTracingPipelineShaderGroupHandleCaptureReplay"></span>
-  `rayTracingPipelineShaderGroupHandleCaptureReplay` indicates whether
-  the implementation supports saving and reusing shader group handles,
-  e.g. for trace capture and replay.
-
-- <span id="features-rayTracingPipelineShaderGroupHandleCaptureReplayMixed"></span>
-  `rayTracingPipelineShaderGroupHandleCaptureReplayMixed` indicates
-  whether the implementation supports reuse of shader group handles
-  being arbitrarily mixed with creation of non-reused shader group
-  handles. If this is `VK_FALSE`, all reused shader group handles
-  **must** be specified before any non-reused handles **may** be
-  created.
-
-- <span id="features-rayTracingPipelineTraceRaysIndirect"></span>
-  `rayTracingPipelineTraceRaysIndirect` indicates whether the
-  implementation supports indirect ray tracing commands, e.g.
-  [vkCmdTraceRaysIndirectKHR](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdTraceRaysIndirectKHR.html).
-
-- <span id="features-rayTraversalPrimitiveCulling"></span>
-  `rayTraversalPrimitiveCulling` indicates whether the implementation
-  supports <a
-  href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#ray-traversal-culling-primitive"
-  target="_blank" rel="noopener">primitive culling during ray
-  traversal</a>.
-
-## <a href="#_description" class="anchor"></a>Description
-
-If the `VkPhysicalDeviceRayTracingPipelineFeaturesKHR` structure is
-included in the `pNext` chain of the
-[VkPhysicalDeviceFeatures2](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkPhysicalDeviceFeatures2.html) structure
-passed to
-[vkGetPhysicalDeviceFeatures2](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkGetPhysicalDeviceFeatures2.html), it is
-filled in to indicate whether each corresponding feature is supported.
-`VkPhysicalDeviceRayTracingPipelineFeaturesKHR` **can** also be used in
-the `pNext` chain of [VkDeviceCreateInfo](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkDeviceCreateInfo.html) to
-selectively enable these features.
+If the `VkPhysicalDeviceRayTracingPipelineFeaturesKHR` structure is included in the `pNext` chain of the [VkPhysicalDeviceFeatures2](https://registry.khronos.org/vulkan/specs/latest/man/html/VkPhysicalDeviceFeatures2.html) structure passed to [vkGetPhysicalDeviceFeatures2](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetPhysicalDeviceFeatures2.html), it is filled in to indicate whether each corresponding feature is supported. If the application wishes to use a [VkDevice](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDevice.html) with any features described by `VkPhysicalDeviceRayTracingPipelineFeaturesKHR`, it **must** add an instance of the structure, with the desired feature members set to `VK_TRUE`, to the `pNext` chain of [VkDeviceCreateInfo](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDeviceCreateInfo.html) when creating the [VkDevice](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDevice.html).
 
 Valid Usage
 
-- <a
-  href="#VUID-VkPhysicalDeviceRayTracingPipelineFeaturesKHR-rayTracingPipelineShaderGroupHandleCaptureReplayMixed-03575"
-  id="VUID-VkPhysicalDeviceRayTracingPipelineFeaturesKHR-rayTracingPipelineShaderGroupHandleCaptureReplayMixed-03575"></a>
-  VUID-VkPhysicalDeviceRayTracingPipelineFeaturesKHR-rayTracingPipelineShaderGroupHandleCaptureReplayMixed-03575  
-  If `rayTracingPipelineShaderGroupHandleCaptureReplayMixed` is
-  `VK_TRUE`, `rayTracingPipelineShaderGroupHandleCaptureReplay` **must**
-  also be `VK_TRUE`
+- [](#VUID-VkPhysicalDeviceRayTracingPipelineFeaturesKHR-rayTracingPipelineShaderGroupHandleCaptureReplayMixed-03575)VUID-VkPhysicalDeviceRayTracingPipelineFeaturesKHR-rayTracingPipelineShaderGroupHandleCaptureReplayMixed-03575  
+  If `rayTracingPipelineShaderGroupHandleCaptureReplayMixed` is `VK_TRUE`, `rayTracingPipelineShaderGroupHandleCaptureReplay` **must** also be `VK_TRUE`
 
 Valid Usage (Implicit)
 
-- <a
-  href="#VUID-VkPhysicalDeviceRayTracingPipelineFeaturesKHR-sType-sType"
-  id="VUID-VkPhysicalDeviceRayTracingPipelineFeaturesKHR-sType-sType"></a>
-  VUID-VkPhysicalDeviceRayTracingPipelineFeaturesKHR-sType-sType  
-  `sType` **must** be
-  `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_RAY_TRACING_PIPELINE_FEATURES_KHR`
+- [](#VUID-VkPhysicalDeviceRayTracingPipelineFeaturesKHR-sType-sType)VUID-VkPhysicalDeviceRayTracingPipelineFeaturesKHR-sType-sType  
+  `sType` **must** be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_RAY_TRACING_PIPELINE_FEATURES_KHR`
 
-## <a href="#_see_also" class="anchor"></a>See Also
+## [](#_see_also)See Also
 
-[VK_KHR_ray_tracing_pipeline](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_KHR_ray_tracing_pipeline.html),
-[VkBool32](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkBool32.html), [VkStructureType](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkStructureType.html)
+[VK\_KHR\_ray\_tracing\_pipeline](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_KHR_ray_tracing_pipeline.html), [VkBool32](https://registry.khronos.org/vulkan/specs/latest/man/html/VkBool32.html), [VkStructureType](https://registry.khronos.org/vulkan/specs/latest/man/html/VkStructureType.html)
 
-## <a href="#_document_notes" class="anchor"></a>Document Notes
+## [](#_document_notes)Document Notes
 
-For more information, see the <a
-href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#VkPhysicalDeviceRayTracingPipelineFeaturesKHR"
-target="_blank" rel="noopener">Vulkan Specification</a>
+For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#VkPhysicalDeviceRayTracingPipelineFeaturesKHR)
 
-This page is extracted from the Vulkan Specification. Fixes and changes
-should be made to the Specification, not directly.
+This page is extracted from the Vulkan Specification. Fixes and changes should be made to the Specification, not directly.
 
-## <a href="#_copyright" class="anchor"></a>Copyright
+## [](#_copyright)Copyright
 
-Copyright 2014-2024 The Khronos Group Inc.
+Copyright 2014-2025 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
-
-Version 1.3.290  
-Last updated 2024-07-11 23:39:16 -0700

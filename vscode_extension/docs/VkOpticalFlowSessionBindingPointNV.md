@@ -2,16 +2,15 @@
 
 ## Name
 
-VkOpticalFlowSessionBindingPointNV - Binding points of an optical flow
-session
+VkOpticalFlowSessionBindingPointNV - Binding points of an optical flow session
 
 
 
-## <a href="#_c_specification" class="anchor"></a>C Specification
+## [](#_c_specification)C Specification
 
 The optical flow session binding points are defined with the following:
 
-``` c
+```c++
 // Provided by VK_NV_optical_flow
 typedef enum VkOpticalFlowSessionBindingPointNV {
     VK_OPTICAL_FLOW_SESSION_BINDING_POINT_UNKNOWN_NV = 0,
@@ -26,56 +25,29 @@ typedef enum VkOpticalFlowSessionBindingPointNV {
 } VkOpticalFlowSessionBindingPointNV;
 ```
 
-## <a href="#_description" class="anchor"></a>Description
+## [](#_description)Description
 
-- `VK_OPTICAL_FLOW_SESSION_BINDING_POINT_INPUT_NV` specifies the binding
-  point for the input frame.
+- `VK_OPTICAL_FLOW_SESSION_BINDING_POINT_INPUT_NV` specifies the binding point for the input frame.
+- `VK_OPTICAL_FLOW_SESSION_BINDING_POINT_REFERENCE_NV` specifies the binding point for the input reference frame.
+- `VK_OPTICAL_FLOW_SESSION_BINDING_POINT_HINT_NV` specifies the binding point for the optional external hint flow vectors.
+- `VK_OPTICAL_FLOW_SESSION_BINDING_POINT_FLOW_VECTOR_NV` specifies the binding point for output flow vectors of default forward flow calculation.
+- `VK_OPTICAL_FLOW_SESSION_BINDING_POINT_BACKWARD_FLOW_VECTOR_NV` specifies the binding point for the optional output flow vector map of optional backward flow calculation.
+- `VK_OPTICAL_FLOW_SESSION_BINDING_POINT_COST_NV` specifies the binding point for the optional output cost map of default forward flow calculation.
+- `VK_OPTICAL_FLOW_SESSION_BINDING_POINT_BACKWARD_COST_NV` specifies the binding point for the optional output cost map of optional backward flow calculation.
+- `VK_OPTICAL_FLOW_SESSION_BINDING_POINT_GLOBAL_FLOW_NV` specifies the binding point for the optional global flow value of default forward flow calculation.
 
-- `VK_OPTICAL_FLOW_SESSION_BINDING_POINT_REFERENCE_NV` specifies the
-  binding point for the input reference frame.
+## [](#_see_also)See Also
 
-- `VK_OPTICAL_FLOW_SESSION_BINDING_POINT_HINT_NV` specifies the binding
-  point for the optional external hint flow vectors.
+[VK\_NV\_optical\_flow](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_NV_optical_flow.html), [vkBindOpticalFlowSessionImageNV](https://registry.khronos.org/vulkan/specs/latest/man/html/vkBindOpticalFlowSessionImageNV.html)
 
-- `VK_OPTICAL_FLOW_SESSION_BINDING_POINT_FLOW_VECTOR_NV` specifies the
-  binding point for output flow vectors of default forward flow
-  calculation.
+## [](#_document_notes)Document Notes
 
-- `VK_OPTICAL_FLOW_SESSION_BINDING_POINT_BACKWARD_FLOW_VECTOR_NV`
-  specifies the binding point for the optional output flow vector map of
-  optional backward flow calculation.
+For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#VkOpticalFlowSessionBindingPointNV)
 
-- `VK_OPTICAL_FLOW_SESSION_BINDING_POINT_COST_NV` specifies the binding
-  point for the optional output cost map of default forward flow
-  calculation.
+This page is extracted from the Vulkan Specification. Fixes and changes should be made to the Specification, not directly.
 
-- `VK_OPTICAL_FLOW_SESSION_BINDING_POINT_BACKWARD_COST_NV` specifies the
-  binding point for the optional output cost map of optional backward
-  flow calculation.
+## [](#_copyright)Copyright
 
-- `VK_OPTICAL_FLOW_SESSION_BINDING_POINT_GLOBAL_FLOW_NV` specifies the
-  binding point for the optional global flow value of default forward
-  flow calculation.
-
-## <a href="#_see_also" class="anchor"></a>See Also
-
-[VK_NV_optical_flow](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_NV_optical_flow.html),
-[vkBindOpticalFlowSessionImageNV](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkBindOpticalFlowSessionImageNV.html)
-
-## <a href="#_document_notes" class="anchor"></a>Document Notes
-
-For more information, see the <a
-href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#VkOpticalFlowSessionBindingPointNV"
-target="_blank" rel="noopener">Vulkan Specification</a>
-
-This page is extracted from the Vulkan Specification. Fixes and changes
-should be made to the Specification, not directly.
-
-## <a href="#_copyright" class="anchor"></a>Copyright
-
-Copyright 2014-2024 The Khronos Group Inc.
+Copyright 2014-2025 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
-
-Version 1.3.290  
-Last updated 2024-07-11 23:39:16 -0700

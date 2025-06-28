@@ -2,16 +2,15 @@
 
 ## Name
 
-VkMemoryGetFdInfoKHR - Structure describing a POSIX FD memory export
-operation
+VkMemoryGetFdInfoKHR - Structure describing a POSIX FD memory export operation
 
 
 
-## <a href="#_c_specification" class="anchor"></a>C Specification
+## [](#_c_specification)C Specification
 
 The `VkMemoryGetFdInfoKHR` structure is defined as:
 
-``` c
+```c++
 // Provided by VK_KHR_external_memory_fd
 typedef struct VkMemoryGetFdInfoKHR {
     VkStructureType                       sType;
@@ -21,111 +20,51 @@ typedef struct VkMemoryGetFdInfoKHR {
 } VkMemoryGetFdInfoKHR;
 ```
 
-## <a href="#_members" class="anchor"></a>Members
+## [](#_members)Members
 
-- `sType` is a [VkStructureType](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkStructureType.html) value identifying
-  this structure.
-
-- `pNext` is `NULL` or a pointer to a structure extending this
-  structure.
-
+- `sType` is a [VkStructureType](https://registry.khronos.org/vulkan/specs/latest/man/html/VkStructureType.html) value identifying this structure.
+- `pNext` is `NULL` or a pointer to a structure extending this structure.
 - `memory` is the memory object from which the handle will be exported.
+- `handleType` is a [VkExternalMemoryHandleTypeFlagBits](https://registry.khronos.org/vulkan/specs/latest/man/html/VkExternalMemoryHandleTypeFlagBits.html) value specifying the type of handle requested.
 
-- `handleType` is a
-  [VkExternalMemoryHandleTypeFlagBits](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkExternalMemoryHandleTypeFlagBits.html)
-  value specifying the type of handle requested.
+## [](#_description)Description
 
-## <a href="#_description" class="anchor"></a>Description
+The properties of the file descriptor exported depend on the value of `handleType`. See [VkExternalMemoryHandleTypeFlagBits](https://registry.khronos.org/vulkan/specs/latest/man/html/VkExternalMemoryHandleTypeFlagBits.html) for a description of the properties of the defined external memory handle types.
 
-The properties of the file descriptor exported depend on the value of
-`handleType`. See
-[VkExternalMemoryHandleTypeFlagBits](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkExternalMemoryHandleTypeFlagBits.html)
-for a description of the properties of the defined external memory
-handle types.
+Note
 
-<table>
-<colgroup>
-<col style="width: 50%" />
-<col style="width: 50%" />
-</colgroup>
-<tbody>
-<tr>
-<td class="icon"><em></em></td>
-<td class="content">Note
-<p>The size of the exported file <strong>may</strong> be larger than the
-size requested by <a
-href="VkMemoryAllocateInfo.html">VkMemoryAllocateInfo</a>::<code>allocationSize</code>.
-If <code>handleType</code> is
-<code>VK_EXTERNAL_MEMORY_HANDLE_TYPE_DMA_BUF_BIT_EXT</code>, then the
-application <strong>can</strong> query the file’s actual size with <a
-href="https://man7.org/linux/man-pages/man2/lseek.2.html"><code>lseek</code></a>.</p></td>
-</tr>
-</tbody>
-</table>
+The size of the exported file **may** be larger than the size requested by [VkMemoryAllocateInfo](https://registry.khronos.org/vulkan/specs/latest/man/html/VkMemoryAllocateInfo.html)::`allocationSize`. If `handleType` is `VK_EXTERNAL_MEMORY_HANDLE_TYPE_DMA_BUF_BIT_EXT`, then the application **can** query the file’s actual size with [`lseek`](https://man7.org/linux/man-pages/man2/lseek.2.html).
 
 Valid Usage
 
-- <a href="#VUID-VkMemoryGetFdInfoKHR-handleType-00671"
-  id="VUID-VkMemoryGetFdInfoKHR-handleType-00671"></a>
-  VUID-VkMemoryGetFdInfoKHR-handleType-00671  
-  `handleType` **must** have been included in
-  [VkExportMemoryAllocateInfo](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkExportMemoryAllocateInfo.html)::`handleTypes`
-  when `memory` was created
-
-- <a href="#VUID-VkMemoryGetFdInfoKHR-handleType-00672"
-  id="VUID-VkMemoryGetFdInfoKHR-handleType-00672"></a>
-  VUID-VkMemoryGetFdInfoKHR-handleType-00672  
-  `handleType` **must** be
-  `VK_EXTERNAL_MEMORY_HANDLE_TYPE_OPAQUE_FD_BIT` or
-  `VK_EXTERNAL_MEMORY_HANDLE_TYPE_DMA_BUF_BIT_EXT`
+- [](#VUID-VkMemoryGetFdInfoKHR-handleType-00671)VUID-VkMemoryGetFdInfoKHR-handleType-00671  
+  `handleType` **must** have been included in [VkExportMemoryAllocateInfo](https://registry.khronos.org/vulkan/specs/latest/man/html/VkExportMemoryAllocateInfo.html)::`handleTypes` when `memory` was created
+- [](#VUID-VkMemoryGetFdInfoKHR-handleType-00672)VUID-VkMemoryGetFdInfoKHR-handleType-00672  
+  `handleType` **must** be `VK_EXTERNAL_MEMORY_HANDLE_TYPE_OPAQUE_FD_BIT` or `VK_EXTERNAL_MEMORY_HANDLE_TYPE_DMA_BUF_BIT_EXT`
 
 Valid Usage (Implicit)
 
-- <a href="#VUID-VkMemoryGetFdInfoKHR-sType-sType"
-  id="VUID-VkMemoryGetFdInfoKHR-sType-sType"></a>
-  VUID-VkMemoryGetFdInfoKHR-sType-sType  
+- [](#VUID-VkMemoryGetFdInfoKHR-sType-sType)VUID-VkMemoryGetFdInfoKHR-sType-sType  
   `sType` **must** be `VK_STRUCTURE_TYPE_MEMORY_GET_FD_INFO_KHR`
-
-- <a href="#VUID-VkMemoryGetFdInfoKHR-pNext-pNext"
-  id="VUID-VkMemoryGetFdInfoKHR-pNext-pNext"></a>
-  VUID-VkMemoryGetFdInfoKHR-pNext-pNext  
+- [](#VUID-VkMemoryGetFdInfoKHR-pNext-pNext)VUID-VkMemoryGetFdInfoKHR-pNext-pNext  
   `pNext` **must** be `NULL`
+- [](#VUID-VkMemoryGetFdInfoKHR-memory-parameter)VUID-VkMemoryGetFdInfoKHR-memory-parameter  
+  `memory` **must** be a valid [VkDeviceMemory](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDeviceMemory.html) handle
+- [](#VUID-VkMemoryGetFdInfoKHR-handleType-parameter)VUID-VkMemoryGetFdInfoKHR-handleType-parameter  
+  `handleType` **must** be a valid [VkExternalMemoryHandleTypeFlagBits](https://registry.khronos.org/vulkan/specs/latest/man/html/VkExternalMemoryHandleTypeFlagBits.html) value
 
-- <a href="#VUID-VkMemoryGetFdInfoKHR-memory-parameter"
-  id="VUID-VkMemoryGetFdInfoKHR-memory-parameter"></a>
-  VUID-VkMemoryGetFdInfoKHR-memory-parameter  
-  `memory` **must** be a valid [VkDeviceMemory](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkDeviceMemory.html)
-  handle
+## [](#_see_also)See Also
 
-- <a href="#VUID-VkMemoryGetFdInfoKHR-handleType-parameter"
-  id="VUID-VkMemoryGetFdInfoKHR-handleType-parameter"></a>
-  VUID-VkMemoryGetFdInfoKHR-handleType-parameter  
-  `handleType` **must** be a valid
-  [VkExternalMemoryHandleTypeFlagBits](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkExternalMemoryHandleTypeFlagBits.html)
-  value
+[VK\_KHR\_external\_memory\_fd](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_KHR_external_memory_fd.html), [VkDeviceMemory](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDeviceMemory.html), [VkExternalMemoryHandleTypeFlagBits](https://registry.khronos.org/vulkan/specs/latest/man/html/VkExternalMemoryHandleTypeFlagBits.html), [VkStructureType](https://registry.khronos.org/vulkan/specs/latest/man/html/VkStructureType.html), [vkGetMemoryFdKHR](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetMemoryFdKHR.html)
 
-## <a href="#_see_also" class="anchor"></a>See Also
+## [](#_document_notes)Document Notes
 
-[VK_KHR_external_memory_fd](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_KHR_external_memory_fd.html),
-[VkDeviceMemory](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkDeviceMemory.html),
-[VkExternalMemoryHandleTypeFlagBits](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkExternalMemoryHandleTypeFlagBits.html),
-[VkStructureType](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkStructureType.html),
-[vkGetMemoryFdKHR](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkGetMemoryFdKHR.html)
+For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#VkMemoryGetFdInfoKHR)
 
-## <a href="#_document_notes" class="anchor"></a>Document Notes
+This page is extracted from the Vulkan Specification. Fixes and changes should be made to the Specification, not directly.
 
-For more information, see the <a
-href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#VkMemoryGetFdInfoKHR"
-target="_blank" rel="noopener">Vulkan Specification</a>
+## [](#_copyright)Copyright
 
-This page is extracted from the Vulkan Specification. Fixes and changes
-should be made to the Specification, not directly.
-
-## <a href="#_copyright" class="anchor"></a>Copyright
-
-Copyright 2014-2024 The Khronos Group Inc.
+Copyright 2014-2025 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
-
-Version 1.3.290  
-Last updated 2024-07-11 23:39:16 -0700

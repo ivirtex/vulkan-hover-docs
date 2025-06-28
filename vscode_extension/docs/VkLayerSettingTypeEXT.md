@@ -6,13 +6,11 @@ VkLayerSettingTypeEXT - Type of the values that can be passed to a layer
 
 
 
-## <a href="#_c_specification" class="anchor"></a>C Specification
+## [](#_c_specification)C Specification
 
-Possible values of [VkLayerSettingEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkLayerSettingEXT.html)::`type`,
-specifying the type of the data returned in
-[VkLayerSettingEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkLayerSettingEXT.html)::`pValues`, are:
+Possible values of [VkLayerSettingEXT](https://registry.khronos.org/vulkan/specs/latest/man/html/VkLayerSettingEXT.html)::`type`, specifying the type of the data returned in [VkLayerSettingEXT](https://registry.khronos.org/vulkan/specs/latest/man/html/VkLayerSettingEXT.html)::`pValues`, are:
 
-``` c
+```c++
 // Provided by VK_EXT_layer_settings
 typedef enum VkLayerSettingTypeEXT {
     VK_LAYER_SETTING_TYPE_BOOL32_EXT = 0,
@@ -26,51 +24,29 @@ typedef enum VkLayerSettingTypeEXT {
 } VkLayerSettingTypeEXT;
 ```
 
-## <a href="#_description" class="anchor"></a>Description
+## [](#_description)Description
 
-- `VK_LAYER_SETTING_TYPE_BOOL32_EXT` specifies that the layer setting’s
-  type is [VkBool32](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkBool32.html).
+- `VK_LAYER_SETTING_TYPE_BOOL32_EXT` specifies that the layer setting’s type is [VkBool32](https://registry.khronos.org/vulkan/specs/latest/man/html/VkBool32.html).
+- `VK_LAYER_SETTING_TYPE_INT32_EXT` specifies that the layer setting’s type is signed 32-bit integer.
+- `VK_LAYER_SETTING_TYPE_INT64_EXT` specifies that the layer setting’s type is signed 64-bit integer.
+- `VK_LAYER_SETTING_TYPE_UINT32_EXT` specifies that the layer setting’s type is unsigned 32-bit integer.
+- `VK_LAYER_SETTING_TYPE_UINT64_EXT` specifies that the layer setting’s type is unsigned 64-bit integer.
+- `VK_LAYER_SETTING_TYPE_FLOAT32_EXT` specifies that the layer setting’s type is 32-bit floating-point.
+- `VK_LAYER_SETTING_TYPE_FLOAT64_EXT` specifies that the layer setting’s type is 64-bit floating-point.
+- `VK_LAYER_SETTING_TYPE_STRING_EXT` specifies that the layer setting’s type is a pointer to a null-terminated UTF-8 string.
 
-- `VK_LAYER_SETTING_TYPE_INT32_EXT` specifies that the layer setting’s
-  type is signed 32-bit integer.
+## [](#_see_also)See Also
 
-- `VK_LAYER_SETTING_TYPE_INT64_EXT` specifies that the layer setting’s
-  type is signed 64-bit integer.
+[VK\_EXT\_layer\_settings](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_EXT_layer_settings.html), [VkLayerSettingEXT](https://registry.khronos.org/vulkan/specs/latest/man/html/VkLayerSettingEXT.html)
 
-- `VK_LAYER_SETTING_TYPE_UINT32_EXT` specifies that the layer setting’s
-  type is unsigned 32-bit integer.
+## [](#_document_notes)Document Notes
 
-- `VK_LAYER_SETTING_TYPE_UINT64_EXT` specifies that the layer setting’s
-  type is unsigned 64-bit integer.
+For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#VkLayerSettingTypeEXT)
 
-- `VK_LAYER_SETTING_TYPE_FLOAT32_EXT` specifies that the layer setting’s
-  type is 32-bit floating-point.
+This page is extracted from the Vulkan Specification. Fixes and changes should be made to the Specification, not directly.
 
-- `VK_LAYER_SETTING_TYPE_FLOAT64_EXT` specifies that the layer setting’s
-  type is 64-bit floating-point.
+## [](#_copyright)Copyright
 
-- `VK_LAYER_SETTING_TYPE_STRING_EXT` specifies that the layer setting’s
-  type is a pointer to a null-terminated UTF-8 string.
-
-## <a href="#_see_also" class="anchor"></a>See Also
-
-[VK_EXT_layer_settings](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_EXT_layer_settings.html),
-[VkLayerSettingEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkLayerSettingEXT.html)
-
-## <a href="#_document_notes" class="anchor"></a>Document Notes
-
-For more information, see the <a
-href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#VkLayerSettingTypeEXT"
-target="_blank" rel="noopener">Vulkan Specification</a>
-
-This page is extracted from the Vulkan Specification. Fixes and changes
-should be made to the Specification, not directly.
-
-## <a href="#_copyright" class="anchor"></a>Copyright
-
-Copyright 2014-2024 The Khronos Group Inc.
+Copyright 2014-2025 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
-
-Version 1.3.290  
-Last updated 2024-07-11 23:39:16 -0700

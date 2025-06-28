@@ -2,26 +2,17 @@
 
 ## Name
 
-VkRenderPassTransformBeginInfoQCOM - Structure describing transform
-parameters of a render pass instance
+VkRenderPassTransformBeginInfoQCOM - Structure describing transform parameters of a render pass instance
 
 
 
-## <a href="#_c_specification" class="anchor"></a>C Specification
+## [](#_c_specification)C Specification
 
-To begin a render pass instance with <a
-href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#vertexpostproc-renderpass-transform"
-target="_blank" rel="noopener">render pass transform</a> enabled, add
-the
-[VkRenderPassTransformBeginInfoQCOM](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkRenderPassTransformBeginInfoQCOM.html)
-to the `pNext` chain of
-[VkRenderPassBeginInfo](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkRenderPassBeginInfo.html) structure passed to
-the [vkCmdBeginRenderPass](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdBeginRenderPass.html) command specifying
-the render pass transform.
+To begin a render pass instance with [render pass transform](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#vertexpostproc-renderpass-transform) enabled, add the [VkRenderPassTransformBeginInfoQCOM](https://registry.khronos.org/vulkan/specs/latest/man/html/VkRenderPassTransformBeginInfoQCOM.html) to the `pNext` chain of [VkRenderPassBeginInfo](https://registry.khronos.org/vulkan/specs/latest/man/html/VkRenderPassBeginInfo.html) structure passed to the [vkCmdBeginRenderPass](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdBeginRenderPass.html) command specifying the render pass transform.
 
 The `VkRenderPassTransformBeginInfoQCOM` structure is defined as:
 
-``` c
+```c++
 // Provided by VK_QCOM_render_pass_transform
 typedef struct VkRenderPassTransformBeginInfoQCOM {
     VkStructureType                  sType;
@@ -30,65 +21,38 @@ typedef struct VkRenderPassTransformBeginInfoQCOM {
 } VkRenderPassTransformBeginInfoQCOM;
 ```
 
-## <a href="#_members" class="anchor"></a>Members
+## [](#_members)Members
 
-- `sType` is a [VkStructureType](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkStructureType.html) value identifying
-  this structure.
+- `sType` is a [VkStructureType](https://registry.khronos.org/vulkan/specs/latest/man/html/VkStructureType.html) value identifying this structure.
+- `pNext` is `NULL` or a pointer to a structure extending this structure.
+- `transform` is a [VkSurfaceTransformFlagBitsKHR](https://registry.khronos.org/vulkan/specs/latest/man/html/VkSurfaceTransformFlagBitsKHR.html) value describing the transform to be applied to rasterization.
 
-- `pNext` is `NULL` or a pointer to a structure extending this
-  structure.
-
-- `transform` is a
-  [VkSurfaceTransformFlagBitsKHR](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkSurfaceTransformFlagBitsKHR.html)
-  value describing the transform to be applied to rasterization.
-
-## <a href="#_description" class="anchor"></a>Description
+## [](#_description)Description
 
 Valid Usage
 
-- <a href="#VUID-VkRenderPassTransformBeginInfoQCOM-transform-02871"
-  id="VUID-VkRenderPassTransformBeginInfoQCOM-transform-02871"></a>
-  VUID-VkRenderPassTransformBeginInfoQCOM-transform-02871  
-  `transform` **must** be `VK_SURFACE_TRANSFORM_IDENTITY_BIT_KHR`,
-  `VK_SURFACE_TRANSFORM_ROTATE_90_BIT_KHR`,
-  `VK_SURFACE_TRANSFORM_ROTATE_180_BIT_KHR`, or
-  `VK_SURFACE_TRANSFORM_ROTATE_270_BIT_KHR`
-
-- <a href="#VUID-VkRenderPassTransformBeginInfoQCOM-flags-02872"
-  id="VUID-VkRenderPassTransformBeginInfoQCOM-flags-02872"></a>
-  VUID-VkRenderPassTransformBeginInfoQCOM-flags-02872  
-  The `renderpass` **must** have been created with
-  [VkRenderPassCreateInfo](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkRenderPassCreateInfo.html)::`flags`
-  containing `VK_RENDER_PASS_CREATE_TRANSFORM_BIT_QCOM`
+- [](#VUID-VkRenderPassTransformBeginInfoQCOM-transform-02871)VUID-VkRenderPassTransformBeginInfoQCOM-transform-02871  
+  `transform` **must** be `VK_SURFACE_TRANSFORM_IDENTITY_BIT_KHR`, `VK_SURFACE_TRANSFORM_ROTATE_90_BIT_KHR`, `VK_SURFACE_TRANSFORM_ROTATE_180_BIT_KHR`, or `VK_SURFACE_TRANSFORM_ROTATE_270_BIT_KHR`
+- [](#VUID-VkRenderPassTransformBeginInfoQCOM-flags-02872)VUID-VkRenderPassTransformBeginInfoQCOM-flags-02872  
+  The `renderpass` **must** have been created with [VkRenderPassCreateInfo](https://registry.khronos.org/vulkan/specs/latest/man/html/VkRenderPassCreateInfo.html)::`flags` containing `VK_RENDER_PASS_CREATE_TRANSFORM_BIT_QCOM`
 
 Valid Usage (Implicit)
 
-- <a href="#VUID-VkRenderPassTransformBeginInfoQCOM-sType-sType"
-  id="VUID-VkRenderPassTransformBeginInfoQCOM-sType-sType"></a>
-  VUID-VkRenderPassTransformBeginInfoQCOM-sType-sType  
-  `sType` **must** be
-  `VK_STRUCTURE_TYPE_RENDER_PASS_TRANSFORM_BEGIN_INFO_QCOM`
+- [](#VUID-VkRenderPassTransformBeginInfoQCOM-sType-sType)VUID-VkRenderPassTransformBeginInfoQCOM-sType-sType  
+  `sType` **must** be `VK_STRUCTURE_TYPE_RENDER_PASS_TRANSFORM_BEGIN_INFO_QCOM`
 
-## <a href="#_see_also" class="anchor"></a>See Also
+## [](#_see_also)See Also
 
-[VK_QCOM_render_pass_transform](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_QCOM_render_pass_transform.html),
-[VkStructureType](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkStructureType.html),
-[VkSurfaceTransformFlagBitsKHR](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkSurfaceTransformFlagBitsKHR.html)
+[VK\_QCOM\_render\_pass\_transform](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_QCOM_render_pass_transform.html), [VkStructureType](https://registry.khronos.org/vulkan/specs/latest/man/html/VkStructureType.html), [VkSurfaceTransformFlagBitsKHR](https://registry.khronos.org/vulkan/specs/latest/man/html/VkSurfaceTransformFlagBitsKHR.html)
 
-## <a href="#_document_notes" class="anchor"></a>Document Notes
+## [](#_document_notes)Document Notes
 
-For more information, see the <a
-href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#VkRenderPassTransformBeginInfoQCOM"
-target="_blank" rel="noopener">Vulkan Specification</a>
+For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#VkRenderPassTransformBeginInfoQCOM)
 
-This page is extracted from the Vulkan Specification. Fixes and changes
-should be made to the Specification, not directly.
+This page is extracted from the Vulkan Specification. Fixes and changes should be made to the Specification, not directly.
 
-## <a href="#_copyright" class="anchor"></a>Copyright
+## [](#_copyright)Copyright
 
-Copyright 2014-2024 The Khronos Group Inc.
+Copyright 2014-2025 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
-
-Version 1.3.290  
-Last updated 2024-07-11 23:39:16 -0700

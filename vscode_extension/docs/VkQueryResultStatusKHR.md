@@ -6,11 +6,11 @@ VkQueryResultStatusKHR - Specific status codes for operations
 
 
 
-## <a href="#_c_specification" class="anchor"></a>C Specification
+## [](#_c_specification)C Specification
 
 Specific status codes that **can** be returned from a query are:
 
-``` c
+```c++
 // Provided by VK_KHR_video_queue
 typedef enum VkQueryResultStatusKHR {
     VK_QUERY_RESULT_STATUS_ERROR_KHR = -1,
@@ -21,40 +21,25 @@ typedef enum VkQueryResultStatusKHR {
 } VkQueryResultStatusKHR;
 ```
 
-## <a href="#_description" class="anchor"></a>Description
+## [](#_description)Description
 
-- `VK_QUERY_RESULT_STATUS_NOT_READY_KHR` indicates that the query result
-  is not yet available.
+- `VK_QUERY_RESULT_STATUS_NOT_READY_KHR` specifies that the query result is not yet available.
+- `VK_QUERY_RESULT_STATUS_ERROR_KHR` specifies that operations did not complete successfully.
+- `VK_QUERY_RESULT_STATUS_COMPLETE_KHR` specifies that operations completed successfully and the query result is available.
+- `VK_QUERY_RESULT_STATUS_INSUFFICIENT_BITSTREAM_BUFFER_RANGE_KHR` specifies that a video encode operation did not complete successfully due to the destination video bitstream buffer range not being sufficiently large to fit the encoded bitstream data.
 
-- `VK_QUERY_RESULT_STATUS_ERROR_KHR` indicates that operations did not
-  complete successfully.
+## [](#_see_also)See Also
 
-- `VK_QUERY_RESULT_STATUS_COMPLETE_KHR` indicates that operations
-  completed successfully and the query result is available.
+[VK\_KHR\_video\_queue](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_KHR_video_queue.html)
 
-- `VK_QUERY_RESULT_STATUS_INSUFFICIENT_BITSTREAM_BUFFER_RANGE_KHR`
-  indicates that a video encode operation did not complete successfully
-  due to the destination video bitstream buffer range not being
-  sufficiently large to fit the encoded bitstream data.
+## [](#_document_notes)Document Notes
 
-## <a href="#_see_also" class="anchor"></a>See Also
+For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#VkQueryResultStatusKHR)
 
-[VK_KHR_video_queue](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_KHR_video_queue.html)
+This page is extracted from the Vulkan Specification. Fixes and changes should be made to the Specification, not directly.
 
-## <a href="#_document_notes" class="anchor"></a>Document Notes
+## [](#_copyright)Copyright
 
-For more information, see the <a
-href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#VkQueryResultStatusKHR"
-target="_blank" rel="noopener">Vulkan Specification</a>
-
-This page is extracted from the Vulkan Specification. Fixes and changes
-should be made to the Specification, not directly.
-
-## <a href="#_copyright" class="anchor"></a>Copyright
-
-Copyright 2014-2024 The Khronos Group Inc.
+Copyright 2014-2025 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
-
-Version 1.3.290  
-Last updated 2024-07-11 23:39:16 -0700

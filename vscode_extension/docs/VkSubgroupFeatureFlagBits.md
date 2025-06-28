@@ -2,24 +2,15 @@
 
 ## Name
 
-VkSubgroupFeatureFlagBits - Bitmask describing what group operations are
-supported with subgroup scope
+VkSubgroupFeatureFlagBits - Bitmask describing what group operations are supported with subgroup scope
 
 
 
-## <a href="#_c_specification" class="anchor"></a>C Specification
+## [](#_c_specification)C Specification
 
-Bits which **can** be set in
-[VkPhysicalDeviceSubgroupProperties](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkPhysicalDeviceSubgroupProperties.html)::`supportedOperations`
-and
-[VkPhysicalDeviceVulkan11Properties](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkPhysicalDeviceVulkan11Properties.html)::`subgroupSupportedOperations`
-to specify supported <a
-href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#shaders-group-operations"
-target="_blank" rel="noopener">group operations</a> with <a
-href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#shaders-scope-subgroup"
-target="_blank" rel="noopener">subgroup scope</a> are:
+Bits which **can** be set in [VkPhysicalDeviceSubgroupProperties](https://registry.khronos.org/vulkan/specs/latest/man/html/VkPhysicalDeviceSubgroupProperties.html)::`supportedOperations` and [VkPhysicalDeviceVulkan11Properties](https://registry.khronos.org/vulkan/specs/latest/man/html/VkPhysicalDeviceVulkan11Properties.html)::`subgroupSupportedOperations` to specify supported [group operations](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#shaders-group-operations) with [subgroup scope](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#shaders-scope-subgroup) are:
 
-``` c
+```c++
 // Provided by VK_VERSION_1_1
 typedef enum VkSubgroupFeatureFlagBits {
     VK_SUBGROUP_FEATURE_BASIC_BIT = 0x00000001,
@@ -30,88 +21,45 @@ typedef enum VkSubgroupFeatureFlagBits {
     VK_SUBGROUP_FEATURE_SHUFFLE_RELATIVE_BIT = 0x00000020,
     VK_SUBGROUP_FEATURE_CLUSTERED_BIT = 0x00000040,
     VK_SUBGROUP_FEATURE_QUAD_BIT = 0x00000080,
+  // Provided by VK_VERSION_1_4
+    VK_SUBGROUP_FEATURE_ROTATE_BIT = 0x00000200,
+  // Provided by VK_VERSION_1_4
+    VK_SUBGROUP_FEATURE_ROTATE_CLUSTERED_BIT = 0x00000400,
   // Provided by VK_NV_shader_subgroup_partitioned
     VK_SUBGROUP_FEATURE_PARTITIONED_BIT_NV = 0x00000100,
   // Provided by VK_KHR_shader_subgroup_rotate
-    VK_SUBGROUP_FEATURE_ROTATE_BIT_KHR = 0x00000200,
+    VK_SUBGROUP_FEATURE_ROTATE_BIT_KHR = VK_SUBGROUP_FEATURE_ROTATE_BIT,
   // Provided by VK_KHR_shader_subgroup_rotate
-    VK_SUBGROUP_FEATURE_ROTATE_CLUSTERED_BIT_KHR = 0x00000400,
+    VK_SUBGROUP_FEATURE_ROTATE_CLUSTERED_BIT_KHR = VK_SUBGROUP_FEATURE_ROTATE_CLUSTERED_BIT,
 } VkSubgroupFeatureFlagBits;
 ```
 
-## <a href="#_description" class="anchor"></a>Description
+## [](#_description)Description
 
-- <span id="features-subgroup-basic"></span>
-  `VK_SUBGROUP_FEATURE_BASIC_BIT` specifies the device will accept
-  SPIR-V shader modules containing the `GroupNonUniform` capability.
+- []()`VK_SUBGROUP_FEATURE_BASIC_BIT` specifies the device will accept SPIR-V shader modules containing the `GroupNonUniform` capability.
+- []()`VK_SUBGROUP_FEATURE_VOTE_BIT` specifies the device will accept SPIR-V shader modules containing the `GroupNonUniformVote` capability.
+- []()`VK_SUBGROUP_FEATURE_ARITHMETIC_BIT` specifies the device will accept SPIR-V shader modules containing the `GroupNonUniformArithmetic` capability.
+- []()`VK_SUBGROUP_FEATURE_BALLOT_BIT` specifies the device will accept SPIR-V shader modules containing the `GroupNonUniformBallot` capability.
+- []()`VK_SUBGROUP_FEATURE_SHUFFLE_BIT` specifies the device will accept SPIR-V shader modules containing the `GroupNonUniformShuffle` capability.
+- []()`VK_SUBGROUP_FEATURE_SHUFFLE_RELATIVE_BIT` specifies the device will accept SPIR-V shader modules containing the `GroupNonUniformShuffleRelative` capability.
+- []()`VK_SUBGROUP_FEATURE_CLUSTERED_BIT` specifies the device will accept SPIR-V shader modules containing the `GroupNonUniformClustered` capability.
+- []()`VK_SUBGROUP_FEATURE_QUAD_BIT` specifies the device will accept SPIR-V shader modules containing the `GroupNonUniformQuad` capability.
+- []()`VK_SUBGROUP_FEATURE_PARTITIONED_BIT_NV` specifies the device will accept SPIR-V shader modules containing the `GroupNonUniformPartitionedNV` capability.
+- []()`VK_SUBGROUP_FEATURE_ROTATE_BIT` specifies the device will accept SPIR-V shader modules containing the `GroupNonUniformRotateKHR` capability.
+- []()`VK_SUBGROUP_FEATURE_ROTATE_CLUSTERED_BIT` specifies the device will accept SPIR-V shader modules that use the `ClusterSize` operand to `OpGroupNonUniformRotateKHR`.
 
-- <span id="features-subgroup-vote"></span>
-  `VK_SUBGROUP_FEATURE_VOTE_BIT` specifies the device will accept SPIR-V
-  shader modules containing the `GroupNonUniformVote` capability.
+## [](#_see_also)See Also
 
-- <span id="features-subgroup-arithmetic"></span>
-  `VK_SUBGROUP_FEATURE_ARITHMETIC_BIT` specifies the device will accept
-  SPIR-V shader modules containing the `GroupNonUniformArithmetic`
-  capability.
+[VK\_VERSION\_1\_1](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_VERSION_1_1.html), [VkSubgroupFeatureFlags](https://registry.khronos.org/vulkan/specs/latest/man/html/VkSubgroupFeatureFlags.html)
 
-- <span id="features-subgroup-ballot"></span>
-  `VK_SUBGROUP_FEATURE_BALLOT_BIT` specifies the device will accept
-  SPIR-V shader modules containing the `GroupNonUniformBallot`
-  capability.
+## [](#_document_notes)Document Notes
 
-- <span id="features-subgroup-shuffle"></span>
-  `VK_SUBGROUP_FEATURE_SHUFFLE_BIT` specifies the device will accept
-  SPIR-V shader modules containing the `GroupNonUniformShuffle`
-  capability.
+For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#VkSubgroupFeatureFlagBits)
 
-- <span id="features-subgroup-shuffle-relative"></span>
-  `VK_SUBGROUP_FEATURE_SHUFFLE_RELATIVE_BIT` specifies the device will
-  accept SPIR-V shader modules containing the
-  `GroupNonUniformShuffleRelative` capability.
+This page is extracted from the Vulkan Specification. Fixes and changes should be made to the Specification, not directly.
 
-- <span id="features-subgroup-clustered"></span>
-  `VK_SUBGROUP_FEATURE_CLUSTERED_BIT` specifies the device will accept
-  SPIR-V shader modules containing the `GroupNonUniformClustered`
-  capability.
+## [](#_copyright)Copyright
 
-- <span id="features-subgroup-quad"></span>
-  `VK_SUBGROUP_FEATURE_QUAD_BIT` specifies the device will accept SPIR-V
-  shader modules containing the `GroupNonUniformQuad` capability.
-
-- <span id="features-subgroup-partitioned"></span>
-  `VK_SUBGROUP_FEATURE_PARTITIONED_BIT_NV` specifies the device will
-  accept SPIR-V shader modules containing the
-  `GroupNonUniformPartitionedNV` capability.
-
-- <span id="features-subgroup-rotate"></span>
-  `VK_SUBGROUP_FEATURE_ROTATE_BIT_KHR` specifies the device will accept
-  SPIR-V shader modules containing the `GroupNonUniformRotateKHR`
-  capability.
-
-- <span id="features-subgroup-rotate-clustered"></span>
-  `VK_SUBGROUP_FEATURE_ROTATE_CLUSTERED_BIT_KHR` specifies the device
-  will accept SPIR-V shader modules that use the `ClusterSize` operand
-  to `OpGroupNonUniformRotateKHR`.
-
-## <a href="#_see_also" class="anchor"></a>See Also
-
-[VK_VERSION_1_1](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_VERSION_1_1.html),
-[VkSubgroupFeatureFlags](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkSubgroupFeatureFlags.html)
-
-## <a href="#_document_notes" class="anchor"></a>Document Notes
-
-For more information, see the <a
-href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#VkSubgroupFeatureFlagBits"
-target="_blank" rel="noopener">Vulkan Specification</a>
-
-This page is extracted from the Vulkan Specification. Fixes and changes
-should be made to the Specification, not directly.
-
-## <a href="#_copyright" class="anchor"></a>Copyright
-
-Copyright 2014-2024 The Khronos Group Inc.
+Copyright 2014-2025 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
-
-Version 1.3.290  
-Last updated 2024-07-11 23:39:16 -0700

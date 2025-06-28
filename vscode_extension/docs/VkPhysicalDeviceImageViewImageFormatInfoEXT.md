@@ -2,17 +2,15 @@
 
 ## Name
 
-VkPhysicalDeviceImageViewImageFormatInfoEXT - Structure for providing
-image view type
+VkPhysicalDeviceImageViewImageFormatInfoEXT - Structure for providing image view type
 
 
 
-## <a href="#_c_specification" class="anchor"></a>C Specification
+## [](#_c_specification)C Specification
 
-The `VkPhysicalDeviceImageViewImageFormatInfoEXT` structure is defined
-as:
+The `VkPhysicalDeviceImageViewImageFormatInfoEXT` structure is defined as:
 
-``` c
+```c++
 // Provided by VK_EXT_filter_cubic
 typedef struct VkPhysicalDeviceImageViewImageFormatInfoEXT {
     VkStructureType    sType;
@@ -21,54 +19,33 @@ typedef struct VkPhysicalDeviceImageViewImageFormatInfoEXT {
 } VkPhysicalDeviceImageViewImageFormatInfoEXT;
 ```
 
-## <a href="#_members" class="anchor"></a>Members
+## [](#_members)Members
 
-- `sType` is a [VkStructureType](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkStructureType.html) value identifying
-  this structure.
+- `sType` is a [VkStructureType](https://registry.khronos.org/vulkan/specs/latest/man/html/VkStructureType.html) value identifying this structure.
+- `pNext` is `NULL` or a pointer to a structure extending this structure.
+- `imageViewType` is a [VkImageViewType](https://registry.khronos.org/vulkan/specs/latest/man/html/VkImageViewType.html) value specifying the type of the image view.
 
-- `pNext` is `NULL` or a pointer to a structure extending this
-  structure.
-
-- `imageViewType` is a [VkImageViewType](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkImageViewType.html) value
-  specifying the type of the image view.
-
-## <a href="#_description" class="anchor"></a>Description
+## [](#_description)Description
 
 Valid Usage (Implicit)
 
-- <a href="#VUID-VkPhysicalDeviceImageViewImageFormatInfoEXT-sType-sType"
-  id="VUID-VkPhysicalDeviceImageViewImageFormatInfoEXT-sType-sType"></a>
-  VUID-VkPhysicalDeviceImageViewImageFormatInfoEXT-sType-sType  
-  `sType` **must** be
-  `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_IMAGE_VIEW_IMAGE_FORMAT_INFO_EXT`
+- [](#VUID-VkPhysicalDeviceImageViewImageFormatInfoEXT-sType-sType)VUID-VkPhysicalDeviceImageViewImageFormatInfoEXT-sType-sType  
+  `sType` **must** be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_IMAGE_VIEW_IMAGE_FORMAT_INFO_EXT`
+- [](#VUID-VkPhysicalDeviceImageViewImageFormatInfoEXT-imageViewType-parameter)VUID-VkPhysicalDeviceImageViewImageFormatInfoEXT-imageViewType-parameter  
+  `imageViewType` **must** be a valid [VkImageViewType](https://registry.khronos.org/vulkan/specs/latest/man/html/VkImageViewType.html) value
 
-- <a
-  href="#VUID-VkPhysicalDeviceImageViewImageFormatInfoEXT-imageViewType-parameter"
-  id="VUID-VkPhysicalDeviceImageViewImageFormatInfoEXT-imageViewType-parameter"></a>
-  VUID-VkPhysicalDeviceImageViewImageFormatInfoEXT-imageViewType-parameter  
-  `imageViewType` **must** be a valid
-  [VkImageViewType](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkImageViewType.html) value
+## [](#_see_also)See Also
 
-## <a href="#_see_also" class="anchor"></a>See Also
+[VK\_EXT\_filter\_cubic](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_EXT_filter_cubic.html), [VkImageViewType](https://registry.khronos.org/vulkan/specs/latest/man/html/VkImageViewType.html), [VkStructureType](https://registry.khronos.org/vulkan/specs/latest/man/html/VkStructureType.html)
 
-[VK_EXT_filter_cubic](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_EXT_filter_cubic.html),
-[VkImageViewType](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkImageViewType.html),
-[VkStructureType](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkStructureType.html)
+## [](#_document_notes)Document Notes
 
-## <a href="#_document_notes" class="anchor"></a>Document Notes
+For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#VkPhysicalDeviceImageViewImageFormatInfoEXT)
 
-For more information, see the <a
-href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#VkPhysicalDeviceImageViewImageFormatInfoEXT"
-target="_blank" rel="noopener">Vulkan Specification</a>
+This page is extracted from the Vulkan Specification. Fixes and changes should be made to the Specification, not directly.
 
-This page is extracted from the Vulkan Specification. Fixes and changes
-should be made to the Specification, not directly.
+## [](#_copyright)Copyright
 
-## <a href="#_copyright" class="anchor"></a>Copyright
-
-Copyright 2014-2024 The Khronos Group Inc.
+Copyright 2014-2025 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
-
-Version 1.3.290  
-Last updated 2024-07-11 23:39:16 -0700

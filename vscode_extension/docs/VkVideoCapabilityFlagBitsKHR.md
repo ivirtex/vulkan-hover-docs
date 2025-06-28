@@ -6,12 +6,11 @@ VkVideoCapabilityFlagBitsKHR - Video decode and encode capability bits
 
 
 
-## <a href="#_c_specification" class="anchor"></a>C Specification
+## [](#_c_specification)C Specification
 
-Bits which **can** be set in
-[VkVideoCapabilitiesKHR](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkVideoCapabilitiesKHR.html)::`flags` are:
+Bits which **can** be set in [VkVideoCapabilitiesKHR](https://registry.khronos.org/vulkan/specs/latest/man/html/VkVideoCapabilitiesKHR.html)::`flags` are:
 
-``` c
+```c++
 // Provided by VK_KHR_video_queue
 typedef enum VkVideoCapabilityFlagBitsKHR {
     VK_VIDEO_CAPABILITY_PROTECTED_CONTENT_BIT_KHR = 0x00000001,
@@ -19,43 +18,23 @@ typedef enum VkVideoCapabilityFlagBitsKHR {
 } VkVideoCapabilityFlagBitsKHR;
 ```
 
-## <a href="#_description" class="anchor"></a>Description
+## [](#_description)Description
 
-- `VK_VIDEO_CAPABILITY_PROTECTED_CONTENT_BIT_KHR` indicates that video
-  sessions support producing and consuming protected content.
+- `VK_VIDEO_CAPABILITY_PROTECTED_CONTENT_BIT_KHR` specifies that video sessions support producing and consuming protected content.
+- []()`VK_VIDEO_CAPABILITY_SEPARATE_REFERENCE_IMAGES_BIT_KHR` indicates that the [video picture resources](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#video-picture-resources) associated with the [DPB slots](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#dpb-slot) of a video session **can** be backed by separate `VkImage` objects. If this capability flag is not present, then all DPB slots of a video session **must** be associated with video picture resources backed by the same `VkImage` object (e.g. using different layers of the same image).
 
-- <span id="separate-reference-images"></span>
-  `VK_VIDEO_CAPABILITY_SEPARATE_REFERENCE_IMAGES_BIT_KHR` indicates that
-  the <a
-  href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#video-picture-resources"
-  target="_blank" rel="noopener">video picture resources</a> associated
-  with the <a
-  href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#dpb-slot"
-  target="_blank" rel="noopener">DPB slots</a> of a video session
-  **can** be backed by separate `VkImage` objects. If this capability
-  flag is not present, then all DPB slots of a video session **must** be
-  associated with video picture resources backed by the same `VkImage`
-  object (e.g. using different layers of the same image).
+## [](#_see_also)See Also
 
-## <a href="#_see_also" class="anchor"></a>See Also
+[VK\_KHR\_video\_queue](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_KHR_video_queue.html), [VkVideoCapabilityFlagsKHR](https://registry.khronos.org/vulkan/specs/latest/man/html/VkVideoCapabilityFlagsKHR.html)
 
-[VK_KHR_video_queue](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_KHR_video_queue.html),
-[VkVideoCapabilityFlagsKHR](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkVideoCapabilityFlagsKHR.html)
+## [](#_document_notes)Document Notes
 
-## <a href="#_document_notes" class="anchor"></a>Document Notes
+For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#VkVideoCapabilityFlagBitsKHR)
 
-For more information, see the <a
-href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#VkVideoCapabilityFlagBitsKHR"
-target="_blank" rel="noopener">Vulkan Specification</a>
+This page is extracted from the Vulkan Specification. Fixes and changes should be made to the Specification, not directly.
 
-This page is extracted from the Vulkan Specification. Fixes and changes
-should be made to the Specification, not directly.
+## [](#_copyright)Copyright
 
-## <a href="#_copyright" class="anchor"></a>Copyright
-
-Copyright 2014-2024 The Khronos Group Inc.
+Copyright 2014-2025 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
-
-Version 1.3.290  
-Last updated 2024-07-11 23:39:16 -0700

@@ -2,16 +2,15 @@
 
 ## Name
 
-VkPipelineCreationFeedback - Feedback about the creation of a pipeline
-or pipeline stage
+VkPipelineCreationFeedback - Feedback about the creation of a pipeline or pipeline stage
 
 
 
-## <a href="#_c_specification" class="anchor"></a>C Specification
+## [](#_c_specification)C Specification
 
 The `VkPipelineCreationFeedback` structure is defined as:
 
-``` c
+```c++
 // Provided by VK_VERSION_1_3
 typedef struct VkPipelineCreationFeedback {
     VkPipelineCreationFeedbackFlags    flags;
@@ -21,50 +20,32 @@ typedef struct VkPipelineCreationFeedback {
 
 or the equivalent
 
-``` c
+```c++
 // Provided by VK_EXT_pipeline_creation_feedback
 typedef VkPipelineCreationFeedback VkPipelineCreationFeedbackEXT;
 ```
 
-## <a href="#_members" class="anchor"></a>Members
+## [](#_members)Members
 
-- `flags` is a bitmask of
-  [VkPipelineCreationFeedbackFlagBits](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkPipelineCreationFeedbackFlagBits.html)
-  providing feedback about the creation of a pipeline or of a pipeline
-  stage.
+- `flags` is a bitmask of [VkPipelineCreationFeedbackFlagBits](https://registry.khronos.org/vulkan/specs/latest/man/html/VkPipelineCreationFeedbackFlagBits.html) providing feedback about the creation of a pipeline or of a pipeline stage.
+- `duration` is the duration spent creating a pipeline or pipeline stage in nanoseconds.
 
-- `duration` is the duration spent creating a pipeline or pipeline stage
-  in nanoseconds.
+## [](#_description)Description
 
-## <a href="#_description" class="anchor"></a>Description
+If the `VK_PIPELINE_CREATION_FEEDBACK_VALID_BIT` is not set in `flags`, an implementation **must** not set any other bits in `flags`, and the values of all other `VkPipelineCreationFeedback` data members are undefined.
 
-If the `VK_PIPELINE_CREATION_FEEDBACK_VALID_BIT` is not set in `flags`,
-an implementation **must** not set any other bits in `flags`, and the
-values of all other `VkPipelineCreationFeedback` data members are
-undefined.
+## [](#_see_also)See Also
 
-## <a href="#_see_also" class="anchor"></a>See Also
+[VK\_EXT\_pipeline\_creation\_feedback](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_EXT_pipeline_creation_feedback.html), [VK\_VERSION\_1\_3](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_VERSION_1_3.html), [VkPipelineCreationFeedbackCreateInfo](https://registry.khronos.org/vulkan/specs/latest/man/html/VkPipelineCreationFeedbackCreateInfo.html), [VkPipelineCreationFeedbackFlagBits](https://registry.khronos.org/vulkan/specs/latest/man/html/VkPipelineCreationFeedbackFlagBits.html), [VkPipelineCreationFeedbackFlags](https://registry.khronos.org/vulkan/specs/latest/man/html/VkPipelineCreationFeedbackFlags.html)
 
-[VK_EXT_pipeline_creation_feedback](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_EXT_pipeline_creation_feedback.html),
-[VK_VERSION_1_3](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_VERSION_1_3.html),
-[VkPipelineCreationFeedbackCreateInfo](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkPipelineCreationFeedbackCreateInfo.html),
-[VkPipelineCreationFeedbackFlagBits](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkPipelineCreationFeedbackFlagBits.html),
-[VkPipelineCreationFeedbackFlags](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkPipelineCreationFeedbackFlags.html)
+## [](#_document_notes)Document Notes
 
-## <a href="#_document_notes" class="anchor"></a>Document Notes
+For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#VkPipelineCreationFeedback)
 
-For more information, see the <a
-href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#VkPipelineCreationFeedback"
-target="_blank" rel="noopener">Vulkan Specification</a>
+This page is extracted from the Vulkan Specification. Fixes and changes should be made to the Specification, not directly.
 
-This page is extracted from the Vulkan Specification. Fixes and changes
-should be made to the Specification, not directly.
+## [](#_copyright)Copyright
 
-## <a href="#_copyright" class="anchor"></a>Copyright
-
-Copyright 2014-2024 The Khronos Group Inc.
+Copyright 2014-2025 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
-
-Version 1.3.290  
-Last updated 2024-07-11 23:39:16 -0700

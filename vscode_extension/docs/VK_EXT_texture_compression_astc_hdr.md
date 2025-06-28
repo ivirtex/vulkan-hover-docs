@@ -1,167 +1,121 @@
-# VK_EXT_texture_compression_astc_hdr(3) Manual Page
+# VK\_EXT\_texture\_compression\_astc\_hdr(3) Manual Page
 
 ## Name
 
-VK_EXT_texture_compression_astc_hdr - device extension
+VK\_EXT\_texture\_compression\_astc\_hdr - device extension
 
 
 
-## <a href="#_registered_extension_number" class="anchor"></a>Registered Extension Number
+## [](#_registered_extension_number)Registered Extension Number
 
 67
 
-## <a href="#_revision" class="anchor"></a>Revision
+## [](#_revision)Revision
 
 1
 
-## <a href="#_ratification_status" class="anchor"></a>Ratification Status
+## [](#_ratification_status)Ratification Status
 
 Not ratified
 
-## <a href="#_extension_and_version_dependencies" class="anchor"></a>Extension and Version Dependencies
+## [](#_extension_and_version_dependencies)Extension and Version Dependencies
 
-[VK_KHR_get_physical_device_properties2](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_KHR_get_physical_device_properties2.html)  
+[VK\_KHR\_get\_physical\_device\_properties2](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_KHR_get_physical_device_properties2.html)  
 or  
-[Version 1.1](#versions-1.1)  
+[Vulkan Version 1.1](#versions-1.1)
 
-## <a href="#_deprecation_state" class="anchor"></a>Deprecation State
+## [](#_deprecation_state)Deprecation State
 
-- *Promoted* to <a
-  href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#versions-1.3-promotions"
-  target="_blank" rel="noopener">Vulkan 1.3</a>
+- *Promoted* to [Vulkan 1.3](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#versions-1.3-promotions)
 
-## <a href="#_contact" class="anchor"></a>Contact
+## [](#_contact)Contact
 
-- Jan-Harald Fredriksen <a
-  href="https://github.com/KhronosGroup/Vulkan-Docs/issues/new?body=%5BVK_EXT_texture_compression_astc_hdr%5D%20@janharaldfredriksen-arm%0A*Here%20describe%20the%20issue%20or%20question%20you%20have%20about%20the%20VK_EXT_texture_compression_astc_hdr%20extension*"
-  target="_blank"
-  rel="nofollow noopener"><em></em>janharaldfredriksen-arm</a>
+- Jan-Harald Fredriksen [\[GitHub\]janharaldfredriksen-arm](https://github.com/KhronosGroup/Vulkan-Docs/issues/new?body=%5BVK_EXT_texture_compression_astc_hdr%5D%20%40janharaldfredriksen-arm%0A%2AHere%20describe%20the%20issue%20or%20question%20you%20have%20about%20the%20VK_EXT_texture_compression_astc_hdr%20extension%2A)
 
-## <a href="#_other_extension_metadata" class="anchor"></a>Other Extension Metadata
+## [](#_other_extension_metadata)Other Extension Metadata
 
-**Last Modified Date**  
+**Last Modified Date**
+
 2019-05-28
 
-**IP Status**  
+**IP Status**
+
 No known issues.
 
-**Contributors**  
+**Contributors**
+
 - Jan-Harald Fredriksen, Arm
 
-## <a href="#_description" class="anchor"></a>Description
+## [](#_description)Description
 
-This extension adds support for textures compressed using the Adaptive
-Scalable Texture Compression (ASTC) High Dynamic Range (HDR) profile.
+This extension adds support for textures compressed using the Adaptive Scalable Texture Compression (ASTC) High Dynamic Range (HDR) profile.
 
-When this extension is enabled, the HDR profile is supported for all
-ASTC formats listed in <a
-href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#appendix-compressedtex-astc"
-target="_blank" rel="noopener">ASTC Compressed Image Formats</a>.
+When this extension is enabled, the HDR profile is supported for all ASTC formats listed in [ASTC Compressed Image Formats](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#appendix-compressedtex-astc).
 
-## <a href="#_new_structures" class="anchor"></a>New Structures
+## [](#_new_structures)New Structures
 
-- Extending [VkPhysicalDeviceFeatures2](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkPhysicalDeviceFeatures2.html),
-  [VkDeviceCreateInfo](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkDeviceCreateInfo.html):
+- Extending [VkPhysicalDeviceFeatures2](https://registry.khronos.org/vulkan/specs/latest/man/html/VkPhysicalDeviceFeatures2.html), [VkDeviceCreateInfo](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDeviceCreateInfo.html):
+  
+  - [VkPhysicalDeviceTextureCompressionASTCHDRFeaturesEXT](https://registry.khronos.org/vulkan/specs/latest/man/html/VkPhysicalDeviceTextureCompressionASTCHDRFeaturesEXT.html)
 
-  - [VkPhysicalDeviceTextureCompressionASTCHDRFeaturesEXT](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkPhysicalDeviceTextureCompressionASTCHDRFeaturesEXT.html)
-
-## <a href="#_new_enum_constants" class="anchor"></a>New Enum Constants
+## [](#_new_enum_constants)New Enum Constants
 
 - `VK_EXT_TEXTURE_COMPRESSION_ASTC_HDR_EXTENSION_NAME`
-
 - `VK_EXT_TEXTURE_COMPRESSION_ASTC_HDR_SPEC_VERSION`
-
-- Extending [VkFormat](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkFormat.html):
-
+- Extending [VkFormat](https://registry.khronos.org/vulkan/specs/latest/man/html/VkFormat.html):
+  
   - `VK_FORMAT_ASTC_10x10_SFLOAT_BLOCK_EXT`
-
   - `VK_FORMAT_ASTC_10x5_SFLOAT_BLOCK_EXT`
-
   - `VK_FORMAT_ASTC_10x6_SFLOAT_BLOCK_EXT`
-
   - `VK_FORMAT_ASTC_10x8_SFLOAT_BLOCK_EXT`
-
   - `VK_FORMAT_ASTC_12x10_SFLOAT_BLOCK_EXT`
-
   - `VK_FORMAT_ASTC_12x12_SFLOAT_BLOCK_EXT`
-
   - `VK_FORMAT_ASTC_4x4_SFLOAT_BLOCK_EXT`
-
   - `VK_FORMAT_ASTC_5x4_SFLOAT_BLOCK_EXT`
-
   - `VK_FORMAT_ASTC_5x5_SFLOAT_BLOCK_EXT`
-
   - `VK_FORMAT_ASTC_6x5_SFLOAT_BLOCK_EXT`
-
   - `VK_FORMAT_ASTC_6x6_SFLOAT_BLOCK_EXT`
-
   - `VK_FORMAT_ASTC_8x5_SFLOAT_BLOCK_EXT`
-
   - `VK_FORMAT_ASTC_8x6_SFLOAT_BLOCK_EXT`
-
   - `VK_FORMAT_ASTC_8x8_SFLOAT_BLOCK_EXT`
-
-- Extending [VkStructureType](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkStructureType.html):
-
+- Extending [VkStructureType](https://registry.khronos.org/vulkan/specs/latest/man/html/VkStructureType.html):
+  
   - `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_TEXTURE_COMPRESSION_ASTC_HDR_FEATURES_EXT`
 
-## <a href="#_promotion_to_vulkan_1_3" class="anchor"></a>Promotion to Vulkan 1.3
+## [](#_promotion_to_vulkan_1_3)Promotion to Vulkan 1.3
 
-This extension has been partially promoted. Functionality in this
-extension is included in core Vulkan 1.3, with the EXT suffix omitted.
-However, the feature is made optional in Vulkan 1.3. The original type,
-enum and command names are still available as aliases of the core
-functionality.
+Vulkan APIs in this extension are included in core Vulkan 1.3, with the EXT suffix omitted. However, the feature is made optional in Vulkan 1.3. External interactions defined by this extension, such as SPIR-V token names, retain their original names. The original Vulkan API names are still available as aliases of the core functionality.
 
-## <a href="#_issues" class="anchor"></a>Issues
+## [](#_issues)Issues
 
 1\) Should we add a feature or limit for this functionality?
 
-Yes. It is consistent with the ASTC LDR support to add a feature like
-textureCompressionASTC_HDR.
+Yes. It is consistent with the ASTC LDR support to add a feature like textureCompressionASTC\_HDR.
 
-The feature is strictly speaking redundant as long as this is just an
-extension; it would be sufficient to just enable the extension. But
-adding the feature is more forward-looking if wanted to make this an
-optional core feature in the future.
+The feature is strictly speaking redundant as long as this is just an extension; it would be sufficient to just enable the extension. But adding the feature is more forward-looking if wanted to make this an optional core feature in the future.
 
 2\) Should we introduce new format enums for HDR?
 
-Yes. Vulkan 1.0 describes the ASTC format enums as UNORM, e.g.
-`VK_FORMAT_ASTC_4x4_UNORM_BLOCK`, so it is confusing to make these
-contain HDR data. Note that the OpenGL (ES) extensions did not make this
-distinction because a single ASTC HDR texture may contain both unorm and
-float blocks. Implementations **may** not be able to distinguish between
-LDR and HDR ASTC textures internally and just treat them as the same
-format, i.e. if this extension is supported then sampling from a
-`VK_FORMAT_ASTC_4x4_UNORM_BLOCK` image format **may** return HDR
-results. Applications **can** get predictable results by using the
-appropriate image format.
+Yes. Vulkan 1.0 describes the ASTC format enums as UNORM, e.g. `VK_FORMAT_ASTC_4x4_UNORM_BLOCK`, so it is confusing to make these contain HDR data. Note that the OpenGL (ES) extensions did not make this distinction because a single ASTC HDR texture may contain both unorm and float blocks. Implementations **may** not be able to distinguish between LDR and HDR ASTC textures internally and just treat them as the same format, i.e. if this extension is supported then sampling from a `VK_FORMAT_ASTC_4x4_UNORM_BLOCK` image format **may** return HDR results. Applications **can** get predictable results by using the appropriate image format.
 
-## <a href="#_version_history" class="anchor"></a>Version History
+## [](#_version_history)Version History
 
 - Revision 1, 2019-05-28 (Jan-Harald Fredriksen)
-
+  
   - Initial version
 
-## <a href="#_see_also" class="anchor"></a>See Also
+## [](#_see_also)See Also
 
 No cross-references are available
 
-## <a href="#_document_notes" class="anchor"></a>Document Notes
+## [](#_document_notes)Document Notes
 
-For more information, see the <a
-href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#VK_EXT_texture_compression_astc_hdr"
-target="_blank" rel="noopener">Vulkan Specification</a>
+For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#VK_EXT_texture_compression_astc_hdr)
 
-This page is a generated document. Fixes and changes should be made to
-the generator scripts, not directly.
+This page is a generated document. Fixes and changes should be made to the generator scripts, not directly.
 
-## <a href="#_copyright" class="anchor"></a>Copyright
+## [](#_copyright)Copyright
 
-Copyright 2014-2024 The Khronos Group Inc.
+Copyright 2014-2025 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
-
-Version 1.3.290  
-Last updated 2024-07-11 23:39:16 -0700

@@ -2,17 +2,15 @@
 
 ## Name
 
-VkDependencyFlagBits - Bitmask specifying how execution and memory
-dependencies are formed
+VkDependencyFlagBits - Bitmask specifying how execution and memory dependencies are formed
 
 
 
-## <a href="#_c_specification" class="anchor"></a>C Specification
+## [](#_c_specification)C Specification
 
-Bits which **can** be set in `vkCmdPipelineBarrier`::`dependencyFlags`,
-specifying how execution and memory dependencies are formed, are:
+Bits which **can** be set in `vkCmdPipelineBarrier`::`dependencyFlags`, specifying how execution and memory dependencies are formed, are:
 
-``` c
+```c++
 // Provided by VK_VERSION_1_0
 typedef enum VkDependencyFlagBits {
     VK_DEPENDENCY_BY_REGION_BIT = 0x00000001,
@@ -22,6 +20,10 @@ typedef enum VkDependencyFlagBits {
     VK_DEPENDENCY_VIEW_LOCAL_BIT = 0x00000002,
   // Provided by VK_EXT_attachment_feedback_loop_layout
     VK_DEPENDENCY_FEEDBACK_LOOP_BIT_EXT = 0x00000008,
+  // Provided by VK_KHR_maintenance8
+    VK_DEPENDENCY_QUEUE_FAMILY_OWNERSHIP_TRANSFER_USE_ALL_STAGES_BIT_KHR = 0x00000020,
+  // Provided by VK_KHR_maintenance9
+    VK_DEPENDENCY_ASYMMETRIC_EVENT_BIT_KHR = 0x00000040,
   // Provided by VK_KHR_multiview
     VK_DEPENDENCY_VIEW_LOCAL_BIT_KHR = VK_DEPENDENCY_VIEW_LOCAL_BIT,
   // Provided by VK_KHR_device_group
@@ -29,43 +31,26 @@ typedef enum VkDependencyFlagBits {
 } VkDependencyFlagBits;
 ```
 
-## <a href="#_description" class="anchor"></a>Description
+## [](#_description)Description
 
-- `VK_DEPENDENCY_BY_REGION_BIT` specifies that dependencies will be <a
-  href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#synchronization-framebuffer-regions"
-  target="_blank" rel="noopener">framebuffer-local</a>.
+- `VK_DEPENDENCY_BY_REGION_BIT` specifies that dependencies will be [framebuffer-local](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#synchronization-framebuffer-regions).
+- `VK_DEPENDENCY_VIEW_LOCAL_BIT` specifies that dependencies will be [view-local](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#synchronization-view-local-dependencies).
+- `VK_DEPENDENCY_DEVICE_GROUP_BIT` specifies that dependencies are [non-device-local](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#synchronization-device-local-dependencies).
+- `VK_DEPENDENCY_FEEDBACK_LOOP_BIT_EXT` specifies that the render pass will write to and read from the same image with [feedback loop enabled](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#renderpass-feedbackloop).
+- `VK_DEPENDENCY_QUEUE_FAMILY_OWNERSHIP_TRANSFER_USE_ALL_STAGES_BIT_KHR` specifies that source and destination stages are not ignored when performing a [queue family ownership transfer](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#synchronization-queue-transfers).
 
-- `VK_DEPENDENCY_VIEW_LOCAL_BIT` specifies that dependencies will be <a
-  href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#synchronization-view-local-dependencies"
-  target="_blank" rel="noopener">view-local</a>.
+## [](#_see_also)See Also
 
-- `VK_DEPENDENCY_DEVICE_GROUP_BIT` specifies that dependencies are <a
-  href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#synchronization-device-local-dependencies"
-  target="_blank" rel="noopener">non-device-local</a>.
+[VK\_VERSION\_1\_0](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_VERSION_1_0.html), [VkDependencyFlags](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDependencyFlags.html)
 
-- `VK_DEPENDENCY_FEEDBACK_LOOP_BIT_EXT` specifies that the render pass
-  will write to and read from the same image using the
-  `VK_IMAGE_LAYOUT_ATTACHMENT_FEEDBACK_LOOP_OPTIMAL_EXT` layout.
+## [](#_document_notes)Document Notes
 
-## <a href="#_see_also" class="anchor"></a>See Also
+For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#VkDependencyFlagBits)
 
-[VK_VERSION_1_0](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_VERSION_1_0.html),
-[VkDependencyFlags](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkDependencyFlags.html)
+This page is extracted from the Vulkan Specification. Fixes and changes should be made to the Specification, not directly.
 
-## <a href="#_document_notes" class="anchor"></a>Document Notes
+## [](#_copyright)Copyright
 
-For more information, see the <a
-href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#VkDependencyFlagBits"
-target="_blank" rel="noopener">Vulkan Specification</a>
-
-This page is extracted from the Vulkan Specification. Fixes and changes
-should be made to the Specification, not directly.
-
-## <a href="#_copyright" class="anchor"></a>Copyright
-
-Copyright 2014-2024 The Khronos Group Inc.
+Copyright 2014-2025 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
-
-Version 1.3.290  
-Last updated 2024-07-11 23:39:16 -0700

@@ -6,42 +6,27 @@ VkCudaFunctionNV - Opaque handle to a CUDA function object
 
 
 
-## <a href="#_c_specification" class="anchor"></a>C Specification
+## [](#_c_specification)C Specification
 
-CUDA functions are represented by `VkCudaFunctionNV` handles. Handles to
-*`global`* functions **may** then be used to issue a kernel launch (i.e.
-dispatch) from a commandbuffer. See <a
-href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#cudadispatch"
-target="_blank" rel="noopener">Dispatching Command for CUDA PTX
-kernel</a>.
+CUDA functions are represented by `VkCudaFunctionNV` handles. Handles to `global` functions **may** then be used to issue a kernel launch (i.e. dispatch) from a commandbuffer. See [Dispatching Command for CUDA PTX kernel](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#cudadispatch).
 
-``` c
+```c++
 // Provided by VK_NV_cuda_kernel_launch
 VK_DEFINE_NON_DISPATCHABLE_HANDLE(VkCudaFunctionNV)
 ```
 
-## <a href="#_see_also" class="anchor"></a>See Also
+## [](#_see_also)See Also
 
-[VK_DEFINE_NON_DISPATCHABLE_HANDLE](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_DEFINE_NON_DISPATCHABLE_HANDLE.html),
-[VK_NV_cuda_kernel_launch](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_NV_cuda_kernel_launch.html),
-[VkCudaLaunchInfoNV](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkCudaLaunchInfoNV.html),
-[vkCreateCudaFunctionNV](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCreateCudaFunctionNV.html),
-[vkDestroyCudaFunctionNV](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkDestroyCudaFunctionNV.html)
+[VK\_DEFINE\_NON\_DISPATCHABLE\_HANDLE](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_DEFINE_NON_DISPATCHABLE_HANDLE.html), [VK\_NV\_cuda\_kernel\_launch](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_NV_cuda_kernel_launch.html), [VkCudaLaunchInfoNV](https://registry.khronos.org/vulkan/specs/latest/man/html/VkCudaLaunchInfoNV.html), [vkCreateCudaFunctionNV](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCreateCudaFunctionNV.html), [vkDestroyCudaFunctionNV](https://registry.khronos.org/vulkan/specs/latest/man/html/vkDestroyCudaFunctionNV.html)
 
-## <a href="#_document_notes" class="anchor"></a>Document Notes
+## [](#_document_notes)Document Notes
 
-For more information, see the <a
-href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#VkCudaFunctionNV"
-target="_blank" rel="noopener">Vulkan Specification</a>
+For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#VkCudaFunctionNV)
 
-This page is extracted from the Vulkan Specification. Fixes and changes
-should be made to the Specification, not directly.
+This page is extracted from the Vulkan Specification. Fixes and changes should be made to the Specification, not directly.
 
-## <a href="#_copyright" class="anchor"></a>Copyright
+## [](#_copyright)Copyright
 
-Copyright 2014-2024 The Khronos Group Inc.
+Copyright 2014-2025 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
-
-Version 1.3.290  
-Last updated 2024-07-11 23:39:16 -0700

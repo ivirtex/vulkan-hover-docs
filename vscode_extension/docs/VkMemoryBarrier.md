@@ -6,11 +6,11 @@ VkMemoryBarrier - Structure specifying a global memory barrier
 
 
 
-## <a href="#_c_specification" class="anchor"></a>C Specification
+## [](#_c_specification)C Specification
 
 The `VkMemoryBarrier` structure is defined as:
 
-``` c
+```c++
 // Provided by VK_VERSION_1_0
 typedef struct VkMemoryBarrier {
     VkStructureType    sType;
@@ -20,88 +20,42 @@ typedef struct VkMemoryBarrier {
 } VkMemoryBarrier;
 ```
 
-## <a href="#_members" class="anchor"></a>Members
+## [](#_members)Members
 
-- `sType` is a [VkStructureType](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkStructureType.html) value identifying
-  this structure.
+- `sType` is a [VkStructureType](https://registry.khronos.org/vulkan/specs/latest/man/html/VkStructureType.html) value identifying this structure.
+- `pNext` is `NULL` or a pointer to a structure extending this structure.
+- `srcAccessMask` is a bitmask of [VkAccessFlagBits](https://registry.khronos.org/vulkan/specs/latest/man/html/VkAccessFlagBits.html) specifying a [source access mask](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#synchronization-access-masks).
+- `dstAccessMask` is a bitmask of [VkAccessFlagBits](https://registry.khronos.org/vulkan/specs/latest/man/html/VkAccessFlagBits.html) specifying a [destination access mask](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#synchronization-access-masks).
 
-- `pNext` is `NULL` or a pointer to a structure extending this
-  structure.
+## [](#_description)Description
 
-- `srcAccessMask` is a bitmask of
-  [VkAccessFlagBits](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkAccessFlagBits.html) specifying a <a
-  href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#synchronization-access-masks"
-  target="_blank" rel="noopener">source access mask</a>.
+The first [access scope](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#synchronization-dependencies-access-scopes) is limited to access types in the [source access mask](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#synchronization-access-masks) specified by `srcAccessMask` and, if a [VkMemoryBarrierAccessFlags3KHR](https://registry.khronos.org/vulkan/specs/latest/man/html/VkMemoryBarrierAccessFlags3KHR.html) is passed in `pNext`, `srcAccessMask3`.
 
-- `dstAccessMask` is a bitmask of
-  [VkAccessFlagBits](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkAccessFlagBits.html) specifying a <a
-  href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#synchronization-access-masks"
-  target="_blank" rel="noopener">destination access mask</a>.
-
-## <a href="#_description" class="anchor"></a>Description
-
-The first <a
-href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#synchronization-dependencies-access-scopes"
-target="_blank" rel="noopener">access scope</a> is limited to access
-types in the <a
-href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#synchronization-access-masks"
-target="_blank" rel="noopener">source access mask</a> specified by
-`srcAccessMask`.
-
-The second <a
-href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#synchronization-dependencies-access-scopes"
-target="_blank" rel="noopener">access scope</a> is limited to access
-types in the <a
-href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#synchronization-access-masks"
-target="_blank" rel="noopener">destination access mask</a> specified by
-`dstAccessMask`.
+The second [access scope](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#synchronization-dependencies-access-scopes) is limited to access types in the [destination access mask](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#synchronization-access-masks) specified by `dstAccessMask` and, if a [VkMemoryBarrierAccessFlags3KHR](https://registry.khronos.org/vulkan/specs/latest/man/html/VkMemoryBarrierAccessFlags3KHR.html) is passed in `pNext`, `dstAccessMask3`.
 
 Valid Usage (Implicit)
 
-- <a href="#VUID-VkMemoryBarrier-sType-sType"
-  id="VUID-VkMemoryBarrier-sType-sType"></a>
-  VUID-VkMemoryBarrier-sType-sType  
+- [](#VUID-VkMemoryBarrier-sType-sType)VUID-VkMemoryBarrier-sType-sType  
   `sType` **must** be `VK_STRUCTURE_TYPE_MEMORY_BARRIER`
-
-- <a href="#VUID-VkMemoryBarrier-pNext-pNext"
-  id="VUID-VkMemoryBarrier-pNext-pNext"></a>
-  VUID-VkMemoryBarrier-pNext-pNext  
+- [](#VUID-VkMemoryBarrier-pNext-pNext)VUID-VkMemoryBarrier-pNext-pNext  
   `pNext` **must** be `NULL`
+- [](#VUID-VkMemoryBarrier-srcAccessMask-parameter)VUID-VkMemoryBarrier-srcAccessMask-parameter  
+  `srcAccessMask` **must** be a valid combination of [VkAccessFlagBits](https://registry.khronos.org/vulkan/specs/latest/man/html/VkAccessFlagBits.html) values
+- [](#VUID-VkMemoryBarrier-dstAccessMask-parameter)VUID-VkMemoryBarrier-dstAccessMask-parameter  
+  `dstAccessMask` **must** be a valid combination of [VkAccessFlagBits](https://registry.khronos.org/vulkan/specs/latest/man/html/VkAccessFlagBits.html) values
 
-- <a href="#VUID-VkMemoryBarrier-srcAccessMask-parameter"
-  id="VUID-VkMemoryBarrier-srcAccessMask-parameter"></a>
-  VUID-VkMemoryBarrier-srcAccessMask-parameter  
-  `srcAccessMask` **must** be a valid combination of
-  [VkAccessFlagBits](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkAccessFlagBits.html) values
+## [](#_see_also)See Also
 
-- <a href="#VUID-VkMemoryBarrier-dstAccessMask-parameter"
-  id="VUID-VkMemoryBarrier-dstAccessMask-parameter"></a>
-  VUID-VkMemoryBarrier-dstAccessMask-parameter  
-  `dstAccessMask` **must** be a valid combination of
-  [VkAccessFlagBits](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkAccessFlagBits.html) values
+[VK\_VERSION\_1\_0](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_VERSION_1_0.html), [VkAccessFlags](https://registry.khronos.org/vulkan/specs/latest/man/html/VkAccessFlags.html), [VkStructureType](https://registry.khronos.org/vulkan/specs/latest/man/html/VkStructureType.html), [vkCmdPipelineBarrier](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdPipelineBarrier.html), [vkCmdWaitEvents](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdWaitEvents.html)
 
-## <a href="#_see_also" class="anchor"></a>See Also
+## [](#_document_notes)Document Notes
 
-[VK_VERSION_1_0](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_VERSION_1_0.html),
-[VkAccessFlags](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkAccessFlags.html),
-[VkStructureType](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkStructureType.html),
-[vkCmdPipelineBarrier](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdPipelineBarrier.html),
-[vkCmdWaitEvents](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdWaitEvents.html)
+For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#VkMemoryBarrier)
 
-## <a href="#_document_notes" class="anchor"></a>Document Notes
+This page is extracted from the Vulkan Specification. Fixes and changes should be made to the Specification, not directly.
 
-For more information, see the <a
-href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#VkMemoryBarrier"
-target="_blank" rel="noopener">Vulkan Specification</a>
+## [](#_copyright)Copyright
 
-This page is extracted from the Vulkan Specification. Fixes and changes
-should be made to the Specification, not directly.
-
-## <a href="#_copyright" class="anchor"></a>Copyright
-
-Copyright 2014-2024 The Khronos Group Inc.
+Copyright 2014-2025 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
-
-Version 1.3.290  
-Last updated 2024-07-11 23:39:16 -0700

@@ -2,18 +2,15 @@
 
 ## Name
 
-vkCmdExecuteCommands - Execute a secondary command buffer from a primary
-command buffer
+vkCmdExecuteCommands - Execute a secondary command buffer from a primary command buffer
 
 
 
-## <a href="#_c_specification" class="anchor"></a>C Specification
+## [](#_c_specification)C Specification
 
-Secondary command buffers **must** not be directly submitted to a queue.
-To record a secondary command buffer to execute as part of a primary
-command buffer, call:
+Secondary command buffers **must** not be directly submitted to a queue. To record a secondary command buffer to execute as part of a primary command buffer, call:
 
-``` c
+```c++
 // Provided by VK_VERSION_1_0
 void vkCmdExecuteCommands(
     VkCommandBuffer                             commandBuffer,
@@ -21,826 +18,200 @@ void vkCmdExecuteCommands(
     const VkCommandBuffer*                      pCommandBuffers);
 ```
 
-## <a href="#_parameters" class="anchor"></a>Parameters
+## [](#_parameters)Parameters
 
-- `commandBuffer` is a handle to a primary command buffer that the
-  secondary command buffers are executed in.
-
+- `commandBuffer` is a handle to a primary command buffer that the secondary command buffers are executed in.
 - `commandBufferCount` is the length of the `pCommandBuffers` array.
+- `pCommandBuffers` is a pointer to an array of `commandBufferCount` secondary command buffer handles, which are recorded to execute in the primary command buffer in the order they are listed in the array.
 
-- `pCommandBuffers` is a pointer to an array of `commandBufferCount`
-  secondary command buffer handles, which are recorded to execute in the
-  primary command buffer in the order they are listed in the array.
+## [](#_description)Description
 
-## <a href="#_description" class="anchor"></a>Description
+If any element of `pCommandBuffers` was not recorded with the `VK_COMMAND_BUFFER_USAGE_SIMULTANEOUS_USE_BIT` flag, and it was recorded into any other primary command buffer which is currently in the [executable or recording state](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#commandbuffers-lifecycle), that primary command buffer becomes [invalid](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#commandbuffers-lifecycle).
 
-If any element of `pCommandBuffers` was not recorded with the
-`VK_COMMAND_BUFFER_USAGE_SIMULTANEOUS_USE_BIT` flag, and it was recorded
-into any other primary command buffer which is currently in the <a
-href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#commandbuffers-lifecycle"
-target="_blank" rel="noopener">executable or recording state</a>, that
-primary command buffer becomes <a
-href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#commandbuffers-lifecycle"
-target="_blank" rel="noopener">invalid</a>.
-
-If the <a
-href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#features-nestedCommandBuffer"
-target="_blank" rel="noopener"><code>nestedCommandBuffer</code></a>
-feature is enabled it is valid usage for `vkCmdExecuteCommands` to also
-be recorded to a <a
-href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#glossary"
-target="_blank" rel="noopener">secondary command buffer</a>.
+If the [`nestedCommandBuffer`](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#features-nestedCommandBuffer) feature is enabled it is valid usage for `vkCmdExecuteCommands` to also be recorded to a [secondary command buffer](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#glossary).
 
 Valid Usage
 
-- <a href="#VUID-vkCmdExecuteCommands-pCommandBuffers-00088"
-  id="VUID-vkCmdExecuteCommands-pCommandBuffers-00088"></a>
-  VUID-vkCmdExecuteCommands-pCommandBuffers-00088  
-  Each element of `pCommandBuffers` **must** have been allocated with a
-  `level` of `VK_COMMAND_BUFFER_LEVEL_SECONDARY`
-
-- <a href="#VUID-vkCmdExecuteCommands-pCommandBuffers-00089"
-  id="VUID-vkCmdExecuteCommands-pCommandBuffers-00089"></a>
-  VUID-vkCmdExecuteCommands-pCommandBuffers-00089  
-  Each element of `pCommandBuffers` **must** be in the <a
-  href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#commandbuffers-lifecycle"
-  target="_blank" rel="noopener">pending or executable state</a>
-
-- <a href="#VUID-vkCmdExecuteCommands-pCommandBuffers-00091"
-  id="VUID-vkCmdExecuteCommands-pCommandBuffers-00091"></a>
-  VUID-vkCmdExecuteCommands-pCommandBuffers-00091  
-  If any element of `pCommandBuffers` was not recorded with the
-  `VK_COMMAND_BUFFER_USAGE_SIMULTANEOUS_USE_BIT` flag, it **must** not
-  be in the <a
-  href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#commandbuffers-lifecycle"
-  target="_blank" rel="noopener">pending state</a>
-
-- <a href="#VUID-vkCmdExecuteCommands-pCommandBuffers-00092"
-  id="VUID-vkCmdExecuteCommands-pCommandBuffers-00092"></a>
-  VUID-vkCmdExecuteCommands-pCommandBuffers-00092  
-  If any element of `pCommandBuffers` was not recorded with the
-  `VK_COMMAND_BUFFER_USAGE_SIMULTANEOUS_USE_BIT` flag, it **must** not
-  have already been recorded to `commandBuffer`
-
-- <a href="#VUID-vkCmdExecuteCommands-pCommandBuffers-00093"
-  id="VUID-vkCmdExecuteCommands-pCommandBuffers-00093"></a>
-  VUID-vkCmdExecuteCommands-pCommandBuffers-00093  
-  If any element of `pCommandBuffers` was not recorded with the
-  `VK_COMMAND_BUFFER_USAGE_SIMULTANEOUS_USE_BIT` flag, it **must** not
-  appear more than once in `pCommandBuffers`
-
-- <a href="#VUID-vkCmdExecuteCommands-pCommandBuffers-00094"
-  id="VUID-vkCmdExecuteCommands-pCommandBuffers-00094"></a>
-  VUID-vkCmdExecuteCommands-pCommandBuffers-00094  
-  Each element of `pCommandBuffers` **must** have been allocated from a
-  `VkCommandPool` that was created for the same queue family as the
-  `VkCommandPool` from which `commandBuffer` was allocated
-
-- <a href="#VUID-vkCmdExecuteCommands-pCommandBuffers-00096"
-  id="VUID-vkCmdExecuteCommands-pCommandBuffers-00096"></a>
-  VUID-vkCmdExecuteCommands-pCommandBuffers-00096  
-  If `vkCmdExecuteCommands` is being called within a render pass
-  instance, each element of `pCommandBuffers` **must** have been
-  recorded with the `VK_COMMAND_BUFFER_USAGE_RENDER_PASS_CONTINUE_BIT`
-
-- <a href="#VUID-vkCmdExecuteCommands-pCommandBuffers-00099"
-  id="VUID-vkCmdExecuteCommands-pCommandBuffers-00099"></a>
-  VUID-vkCmdExecuteCommands-pCommandBuffers-00099  
-  If `vkCmdExecuteCommands` is being called within a render pass
-  instance, and any element of `pCommandBuffers` was recorded with
-  [VkCommandBufferInheritanceInfo](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkCommandBufferInheritanceInfo.html)::`framebuffer`
-  not equal to [VK_NULL_HANDLE](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_NULL_HANDLE.html), that
-  `VkFramebuffer` **must** match the `VkFramebuffer` used in the current
-  render pass instance
-
-- <a href="#VUID-vkCmdExecuteCommands-contents-09680"
-  id="VUID-vkCmdExecuteCommands-contents-09680"></a>
-  VUID-vkCmdExecuteCommands-contents-09680  
-  If `vkCmdExecuteCommands` is being called within a render pass
-  instance begun with [vkCmdBeginRenderPass](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdBeginRenderPass.html),
-  and [vkCmdNextSubpass](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdNextSubpass.html) has not been called in
-  the current render pass instance, the `contents` parameter of
-  [vkCmdBeginRenderPass](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdBeginRenderPass.html) **must** have been
-  set to `VK_SUBPASS_CONTENTS_SECONDARY_COMMAND_BUFFERS` , or
-  `VK_SUBPASS_CONTENTS_INLINE_AND_SECONDARY_COMMAND_BUFFERS_EXT`
-
-- <a href="#VUID-vkCmdExecuteCommands-None-09681"
-  id="VUID-vkCmdExecuteCommands-None-09681"></a>
-  VUID-vkCmdExecuteCommands-None-09681  
-  If `vkCmdExecuteCommands` is being called within a render pass
-  instance begun with [vkCmdBeginRenderPass](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdBeginRenderPass.html),
-  and [vkCmdNextSubpass](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdNextSubpass.html) has been called in the
-  current render pass instance, the `contents` parameter of the last
-  call to [vkCmdNextSubpass](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdNextSubpass.html) **must** have been
-  set to `VK_SUBPASS_CONTENTS_SECONDARY_COMMAND_BUFFERS` , or
-  `VK_SUBPASS_CONTENTS_INLINE_AND_SECONDARY_COMMAND_BUFFERS_KHR`
-
-- <a href="#VUID-vkCmdExecuteCommands-pCommandBuffers-06019"
-  id="VUID-vkCmdExecuteCommands-pCommandBuffers-06019"></a>
-  VUID-vkCmdExecuteCommands-pCommandBuffers-06019  
-  If `vkCmdExecuteCommands` is being called within a render pass
-  instance begun with [vkCmdBeginRenderPass](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdBeginRenderPass.html),
-  each element of `pCommandBuffers` **must** have been recorded with
-  [VkCommandBufferInheritanceInfo](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkCommandBufferInheritanceInfo.html)::`subpass`
-  set to the index of the subpass which the given command buffer will be
-  executed in
-
-- <a href="#VUID-vkCmdExecuteCommands-pBeginInfo-06020"
-  id="VUID-vkCmdExecuteCommands-pBeginInfo-06020"></a>
-  VUID-vkCmdExecuteCommands-pBeginInfo-06020  
-  If `vkCmdExecuteCommands` is being called within a render pass
-  instance begun with [vkCmdBeginRenderPass](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdBeginRenderPass.html),
-  the render passes specified in the
-  `pBeginInfo->pInheritanceInfo->renderPass` members of the
-  [vkBeginCommandBuffer](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkBeginCommandBuffer.html) commands used to
-  begin recording each element of `pCommandBuffers` **must** be <a
-  href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#renderpass-compatibility"
-  target="_blank" rel="noopener">compatible</a> with the current render
-  pass
-
-- <a href="#VUID-vkCmdExecuteCommands-pNext-02865"
-  id="VUID-vkCmdExecuteCommands-pNext-02865"></a>
-  VUID-vkCmdExecuteCommands-pNext-02865  
-  If `vkCmdExecuteCommands` is being called within a render pass
-  instance that included
-  [VkRenderPassTransformBeginInfoQCOM](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkRenderPassTransformBeginInfoQCOM.html)
-  in the `pNext` chain of
-  [VkRenderPassBeginInfo](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkRenderPassBeginInfo.html), then each element
-  of `pCommandBuffers` **must** have been recorded with
-  [VkCommandBufferInheritanceRenderPassTransformInfoQCOM](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkCommandBufferInheritanceRenderPassTransformInfoQCOM.html)
-  in the `pNext` chain of
-  [VkCommandBufferBeginInfo](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkCommandBufferBeginInfo.html)
-
-- <a href="#VUID-vkCmdExecuteCommands-pNext-02866"
-  id="VUID-vkCmdExecuteCommands-pNext-02866"></a>
-  VUID-vkCmdExecuteCommands-pNext-02866  
-  If `vkCmdExecuteCommands` is being called within a render pass
-  instance that included
-  [VkRenderPassTransformBeginInfoQCOM](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkRenderPassTransformBeginInfoQCOM.html)
-  in the `pNext` chain of
-  [VkRenderPassBeginInfo](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkRenderPassBeginInfo.html), then each element
-  of `pCommandBuffers` **must** have been recorded with
-  [VkCommandBufferInheritanceRenderPassTransformInfoQCOM](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkCommandBufferInheritanceRenderPassTransformInfoQCOM.html)::`transform`
-  identical to
-  [VkRenderPassTransformBeginInfoQCOM](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkRenderPassTransformBeginInfoQCOM.html)::`transform`
-
-- <a href="#VUID-vkCmdExecuteCommands-pNext-02867"
-  id="VUID-vkCmdExecuteCommands-pNext-02867"></a>
-  VUID-vkCmdExecuteCommands-pNext-02867  
-  If `vkCmdExecuteCommands` is being called within a render pass
-  instance that included
-  [VkRenderPassTransformBeginInfoQCOM](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkRenderPassTransformBeginInfoQCOM.html)
-  in the `pNext` chain of
-  [VkRenderPassBeginInfo](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkRenderPassBeginInfo.html), then each element
-  of `pCommandBuffers` **must** have been recorded with
-  [VkCommandBufferInheritanceRenderPassTransformInfoQCOM](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkCommandBufferInheritanceRenderPassTransformInfoQCOM.html)::`renderArea`
-  identical to
-  [VkRenderPassBeginInfo](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkRenderPassBeginInfo.html)::`renderArea`
-
-- <a href="#VUID-vkCmdExecuteCommands-pCommandBuffers-00100"
-  id="VUID-vkCmdExecuteCommands-pCommandBuffers-00100"></a>
-  VUID-vkCmdExecuteCommands-pCommandBuffers-00100  
-  If `vkCmdExecuteCommands` is not being called within a render pass
-  instance, each element of `pCommandBuffers` **must** not have been
-  recorded with the `VK_COMMAND_BUFFER_USAGE_RENDER_PASS_CONTINUE_BIT`
-
-- <a href="#VUID-vkCmdExecuteCommands-commandBuffer-00101"
-  id="VUID-vkCmdExecuteCommands-commandBuffer-00101"></a>
-  VUID-vkCmdExecuteCommands-commandBuffer-00101  
-  If the <a
-  href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#features-inheritedQueries"
-  target="_blank" rel="noopener"><code>inheritedQueries</code></a>
-  feature is not enabled, `commandBuffer` **must** not have any queries
-  <a
-  href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#queries-operation-active"
-  target="_blank" rel="noopener">active</a>
-
-- <a href="#VUID-vkCmdExecuteCommands-commandBuffer-00102"
-  id="VUID-vkCmdExecuteCommands-commandBuffer-00102"></a>
-  VUID-vkCmdExecuteCommands-commandBuffer-00102  
-  If `commandBuffer` has a `VK_QUERY_TYPE_OCCLUSION` query <a
-  href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#queries-operation-active"
-  target="_blank" rel="noopener">active</a>, then each element of
-  `pCommandBuffers` **must** have been recorded with
-  `VkCommandBufferInheritanceInfo`::`occlusionQueryEnable` set to
-  `VK_TRUE`
-
-- <a href="#VUID-vkCmdExecuteCommands-commandBuffer-00103"
-  id="VUID-vkCmdExecuteCommands-commandBuffer-00103"></a>
-  VUID-vkCmdExecuteCommands-commandBuffer-00103  
-  If `commandBuffer` has a `VK_QUERY_TYPE_OCCLUSION` query <a
-  href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#queries-operation-active"
-  target="_blank" rel="noopener">active</a>, then each element of
-  `pCommandBuffers` **must** have been recorded with
-  `VkCommandBufferInheritanceInfo`::`queryFlags` having all bits set
-  that are set for the query
-
-- <a href="#VUID-vkCmdExecuteCommands-commandBuffer-00104"
-  id="VUID-vkCmdExecuteCommands-commandBuffer-00104"></a>
-  VUID-vkCmdExecuteCommands-commandBuffer-00104  
-  If `commandBuffer` has a `VK_QUERY_TYPE_PIPELINE_STATISTICS` query <a
-  href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#queries-operation-active"
-  target="_blank" rel="noopener">active</a>, then each element of
-  `pCommandBuffers` **must** have been recorded with
-  `VkCommandBufferInheritanceInfo`::`pipelineStatistics` having all bits
-  set that are set in the `VkQueryPool` the query uses
-
-- <a href="#VUID-vkCmdExecuteCommands-pCommandBuffers-00105"
-  id="VUID-vkCmdExecuteCommands-pCommandBuffers-00105"></a>
-  VUID-vkCmdExecuteCommands-pCommandBuffers-00105  
-  Each element of `pCommandBuffers` **must** not begin any query types
-  that are <a
-  href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#queries-operation-active"
-  target="_blank" rel="noopener">active</a> in `commandBuffer`
-
-- <a href="#VUID-vkCmdExecuteCommands-commandBuffer-07594"
-  id="VUID-vkCmdExecuteCommands-commandBuffer-07594"></a>
-  VUID-vkCmdExecuteCommands-commandBuffer-07594  
-  `commandBuffer` **must** not have any queries other than
-  `VK_QUERY_TYPE_OCCLUSION` and `VK_QUERY_TYPE_PIPELINE_STATISTICS` <a
-  href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#queries-operation-active"
-  target="_blank" rel="noopener">active</a>
-
-- <a href="#VUID-vkCmdExecuteCommands-commandBuffer-01820"
-  id="VUID-vkCmdExecuteCommands-commandBuffer-01820"></a>
-  VUID-vkCmdExecuteCommands-commandBuffer-01820  
-  If `commandBuffer` is a protected command buffer and <a
-  href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#limits-protectedNoFault"
-  target="_blank" rel="noopener"><code>protectedNoFault</code></a> is
-  not supported, each element of `pCommandBuffers` **must** be a
-  protected command buffer
-
-- <a href="#VUID-vkCmdExecuteCommands-commandBuffer-01821"
-  id="VUID-vkCmdExecuteCommands-commandBuffer-01821"></a>
-  VUID-vkCmdExecuteCommands-commandBuffer-01821  
-  If `commandBuffer` is an unprotected command buffer and <a
-  href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#limits-protectedNoFault"
-  target="_blank" rel="noopener"><code>protectedNoFault</code></a> is
-  not supported, each element of `pCommandBuffers` **must** be an
-  unprotected command buffer
-
-- <a href="#VUID-vkCmdExecuteCommands-None-02286"
-  id="VUID-vkCmdExecuteCommands-None-02286"></a>
-  VUID-vkCmdExecuteCommands-None-02286  
-  This command **must** not be recorded when transform feedback is
-  active
-
-- <a href="#VUID-vkCmdExecuteCommands-commandBuffer-06533"
-  id="VUID-vkCmdExecuteCommands-commandBuffer-06533"></a>
-  VUID-vkCmdExecuteCommands-commandBuffer-06533  
-  If `vkCmdExecuteCommands` is being called within a render pass
-  instance and any recorded command in `commandBuffer` in the current
-  subpass will write to an image subresource as an attachment, commands
-  recorded in elements of `pCommandBuffers` **must** not read from the
-  memory backing that image subresource in any other way
-
-- <a href="#VUID-vkCmdExecuteCommands-commandBuffer-06534"
-  id="VUID-vkCmdExecuteCommands-commandBuffer-06534"></a>
-  VUID-vkCmdExecuteCommands-commandBuffer-06534  
-  If `vkCmdExecuteCommands` is being called within a render pass
-  instance and any recorded command in `commandBuffer` in the current
-  subpass will read from an image subresource used as an attachment in
-  any way other than as an attachment, commands recorded in elements of
-  `pCommandBuffers` **must** not write to that image subresource as an
-  attachment
-
-- <a href="#VUID-vkCmdExecuteCommands-pCommandBuffers-06535"
-  id="VUID-vkCmdExecuteCommands-pCommandBuffers-06535"></a>
-  VUID-vkCmdExecuteCommands-pCommandBuffers-06535  
-  If `vkCmdExecuteCommands` is being called within a render pass
-  instance and any recorded command in a given element of
-  `pCommandBuffers` will write to an image subresource as an attachment,
-  commands recorded in elements of `pCommandBuffers` at a higher index
-  **must** not read from the memory backing that image subresource in
-  any other way
-
-- <a href="#VUID-vkCmdExecuteCommands-pCommandBuffers-06536"
-  id="VUID-vkCmdExecuteCommands-pCommandBuffers-06536"></a>
-  VUID-vkCmdExecuteCommands-pCommandBuffers-06536  
-  If `vkCmdExecuteCommands` is being called within a render pass
-  instance and any recorded command in a given element of
-  `pCommandBuffers` will read from an image subresource used as an
-  attachment in any way other than as an attachment, commands recorded
-  in elements of `pCommandBuffers` at a higher index **must** not write
-  to that image subresource as an attachment
-
-- <a href="#VUID-vkCmdExecuteCommands-pCommandBuffers-06021"
-  id="VUID-vkCmdExecuteCommands-pCommandBuffers-06021"></a>
-  VUID-vkCmdExecuteCommands-pCommandBuffers-06021  
-  If `pCommandBuffers` contains any <a
-  href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#renderpass-suspension"
-  target="_blank" rel="noopener">suspended render pass instances</a>,
-  there **must** be no action or synchronization commands between that
-  render pass instance and any render pass instance that resumes it
-
-- <a href="#VUID-vkCmdExecuteCommands-pCommandBuffers-06022"
-  id="VUID-vkCmdExecuteCommands-pCommandBuffers-06022"></a>
-  VUID-vkCmdExecuteCommands-pCommandBuffers-06022  
-  If `pCommandBuffers` contains any <a
-  href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#renderpass-suspension"
-  target="_blank" rel="noopener">suspended render pass instances</a>,
-  there **must** be no render pass instances between that render pass
-  instance and any render pass instance that resumes it
-
-- <a href="#VUID-vkCmdExecuteCommands-variableSampleLocations-06023"
-  id="VUID-vkCmdExecuteCommands-variableSampleLocations-06023"></a>
-  VUID-vkCmdExecuteCommands-variableSampleLocations-06023  
-  If the <a
-  href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#limits-variableSampleLocations"
-  target="_blank" rel="noopener"><code>variableSampleLocations</code></a>
-  limit is not supported, and any element of `pCommandBuffers` contains
-  any <a
-  href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#renderpass-suspension"
-  target="_blank" rel="noopener">suspended render pass instances</a>,
-  where a graphics pipeline has been bound, any pipelines bound in the
-  render pass instance that resumes it, or any subsequent render pass
-  instances that resume from that one and so on, **must** use the same
-  sample locations
-
-- <a href="#VUID-vkCmdExecuteCommands-flags-06024"
-  id="VUID-vkCmdExecuteCommands-flags-06024"></a>
-  VUID-vkCmdExecuteCommands-flags-06024  
-  If `vkCmdExecuteCommands` is being called within a render pass
-  instance begun with [vkCmdBeginRendering](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdBeginRendering.html),
-  its [VkRenderingInfo](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkRenderingInfo.html)::`flags` parameter
-  **must** have included
-  `VK_RENDERING_CONTENTS_SECONDARY_COMMAND_BUFFERS_BIT`
-
-- <a href="#VUID-vkCmdExecuteCommands-pBeginInfo-06025"
-  id="VUID-vkCmdExecuteCommands-pBeginInfo-06025"></a>
-  VUID-vkCmdExecuteCommands-pBeginInfo-06025  
-  If `vkCmdExecuteCommands` is being called within a render pass
-  instance begun with [vkCmdBeginRendering](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdBeginRendering.html),
-  the render passes specified in the
-  `pBeginInfo->pInheritanceInfo->renderPass` members of the
-  [vkBeginCommandBuffer](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkBeginCommandBuffer.html) commands used to
-  begin recording each element of `pCommandBuffers` **must** be
-  [VK_NULL_HANDLE](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_NULL_HANDLE.html)
-
-- <a href="#VUID-vkCmdExecuteCommands-flags-06026"
-  id="VUID-vkCmdExecuteCommands-flags-06026"></a>
-  VUID-vkCmdExecuteCommands-flags-06026  
-  If `vkCmdExecuteCommands` is being called within a render pass
-  instance begun with [vkCmdBeginRendering](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdBeginRendering.html),
-  the `flags` member of the
-  [VkCommandBufferInheritanceRenderingInfo](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkCommandBufferInheritanceRenderingInfo.html)
-  structure included in the `pNext` chain of
-  [VkCommandBufferBeginInfo](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkCommandBufferBeginInfo.html)::`pInheritanceInfo`
-  used to begin recording each element of `pCommandBuffers` **must** be
-  equal to the [VkRenderingInfo](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkRenderingInfo.html)::`flags`
-  parameter to [vkCmdBeginRendering](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdBeginRendering.html),
-  excluding `VK_RENDERING_CONTENTS_SECONDARY_COMMAND_BUFFERS_BIT`
-
-- <a href="#VUID-vkCmdExecuteCommands-colorAttachmentCount-06027"
-  id="VUID-vkCmdExecuteCommands-colorAttachmentCount-06027"></a>
-  VUID-vkCmdExecuteCommands-colorAttachmentCount-06027  
-  If `vkCmdExecuteCommands` is being called within a render pass
-  instance begun with [vkCmdBeginRendering](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdBeginRendering.html),
-  the `colorAttachmentCount` member of the
-  [VkCommandBufferInheritanceRenderingInfo](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkCommandBufferInheritanceRenderingInfo.html)
-  structure included in the `pNext` chain of
-  [VkCommandBufferBeginInfo](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkCommandBufferBeginInfo.html)::`pInheritanceInfo`
-  used to begin recording each element of `pCommandBuffers` **must** be
-  equal to the
-  [VkRenderingInfo](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkRenderingInfo.html)::`colorAttachmentCount`
-  parameter to [vkCmdBeginRendering](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdBeginRendering.html)
-
-- <a href="#VUID-vkCmdExecuteCommands-imageView-06028"
-  id="VUID-vkCmdExecuteCommands-imageView-06028"></a>
-  VUID-vkCmdExecuteCommands-imageView-06028  
-  If `vkCmdExecuteCommands` is being called within a render pass
-  instance begun with [vkCmdBeginRendering](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdBeginRendering.html),
-  if the `imageView` member of an element of the
-  [VkRenderingInfo](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkRenderingInfo.html)::`pColorAttachments` parameter
-  to [vkCmdBeginRendering](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdBeginRendering.html) is not
-  [VK_NULL_HANDLE](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_NULL_HANDLE.html), the corresponding element of
-  the `pColorAttachmentFormats` member of the
-  [VkCommandBufferInheritanceRenderingInfo](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkCommandBufferInheritanceRenderingInfo.html)
-  structure included in the `pNext` chain of
-  [VkCommandBufferBeginInfo](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkCommandBufferBeginInfo.html)::`pInheritanceInfo`
-  used to begin recording each element of `pCommandBuffers` **must** be
-  equal to the format used to create that image view
-
-- <a href="#VUID-vkCmdExecuteCommands-imageView-07606"
-  id="VUID-vkCmdExecuteCommands-imageView-07606"></a>
-  VUID-vkCmdExecuteCommands-imageView-07606  
-  If `vkCmdExecuteCommands` is being called within a render pass
-  instance begun with [vkCmdBeginRendering](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdBeginRendering.html),
-  if the `imageView` member of an element of the
-  [VkRenderingInfo](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkRenderingInfo.html)::`pColorAttachments` parameter
-  to [vkCmdBeginRendering](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdBeginRendering.html) is
-  [VK_NULL_HANDLE](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_NULL_HANDLE.html), the corresponding element of
-  the `pColorAttachmentFormats` member of the
-  [VkCommandBufferInheritanceRenderingInfo](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkCommandBufferInheritanceRenderingInfo.html)
-  structure included in the `pNext` chain of
-  [VkCommandBufferBeginInfo](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkCommandBufferBeginInfo.html)::`pInheritanceInfo`
-  used to begin recording each element of `pCommandBuffers` **must** be
-  `VK_FORMAT_UNDEFINED`
-
-- <a href="#VUID-vkCmdExecuteCommands-pDepthAttachment-06029"
-  id="VUID-vkCmdExecuteCommands-pDepthAttachment-06029"></a>
-  VUID-vkCmdExecuteCommands-pDepthAttachment-06029  
-  If `vkCmdExecuteCommands` is being called within a render pass
-  instance begun with [vkCmdBeginRendering](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdBeginRendering.html),
-  if the
-  [VkRenderingInfo](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkRenderingInfo.html)::`pDepthAttachment->imageView`
-  parameter to [vkCmdBeginRendering](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdBeginRendering.html) is not
-  [VK_NULL_HANDLE](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_NULL_HANDLE.html), the value of the
-  `depthAttachmentFormat` member of the
-  [VkCommandBufferInheritanceRenderingInfo](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkCommandBufferInheritanceRenderingInfo.html)
-  structure included in the `pNext` chain of
-  [VkCommandBufferBeginInfo](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkCommandBufferBeginInfo.html)::`pInheritanceInfo`
-  used to begin recording each element of `pCommandBuffers` **must** be
-  equal to the format used to create that image view
-
-- <a href="#VUID-vkCmdExecuteCommands-pStencilAttachment-06030"
-  id="VUID-vkCmdExecuteCommands-pStencilAttachment-06030"></a>
-  VUID-vkCmdExecuteCommands-pStencilAttachment-06030  
-  If `vkCmdExecuteCommands` is being called within a render pass
-  instance begun with [vkCmdBeginRendering](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdBeginRendering.html),
-  if the
-  [VkRenderingInfo](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkRenderingInfo.html)::`pStencilAttachment->imageView`
-  parameter to [vkCmdBeginRendering](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdBeginRendering.html) is not
-  [VK_NULL_HANDLE](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_NULL_HANDLE.html), the value of the
-  `stencilAttachmentFormat` member of the
-  [VkCommandBufferInheritanceRenderingInfo](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkCommandBufferInheritanceRenderingInfo.html)
-  structure included in the `pNext` chain of
-  [VkCommandBufferBeginInfo](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkCommandBufferBeginInfo.html)::`pInheritanceInfo`
-  used to begin recording each element of `pCommandBuffers` **must** be
-  equal to the format used to create that image view
-
-- <a href="#VUID-vkCmdExecuteCommands-pDepthAttachment-06774"
-  id="VUID-vkCmdExecuteCommands-pDepthAttachment-06774"></a>
-  VUID-vkCmdExecuteCommands-pDepthAttachment-06774  
-  If `vkCmdExecuteCommands` is being called within a render pass
-  instance begun with [vkCmdBeginRendering](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdBeginRendering.html)
-  and the
-  [VkRenderingInfo](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkRenderingInfo.html)::`pDepthAttachment->imageView`
-  parameter to [vkCmdBeginRendering](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdBeginRendering.html) was
-  [VK_NULL_HANDLE](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_NULL_HANDLE.html), the value of the
-  `depthAttachmentFormat` member of the
-  [VkCommandBufferInheritanceRenderingInfo](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkCommandBufferInheritanceRenderingInfo.html)
-  structure included in the `pNext` chain of
-  [VkCommandBufferBeginInfo](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkCommandBufferBeginInfo.html)::`pInheritanceInfo`
-  used to begin recording each element of `pCommandBuffers` **must** be
-  `VK_FORMAT_UNDEFINED`
-
-- <a href="#VUID-vkCmdExecuteCommands-pStencilAttachment-06775"
-  id="VUID-vkCmdExecuteCommands-pStencilAttachment-06775"></a>
-  VUID-vkCmdExecuteCommands-pStencilAttachment-06775  
-  If `vkCmdExecuteCommands` is being called within a render pass
-  instance begun with [vkCmdBeginRendering](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdBeginRendering.html)
-  and the
-  [VkRenderingInfo](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkRenderingInfo.html)::`pStencilAttachment->imageView`
-  parameter to [vkCmdBeginRendering](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdBeginRendering.html) was
-  [VK_NULL_HANDLE](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_NULL_HANDLE.html), the value of the
-  `stencilAttachmentFormat` member of the
-  [VkCommandBufferInheritanceRenderingInfo](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkCommandBufferInheritanceRenderingInfo.html)
-  structure included in the `pNext` chain of
-  [VkCommandBufferBeginInfo](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkCommandBufferBeginInfo.html)::`pInheritanceInfo`
-  used to begin recording each element of `pCommandBuffers` **must** be
-  `VK_FORMAT_UNDEFINED`
-
-- <a href="#VUID-vkCmdExecuteCommands-viewMask-06031"
-  id="VUID-vkCmdExecuteCommands-viewMask-06031"></a>
-  VUID-vkCmdExecuteCommands-viewMask-06031  
-  If `vkCmdExecuteCommands` is being called within a render pass
-  instance begun with [vkCmdBeginRendering](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdBeginRendering.html),
-  the `viewMask` member of the
-  [VkCommandBufferInheritanceRenderingInfo](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkCommandBufferInheritanceRenderingInfo.html)
-  structure included in the `pNext` chain of
-  [VkCommandBufferBeginInfo](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkCommandBufferBeginInfo.html)::`pInheritanceInfo`
-  used to begin recording each element of `pCommandBuffers` **must** be
-  equal to the [VkRenderingInfo](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkRenderingInfo.html)::`viewMask`
-  parameter to [vkCmdBeginRendering](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdBeginRendering.html)
-
-- <a href="#VUID-vkCmdExecuteCommands-pNext-06032"
-  id="VUID-vkCmdExecuteCommands-pNext-06032"></a>
-  VUID-vkCmdExecuteCommands-pNext-06032  
-  If `vkCmdExecuteCommands` is being called within a render pass
-  instance begun with [vkCmdBeginRendering](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdBeginRendering.html)
-  and the `pNext` chain of
-  [VkCommandBufferInheritanceInfo](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkCommandBufferInheritanceInfo.html)
-  includes a
-  [VkAttachmentSampleCountInfoAMD](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkAttachmentSampleCountInfoAMD.html)
-  or [VkAttachmentSampleCountInfoNV](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkAttachmentSampleCountInfoNV.html)
-  structure, if the `imageView` member of an element of the
-  [VkRenderingInfo](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkRenderingInfo.html)::`pColorAttachments` parameter
-  to [vkCmdBeginRendering](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdBeginRendering.html) is not
-  [VK_NULL_HANDLE](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_NULL_HANDLE.html), the corresponding element of
-  the `pColorAttachmentSamples` member of the
-  [VkAttachmentSampleCountInfoAMD](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkAttachmentSampleCountInfoAMD.html)
-  or [VkAttachmentSampleCountInfoNV](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkAttachmentSampleCountInfoNV.html)
-  structure included in the `pNext` chain of
-  [VkCommandBufferBeginInfo](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkCommandBufferBeginInfo.html)::`pInheritanceInfo`
-  used to begin recording each element of `pCommandBuffers` **must** be
-  equal to the sample count used to create that image view
-
-- <a href="#VUID-vkCmdExecuteCommands-pNext-06033"
-  id="VUID-vkCmdExecuteCommands-pNext-06033"></a>
-  VUID-vkCmdExecuteCommands-pNext-06033  
-  If `vkCmdExecuteCommands` is being called within a render pass
-  instance begun with [vkCmdBeginRendering](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdBeginRendering.html)
-  and the `pNext` chain of
-  [VkCommandBufferInheritanceInfo](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkCommandBufferInheritanceInfo.html)
-  includes a
-  [VkAttachmentSampleCountInfoAMD](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkAttachmentSampleCountInfoAMD.html)
-  or [VkAttachmentSampleCountInfoNV](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkAttachmentSampleCountInfoNV.html)
-  structure, if the
-  [VkRenderingInfo](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkRenderingInfo.html)::`pDepthAttachment->imageView`
-  parameter to [vkCmdBeginRendering](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdBeginRendering.html) is not
-  [VK_NULL_HANDLE](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_NULL_HANDLE.html), the value of the
-  `depthStencilAttachmentSamples` member of the
-  [VkAttachmentSampleCountInfoAMD](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkAttachmentSampleCountInfoAMD.html)
-  or [VkAttachmentSampleCountInfoNV](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkAttachmentSampleCountInfoNV.html)
-  structure included in the `pNext` chain of
-  [VkCommandBufferBeginInfo](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkCommandBufferBeginInfo.html)::`pInheritanceInfo`
-  used to begin recording each element of `pCommandBuffers` **must** be
-  equal to the sample count used to create that image view
-
-- <a href="#VUID-vkCmdExecuteCommands-pNext-06034"
-  id="VUID-vkCmdExecuteCommands-pNext-06034"></a>
-  VUID-vkCmdExecuteCommands-pNext-06034  
-  If `vkCmdExecuteCommands` is being called within a render pass
-  instance begun with [vkCmdBeginRendering](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdBeginRendering.html)
-  and the `pNext` chain of
-  [VkCommandBufferInheritanceInfo](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkCommandBufferInheritanceInfo.html)
-  includes a
-  [VkAttachmentSampleCountInfoAMD](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkAttachmentSampleCountInfoAMD.html)
-  or [VkAttachmentSampleCountInfoNV](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkAttachmentSampleCountInfoNV.html)
-  structure, if the
-  [VkRenderingInfo](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkRenderingInfo.html)::`pStencilAttachment->imageView`
-  parameter to [vkCmdBeginRendering](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdBeginRendering.html) is not
-  [VK_NULL_HANDLE](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_NULL_HANDLE.html), the value of the
-  `depthStencilAttachmentSamples` member of the
-  [VkAttachmentSampleCountInfoAMD](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkAttachmentSampleCountInfoAMD.html)
-  or [VkAttachmentSampleCountInfoNV](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkAttachmentSampleCountInfoNV.html)
-  structure included in the `pNext` chain of
-  [VkCommandBufferBeginInfo](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkCommandBufferBeginInfo.html)::`pInheritanceInfo`
-  used to begin recording each element of `pCommandBuffers` **must** be
-  equal to the sample count used to create that image view
-
-- <a href="#VUID-vkCmdExecuteCommands-pNext-06035"
-  id="VUID-vkCmdExecuteCommands-pNext-06035"></a>
-  VUID-vkCmdExecuteCommands-pNext-06035  
-  If `vkCmdExecuteCommands` is being called within a render pass
-  instance begun with [vkCmdBeginRendering](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdBeginRendering.html)
-  and the `pNext` chain of
-  [VkCommandBufferInheritanceInfo](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkCommandBufferInheritanceInfo.html)
-  does not include a
-  [VkAttachmentSampleCountInfoAMD](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkAttachmentSampleCountInfoAMD.html)
-  or [VkAttachmentSampleCountInfoNV](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkAttachmentSampleCountInfoNV.html)
-  structure, if the `imageView` member of an element of the
-  [VkRenderingInfo](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkRenderingInfo.html)::`pColorAttachments` parameter
-  to [vkCmdBeginRendering](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdBeginRendering.html) is not
-  [VK_NULL_HANDLE](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_NULL_HANDLE.html), the value of
-  [VkCommandBufferInheritanceRenderingInfo](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkCommandBufferInheritanceRenderingInfo.html)::`rasterizationSamples`
-  **must** be equal to the sample count used to create that image view
-
-- <a href="#VUID-vkCmdExecuteCommands-pNext-06036"
-  id="VUID-vkCmdExecuteCommands-pNext-06036"></a>
-  VUID-vkCmdExecuteCommands-pNext-06036  
-  If `vkCmdExecuteCommands` is being called within a render pass
-  instance begun with [vkCmdBeginRendering](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdBeginRendering.html)
-  and the `pNext` chain of
-  [VkCommandBufferInheritanceInfo](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkCommandBufferInheritanceInfo.html)
-  does not include a
-  [VkAttachmentSampleCountInfoAMD](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkAttachmentSampleCountInfoAMD.html)
-  or [VkAttachmentSampleCountInfoNV](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkAttachmentSampleCountInfoNV.html)
-  structure, if the
-  [VkRenderingInfo](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkRenderingInfo.html)::`pDepthAttachment->imageView`
-  parameter to [vkCmdBeginRendering](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdBeginRendering.html) is not
-  [VK_NULL_HANDLE](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_NULL_HANDLE.html), the value of
-  [VkCommandBufferInheritanceRenderingInfo](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkCommandBufferInheritanceRenderingInfo.html)::`rasterizationSamples`
-  **must** be equal to the sample count used to create that image view
-
-- <a href="#VUID-vkCmdExecuteCommands-pNext-06037"
-  id="VUID-vkCmdExecuteCommands-pNext-06037"></a>
-  VUID-vkCmdExecuteCommands-pNext-06037  
-  If `vkCmdExecuteCommands` is being called within a render pass
-  instance begun with [vkCmdBeginRendering](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdBeginRendering.html)
-  and the `pNext` chain of
-  [VkCommandBufferInheritanceInfo](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkCommandBufferInheritanceInfo.html)
-  does not include a
-  [VkAttachmentSampleCountInfoAMD](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkAttachmentSampleCountInfoAMD.html)
-  or [VkAttachmentSampleCountInfoNV](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkAttachmentSampleCountInfoNV.html)
-  structure, if the
-  [VkRenderingInfo](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkRenderingInfo.html)::`pStencilAttachment->imageView`
-  parameter to [vkCmdBeginRendering](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdBeginRendering.html) is not
-  [VK_NULL_HANDLE](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_NULL_HANDLE.html), the value of
-  [VkCommandBufferInheritanceRenderingInfo](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkCommandBufferInheritanceRenderingInfo.html)::`rasterizationSamples`
-  **must** be equal to the sample count used to create that image view
-
-- <a href="#VUID-vkCmdExecuteCommands-pNext-09299"
-  id="VUID-vkCmdExecuteCommands-pNext-09299"></a>
-  VUID-vkCmdExecuteCommands-pNext-09299  
-  If `vkCmdExecuteCommands` is being called within a render pass
-  instance begun with [vkCmdBeginRendering](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdBeginRendering.html),
-  with any color attachment using a resolve mode of
-  `VK_RESOLVE_MODE_EXTERNAL_FORMAT_DOWNSAMPLE_ANDROID`, the `pNext`
-  chain of
-  [VkCommandBufferInheritanceInfo](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkCommandBufferInheritanceInfo.html)
-  used to create each element of `pCommandBuffers` **must** include a
-  [VkExternalFormatANDROID](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkExternalFormatANDROID.html) structure with
-  an `externalFormat` matching that used to create the resolve
-  attachment in the render pass
-
-- <a href="#VUID-vkCmdExecuteCommands-pNext-09300"
-  id="VUID-vkCmdExecuteCommands-pNext-09300"></a>
-  VUID-vkCmdExecuteCommands-pNext-09300  
-  If `vkCmdExecuteCommands` is being called within a render pass
-  instance begun with [vkCmdBeginRendering](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdBeginRendering.html)
-  with any color attachment using a resolve mode of
-  `VK_RESOLVE_MODE_EXTERNAL_FORMAT_DOWNSAMPLE_ANDROID`, and the `pNext`
-  chain of
-  [VkCommandBufferInheritanceInfo](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkCommandBufferInheritanceInfo.html)
-  does not include a
-  [VkAttachmentSampleCountInfoAMD](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkAttachmentSampleCountInfoAMD.html)
-  or [VkAttachmentSampleCountInfoNV](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkAttachmentSampleCountInfoNV.html)
-  structure, the value of
-  [VkCommandBufferInheritanceRenderingInfo](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkCommandBufferInheritanceRenderingInfo.html)::`rasterizationSamples`
-  **must** be `VK_SAMPLE_COUNT_1_BIT`
-
-- <a href="#VUID-vkCmdExecuteCommands-commandBuffer-09375"
-  id="VUID-vkCmdExecuteCommands-commandBuffer-09375"></a>
-  VUID-vkCmdExecuteCommands-commandBuffer-09375  
-  `commandBuffer` **must** not be a <a
-  href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#glossary"
-  target="_blank" rel="noopener">secondary command buffer</a> unless the
-  <a
-  href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#features-nestedCommandBuffer"
-  target="_blank" rel="noopener"><code>nestedCommandBuffer</code></a>
-  feature is enabled
-
-- <a href="#VUID-vkCmdExecuteCommands-nestedCommandBuffer-09376"
-  id="VUID-vkCmdExecuteCommands-nestedCommandBuffer-09376"></a>
-  VUID-vkCmdExecuteCommands-nestedCommandBuffer-09376  
-  If the <a
-  href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#features-nestedCommandBuffer"
-  target="_blank" rel="noopener"><code>nestedCommandBuffer</code></a>
-  feature is enabled, the <a
-  href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#glossary"
-  target="_blank" rel="noopener">command buffer nesting level</a> of
-  each element of `pCommandBuffers` **must** be less than <a
-  href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#limits-maxCommandBufferNestingLevel"
-  target="_blank"
-  rel="noopener"><code>maxCommandBufferNestingLevel</code></a>
-
-- <a href="#VUID-vkCmdExecuteCommands-nestedCommandBufferRendering-09377"
-  id="VUID-vkCmdExecuteCommands-nestedCommandBufferRendering-09377"></a>
-  VUID-vkCmdExecuteCommands-nestedCommandBufferRendering-09377  
-  If the <a
-  href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#features-nestedCommandBufferRendering"
-  target="_blank"
-  rel="noopener"><code>nestedCommandBufferRendering</code></a> feature
-  is not enabled, and `commandBuffer` is a <a
-  href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#glossary"
-  target="_blank" rel="noopener">secondary command buffer</a>,
-  `commandBuffer` **must** not have been recorded with
-  `VK_COMMAND_BUFFER_USAGE_RENDER_PASS_CONTINUE_BIT`
-
-- <a
-  href="#VUID-vkCmdExecuteCommands-nestedCommandBufferSimultaneousUse-09378"
-  id="VUID-vkCmdExecuteCommands-nestedCommandBufferSimultaneousUse-09378"></a>
-  VUID-vkCmdExecuteCommands-nestedCommandBufferSimultaneousUse-09378  
-  If the <a
-  href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#features-nestedCommandBufferSimultaneousUse"
-  target="_blank"
-  rel="noopener"><code>nestedCommandBufferSimultaneousUse</code></a>
-  feature is not enabled, and `commandBuffer` is a <a
-  href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#glossary"
-  target="_blank" rel="noopener">secondary command buffer</a>, each
-  element of `pCommandBuffers` **must** not have been recorded with
-  `VK_COMMAND_BUFFER_USAGE_SIMULTANEOUS_USE_BIT`
-
-- <a href="#VUID-vkCmdExecuteCommands-pCommandBuffers-09504"
-  id="VUID-vkCmdExecuteCommands-pCommandBuffers-09504"></a>
-  VUID-vkCmdExecuteCommands-pCommandBuffers-09504  
-  If `vkCmdExecuteCommands` is being called within a render pass
-  instance begun with [vkCmdBeginRendering](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdBeginRendering.html),
-  the color attachment mapping state specified by
-  [VkRenderingAttachmentLocationInfoKHR](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkRenderingAttachmentLocationInfoKHR.html)
-  in the inheritance info of each element of `pCommandBuffers` and in
-  the current state of `commandBuffer` **must** match
-
-- <a href="#VUID-vkCmdExecuteCommands-pCommandBuffers-09505"
-  id="VUID-vkCmdExecuteCommands-pCommandBuffers-09505"></a>
-  VUID-vkCmdExecuteCommands-pCommandBuffers-09505  
-  If `vkCmdExecuteCommands` is being called within a render pass
-  instance begun with [vkCmdBeginRendering](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCmdBeginRendering.html),
-  the input attachment mapping state specified by
-  [VkRenderingInputAttachmentIndexInfoKHR](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkRenderingInputAttachmentIndexInfoKHR.html)
-  in the inheritance info of each element of `pCommandBuffers` and in
-  the current state of `commandBuffer` **must** match
+- [](#VUID-vkCmdExecuteCommands-pCommandBuffers-00088)VUID-vkCmdExecuteCommands-pCommandBuffers-00088  
+  Each element of `pCommandBuffers` **must** have been allocated with a `level` of `VK_COMMAND_BUFFER_LEVEL_SECONDARY`
+- [](#VUID-vkCmdExecuteCommands-pCommandBuffers-00089)VUID-vkCmdExecuteCommands-pCommandBuffers-00089  
+  Each element of `pCommandBuffers` **must** be in the [pending or executable state](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#commandbuffers-lifecycle)
+- [](#VUID-vkCmdExecuteCommands-pCommandBuffers-00091)VUID-vkCmdExecuteCommands-pCommandBuffers-00091  
+  If any element of `pCommandBuffers` was not recorded with the `VK_COMMAND_BUFFER_USAGE_SIMULTANEOUS_USE_BIT` flag, it **must** not be in the [pending state](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#commandbuffers-lifecycle)
+- [](#VUID-vkCmdExecuteCommands-pCommandBuffers-00092)VUID-vkCmdExecuteCommands-pCommandBuffers-00092  
+  If any element of `pCommandBuffers` was not recorded with the `VK_COMMAND_BUFFER_USAGE_SIMULTANEOUS_USE_BIT` flag, it **must** not have already been recorded to `commandBuffer`
+- [](#VUID-vkCmdExecuteCommands-pCommandBuffers-00093)VUID-vkCmdExecuteCommands-pCommandBuffers-00093  
+  If any element of `pCommandBuffers` was not recorded with the `VK_COMMAND_BUFFER_USAGE_SIMULTANEOUS_USE_BIT` flag, it **must** not appear more than once in `pCommandBuffers`
+- [](#VUID-vkCmdExecuteCommands-pCommandBuffers-00094)VUID-vkCmdExecuteCommands-pCommandBuffers-00094  
+  Each element of `pCommandBuffers` **must** have been allocated from a `VkCommandPool` that was created for the same queue family as the `VkCommandPool` from which `commandBuffer` was allocated
+- [](#VUID-vkCmdExecuteCommands-pCommandBuffers-00096)VUID-vkCmdExecuteCommands-pCommandBuffers-00096  
+  If `vkCmdExecuteCommands` is being called within a render pass instance, each element of `pCommandBuffers` **must** have been recorded with the `VK_COMMAND_BUFFER_USAGE_RENDER_PASS_CONTINUE_BIT`
+- [](#VUID-vkCmdExecuteCommands-pCommandBuffers-00099)VUID-vkCmdExecuteCommands-pCommandBuffers-00099  
+  If `vkCmdExecuteCommands` is being called within a render pass instance, and any element of `pCommandBuffers` was recorded with [VkCommandBufferInheritanceInfo](https://registry.khronos.org/vulkan/specs/latest/man/html/VkCommandBufferInheritanceInfo.html)::`framebuffer` not equal to [VK\_NULL\_HANDLE](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_NULL_HANDLE.html), that `VkFramebuffer` **must** match the `VkFramebuffer` used in the current render pass instance
+- [](#VUID-vkCmdExecuteCommands-contents-09680)VUID-vkCmdExecuteCommands-contents-09680  
+  If `vkCmdExecuteCommands` is being called within a render pass instance begun with [vkCmdBeginRenderPass](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdBeginRenderPass.html), and [vkCmdNextSubpass](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdNextSubpass.html) has not been called in the current render pass instance, the `contents` parameter of [vkCmdBeginRenderPass](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdBeginRenderPass.html) **must** have been `VK_SUBPASS_CONTENTS_SECONDARY_COMMAND_BUFFERS` , or `VK_SUBPASS_CONTENTS_INLINE_AND_SECONDARY_COMMAND_BUFFERS_EXT`
+- [](#VUID-vkCmdExecuteCommands-None-09681)VUID-vkCmdExecuteCommands-None-09681  
+  If `vkCmdExecuteCommands` is being called within a render pass instance begun with [vkCmdBeginRenderPass](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdBeginRenderPass.html), and [vkCmdNextSubpass](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdNextSubpass.html) has been called in the current render pass instance, the `contents` parameter of the last call to [vkCmdNextSubpass](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdNextSubpass.html) **must** have been `VK_SUBPASS_CONTENTS_SECONDARY_COMMAND_BUFFERS` , or `VK_SUBPASS_CONTENTS_INLINE_AND_SECONDARY_COMMAND_BUFFERS_KHR`
+- [](#VUID-vkCmdExecuteCommands-pCommandBuffers-06019)VUID-vkCmdExecuteCommands-pCommandBuffers-06019  
+  If `vkCmdExecuteCommands` is being called within a render pass instance begun with [vkCmdBeginRenderPass](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdBeginRenderPass.html), each element of `pCommandBuffers` **must** have been recorded with [VkCommandBufferInheritanceInfo](https://registry.khronos.org/vulkan/specs/latest/man/html/VkCommandBufferInheritanceInfo.html)::`subpass` set to the index of the subpass which the given command buffer will be executed in
+- [](#VUID-vkCmdExecuteCommands-pBeginInfo-06020)VUID-vkCmdExecuteCommands-pBeginInfo-06020  
+  If `vkCmdExecuteCommands` is being called within a render pass instance begun with [vkCmdBeginRenderPass](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdBeginRenderPass.html), the render passes specified in the `pBeginInfo->pInheritanceInfo->renderPass` members of the [vkBeginCommandBuffer](https://registry.khronos.org/vulkan/specs/latest/man/html/vkBeginCommandBuffer.html) commands used to begin recording each element of `pCommandBuffers` **must** be [compatible](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#renderpass-compatibility) with the current render pass
+- [](#VUID-vkCmdExecuteCommands-pNext-02865)VUID-vkCmdExecuteCommands-pNext-02865  
+  If `vkCmdExecuteCommands` is being called within a render pass instance that included [VkRenderPassTransformBeginInfoQCOM](https://registry.khronos.org/vulkan/specs/latest/man/html/VkRenderPassTransformBeginInfoQCOM.html) in the `pNext` chain of [VkRenderPassBeginInfo](https://registry.khronos.org/vulkan/specs/latest/man/html/VkRenderPassBeginInfo.html), then each element of `pCommandBuffers` **must** have been recorded with [VkCommandBufferInheritanceRenderPassTransformInfoQCOM](https://registry.khronos.org/vulkan/specs/latest/man/html/VkCommandBufferInheritanceRenderPassTransformInfoQCOM.html) in the `pNext` chain of [VkCommandBufferBeginInfo](https://registry.khronos.org/vulkan/specs/latest/man/html/VkCommandBufferBeginInfo.html)
+- [](#VUID-vkCmdExecuteCommands-pNext-02866)VUID-vkCmdExecuteCommands-pNext-02866  
+  If `vkCmdExecuteCommands` is being called within a render pass instance that included [VkRenderPassTransformBeginInfoQCOM](https://registry.khronos.org/vulkan/specs/latest/man/html/VkRenderPassTransformBeginInfoQCOM.html) in the `pNext` chain of [VkRenderPassBeginInfo](https://registry.khronos.org/vulkan/specs/latest/man/html/VkRenderPassBeginInfo.html), then each element of `pCommandBuffers` **must** have been recorded with [VkCommandBufferInheritanceRenderPassTransformInfoQCOM](https://registry.khronos.org/vulkan/specs/latest/man/html/VkCommandBufferInheritanceRenderPassTransformInfoQCOM.html)::`transform` identical to [VkRenderPassTransformBeginInfoQCOM](https://registry.khronos.org/vulkan/specs/latest/man/html/VkRenderPassTransformBeginInfoQCOM.html)::`transform`
+- [](#VUID-vkCmdExecuteCommands-pNext-02867)VUID-vkCmdExecuteCommands-pNext-02867  
+  If `vkCmdExecuteCommands` is being called within a render pass instance that included [VkRenderPassTransformBeginInfoQCOM](https://registry.khronos.org/vulkan/specs/latest/man/html/VkRenderPassTransformBeginInfoQCOM.html) in the `pNext` chain of [VkRenderPassBeginInfo](https://registry.khronos.org/vulkan/specs/latest/man/html/VkRenderPassBeginInfo.html), then each element of `pCommandBuffers` **must** have been recorded with [VkCommandBufferInheritanceRenderPassTransformInfoQCOM](https://registry.khronos.org/vulkan/specs/latest/man/html/VkCommandBufferInheritanceRenderPassTransformInfoQCOM.html)::`renderArea` identical to [VkRenderPassBeginInfo](https://registry.khronos.org/vulkan/specs/latest/man/html/VkRenderPassBeginInfo.html)::`renderArea`
+- [](#VUID-vkCmdExecuteCommands-pCommandBuffers-00100)VUID-vkCmdExecuteCommands-pCommandBuffers-00100  
+  If `vkCmdExecuteCommands` is not being called within a render pass instance, each element of `pCommandBuffers` **must** not have been recorded with the `VK_COMMAND_BUFFER_USAGE_RENDER_PASS_CONTINUE_BIT`
+- [](#VUID-vkCmdExecuteCommands-commandBuffer-00101)VUID-vkCmdExecuteCommands-commandBuffer-00101  
+  If the [`inheritedQueries`](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#features-inheritedQueries) feature is not enabled, `commandBuffer` **must** not have any queries [active](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#queries-operation-active)
+- [](#VUID-vkCmdExecuteCommands-commandBuffer-00102)VUID-vkCmdExecuteCommands-commandBuffer-00102  
+  If `commandBuffer` has a `VK_QUERY_TYPE_OCCLUSION` query [active](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#queries-operation-active), then each element of `pCommandBuffers` **must** have been recorded with `VkCommandBufferInheritanceInfo`::`occlusionQueryEnable` set to `VK_TRUE`
+- [](#VUID-vkCmdExecuteCommands-commandBuffer-00103)VUID-vkCmdExecuteCommands-commandBuffer-00103  
+  If `commandBuffer` has a `VK_QUERY_TYPE_OCCLUSION` query [active](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#queries-operation-active), then each element of `pCommandBuffers` **must** have been recorded with `VkCommandBufferInheritanceInfo`::`queryFlags` having all bits set that are set for the query
+- [](#VUID-vkCmdExecuteCommands-commandBuffer-00104)VUID-vkCmdExecuteCommands-commandBuffer-00104  
+  If `commandBuffer` has a `VK_QUERY_TYPE_PIPELINE_STATISTICS` query [active](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#queries-operation-active), then each element of `pCommandBuffers` **must** have been recorded with `VkCommandBufferInheritanceInfo`::`pipelineStatistics` having all bits set that are set in the `VkQueryPool` the query uses
+- [](#VUID-vkCmdExecuteCommands-pCommandBuffers-00105)VUID-vkCmdExecuteCommands-pCommandBuffers-00105  
+  Each element of `pCommandBuffers` **must** not begin any query types that are [active](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#queries-operation-active) in `commandBuffer`
+- [](#VUID-vkCmdExecuteCommands-commandBuffer-07594)VUID-vkCmdExecuteCommands-commandBuffer-07594  
+  `commandBuffer` **must** not have any queries other than `VK_QUERY_TYPE_OCCLUSION` and `VK_QUERY_TYPE_PIPELINE_STATISTICS` [active](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#queries-operation-active)
+- [](#VUID-vkCmdExecuteCommands-commandBuffer-01820)VUID-vkCmdExecuteCommands-commandBuffer-01820  
+  If `commandBuffer` is a protected command buffer and [`protectedNoFault`](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#limits-protectedNoFault) is not supported, each element of `pCommandBuffers` **must** be a protected command buffer
+- [](#VUID-vkCmdExecuteCommands-commandBuffer-01821)VUID-vkCmdExecuteCommands-commandBuffer-01821  
+  If `commandBuffer` is an unprotected command buffer and [`protectedNoFault`](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#limits-protectedNoFault) is not supported, each element of `pCommandBuffers` **must** be an unprotected command buffer
+- [](#VUID-vkCmdExecuteCommands-None-02286)VUID-vkCmdExecuteCommands-None-02286  
+  This command **must** not be recorded when transform feedback is active
+- [](#VUID-vkCmdExecuteCommands-commandBuffer-06533)VUID-vkCmdExecuteCommands-commandBuffer-06533  
+  If `vkCmdExecuteCommands` is being called within a render pass instance and any recorded command in `commandBuffer` in the current subpass will write to an image subresource as an attachment, commands recorded in elements of `pCommandBuffers` **must** not read from the memory backing that image subresource in any other way
+- [](#VUID-vkCmdExecuteCommands-commandBuffer-06534)VUID-vkCmdExecuteCommands-commandBuffer-06534  
+  If `vkCmdExecuteCommands` is being called within a render pass instance and any recorded command in `commandBuffer` in the current subpass will read from an image subresource used as an attachment in any way other than as an attachment, commands recorded in elements of `pCommandBuffers` **must** not write to that image subresource as an attachment
+- [](#VUID-vkCmdExecuteCommands-pCommandBuffers-06535)VUID-vkCmdExecuteCommands-pCommandBuffers-06535  
+  If `vkCmdExecuteCommands` is being called within a render pass instance and any recorded command in a given element of `pCommandBuffers` will write to an image subresource as an attachment, commands recorded in elements of `pCommandBuffers` at a higher index **must** not read from the memory backing that image subresource in any other way
+- [](#VUID-vkCmdExecuteCommands-pCommandBuffers-06536)VUID-vkCmdExecuteCommands-pCommandBuffers-06536  
+  If `vkCmdExecuteCommands` is being called within a render pass instance and any recorded command in a given element of `pCommandBuffers` will read from an image subresource used as an attachment in any way other than as an attachment, commands recorded in elements of `pCommandBuffers` at a higher index **must** not write to that image subresource as an attachment
+- [](#VUID-vkCmdExecuteCommands-pCommandBuffers-06021)VUID-vkCmdExecuteCommands-pCommandBuffers-06021  
+  If `pCommandBuffers` contains any [suspended render pass instances](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#renderpass-suspension), there **must** be no action or synchronization commands between that render pass instance and any render pass instance that resumes it
+- [](#VUID-vkCmdExecuteCommands-pCommandBuffers-06022)VUID-vkCmdExecuteCommands-pCommandBuffers-06022  
+  If `pCommandBuffers` contains any [suspended render pass instances](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#renderpass-suspension), there **must** be no render pass instances between that render pass instance and any render pass instance that resumes it
+- [](#VUID-vkCmdExecuteCommands-variableSampleLocations-06023)VUID-vkCmdExecuteCommands-variableSampleLocations-06023  
+  If the [`variableSampleLocations`](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#limits-variableSampleLocations) limit is not supported, and any element of `pCommandBuffers` contains any [suspended render pass instances](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#renderpass-suspension), where a graphics pipeline has been bound, any pipelines bound in the render pass instance that resumes it, or any subsequent render pass instances that resume from that one and so on, **must** use the same sample locations
+- [](#VUID-vkCmdExecuteCommands-flags-06024)VUID-vkCmdExecuteCommands-flags-06024  
+  If `vkCmdExecuteCommands` is being called within a render pass instance begun with [vkCmdBeginRendering](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdBeginRendering.html), its [VkRenderingInfo](https://registry.khronos.org/vulkan/specs/latest/man/html/VkRenderingInfo.html)::`flags` parameter **must** have included `VK_RENDERING_CONTENTS_SECONDARY_COMMAND_BUFFERS_BIT`
+- [](#VUID-vkCmdExecuteCommands-pBeginInfo-06025)VUID-vkCmdExecuteCommands-pBeginInfo-06025  
+  If `vkCmdExecuteCommands` is being called within a render pass instance begun with [vkCmdBeginRendering](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdBeginRendering.html), the render passes specified in the `pBeginInfo->pInheritanceInfo->renderPass` members of the [vkBeginCommandBuffer](https://registry.khronos.org/vulkan/specs/latest/man/html/vkBeginCommandBuffer.html) commands used to begin recording each element of `pCommandBuffers` **must** be [VK\_NULL\_HANDLE](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_NULL_HANDLE.html)
+- [](#VUID-vkCmdExecuteCommands-flags-06026)VUID-vkCmdExecuteCommands-flags-06026  
+  If `vkCmdExecuteCommands` is being called within a render pass instance begun with [vkCmdBeginRendering](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdBeginRendering.html), the `flags` member of the [VkCommandBufferInheritanceRenderingInfo](https://registry.khronos.org/vulkan/specs/latest/man/html/VkCommandBufferInheritanceRenderingInfo.html) structure included in the `pNext` chain of [VkCommandBufferBeginInfo](https://registry.khronos.org/vulkan/specs/latest/man/html/VkCommandBufferBeginInfo.html)::`pInheritanceInfo` used to begin recording each element of `pCommandBuffers` **must** be equal to the [VkRenderingInfo](https://registry.khronos.org/vulkan/specs/latest/man/html/VkRenderingInfo.html)::`flags` parameter to [vkCmdBeginRendering](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdBeginRendering.html), excluding `VK_RENDERING_CONTENTS_SECONDARY_COMMAND_BUFFERS_BIT`
+- [](#VUID-vkCmdExecuteCommands-colorAttachmentCount-06027)VUID-vkCmdExecuteCommands-colorAttachmentCount-06027  
+  If `vkCmdExecuteCommands` is being called within a render pass instance begun with [vkCmdBeginRendering](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdBeginRendering.html), the `colorAttachmentCount` member of the [VkCommandBufferInheritanceRenderingInfo](https://registry.khronos.org/vulkan/specs/latest/man/html/VkCommandBufferInheritanceRenderingInfo.html) structure included in the `pNext` chain of [VkCommandBufferBeginInfo](https://registry.khronos.org/vulkan/specs/latest/man/html/VkCommandBufferBeginInfo.html)::`pInheritanceInfo` used to begin recording each element of `pCommandBuffers` **must** be equal to the [VkRenderingInfo](https://registry.khronos.org/vulkan/specs/latest/man/html/VkRenderingInfo.html)::`colorAttachmentCount` parameter to [vkCmdBeginRendering](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdBeginRendering.html)
+- [](#VUID-vkCmdExecuteCommands-imageView-06028)VUID-vkCmdExecuteCommands-imageView-06028  
+  If `vkCmdExecuteCommands` is being called within a render pass instance begun with [vkCmdBeginRendering](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdBeginRendering.html), if the `imageView` member of an element of the [VkRenderingInfo](https://registry.khronos.org/vulkan/specs/latest/man/html/VkRenderingInfo.html)::`pColorAttachments` parameter to [vkCmdBeginRendering](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdBeginRendering.html) is not [VK\_NULL\_HANDLE](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_NULL_HANDLE.html), the corresponding element of the `pColorAttachmentFormats` member of the [VkCommandBufferInheritanceRenderingInfo](https://registry.khronos.org/vulkan/specs/latest/man/html/VkCommandBufferInheritanceRenderingInfo.html) structure included in the `pNext` chain of [VkCommandBufferBeginInfo](https://registry.khronos.org/vulkan/specs/latest/man/html/VkCommandBufferBeginInfo.html)::`pInheritanceInfo` used to begin recording each element of `pCommandBuffers` **must** be equal to the format used to create that image view
+- [](#VUID-vkCmdExecuteCommands-imageView-07606)VUID-vkCmdExecuteCommands-imageView-07606  
+  If `vkCmdExecuteCommands` is being called within a render pass instance begun with [vkCmdBeginRendering](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdBeginRendering.html), if the `imageView` member of an element of the [VkRenderingInfo](https://registry.khronos.org/vulkan/specs/latest/man/html/VkRenderingInfo.html)::`pColorAttachments` parameter to [vkCmdBeginRendering](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdBeginRendering.html) is [VK\_NULL\_HANDLE](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_NULL_HANDLE.html), the corresponding element of the `pColorAttachmentFormats` member of the [VkCommandBufferInheritanceRenderingInfo](https://registry.khronos.org/vulkan/specs/latest/man/html/VkCommandBufferInheritanceRenderingInfo.html) structure included in the `pNext` chain of [VkCommandBufferBeginInfo](https://registry.khronos.org/vulkan/specs/latest/man/html/VkCommandBufferBeginInfo.html)::`pInheritanceInfo` used to begin recording each element of `pCommandBuffers` **must** be `VK_FORMAT_UNDEFINED`
+- [](#VUID-vkCmdExecuteCommands-pDepthAttachment-06029)VUID-vkCmdExecuteCommands-pDepthAttachment-06029  
+  If `vkCmdExecuteCommands` is being called within a render pass instance begun with [vkCmdBeginRendering](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdBeginRendering.html), if the [VkRenderingInfo](https://registry.khronos.org/vulkan/specs/latest/man/html/VkRenderingInfo.html)::`pDepthAttachment->imageView` parameter to [vkCmdBeginRendering](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdBeginRendering.html) is not [VK\_NULL\_HANDLE](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_NULL_HANDLE.html), the value of the `depthAttachmentFormat` member of the [VkCommandBufferInheritanceRenderingInfo](https://registry.khronos.org/vulkan/specs/latest/man/html/VkCommandBufferInheritanceRenderingInfo.html) structure included in the `pNext` chain of [VkCommandBufferBeginInfo](https://registry.khronos.org/vulkan/specs/latest/man/html/VkCommandBufferBeginInfo.html)::`pInheritanceInfo` used to begin recording each element of `pCommandBuffers` **must** be equal to the format used to create that image view
+- [](#VUID-vkCmdExecuteCommands-pStencilAttachment-06030)VUID-vkCmdExecuteCommands-pStencilAttachment-06030  
+  If `vkCmdExecuteCommands` is being called within a render pass instance begun with [vkCmdBeginRendering](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdBeginRendering.html), if the [VkRenderingInfo](https://registry.khronos.org/vulkan/specs/latest/man/html/VkRenderingInfo.html)::`pStencilAttachment->imageView` parameter to [vkCmdBeginRendering](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdBeginRendering.html) is not [VK\_NULL\_HANDLE](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_NULL_HANDLE.html), the value of the `stencilAttachmentFormat` member of the [VkCommandBufferInheritanceRenderingInfo](https://registry.khronos.org/vulkan/specs/latest/man/html/VkCommandBufferInheritanceRenderingInfo.html) structure included in the `pNext` chain of [VkCommandBufferBeginInfo](https://registry.khronos.org/vulkan/specs/latest/man/html/VkCommandBufferBeginInfo.html)::`pInheritanceInfo` used to begin recording each element of `pCommandBuffers` **must** be equal to the format used to create that image view
+- [](#VUID-vkCmdExecuteCommands-pDepthAttachment-06774)VUID-vkCmdExecuteCommands-pDepthAttachment-06774  
+  If `vkCmdExecuteCommands` is being called within a render pass instance begun with [vkCmdBeginRendering](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdBeginRendering.html) and the [VkRenderingInfo](https://registry.khronos.org/vulkan/specs/latest/man/html/VkRenderingInfo.html)::`pDepthAttachment->imageView` parameter to [vkCmdBeginRendering](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdBeginRendering.html) was [VK\_NULL\_HANDLE](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_NULL_HANDLE.html), the value of the `depthAttachmentFormat` member of the [VkCommandBufferInheritanceRenderingInfo](https://registry.khronos.org/vulkan/specs/latest/man/html/VkCommandBufferInheritanceRenderingInfo.html) structure included in the `pNext` chain of [VkCommandBufferBeginInfo](https://registry.khronos.org/vulkan/specs/latest/man/html/VkCommandBufferBeginInfo.html)::`pInheritanceInfo` used to begin recording each element of `pCommandBuffers` **must** be `VK_FORMAT_UNDEFINED`
+- [](#VUID-vkCmdExecuteCommands-pStencilAttachment-06775)VUID-vkCmdExecuteCommands-pStencilAttachment-06775  
+  If `vkCmdExecuteCommands` is being called within a render pass instance begun with [vkCmdBeginRendering](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdBeginRendering.html) and the [VkRenderingInfo](https://registry.khronos.org/vulkan/specs/latest/man/html/VkRenderingInfo.html)::`pStencilAttachment->imageView` parameter to [vkCmdBeginRendering](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdBeginRendering.html) was [VK\_NULL\_HANDLE](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_NULL_HANDLE.html), the value of the `stencilAttachmentFormat` member of the [VkCommandBufferInheritanceRenderingInfo](https://registry.khronos.org/vulkan/specs/latest/man/html/VkCommandBufferInheritanceRenderingInfo.html) structure included in the `pNext` chain of [VkCommandBufferBeginInfo](https://registry.khronos.org/vulkan/specs/latest/man/html/VkCommandBufferBeginInfo.html)::`pInheritanceInfo` used to begin recording each element of `pCommandBuffers` **must** be `VK_FORMAT_UNDEFINED`
+- [](#VUID-vkCmdExecuteCommands-viewMask-06031)VUID-vkCmdExecuteCommands-viewMask-06031  
+  If `vkCmdExecuteCommands` is being called within a render pass instance begun with [vkCmdBeginRendering](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdBeginRendering.html), the `viewMask` member of the [VkCommandBufferInheritanceRenderingInfo](https://registry.khronos.org/vulkan/specs/latest/man/html/VkCommandBufferInheritanceRenderingInfo.html) structure included in the `pNext` chain of [VkCommandBufferBeginInfo](https://registry.khronos.org/vulkan/specs/latest/man/html/VkCommandBufferBeginInfo.html)::`pInheritanceInfo` used to begin recording each element of `pCommandBuffers` **must** be equal to the [VkRenderingInfo](https://registry.khronos.org/vulkan/specs/latest/man/html/VkRenderingInfo.html)::`viewMask` parameter to [vkCmdBeginRendering](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdBeginRendering.html)
+- [](#VUID-vkCmdExecuteCommands-pNext-06032)VUID-vkCmdExecuteCommands-pNext-06032  
+  If `vkCmdExecuteCommands` is being called within a render pass instance begun with [vkCmdBeginRendering](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdBeginRendering.html) and the `pNext` chain of [VkCommandBufferInheritanceInfo](https://registry.khronos.org/vulkan/specs/latest/man/html/VkCommandBufferInheritanceInfo.html) includes a [VkAttachmentSampleCountInfoAMD](https://registry.khronos.org/vulkan/specs/latest/man/html/VkAttachmentSampleCountInfoAMD.html) or [VkAttachmentSampleCountInfoNV](https://registry.khronos.org/vulkan/specs/latest/man/html/VkAttachmentSampleCountInfoNV.html) structure, if the `imageView` member of an element of the [VkRenderingInfo](https://registry.khronos.org/vulkan/specs/latest/man/html/VkRenderingInfo.html)::`pColorAttachments` parameter to [vkCmdBeginRendering](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdBeginRendering.html) is not [VK\_NULL\_HANDLE](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_NULL_HANDLE.html), the corresponding element of the `pColorAttachmentSamples` member of the [VkAttachmentSampleCountInfoAMD](https://registry.khronos.org/vulkan/specs/latest/man/html/VkAttachmentSampleCountInfoAMD.html) or [VkAttachmentSampleCountInfoNV](https://registry.khronos.org/vulkan/specs/latest/man/html/VkAttachmentSampleCountInfoNV.html) structure included in the `pNext` chain of [VkCommandBufferBeginInfo](https://registry.khronos.org/vulkan/specs/latest/man/html/VkCommandBufferBeginInfo.html)::`pInheritanceInfo` used to begin recording each element of `pCommandBuffers` **must** be equal to the sample count used to create that image view
+- [](#VUID-vkCmdExecuteCommands-pNext-06033)VUID-vkCmdExecuteCommands-pNext-06033  
+  If `vkCmdExecuteCommands` is being called within a render pass instance begun with [vkCmdBeginRendering](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdBeginRendering.html) and the `pNext` chain of [VkCommandBufferInheritanceInfo](https://registry.khronos.org/vulkan/specs/latest/man/html/VkCommandBufferInheritanceInfo.html) includes a [VkAttachmentSampleCountInfoAMD](https://registry.khronos.org/vulkan/specs/latest/man/html/VkAttachmentSampleCountInfoAMD.html) or [VkAttachmentSampleCountInfoNV](https://registry.khronos.org/vulkan/specs/latest/man/html/VkAttachmentSampleCountInfoNV.html) structure, if the [VkRenderingInfo](https://registry.khronos.org/vulkan/specs/latest/man/html/VkRenderingInfo.html)::`pDepthAttachment->imageView` parameter to [vkCmdBeginRendering](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdBeginRendering.html) is not [VK\_NULL\_HANDLE](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_NULL_HANDLE.html), the value of the `depthStencilAttachmentSamples` member of the [VkAttachmentSampleCountInfoAMD](https://registry.khronos.org/vulkan/specs/latest/man/html/VkAttachmentSampleCountInfoAMD.html) or [VkAttachmentSampleCountInfoNV](https://registry.khronos.org/vulkan/specs/latest/man/html/VkAttachmentSampleCountInfoNV.html) structure included in the `pNext` chain of [VkCommandBufferBeginInfo](https://registry.khronos.org/vulkan/specs/latest/man/html/VkCommandBufferBeginInfo.html)::`pInheritanceInfo` used to begin recording each element of `pCommandBuffers` **must** be equal to the sample count used to create that image view
+- [](#VUID-vkCmdExecuteCommands-pNext-06034)VUID-vkCmdExecuteCommands-pNext-06034  
+  If `vkCmdExecuteCommands` is being called within a render pass instance begun with [vkCmdBeginRendering](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdBeginRendering.html) and the `pNext` chain of [VkCommandBufferInheritanceInfo](https://registry.khronos.org/vulkan/specs/latest/man/html/VkCommandBufferInheritanceInfo.html) includes a [VkAttachmentSampleCountInfoAMD](https://registry.khronos.org/vulkan/specs/latest/man/html/VkAttachmentSampleCountInfoAMD.html) or [VkAttachmentSampleCountInfoNV](https://registry.khronos.org/vulkan/specs/latest/man/html/VkAttachmentSampleCountInfoNV.html) structure, if the [VkRenderingInfo](https://registry.khronos.org/vulkan/specs/latest/man/html/VkRenderingInfo.html)::`pStencilAttachment->imageView` parameter to [vkCmdBeginRendering](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdBeginRendering.html) is not [VK\_NULL\_HANDLE](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_NULL_HANDLE.html), the value of the `depthStencilAttachmentSamples` member of the [VkAttachmentSampleCountInfoAMD](https://registry.khronos.org/vulkan/specs/latest/man/html/VkAttachmentSampleCountInfoAMD.html) or [VkAttachmentSampleCountInfoNV](https://registry.khronos.org/vulkan/specs/latest/man/html/VkAttachmentSampleCountInfoNV.html) structure included in the `pNext` chain of [VkCommandBufferBeginInfo](https://registry.khronos.org/vulkan/specs/latest/man/html/VkCommandBufferBeginInfo.html)::`pInheritanceInfo` used to begin recording each element of `pCommandBuffers` **must** be equal to the sample count used to create that image view
+- [](#VUID-vkCmdExecuteCommands-pNext-06035)VUID-vkCmdExecuteCommands-pNext-06035  
+  If `vkCmdExecuteCommands` is being called within a render pass instance begun with [vkCmdBeginRendering](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdBeginRendering.html) and the `pNext` chain of [VkCommandBufferInheritanceInfo](https://registry.khronos.org/vulkan/specs/latest/man/html/VkCommandBufferInheritanceInfo.html) does not include a [VkAttachmentSampleCountInfoAMD](https://registry.khronos.org/vulkan/specs/latest/man/html/VkAttachmentSampleCountInfoAMD.html) or [VkAttachmentSampleCountInfoNV](https://registry.khronos.org/vulkan/specs/latest/man/html/VkAttachmentSampleCountInfoNV.html) structure, if the `imageView` member of an element of the [VkRenderingInfo](https://registry.khronos.org/vulkan/specs/latest/man/html/VkRenderingInfo.html)::`pColorAttachments` parameter to [vkCmdBeginRendering](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdBeginRendering.html) is not [VK\_NULL\_HANDLE](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_NULL_HANDLE.html), the value of [VkCommandBufferInheritanceRenderingInfo](https://registry.khronos.org/vulkan/specs/latest/man/html/VkCommandBufferInheritanceRenderingInfo.html)::`rasterizationSamples` **must** be equal to the sample count used to create that image view
+- [](#VUID-vkCmdExecuteCommands-pNext-06036)VUID-vkCmdExecuteCommands-pNext-06036  
+  If `vkCmdExecuteCommands` is being called within a render pass instance begun with [vkCmdBeginRendering](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdBeginRendering.html) and the `pNext` chain of [VkCommandBufferInheritanceInfo](https://registry.khronos.org/vulkan/specs/latest/man/html/VkCommandBufferInheritanceInfo.html) does not include a [VkAttachmentSampleCountInfoAMD](https://registry.khronos.org/vulkan/specs/latest/man/html/VkAttachmentSampleCountInfoAMD.html) or [VkAttachmentSampleCountInfoNV](https://registry.khronos.org/vulkan/specs/latest/man/html/VkAttachmentSampleCountInfoNV.html) structure, if the [VkRenderingInfo](https://registry.khronos.org/vulkan/specs/latest/man/html/VkRenderingInfo.html)::`pDepthAttachment->imageView` parameter to [vkCmdBeginRendering](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdBeginRendering.html) is not [VK\_NULL\_HANDLE](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_NULL_HANDLE.html), the value of [VkCommandBufferInheritanceRenderingInfo](https://registry.khronos.org/vulkan/specs/latest/man/html/VkCommandBufferInheritanceRenderingInfo.html)::`rasterizationSamples` **must** be equal to the sample count used to create that image view
+- [](#VUID-vkCmdExecuteCommands-pNext-06037)VUID-vkCmdExecuteCommands-pNext-06037  
+  If `vkCmdExecuteCommands` is being called within a render pass instance begun with [vkCmdBeginRendering](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdBeginRendering.html) and the `pNext` chain of [VkCommandBufferInheritanceInfo](https://registry.khronos.org/vulkan/specs/latest/man/html/VkCommandBufferInheritanceInfo.html) does not include a [VkAttachmentSampleCountInfoAMD](https://registry.khronos.org/vulkan/specs/latest/man/html/VkAttachmentSampleCountInfoAMD.html) or [VkAttachmentSampleCountInfoNV](https://registry.khronos.org/vulkan/specs/latest/man/html/VkAttachmentSampleCountInfoNV.html) structure, if the [VkRenderingInfo](https://registry.khronos.org/vulkan/specs/latest/man/html/VkRenderingInfo.html)::`pStencilAttachment->imageView` parameter to [vkCmdBeginRendering](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdBeginRendering.html) is not [VK\_NULL\_HANDLE](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_NULL_HANDLE.html), the value of [VkCommandBufferInheritanceRenderingInfo](https://registry.khronos.org/vulkan/specs/latest/man/html/VkCommandBufferInheritanceRenderingInfo.html)::`rasterizationSamples` **must** be equal to the sample count used to create that image view
+- [](#VUID-vkCmdExecuteCommands-pNext-09299)VUID-vkCmdExecuteCommands-pNext-09299  
+  If `vkCmdExecuteCommands` is being called within a render pass instance begun with [vkCmdBeginRendering](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdBeginRendering.html), with any color attachment using a resolve mode of `VK_RESOLVE_MODE_EXTERNAL_FORMAT_DOWNSAMPLE_BIT_ANDROID`, the `pNext` chain of [VkCommandBufferInheritanceInfo](https://registry.khronos.org/vulkan/specs/latest/man/html/VkCommandBufferInheritanceInfo.html) used to create each element of `pCommandBuffers` **must** include a [VkExternalFormatANDROID](https://registry.khronos.org/vulkan/specs/latest/man/html/VkExternalFormatANDROID.html) structure with an `externalFormat` matching that used to create the resolve attachment in the render pass
+- [](#VUID-vkCmdExecuteCommands-pNext-09300)VUID-vkCmdExecuteCommands-pNext-09300  
+  If `vkCmdExecuteCommands` is being called within a render pass instance begun with [vkCmdBeginRendering](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdBeginRendering.html) with any color attachment using a resolve mode of `VK_RESOLVE_MODE_EXTERNAL_FORMAT_DOWNSAMPLE_BIT_ANDROID`, and the `pNext` chain of [VkCommandBufferInheritanceInfo](https://registry.khronos.org/vulkan/specs/latest/man/html/VkCommandBufferInheritanceInfo.html) does not include a [VkAttachmentSampleCountInfoAMD](https://registry.khronos.org/vulkan/specs/latest/man/html/VkAttachmentSampleCountInfoAMD.html) or [VkAttachmentSampleCountInfoNV](https://registry.khronos.org/vulkan/specs/latest/man/html/VkAttachmentSampleCountInfoNV.html) structure, the value of [VkCommandBufferInheritanceRenderingInfo](https://registry.khronos.org/vulkan/specs/latest/man/html/VkCommandBufferInheritanceRenderingInfo.html)::`rasterizationSamples` **must** be `VK_SAMPLE_COUNT_1_BIT`
+- [](#VUID-vkCmdExecuteCommands-commandBuffer-09375)VUID-vkCmdExecuteCommands-commandBuffer-09375  
+  `commandBuffer` **must** not be a [secondary command buffer](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#glossary) unless the [`nestedCommandBuffer`](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#features-nestedCommandBuffer) feature is enabled
+- [](#VUID-vkCmdExecuteCommands-nestedCommandBuffer-09376)VUID-vkCmdExecuteCommands-nestedCommandBuffer-09376  
+  If the [`nestedCommandBuffer`](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#features-nestedCommandBuffer) feature is enabled, and `commandBuffer` is a [secondary command buffer](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#glossary), the [command buffer nesting level](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#glossary) of each element of `pCommandBuffers` **must** be less than [`maxCommandBufferNestingLevel`](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#limits-maxCommandBufferNestingLevel)
+- [](#VUID-vkCmdExecuteCommands-nestedCommandBufferRendering-09377)VUID-vkCmdExecuteCommands-nestedCommandBufferRendering-09377  
+  If the [`nestedCommandBufferRendering`](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#features-nestedCommandBufferRendering) feature is not enabled, and `commandBuffer` is a [secondary command buffer](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#glossary), `commandBuffer` **must** not have been recorded with `VK_COMMAND_BUFFER_USAGE_RENDER_PASS_CONTINUE_BIT`
+- [](#VUID-vkCmdExecuteCommands-nestedCommandBufferSimultaneousUse-09378)VUID-vkCmdExecuteCommands-nestedCommandBufferSimultaneousUse-09378  
+  If the [`nestedCommandBufferSimultaneousUse`](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#features-nestedCommandBufferSimultaneousUse) feature is not enabled, and `commandBuffer` is a [secondary command buffer](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#glossary), each element of `pCommandBuffers` **must** not have been recorded with `VK_COMMAND_BUFFER_USAGE_SIMULTANEOUS_USE_BIT`
+- [](#VUID-vkCmdExecuteCommands-pCommandBuffers-09504)VUID-vkCmdExecuteCommands-pCommandBuffers-09504  
+  If `vkCmdExecuteCommands` is being called within a render pass instance begun with [vkCmdBeginRendering](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdBeginRendering.html), the color attachment mapping state specified by [VkRenderingAttachmentLocationInfo](https://registry.khronos.org/vulkan/specs/latest/man/html/VkRenderingAttachmentLocationInfo.html) in the inheritance info of each element of `pCommandBuffers` and in the current state of `commandBuffer` **must** match
+- [](#VUID-vkCmdExecuteCommands-pCommandBuffers-09505)VUID-vkCmdExecuteCommands-pCommandBuffers-09505  
+  If `vkCmdExecuteCommands` is being called within a render pass instance begun with [vkCmdBeginRendering](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdBeginRendering.html), the input attachment mapping state specified by [VkRenderingInputAttachmentIndexInfo](https://registry.khronos.org/vulkan/specs/latest/man/html/VkRenderingInputAttachmentIndexInfo.html) in the inheritance info of each element of `pCommandBuffers` and in the current state of `commandBuffer` **must** match
+- [](#VUID-vkCmdExecuteCommands-memory-10724)VUID-vkCmdExecuteCommands-memory-10724  
+  If `vkCmdExecuteCommands` is being called within a render pass instance, the size of `memory` member of the [VkTileMemoryBindInfoQCOM](https://registry.khronos.org/vulkan/specs/latest/man/html/VkTileMemoryBindInfoQCOM.html) structure included in the `pNext` chain of [VkCommandBufferBeginInfo](https://registry.khronos.org/vulkan/specs/latest/man/html/VkCommandBufferBeginInfo.html)::`pInheritanceInfo` used to begin recording each element of `pCommandBuffers` **must** be equal to the active bound [bound tile memory object](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#memory-bind-tile-memory) in `commandBuffer`
+- [](#VUID-vkCmdExecuteCommands-pCommandBuffers-10620)VUID-vkCmdExecuteCommands-pCommandBuffers-10620  
+  If this command is being recorded within a render pass instance with [tile shading](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#renderpass-tile-shading) enabled, all elements of `pCommandBuffers` **must** have been recorded with `VK_TILE_SHADING_RENDER_PASS_ENABLE_BIT_QCOM` included in [VkRenderPassTileShadingCreateInfoQCOM](https://registry.khronos.org/vulkan/specs/latest/man/html/VkRenderPassTileShadingCreateInfoQCOM.html)::`flags`
+- [](#VUID-vkCmdExecuteCommands-pCommandBuffers-10621)VUID-vkCmdExecuteCommands-pCommandBuffers-10621  
+  If the [per-tile execution model](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#renderpass-per-tile-execution-model) is enabled, all elements of `pCommandBuffers` **must** have been recorded with `VK_TILE_SHADING_RENDER_PASS_PER_TILE_EXECUTION_BIT_QCOM` included in [VkRenderPassTileShadingCreateInfoQCOM](https://registry.khronos.org/vulkan/specs/latest/man/html/VkRenderPassTileShadingCreateInfoQCOM.html)::`flags`
+- [](#VUID-vkCmdExecuteCommands-tileApronSize-10622)VUID-vkCmdExecuteCommands-tileApronSize-10622  
+  If this command is being recorded within a render pass instance, the `tileApronSize` used to create the render pass instance **must** equal the [VkRenderPassTileShadingCreateInfoQCOM](https://registry.khronos.org/vulkan/specs/latest/man/html/VkRenderPassTileShadingCreateInfoQCOM.html)::`tileApronSize` used to record all elements of `pCommandBuffers`
+- [](#VUID-vkCmdExecuteCommands-pCommandBuffers-10623)VUID-vkCmdExecuteCommands-pCommandBuffers-10623  
+  If any element of `pCommandBuffers` was recorded with `VK_TILE_SHADING_RENDER_PASS_ENABLE_BIT_QCOM` included in [VkRenderPassTileShadingCreateInfoQCOM](https://registry.khronos.org/vulkan/specs/latest/man/html/VkRenderPassTileShadingCreateInfoQCOM.html)::`flags`, this command **must** be recorded in a render pass that has tile shading enabled
+- [](#VUID-vkCmdExecuteCommands-pCommandBuffers-10624)VUID-vkCmdExecuteCommands-pCommandBuffers-10624  
+  If any element of `pCommandBuffers` was recorded with `VK_TILE_SHADING_RENDER_PASS_PER_TILE_EXECUTION_BIT_QCOM` included in [VkRenderPassTileShadingCreateInfoQCOM](https://registry.khronos.org/vulkan/specs/latest/man/html/VkRenderPassTileShadingCreateInfoQCOM.html)::`flags`, [per-tile execution model](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#renderpass-per-tile-execution-model) **must** be enabled
+- [](#VUID-vkCmdExecuteCommands-tileApronSize-10625)VUID-vkCmdExecuteCommands-tileApronSize-10625  
+  If this command is not being recorded into a render pass instance, the [VkRenderPassTileShadingCreateInfoQCOM](https://registry.khronos.org/vulkan/specs/latest/man/html/VkRenderPassTileShadingCreateInfoQCOM.html)::`tileApronSize` that was recorded into all elements of `pCommandBuffers` **must** equal `(0,0)`
 
 Valid Usage (Implicit)
 
-- <a href="#VUID-vkCmdExecuteCommands-commandBuffer-parameter"
-  id="VUID-vkCmdExecuteCommands-commandBuffer-parameter"></a>
-  VUID-vkCmdExecuteCommands-commandBuffer-parameter  
-  `commandBuffer` **must** be a valid
-  [VkCommandBuffer](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkCommandBuffer.html) handle
-
-- <a href="#VUID-vkCmdExecuteCommands-pCommandBuffers-parameter"
-  id="VUID-vkCmdExecuteCommands-pCommandBuffers-parameter"></a>
-  VUID-vkCmdExecuteCommands-pCommandBuffers-parameter  
-  `pCommandBuffers` **must** be a valid pointer to an array of
-  `commandBufferCount` valid [VkCommandBuffer](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkCommandBuffer.html)
-  handles
-
-- <a href="#VUID-vkCmdExecuteCommands-commandBuffer-recording"
-  id="VUID-vkCmdExecuteCommands-commandBuffer-recording"></a>
-  VUID-vkCmdExecuteCommands-commandBuffer-recording  
-  `commandBuffer` **must** be in the [recording
-  state](#commandbuffers-lifecycle)
-
-- <a href="#VUID-vkCmdExecuteCommands-commandBuffer-cmdpool"
-  id="VUID-vkCmdExecuteCommands-commandBuffer-cmdpool"></a>
-  VUID-vkCmdExecuteCommands-commandBuffer-cmdpool  
-  The `VkCommandPool` that `commandBuffer` was allocated from **must**
-  support transfer, graphics, or compute operations
-
-- <a href="#VUID-vkCmdExecuteCommands-videocoding"
-  id="VUID-vkCmdExecuteCommands-videocoding"></a>
-  VUID-vkCmdExecuteCommands-videocoding  
+- [](#VUID-vkCmdExecuteCommands-commandBuffer-parameter)VUID-vkCmdExecuteCommands-commandBuffer-parameter  
+  `commandBuffer` **must** be a valid [VkCommandBuffer](https://registry.khronos.org/vulkan/specs/latest/man/html/VkCommandBuffer.html) handle
+- [](#VUID-vkCmdExecuteCommands-pCommandBuffers-parameter)VUID-vkCmdExecuteCommands-pCommandBuffers-parameter  
+  `pCommandBuffers` **must** be a valid pointer to an array of `commandBufferCount` valid [VkCommandBuffer](https://registry.khronos.org/vulkan/specs/latest/man/html/VkCommandBuffer.html) handles
+- [](#VUID-vkCmdExecuteCommands-commandBuffer-recording)VUID-vkCmdExecuteCommands-commandBuffer-recording  
+  `commandBuffer` **must** be in the [recording state](#commandbuffers-lifecycle)
+- [](#VUID-vkCmdExecuteCommands-commandBuffer-cmdpool)VUID-vkCmdExecuteCommands-commandBuffer-cmdpool  
+  The `VkCommandPool` that `commandBuffer` was allocated from **must** support transfer, graphics, or compute operations
+- [](#VUID-vkCmdExecuteCommands-videocoding)VUID-vkCmdExecuteCommands-videocoding  
   This command **must** only be called outside of a video coding scope
-
-- <a href="#VUID-vkCmdExecuteCommands-commandBufferCount-arraylength"
-  id="VUID-vkCmdExecuteCommands-commandBufferCount-arraylength"></a>
-  VUID-vkCmdExecuteCommands-commandBufferCount-arraylength  
+- [](#VUID-vkCmdExecuteCommands-commandBufferCount-arraylength)VUID-vkCmdExecuteCommands-commandBufferCount-arraylength  
   `commandBufferCount` **must** be greater than `0`
-
-- <a href="#VUID-vkCmdExecuteCommands-commonparent"
-  id="VUID-vkCmdExecuteCommands-commonparent"></a>
-  VUID-vkCmdExecuteCommands-commonparent  
-  Both of `commandBuffer`, and the elements of `pCommandBuffers`
-  **must** have been created, allocated, or retrieved from the same
-  [VkDevice](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkDevice.html)
+- [](#VUID-vkCmdExecuteCommands-commonparent)VUID-vkCmdExecuteCommands-commonparent  
+  Both of `commandBuffer`, and the elements of `pCommandBuffers` **must** have been created, allocated, or retrieved from the same [VkDevice](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDevice.html)
 
 Host Synchronization
 
 - Host access to `commandBuffer` **must** be externally synchronized
-
-- Host access to the `VkCommandPool` that `commandBuffer` was allocated
-  from **must** be externally synchronized
+- Host access to the `VkCommandPool` that `commandBuffer` was allocated from **must** be externally synchronized
 
 Command Properties
 
-<table class="tableblock frame-all grid-all stretch">
-<colgroup>
-<col style="width: 20%" />
-<col style="width: 20%" />
-<col style="width: 20%" />
-<col style="width: 20%" />
-<col style="width: 20%" />
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-top"><a
-href="#VkCommandBufferLevel">Command Buffer Levels</a></th>
-<th class="tableblock halign-left valign-top"><a
-href="#vkCmdBeginRenderPass">Render Pass Scope</a></th>
-<th class="tableblock halign-left valign-top"><a
-href="#vkCmdBeginVideoCodingKHR">Video Coding Scope</a></th>
-<th class="tableblock halign-left valign-top"><a
-href="#VkQueueFlagBits">Supported Queue Types</a></th>
-<th class="tableblock halign-left valign-top"><a
-href="#fundamentals-queueoperation-command-types">Command Type</a></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p>Primary<br />
-Secondary</p></td>
-<td class="tableblock halign-left valign-top"><p>Both</p></td>
-<td class="tableblock halign-left valign-top"><p>Outside</p></td>
-<td class="tableblock halign-left valign-top"><p>Transfer<br />
-Graphics<br />
-Compute</p></td>
-<td class="tableblock halign-left valign-top"><p>Indirection</p></td>
-</tr>
-</tbody>
-</table>
+     [Command Buffer Levels](#VkCommandBufferLevel) [Render Pass Scope](#vkCmdBeginRenderPass) [Video Coding Scope](#vkCmdBeginVideoCodingKHR) [Supported Queue Types](#VkQueueFlagBits) [Command Type](#fundamentals-queueoperation-command-types)
 
-## <a href="#_see_also" class="anchor"></a>See Also
+Primary  
+Secondary
 
-[VK_VERSION_1_0](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_VERSION_1_0.html),
-[VkCommandBuffer](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkCommandBuffer.html)
+Both
 
-## <a href="#_document_notes" class="anchor"></a>Document Notes
+Outside
 
-For more information, see the <a
-href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#vkCmdExecuteCommands"
-target="_blank" rel="noopener">Vulkan Specification</a>
+Transfer  
+Graphics  
+Compute
 
-This page is extracted from the Vulkan Specification. Fixes and changes
-should be made to the Specification, not directly.
+Indirection
 
-## <a href="#_copyright" class="anchor"></a>Copyright
+## [](#_see_also)See Also
 
-Copyright 2014-2024 The Khronos Group Inc.
+[VK\_VERSION\_1\_0](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_VERSION_1_0.html), [VkCommandBuffer](https://registry.khronos.org/vulkan/specs/latest/man/html/VkCommandBuffer.html)
+
+## [](#_document_notes)Document Notes
+
+For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#vkCmdExecuteCommands)
+
+This page is extracted from the Vulkan Specification. Fixes and changes should be made to the Specification, not directly.
+
+## [](#_copyright)Copyright
+
+Copyright 2014-2025 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
-
-Version 1.3.290  
-Last updated 2024-07-11 23:39:16 -0700

@@ -6,12 +6,11 @@ vkGetMemoryFdKHR - Get a POSIX file descriptor for a memory object
 
 
 
-## <a href="#_c_specification" class="anchor"></a>C Specification
+## [](#_c_specification)C Specification
 
-To export a POSIX file descriptor referencing the payload of a Vulkan
-device memory object, call:
+To export a POSIX file descriptor referencing the payload of a Vulkan device memory object, call:
 
-``` c
+```c++
 // Provided by VK_KHR_external_memory_fd
 VkResult vkGetMemoryFdKHR(
     VkDevice                                    device,
@@ -19,77 +18,48 @@ VkResult vkGetMemoryFdKHR(
     int*                                        pFd);
 ```
 
-## <a href="#_parameters" class="anchor"></a>Parameters
+## [](#_parameters)Parameters
 
-- `device` is the logical device that created the device memory being
-  exported.
+- `device` is the logical device that created the device memory being exported.
+- `pGetFdInfo` is a pointer to a [VkMemoryGetFdInfoKHR](https://registry.khronos.org/vulkan/specs/latest/man/html/VkMemoryGetFdInfoKHR.html) structure containing parameters of the export operation.
+- `pFd` will return a file descriptor referencing the payload of the device memory object.
 
-- `pGetFdInfo` is a pointer to a
-  [VkMemoryGetFdInfoKHR](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkMemoryGetFdInfoKHR.html) structure containing
-  parameters of the export operation.
+## [](#_description)Description
 
-- `pFd` will return a file descriptor referencing the payload of the
-  device memory object.
-
-## <a href="#_description" class="anchor"></a>Description
-
-Each call to `vkGetMemoryFdKHR` **must** create a new file descriptor
-holding a reference to the memory object’s payload and transfer
-ownership of the file descriptor to the application. To avoid leaking
-resources, the application **must** release ownership of the file
-descriptor using the `close` system call when it is no longer needed, or
-by importing a Vulkan memory object from it. Where supported by the
-operating system, the implementation **must** set the file descriptor to
-be closed automatically when an `execve` system call is made.
+Each call to `vkGetMemoryFdKHR` **must** create a new file descriptor holding a reference to the memory object’s payload and transfer ownership of the file descriptor to the application. To avoid leaking resources, the application **must** release ownership of the file descriptor using the `close` system call when it is no longer needed, or by importing a Vulkan memory object from it. Where supported by the operating system, the implementation **must** set the file descriptor to be closed automatically when an `execve` system call is made.
 
 Valid Usage (Implicit)
 
-- <a href="#VUID-vkGetMemoryFdKHR-device-parameter"
-  id="VUID-vkGetMemoryFdKHR-device-parameter"></a>
-  VUID-vkGetMemoryFdKHR-device-parameter  
-  `device` **must** be a valid [VkDevice](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkDevice.html) handle
-
-- <a href="#VUID-vkGetMemoryFdKHR-pGetFdInfo-parameter"
-  id="VUID-vkGetMemoryFdKHR-pGetFdInfo-parameter"></a>
-  VUID-vkGetMemoryFdKHR-pGetFdInfo-parameter  
-  `pGetFdInfo` **must** be a valid pointer to a valid
-  [VkMemoryGetFdInfoKHR](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkMemoryGetFdInfoKHR.html) structure
-
-- <a href="#VUID-vkGetMemoryFdKHR-pFd-parameter"
-  id="VUID-vkGetMemoryFdKHR-pFd-parameter"></a>
-  VUID-vkGetMemoryFdKHR-pFd-parameter  
+- [](#VUID-vkGetMemoryFdKHR-device-parameter)VUID-vkGetMemoryFdKHR-device-parameter  
+  `device` **must** be a valid [VkDevice](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDevice.html) handle
+- [](#VUID-vkGetMemoryFdKHR-pGetFdInfo-parameter)VUID-vkGetMemoryFdKHR-pGetFdInfo-parameter  
+  `pGetFdInfo` **must** be a valid pointer to a valid [VkMemoryGetFdInfoKHR](https://registry.khronos.org/vulkan/specs/latest/man/html/VkMemoryGetFdInfoKHR.html) structure
+- [](#VUID-vkGetMemoryFdKHR-pFd-parameter)VUID-vkGetMemoryFdKHR-pFd-parameter  
   `pFd` **must** be a valid pointer to an `int` value
 
 Return Codes
 
-On success, this command returns  
+On success, this command returns
+
 - `VK_SUCCESS`
 
-On failure, this command returns  
-- `VK_ERROR_TOO_MANY_OBJECTS`
+On failure, this command returns
 
+- `VK_ERROR_TOO_MANY_OBJECTS`
 - `VK_ERROR_OUT_OF_HOST_MEMORY`
 
-## <a href="#_see_also" class="anchor"></a>See Also
+## [](#_see_also)See Also
 
-[VK_KHR_external_memory_fd](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_KHR_external_memory_fd.html),
-[VkDevice](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkDevice.html),
-[VkMemoryGetFdInfoKHR](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkMemoryGetFdInfoKHR.html)
+[VK\_KHR\_external\_memory\_fd](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_KHR_external_memory_fd.html), [VkDevice](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDevice.html), [VkMemoryGetFdInfoKHR](https://registry.khronos.org/vulkan/specs/latest/man/html/VkMemoryGetFdInfoKHR.html)
 
-## <a href="#_document_notes" class="anchor"></a>Document Notes
+## [](#_document_notes)Document Notes
 
-For more information, see the <a
-href="https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#vkGetMemoryFdKHR"
-target="_blank" rel="noopener">Vulkan Specification</a>
+For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#vkGetMemoryFdKHR)
 
-This page is extracted from the Vulkan Specification. Fixes and changes
-should be made to the Specification, not directly.
+This page is extracted from the Vulkan Specification. Fixes and changes should be made to the Specification, not directly.
 
-## <a href="#_copyright" class="anchor"></a>Copyright
+## [](#_copyright)Copyright
 
-Copyright 2014-2024 The Khronos Group Inc.
+Copyright 2014-2025 The Khronos Group Inc.
 
 SPDX-License-Identifier: CC-BY-4.0
-
-Version 1.3.290  
-Last updated 2024-07-11 23:39:16 -0700
