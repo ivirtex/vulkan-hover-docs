@@ -11,6 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     outputs:
       should_run_gen: ${{ steps.sha_compare.outputs.should_run_gen }}
+      latest_commit: ${{ steps.sha_compare.outputs.latest_commit }}
     steps:
       - name: Checkout Vulkan-Docs repository
         uses: actions/checkout@v4
@@ -33,7 +34,7 @@ jobs:
           if [ "$last_commit" != "$latest_commit" ]; then
             echo "New Vulkan-Docs commit found: $latest_commit"
             echo "should_run_gen=true" >> $GITHUB_OUTPUT
-            echo "$latest_commit" > vscode_extension/docs/.last_update
+            echo "latest_commit=$latest_commit" >> $GITHUB_OUTPUT
           else
             echo "No new Vulkan-Docs commit found."
             echo "should_run_gen=false" >> $GITHUB_OUTPUT
@@ -44,6 +45,8 @@ jobs:
     runs-on: ubuntu-latest
     needs: check_for_updates
     if: needs.check_for_updates.outputs.should_run_gen == 'true'
+    env:
+      latest_commit: ${{ needs.check_for_updates.outputs.latest_commit }}
     steps:
       - name: Checkout docs_generator repository
         uses: actions/checkout@v4
@@ -66,6 +69,9 @@ jobs:
         run: docs_generator generate \
           --url https://registry.khronos.org/vulkan/specs/latest/man/html/ \
           --path vscode_extension/docs
+
+      - name: Save latest commit SHA
+        run: echo "${{ env.latest_commit }}" > vscode_extension/docs/.last_update
 
       - name: Create pull request
         run: gh pr create \
