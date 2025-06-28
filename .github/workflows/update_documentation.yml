@@ -76,6 +76,14 @@ jobs:
       - name: Save latest commit SHA
         run: echo "${{ env.LATEST_COMMIT }}" > vscode_extension/docs/.last_update
 
+      - name: Commit changes
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email 'github-actions[bot]@users.noreply.github.com'
+          git switch -b update-vulkan-docs
+          git add .
+          git commit -m "Update Vulkan documentation to SHA ${{ env.LATEST_COMMIT }}"
+
       - name: Create pull request
         run: gh pr create
           --title "Update Vulkan documentation to SHA ${{ github.env.LATEST_COMMIT }}"
