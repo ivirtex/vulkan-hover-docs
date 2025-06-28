@@ -57,6 +57,9 @@ jobs:
 
       - name: Setup Go
         uses: actions/setup-go@v5
+        with:
+          go-version: '1.24.4'
+          cache-dependency-path: docs_generator/go.sum
 
       - name: Install dependencies
         run: go get .
