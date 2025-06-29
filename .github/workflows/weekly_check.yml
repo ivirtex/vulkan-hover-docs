@@ -135,6 +135,13 @@ jobs:
           git commit -m "Update Vulkan documentation to version $LATEST_VERSION" || echo "No changes to commit"
           git push origin update-vulkan-docs --force
 
+      - name: Close stale pull requests
+        run: |
+          gh pr list --state open --label documentation | while read -r pr; do
+            pr_number=$(echo "$pr" | awk '{print $1}')
+            gh pr close "$pr_number" --comment "Closing stale pull request."
+          done
+
       - name: Create pull request
         run: gh pr create
           --title "Update Vulkan documentation to version $LATEST_VERSION"
