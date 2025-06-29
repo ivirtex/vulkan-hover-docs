@@ -21,7 +21,7 @@ jobs:
         name: Extract latest spec version
         run: |
           latest_version=$(grep -oP 'Vulkan \d+\.\d+\.\d+' ChangeLog.adoc | head -1 | awk '{print $2}')
-          echo "latest_version=$latest_version" >> $GITHUB_OUTPUT
+          echo "LATEST_VERSION=$latest_version" >> $GITHUB_OUTPUT
           echo "Latest Vulkan spec version: $latest_version"
 
       - name: Checkout current repository
@@ -29,20 +29,21 @@ jobs:
       
       - id: version_compare
         name: Compare with stored version
+        env: 
+          LATEST_VERSION: ${{ steps.extract_spec_version.outputs.LATEST_VERSION }}
         run: |
           if [ -f vscode_extension/docs/.last_update ]; then
-            last_version=$(cat vscode_extension/docs/.last_update)
+            LAST_VERSION=$(cat vscode_extension/docs/.last_update)
           else
-            last_version=""
+            LAST_VERSION=""
           fi
 
-          echo "Last stored version: $last_version"
-          echo "Latest version: $latest_version"
+          echo "Last stored version: $LAST_VERSION"
+          echo "Latest version: $LATEST_VERSION"
 
-          if [ "$last_version" != "$latest_version" ]; then
-            echo "New Vulkan spec version found: $latest_version"
+          if [ "$LAST_VERSION" != "$LATEST_VERSION" ]; then
+            echo "Current Vulkan spec version is different from the last stored version."
             echo "should_run_gen=true" >> $GITHUB_OUTPUT
-            echo "latest_version=$latest_version" >> $GITHUB_OUTPUT
           else
             echo "No new Vulkan spec version found."
             echo "should_run_gen=false" >> $GITHUB_OUTPUT
@@ -104,7 +105,7 @@ jobs:
         run: ./docs_generator/docs_generator generate https://registry.khronos.org/vulkan/specs/latest/man/html/ --path vscode_extension/docs
 
       - name: Save latest spec version
-        run: echo "${{ env.LATEST_VERSION }}" > vscode_extension/docs/.last_update
+        run: echo $LATEST_VERSION > vscode_extension/docs/.last_update
 
       - name: Bump version in package.json
         run: |
@@ -114,8 +115,9 @@ jobs:
 
       - name: Update CHANGELOG.md
         run: |
+          cd vscode_extension
           echo "## $(jq -r .version package.json) - $(date '+%Y-%m-%d')" >> CHANGELOG.md
-          echo "- Updated documentation to version ${{ env.LATEST_VERSION }}" >> CHANGELOG.md
+          echo "- Updated documentation to version $LATEST_VERSION" >> CHANGELOG.md
 
       - name: Commit changes
         run: |
@@ -123,13 +125,13 @@ jobs:
           git config user.email 'github-actions[bot]@users.noreply.github.com'
           git switch -c update-vulkan-docs
           git add --all
-          git commit -m "Update Vulkan documentation to version ${{ env.LATEST_VERSION }}" || echo "No changes to commit"
+          git commit -m "Update Vulkan documentation to version $LATEST_VERSION" || echo "No changes to commit"
           git push origin update-vulkan-docs --force
 
       - name: Create pull request
         run: gh pr create
-          --title "Update Vulkan documentation to version ${{ env.LATEST_VERSION }}"
-          --body "This PR automically updates the Vulkan documentation to version ${{ env.LATEST_VERSION }}. 
+          --title "Update Vulkan documentation to version $LATEST_VERSION"
+          --body "This PR automically updates the Vulkan documentation to version $LATEST_VERSION. 
           --base master
           --head update-vulkan-docs
           --label "documentation"
