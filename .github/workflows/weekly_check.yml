@@ -97,6 +97,9 @@ jobs:
           name: docs_generator_binary
           path: docs_generator
 
+      - name: Make docs_generator executable
+        run: chmod +x docs_generator/docs_generator
+
       - name: Run docs_generator
         run: ./docs_generator/docs_generator generate https://registry.khronos.org/vulkan/specs/latest/man/html/ --path vscode_extension/docs
 
