@@ -23,6 +23,9 @@ jobs:
           latest_version=$(grep -oP 'Vulkan \d+\.\d+\.\d+' ChangeLog.adoc | head -1 | awk '{print $2}')
           echo "latest_version=$latest_version" >> $GITHUB_OUTPUT
           echo "Latest Vulkan spec version: $latest_version"
+
+      - name: Checkout current repository
+        uses: actions/checkout@v4
       
       - id: version_compare
         name: Compare with stored version
