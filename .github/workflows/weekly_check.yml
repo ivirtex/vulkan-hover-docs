@@ -6,7 +6,7 @@ on:
 
 jobs:
   check_for_updates:
-    name: Check for Vulkan-Docs updates
+    name: Check for Vulkan spec updates
     runs-on: ubuntu-latest
     outputs:
       should_run_gen: ${{ steps.sha_compare.outputs.should_run_gen }}
@@ -22,6 +22,7 @@ jobs:
         run: |
           latest_version=$(grep -oP 'Vulkan \d+\.\d+\.\d+' ChangeLog.adoc | head -1 | awk '{print $2}')
           echo "latest_version=$latest_version" >> $GITHUB_OUTPUT
+          echo "Latest Vulkan spec version: $latest_version"
       
       - id: version_compare
         name: Compare with stored version
@@ -87,7 +88,7 @@ jobs:
       - name: Run docs_generator
         run: docs_generator generate https://registry.khronos.org/vulkan/specs/latest/man/html/ --path vscode_extension/docs
 
-      - name: Save latest commit SHA
+      - name: Save latest spec version
         run: echo "${{ env.LATEST_VERSION }}" > vscode_extension/docs/.last_update
 
       - name: Bump version in package.json
