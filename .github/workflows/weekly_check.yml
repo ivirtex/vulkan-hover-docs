@@ -57,8 +57,7 @@ jobs:
     needs: check_for_updates
     if: needs.check_for_updates.outputs.should_run_gen == 'true'
     steps:
-      - name: Checkout docs_generator repository
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
 
       - name: Setup Go
         uses: actions/setup-go@v5
@@ -75,8 +74,8 @@ jobs:
       - name: Upload docs_generator binary
         uses: actions/upload-artifact@v4
         with:
-          name: docs_generator
-          path: docs_generator
+          name: docs_generator executable
+          path: docs_generator/docs_generator
         
   run_docs_generator:
     name: Run docs_generator and commit changes
@@ -98,7 +97,7 @@ jobs:
       - name: Download docs_generator binary
         uses: actions/download-artifact@v4
         with:
-          name: docs_generator
+          name: docs_generator executable
 
       - name: Run docs_generator
         run: docs_generator generate https://registry.khronos.org/vulkan/specs/latest/man/html/ --path vscode_extension/docs
