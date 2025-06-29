@@ -47,15 +47,18 @@ jobs:
             echo "No new Vulkan spec version found."
             echo "should_run_gen=false" >> $GITHUB_OUTPUT
           fi
-
-  build_docs_generator:
-    name: Build docs_generator
+        
+  run_docs_generator:
+    name: Run docs_generator and commit changes
     runs-on: ubuntu-latest
+    permissions:
+      contents: write  # Allow writing to the repository
+      pull-requests: write  # Allow creating pull requests
     needs: check_for_updates
     if: needs.check_for_updates.outputs.should_run_gen == 'true'
-    defaults:
-      run:
-        working-directory: docs_generator
+    env:
+      LATEST_VERSION: ${{ needs.check_for_updates.outputs.latest_version }}
+      GH_TOKEN: ${{ github.token }}
     steps:
       - name: Checkout docs_generator repository
         uses: actions/checkout@v4
@@ -70,32 +73,17 @@ jobs:
 
       - name: Build docs_generator
         run: go install
-        
-  run_docs_generator:
-    name: Run docs_generator and commit changes
-    runs-on: ubuntu-latest
-    permissions:
-      contents: write  # Allow writing to the repository
-      pull-requests: write  # Allow creating pull requests
-    needs: [check_for_updates, build_docs_generator]
-    if: needs.check_for_updates.outputs.should_run_gen == 'true'
-    env:
-      LATEST_VERSION: ${{ needs.check_for_updates.outputs.latest_version }}
-      GH_TOKEN: ${{ github.token }}
-    steps:
-      - name: Checkout docs_generator repository
-        uses: actions/checkout@v4
-
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: '20'
 
       - name: Run docs_generator
         run: docs_generator generate https://registry.khronos.org/vulkan/specs/latest/man/html/ --path vscode_extension/docs
 
       - name: Save latest spec version
         run: echo "${{ env.LATEST_VERSION }}" > vscode_extension/docs/.last_update
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
 
       - name: Bump version in package.json
         run: |
@@ -106,8 +94,7 @@ jobs:
       - name: Update CHANGELOG.md
         run: |
           echo "## $(jq -r .version package.json) - $(date '+%Y-%m-%d')" >> CHANGELOG.md
-          git log -1 --pretty=format:"- %s" >> CHANGELOG.md
-          echo "" >> CHANGELOG.md
+          echo "- Updated documentation to version ${{ env.LATEST_VERSION }}" >> CHANGELOG.md
 
       - name: Commit changes
         run: |
