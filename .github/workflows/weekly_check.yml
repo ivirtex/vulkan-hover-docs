@@ -82,7 +82,7 @@ jobs:
     permissions:
       contents: write  # Allow writing to the repository
       pull-requests: write  # Allow creating pull requests
-    needs: check_for_updates
+    needs: [check_for_updates, build_docs_generator]
     if: needs.check_for_updates.outputs.should_run_gen == 'true'
     env:
       LATEST_VERSION: ${{ needs.check_for_updates.outputs.latest_version }}
