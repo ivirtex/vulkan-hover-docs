@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     outputs:
       should_run_gen: ${{ steps.version_compare.outputs.should_run_gen }}
-      latest_version: ${{ steps.version_compare.outputs.latest_version }}
+      latest_version: ${{ steps.extract_spec_version.outputs.latest_version }}
     steps:
       - name: Checkout Vulkan-Docs repository
         uses: actions/checkout@v4
@@ -22,7 +22,7 @@ jobs:
         run: |
           latest_version=$(grep -oP 'Vulkan \d+\.\d+\.\d+' ChangeLog.adoc | head -1 | awk '{print $2}')
           echo "LATEST_VERSION=$latest_version" >> $GITHUB_OUTPUT
-          echo "Latest Vulkan spec version: $latest_version"
+          echo "Latest Vulkan spec version: $LATEST_VERSION"
 
       - name: Checkout current repository
         uses: actions/checkout@v4
@@ -104,20 +104,27 @@ jobs:
       - name: Run docs_generator
         run: ./docs_generator/docs_generator generate https://registry.khronos.org/vulkan/specs/latest/man/html/ --path vscode_extension/docs
 
+      - name: Delete docs_generator binary
+        run: rm -r docs_generator
+
       - name: Save latest spec version
         run: echo $LATEST_VERSION > vscode_extension/docs/.last_update
 
       - name: Bump version in package.json
         run: |
           cd vscode_extension
-          npm version patch --no-git-tag-version
+          npm version minor --no-git-tag-version
           echo "New version: $(jq -r .version package.json)"
 
       - name: Update CHANGELOG.md
         run: |
           cd vscode_extension
-          echo "## $(jq -r .version package.json) - $(date '+%Y-%m-%d')" >> CHANGELOG.md
-          echo "- Updated documentation to version $LATEST_VERSION" >> CHANGELOG.md
+          version=$(jq -r .version package.json)
+          date=$(date '+%Y-%m-%d')
+          changelog="- Updated documentation to version $LATEST_VERSION"
+          tmpfile=$(mktemp)
+          { head -n 1 CHANGELOG.md; echo "## $version - $date"; echo "$changelog"; tail -n +2 CHANGELOG.md; } > "$tmpfile"
+          mv "$tmpfile" CHANGELOG.md
 
       - name: Commit changes
         run: |
