@@ -47,18 +47,15 @@ jobs:
             echo "No new Vulkan spec version found."
             echo "should_run_gen=false" >> $GITHUB_OUTPUT
           fi
-        
-  run_docs_generator:
-    name: Run docs_generator and commit changes
+
+  build_docs_generator:
+    name: Build docs_generator
     runs-on: ubuntu-latest
-    permissions:
-      contents: write  # Allow writing to the repository
-      pull-requests: write  # Allow creating pull requests
+    defaults:
+      run:
+        working-directory: docs_generator
     needs: check_for_updates
     if: needs.check_for_updates.outputs.should_run_gen == 'true'
-    env:
-      LATEST_VERSION: ${{ needs.check_for_updates.outputs.latest_version }}
-      GH_TOKEN: ${{ github.token }}
     steps:
       - name: Checkout docs_generator repository
         uses: actions/checkout@v4
@@ -72,18 +69,40 @@ jobs:
         run: go get .
 
       - name: Build docs_generator
-        run: go install
+        run: go build -o docs_generator
+
+      - name: Upload docs_generator binary
+        uses: actions/upload-artifact@v4
+        with:
+          name: docs_generator
+        
+  run_docs_generator:
+    name: Run docs_generator and commit changes
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write  # Allow writing to the repository
+      pull-requests: write  # Allow creating pull requests
+    needs: check_for_updates
+    if: needs.check_for_updates.outputs.should_run_gen == 'true'
+    env:
+      LATEST_VERSION: ${{ needs.check_for_updates.outputs.latest_version }}
+      GH_TOKEN: ${{ github.token }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Download docs_generator binary
+        uses: actions/download-artifact@v4
+        with:
+          name: docs_generator
 
       - name: Run docs_generator
         run: docs_generator generate https://registry.khronos.org/vulkan/specs/latest/man/html/ --path vscode_extension/docs
 
       - name: Save latest spec version
         run: echo "${{ env.LATEST_VERSION }}" > vscode_extension/docs/.last_update
-
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: '20'
 
       - name: Bump version in package.json
         run: |
