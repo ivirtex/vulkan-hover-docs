@@ -105,7 +105,7 @@ jobs:
         run: ./docs_generator/docs_generator generate https://registry.khronos.org/vulkan/specs/latest/man/html/ --path vscode_extension/docs
 
       - name: Delete docs_generator binary
-        run: rm -r docs_generator
+        run: rm docs_generator/docs_generator
 
       - name: Save latest spec version
         run: echo $LATEST_VERSION > vscode_extension/docs/.last_update
