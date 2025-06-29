@@ -98,7 +98,7 @@ jobs:
           path: docs_generator
 
       - name: Run docs_generator
-        run: docs_generator generate https://registry.khronos.org/vulkan/specs/latest/man/html/ --path vscode_extension/docs
+        run: ./docs_generator/docs_generator generate https://registry.khronos.org/vulkan/specs/latest/man/html/ --path vscode_extension/docs
 
       - name: Save latest spec version
         run: echo "${{ env.LATEST_VERSION }}" > vscode_extension/docs/.last_update
