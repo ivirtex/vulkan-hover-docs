@@ -123,7 +123,7 @@ jobs:
           date=$(date '+%Y-%m-%d')
           changelog="- Updated documentation to version $LATEST_VERSION"
           tmpfile=$(mktemp)
-          { head -n 1 CHANGELOG.md; echo "## $version - $date"; echo "$changelog"; tail -n +2 CHANGELOG.md; } > "$tmpfile"
+          { head -n 1 CHANGELOG.md; echo -e "\n## $version - $date\n"; echo "$changelog"; tail -n +2 CHANGELOG.md; } > "$tmpfile"
           mv "$tmpfile" CHANGELOG.md
 
       - name: Commit changes
@@ -138,7 +138,7 @@ jobs:
       - name: Create pull request
         run: gh pr create
           --title "Update Vulkan documentation to version $LATEST_VERSION"
-          --body "This PR automically updates the Vulkan documentation to version $LATEST_VERSION."
+          --body "This PR updates the Vulkan documentation to version $LATEST_VERSION."
           --base master
           --head update-vulkan-docs
           --label "documentation"
