@@ -95,7 +95,7 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           name: docs_generator_binary
-          path: .
+          path: docs_generator
 
       - name: Run docs_generator
         run: docs_generator generate https://registry.khronos.org/vulkan/specs/latest/man/html/ --path vscode_extension/docs
