@@ -131,7 +131,7 @@ jobs:
       - name: Create pull request
         run: gh pr create
           --title "Update Vulkan documentation to version $LATEST_VERSION"
-          --body "This PR automically updates the Vulkan documentation to version $LATEST_VERSION. 
+          --body "This PR automically updates the Vulkan documentation to version $LATEST_VERSION."
           --base master
           --head update-vulkan-docs
           --label "documentation"
