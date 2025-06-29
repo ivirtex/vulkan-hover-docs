@@ -9,8 +9,8 @@ jobs:
     name: Check for Vulkan spec updates
     runs-on: ubuntu-latest
     outputs:
-      should_run_gen: ${{ steps.sha_compare.outputs.should_run_gen }}
-      latest_version: ${{ steps.sha_compare.outputs.latest_version }}
+      should_run_gen: ${{ steps.version_compare.outputs.should_run_gen }}
+      latest_version: ${{ steps.version_compare.outputs.latest_version }}
     steps:
       - name: Checkout Vulkan-Docs repository
         uses: actions/checkout@v4
@@ -32,6 +32,9 @@ jobs:
           else
             last_version=""
           fi
+
+          echo "Last stored version: $last_version"
+          echo "Latest version: $latest_version"
 
           if [ "$last_version" != "$latest_version" ]; then
             echo "New Vulkan spec version found: $latest_version"
