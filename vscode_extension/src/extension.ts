@@ -7,16 +7,17 @@ import path from 'path';
 
 import { HoverProvider } from './hover_provider';
 
-const manPagesDir = "vulkan_man_md_pages";
+const manPagesDir = "docs";
 
 export function activate(context: vscode.ExtensionContext) {
 	let manPagesPath = path.join(context.extensionPath, manPagesDir);
-
 	let symbolToManPagePath = createSymbolToManPagePathMap(manPagesPath);
 
 	let hoverProvider = vscode.languages.registerHoverProvider(['cpp', 'c'], new HoverProvider(symbolToManPagePath));
 
 	context.subscriptions.push(hoverProvider);
+
+	console.log('[Vulkan Hover Docs] Extension activated.');
 }
 
 export function createSymbolToManPagePathMap(dirPath: string): Map<string, string> {
