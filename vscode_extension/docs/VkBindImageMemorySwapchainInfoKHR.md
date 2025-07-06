@@ -40,7 +40,7 @@ Valid Usage
 - [](#VUID-VkBindImageMemorySwapchainInfoKHR-imageIndex-01644)VUID-VkBindImageMemorySwapchainInfoKHR-imageIndex-01644  
   `imageIndex` **must** be less than the number of images in `swapchain`
 - [](#VUID-VkBindImageMemorySwapchainInfoKHR-swapchain-07756)VUID-VkBindImageMemorySwapchainInfoKHR-swapchain-07756  
-  If the `swapchain` has been created with `VK_SWAPCHAIN_CREATE_DEFERRED_MEMORY_ALLOCATION_BIT_EXT`, `imageIndex` **must** be one that has previously been returned by [vkAcquireNextImageKHR](https://registry.khronos.org/vulkan/specs/latest/man/html/vkAcquireNextImageKHR.html) or [vkAcquireNextImage2KHR](https://registry.khronos.org/vulkan/specs/latest/man/html/vkAcquireNextImage2KHR.html)
+  If the `swapchain` has been created with `VK_SWAPCHAIN_CREATE_DEFERRED_MEMORY_ALLOCATION_BIT_KHR`, `imageIndex` **must** be one that has previously been returned by [vkAcquireNextImageKHR](https://registry.khronos.org/vulkan/specs/latest/man/html/vkAcquireNextImageKHR.html) or [vkAcquireNextImage2KHR](https://registry.khronos.org/vulkan/specs/latest/man/html/vkAcquireNextImage2KHR.html)
 
 Valid Usage (Implicit)
 

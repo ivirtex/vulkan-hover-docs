@@ -43,7 +43,7 @@ Valid Usage (Implicit)
 - [](#VUID-VkPhysicalDeviceSurfaceInfo2KHR-sType-sType)VUID-VkPhysicalDeviceSurfaceInfo2KHR-sType-sType  
   `sType` **must** be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SURFACE_INFO_2_KHR`
 - [](#VUID-VkPhysicalDeviceSurfaceInfo2KHR-pNext-pNext)VUID-VkPhysicalDeviceSurfaceInfo2KHR-pNext-pNext  
-  Each `pNext` member of any structure (including this one) in the `pNext` chain **must** be either `NULL` or a pointer to a valid instance of [VkSurfaceFullScreenExclusiveInfoEXT](https://registry.khronos.org/vulkan/specs/latest/man/html/VkSurfaceFullScreenExclusiveInfoEXT.html), [VkSurfaceFullScreenExclusiveWin32InfoEXT](https://registry.khronos.org/vulkan/specs/latest/man/html/VkSurfaceFullScreenExclusiveWin32InfoEXT.html), or [VkSurfacePresentModeEXT](https://registry.khronos.org/vulkan/specs/latest/man/html/VkSurfacePresentModeEXT.html)
+  Each `pNext` member of any structure (including this one) in the `pNext` chain **must** be either `NULL` or a pointer to a valid instance of [VkSurfaceFullScreenExclusiveInfoEXT](https://registry.khronos.org/vulkan/specs/latest/man/html/VkSurfaceFullScreenExclusiveInfoEXT.html), [VkSurfaceFullScreenExclusiveWin32InfoEXT](https://registry.khronos.org/vulkan/specs/latest/man/html/VkSurfaceFullScreenExclusiveWin32InfoEXT.html), or [VkSurfacePresentModeKHR](https://registry.khronos.org/vulkan/specs/latest/man/html/VkSurfacePresentModeKHR.html)
 - [](#VUID-VkPhysicalDeviceSurfaceInfo2KHR-sType-unique)VUID-VkPhysicalDeviceSurfaceInfo2KHR-sType-unique  
   The `sType` value of each structure in the `pNext` chain **must** be unique
 

@@ -28,6 +28,10 @@ and
      or  
      [Vulkan Version 1.1](#versions-1.1)
 
+## [](#_deprecation_state)Deprecation State
+
+- *Promoted* to [VK\_KHR\_swapchain\_maintenance1](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_KHR_swapchain_maintenance1.html) extension
+
 ## [](#_contact)Contact
 
 - Shahbaz Youssefi [\[GitHub\]syoussefi](https://github.com/KhronosGroup/Vulkan-Docs/issues/new?body=%5BVK_EXT_swapchain_maintenance1%5D%20%40syoussefi%0A%2AHere%20describe%20the%20issue%20or%20question%20you%20have%20about%20the%20VK_EXT_swapchain_maintenance1%20extension%2A)
@@ -40,10 +44,15 @@ and
 
 **Last Modified Date**
 
-2022-10-28
+2022-12-16
+
+**Interactions and External Dependencies**
+
+- Promoted to `VK_KHR_swapchain_maintenance1`
 
 **Contributors**
 
+- James Jones, NVIDIA
 - Jeff Juliano, NVIDIA
 - Shahbaz Youssefi, Google
 - Chris Forbes, Google
@@ -73,6 +82,10 @@ The new features are as follows:
 - Allow applications to define the behavior when presenting a swapchain image to a surface with different dimensions than the image. Using this feature **may** allow implementations to avoid returning `VK_ERROR_OUT_OF_DATE_KHR` in this situation.
 - Allow applications to defer swapchain memory allocation for improved startup time and memory footprint.
 - Allow applications to release previously acquired images without presenting them.
+
+## [](#_promotion_to_vk_khr_swapchain_maintenance1)Promotion to `VK_KHR_swapchain_maintenance1`
+
+All functionality in this extension is included in `VK_KHR_swapchain_maintenance1`, with the suffix changed to KHR. The original type, enum and command names are still available as aliases of the KHR functionality.
 
 ## [](#_new_commands)New Commands
 
@@ -111,7 +124,7 @@ The new features are as follows:
 
 ## [](#_version_history)Version History
 
-- Revision 0, 2019-05-28
+- Revision 0, 2019-05-28 (James Jones)
   
   - Initial revisions
 - Revision 1, 2022-08-21 (Shahbaz Youssefi)

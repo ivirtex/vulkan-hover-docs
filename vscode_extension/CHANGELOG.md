@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.2.0 - 2025-07-06
+
+- Updated documentation to version 1.4.321
+
 ## 1.1.1 - 2025-07-05
 
 - Fixed hover not working

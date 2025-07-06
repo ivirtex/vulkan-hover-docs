@@ -16,7 +16,7 @@ VK\_EXT\_pipeline\_protected\_access - device extension
 
 ## [](#_ratification_status)Ratification Status
 
-Not ratified
+Ratified
 
 ## [](#_extension_and_version_dependencies)Extension and Version Dependencies
 

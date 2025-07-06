@@ -16,7 +16,7 @@ The `VkCommandBufferInheritanceRenderPassTransformInfoQCOM` structure is defined
 // Provided by VK_QCOM_render_pass_transform
 typedef struct VkCommandBufferInheritanceRenderPassTransformInfoQCOM {
     VkStructureType                  sType;
-    void*                            pNext;
+    const void*                      pNext;
     VkSurfaceTransformFlagBitsKHR    transform;
     VkRect2D                         renderArea;
 } VkCommandBufferInheritanceRenderPassTransformInfoQCOM;

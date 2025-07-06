@@ -24,6 +24,10 @@ Ratified
 and  
 [VK\_KHR\_get\_surface\_capabilities2](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_KHR_get_surface_capabilities2.html)
 
+## [](#_deprecation_state)Deprecation State
+
+- *Promoted* to [VK\_KHR\_surface\_maintenance1](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_KHR_surface_maintenance1.html) extension
+
 ## [](#_contact)Contact
 
 - Shahbaz Youssefi [\[GitHub\]syoussefi](https://github.com/KhronosGroup/Vulkan-Docs/issues/new?body=%5BVK_EXT_surface_maintenance1%5D%20%40syoussefi%0A%2AHere%20describe%20the%20issue%20or%20question%20you%20have%20about%20the%20VK_EXT_surface_maintenance1%20extension%2A)
@@ -36,10 +40,15 @@ and
 
 **Last Modified Date**
 
-2022-11-09
+2022-12-16
+
+**Interactions and External Dependencies**
+
+- Promoted to `VK_KHR_surface_maintenance1`
 
 **Contributors**
 
+- James Jones, NVIDIA
 - Jeff Juliano, NVIDIA
 - Lionel Landwerlin, Intel
 - Shahbaz Youssefi, Google
@@ -57,6 +66,10 @@ The new features are as follows:
 - Allow querying number of min/max images from a surface for a particular presentation mode.
 - Allow querying a surface’s scaled presentation capabilities.
 - Allow querying a surface for the set of presentation modes which can be easily switched between without requiring swapchain recreation.
+
+## [](#_promotion_to_vk_khr_surface_maintenance1)Promotion to `VK_KHR_surface_maintenance1`
+
+All functionality in this extension is included in `VK_KHR_surface_maintenance1`, with the suffix changed to KHR. The original type, enum and command names are still available as aliases of the KHR functionality.
 
 ## [](#_new_structures)New Structures
 
@@ -91,6 +104,9 @@ The new features are as follows:
 ## [](#_version_history)Version History
 
 - Revision 0, 2019-02-27 (Lionel Landwerlin)
+  
+  - Internal revisions
+- Revision 0, 2020-06-15 (James Jones)
   
   - Internal revisions
 - Revision 1, 2022-11-09 (Shahbaz Youssefi)

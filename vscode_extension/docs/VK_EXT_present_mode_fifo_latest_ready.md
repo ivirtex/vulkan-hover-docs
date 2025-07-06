@@ -22,6 +22,10 @@ Ratified
 
 [VK\_KHR\_swapchain](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_KHR_swapchain.html)
 
+## [](#_deprecation_state)Deprecation State
+
+- *Promoted* to [VK\_KHR\_present\_mode\_fifo\_latest\_ready](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_KHR_present_mode_fifo_latest_ready.html) extension
+
 ## [](#_contact)Contact
 
 - Lionel Duc [\[GitHub\]nvlduc](https://github.com/KhronosGroup/Vulkan-Docs/issues/new?body=%5BVK_EXT_present_mode_fifo_latest_ready%5D%20%40nvlduc%0A%2AHere%20describe%20the%20issue%20or%20question%20you%20have%20about%20the%20VK_EXT_present_mode_fifo_latest_ready%20extension%2A)
@@ -54,6 +58,10 @@ This tear-free present mode behaves much like `VK_PRESENT_MODE_FIFO_KHR`, except
 While this seems similar in concept to `VK_PRESENT_MODE_MAILBOX_KHR`, the fundamental difference is that the processing of the present requests is done during vblank. From the application perspective, this means for example, that in a flip-based model, a single vblank **may** cause multiple swapchain images to be released at once, while `VK_PRESENT_MODE_MAILBOX_KHR` **may** continuously be releasing images as new requests become ready.
 
 This additional present mode is useful when using a time-based present API.
+
+## [](#_promotion_to_vk_khr_present_mode_fifo_latest_ready)Promotion to `VK_KHR_present_mode_fifo_latest_ready`
+
+All functionality in this extension is included in `VK_KHR_present_mode_fifo_latest_ready`, with the suffix changed to KHR. The original type and enum names are still available as aliases of the KHR names.
 
 ## [](#_new_structures)New Structures
 

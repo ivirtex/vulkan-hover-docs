@@ -8,7 +8,7 @@ vkGetBufferDeviceAddress - Query an address of a buffer
 
 ## [](#_c_specification)C Specification
 
-To query a 64-bit buffer device address value through which buffer memory **can** be accessed in a shader, call:
+To query a 64-bit buffer device address value which can be used to identify a buffer to API commands or through which buffer memory **can** be accessed, call:
 
 ```c++
 // Provided by VK_VERSION_1_2
@@ -42,7 +42,9 @@ VkDeviceAddress vkGetBufferDeviceAddressEXT(
 
 ## [](#_description)Description
 
-The 64-bit return value is an address of the start of `pInfo->buffer`. The address range starting at this value and whose size is the size of the buffer **can** be used in a shader to access the memory bound to that buffer, using the `SPV_KHR_physical_storage_buffer` extension or the equivalent `SPV_EXT_physical_storage_buffer` extension and the `PhysicalStorageBuffer` storage class. For example, this value **can** be stored in a uniform buffer, and the shader **can** read the value from the uniform buffer and use it to do a dependent read/write to this buffer. A value of zero is reserved as a “null” pointer and **must** not be returned as a valid buffer device address. All loads, stores, and atomics in a shader through `PhysicalStorageBuffer` pointers **must** access addresses in the address range of some buffer.
+The 64-bit return value, `bufferBaseAddress`, is an address of the start of `pInfo->buffer`. Addresses in the range \[`bufferBaseAddress`, `bufferBaseAddress` + [VkBufferCreateInfo](https://registry.khronos.org/vulkan/specs/latest/man/html/VkBufferCreateInfo.html)::`size`) **can** be used to access the memory bound to this buffer on the device.
+
+A value of zero is reserved as a “null” pointer and **must** not be returned as a valid buffer device address.
 
 If the buffer was created with a non-zero value of [VkBufferOpaqueCaptureAddressCreateInfo](https://registry.khronos.org/vulkan/specs/latest/man/html/VkBufferOpaqueCaptureAddressCreateInfo.html)::`opaqueCaptureAddress` or [VkBufferDeviceAddressCreateInfoEXT](https://registry.khronos.org/vulkan/specs/latest/man/html/VkBufferDeviceAddressCreateInfoEXT.html)::`deviceAddress`, the return value will be the same address that was returned at capture time.
 
