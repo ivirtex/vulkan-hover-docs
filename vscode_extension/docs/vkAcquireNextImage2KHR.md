@@ -26,7 +26,7 @@ VkResult vkAcquireNextImage2KHR(
 
 ## [](#_description)Description
 
-If the `swapchain` has been created with the `VK_SWAPCHAIN_CREATE_DEFERRED_MEMORY_ALLOCATION_BIT_EXT` flag, the image whose index is returned in `pImageIndex` will be fully backed by memory before this call returns to the application.
+If the `swapchain` has been created with the `VK_SWAPCHAIN_CREATE_DEFERRED_MEMORY_ALLOCATION_BIT_KHR` flag, the image whose index is returned in `pImageIndex` will be fully backed by memory before this call returns to the application.
 
 Valid Usage
 

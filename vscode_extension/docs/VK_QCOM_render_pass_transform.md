@@ -12,7 +12,7 @@ VK\_QCOM\_render\_pass\_transform - device extension
 
 ## [](#_revision)Revision
 
-4
+5
 
 ## [](#_ratification_status)Ratification Status
 
@@ -30,7 +30,7 @@ None
 
 **Last Modified Date**
 
-2023-12-13
+2025-06-30
 
 **Interactions and External Dependencies**
 
@@ -46,6 +46,7 @@ None
 - Brandon Light, Qualcomm Technologies, Inc.
 - Matthew Netsch, Qualcomm Technologies, Inc.
 - Arpit Agarwal, Qualcomm Technologies, Inc.
+- Žiga Markuš, LunarG, Inc.
 
 ## [](#_description)Description
 
@@ -159,6 +160,9 @@ The [set of supported shading rates](https://registry.khronos.org/vulkan/specs/l
 - Revision 4, 2023-12-13 (Matthew Netsch)
   
   - Relax dependencies on VK\_KHR\_surface and VK\_KHR\_swapchain
+- Revision 5, 2025-06-30 (Matthew Netsch)
+  
+  - Fix pNext const on info structs
 
 ## [](#_see_also)See Also
 

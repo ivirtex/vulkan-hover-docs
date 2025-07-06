@@ -16,7 +16,7 @@ VK\_EXT\_zero\_initialize\_device\_memory - device extension
 
 ## [](#_ratification_status)Ratification Status
 
-Not ratified
+Ratified
 
 ## [](#_extension_and_version_dependencies)Extension and Version Dependencies
 

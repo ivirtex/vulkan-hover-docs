@@ -33,9 +33,7 @@ Valid Usage (Implicit)
 - [](#VUID-vkCmdInsertDebugUtilsLabelEXT-commandBuffer-recording)VUID-vkCmdInsertDebugUtilsLabelEXT-commandBuffer-recording  
   `commandBuffer` **must** be in the [recording state](#commandbuffers-lifecycle)
 - [](#VUID-vkCmdInsertDebugUtilsLabelEXT-commandBuffer-cmdpool)VUID-vkCmdInsertDebugUtilsLabelEXT-commandBuffer-cmdpool  
-  The `VkCommandPool` that `commandBuffer` was allocated from **must** support graphics, or compute operations
-- [](#VUID-vkCmdInsertDebugUtilsLabelEXT-videocoding)VUID-vkCmdInsertDebugUtilsLabelEXT-videocoding  
-  This command **must** only be called outside of a video coding scope
+  The `VkCommandPool` that `commandBuffer` was allocated from **must** support transfer, graphics, compute, decode, encode, or optical flow operations
 
 Host Synchronization
 
@@ -51,10 +49,14 @@ Secondary
 
 Both
 
-Outside
+Both
 
+Transfer  
 Graphics  
-Compute
+Compute  
+Decode  
+Encode  
+Opticalflow
 
 Action
 

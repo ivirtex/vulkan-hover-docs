@@ -16,7 +16,7 @@ The `VkRenderPassTransformBeginInfoQCOM` structure is defined as:
 // Provided by VK_QCOM_render_pass_transform
 typedef struct VkRenderPassTransformBeginInfoQCOM {
     VkStructureType                  sType;
-    void*                            pNext;
+    const void*                      pNext;
     VkSurfaceTransformFlagBitsKHR    transform;
 } VkRenderPassTransformBeginInfoQCOM;
 ```
