@@ -2,7 +2,7 @@
 
 ## Name
 
-VkSurfaceCreateFlagsOHOS - reserved flag for surface createion
+VkSurfaceCreateFlagsOHOS - reserved flag for surface creation
 
 
 

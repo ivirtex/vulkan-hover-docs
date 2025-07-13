@@ -25,7 +25,7 @@ typedef struct VkDescriptorGetInfoEXT {
 - `sType` is a [VkStructureType](https://registry.khronos.org/vulkan/specs/latest/man/html/VkStructureType.html) value identifying this structure.
 - `pNext` is `NULL` or a pointer to a structure extending this structure.
 - `type` is the type of descriptor to get.
-- `data` is a structure containing the information needed to get the descriptor.
+- `data` is a [VkDescriptorDataEXT](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDescriptorDataEXT.html) union containing the information needed to get the descriptor.
 
 ## [](#_description)Description
 

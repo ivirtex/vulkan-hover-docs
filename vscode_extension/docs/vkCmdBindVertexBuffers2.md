@@ -60,6 +60,12 @@ Unlike the static state to set the same, `pStrides` must be between 0 and the ma
 
 Valid Usage
 
+- [](#VUID-vkCmdBindVertexBuffers2-None-08971)VUID-vkCmdBindVertexBuffers2-None-08971  
+  At least one of the following **must** be true:
+  
+  - the [`extendedDynamicState`](#features-extendedDynamicState) feature is enabled
+  - the [`shaderObject`](#features-shaderObject) feature is enabled
+  - the value of [VkApplicationInfo](https://registry.khronos.org/vulkan/specs/latest/man/html/VkApplicationInfo.html)::`apiVersion` used to create the [VkInstance](https://registry.khronos.org/vulkan/specs/latest/man/html/VkInstance.html) parent of `commandBuffer` is greater than or equal to Version 1.3
 - [](#VUID-vkCmdBindVertexBuffers2-firstBinding-03355)VUID-vkCmdBindVertexBuffers2-firstBinding-03355  
   `firstBinding` **must** be less than `VkPhysicalDeviceLimits`::`maxVertexInputBindings`
 - [](#VUID-vkCmdBindVertexBuffers2-firstBinding-03356)VUID-vkCmdBindVertexBuffers2-firstBinding-03356  
