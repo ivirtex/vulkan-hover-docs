@@ -13,6 +13,8 @@ Bits which **can** be set in [VkVideoEncodeInfoKHR](https://registry.khronos.org
 ```c++
 // Provided by VK_KHR_video_encode_quantization_map
 typedef enum VkVideoEncodeFlagBitsKHR {
+  // Provided by VK_KHR_video_encode_intra_refresh
+    VK_VIDEO_ENCODE_INTRA_REFRESH_BIT_KHR = 0x00000004,
   // Provided by VK_KHR_video_encode_quantization_map
     VK_VIDEO_ENCODE_WITH_QUANTIZATION_DELTA_MAP_BIT_KHR = 0x00000001,
   // Provided by VK_KHR_video_encode_quantization_map
@@ -24,6 +26,7 @@ typedef enum VkVideoEncodeFlagBitsKHR {
 
 - `VK_VIDEO_ENCODE_WITH_QUANTIZATION_DELTA_MAP_BIT_KHR` specifies the use of a [quantization delta map](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#encode-quantization-delta-map) in the issued [video encode operations](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#video-encode-operations).
 - `VK_VIDEO_ENCODE_WITH_EMPHASIS_MAP_BIT_KHR` specifies the use of an [emphasis map](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#encode-emphasis-map) in the issued [video encode operations](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#video-encode-operations).
+- `VK_VIDEO_ENCODE_INTRA_REFRESH_BIT_KHR` enables [intra refresh](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#encode-intra-refresh) for the encoded picture.
 
 ## [](#_see_also)See Also
 
