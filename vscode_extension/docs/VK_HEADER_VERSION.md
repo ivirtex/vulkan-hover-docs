@@ -13,7 +13,7 @@ VK\_HEADER\_VERSION - Vulkan header file version number
 ```c++
 // Provided by VK_VERSION_1_0
 // Version of this file
-#define VK_HEADER_VERSION 321
+#define VK_HEADER_VERSION 322
 ```
 
 ## [](#_see_also)See Also

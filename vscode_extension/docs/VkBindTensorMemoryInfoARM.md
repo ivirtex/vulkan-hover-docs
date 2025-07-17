@@ -57,6 +57,10 @@ Valid Usage
   If `tensor` was created with the `VK_TENSOR_CREATE_PROTECTED_BIT_ARM` bit set, the tensor **must** be bound to a memory object allocated with a memory type that reports `VK_MEMORY_PROPERTY_PROTECTED_BIT`
 - [](#VUID-VkBindTensorMemoryInfoARM-tensor-09719)VUID-VkBindTensorMemoryInfoARM-tensor-09719  
   If `tensor` was created with the `VK_TENSOR_CREATE_PROTECTED_BIT_ARM` bit not set, the tensor **must** not be bound to a memory object allocated with a memory type that reports `VK_MEMORY_PROPERTY_PROTECTED_BIT`
+- [](#VUID-VkBindTensorMemoryInfoARM-tensor-09943)VUID-VkBindTensorMemoryInfoARM-tensor-09943  
+  If `tensor` was created with the `VK_TENSOR_CREATE_DESCRIPTOR_BUFFER_CAPTURE_REPLAY_BIT_ARM` bit set, `memory` **must** have been allocated with the `VK_MEMORY_ALLOCATE_DEVICE_ADDRESS_BIT` bit set
+- [](#VUID-VkBindTensorMemoryInfoARM-tensor-09944)VUID-VkBindTensorMemoryInfoARM-tensor-09944  
+  If `tensor` was created with the `VK_TENSOR_CREATE_DESCRIPTOR_BUFFER_CAPTURE_REPLAY_BIT_ARM` bit set, `memory` **must** have been allocated with the `VK_MEMORY_ALLOCATE_DEVICE_ADDRESS_CAPTURE_REPLAY_BIT` bit set
 
 Valid Usage (Implicit)
 

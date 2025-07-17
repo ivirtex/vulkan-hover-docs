@@ -83,7 +83,7 @@ This extension enables applications to leverage the power and performance of til
 - Shaders can use new built-in variables that provide the location, size, and apron region of the tile.
 - A new tile dispatch command automatically scales workgroup sizes and counts to the tile size, given a desired shading rate.
 - Framebuffer-local dependencies are expanded to tile-sized regions, rather than a single pixel or sample.
-- A tile shading render pass can also enable tiling "aprons". This is a specialized rendering mode where the GPU renders overlapping tiles that enable specific use-cases.
+- A tile shading render pass can also enable tiling "aprons". This is a specialized rendering mode where the GPU renders overlapping tiles that enable specific use cases.
 
 ## [](#_new_commands)New Commands
 

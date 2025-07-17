@@ -31,7 +31,7 @@ Valid Usage
 - [](#VUID-StandaloneSpirv-None-04640)VUID-StandaloneSpirv-None-04640  
   If the `Scope` for memory is `ShaderCallKHR`, then it **must** only be used in ray generation, intersection, closest hit, any-hit, miss, and callable `Execution` `Model`
 - [](#VUID-StandaloneSpirv-None-04641)VUID-StandaloneSpirv-None-04641  
-  If the `Scope` for memory is `Invocation`, then memory semantics **must** be `None`
+  If the `Scope` for memory is `Invocation`, then `MemorySemantics` **must** use `Relaxed` memory order
 - [](#VUID-StandaloneSpirv-None-04642)VUID-StandaloneSpirv-None-04642  
   `Scope` for [group operations](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#shaders-group-operations) **must** be limited to `Subgroup`
 - [](#VUID-StandaloneSpirv-SubgroupVoteKHR-07951)VUID-StandaloneSpirv-SubgroupVoteKHR-07951  
@@ -44,18 +44,36 @@ Valid Usage
   If the `Storage` `Class` is `Workgroup`, then it **must** only be used in the task, mesh, or compute `Execution` `Model`
 - [](#VUID-StandaloneSpirv-None-08720)VUID-StandaloneSpirv-None-08720  
   If the `Storage` `Class` is `TileImageEXT`, then it **must** only be used in the fragment execution model
-- [](#VUID-StandaloneSpirv-OpAtomicStore-04730)VUID-StandaloneSpirv-OpAtomicStore-04730  
-  `OpAtomicStore` **must** not use `Acquire`, `AcquireRelease`, or `SequentiallyConsistent` memory semantics
-- [](#VUID-StandaloneSpirv-OpAtomicLoad-04731)VUID-StandaloneSpirv-OpAtomicLoad-04731  
-  `OpAtomicLoad` **must** not use `Release`, `AcquireRelease`, or `SequentiallyConsistent` memory semantics
-- [](#VUID-StandaloneSpirv-OpMemoryBarrier-04732)VUID-StandaloneSpirv-OpMemoryBarrier-04732  
-  `OpMemoryBarrier` **must** use one of `Acquire`, `Release`, `AcquireRelease`, or `SequentiallyConsistent` memory semantics
-- [](#VUID-StandaloneSpirv-OpMemoryBarrier-04733)VUID-StandaloneSpirv-OpMemoryBarrier-04733  
-  `OpMemoryBarrier` **must** include at least one `Storage` `Class`
-- [](#VUID-StandaloneSpirv-OpControlBarrier-10609)VUID-StandaloneSpirv-OpControlBarrier-10609  
-  If the semantics for `OpControlBarrier` includes at least one `Storage` `Class`, then it **must** include one of `Acquire`, `Release`, `AcquireRelease`, or `SequentiallyConsistent` memory semantics
-- [](#VUID-StandaloneSpirv-OpControlBarrier-04650)VUID-StandaloneSpirv-OpControlBarrier-04650  
-  If the semantics for `OpControlBarrier` includes one of `Acquire`, `Release`, `AcquireRelease`, or `SequentiallyConsistent` memory semantics, then it **must** include at least one `Storage` `Class`
+- [](#VUID-StandaloneSpirv-MemorySemantics-10865)VUID-StandaloneSpirv-MemorySemantics-10865  
+  `MemorySemantics` **must** have at most one non-relaxed memory order bit set (`Acquire`, `Release`, or `AcquireRelease`)
+- [](#VUID-StandaloneSpirv-MemorySemantics-10866)VUID-StandaloneSpirv-MemorySemantics-10866  
+  `MemorySemantics` with `SequentiallyConsistent` memory order **must** not be used in the Vulkan API
+- [](#VUID-StandaloneSpirv-MemorySemantics-10867)VUID-StandaloneSpirv-MemorySemantics-10867  
+  `MemorySemantics` **must** not use `Acquire` or `AcquireRelease` memory order with `OpAtomicStore`
+- [](#VUID-StandaloneSpirv-MemorySemantics-10868)VUID-StandaloneSpirv-MemorySemantics-10868  
+  `MemorySemantics` **must** not use `Release` or `AcquireRelease` memory order with `OpAtomicLoad`
+- [](#VUID-StandaloneSpirv-MemorySemantics-10869)VUID-StandaloneSpirv-MemorySemantics-10869  
+  `MemorySemantics` **must** not use `Relaxed` memory order with `OpMemoryBarrier`
+- [](#VUID-StandaloneSpirv-MemorySemantics-10870)VUID-StandaloneSpirv-MemorySemantics-10870  
+  `MemorySemantics` with a non-relaxed memory order (`Acquire`, `Release`, or `AcquireRelease`) **must** have at least one Vulkan-supported storage class semantics bit set (`UniformMemory`, `WorkgroupMemory`, `ImageMemory`, or `OutputMemory`)
+- [](#VUID-StandaloneSpirv-MemorySemantics-10871)VUID-StandaloneSpirv-MemorySemantics-10871  
+  `MemorySemantics` with at least one Vulkan-supported storage class semantics bit set (`UniformMemory`, `WorkgroupMemory`, `ImageMemory`, or `OutputMemory`) **must** use a non-relaxed memory order (`Acquire`, `Release`, or `AcquireRelease`)
+- [](#VUID-StandaloneSpirv-MemorySemantics-10872)VUID-StandaloneSpirv-MemorySemantics-10872  
+  `MemorySemantics` with `MakeAvailable` bit set **must** use `Release` or `AcquireRelease` memory order
+- [](#VUID-StandaloneSpirv-MemorySemantics-10873)VUID-StandaloneSpirv-MemorySemantics-10873  
+  `MemorySemantics` with `MakeVisible` bit set **must** use `Acquire` or `AcquireRelease` memory order
+- [](#VUID-StandaloneSpirv-MemorySemantics-10874)VUID-StandaloneSpirv-MemorySemantics-10874  
+  `MemorySemantics` with `Volatile` bit set **must** not be used with barrier instructions (`OpControlBarrier` or `OpMemoryBarrier`)
+- [](#VUID-StandaloneSpirv-UnequalMemorySemantics-10875)VUID-StandaloneSpirv-UnequalMemorySemantics-10875  
+  `UnequalMemorySemantics` of `OpAtomicCompareExchange` **must** not use `Release` or `AcquireRelease` memory order
+- [](#VUID-StandaloneSpirv-UnequalMemorySemantics-10876)VUID-StandaloneSpirv-UnequalMemorySemantics-10876  
+  `UnequalMemorySemantics` of `OpAtomicCompareExchange` **must** not use a stronger memory order than the corresponding `EqualMemorySemantics`
+- [](#VUID-StandaloneSpirv-UnequalMemorySemantics-10877)VUID-StandaloneSpirv-UnequalMemorySemantics-10877  
+  `UnequalMemorySemantics` of `OpAtomicCompareExchange` **must** not have any Vulkan-supported storage class semantics bit set (`UniformMemory`, `WorkgroupMemory`, `ImageMemory`, or `OutputMemory`) unless this bit is also set in the corresponding `EqualMemorySemantics`
+- [](#VUID-StandaloneSpirv-UnequalMemorySemantics-10878)VUID-StandaloneSpirv-UnequalMemorySemantics-10878  
+  `UnequalMemorySemantics` of `OpAtomicCompareExchange` **must** not have `MakeVisible` bit set unless this bit is also set in the corresponding `EqualMemorySemantics`
+- [](#VUID-StandaloneSpirv-UnequalMemorySemantics-10879)VUID-StandaloneSpirv-UnequalMemorySemantics-10879  
+  `UnequalMemorySemantics` of `OpAtomicCompareExchange` **must** have `Volatile` bit set if and only if this bit is also set in the corresponding `EqualMemorySemantics`
 - [](#VUID-StandaloneSpirv-OpVariable-04651)VUID-StandaloneSpirv-OpVariable-04651  
   Any `OpVariable` with an `Initializer` operand **must** have `Output`, `Private`, `Function`, or `Workgroup` as its `Storage` `Class` operand
 - [](#VUID-StandaloneSpirv-OpVariable-04734)VUID-StandaloneSpirv-OpVariable-04734  
@@ -150,6 +168,8 @@ Valid Usage
   All variables **must** have valid explicit layout decorations [as described in Shader Interfaces](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#interfaces-explicit-layout-decorations)
 - [](#VUID-StandaloneSpirv-GLSLShared-04669)VUID-StandaloneSpirv-GLSLShared-04669  
   The `GLSLShared` and `GLSLPacked` decorations **must** not be used
+- [](#VUID-StandaloneSpirv-TessLevelInner-10880)VUID-StandaloneSpirv-TessLevelInner-10880  
+  Any variable decorated with `TessLevelInner` or `TessLevelOuter` **must** also be decorated with `Patch`
 - [](#VUID-StandaloneSpirv-Flat-04670)VUID-StandaloneSpirv-Flat-04670  
   The `Flat`, `NoPerspective`, `Sample`, and `Centroid` decorations **must** only be used on variables with the `Output` or `Input` `Storage` `Class`
 - [](#VUID-StandaloneSpirv-Flat-06201)VUID-StandaloneSpirv-Flat-06201  
@@ -173,7 +193,7 @@ Valid Usage
 - [](#VUID-StandaloneSpirv-VulkanMemoryModel-04678)VUID-StandaloneSpirv-VulkanMemoryModel-04678  
   []()If the `VulkanMemoryModel` capability is not declared, the `Volatile` decoration **must** be used on any variable declaration that includes one of the `SMIDNV`, `WarpIDNV`, `SubgroupSize`, `SubgroupLocalInvocationId`, `SubgroupEqMask`, `SubgroupGeMask`, `SubgroupGtMask`, `SubgroupLeMask`, or `SubgroupLtMask` `BuiltIn` decorations when used in the ray generation, closest hit, miss, intersection, or callable shaders, or with the `RayTmaxKHR` `Builtin` decoration when used in an intersection shader
 - [](#VUID-StandaloneSpirv-VulkanMemoryModel-04679)VUID-StandaloneSpirv-VulkanMemoryModel-04679  
-  If the `VulkanMemoryModel` capability is declared, the `OpLoad` instruction **must** use the `Volatile` memory semantics when it accesses into any variable that includes one of the `SMIDNV`, `WarpIDNV`, `SubgroupSize`, `SubgroupLocalInvocationId`, `SubgroupEqMask`, `SubgroupGeMask`, `SubgroupGtMask`, `SubgroupLeMask`, or `SubgroupLtMask` `BuiltIn` decorations when used in the ray generation, closest hit, miss, intersection, or callable shaders, or with the `RayTmaxKHR` `Builtin` decoration when used in an intersection shader
+  If the `VulkanMemoryModel` capability is declared, the `OpLoad` instruction **must** use `MemorySemantics` with the `Volatile` flag when it accesses into any variable that includes one of the `SMIDNV`, `WarpIDNV`, `SubgroupSize`, `SubgroupLocalInvocationId`, `SubgroupEqMask`, `SubgroupGeMask`, `SubgroupGtMask`, `SubgroupLeMask`, or `SubgroupLtMask` `BuiltIn` decorations when used in the ray generation, closest hit, miss, intersection, or callable shaders, or with the `RayTmaxKHR` `Builtin` decoration when used in an intersection shader
 - [](#VUID-StandaloneSpirv-OpTypeRuntimeArray-04680)VUID-StandaloneSpirv-OpTypeRuntimeArray-04680  
   `OpTypeRuntimeArray` **must** only be used for:
   
