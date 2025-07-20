@@ -69,6 +69,10 @@ Encode
 Action  
 State
 
+Conditional Rendering
+
+vkCmdEndVideoCodingKHR is not affected by [conditional rendering](#drawing-conditional-rendering)
+
 ## [](#_see_also)See Also
 
 [VK\_KHR\_video\_queue](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_KHR_video_queue.html), [VkCommandBuffer](https://registry.khronos.org/vulkan/specs/latest/man/html/VkCommandBuffer.html), [VkVideoEndCodingInfoKHR](https://registry.khronos.org/vulkan/specs/latest/man/html/VkVideoEndCodingInfoKHR.html)

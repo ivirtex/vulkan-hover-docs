@@ -61,6 +61,10 @@ Compute
 
 Action
 
+Conditional Rendering
+
+vkCmdCopyTensorARM is not affected by [conditional rendering](#drawing-conditional-rendering)
+
 ## [](#_see_also)See Also
 
 [VK\_ARM\_tensors](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_ARM_tensors.html), [VkCommandBuffer](https://registry.khronos.org/vulkan/specs/latest/man/html/VkCommandBuffer.html), [VkCopyTensorInfoARM](https://registry.khronos.org/vulkan/specs/latest/man/html/VkCopyTensorInfoARM.html)

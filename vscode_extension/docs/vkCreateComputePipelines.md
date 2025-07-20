@@ -79,14 +79,16 @@ Return Codes
 
 On success, this command returns
 
-- `VK_SUCCESS`
 - `VK_PIPELINE_COMPILE_REQUIRED_EXT`
+- `VK_SUCCESS`
 
 On failure, this command returns
 
-- `VK_ERROR_OUT_OF_HOST_MEMORY`
-- `VK_ERROR_OUT_OF_DEVICE_MEMORY`
 - `VK_ERROR_INVALID_SHADER_NV`
+- `VK_ERROR_OUT_OF_DEVICE_MEMORY`
+- `VK_ERROR_OUT_OF_HOST_MEMORY`
+- `VK_ERROR_UNKNOWN`
+- `VK_ERROR_VALIDATION_FAILED`
 
 ## [](#_see_also)See Also
 

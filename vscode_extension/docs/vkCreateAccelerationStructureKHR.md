@@ -72,8 +72,10 @@ On success, this command returns
 
 On failure, this command returns
 
-- `VK_ERROR_OUT_OF_HOST_MEMORY`
 - `VK_ERROR_INVALID_OPAQUE_CAPTURE_ADDRESS_KHR`
+- `VK_ERROR_OUT_OF_HOST_MEMORY`
+- `VK_ERROR_UNKNOWN`
+- `VK_ERROR_VALIDATION_FAILED`
 
 ## [](#_see_also)See Also
 

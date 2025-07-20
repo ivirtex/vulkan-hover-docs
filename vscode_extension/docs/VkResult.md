@@ -37,6 +37,8 @@ typedef enum VkResult {
     VK_ERROR_FORMAT_NOT_SUPPORTED = -11,
     VK_ERROR_FRAGMENTED_POOL = -12,
     VK_ERROR_UNKNOWN = -13,
+  // Provided by VK_VERSION_1_0
+    VK_ERROR_VALIDATION_FAILED = -1000011001,
   // Provided by VK_VERSION_1_1
     VK_ERROR_OUT_OF_POOL_MEMORY = -1000069000,
   // Provided by VK_VERSION_1_1
@@ -59,8 +61,6 @@ typedef enum VkResult {
     VK_ERROR_OUT_OF_DATE_KHR = -1000001004,
   // Provided by VK_KHR_display_swapchain
     VK_ERROR_INCOMPATIBLE_DISPLAY_KHR = -1000003001,
-  // Provided by VK_EXT_debug_report
-    VK_ERROR_VALIDATION_FAILED_EXT = -1000011001,
   // Provided by VK_NV_glsl_shader
     VK_ERROR_INVALID_SHADER_NV = -1000012000,
   // Provided by VK_KHR_video_queue
@@ -97,6 +97,8 @@ typedef enum VkResult {
     VK_PIPELINE_BINARY_MISSING_KHR = 1000483000,
   // Provided by VK_KHR_pipeline_binary
     VK_ERROR_NOT_ENOUGH_SPACE_KHR = -1000483000,
+  // Provided by VK_EXT_debug_report
+    VK_ERROR_VALIDATION_FAILED_EXT = VK_ERROR_VALIDATION_FAILED,
   // Provided by VK_KHR_maintenance1
     VK_ERROR_OUT_OF_POOL_MEMORY_KHR = VK_ERROR_OUT_OF_POOL_MEMORY,
   // Provided by VK_KHR_external_memory
@@ -169,7 +171,7 @@ Error Codes
 - `VK_ERROR_INVALID_DEVICE_ADDRESS_EXT` A buffer creation failed because the requested address is not available.
 - `VK_ERROR_INVALID_OPAQUE_CAPTURE_ADDRESS` A buffer creation or memory allocation failed because the requested address is not available. A shader group handle assignment failed because the requested shader group handle information is no longer valid.
 - `VK_ERROR_FULL_SCREEN_EXCLUSIVE_MODE_LOST_EXT` An operation on a swapchain created with `VK_FULL_SCREEN_EXCLUSIVE_APPLICATION_CONTROLLED_EXT` failed as it did not have exclusive full-screen access. This **may** occur due to implementation-dependent reasons, outside of the application’s control.
-- `VK_ERROR_VALIDATION_FAILED_EXT` A command failed because invalid usage was detected by the implementation or a validation-layer.
+- `VK_ERROR_VALIDATION_FAILED` A command failed because invalid usage was detected by the implementation or a validation layer. This **may** result in the command not being dispatched to the ICD.
 - `VK_ERROR_COMPRESSION_EXHAUSTED_EXT` An image creation failed because internal resources required for compression are exhausted. This **must** only be returned when fixed-rate compression is requested.
 - `VK_ERROR_IMAGE_USAGE_NOT_SUPPORTED_KHR` The requested [VkImageUsageFlags](https://registry.khronos.org/vulkan/specs/latest/man/html/VkImageUsageFlags.html) are not supported.
 - `VK_ERROR_VIDEO_PICTURE_LAYOUT_NOT_SUPPORTED_KHR` The requested video picture layout is not supported.
@@ -194,9 +196,9 @@ As a general rule, `Free`, `Release`, and `Reset` commands do not return `VK_ERR
 
 Note
 
-`VK_ERROR_UNKNOWN` is not expected to ever be returned if the application behavior is valid, and if the implementation is bug-free. If `VK_ERROR_UNKNOWN` is received, the application should be checked against the latest validation layers to verify correct behavior as much as possible. If no issues are identified it could be an implementation issue, and the implementor should be contacted for support.
+`VK_ERROR_UNKNOWN` is not expected to ever be returned if the application behavior is valid, and if the implementation is bug-free. If `VK_ERROR_UNKNOWN` is returned, the application should be checked against the latest validation layers to verify correct behavior as much as possible. If no issues are identified it could be an implementation issue, and the implementor should be contacted for support.
 
-Any command returning a [VkResult](https://registry.khronos.org/vulkan/specs/latest/man/html/VkResult.html) **may** return `VK_ERROR_VALIDATION_FAILED_EXT` if a violation of valid usage is detected, even though commands do not explicitly list this as a possible return code.
+Any command returning a [VkResult](https://registry.khronos.org/vulkan/specs/latest/man/html/VkResult.html) **may** return `VK_ERROR_VALIDATION_FAILED` if a violation of valid usage is detected.
 
 Performance-critical commands generally do not have return codes. If a runtime error occurs in such commands, the implementation will defer reporting the error until a specified point. For commands that record into command buffers (`vkCmd*`) runtime errors are reported by `vkEndCommandBuffer`.
 

@@ -76,6 +76,10 @@ Graphics
 
 State
 
+Conditional Rendering
+
+vkCmdSetViewportShadingRatePaletteNV is not affected by [conditional rendering](#drawing-conditional-rendering)
+
 ## [](#_see_also)See Also
 
 [VK\_NV\_shading\_rate\_image](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_NV_shading_rate_image.html), [VkCommandBuffer](https://registry.khronos.org/vulkan/specs/latest/man/html/VkCommandBuffer.html), [VkShadingRatePaletteNV](https://registry.khronos.org/vulkan/specs/latest/man/html/VkShadingRatePaletteNV.html)

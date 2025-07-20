@@ -49,11 +49,11 @@ typedef struct VkClusterAccelerationStructureBuildTriangleClusterTemplateInfoNV 
 - `geometryIndexAndFlagsBufferStride` is the stride in bytes in `geometryIndexAndFlagsBuffer`.
 - `opacityMicromapIndexBufferStride` is the stride in bytes in `opacityMicromapIndexBuffer`.
 - `indexBuffer` contains the indices of vertices in the cluster and is of type `indexType`.
-- `vertexBuffer` is either `NULL` or specifies the vertex data of the triangles in the cluster template with format specified in [VkClusterAccelerationStructureTriangleClusterInputNV](https://registry.khronos.org/vulkan/specs/latest/man/html/VkClusterAccelerationStructureTriangleClusterInputNV.html)::`vertexFormat`.
-- `geometryIndexAndFlagsBuffer` is either `NULL` or an address containing strided [VkClusterAccelerationStructureGeometryIndexAndGeometryFlagsNV](https://registry.khronos.org/vulkan/specs/latest/man/html/VkClusterAccelerationStructureGeometryIndexAndGeometryFlagsNV.html) values specifying the geometry index and flag for every triangle in the cluster.
-- `opacityMicromapArray` is either `NULL` or specifies the address of a valid opacity micromap array to reference from the cluster acceleration structure. If it is `NULL`, then opacity micromaps will be disabled for this cluster acceleration structure.
-- `opacityMicromapIndexBuffer` is either `NULL` or specifies the address of a strided array with size equal to the number of triangles or indices into the opacity micromap array.
-- `instantiationBoundingBoxLimit` is either `NULL` or specifies the address of a bounding box within which all instantiated clusters **must** lie. The bounding box is specified by six 32-bit floating-point values in the order MinX, MinY, MinZ, MaxX, MaxY, MaxZ.
+- `vertexBuffer` is either `0` or specifies the vertex data of the triangles in the cluster template with format specified in [VkClusterAccelerationStructureTriangleClusterInputNV](https://registry.khronos.org/vulkan/specs/latest/man/html/VkClusterAccelerationStructureTriangleClusterInputNV.html)::`vertexFormat`.
+- `geometryIndexAndFlagsBuffer` is either `0` or an address containing strided [VkClusterAccelerationStructureGeometryIndexAndGeometryFlagsNV](https://registry.khronos.org/vulkan/specs/latest/man/html/VkClusterAccelerationStructureGeometryIndexAndGeometryFlagsNV.html) values specifying the geometry index and flag for every triangle in the cluster.
+- `opacityMicromapArray` is either `0` or specifies the address of a valid opacity micromap array to reference from the cluster acceleration structure. If it is `0`, then opacity micromaps will be disabled for this cluster acceleration structure.
+- `opacityMicromapIndexBuffer` is either `0` or specifies the address of a strided array with size equal to the number of triangles or indices into the opacity micromap array. If `opacityMicromapIndexBuffer` is `0` then the index used is the index of the triangle in the geometry.
+- `instantiationBoundingBoxLimit` is either `0` or specifies the address of a bounding box within which all instantiated clusters **must** lie. The bounding box is specified by six 32-bit floating-point values in the order MinX, MinY, MinZ, MaxX, MaxY, MaxZ.
 
 ## [](#_description)Description
 
@@ -93,6 +93,8 @@ Valid Usage
   `instantiationBoundingBoxLimit` **must** be aligned to [VkPhysicalDeviceClusterAccelerationStructurePropertiesNV](https://registry.khronos.org/vulkan/specs/latest/man/html/VkPhysicalDeviceClusterAccelerationStructurePropertiesNV.html)::`clusterTemplateBoundsByteAlignment`
 - [](#VUID-VkClusterAccelerationStructureBuildTriangleClusterTemplateInfoNV-baseGeometryIndex-10506)VUID-VkClusterAccelerationStructureBuildTriangleClusterTemplateInfoNV-baseGeometryIndex-10506  
   The maximum geometry index after using the values in `baseGeometryIndex` and `geometryIndexBuffer` **must** be less than [VkPhysicalDeviceClusterAccelerationStructurePropertiesNV](https://registry.khronos.org/vulkan/specs/latest/man/html/VkPhysicalDeviceClusterAccelerationStructurePropertiesNV.html)::`maxClusterGeometryIndex`
+- [](#VUID-VkClusterAccelerationStructureBuildTriangleClusterTemplateInfoNV-opacityMicromapArray-10882)VUID-VkClusterAccelerationStructureBuildTriangleClusterTemplateInfoNV-opacityMicromapArray-10882  
+  If `opacityMicromapArray` is not `0`, then the template cluster acceleration structure **must** have been built with `VK_BUILD_ACCELERATION_STRUCTURE_ALLOW_CLUSTER_OPACITY_MICROMAPS_BIT_NV` flag set in [VkClusterAccelerationStructureInputInfoNV](https://registry.khronos.org/vulkan/specs/latest/man/html/VkClusterAccelerationStructureInputInfoNV.html)::`flags`
 
 Valid Usage (Implicit)
 

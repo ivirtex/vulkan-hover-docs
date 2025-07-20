@@ -34,7 +34,7 @@ void vkCmdSetDescriptorBufferOffsetsEXT(
 
 ## [](#_description)Description
 
-`vkCmdSetDescriptorBufferOffsetsEXT` binds `setCount` pairs of descriptor buffers, specified by indices into the binding points bound using [vkCmdBindDescriptorBuffersEXT](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdBindDescriptorBuffersEXT.html), and buffer offsets to set numbers \[`firstSet`..`firstSet`+`descriptorSetCount`-1] for subsequent [bound pipeline commands](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#pipelines-bindpoint-commands) set by `pipelineBindPoint`. Set \[`firstSet` + i] is bound to the descriptor buffer at binding `pBufferIndices`\[i] at an offset of `pOffsets`\[i]. Any bindings that were previously applied via these sets, or calls to [vkCmdBindDescriptorSets](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdBindDescriptorSets.html), are no longer valid. Other sets will also be invalidated upon calling this command if `layout` differs from the pipeline layout used to bind those other sets, as described in [Pipeline Layout Compatibility](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#descriptorsets-compatibility).
+`vkCmdSetDescriptorBufferOffsetsEXT` binds `setCount` pairs of descriptor buffers, specified by indices into the binding points bound using [vkCmdBindDescriptorBuffersEXT](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdBindDescriptorBuffersEXT.html), and buffer offsets to set numbers \[`firstSet`..`firstSet`+`setCount`-1] for subsequent [bound pipeline commands](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#pipelines-bindpoint-commands) set by `pipelineBindPoint`. Set \[`firstSet` + i] is bound to the descriptor buffer at binding `pBufferIndices`\[i] at an offset of `pOffsets`\[i]. Any bindings that were previously applied via these sets, or calls to [vkCmdBindDescriptorSets](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdBindDescriptorSets.html), are no longer valid. Other sets will also be invalidated upon calling this command if `layout` differs from the pipeline layout used to bind those other sets, as described in [Pipeline Layout Compatibility](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#descriptorsets-compatibility).
 
 After binding descriptors, applications **can** modify descriptor memory either by performing writes on the host or with device commands. When descriptor memory is updated with device commands, visibility for the shader stage accessing a descriptor is ensured with the `VK_ACCESS_2_DESCRIPTOR_BUFFER_READ_BIT_EXT` access flag. Implementations **must** not access resources referenced by these descriptors unless they are dynamically accessed by shaders. Descriptors bound with this call **can** be undefined if they are not dynamically accessed by shaders.
 
@@ -123,6 +123,10 @@ Compute
 Data\_Graph
 
 State
+
+Conditional Rendering
+
+vkCmdSetDescriptorBufferOffsetsEXT is not affected by [conditional rendering](#drawing-conditional-rendering)
 
 ## [](#_see_also)See Also
 

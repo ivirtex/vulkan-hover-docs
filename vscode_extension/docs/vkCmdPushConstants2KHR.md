@@ -67,6 +67,10 @@ Compute
 
 State
 
+Conditional Rendering
+
+vkCmdPushConstants2 is not affected by [conditional rendering](#drawing-conditional-rendering)
+
 ## [](#_see_also)See Also
 
 [VK\_KHR\_maintenance6](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_KHR_maintenance6.html), [VK\_VERSION\_1\_4](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_VERSION_1_4.html), [VkCommandBuffer](https://registry.khronos.org/vulkan/specs/latest/man/html/VkCommandBuffer.html), [VkPushConstantsInfo](https://registry.khronos.org/vulkan/specs/latest/man/html/VkPushConstantsInfo.html)

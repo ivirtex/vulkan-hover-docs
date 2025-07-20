@@ -208,7 +208,7 @@ Unknown/Undefined Handle
 
 Note
 
-The primary expected use of `VK_ERROR_VALIDATION_FAILED_EXT` is for validation layer testing. It is not expected that an application would see this error code during normal use of the validation layers.
+The primary expected use of `VK_ERROR_VALIDATION_FAILED_EXT` is for validation layer testing to prevent invalid commands from reaching the ICD. It is not expected that an application would see this error code during normal use of the validation layers. If an application returns `VK_TRUE` in [VkDebugUtilsMessengerCallbackDataEXT](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDebugUtilsMessengerCallbackDataEXT.html), the validation layers will return this error code instead of passing the command down the dispatch chain.
 
 ## [](#_see_also)See Also
 

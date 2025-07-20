@@ -32,6 +32,8 @@ typedef enum VkBuildAccelerationStructureFlagBitsKHR {
 #endif
   // Provided by VK_KHR_ray_tracing_position_fetch
     VK_BUILD_ACCELERATION_STRUCTURE_ALLOW_DATA_ACCESS_BIT_KHR = 0x00000800,
+  // Provided by VK_NV_cluster_acceleration_structure
+    VK_BUILD_ACCELERATION_STRUCTURE_ALLOW_CLUSTER_OPACITY_MICROMAPS_BIT_NV = 0x00001000,
   // Provided by VK_NV_ray_tracing
     VK_BUILD_ACCELERATION_STRUCTURE_ALLOW_UPDATE_BIT_NV = VK_BUILD_ACCELERATION_STRUCTURE_ALLOW_UPDATE_BIT_KHR,
   // Provided by VK_NV_ray_tracing
@@ -79,6 +81,7 @@ typedef VkBuildAccelerationStructureFlagBitsKHR VkBuildAccelerationStructureFlag
 - `VK_BUILD_ACCELERATION_STRUCTURE_ALLOW_OPACITY_MICROMAP_UPDATE_BIT_EXT` specifies that the opacity micromaps associated with the specified acceleration structure **may** change with an acceleration structure update.
 - `VK_BUILD_ACCELERATION_STRUCTURE_ALLOW_OPACITY_MICROMAP_DATA_UPDATE_BIT_EXT` specifies that the data of the opacity micromaps associated with the specified acceleration structure **may** change with an acceleration structure update.
 - `VK_BUILD_ACCELERATION_STRUCTURE_ALLOW_DISABLE_OPACITY_MICROMAPS_BIT_EXT` specifies that the specified acceleration structure **may** be referenced in an instance with `VK_GEOMETRY_INSTANCE_DISABLE_OPACITY_MICROMAPS_BIT_EXT` set.
+- `VK_BUILD_ACCELERATION_STRUCTURE_ALLOW_CLUSTER_OPACITY_MICROMAPS_BIT_NV` specifies that opacity micromaps **may** be associated with the given cluster acceleration structure.
 - `VK_BUILD_ACCELERATION_STRUCTURE_ALLOW_DATA_ACCESS_BIT_KHR` specifies that the specified acceleration structure **can** be used when fetching the vertex and radius positions of a hit LSS or sphere primitive, or vertex positions of a hit triangle.
 - `VK_BUILD_ACCELERATION_STRUCTURE_ALLOW_DISPLACEMENT_MICROMAP_UPDATE_BIT_NV` specifies that the displacement micromaps associated with the specified acceleration structure **may** change with an acceleration structure update.
 

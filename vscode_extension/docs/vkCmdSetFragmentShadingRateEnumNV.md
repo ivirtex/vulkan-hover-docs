@@ -86,6 +86,10 @@ Graphics
 
 State
 
+Conditional Rendering
+
+vkCmdSetFragmentShadingRateEnumNV is not affected by [conditional rendering](#drawing-conditional-rendering)
+
 ## [](#_see_also)See Also
 
 [VK\_NV\_fragment\_shading\_rate\_enums](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_NV_fragment_shading_rate_enums.html), [VkCommandBuffer](https://registry.khronos.org/vulkan/specs/latest/man/html/VkCommandBuffer.html), [VkFragmentShadingRateCombinerOpKHR](https://registry.khronos.org/vulkan/specs/latest/man/html/VkFragmentShadingRateCombinerOpKHR.html), [VkFragmentShadingRateNV](https://registry.khronos.org/vulkan/specs/latest/man/html/VkFragmentShadingRateNV.html)

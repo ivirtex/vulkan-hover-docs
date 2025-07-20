@@ -36,7 +36,7 @@ where bufferAddress and setOffset are the base address and offset for the identi
 
 If any `binding` in `layout` is `VK_DESCRIPTOR_BINDING_VARIABLE_DESCRIPTOR_COUNT_BIT`, that `binding` **must** have the largest offset of any `binding`.
 
-A descriptor `binding` with type `VK_DESCRIPTOR_TYPE_MUTABLE_VALVE` **can** be used. Any potential types in [VkMutableDescriptorTypeCreateInfoVALVE](https://registry.khronos.org/vulkan/specs/latest/man/html/VkMutableDescriptorTypeCreateInfoVALVE.html)::`pDescriptorTypes` for `binding` share the same offset. If the size of the [mutable descriptor](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#descriptorsets-mutable) is larger than the size of a concrete descriptor type being accessed, the padding area is ignored by the implementation.
+A descriptor `binding` with type `VK_DESCRIPTOR_TYPE_MUTABLE_EXT` **can** be used. Any potential types in [VkMutableDescriptorTypeCreateInfoEXT](https://registry.khronos.org/vulkan/specs/latest/man/html/VkMutableDescriptorTypeCreateInfoEXT.html)::`pDescriptorTypes` for `binding` share the same offset. If the size of the [mutable descriptor](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#descriptorsets-mutable) is larger than the size of a concrete descriptor type being accessed, the padding area is ignored by the implementation.
 
 Valid Usage
 

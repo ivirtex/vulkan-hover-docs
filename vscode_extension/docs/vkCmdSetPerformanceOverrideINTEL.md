@@ -64,6 +64,10 @@ Transfer
 
 State
 
+Conditional Rendering
+
+vkCmdSetPerformanceOverrideINTEL is not affected by [conditional rendering](#drawing-conditional-rendering)
+
 Return Codes
 
 On success, this command returns
@@ -72,8 +76,10 @@ On success, this command returns
 
 On failure, this command returns
 
-- `VK_ERROR_TOO_MANY_OBJECTS`
 - `VK_ERROR_OUT_OF_HOST_MEMORY`
+- `VK_ERROR_TOO_MANY_OBJECTS`
+- `VK_ERROR_UNKNOWN`
+- `VK_ERROR_VALIDATION_FAILED`
 
 ## [](#_see_also)See Also
 

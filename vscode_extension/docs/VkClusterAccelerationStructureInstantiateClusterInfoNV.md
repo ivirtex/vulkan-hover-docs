@@ -27,14 +27,14 @@ typedef struct VkClusterAccelerationStructureInstantiateClusterInfoNV {
 - `geometryIndexOffset` is a signed offset applied to the geometry index of each triangle.
 - `reserved` is reserved for future use.
 - `clusterTemplateAddress` is the address of a previously built cluster template.
-- `vertexBuffer` is either `NULL` or a [VkStridedDeviceAddressNV](https://registry.khronos.org/vulkan/specs/latest/man/html/VkStridedDeviceAddressNV.html) structure containing the vertex data for the indexed triangles stored in the cluster template.
+- `vertexBuffer` is either `0` or a [VkStridedDeviceAddressNV](https://registry.khronos.org/vulkan/specs/latest/man/html/VkStridedDeviceAddressNV.html) structure containing the vertex data for the indexed triangles stored in the cluster template.
 
 ## [](#_description)Description
 
 Valid Usage
 
 - [](#VUID-VkClusterAccelerationStructureInstantiateClusterInfoNV-vertexBuffer-10507)VUID-VkClusterAccelerationStructureInstantiateClusterInfoNV-vertexBuffer-10507  
-  `vertexBuffer` **must** not be `NULL` if the template was built without vertex data
+  `vertexBuffer` **must** not be `0` if the template was built without vertex data
 - [](#VUID-VkClusterAccelerationStructureInstantiateClusterInfoNV-vertexBuffer-10508)VUID-VkClusterAccelerationStructureInstantiateClusterInfoNV-vertexBuffer-10508  
   The format in `vertexBuffer` **must** match the original format specified in [VkClusterAccelerationStructureTriangleClusterInputNV](https://registry.khronos.org/vulkan/specs/latest/man/html/VkClusterAccelerationStructureTriangleClusterInputNV.html)
 - [](#VUID-VkClusterAccelerationStructureInstantiateClusterInfoNV-reserved-10509)VUID-VkClusterAccelerationStructureInstantiateClusterInfoNV-reserved-10509  

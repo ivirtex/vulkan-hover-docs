@@ -68,6 +68,10 @@ Graphics
 
 State
 
+Conditional Rendering
+
+vkCmdSetDepthClampRangeEXT is not affected by [conditional rendering](#drawing-conditional-rendering)
+
 ## [](#_see_also)See Also
 
 [VK\_EXT\_depth\_clamp\_control](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_EXT_depth_clamp_control.html), [VK\_EXT\_shader\_object](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_EXT_shader_object.html), [VkCommandBuffer](https://registry.khronos.org/vulkan/specs/latest/man/html/VkCommandBuffer.html), [VkDepthClampModeEXT](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDepthClampModeEXT.html), [VkDepthClampRangeEXT](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDepthClampRangeEXT.html)

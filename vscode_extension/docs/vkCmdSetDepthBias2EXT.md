@@ -59,6 +59,10 @@ Graphics
 
 State
 
+Conditional Rendering
+
+vkCmdSetDepthBias2EXT is not affected by [conditional rendering](#drawing-conditional-rendering)
+
 ## [](#_see_also)See Also
 
 [VK\_EXT\_depth\_bias\_control](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_EXT_depth_bias_control.html), [VkCommandBuffer](https://registry.khronos.org/vulkan/specs/latest/man/html/VkCommandBuffer.html), [VkDepthBiasInfoEXT](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDepthBiasInfoEXT.html)

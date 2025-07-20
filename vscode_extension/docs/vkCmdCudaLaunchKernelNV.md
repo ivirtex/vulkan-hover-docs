@@ -59,6 +59,10 @@ Compute
 
 Action
 
+Conditional Rendering
+
+vkCmdCudaLaunchKernelNV is not affected by [conditional rendering](#drawing-conditional-rendering)
+
 ## [](#_see_also)See Also
 
 [VK\_NV\_cuda\_kernel\_launch](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_NV_cuda_kernel_launch.html), [VkCommandBuffer](https://registry.khronos.org/vulkan/specs/latest/man/html/VkCommandBuffer.html), [VkCudaLaunchInfoNV](https://registry.khronos.org/vulkan/specs/latest/man/html/VkCudaLaunchInfoNV.html)
