@@ -107,6 +107,10 @@ Compute
 
 Action
 
+Conditional Rendering
+
+vkCmdCopyBuffer is not affected by [conditional rendering](#drawing-conditional-rendering)
+
 ## [](#_see_also)See Also
 
 [VK\_VERSION\_1\_0](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_VERSION_1_0.html), [VkBuffer](https://registry.khronos.org/vulkan/specs/latest/man/html/VkBuffer.html), [VkBufferCopy](https://registry.khronos.org/vulkan/specs/latest/man/html/VkBufferCopy.html), [VkCommandBuffer](https://registry.khronos.org/vulkan/specs/latest/man/html/VkCommandBuffer.html)

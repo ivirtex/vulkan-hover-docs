@@ -84,6 +84,10 @@ Compute
 
 State
 
+Conditional Rendering
+
+vkCmdBeginPerTileExecutionQCOM is not affected by [conditional rendering](#drawing-conditional-rendering)
+
 ## [](#_see_also)See Also
 
 [VK\_QCOM\_tile\_shading](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_QCOM_tile_shading.html), [VkCommandBuffer](https://registry.khronos.org/vulkan/specs/latest/man/html/VkCommandBuffer.html), [VkPerTileBeginInfoQCOM](https://registry.khronos.org/vulkan/specs/latest/man/html/VkPerTileBeginInfoQCOM.html)

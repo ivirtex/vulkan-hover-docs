@@ -83,11 +83,11 @@ The members of the `StdVideoDecodeAV1PictureInfo` structure pointed to by `pStdP
   
   - `cdef_y_sec_strength` and `cdef_uv_sec_strength` are the bitstream values of the corresponding syntax elements defined in section 5.9.19 of the [AV1 Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#aomedia-av1);
   - all other members of `StdVideoAV1CDEF` are interpreted as defined in section 6.10.14 of the [AV1 Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#aomedia-av1);
-- the `StdVideoAV1LoopRestoration` structure pointed to by `pLoopRestoration` is interpreted as follows:
+- if `flags.UsesLr` is set in the [active sequence header](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#encode-av1-active-sequence-header), then the `StdVideoAV1LoopRestoration` structure pointed to by `pLoopRestoration` is interpreted as follows:
   
   - `LoopRestorationSize`\[`plane`] is interpreted as log2(`size`) - 5, where `size` is the value of `LoopRestorationSize`\[`plane`] as defined in section 6.10.15 of the [AV1 Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#aomedia-av1).
   - all other members of `StdVideoAV1LoopRestoration` are defined as in section 6.10.15 of the [AV1 Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#aomedia-av1);
-- the members of the `StdVideoAV1GlobalMotion` structure provided in `global_motion` are interpreted as defined in section 7.10 of the [AV1 Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#aomedia-av1);
+- the members of the `StdVideoAV1GlobalMotion` structure pointed to by `pGlobalMotion` are interpreted as defined in section 7.10 of the [AV1 Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#aomedia-av1);
 - if `flags.film_grain_params_present` is set in the [active sequence header](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#decode-av1-active-sequence-header), then the `StdVideoAV1FilmGrain` structure pointed to by `pFilmGrain` is interpreted as follows:
   
   - `flags.reserved` is used only for padding purposes and is otherwise ignored;

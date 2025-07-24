@@ -79,6 +79,10 @@ Graphics
 
 Action
 
+Conditional Rendering
+
+vkCmdBlitImage2 is not affected by [conditional rendering](#drawing-conditional-rendering)
+
 ## [](#_see_also)See Also
 
 [VK\_KHR\_copy\_commands2](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_KHR_copy_commands2.html), [VK\_VERSION\_1\_3](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_VERSION_1_3.html), [VkBlitImageInfo2](https://registry.khronos.org/vulkan/specs/latest/man/html/VkBlitImageInfo2.html), [VkCommandBuffer](https://registry.khronos.org/vulkan/specs/latest/man/html/VkCommandBuffer.html)

@@ -74,6 +74,10 @@ Graphics
 
 State
 
+Conditional Rendering
+
+vkCmdSetCoarseSampleOrderNV is not affected by [conditional rendering](#drawing-conditional-rendering)
+
 ## [](#_see_also)See Also
 
 [VK\_NV\_shading\_rate\_image](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_NV_shading_rate_image.html), [VkCoarseSampleOrderCustomNV](https://registry.khronos.org/vulkan/specs/latest/man/html/VkCoarseSampleOrderCustomNV.html), [VkCoarseSampleOrderTypeNV](https://registry.khronos.org/vulkan/specs/latest/man/html/VkCoarseSampleOrderTypeNV.html), [VkCommandBuffer](https://registry.khronos.org/vulkan/specs/latest/man/html/VkCommandBuffer.html)

@@ -61,12 +61,14 @@ Return Codes
 
 On success, this command returns
 
-- `VK_SUCCESS`
 - `VK_INCOMPLETE`
+- `VK_SUCCESS`
 
 On failure, this command returns
 
 - `VK_ERROR_INITIALIZATION_FAILED`
+- `VK_ERROR_UNKNOWN`
+- `VK_ERROR_VALIDATION_FAILED`
 
 ## [](#_see_also)See Also
 

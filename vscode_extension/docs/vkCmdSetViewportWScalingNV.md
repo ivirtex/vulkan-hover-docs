@@ -72,6 +72,10 @@ Graphics
 
 State
 
+Conditional Rendering
+
+vkCmdSetViewportWScalingNV is not affected by [conditional rendering](#drawing-conditional-rendering)
+
 ## [](#_see_also)See Also
 
 [VK\_NV\_clip\_space\_w\_scaling](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_NV_clip_space_w_scaling.html), [VkCommandBuffer](https://registry.khronos.org/vulkan/specs/latest/man/html/VkCommandBuffer.html), [VkViewportWScalingNV](https://registry.khronos.org/vulkan/specs/latest/man/html/VkViewportWScalingNV.html)

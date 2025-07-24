@@ -114,6 +114,10 @@ Compute
 
 Action
 
+Conditional Rendering
+
+vkCmdWriteBufferMarkerAMD is not affected by [conditional rendering](#drawing-conditional-rendering)
+
 ## [](#_see_also)See Also
 
 [VK\_AMD\_buffer\_marker](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_AMD_buffer_marker.html), [VkBuffer](https://registry.khronos.org/vulkan/specs/latest/man/html/VkBuffer.html), [VkCommandBuffer](https://registry.khronos.org/vulkan/specs/latest/man/html/VkCommandBuffer.html), [VkDeviceSize](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDeviceSize.html), [VkPipelineStageFlagBits](https://registry.khronos.org/vulkan/specs/latest/man/html/VkPipelineStageFlagBits.html)

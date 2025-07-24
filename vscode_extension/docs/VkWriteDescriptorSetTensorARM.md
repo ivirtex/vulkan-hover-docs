@@ -31,8 +31,6 @@ typedef struct VkWriteDescriptorSetTensorARM {
 
 Valid Usage
 
-- [](#VUID-VkWriteDescriptorSetTensorARM-tensorViewCount-09700)VUID-VkWriteDescriptorSetTensorARM-tensorViewCount-09700  
-  `tensorViewCount` **must** be equal to `descriptorCount` in the [VkWriteDescriptorSet](https://registry.khronos.org/vulkan/specs/latest/man/html/VkWriteDescriptorSet.html) structure
 - [](#VUID-VkWriteDescriptorSetTensorARM-nullDescriptor-09898)VUID-VkWriteDescriptorSetTensorARM-nullDescriptor-09898  
   If the [`nullDescriptor`](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#features-nullDescriptor) feature is not enabled, each element of `pTensorViews` **must** not be [VK\_NULL\_HANDLE](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_NULL_HANDLE.html)
 

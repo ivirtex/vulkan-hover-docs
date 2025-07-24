@@ -498,6 +498,9 @@ Vulkan Version 1.0 was the initial release of the Vulkan API.
 - `VK_TRUE`
 - `VK_UUID_SIZE`
 - `VK_WHOLE_SIZE`
+- Extending [VkResult](https://registry.khronos.org/vulkan/specs/latest/man/html/VkResult.html):
+  
+  - `VK_ERROR_VALIDATION_FAILED`
 
 ## [](#_see_also)See Also
 

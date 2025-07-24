@@ -54,7 +54,10 @@ On success, this command returns
 
 - `VK_SUCCESS`
 
-This command does not return any failure codes
+On failure, this command returns
+
+- `VK_ERROR_UNKNOWN`
+- `VK_ERROR_VALIDATION_FAILED`
 
 ## [](#_see_also)See Also
 

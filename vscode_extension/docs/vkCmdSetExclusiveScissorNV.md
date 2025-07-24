@@ -84,6 +84,10 @@ Graphics
 
 State
 
+Conditional Rendering
+
+vkCmdSetExclusiveScissorNV is not affected by [conditional rendering](#drawing-conditional-rendering)
+
 ## [](#_see_also)See Also
 
 [VK\_NV\_scissor\_exclusive](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_NV_scissor_exclusive.html), [VkCommandBuffer](https://registry.khronos.org/vulkan/specs/latest/man/html/VkCommandBuffer.html), [VkRect2D](https://registry.khronos.org/vulkan/specs/latest/man/html/VkRect2D.html)

@@ -78,6 +78,10 @@ Graphics
 
 State
 
+Conditional Rendering
+
+vkCmdSetViewport is not affected by [conditional rendering](#drawing-conditional-rendering)
+
 ## [](#_see_also)See Also
 
 [VK\_VERSION\_1\_0](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_VERSION_1_0.html), [VkCommandBuffer](https://registry.khronos.org/vulkan/specs/latest/man/html/VkCommandBuffer.html), [VkViewport](https://registry.khronos.org/vulkan/specs/latest/man/html/VkViewport.html)

@@ -64,6 +64,10 @@ Graphics
 
 State
 
+Conditional Rendering
+
+vkCmdSetDiscardRectangleModeEXT is not affected by [conditional rendering](#drawing-conditional-rendering)
+
 ## [](#_see_also)See Also
 
 [VK\_EXT\_discard\_rectangles](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_EXT_discard_rectangles.html), [VkCommandBuffer](https://registry.khronos.org/vulkan/specs/latest/man/html/VkCommandBuffer.html), [VkDiscardRectangleModeEXT](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDiscardRectangleModeEXT.html)

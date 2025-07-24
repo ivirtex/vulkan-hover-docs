@@ -91,7 +91,7 @@ typedef struct VkPhysicalDeviceDescriptorBufferPropertiesEXT {
 
 ## [](#_description)Description
 
-A descriptor binding with type `VK_DESCRIPTOR_TYPE_MUTABLE_VALVE` has a descriptor size which is implied by the descriptor types included in the [VkMutableDescriptorTypeCreateInfoVALVE](https://registry.khronos.org/vulkan/specs/latest/man/html/VkMutableDescriptorTypeCreateInfoVALVE.html)::`pDescriptorTypes` list. The descriptor size is equal to the maximum size of any descriptor type included in the `pDescriptorTypes` list.
+A descriptor binding with type `VK_DESCRIPTOR_TYPE_MUTABLE_EXT` has a descriptor size which is implied by the descriptor types included in the [VkMutableDescriptorTypeCreateInfoEXT](https://registry.khronos.org/vulkan/specs/latest/man/html/VkMutableDescriptorTypeCreateInfoEXT.html)::`pDescriptorTypes` list. The descriptor size is equal to the maximum size of any descriptor type included in the `pDescriptorTypes` list.
 
 As there is no way to request robust and non-robust descriptors separately, or specify robust/non-robust descriptors in the set layout, if the [`robustBufferAccess`](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#features-robustBufferAccess) feature is enabled then robust descriptors are always used.
 

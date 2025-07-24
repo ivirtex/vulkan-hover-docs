@@ -47,8 +47,10 @@ On success, this command returns
 
 On failure, this command returns
 
-- `VK_ERROR_OUT_OF_HOST_MEMORY`
 - `VK_ERROR_OUT_OF_DEVICE_MEMORY`
+- `VK_ERROR_OUT_OF_HOST_MEMORY`
+- `VK_ERROR_UNKNOWN`
+- `VK_ERROR_VALIDATION_FAILED`
 
 Some Vulkan functions **may** call the `SendMessage` system API when interacting with a `VkSurfaceKHR` through a `VkSwapchainKHR`. In a multithreaded environment, calling `SendMessage` from a thread that is not the thread associated with `pCreateInfo->hwnd` will block until the application has processed the window message. Thus, applications **should** either call these Vulkan functions on the message pump thread, or make sure their message pump is actively running. Failing to do so **may** result in deadlocks.
 

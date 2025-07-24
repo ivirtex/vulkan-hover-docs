@@ -108,6 +108,8 @@ Valid Usage
   If `descriptorType` is `VK_DESCRIPTOR_TYPE_ACCELERATION_STRUCTURE_KHR`, the `pNext` chain **must** include a [VkWriteDescriptorSetAccelerationStructureKHR](https://registry.khronos.org/vulkan/specs/latest/man/html/VkWriteDescriptorSetAccelerationStructureKHR.html) structure whose `accelerationStructureCount` member equals `descriptorCount`
 - [](#VUID-VkWriteDescriptorSet-descriptorType-03817)VUID-VkWriteDescriptorSet-descriptorType-03817  
   If `descriptorType` is `VK_DESCRIPTOR_TYPE_ACCELERATION_STRUCTURE_NV`, the `pNext` chain **must** include a [VkWriteDescriptorSetAccelerationStructureNV](https://registry.khronos.org/vulkan/specs/latest/man/html/VkWriteDescriptorSetAccelerationStructureNV.html) structure whose `accelerationStructureCount` member equals `descriptorCount`
+- [](#VUID-VkWriteDescriptorSet-descriptorType-09945)VUID-VkWriteDescriptorSet-descriptorType-09945  
+  If `descriptorType` is `VK_DESCRIPTOR_TYPE_TENSOR_ARM`, the `pNext` chain **must** include a [VkWriteDescriptorSetTensorARM](https://registry.khronos.org/vulkan/specs/latest/man/html/VkWriteDescriptorSetTensorARM.html) structure whose `tensorViewCount` member equals `descriptorCount`
 - [](#VUID-VkWriteDescriptorSet-descriptorType-01946)VUID-VkWriteDescriptorSet-descriptorType-01946  
   If `descriptorType` is `VK_DESCRIPTOR_TYPE_SAMPLED_IMAGE`, then the `imageView` member of each `pImageInfo` element **must** have been created without a `VkSamplerYcbcrConversionInfo` structure in its `pNext` chain
 - [](#VUID-VkWriteDescriptorSet-descriptorType-02738)VUID-VkWriteDescriptorSet-descriptorType-02738  

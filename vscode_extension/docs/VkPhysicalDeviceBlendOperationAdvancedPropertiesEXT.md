@@ -28,7 +28,7 @@ typedef struct VkPhysicalDeviceBlendOperationAdvancedPropertiesEXT {
 
 - `sType` is a [VkStructureType](https://registry.khronos.org/vulkan/specs/latest/man/html/VkStructureType.html) value identifying this structure.
 - `pNext` is `NULL` or a pointer to a structure extending this structure.
-- []()`advancedBlendMaxColorAttachments` is one greater than the highest color attachment index that **can** be used in a subpass, for a pipeline that uses an [advanced blend operation](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#framebuffer-blend-advanced).
+- []()`advancedBlendMaxColorAttachments` is one greater than the highest color attachment index that **can** be used in a render pass instance, for a pipeline that uses an [advanced blend operation](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#framebuffer-blend-advanced).
 - []()`advancedBlendIndependentBlend` specifies whether advanced blend operations **can** vary per-attachment.
 - []()`advancedBlendNonPremultipliedSrcColor` specifies whether the source color **can** be treated as non-premultiplied. If this is `VK_FALSE`, then [VkPipelineColorBlendAdvancedStateCreateInfoEXT](https://registry.khronos.org/vulkan/specs/latest/man/html/VkPipelineColorBlendAdvancedStateCreateInfoEXT.html)::`srcPremultiplied` **must** be `VK_TRUE`.
 - []()`advancedBlendNonPremultipliedDstColor` specifies whether the destination color **can** be treated as non-premultiplied. If this is `VK_FALSE`, then [VkPipelineColorBlendAdvancedStateCreateInfoEXT](https://registry.khronos.org/vulkan/specs/latest/man/html/VkPipelineColorBlendAdvancedStateCreateInfoEXT.html)::`dstPremultiplied` **must** be `VK_TRUE`.

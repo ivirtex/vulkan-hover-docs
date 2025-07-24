@@ -77,6 +77,10 @@ Graphics
 
 State
 
+Conditional Rendering
+
+vkCmdSetColorWriteMaskEXT is not affected by [conditional rendering](#drawing-conditional-rendering)
+
 ## [](#_see_also)See Also
 
 [VK\_EXT\_extended\_dynamic\_state3](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_EXT_extended_dynamic_state3.html), [VK\_EXT\_shader\_object](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_EXT_shader_object.html), [VkColorComponentFlags](https://registry.khronos.org/vulkan/specs/latest/man/html/VkColorComponentFlags.html), [VkCommandBuffer](https://registry.khronos.org/vulkan/specs/latest/man/html/VkCommandBuffer.html)

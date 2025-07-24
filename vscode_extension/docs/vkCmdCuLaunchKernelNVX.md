@@ -52,6 +52,10 @@ Compute
 
 Action
 
+Conditional Rendering
+
+vkCmdCuLaunchKernelNVX is not affected by [conditional rendering](#drawing-conditional-rendering)
+
 ## [](#_see_also)See Also
 
 [VK\_NVX\_binary\_import](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_NVX_binary_import.html), [VkCommandBuffer](https://registry.khronos.org/vulkan/specs/latest/man/html/VkCommandBuffer.html), [VkCuLaunchInfoNVX](https://registry.khronos.org/vulkan/specs/latest/man/html/VkCuLaunchInfoNVX.html)

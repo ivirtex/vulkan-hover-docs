@@ -12,7 +12,7 @@ VK\_NV\_cluster\_acceleration\_structure - device extension
 
 ## [](#_revision)Revision
 
-3
+4
 
 ## [](#_ratification_status)Ratification Status
 
@@ -121,6 +121,9 @@ If [VK\_KHR\_ray\_tracing\_pipeline](https://registry.khronos.org/vulkan/specs/l
 
 - `VK_NV_CLUSTER_ACCELERATION_STRUCTURE_EXTENSION_NAME`
 - `VK_NV_CLUSTER_ACCELERATION_STRUCTURE_SPEC_VERSION`
+- Extending [VkBuildAccelerationStructureFlagBitsKHR](https://registry.khronos.org/vulkan/specs/latest/man/html/VkBuildAccelerationStructureFlagBitsKHR.html):
+  
+  - `VK_BUILD_ACCELERATION_STRUCTURE_ALLOW_CLUSTER_OPACITY_MICROMAPS_BIT_NV`
 - Extending [VkStructureType](https://registry.khronos.org/vulkan/specs/latest/man/html/VkStructureType.html):
   
   - `VK_STRUCTURE_TYPE_CLUSTER_ACCELERATION_STRUCTURE_CLUSTERS_BOTTOM_LEVEL_INPUT_NV`
@@ -148,6 +151,9 @@ If [VK\_EXT\_opacity\_micromap](https://registry.khronos.org/vulkan/specs/latest
 
 ## [](#_version_history)Version History
 
+- Revision 4, 2025-07-16 (Vikram Kushwaha)
+  
+  - Adding build flag to enable OMM in cluster acceleration structure
 - Revision 3, 2025-06-18 (Vikram Kushwaha)
   
   - Adding a OpType to get template’s index data

@@ -48,6 +48,8 @@ On success, this command returns
 On failure, this command returns
 
 - `VK_ERROR_OUT_OF_HOST_MEMORY`
+- `VK_ERROR_UNKNOWN`
+- `VK_ERROR_VALIDATION_FAILED`
 
 The application **must** ensure that [vkCreateDebugUtilsMessengerEXT](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCreateDebugUtilsMessengerEXT.html) is not executed in parallel with any Vulkan command that is also called with `instance` or child of `instance` as the dispatchable argument.
 

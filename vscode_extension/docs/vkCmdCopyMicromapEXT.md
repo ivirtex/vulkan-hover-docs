@@ -70,6 +70,10 @@ Compute
 
 Action
 
+Conditional Rendering
+
+vkCmdCopyMicromapEXT is not affected by [conditional rendering](#drawing-conditional-rendering)
+
 ## [](#_see_also)See Also
 
 [VK\_EXT\_opacity\_micromap](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_EXT_opacity_micromap.html), [VkCommandBuffer](https://registry.khronos.org/vulkan/specs/latest/man/html/VkCommandBuffer.html), [VkCopyMicromapInfoEXT](https://registry.khronos.org/vulkan/specs/latest/man/html/VkCopyMicromapInfoEXT.html)

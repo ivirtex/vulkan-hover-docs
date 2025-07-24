@@ -99,6 +99,10 @@ Compute
 
 State
 
+Conditional Rendering
+
+vkCmdPushDescriptorSetWithTemplate is not affected by [conditional rendering](#drawing-conditional-rendering)
+
 API Example
 
 ```c++

@@ -73,6 +73,10 @@ Graphics
 Action  
 State
 
+Conditional Rendering
+
+vkCmdEndRendering2EXT is not affected by [conditional rendering](#drawing-conditional-rendering)
+
 ## [](#_see_also)See Also
 
 [VK\_EXT\_fragment\_density\_map\_offset](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_EXT_fragment_density_map_offset.html), [VkCommandBuffer](https://registry.khronos.org/vulkan/specs/latest/man/html/VkCommandBuffer.html), [VkRenderingEndInfoEXT](https://registry.khronos.org/vulkan/specs/latest/man/html/VkRenderingEndInfoEXT.html)

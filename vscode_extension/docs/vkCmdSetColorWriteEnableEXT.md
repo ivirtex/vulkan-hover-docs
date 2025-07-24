@@ -70,6 +70,10 @@ Graphics
 
 State
 
+Conditional Rendering
+
+vkCmdSetColorWriteEnableEXT is not affected by [conditional rendering](#drawing-conditional-rendering)
+
 ## [](#_see_also)See Also
 
 [VK\_EXT\_color\_write\_enable](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_EXT_color_write_enable.html), [VkBool32](https://registry.khronos.org/vulkan/specs/latest/man/html/VkBool32.html), [VkCommandBuffer](https://registry.khronos.org/vulkan/specs/latest/man/html/VkCommandBuffer.html)

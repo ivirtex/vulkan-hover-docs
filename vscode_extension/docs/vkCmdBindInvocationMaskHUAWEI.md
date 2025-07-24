@@ -84,6 +84,10 @@ Compute
 
 State
 
+Conditional Rendering
+
+vkCmdBindInvocationMaskHUAWEI is not affected by [conditional rendering](#drawing-conditional-rendering)
+
 ## [](#_see_also)See Also
 
 [VK\_HUAWEI\_invocation\_mask](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_HUAWEI_invocation_mask.html), [VkCommandBuffer](https://registry.khronos.org/vulkan/specs/latest/man/html/VkCommandBuffer.html), [VkImageLayout](https://registry.khronos.org/vulkan/specs/latest/man/html/VkImageLayout.html), [VkImageView](https://registry.khronos.org/vulkan/specs/latest/man/html/VkImageView.html)
