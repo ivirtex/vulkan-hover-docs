@@ -11,7 +11,7 @@ VkPipelineCacheCreateFlagBits - Bitmask specifying the behavior of the pipeline 
 Bits which **can** be set in [VkPipelineCacheCreateInfo](https://registry.khronos.org/vulkan/specs/latest/man/html/VkPipelineCacheCreateInfo.html)::`flags`, specifying behavior of the pipeline cache, are:
 
 ```c++
-// Provided by VK_EXT_pipeline_creation_cache_control
+// Provided by VK_VERSION_1_3, VK_KHR_maintenance8, VK_EXT_pipeline_creation_cache_control
 typedef enum VkPipelineCacheCreateFlagBits {
   // Provided by VK_VERSION_1_3
     VK_PIPELINE_CACHE_CREATE_EXTERNALLY_SYNCHRONIZED_BIT = 0x00000001,
@@ -29,7 +29,7 @@ typedef enum VkPipelineCacheCreateFlagBits {
 
 ## [](#_see_also)See Also
 
-[VK\_EXT\_pipeline\_creation\_cache\_control](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_EXT_pipeline_creation_cache_control.html), [VkPipelineCacheCreateFlags](https://registry.khronos.org/vulkan/specs/latest/man/html/VkPipelineCacheCreateFlags.html)
+[VK\_EXT\_pipeline\_creation\_cache\_control](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_EXT_pipeline_creation_cache_control.html), [VK\_KHR\_maintenance8](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_KHR_maintenance8.html), [VK\_VERSION\_1\_3](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_VERSION_1_3.html), [VkPipelineCacheCreateFlags](https://registry.khronos.org/vulkan/specs/latest/man/html/VkPipelineCacheCreateFlags.html)
 
 ## [](#_document_notes)Document Notes
 

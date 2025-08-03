@@ -37,7 +37,7 @@ Valid Usage
 - [](#VUID-PrimitiveShadingRateKHR-PrimitiveShadingRateKHR-10598)VUID-PrimitiveShadingRateKHR-PrimitiveShadingRateKHR-10598  
   `PrimitiveShadingRateKHR` within the `MeshEXT` `Execution` `Model` **must** decorate a scalar 32-bit integer member of a structure decorated as `Block`, or decorate a variable of type `OpTypeArray` of 32-bit integer values
 - [](#VUID-PrimitiveShadingRateKHR-PrimitiveShadingRateKHR-10599)VUID-PrimitiveShadingRateKHR-PrimitiveShadingRateKHR-10599  
-  If `PrimitiveShadingRateKHR` is declared as an array of boolean values, the size of the array **must** match the value specified by `OutputPrimitivesEXT`
+  If `PrimitiveShadingRateKHR` is declared as an array of 32-bit integer values, within the `MeshEXT` `Execution` `Model`, size of the array **must** match the value specified by `OutputPrimitivesEXT`
 - [](#VUID-PrimitiveShadingRateKHR-PrimitiveShadingRateKHR-10600)VUID-PrimitiveShadingRateKHR-PrimitiveShadingRateKHR-10600  
   If `PrimitiveShadingRateKHR` decorates a member of a structure, the variable declaration of the containing `Block` type **must** have an array size that matches the value specified by `OutputPrimitivesEXT`
 

@@ -81,6 +81,10 @@ static const VkBufferUsageFlagBits2 VK_BUFFER_USAGE_2_PUSH_DESCRIPTORS_DESCRIPTO
 static const VkBufferUsageFlagBits2 VK_BUFFER_USAGE_2_MICROMAP_BUILD_INPUT_READ_ONLY_BIT_EXT = 0x00800000ULL;
 // Provided by VK_KHR_maintenance5 with VK_EXT_opacity_micromap
 static const VkBufferUsageFlagBits2 VK_BUFFER_USAGE_2_MICROMAP_STORAGE_BIT_EXT = 0x01000000ULL;
+#ifdef VK_ENABLE_BETA_EXTENSIONS
+// Provided by VK_AMDX_dense_geometry_format
+static const VkBufferUsageFlagBits2 VK_BUFFER_USAGE_2_COMPRESSED_DATA_DGF1_BIT_AMDX = 0x200000000ULL;
+#endif
 // Provided by VK_ARM_data_graph
 static const VkBufferUsageFlagBits2 VK_BUFFER_USAGE_2_DATA_GRAPH_FOREIGN_DESCRIPTOR_BIT_ARM = 0x20000000ULL;
 // Provided by VK_QCOM_tile_memory_heap
@@ -125,6 +129,7 @@ typedef VkBufferUsageFlagBits2 VkBufferUsageFlagBits2KHR;
 - `VK_BUFFER_USAGE_2_VIDEO_ENCODE_SRC_BIT_KHR` is reserved for future use.
 - `VK_BUFFER_USAGE_2_EXECUTION_GRAPH_SCRATCH_BIT_AMDX` specifies that the buffer **can** be used for as scratch memory for [execution graph dispatch](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#executiongraphs).
 - `VK_BUFFER_USAGE_2_PREPROCESS_BUFFER_BIT_EXT` specifies that the buffer **can** be used as a preprocess buffer for [Device-Generated Commands](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#device-generated-commands).
+- `VK_BUFFER_USAGE_2_COMPRESSED_DATA_DGF1_BIT_AMDX` specifies that the buffer is suitable as storage space for [Dense Geometry Format](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#dense-geometry-format) data.
 - `VK_BUFFER_USAGE_2_DATA_GRAPH_FOREIGN_DESCRIPTOR_BIT_ARM` specifies that the buffer is suitable to contain resource descriptors when bound as a descriptor buffer in command buffers allocated from a command pool that **can** target foreign [data graph processing engines](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#graphs-processing-engines).
 
 ## [](#_see_also)See Also

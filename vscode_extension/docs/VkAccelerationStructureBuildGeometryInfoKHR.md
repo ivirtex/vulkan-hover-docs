@@ -71,6 +71,8 @@ Valid Usage
   If `type` is `VK_ACCELERATION_STRUCTURE_TYPE_BOTTOM_LEVEL_KHR` then the `geometryType` member of each geometry in either `pGeometries` or `ppGeometries` **must** be the same
 - [](#VUID-VkAccelerationStructureBuildGeometryInfoKHR-type-03793)VUID-VkAccelerationStructureBuildGeometryInfoKHR-type-03793  
   If `type` is `VK_ACCELERATION_STRUCTURE_TYPE_BOTTOM_LEVEL_KHR` then `geometryCount` **must** be less than or equal to [VkPhysicalDeviceAccelerationStructurePropertiesKHR](https://registry.khronos.org/vulkan/specs/latest/man/html/VkPhysicalDeviceAccelerationStructurePropertiesKHR.html)::`maxGeometryCount`
+- [](#VUID-VkAccelerationStructureBuildGeometryInfoKHR-type-10884)VUID-VkAccelerationStructureBuildGeometryInfoKHR-type-10884  
+  If `type` is `VK_ACCELERATION_STRUCTURE_TYPE_BOTTOM_LEVEL_KHR` and the `geometryType` member of either `pGeometries` or `ppGeometries` is `VK_GEOMETRY_TYPE_DENSE_GEOMETRY_FORMAT_TRIANGLES_AMDX`, then `geometryCount` **must** be `1`
 - [](#VUID-VkAccelerationStructureBuildGeometryInfoKHR-type-03794)VUID-VkAccelerationStructureBuildGeometryInfoKHR-type-03794  
   If `type` is `VK_ACCELERATION_STRUCTURE_TYPE_BOTTOM_LEVEL_KHR` and the `geometryType` member of either `pGeometries` or `ppGeometries` is `VK_GEOMETRY_TYPE_AABBS_KHR`, the total number of AABBs in all geometries **must** be less than or equal to [VkPhysicalDeviceAccelerationStructurePropertiesKHR](https://registry.khronos.org/vulkan/specs/latest/man/html/VkPhysicalDeviceAccelerationStructurePropertiesKHR.html)::`maxPrimitiveCount`
 - [](#VUID-VkAccelerationStructureBuildGeometryInfoKHR-type-03795)VUID-VkAccelerationStructureBuildGeometryInfoKHR-type-03795  

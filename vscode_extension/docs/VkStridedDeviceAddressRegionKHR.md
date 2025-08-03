@@ -34,6 +34,11 @@ Valid Usage
 - [](#VUID-VkStridedDeviceAddressRegionKHR-size-04632)VUID-VkStridedDeviceAddressRegionKHR-size-04632  
   If `size` is not zero, `stride` **must** be less than or equal to the size of the buffer from which `deviceAddress` was queried
 
+Valid Usage (Implicit)
+
+- [](#VUID-VkStridedDeviceAddressRegionKHR-deviceAddress-parameter)VUID-VkStridedDeviceAddressRegionKHR-deviceAddress-parameter  
+  If `deviceAddress` is not `0`, `deviceAddress` **must** be a valid [VkDeviceAddress](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDeviceAddress.html) value
+
 ## [](#_see_also)See Also
 
 [VK\_KHR\_ray\_tracing\_pipeline](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_KHR_ray_tracing_pipeline.html), [VkClusterAccelerationStructureCommandsInfoNV](https://registry.khronos.org/vulkan/specs/latest/man/html/VkClusterAccelerationStructureCommandsInfoNV.html), [VkDeviceAddress](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDeviceAddress.html), [VkDeviceSize](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDeviceSize.html), [vkCmdTraceRaysIndirectKHR](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdTraceRaysIndirectKHR.html), [vkCmdTraceRaysKHR](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdTraceRaysKHR.html)

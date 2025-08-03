@@ -40,8 +40,6 @@ Valid Usage
   There **must** be no more than `1` element in `pBindingInfos` with [VkDescriptorBufferBindingInfoEXT](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDescriptorBufferBindingInfoEXT.html)::`usage` containing `VK_BUFFER_USAGE_PUSH_DESCRIPTORS_DESCRIPTOR_BUFFER_BIT_EXT`
 - [](#VUID-vkCmdBindDescriptorBuffersEXT-bufferCount-08051)VUID-vkCmdBindDescriptorBuffersEXT-bufferCount-08051  
   `bufferCount` **must** be less than or equal to [VkPhysicalDeviceDescriptorBufferPropertiesEXT](https://registry.khronos.org/vulkan/specs/latest/man/html/VkPhysicalDeviceDescriptorBufferPropertiesEXT.html)::`maxDescriptorBufferBindings`
-- [](#VUID-vkCmdBindDescriptorBuffersEXT-pBindingInfos-08052)VUID-vkCmdBindDescriptorBuffersEXT-pBindingInfos-08052  
-  For any element of `pBindingInfos`, if the buffer from which `address` was queried is non-sparse then it **must** be bound completely and contiguously to a single [VkDeviceMemory](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDeviceMemory.html) object
 - [](#VUID-vkCmdBindDescriptorBuffersEXT-pBindingInfos-08053)VUID-vkCmdBindDescriptorBuffersEXT-pBindingInfos-08053  
   For any element of `pBindingInfos`, the buffer from which `address` was queried **must** have been created with the `VK_BUFFER_USAGE_SAMPLER_DESCRIPTOR_BUFFER_BIT_EXT` bit set if it contains sampler descriptor data
 - [](#VUID-vkCmdBindDescriptorBuffersEXT-pBindingInfos-08054)VUID-vkCmdBindDescriptorBuffersEXT-pBindingInfos-08054  

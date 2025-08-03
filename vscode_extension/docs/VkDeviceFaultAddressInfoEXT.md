@@ -42,6 +42,8 @@ Valid Usage (Implicit)
 
 - [](#VUID-VkDeviceFaultAddressInfoEXT-addressType-parameter)VUID-VkDeviceFaultAddressInfoEXT-addressType-parameter  
   `addressType` **must** be a valid [VkDeviceFaultAddressTypeEXT](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDeviceFaultAddressTypeEXT.html) value
+- [](#VUID-VkDeviceFaultAddressInfoEXT-reportedAddress-parameter)VUID-VkDeviceFaultAddressInfoEXT-reportedAddress-parameter  
+  `reportedAddress` **must** be a valid [VkDeviceAddress](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDeviceAddress.html) value
 
 ## [](#_see_also)See Also
 

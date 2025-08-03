@@ -54,6 +54,8 @@ Valid Usage (Implicit)
   `sType` **must** be `VK_STRUCTURE_TYPE_DEVICE_ADDRESS_BINDING_CALLBACK_DATA_EXT`
 - [](#VUID-VkDeviceAddressBindingCallbackDataEXT-flags-parameter)VUID-VkDeviceAddressBindingCallbackDataEXT-flags-parameter  
   `flags` **must** be a valid combination of [VkDeviceAddressBindingFlagBitsEXT](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDeviceAddressBindingFlagBitsEXT.html) values
+- [](#VUID-VkDeviceAddressBindingCallbackDataEXT-baseAddress-parameter)VUID-VkDeviceAddressBindingCallbackDataEXT-baseAddress-parameter  
+  `baseAddress` **must** be a valid [VkDeviceAddress](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDeviceAddress.html) value
 - [](#VUID-VkDeviceAddressBindingCallbackDataEXT-bindingType-parameter)VUID-VkDeviceAddressBindingCallbackDataEXT-bindingType-parameter  
   `bindingType` **must** be a valid [VkDeviceAddressBindingTypeEXT](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDeviceAddressBindingTypeEXT.html) value
 

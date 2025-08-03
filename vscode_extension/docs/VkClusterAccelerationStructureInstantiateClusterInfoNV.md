@@ -42,6 +42,11 @@ Valid Usage
 - [](#VUID-VkClusterAccelerationStructureInstantiateClusterInfoNV-geometryIndexOffset-10510)VUID-VkClusterAccelerationStructureInstantiateClusterInfoNV-geometryIndexOffset-10510  
   The maximum geometry index after using the value in `geometryIndexOffset` **must** be less than [VkPhysicalDeviceClusterAccelerationStructurePropertiesNV](https://registry.khronos.org/vulkan/specs/latest/man/html/VkPhysicalDeviceClusterAccelerationStructurePropertiesNV.html)::`maxClusterGeometryIndex`
 
+Valid Usage (Implicit)
+
+- [](#VUID-VkClusterAccelerationStructureInstantiateClusterInfoNV-clusterTemplateAddress-parameter)VUID-VkClusterAccelerationStructureInstantiateClusterInfoNV-clusterTemplateAddress-parameter  
+  `clusterTemplateAddress` **must** be a valid [VkDeviceAddress](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDeviceAddress.html) value
+
 ## [](#_see_also)See Also
 
 [VK\_NV\_cluster\_acceleration\_structure](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_NV_cluster_acceleration_structure.html), [VkDeviceAddress](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDeviceAddress.html), [VkStridedDeviceAddressNV](https://registry.khronos.org/vulkan/specs/latest/man/html/VkStridedDeviceAddressNV.html)

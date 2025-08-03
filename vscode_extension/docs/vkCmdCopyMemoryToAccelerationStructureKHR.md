@@ -35,11 +35,9 @@ Valid Usage
 - [](#VUID-vkCmdCopyMemoryToAccelerationStructureKHR-accelerationStructure-08927)VUID-vkCmdCopyMemoryToAccelerationStructureKHR-accelerationStructure-08927  
   The [`VkPhysicalDeviceAccelerationStructureFeaturesKHR`::`accelerationStructure`](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#features-accelerationStructure) feature **must** be enabled
 - [](#VUID-vkCmdCopyMemoryToAccelerationStructureKHR-pInfo-03742)VUID-vkCmdCopyMemoryToAccelerationStructureKHR-pInfo-03742  
-  `pInfo->src.deviceAddress` **must** be a valid device address for a buffer bound to device memory
+  `pInfo->src.deviceAddress` **must** be a valid [VkDeviceAddress](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDeviceAddress.html)
 - [](#VUID-vkCmdCopyMemoryToAccelerationStructureKHR-pInfo-03743)VUID-vkCmdCopyMemoryToAccelerationStructureKHR-pInfo-03743  
   `pInfo->src.deviceAddress` **must** be aligned to `256` bytes
-- [](#VUID-vkCmdCopyMemoryToAccelerationStructureKHR-pInfo-03744)VUID-vkCmdCopyMemoryToAccelerationStructureKHR-pInfo-03744  
-  If the buffer pointed to by `pInfo->src.deviceAddress` is non-sparse then it **must** be bound completely and contiguously to a single [VkDeviceMemory](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDeviceMemory.html) object
 - [](#VUID-vkCmdCopyMemoryToAccelerationStructureKHR-buffer-03745)VUID-vkCmdCopyMemoryToAccelerationStructureKHR-buffer-03745  
   The `buffer` used to create `pInfo->dst` **must** be bound to device memory
 

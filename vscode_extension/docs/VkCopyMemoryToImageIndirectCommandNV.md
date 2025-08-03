@@ -47,6 +47,8 @@ Valid Usage
 
 Valid Usage (Implicit)
 
+- [](#VUID-VkCopyMemoryToImageIndirectCommandNV-srcAddress-parameter)VUID-VkCopyMemoryToImageIndirectCommandNV-srcAddress-parameter  
+  `srcAddress` **must** be a valid [VkDeviceAddress](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDeviceAddress.html) value
 - [](#VUID-VkCopyMemoryToImageIndirectCommandNV-imageSubresource-parameter)VUID-VkCopyMemoryToImageIndirectCommandNV-imageSubresource-parameter  
   `imageSubresource` **must** be a valid [VkImageSubresourceLayers](https://registry.khronos.org/vulkan/specs/latest/man/html/VkImageSubresourceLayers.html) structure
 

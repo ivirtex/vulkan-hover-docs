@@ -40,10 +40,6 @@ and
 - Interacts with VK\_EXT\_mesh\_shader
 - Interacts with VK\_KHR\_maintenance5
 
-## [](#_spir_v_dependencies)SPIR-V Dependencies
-
-- [SPV\_AMDX\_shader\_enqueue](https://github.khronos.org/SPIRV-Registry/extensions/AMDX/SPV_AMDX_shader_enqueue.html)
-
 ## [](#_contact)Contact
 
 - Tobias Hector [\[GitHub\]tobski](https://github.com/KhronosGroup/Vulkan-Docs/issues/new?body=%5BVK_AMDX_shader_enqueue%5D%20%40tobski%0A%2AHere%20describe%20the%20issue%20or%20question%20you%20have%20about%20the%20VK_AMDX_shader_enqueue%20extension%2A)

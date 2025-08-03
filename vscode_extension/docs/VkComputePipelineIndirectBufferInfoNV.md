@@ -58,6 +58,10 @@ Valid Usage (Implicit)
 
 - [](#VUID-VkComputePipelineIndirectBufferInfoNV-sType-sType)VUID-VkComputePipelineIndirectBufferInfoNV-sType-sType  
   `sType` **must** be `VK_STRUCTURE_TYPE_COMPUTE_PIPELINE_INDIRECT_BUFFER_INFO_NV`
+- [](#VUID-VkComputePipelineIndirectBufferInfoNV-deviceAddress-parameter)VUID-VkComputePipelineIndirectBufferInfoNV-deviceAddress-parameter  
+  `deviceAddress` **must** be a valid [VkDeviceAddress](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDeviceAddress.html) value
+- [](#VUID-VkComputePipelineIndirectBufferInfoNV-pipelineDeviceAddressCaptureReplay-parameter)VUID-VkComputePipelineIndirectBufferInfoNV-pipelineDeviceAddressCaptureReplay-parameter  
+  `pipelineDeviceAddressCaptureReplay` **must** be a valid [VkDeviceAddress](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDeviceAddress.html) value
 
 ## [](#_see_also)See Also
 

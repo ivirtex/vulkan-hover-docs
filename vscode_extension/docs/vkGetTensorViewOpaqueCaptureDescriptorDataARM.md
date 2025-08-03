@@ -29,7 +29,7 @@ VkResult vkGetTensorViewOpaqueCaptureDescriptorDataARM(
 Valid Usage
 
 - [](#VUID-vkGetTensorViewOpaqueCaptureDescriptorDataARM-descriptorBufferCaptureReplay-09706)VUID-vkGetTensorViewOpaqueCaptureDescriptorDataARM-descriptorBufferCaptureReplay-09706  
-  The [`descriptorBufferCaptureReplay`](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#features-descriptorBuffer) and [pname::descriptorBufferTensorDescriptors](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#features-descriptorBufferTensorDescriptors) features **must** be enabled
+  The [`descriptorBufferCaptureReplay`](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#features-descriptorBuffer) and [`descriptorBufferTensorDescriptors`](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#features-descriptorBufferTensorDescriptors) features **must** be enabled
 - [](#VUID-vkGetTensorViewOpaqueCaptureDescriptorDataARM-pData-09707)VUID-vkGetTensorViewOpaqueCaptureDescriptorDataARM-pData-09707  
   `pData` **must** point to a buffer that is at least [VkPhysicalDeviceDescriptorBufferTensorPropertiesARM](https://registry.khronos.org/vulkan/specs/latest/man/html/VkPhysicalDeviceDescriptorBufferTensorPropertiesARM.html)::`tensorViewCaptureReplayDescriptorDataSize` bytes in size
 - [](#VUID-vkGetTensorViewOpaqueCaptureDescriptorDataARM-device-09708)VUID-vkGetTensorViewOpaqueCaptureDescriptorDataARM-device-09708  

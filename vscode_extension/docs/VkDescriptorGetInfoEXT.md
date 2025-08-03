@@ -90,6 +90,8 @@ Valid Usage (Implicit)
   If `type` is `VK_DESCRIPTOR_TYPE_UNIFORM_BUFFER`, and if `pUniformBuffer` is not `NULL`, the `pUniformBuffer` member of `data` **must** be a valid pointer to a valid [VkDescriptorAddressInfoEXT](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDescriptorAddressInfoEXT.html) structure
 - [](#VUID-VkDescriptorGetInfoEXT-pStorageBuffer-parameter)VUID-VkDescriptorGetInfoEXT-pStorageBuffer-parameter  
   If `type` is `VK_DESCRIPTOR_TYPE_STORAGE_BUFFER`, and if `pStorageBuffer` is not `NULL`, the `pStorageBuffer` member of `data` **must** be a valid pointer to a valid [VkDescriptorAddressInfoEXT](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDescriptorAddressInfoEXT.html) structure
+- [](#VUID-VkDescriptorGetInfoEXT-accelerationStructure-parameter)VUID-VkDescriptorGetInfoEXT-accelerationStructure-parameter  
+  If `type` is `VK_DESCRIPTOR_TYPE_ACCELERATION_STRUCTURE_KHR` or `VK_DESCRIPTOR_TYPE_ACCELERATION_STRUCTURE_NV`, the `accelerationStructure` member of `data` **must** be a valid [VkDeviceAddress](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDeviceAddress.html) value
 
 ## [](#_see_also)See Also
 

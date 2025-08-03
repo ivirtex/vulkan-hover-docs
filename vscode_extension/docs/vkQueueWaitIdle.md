@@ -24,6 +24,10 @@ VkResult vkQueueWaitIdle(
 
 `vkQueueWaitIdle` is equivalent to having submitted a valid fence to every previously executed [queue submission command](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#devsandqueues-submission) that accepts a fence, then waiting for all of those fences to signal using [vkWaitForFences](https://registry.khronos.org/vulkan/specs/latest/man/html/vkWaitForFences.html) with an infinite timeout and `waitAll` set to `VK_TRUE`.
 
+Note
+
+Even though [vkQueuePresentKHR](https://registry.khronos.org/vulkan/specs/latest/man/html/vkQueuePresentKHR.html) does not have a fence parameter, it does accept a fence through [VkSwapchainPresentFenceInfoEXT](https://registry.khronos.org/vulkan/specs/latest/man/html/VkSwapchainPresentFenceInfoEXT.html).
+
 Valid Usage (Implicit)
 
 - [](#VUID-vkQueueWaitIdle-queue-parameter)VUID-vkQueueWaitIdle-queue-parameter  

@@ -68,18 +68,6 @@ Valid Usage
   The buffers from which the buffer device addresses for `pCommandInfos->srcInfosArray`, `pCommandInfos->srcInfosCount` and `pCommandInfos->addressResolutionFlags` are queried **must** have been created with the `VK_BUFFER_USAGE_ACCELERATION_STRUCTURE_BUILD_INPUT_READ_ONLY_BIT_KHR` usage flag
 - [](#VUID-vkCmdBuildClusterAccelerationStructureIndirectNV-pCommandInfos-10459)VUID-vkCmdBuildClusterAccelerationStructureIndirectNV-pCommandInfos-10459  
   The buffers from which the buffer device addresses for `pCommandInfos->dstImplicitData` and `pCommandInfos->dstAddressesArray` are queried **must** have been created with the `VK_BUFFER_USAGE_ACCELERATION_STRUCTURE_STORAGE_BIT_KHR` usage flag
-- [](#VUID-vkCmdBuildClusterAccelerationStructureIndirectNV-pCommandInfos-10460)VUID-vkCmdBuildClusterAccelerationStructureIndirectNV-pCommandInfos-10460  
-  If `pCommandInfos->dstImplicitData` is the address of a non-sparse buffer then it **must** be bound completely and contiguously to a single [VkDeviceMemory](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDeviceMemory.html) object
-- [](#VUID-vkCmdBuildClusterAccelerationStructureIndirectNV-pCommandInfos-10461)VUID-vkCmdBuildClusterAccelerationStructureIndirectNV-pCommandInfos-10461  
-  If `pCommandInfos->scratchData` is the address of a non-sparse buffer then it **must** be bound completely and contiguously to a single [VkDeviceMemory](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDeviceMemory.html) object
-- [](#VUID-vkCmdBuildClusterAccelerationStructureIndirectNV-pCommandInfos-10462)VUID-vkCmdBuildClusterAccelerationStructureIndirectNV-pCommandInfos-10462  
-  If `pCommandInfos->srcInfosCount` is the address of a non-sparse buffer then it **must** be bound completely and contiguously to a single [VkDeviceMemory](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDeviceMemory.html) object
-- [](#VUID-vkCmdBuildClusterAccelerationStructureIndirectNV-pCommandInfos-10463)VUID-vkCmdBuildClusterAccelerationStructureIndirectNV-pCommandInfos-10463  
-  If the addresses specified in `pCommandInfos->dstAddressesArray` are the address of a non-sparse buffer then they each **must** be bound completely and contiguously to a single [VkDeviceMemory](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDeviceMemory.html) object
-- [](#VUID-vkCmdBuildClusterAccelerationStructureIndirectNV-pCommandInfos-10464)VUID-vkCmdBuildClusterAccelerationStructureIndirectNV-pCommandInfos-10464  
-  If the addresses specified in `pCommandInfos->dstSizesArray` are the address of a non-sparse buffer then they each **must** be bound completely and contiguously to a single [VkDeviceMemory](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDeviceMemory.html) object
-- [](#VUID-vkCmdBuildClusterAccelerationStructureIndirectNV-pCommandInfos-10465)VUID-vkCmdBuildClusterAccelerationStructureIndirectNV-pCommandInfos-10465  
-  If the addresses specified in `pCommandInfos->srcInfosArray` are the address of a non-sparse buffer then they each **must** be bound completely and contiguously to a single [VkDeviceMemory](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDeviceMemory.html) object
 
 Valid Usage (Implicit)
 

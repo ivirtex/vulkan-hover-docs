@@ -82,6 +82,7 @@ The new features are as follows:
 ## [](#_new_enums)New Enums
 
 - [VkAccessFlagBits3KHR](https://registry.khronos.org/vulkan/specs/latest/man/html/VkAccessFlagBits3KHR.html)
+- [VkPipelineCacheCreateFlagBits](https://registry.khronos.org/vulkan/specs/latest/man/html/VkPipelineCacheCreateFlagBits.html)
 
 ## [](#_new_bitmasks)New Bitmasks
 

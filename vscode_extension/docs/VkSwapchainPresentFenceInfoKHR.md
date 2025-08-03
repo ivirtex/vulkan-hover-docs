@@ -36,12 +36,12 @@ typedef VkSwapchainPresentFenceInfoKHR VkSwapchainPresentFenceInfoEXT;
 
 ## [](#_description)Description
 
-The set of *queue operations* defined by queuing an image for presentation, as well as operations performed by the presentation engine access the payloads of objects associated with the presentation operation. The associated objects include:
+The set of *queue operations* defined by queuing an image for presentation, as well as operations performed by the presentation engine, access the payloads of objects associated with the presentation operation. The associated objects include:
 
 - The swapchain image, its implicitly bound memory, and any other resources bound to that memory.
 - The wait semaphores specified when queuing the image for presentation.
 
-The application **can** provide a fence that the implementation will signal when all such queue operations have completed and the presentation engine has taken a reference to the payload of any objects it accesses as part of the present operation. For all binary wait semaphores imported by the presentation engine using the equivalent of reference transference, as described in [Importing Semaphore Payloads](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#synchronization-semaphores-importing), this fence **must** not signal until all such semaphore payloads have been reset by the presentation engine.
+The application **can** provide a fence that the implementation will signal after all such queue operations have completed, and after the presentation engine has taken a reference to the payloads of all objects provided in `VkPresentInfoKHR` that the presentation engine accesses as part of the present operation. The fence **may** not wait for the present operation to complete. For all binary wait semaphores imported by the presentation engine using the equivalent of reference transference, as described in [Importing Semaphore Payloads](#synchronization-semaphores-importing), this fence **must** not signal until all such semaphore payloads have been reset by the presentation engine.
 
 The application **can** destroy the wait semaphores associated with a given presentation operation when at least one of the associated fences is signaled, and **can** destroy the swapchain when the fences associated with all past presentation requests referring to that swapchain have signaled.
 

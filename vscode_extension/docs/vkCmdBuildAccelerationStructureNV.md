@@ -8,7 +8,7 @@ vkCmdBuildAccelerationStructureNV - Build an acceleration structure
 
 ## [](#_c_specification)C Specification
 
-To build an acceleration structure call:
+To build an acceleration structure for the `VK_NV_ray_tracing` extension call:
 
 ```c++
 // Provided by VK_NV_ray_tracing
@@ -59,7 +59,7 @@ Valid Usage
 - [](#VUID-vkCmdBuildAccelerationStructureNV-instanceData-03523)VUID-vkCmdBuildAccelerationStructureNV-instanceData-03523  
   If `instanceData` is not [VK\_NULL\_HANDLE](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_NULL_HANDLE.html), `instanceData` **must** have been created with `VK_BUFFER_USAGE_RAY_TRACING_BIT_NV` usage flag
 - [](#VUID-vkCmdBuildAccelerationStructureNV-accelerationStructureReference-03786)VUID-vkCmdBuildAccelerationStructureNV-accelerationStructureReference-03786  
-  Each [VkAccelerationStructureInstanceKHR](https://registry.khronos.org/vulkan/specs/latest/man/html/VkAccelerationStructureInstanceKHR.html)::`accelerationStructureReference` value in `instanceData` **must** be a valid device address containing a value obtained from [vkGetAccelerationStructureHandleNV](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetAccelerationStructureHandleNV.html)
+  Each [VkAccelerationStructureInstanceKHR](https://registry.khronos.org/vulkan/specs/latest/man/html/VkAccelerationStructureInstanceKHR.html)::`accelerationStructureReference` value in `instanceData` **must** be a value obtained from [vkGetAccelerationStructureHandleNV](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetAccelerationStructureHandleNV.html)
 - [](#VUID-vkCmdBuildAccelerationStructureNV-update-03524)VUID-vkCmdBuildAccelerationStructureNV-update-03524  
   If `update` is `VK_TRUE`, then objects that were previously active **must** not be made inactive as per [https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#acceleration-structure-inactive-prims](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#acceleration-structure-inactive-prims)
 - [](#VUID-vkCmdBuildAccelerationStructureNV-update-03525)VUID-vkCmdBuildAccelerationStructureNV-update-03525  

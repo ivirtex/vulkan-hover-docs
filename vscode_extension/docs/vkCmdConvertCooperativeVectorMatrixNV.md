@@ -33,7 +33,9 @@ This command’s execution is synchronized using `VK_PIPELINE_STAGE_2_CONVERT_CO
 Valid Usage
 
 - [](#VUID-vkCmdConvertCooperativeVectorMatrixNV-pInfo-10083)VUID-vkCmdConvertCooperativeVectorMatrixNV-pInfo-10083  
-  For each element of `pInfo`, `srcData`::`deviceAddress` and `dstData`::`deviceAddress` **must** be valid device addresses
+  For each element of `pInfo`, `srcData`::`deviceAddress` **must** be a valid [VkDeviceAddress](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDeviceAddress.html)
+- [](#VUID-vkCmdConvertCooperativeVectorMatrixNV-pInfo-10895)VUID-vkCmdConvertCooperativeVectorMatrixNV-pInfo-10895  
+  For each element of `pInfo`, `dstData`::`deviceAddress` **must** be a valid [VkDeviceAddress](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDeviceAddress.html)
 - [](#VUID-vkCmdConvertCooperativeVectorMatrixNV-pInfo-10084)VUID-vkCmdConvertCooperativeVectorMatrixNV-pInfo-10084  
   For each element of `pInfo`, `srcData`::`deviceAddress` **must** be 64 byte aligned
 - [](#VUID-vkCmdConvertCooperativeVectorMatrixNV-pInfo-10085)VUID-vkCmdConvertCooperativeVectorMatrixNV-pInfo-10085  

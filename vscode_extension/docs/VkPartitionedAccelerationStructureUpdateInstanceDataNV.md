@@ -40,6 +40,11 @@ Valid Usage
 - [](#VUID-VkPartitionedAccelerationStructureUpdateInstanceDataNV-instanceIndex-10573)VUID-VkPartitionedAccelerationStructureUpdateInstanceDataNV-instanceIndex-10573  
   `instanceIndex` **must** be less than [VkBuildPartitionedAccelerationStructureInfoNV](https://registry.khronos.org/vulkan/specs/latest/man/html/VkBuildPartitionedAccelerationStructureInfoNV.html)::`input`::`instanceCount`
 
+Valid Usage (Implicit)
+
+- [](#VUID-VkPartitionedAccelerationStructureUpdateInstanceDataNV-accelerationStructure-parameter)VUID-VkPartitionedAccelerationStructureUpdateInstanceDataNV-accelerationStructure-parameter  
+  `accelerationStructure` **must** be a valid [VkDeviceAddress](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDeviceAddress.html) value
+
 ## [](#_see_also)See Also
 
 [VK\_NV\_partitioned\_acceleration\_structure](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_NV_partitioned_acceleration_structure.html), [VkDeviceAddress](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDeviceAddress.html)

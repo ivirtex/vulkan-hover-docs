@@ -41,7 +41,7 @@ Valid Usage
 - [](#VUID-Layer-Layer-10592)VUID-Layer-Layer-10592  
   `Layer` within the `MeshEXT` `Execution` `Model` **must** decorate a scalar 32-bit integer member of a structure decorated as `Block`, or decorate a variable of type `OpTypeArray` of scalar 32-bit integer values
 - [](#VUID-Layer-Layer-10593)VUID-Layer-Layer-10593  
-  If `Layer` is declared as an array of boolean values, the size of the array **must** match the value specified by `OutputPrimitivesEXT`
+  If `Layer` is declared as an array of 32-bit integer values, within the `MeshEXT` `Execution` `Model`, size of the array **must** match the value specified by `OutputPrimitivesEXT`
 - [](#VUID-Layer-Layer-10594)VUID-Layer-Layer-10594  
   If `Layer` decorates a member of a structure, the variable declaration of the containing `Block` type **must** have an array size that matches the value specified by `OutputPrimitivesEXT`
 

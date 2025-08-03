@@ -42,7 +42,7 @@ Valid Usage
 - [](#VUID-VkDescriptorAddressInfoEXT-nullDescriptor-08939)VUID-VkDescriptorAddressInfoEXT-nullDescriptor-08939  
   If `address` is not zero, `range` **must** not be `VK_WHOLE_SIZE`
 - [](#VUID-VkDescriptorAddressInfoEXT-None-08044)VUID-VkDescriptorAddressInfoEXT-None-08044  
-  If `address` is not zero, `address` **must** be a valid device address at an offset within a [VkBuffer](https://registry.khronos.org/vulkan/specs/latest/man/html/VkBuffer.html)
+  If `address` is not zero, `address` **must** be a valid [VkDeviceAddress](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDeviceAddress.html)
 - [](#VUID-VkDescriptorAddressInfoEXT-range-08045)VUID-VkDescriptorAddressInfoEXT-range-08045  
   `range` **must** be less than or equal to the size of the buffer containing `address` minus the offset of `address` from the base address of the buffer
 - [](#VUID-VkDescriptorAddressInfoEXT-range-08940)VUID-VkDescriptorAddressInfoEXT-range-08940  
@@ -54,6 +54,8 @@ Valid Usage (Implicit)
   `sType` **must** be `VK_STRUCTURE_TYPE_DESCRIPTOR_ADDRESS_INFO_EXT`
 - [](#VUID-VkDescriptorAddressInfoEXT-pNext-pNext)VUID-VkDescriptorAddressInfoEXT-pNext-pNext  
   `pNext` **must** be `NULL`
+- [](#VUID-VkDescriptorAddressInfoEXT-address-parameter)VUID-VkDescriptorAddressInfoEXT-address-parameter  
+  `address` **must** be a valid [VkDeviceAddress](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDeviceAddress.html) value
 - [](#VUID-VkDescriptorAddressInfoEXT-format-parameter)VUID-VkDescriptorAddressInfoEXT-format-parameter  
   `format` **must** be a valid [VkFormat](https://registry.khronos.org/vulkan/specs/latest/man/html/VkFormat.html) value
 

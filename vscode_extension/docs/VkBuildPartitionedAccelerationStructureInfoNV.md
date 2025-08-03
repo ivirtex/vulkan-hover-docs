@@ -64,6 +64,16 @@ Valid Usage (Implicit)
   `pNext` **must** be `NULL`
 - [](#VUID-VkBuildPartitionedAccelerationStructureInfoNV-input-parameter)VUID-VkBuildPartitionedAccelerationStructureInfoNV-input-parameter  
   `input` **must** be a valid [VkPartitionedAccelerationStructureInstancesInputNV](https://registry.khronos.org/vulkan/specs/latest/man/html/VkPartitionedAccelerationStructureInstancesInputNV.html) structure
+- [](#VUID-VkBuildPartitionedAccelerationStructureInfoNV-srcAccelerationStructureData-parameter)VUID-VkBuildPartitionedAccelerationStructureInfoNV-srcAccelerationStructureData-parameter  
+  `srcAccelerationStructureData` **must** be a valid [VkDeviceAddress](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDeviceAddress.html) value
+- [](#VUID-VkBuildPartitionedAccelerationStructureInfoNV-dstAccelerationStructureData-parameter)VUID-VkBuildPartitionedAccelerationStructureInfoNV-dstAccelerationStructureData-parameter  
+  `dstAccelerationStructureData` **must** be a valid [VkDeviceAddress](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDeviceAddress.html) value
+- [](#VUID-VkBuildPartitionedAccelerationStructureInfoNV-scratchData-parameter)VUID-VkBuildPartitionedAccelerationStructureInfoNV-scratchData-parameter  
+  `scratchData` **must** be a valid [VkDeviceAddress](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDeviceAddress.html) value
+- [](#VUID-VkBuildPartitionedAccelerationStructureInfoNV-srcInfos-parameter)VUID-VkBuildPartitionedAccelerationStructureInfoNV-srcInfos-parameter  
+  `srcInfos` **must** be a valid [VkDeviceAddress](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDeviceAddress.html) value
+- [](#VUID-VkBuildPartitionedAccelerationStructureInfoNV-srcInfosCount-parameter)VUID-VkBuildPartitionedAccelerationStructureInfoNV-srcInfosCount-parameter  
+  `srcInfosCount` **must** be a valid [VkDeviceAddress](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDeviceAddress.html) value
 
 ## [](#_see_also)See Also
 

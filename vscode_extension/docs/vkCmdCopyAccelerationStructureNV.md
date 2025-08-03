@@ -8,7 +8,7 @@ vkCmdCopyAccelerationStructureNV - Copy an acceleration structure
 
 ## [](#_c_specification)C Specification
 
-To copy an acceleration structure call:
+To copy an acceleration structure for the `VK_NV_ray_tracing` extension call:
 
 ```c++
 // Provided by VK_NV_ray_tracing

@@ -78,6 +78,8 @@ Valid Usage (Implicit)
   `buffer` **must** be a valid [VkBuffer](https://registry.khronos.org/vulkan/specs/latest/man/html/VkBuffer.html) handle
 - [](#VUID-VkMicromapCreateInfoEXT-type-parameter)VUID-VkMicromapCreateInfoEXT-type-parameter  
   `type` **must** be a valid [VkMicromapTypeEXT](https://registry.khronos.org/vulkan/specs/latest/man/html/VkMicromapTypeEXT.html) value
+- [](#VUID-VkMicromapCreateInfoEXT-deviceAddress-parameter)VUID-VkMicromapCreateInfoEXT-deviceAddress-parameter  
+  If `deviceAddress` is not `0`, `deviceAddress` **must** be a valid [VkDeviceAddress](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDeviceAddress.html) value
 
 ## [](#_see_also)See Also
 

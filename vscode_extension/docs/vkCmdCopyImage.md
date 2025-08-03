@@ -124,7 +124,9 @@ Valid Usage
 - [](#VUID-vkCmdCopyImage-srcImage-01785)VUID-vkCmdCopyImage-srcImage-01785  
   If `srcImage` is of type `VK_IMAGE_TYPE_1D`, then for each element of `pRegions`, `srcOffset.z` **must** be `0` and `extent.depth` **must** be `1`
 - [](#VUID-vkCmdCopyImage-dstImage-01786)VUID-vkCmdCopyImage-dstImage-01786  
-  If `dstImage` is of type `VK_IMAGE_TYPE_1D`, then for each element of `pRegions`, `dstOffset.z` **must** be `0` and `extent.depth` **must** be `1`
+  If `dstImage` is of type `VK_IMAGE_TYPE_1D`, then for each element of `pRegions`, `dstOffset.z` **must** be `0`
+- [](#VUID-vkCmdCopyImage-srcImage-10907)VUID-vkCmdCopyImage-srcImage-10907  
+  If either the [VkFormat](https://registry.khronos.org/vulkan/specs/latest/man/html/VkFormat.html) of each of `srcImage` and `dstImage` is not a [compressed image format](#compressed_image_formats), and `dstImage` is of type `VK_IMAGE_TYPE_1D`, then for each element of `pRegions`, `extent.depth` **must** be `1`
 - [](#VUID-vkCmdCopyImage-srcImage-01787)VUID-vkCmdCopyImage-srcImage-01787  
   If `srcImage` is of type `VK_IMAGE_TYPE_2D`, then for each element of `pRegions`, `srcOffset.z` **must** be `0`
 - [](#VUID-vkCmdCopyImage-dstImage-01788)VUID-vkCmdCopyImage-dstImage-01788  
@@ -150,7 +152,9 @@ Valid Usage
 - [](#VUID-vkCmdCopyImage-dstOffset-00151)VUID-vkCmdCopyImage-dstOffset-00151  
   For each element of `pRegions`, `dstOffset.y` and (`extent.height` + `dstOffset.y`), where `extent` is [adjusted for size-compatibility](#formats-size-compatibility), **must** both be greater than or equal to `0` and less than or equal to the height of the specified `dstSubresource` of `dstImage`
 - [](#VUID-vkCmdCopyImage-dstImage-00152)VUID-vkCmdCopyImage-dstImage-00152  
-  If `dstImage` is of type `VK_IMAGE_TYPE_1D`, then for each element of `pRegions`, `dstOffset.y` **must** be `0` and `extent.height` **must** be `1`, where `extent` is [adjusted for size-compatibility](#formats-size-compatibility)
+  If `dstImage` is of type `VK_IMAGE_TYPE_1D`, then for each element of `pRegions`, `dstOffset.y` **must** be `0`
+- [](#VUID-vkCmdCopyImage-srcImage-10908)VUID-vkCmdCopyImage-srcImage-10908  
+  If either the [VkFormat](https://registry.khronos.org/vulkan/specs/latest/man/html/VkFormat.html) of each of `srcImage` and `dstImage` is not a [compressed image format](#compressed_image_formats), and `dstImage` is of type `VK_IMAGE_TYPE_1D`, then for each element of `pRegions`, `extent.height` **must** be `1`, where `extent` is [adjusted for size-compatibility](#formats-size-compatibility)
 - [](#VUID-vkCmdCopyImage-dstOffset-00153)VUID-vkCmdCopyImage-dstOffset-00153  
   If `dstImage` is of type `VK_IMAGE_TYPE_3D`, then for each element of `pRegions`, `dstOffset.z` and (`extent.depth` + `dstOffset.z`), where `extent` is [adjusted for size-compatibility](#formats-size-compatibility), **must** both be greater than or equal to `0` and less than or equal to the depth of the specified `dstSubresource` of `dstImage`
 - [](#VUID-vkCmdCopyImage-pRegions-07278)VUID-vkCmdCopyImage-pRegions-07278  

@@ -115,6 +115,12 @@ Valid Usage (Implicit)
   `pNext` **must** be `NULL`
 - [](#VUID-VkClusterAccelerationStructureCommandsInfoNV-input-parameter)VUID-VkClusterAccelerationStructureCommandsInfoNV-input-parameter  
   `input` **must** be a valid [VkClusterAccelerationStructureInputInfoNV](https://registry.khronos.org/vulkan/specs/latest/man/html/VkClusterAccelerationStructureInputInfoNV.html) structure
+- [](#VUID-VkClusterAccelerationStructureCommandsInfoNV-dstImplicitData-parameter)VUID-VkClusterAccelerationStructureCommandsInfoNV-dstImplicitData-parameter  
+  `dstImplicitData` **must** be a valid [VkDeviceAddress](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDeviceAddress.html) value
+- [](#VUID-VkClusterAccelerationStructureCommandsInfoNV-scratchData-parameter)VUID-VkClusterAccelerationStructureCommandsInfoNV-scratchData-parameter  
+  `scratchData` **must** be a valid [VkDeviceAddress](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDeviceAddress.html) value
+- [](#VUID-VkClusterAccelerationStructureCommandsInfoNV-srcInfosCount-parameter)VUID-VkClusterAccelerationStructureCommandsInfoNV-srcInfosCount-parameter  
+  `srcInfosCount` **must** be a valid [VkDeviceAddress](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDeviceAddress.html) value
 - [](#VUID-VkClusterAccelerationStructureCommandsInfoNV-addressResolutionFlags-parameter)VUID-VkClusterAccelerationStructureCommandsInfoNV-addressResolutionFlags-parameter  
   `addressResolutionFlags` **must** be a valid combination of [VkClusterAccelerationStructureAddressResolutionFlagBitsNV](https://registry.khronos.org/vulkan/specs/latest/man/html/VkClusterAccelerationStructureAddressResolutionFlagBitsNV.html) values
 

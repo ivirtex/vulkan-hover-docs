@@ -34,6 +34,11 @@ Valid Usage
 - [](#VUID-VkBindPipelineIndirectCommandNV-None-09094)VUID-VkBindPipelineIndirectCommandNV-None-09094  
   The referenced pipeline’s address **must** have been queried with [vkGetPipelineIndirectDeviceAddressNV](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetPipelineIndirectDeviceAddressNV.html)
 
+Valid Usage (Implicit)
+
+- [](#VUID-VkBindPipelineIndirectCommandNV-pipelineAddress-parameter)VUID-VkBindPipelineIndirectCommandNV-pipelineAddress-parameter  
+  `pipelineAddress` **must** be a valid [VkDeviceAddress](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDeviceAddress.html) value
+
 ## [](#_see_also)See Also
 
 [VK\_NV\_device\_generated\_commands\_compute](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_NV_device_generated_commands_compute.html), [VkDeviceAddress](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDeviceAddress.html)
