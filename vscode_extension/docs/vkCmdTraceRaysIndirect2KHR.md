@@ -184,8 +184,6 @@ Valid Usage
 
 <!--THE END-->
 
-- [](#VUID-vkCmdTraceRaysIndirect2KHR-indirectDeviceAddress-03632)VUID-vkCmdTraceRaysIndirect2KHR-indirectDeviceAddress-03632  
-  If the buffer from which `indirectDeviceAddress` was queried is non-sparse then it **must** be bound completely and contiguously to a single `VkDeviceMemory` object
 - [](#VUID-vkCmdTraceRaysIndirect2KHR-indirectDeviceAddress-03633)VUID-vkCmdTraceRaysIndirect2KHR-indirectDeviceAddress-03633  
   The buffer from which `indirectDeviceAddress` was queried **must** have been created with the `VK_BUFFER_USAGE_INDIRECT_BUFFER_BIT` bit set
 - [](#VUID-vkCmdTraceRaysIndirect2KHR-indirectDeviceAddress-03634)VUID-vkCmdTraceRaysIndirect2KHR-indirectDeviceAddress-03634  
@@ -201,6 +199,8 @@ Valid Usage (Implicit)
 
 - [](#VUID-vkCmdTraceRaysIndirect2KHR-commandBuffer-parameter)VUID-vkCmdTraceRaysIndirect2KHR-commandBuffer-parameter  
   `commandBuffer` **must** be a valid [VkCommandBuffer](https://registry.khronos.org/vulkan/specs/latest/man/html/VkCommandBuffer.html) handle
+- [](#VUID-vkCmdTraceRaysIndirect2KHR-indirectDeviceAddress-parameter)VUID-vkCmdTraceRaysIndirect2KHR-indirectDeviceAddress-parameter  
+  `indirectDeviceAddress` **must** be a valid [VkDeviceAddress](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDeviceAddress.html) value
 - [](#VUID-vkCmdTraceRaysIndirect2KHR-commandBuffer-recording)VUID-vkCmdTraceRaysIndirect2KHR-commandBuffer-recording  
   `commandBuffer` **must** be in the [recording state](#commandbuffers-lifecycle)
 - [](#VUID-vkCmdTraceRaysIndirect2KHR-commandBuffer-cmdpool)VUID-vkCmdTraceRaysIndirect2KHR-commandBuffer-cmdpool  

@@ -66,16 +66,6 @@ Valid Usage
   The buffers from which the buffer device addresses for `pBuildInfo->srcInfos` and `pBuildInfo->srcInfosCount` are queried **must** have been created with the `VK_BUFFER_USAGE_ACCELERATION_STRUCTURE_BUILD_INPUT_READ_ONLY_BIT_KHR` usage flag
 - [](#VUID-vkCmdBuildPartitionedAccelerationStructuresNV-pBuildInfo-10552)VUID-vkCmdBuildPartitionedAccelerationStructuresNV-pBuildInfo-10552  
   The buffers from which the buffer device addresses for `pBuildInfo->srcAccelerationStructureData` and `pBuildInfo->dstAccelerationStructureData` are queried **must** have been created with the `VK_BUFFER_USAGE_ACCELERATION_STRUCTURE_STORAGE_BIT_KHR` usage flag
-- [](#VUID-vkCmdBuildPartitionedAccelerationStructuresNV-pBuildInfo-10553)VUID-vkCmdBuildPartitionedAccelerationStructuresNV-pBuildInfo-10553  
-  If `pBuildInfo->srcAccelerationStructureData` is the address of a non-sparse buffer then it **must** be bound completely and contiguously to a single [VkDeviceMemory](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDeviceMemory.html) object
-- [](#VUID-vkCmdBuildPartitionedAccelerationStructuresNV-pBuildInfo-10554)VUID-vkCmdBuildPartitionedAccelerationStructuresNV-pBuildInfo-10554  
-  If `pBuildInfo->dstAccelerationStructureData` is the address of a non-sparse buffer then it **must** be bound completely and contiguously to a single [VkDeviceMemory](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDeviceMemory.html) object
-- [](#VUID-vkCmdBuildPartitionedAccelerationStructuresNV-pBuildInfo-10555)VUID-vkCmdBuildPartitionedAccelerationStructuresNV-pBuildInfo-10555  
-  If `pBuildInfo->scratchData` is the address of a non-sparse buffer then it **must** be bound completely and contiguously to a single [VkDeviceMemory](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDeviceMemory.html) object
-- [](#VUID-vkCmdBuildPartitionedAccelerationStructuresNV-pBuildInfo-10556)VUID-vkCmdBuildPartitionedAccelerationStructuresNV-pBuildInfo-10556  
-  If `pBuildInfo->srcInfos` is the address of a non-sparse buffer then it **must** be bound completely and contiguously to a single [VkDeviceMemory](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDeviceMemory.html) object
-- [](#VUID-vkCmdBuildPartitionedAccelerationStructuresNV-pBuildInfo-10557)VUID-vkCmdBuildPartitionedAccelerationStructuresNV-pBuildInfo-10557  
-  If `pBuildInfo->srcInfosCount` is the address of a non-sparse buffer then it **must** be bound completely and contiguously to a single [VkDeviceMemory](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDeviceMemory.html) object
 
 Valid Usage (Implicit)
 

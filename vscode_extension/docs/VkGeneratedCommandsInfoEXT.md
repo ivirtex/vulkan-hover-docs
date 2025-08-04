@@ -52,7 +52,7 @@ If the action command token for the layout is not a COUNT-type multi-draw indire
 Valid Usage
 
 - [](#VUID-VkGeneratedCommandsInfoEXT-preprocessAddress-11063)VUID-VkGeneratedCommandsInfoEXT-preprocessAddress-11063  
-  If [vkGetGeneratedCommandsMemoryRequirementsEXT](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetGeneratedCommandsMemoryRequirementsEXT.html) returns a non-zero size, `preprocessAddress` **must** not be `NULL`
+  If [vkGetGeneratedCommandsMemoryRequirementsEXT](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetGeneratedCommandsMemoryRequirementsEXT.html) returns a non-zero size, `preprocessAddress` **must** not be `0`
 - [](#VUID-VkGeneratedCommandsInfoEXT-preprocessAddress-11064)VUID-VkGeneratedCommandsInfoEXT-preprocessAddress-11064  
   `VkDeviceMemory` objects bound to the underlying buffer for `preprocessAddress` **must** have been allocated using one of the memory types allowed in the `memoryTypeBits` member of the [VkMemoryRequirements](https://registry.khronos.org/vulkan/specs/latest/man/html/VkMemoryRequirements.html) structure returned by [vkGetGeneratedCommandsMemoryRequirementsEXT](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetGeneratedCommandsMemoryRequirementsEXT.html)
 - [](#VUID-VkGeneratedCommandsInfoEXT-indirectCommandsLayout-11065)VUID-VkGeneratedCommandsInfoEXT-indirectCommandsLayout-11065  
@@ -67,8 +67,6 @@ Valid Usage
   `maxSequenceCount` **must** not be zero
 - [](#VUID-VkGeneratedCommandsInfoEXT-preprocessAddress-11069)VUID-VkGeneratedCommandsInfoEXT-preprocessAddress-11069  
   The underlying buffer for `preprocessAddress` **must** have the `VK_BUFFER_USAGE_2_PREPROCESS_BUFFER_BIT_EXT` bit set in its usage flag
-- [](#VUID-VkGeneratedCommandsInfoEXT-preprocessAddress-11070)VUID-VkGeneratedCommandsInfoEXT-preprocessAddress-11070  
-  If the underlying buffer for `preprocessAddress` is non-sparse then it **must** be bound completely and contiguously to a single `VkDeviceMemory` object
 - [](#VUID-VkGeneratedCommandsInfoEXT-indirectCommandsLayout-11144)VUID-VkGeneratedCommandsInfoEXT-indirectCommandsLayout-11144  
   If the `indirectCommandsLayout` contains a `VK_INDIRECT_COMMANDS_TOKEN_TYPE_EXECUTION_SET_EXT` token, then the descriptor and push constant layout info provided either by `pipelineLayout` or through a [VkPipelineLayoutCreateInfo](https://registry.khronos.org/vulkan/specs/latest/man/html/VkPipelineLayoutCreateInfo.html) in `pNext` of the [VkIndirectCommandsLayoutCreateInfoEXT](https://registry.khronos.org/vulkan/specs/latest/man/html/VkIndirectCommandsLayoutCreateInfoEXT.html) used to create `indirectCommandsLayout` **must** be [compatible](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#descriptorsets-compatibility) with the descriptor and push constant layout info used by `indirectExecutionSet`
 - [](#VUID-VkGeneratedCommandsInfoEXT-indirectCommandsLayout-11002)VUID-VkGeneratedCommandsInfoEXT-indirectCommandsLayout-11002  
@@ -81,10 +79,6 @@ Valid Usage
   If `sequenceCountAddress` is not `NULL`, `sequenceCountAddress` **must** be aligned to `4`
 - [](#VUID-VkGeneratedCommandsInfoEXT-indirectAddress-11074)VUID-VkGeneratedCommandsInfoEXT-indirectAddress-11074  
   `indirectAddress` **must** be aligned to `4`
-- [](#VUID-VkGeneratedCommandsInfoEXT-sequenceCountAddress-11075)VUID-VkGeneratedCommandsInfoEXT-sequenceCountAddress-11075  
-  If the underlying buffer for `sequenceCountAddress` is non-sparse then it **must** be bound completely and contiguously to a single `VkDeviceMemory` object
-- [](#VUID-VkGeneratedCommandsInfoEXT-indirectAddress-11076)VUID-VkGeneratedCommandsInfoEXT-indirectAddress-11076  
-  `indirectAddress` **must** not be `NULL`
 - [](#VUID-VkGeneratedCommandsInfoEXT-indirectAddressSize-11077)VUID-VkGeneratedCommandsInfoEXT-indirectAddressSize-11077  
   `indirectAddressSize` **must** be greater than zero
 - [](#VUID-VkGeneratedCommandsInfoEXT-maxDrawCount-11078)VUID-VkGeneratedCommandsInfoEXT-maxDrawCount-11078  
@@ -110,6 +104,12 @@ Valid Usage (Implicit)
   If `indirectExecutionSet` is not [VK\_NULL\_HANDLE](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_NULL_HANDLE.html), `indirectExecutionSet` **must** be a valid [VkIndirectExecutionSetEXT](https://registry.khronos.org/vulkan/specs/latest/man/html/VkIndirectExecutionSetEXT.html) handle
 - [](#VUID-VkGeneratedCommandsInfoEXT-indirectCommandsLayout-parameter)VUID-VkGeneratedCommandsInfoEXT-indirectCommandsLayout-parameter  
   `indirectCommandsLayout` **must** be a valid [VkIndirectCommandsLayoutEXT](https://registry.khronos.org/vulkan/specs/latest/man/html/VkIndirectCommandsLayoutEXT.html) handle
+- [](#VUID-VkGeneratedCommandsInfoEXT-indirectAddress-parameter)VUID-VkGeneratedCommandsInfoEXT-indirectAddress-parameter  
+  `indirectAddress` **must** be a valid [VkDeviceAddress](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDeviceAddress.html) value
+- [](#VUID-VkGeneratedCommandsInfoEXT-preprocessAddress-parameter)VUID-VkGeneratedCommandsInfoEXT-preprocessAddress-parameter  
+  If `preprocessAddress` is not `0`, `preprocessAddress` **must** be a valid [VkDeviceAddress](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDeviceAddress.html) value
+- [](#VUID-VkGeneratedCommandsInfoEXT-sequenceCountAddress-parameter)VUID-VkGeneratedCommandsInfoEXT-sequenceCountAddress-parameter  
+  If `sequenceCountAddress` is not `0`, `sequenceCountAddress` **must** be a valid [VkDeviceAddress](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDeviceAddress.html) value
 - [](#VUID-VkGeneratedCommandsInfoEXT-commonparent)VUID-VkGeneratedCommandsInfoEXT-commonparent  
   Both of `indirectCommandsLayout`, and `indirectExecutionSet` that are valid handles of non-ignored parameters **must** have been created, allocated, or retrieved from the same [VkDevice](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDevice.html)
 

@@ -228,6 +228,10 @@ Valid Usage (Implicit)
 
 - [](#VUID-vkCmdDispatchGraphIndirectCountAMDX-commandBuffer-parameter)VUID-vkCmdDispatchGraphIndirectCountAMDX-commandBuffer-parameter  
   `commandBuffer` **must** be a valid [VkCommandBuffer](https://registry.khronos.org/vulkan/specs/latest/man/html/VkCommandBuffer.html) handle
+- [](#VUID-vkCmdDispatchGraphIndirectCountAMDX-scratch-parameter)VUID-vkCmdDispatchGraphIndirectCountAMDX-scratch-parameter  
+  `scratch` **must** be a valid [VkDeviceAddress](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDeviceAddress.html) value
+- [](#VUID-vkCmdDispatchGraphIndirectCountAMDX-countInfo-parameter)VUID-vkCmdDispatchGraphIndirectCountAMDX-countInfo-parameter  
+  `countInfo` **must** be a valid [VkDeviceAddress](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDeviceAddress.html) value
 - [](#VUID-vkCmdDispatchGraphIndirectCountAMDX-commandBuffer-recording)VUID-vkCmdDispatchGraphIndirectCountAMDX-commandBuffer-recording  
   `commandBuffer` **must** be in the [recording state](#commandbuffers-lifecycle)
 - [](#VUID-vkCmdDispatchGraphIndirectCountAMDX-commandBuffer-cmdpool)VUID-vkCmdDispatchGraphIndirectCountAMDX-commandBuffer-cmdpool  

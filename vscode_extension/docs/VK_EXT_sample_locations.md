@@ -94,6 +94,12 @@ Some implementations **may** need to evaluate depth image values while performin
   - `VK_STRUCTURE_TYPE_RENDER_PASS_SAMPLE_LOCATIONS_BEGIN_INFO_EXT`
   - `VK_STRUCTURE_TYPE_SAMPLE_LOCATIONS_INFO_EXT`
 
+## [](#_issues)Issues
+
+1\) When using with Dynamic Rendering, is there a VkRenderPassSampleLocationsBeginInfoEXT equivalent struct
+
+**RESOLVED**: No, there are no subpasses that need to have a sample location set.
+
 ## [](#_version_history)Version History
 
 - Revision 1, 2017-08-02 (Daniel Rakos)

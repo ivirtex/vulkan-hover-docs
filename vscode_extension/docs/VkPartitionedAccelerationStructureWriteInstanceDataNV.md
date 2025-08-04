@@ -56,6 +56,8 @@ Valid Usage (Implicit)
 
 - [](#VUID-VkPartitionedAccelerationStructureWriteInstanceDataNV-instanceFlags-parameter)VUID-VkPartitionedAccelerationStructureWriteInstanceDataNV-instanceFlags-parameter  
   `instanceFlags` **must** be a valid combination of [VkPartitionedAccelerationStructureInstanceFlagBitsNV](https://registry.khronos.org/vulkan/specs/latest/man/html/VkPartitionedAccelerationStructureInstanceFlagBitsNV.html) values
+- [](#VUID-VkPartitionedAccelerationStructureWriteInstanceDataNV-accelerationStructure-parameter)VUID-VkPartitionedAccelerationStructureWriteInstanceDataNV-accelerationStructure-parameter  
+  `accelerationStructure` **must** be a valid [VkDeviceAddress](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDeviceAddress.html) value
 
 ## [](#_see_also)See Also
 

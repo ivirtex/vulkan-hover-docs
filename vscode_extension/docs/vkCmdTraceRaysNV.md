@@ -8,7 +8,7 @@ vkCmdTraceRaysNV - Initialize a ray tracing dispatch
 
 ## [](#_c_specification)C Specification
 
-To dispatch ray tracing use:
+To dispatch ray tracing for the `VK_NV_ray_tracing` extension use:
 
 ```c++
 // Provided by VK_NV_ray_tracing

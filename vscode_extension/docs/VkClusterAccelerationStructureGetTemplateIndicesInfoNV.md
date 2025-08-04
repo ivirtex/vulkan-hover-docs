@@ -28,6 +28,11 @@ Valid Usage
 - [](#VUID-VkClusterAccelerationStructureGetTemplateIndicesInfoNV-clusterTemplateAddress-10833)VUID-VkClusterAccelerationStructureGetTemplateIndicesInfoNV-clusterTemplateAddress-10833  
   `clusterTemplateAddress` **must** be a [template cluster acceleration structure](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#acceleration-structure-clas-template)
 
+Valid Usage (Implicit)
+
+- [](#VUID-VkClusterAccelerationStructureGetTemplateIndicesInfoNV-clusterTemplateAddress-parameter)VUID-VkClusterAccelerationStructureGetTemplateIndicesInfoNV-clusterTemplateAddress-parameter  
+  `clusterTemplateAddress` **must** be a valid [VkDeviceAddress](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDeviceAddress.html) value
+
 ## [](#_see_also)See Also
 
 [VK\_NV\_cluster\_acceleration\_structure](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_NV_cluster_acceleration_structure.html), [VkDeviceAddress](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDeviceAddress.html)

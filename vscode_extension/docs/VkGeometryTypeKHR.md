@@ -20,6 +20,10 @@ typedef enum VkGeometryTypeKHR {
     VK_GEOMETRY_TYPE_SPHERES_NV = 1000429004,
   // Provided by VK_NV_ray_tracing_linear_swept_spheres
     VK_GEOMETRY_TYPE_LINEAR_SWEPT_SPHERES_NV = 1000429005,
+#ifdef VK_ENABLE_BETA_EXTENSIONS
+  // Provided by VK_AMDX_dense_geometry_format
+    VK_GEOMETRY_TYPE_DENSE_GEOMETRY_FORMAT_TRIANGLES_AMDX = 1000478000,
+#endif
   // Provided by VK_NV_ray_tracing
     VK_GEOMETRY_TYPE_TRIANGLES_NV = VK_GEOMETRY_TYPE_TRIANGLES_KHR,
   // Provided by VK_NV_ray_tracing
@@ -39,6 +43,7 @@ typedef VkGeometryTypeKHR VkGeometryTypeNV;
 - `VK_GEOMETRY_TYPE_TRIANGLES_KHR` specifies a geometry type consisting of [triangles](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#ray-tracing-triangle-primitive).
 - `VK_GEOMETRY_TYPE_AABBS_KHR` specifies a geometry type consisting of [axis-aligned bounding boxes](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#aabb-primitive).
 - `VK_GEOMETRY_TYPE_INSTANCES_KHR` specifies a geometry type consisting of acceleration structure instances.
+- `VK_GEOMETRY_TYPE_DENSE_GEOMETRY_FORMAT_TRIANGLES_AMDX` specifies a geometry type consisting of triangles from compressed data.
 - `VK_GEOMETRY_TYPE_SPHERES_NV` specifies a geometry type consisting of [spheres](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#sphere-primitive).
 - `VK_GEOMETRY_TYPE_LINEAR_SWEPT_SPHERES_NV` specifies a geometry type consisting of [linear swept spheres](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#linear-swept-sphere-primitive).
 

@@ -49,6 +49,8 @@ Valid Usage (Implicit)
   `commandBuffer` **must** be a valid [VkCommandBuffer](https://registry.khronos.org/vulkan/specs/latest/man/html/VkCommandBuffer.html) handle
 - [](#VUID-vkCmdInitializeGraphScratchMemoryAMDX-executionGraph-parameter)VUID-vkCmdInitializeGraphScratchMemoryAMDX-executionGraph-parameter  
   `executionGraph` **must** be a valid [VkPipeline](https://registry.khronos.org/vulkan/specs/latest/man/html/VkPipeline.html) handle
+- [](#VUID-vkCmdInitializeGraphScratchMemoryAMDX-scratch-parameter)VUID-vkCmdInitializeGraphScratchMemoryAMDX-scratch-parameter  
+  `scratch` **must** be a valid [VkDeviceAddress](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDeviceAddress.html) value
 - [](#VUID-vkCmdInitializeGraphScratchMemoryAMDX-commandBuffer-recording)VUID-vkCmdInitializeGraphScratchMemoryAMDX-commandBuffer-recording  
   `commandBuffer` **must** be in the [recording state](#commandbuffers-lifecycle)
 - [](#VUID-vkCmdInitializeGraphScratchMemoryAMDX-commandBuffer-cmdpool)VUID-vkCmdInitializeGraphScratchMemoryAMDX-commandBuffer-cmdpool  

@@ -80,6 +80,8 @@ Valid Usage (Implicit)
 
 - [](#VUID-vkCmdCopyMemoryToImageIndirectNV-commandBuffer-parameter)VUID-vkCmdCopyMemoryToImageIndirectNV-commandBuffer-parameter  
   `commandBuffer` **must** be a valid [VkCommandBuffer](https://registry.khronos.org/vulkan/specs/latest/man/html/VkCommandBuffer.html) handle
+- [](#VUID-vkCmdCopyMemoryToImageIndirectNV-copyBufferAddress-parameter)VUID-vkCmdCopyMemoryToImageIndirectNV-copyBufferAddress-parameter  
+  `copyBufferAddress` **must** be a valid [VkDeviceAddress](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDeviceAddress.html) value
 - [](#VUID-vkCmdCopyMemoryToImageIndirectNV-dstImage-parameter)VUID-vkCmdCopyMemoryToImageIndirectNV-dstImage-parameter  
   `dstImage` **must** be a valid [VkImage](https://registry.khronos.org/vulkan/specs/latest/man/html/VkImage.html) handle
 - [](#VUID-vkCmdCopyMemoryToImageIndirectNV-dstImageLayout-parameter)VUID-vkCmdCopyMemoryToImageIndirectNV-dstImageLayout-parameter  

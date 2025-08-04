@@ -65,8 +65,6 @@ Valid Usage
   If `deviceAddress` is not zero, `buffer` **must** have been created identically to the `buffer` used to create the acceleration structure from which `deviceAddress` was retrieved, except for [VkBufferOpaqueCaptureAddressCreateInfo](https://registry.khronos.org/vulkan/specs/latest/man/html/VkBufferOpaqueCaptureAddressCreateInfo.html)::`opaqueCaptureAddress`
 - [](#VUID-VkAccelerationStructureCreateInfoKHR-deviceAddress-09490)VUID-VkAccelerationStructureCreateInfoKHR-deviceAddress-09490  
   If `deviceAddress` is not zero, `buffer` **must** have been created with a [VkBufferOpaqueCaptureAddressCreateInfo](https://registry.khronos.org/vulkan/specs/latest/man/html/VkBufferOpaqueCaptureAddressCreateInfo.html)::`opaqueCaptureAddress` that was retrieved from [vkGetBufferOpaqueCaptureAddress](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetBufferOpaqueCaptureAddress.html) for the `buffer` that was used to create the acceleration structure from which `deviceAddress` was retrieved
-- [](#VUID-VkAccelerationStructureCreateInfoKHR-deviceAddress-10393)VUID-VkAccelerationStructureCreateInfoKHR-deviceAddress-10393  
-  If `deviceAddress` is not zero, it **must** be a valid device address obtained from [vkGetAccelerationStructureDeviceAddressKHR](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetAccelerationStructureDeviceAddressKHR.html)
 - [](#VUID-VkAccelerationStructureCreateInfoKHR-createFlags-03613)VUID-VkAccelerationStructureCreateInfoKHR-createFlags-03613  
   If `createFlags` includes `VK_ACCELERATION_STRUCTURE_CREATE_DEVICE_ADDRESS_CAPTURE_REPLAY_BIT_KHR`, [VkPhysicalDeviceAccelerationStructureFeaturesKHR](https://registry.khronos.org/vulkan/specs/latest/man/html/VkPhysicalDeviceAccelerationStructureFeaturesKHR.html)::`accelerationStructureCaptureReplay` **must** be `VK_TRUE`
 - [](#VUID-VkAccelerationStructureCreateInfoKHR-buffer-03614)VUID-VkAccelerationStructureCreateInfoKHR-buffer-03614  
@@ -100,6 +98,8 @@ Valid Usage (Implicit)
   `buffer` **must** be a valid [VkBuffer](https://registry.khronos.org/vulkan/specs/latest/man/html/VkBuffer.html) handle
 - [](#VUID-VkAccelerationStructureCreateInfoKHR-type-parameter)VUID-VkAccelerationStructureCreateInfoKHR-type-parameter  
   `type` **must** be a valid [VkAccelerationStructureTypeKHR](https://registry.khronos.org/vulkan/specs/latest/man/html/VkAccelerationStructureTypeKHR.html) value
+- [](#VUID-VkAccelerationStructureCreateInfoKHR-deviceAddress-parameter)VUID-VkAccelerationStructureCreateInfoKHR-deviceAddress-parameter  
+  If `deviceAddress` is not `0`, `deviceAddress` **must** be a valid [VkDeviceAddress](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDeviceAddress.html) value
 
 ## [](#_see_also)See Also
 

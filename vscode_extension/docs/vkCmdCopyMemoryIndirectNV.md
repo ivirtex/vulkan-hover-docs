@@ -45,6 +45,8 @@ Valid Usage (Implicit)
 
 - [](#VUID-vkCmdCopyMemoryIndirectNV-commandBuffer-parameter)VUID-vkCmdCopyMemoryIndirectNV-commandBuffer-parameter  
   `commandBuffer` **must** be a valid [VkCommandBuffer](https://registry.khronos.org/vulkan/specs/latest/man/html/VkCommandBuffer.html) handle
+- [](#VUID-vkCmdCopyMemoryIndirectNV-copyBufferAddress-parameter)VUID-vkCmdCopyMemoryIndirectNV-copyBufferAddress-parameter  
+  `copyBufferAddress` **must** be a valid [VkDeviceAddress](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDeviceAddress.html) value
 - [](#VUID-vkCmdCopyMemoryIndirectNV-commandBuffer-recording)VUID-vkCmdCopyMemoryIndirectNV-commandBuffer-recording  
   `commandBuffer` **must** be in the [recording state](#commandbuffers-lifecycle)
 - [](#VUID-vkCmdCopyMemoryIndirectNV-commandBuffer-cmdpool)VUID-vkCmdCopyMemoryIndirectNV-commandBuffer-cmdpool  

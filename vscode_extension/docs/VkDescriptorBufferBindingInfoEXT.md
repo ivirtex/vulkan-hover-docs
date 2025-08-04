@@ -56,6 +56,8 @@ Valid Usage (Implicit)
   Each `pNext` member of any structure (including this one) in the `pNext` chain **must** be either `NULL` or a pointer to a valid instance of [VkBufferUsageFlags2CreateInfo](https://registry.khronos.org/vulkan/specs/latest/man/html/VkBufferUsageFlags2CreateInfo.html) or [VkDescriptorBufferBindingPushDescriptorBufferHandleEXT](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDescriptorBufferBindingPushDescriptorBufferHandleEXT.html)
 - [](#VUID-VkDescriptorBufferBindingInfoEXT-sType-unique)VUID-VkDescriptorBufferBindingInfoEXT-sType-unique  
   The `sType` value of each structure in the `pNext` chain **must** be unique
+- [](#VUID-VkDescriptorBufferBindingInfoEXT-address-parameter)VUID-VkDescriptorBufferBindingInfoEXT-address-parameter  
+  `address` **must** be a valid [VkDeviceAddress](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDeviceAddress.html) value
 
 ## [](#_see_also)See Also
 

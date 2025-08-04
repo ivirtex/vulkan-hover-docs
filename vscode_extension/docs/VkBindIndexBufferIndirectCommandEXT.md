@@ -33,11 +33,11 @@ Valid Usage
   The buffer’s usage flags from which the address was acquired **must** have the `VK_BUFFER_USAGE_INDEX_BUFFER_BIT` bit set
 - [](#VUID-VkBindIndexBufferIndirectCommandEXT-bufferAddress-11118)VUID-VkBindIndexBufferIndirectCommandEXT-bufferAddress-11118  
   The `bufferAddress` **must** be aligned to the [VkIndexType](https://registry.khronos.org/vulkan/specs/latest/man/html/VkIndexType.html) of the `indexType` used
-- [](#VUID-VkBindIndexBufferIndirectCommandEXT-None-11119)VUID-VkBindIndexBufferIndirectCommandEXT-None-11119  
-  Each element of the buffer from which the address was acquired and that is non-sparse **must** be bound completely and contiguously to a single `VkDeviceMemory` object
 
 Valid Usage (Implicit)
 
+- [](#VUID-VkBindIndexBufferIndirectCommandEXT-bufferAddress-parameter)VUID-VkBindIndexBufferIndirectCommandEXT-bufferAddress-parameter  
+  `bufferAddress` **must** be a valid [VkDeviceAddress](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDeviceAddress.html) value
 - [](#VUID-VkBindIndexBufferIndirectCommandEXT-indexType-parameter)VUID-VkBindIndexBufferIndirectCommandEXT-indexType-parameter  
   `indexType` **must** be a valid [VkIndexType](https://registry.khronos.org/vulkan/specs/latest/man/html/VkIndexType.html) value
 

@@ -28,6 +28,11 @@ Valid Usage
 - [](#VUID-VkClusterAccelerationStructureMoveObjectsInfoNV-srcAccelerationStructure-10483)VUID-VkClusterAccelerationStructureMoveObjectsInfoNV-srcAccelerationStructure-10483  
   `srcAccelerationStructure` **must** be a type of [cluster acceleration structure](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#cluster-geometry)
 
+Valid Usage (Implicit)
+
+- [](#VUID-VkClusterAccelerationStructureMoveObjectsInfoNV-srcAccelerationStructure-parameter)VUID-VkClusterAccelerationStructureMoveObjectsInfoNV-srcAccelerationStructure-parameter  
+  `srcAccelerationStructure` **must** be a valid [VkDeviceAddress](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDeviceAddress.html) value
+
 ## [](#_see_also)See Also
 
 [VK\_NV\_cluster\_acceleration\_structure](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_NV_cluster_acceleration_structure.html), [VkDeviceAddress](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDeviceAddress.html)

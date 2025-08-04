@@ -39,9 +39,9 @@ Valid Usage
 - [](#VUID-ViewportIndex-ViewportIndex-07060)VUID-ViewportIndex-ViewportIndex-07060  
   The variable decorated with `ViewportIndex` within the `MeshEXT` `Execution` `Model` **must** also be decorated with the `PerPrimitiveEXT` decoration
 - [](#VUID-ViewportIndex-ViewportIndex-10601)VUID-ViewportIndex-ViewportIndex-10601  
-  `ViewportIndex` within the `MeshEXT` `Execution` `Model` **must** decorate a scalar boolean member of a structure decorated as `Block`, or decorate a variable of type `OpTypeArray` of boolean values
+  `ViewportIndex` within the `MeshEXT` `Execution` `Model` **must** decorate a scalar 32-bit integer member of a structure decorated as `Block`, or decorate a variable of type `OpTypeArray` of scalar 32-bit integer values
 - [](#VUID-ViewportIndex-ViewportIndex-10602)VUID-ViewportIndex-ViewportIndex-10602  
-  If `ViewportIndex` is declared as an array of boolean values, the size of the array **must** match the value specified by `OutputPrimitivesEXT`
+  If `ViewportIndex` is declared as an array of 32-bit integer values, within the `MeshEXT` `Execution` `Model`, size of the array **must** match the value specified by `OutputPrimitivesEXT`
 - [](#VUID-ViewportIndex-ViewportIndex-10603)VUID-ViewportIndex-ViewportIndex-10603  
   If `ViewportIndex` decorates a member of a structure, the variable declaration of the containing `Block` type **must** have an array size that matches the value specified by `OutputPrimitivesEXT`
 

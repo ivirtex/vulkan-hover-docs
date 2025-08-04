@@ -52,6 +52,10 @@ Valid Usage
 
 Valid Usage (Implicit)
 
+- [](#VUID-VkDecompressMemoryRegionNV-srcAddress-parameter)VUID-VkDecompressMemoryRegionNV-srcAddress-parameter  
+  `srcAddress` **must** be a valid [VkDeviceAddress](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDeviceAddress.html) value
+- [](#VUID-VkDecompressMemoryRegionNV-dstAddress-parameter)VUID-VkDecompressMemoryRegionNV-dstAddress-parameter  
+  `dstAddress` **must** be a valid [VkDeviceAddress](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDeviceAddress.html) value
 - [](#VUID-VkDecompressMemoryRegionNV-decompressionMethod-parameter)VUID-VkDecompressMemoryRegionNV-decompressionMethod-parameter  
   `decompressionMethod` **must** be a valid combination of [VkMemoryDecompressionMethodFlagBitsNV](https://registry.khronos.org/vulkan/specs/latest/man/html/VkMemoryDecompressionMethodFlagBitsNV.html) values
 - [](#VUID-VkDecompressMemoryRegionNV-decompressionMethod-requiredbitmask)VUID-VkDecompressMemoryRegionNV-decompressionMethod-requiredbitmask  

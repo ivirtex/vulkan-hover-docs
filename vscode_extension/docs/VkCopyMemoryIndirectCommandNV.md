@@ -36,6 +36,13 @@ Valid Usage
 - [](#VUID-VkCopyMemoryIndirectCommandNV-size-07659)VUID-VkCopyMemoryIndirectCommandNV-size-07659  
   The `size` **must** be 4 byte aligned
 
+Valid Usage (Implicit)
+
+- [](#VUID-VkCopyMemoryIndirectCommandNV-srcAddress-parameter)VUID-VkCopyMemoryIndirectCommandNV-srcAddress-parameter  
+  `srcAddress` **must** be a valid [VkDeviceAddress](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDeviceAddress.html) value
+- [](#VUID-VkCopyMemoryIndirectCommandNV-dstAddress-parameter)VUID-VkCopyMemoryIndirectCommandNV-dstAddress-parameter  
+  `dstAddress` **must** be a valid [VkDeviceAddress](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDeviceAddress.html) value
+
 ## [](#_see_also)See Also
 
 [VK\_NV\_copy\_memory\_indirect](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_NV_copy_memory_indirect.html), [VkDeviceAddress](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDeviceAddress.html), [VkDeviceSize](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDeviceSize.html)

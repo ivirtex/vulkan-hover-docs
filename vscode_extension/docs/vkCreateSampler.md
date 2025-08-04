@@ -45,8 +45,6 @@ Valid Usage (Implicit)
   If `pAllocator` is not `NULL`, `pAllocator` **must** be a valid pointer to a valid [VkAllocationCallbacks](https://registry.khronos.org/vulkan/specs/latest/man/html/VkAllocationCallbacks.html) structure
 - [](#VUID-vkCreateSampler-pSampler-parameter)VUID-vkCreateSampler-pSampler-parameter  
   `pSampler` **must** be a valid pointer to a [VkSampler](https://registry.khronos.org/vulkan/specs/latest/man/html/VkSampler.html) handle
-- [](#VUID-vkCreateSampler-device-queuecount)VUID-vkCreateSampler-device-queuecount  
-  The device **must** have been created with at least `1` queue
 
 Return Codes
 

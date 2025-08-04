@@ -34,14 +34,10 @@ Valid Usage
 
 - [](#VUID-vkCmdDecompressMemoryIndirectCountNV-None-07692)VUID-vkCmdDecompressMemoryIndirectCountNV-None-07692  
   The [`memoryDecompression`](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#features-memoryDecompression) feature **must** be enabled
-- [](#VUID-vkCmdDecompressMemoryIndirectCountNV-indirectCommandsAddress-07693)VUID-vkCmdDecompressMemoryIndirectCountNV-indirectCommandsAddress-07693  
-  If `indirectCommandsAddress` comes from a non-sparse buffer then it **must** be bound completely and contiguously to a single `VkDeviceMemory` object
 - [](#VUID-vkCmdDecompressMemoryIndirectCountNV-indirectCommandsAddress-07694)VUID-vkCmdDecompressMemoryIndirectCountNV-indirectCommandsAddress-07694  
   The [VkBuffer](https://registry.khronos.org/vulkan/specs/latest/man/html/VkBuffer.html) that `indirectCommandsAddress` comes from **must** have been created with the `VK_BUFFER_USAGE_INDIRECT_BUFFER_BIT` bit set
 - [](#VUID-vkCmdDecompressMemoryIndirectCountNV-offset-07695)VUID-vkCmdDecompressMemoryIndirectCountNV-offset-07695  
   `offset` **must** be a multiple of `4`
-- [](#VUID-vkCmdDecompressMemoryIndirectCountNV-indirectCommandsCountAddress-07696)VUID-vkCmdDecompressMemoryIndirectCountNV-indirectCommandsCountAddress-07696  
-  If `indirectCommandsCountAddress` comes from a non-sparse buffer then it **must** be bound completely and contiguously to a single `VkDeviceMemory` object
 - [](#VUID-vkCmdDecompressMemoryIndirectCountNV-indirectCommandsCountAddress-07697)VUID-vkCmdDecompressMemoryIndirectCountNV-indirectCommandsCountAddress-07697  
   The [VkBuffer](https://registry.khronos.org/vulkan/specs/latest/man/html/VkBuffer.html) that `indirectCommandsCountAddress` comes from **must** have been created with the `VK_BUFFER_USAGE_INDIRECT_BUFFER_BIT` bit set
 - [](#VUID-vkCmdDecompressMemoryIndirectCountNV-indirectCommandsCountAddress-07698)VUID-vkCmdDecompressMemoryIndirectCountNV-indirectCommandsCountAddress-07698  
@@ -59,6 +55,10 @@ Valid Usage (Implicit)
 
 - [](#VUID-vkCmdDecompressMemoryIndirectCountNV-commandBuffer-parameter)VUID-vkCmdDecompressMemoryIndirectCountNV-commandBuffer-parameter  
   `commandBuffer` **must** be a valid [VkCommandBuffer](https://registry.khronos.org/vulkan/specs/latest/man/html/VkCommandBuffer.html) handle
+- [](#VUID-vkCmdDecompressMemoryIndirectCountNV-indirectCommandsAddress-parameter)VUID-vkCmdDecompressMemoryIndirectCountNV-indirectCommandsAddress-parameter  
+  `indirectCommandsAddress` **must** be a valid [VkDeviceAddress](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDeviceAddress.html) value
+- [](#VUID-vkCmdDecompressMemoryIndirectCountNV-indirectCommandsCountAddress-parameter)VUID-vkCmdDecompressMemoryIndirectCountNV-indirectCommandsCountAddress-parameter  
+  `indirectCommandsCountAddress` **must** be a valid [VkDeviceAddress](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDeviceAddress.html) value
 - [](#VUID-vkCmdDecompressMemoryIndirectCountNV-commandBuffer-recording)VUID-vkCmdDecompressMemoryIndirectCountNV-commandBuffer-recording  
   `commandBuffer` **must** be in the [recording state](#commandbuffers-lifecycle)
 - [](#VUID-vkCmdDecompressMemoryIndirectCountNV-commandBuffer-cmdpool)VUID-vkCmdDecompressMemoryIndirectCountNV-commandBuffer-cmdpool  

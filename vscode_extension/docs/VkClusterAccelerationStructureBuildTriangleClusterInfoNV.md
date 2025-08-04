@@ -94,6 +94,16 @@ Valid Usage (Implicit)
 
 - [](#VUID-VkClusterAccelerationStructureBuildTriangleClusterInfoNV-clusterFlags-parameter)VUID-VkClusterAccelerationStructureBuildTriangleClusterInfoNV-clusterFlags-parameter  
   `clusterFlags` **must** be a valid combination of [VkClusterAccelerationStructureClusterFlagBitsNV](https://registry.khronos.org/vulkan/specs/latest/man/html/VkClusterAccelerationStructureClusterFlagBitsNV.html) values
+- [](#VUID-VkClusterAccelerationStructureBuildTriangleClusterInfoNV-indexBuffer-parameter)VUID-VkClusterAccelerationStructureBuildTriangleClusterInfoNV-indexBuffer-parameter  
+  `indexBuffer` **must** be a valid [VkDeviceAddress](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDeviceAddress.html) value
+- [](#VUID-VkClusterAccelerationStructureBuildTriangleClusterInfoNV-vertexBuffer-parameter)VUID-VkClusterAccelerationStructureBuildTriangleClusterInfoNV-vertexBuffer-parameter  
+  `vertexBuffer` **must** be a valid [VkDeviceAddress](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDeviceAddress.html) value
+- [](#VUID-VkClusterAccelerationStructureBuildTriangleClusterInfoNV-geometryIndexAndFlagsBuffer-parameter)VUID-VkClusterAccelerationStructureBuildTriangleClusterInfoNV-geometryIndexAndFlagsBuffer-parameter  
+  `geometryIndexAndFlagsBuffer` **must** be a valid [VkDeviceAddress](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDeviceAddress.html) value
+- [](#VUID-VkClusterAccelerationStructureBuildTriangleClusterInfoNV-opacityMicromapArray-parameter)VUID-VkClusterAccelerationStructureBuildTriangleClusterInfoNV-opacityMicromapArray-parameter  
+  `opacityMicromapArray` **must** be a valid [VkDeviceAddress](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDeviceAddress.html) value
+- [](#VUID-VkClusterAccelerationStructureBuildTriangleClusterInfoNV-opacityMicromapIndexBuffer-parameter)VUID-VkClusterAccelerationStructureBuildTriangleClusterInfoNV-opacityMicromapIndexBuffer-parameter  
+  `opacityMicromapIndexBuffer` **must** be a valid [VkDeviceAddress](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDeviceAddress.html) value
 
 ## [](#_see_also)See Also
 

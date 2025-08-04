@@ -29,7 +29,7 @@ Valid Usage
 - [](#VUID-vkCmdPreprocessGeneratedCommandsNV-commandBuffer-02974)VUID-vkCmdPreprocessGeneratedCommandsNV-commandBuffer-02974  
   `commandBuffer` **must** not be a protected command buffer
 - [](#VUID-vkCmdPreprocessGeneratedCommandsNV-pGeneratedCommandsInfo-02927)VUID-vkCmdPreprocessGeneratedCommandsNV-pGeneratedCommandsInfo-02927  
-  `pGeneratedCommandsInfo`\`s `indirectCommandsLayout` **must** have been created with the `VK_INDIRECT_COMMANDS_LAYOUT_USAGE_EXPLICIT_PREPROCESS_BIT_NV` bit set
+  `pGeneratedCommandsInfo->indirectCommandsLayout` **must** have been created with the `VK_INDIRECT_COMMANDS_LAYOUT_USAGE_EXPLICIT_PREPROCESS_BIT_NV` bit set
 - [](#VUID-vkCmdPreprocessGeneratedCommandsNV-deviceGeneratedCommands-02928)VUID-vkCmdPreprocessGeneratedCommandsNV-deviceGeneratedCommands-02928  
   The [`VkPhysicalDeviceDeviceGeneratedCommandsFeaturesNV`::`deviceGeneratedCommands`](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#features-deviceGeneratedCommandsNV) feature **must** be enabled
 

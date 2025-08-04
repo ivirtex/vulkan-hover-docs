@@ -55,14 +55,10 @@ Indirect shader binding table buffer parameters **must** satisfy the same memory
 
 Valid Usage
 
-- [](#VUID-VkTraceRaysIndirectCommand2KHR-pRayGenShaderBindingTable-03680)VUID-VkTraceRaysIndirectCommand2KHR-pRayGenShaderBindingTable-03680  
-  If the buffer from which `raygenShaderRecordAddress` was queried is non-sparse then it **must** be bound completely and contiguously to a single `VkDeviceMemory` object
 - [](#VUID-VkTraceRaysIndirectCommand2KHR-pRayGenShaderBindingTable-03681)VUID-VkTraceRaysIndirectCommand2KHR-pRayGenShaderBindingTable-03681  
   The buffer from which the `raygenShaderRecordAddress` is queried **must** have been created with the `VK_BUFFER_USAGE_SHADER_BINDING_TABLE_BIT_KHR` usage flag
 - [](#VUID-VkTraceRaysIndirectCommand2KHR-pRayGenShaderBindingTable-03682)VUID-VkTraceRaysIndirectCommand2KHR-pRayGenShaderBindingTable-03682  
   `raygenShaderRecordAddress` **must** be a multiple of `VkPhysicalDeviceRayTracingPipelinePropertiesKHR`::`shaderGroupBaseAlignment`
-- [](#VUID-VkTraceRaysIndirectCommand2KHR-pMissShaderBindingTable-03683)VUID-VkTraceRaysIndirectCommand2KHR-pMissShaderBindingTable-03683  
-  If the buffer from which `missShaderBindingTableAddress` was queried is non-sparse then it **must** be bound completely and contiguously to a single `VkDeviceMemory` object
 - [](#VUID-VkTraceRaysIndirectCommand2KHR-pMissShaderBindingTable-03684)VUID-VkTraceRaysIndirectCommand2KHR-pMissShaderBindingTable-03684  
   The buffer from which the `missShaderBindingTableAddress` is queried **must** have been created with the `VK_BUFFER_USAGE_SHADER_BINDING_TABLE_BIT_KHR` usage flag
 - [](#VUID-VkTraceRaysIndirectCommand2KHR-pMissShaderBindingTable-03685)VUID-VkTraceRaysIndirectCommand2KHR-pMissShaderBindingTable-03685  
@@ -71,8 +67,6 @@ Valid Usage
   `missShaderBindingTableStride` **must** be a multiple of `VkPhysicalDeviceRayTracingPipelinePropertiesKHR`::`shaderGroupHandleAlignment`
 - [](#VUID-VkTraceRaysIndirectCommand2KHR-stride-04029)VUID-VkTraceRaysIndirectCommand2KHR-stride-04029  
   `missShaderBindingTableStride` **must** be less than or equal to `VkPhysicalDeviceRayTracingPipelinePropertiesKHR`::`maxShaderGroupStride`
-- [](#VUID-VkTraceRaysIndirectCommand2KHR-pHitShaderBindingTable-03687)VUID-VkTraceRaysIndirectCommand2KHR-pHitShaderBindingTable-03687  
-  If the buffer from which `hitShaderBindingTableAddress` was queried is non-sparse then it **must** be bound completely and contiguously to a single `VkDeviceMemory` object
 - [](#VUID-VkTraceRaysIndirectCommand2KHR-pHitShaderBindingTable-03688)VUID-VkTraceRaysIndirectCommand2KHR-pHitShaderBindingTable-03688  
   The buffer from which the `hitShaderBindingTableAddress` is queried **must** have been created with the `VK_BUFFER_USAGE_SHADER_BINDING_TABLE_BIT_KHR` usage flag
 - [](#VUID-VkTraceRaysIndirectCommand2KHR-pHitShaderBindingTable-03689)VUID-VkTraceRaysIndirectCommand2KHR-pHitShaderBindingTable-03689  
@@ -81,8 +75,6 @@ Valid Usage
   `hitShaderBindingTableStride` **must** be a multiple of `VkPhysicalDeviceRayTracingPipelinePropertiesKHR`::`shaderGroupHandleAlignment`
 - [](#VUID-VkTraceRaysIndirectCommand2KHR-stride-04035)VUID-VkTraceRaysIndirectCommand2KHR-stride-04035  
   `hitShaderBindingTableStride` **must** be less than or equal to `VkPhysicalDeviceRayTracingPipelinePropertiesKHR`::`maxShaderGroupStride`
-- [](#VUID-VkTraceRaysIndirectCommand2KHR-pCallableShaderBindingTable-03691)VUID-VkTraceRaysIndirectCommand2KHR-pCallableShaderBindingTable-03691  
-  If the buffer from which `callableShaderBindingTableAddress` was queried is non-sparse then it **must** be bound completely and contiguously to a single `VkDeviceMemory` object
 - [](#VUID-VkTraceRaysIndirectCommand2KHR-pCallableShaderBindingTable-03692)VUID-VkTraceRaysIndirectCommand2KHR-pCallableShaderBindingTable-03692  
   The buffer from which the `callableShaderBindingTableAddress` is queried **must** have been created with the `VK_BUFFER_USAGE_SHADER_BINDING_TABLE_BIT_KHR` usage flag
 - [](#VUID-VkTraceRaysIndirectCommand2KHR-pCallableShaderBindingTable-03693)VUID-VkTraceRaysIndirectCommand2KHR-pCallableShaderBindingTable-03693  
@@ -118,6 +110,17 @@ Valid Usage
   `depth` **must** be less than or equal to `VkPhysicalDeviceLimits`::`maxComputeWorkGroupCount`\[2] × `VkPhysicalDeviceLimits`::`maxComputeWorkGroupSize`\[2]
 - [](#VUID-VkTraceRaysIndirectCommand2KHR-width-03641)VUID-VkTraceRaysIndirectCommand2KHR-width-03641  
   `width` × `height` × `depth` **must** be less than or equal to `VkPhysicalDeviceRayTracingPipelinePropertiesKHR`::`maxRayDispatchInvocationCount`
+
+Valid Usage (Implicit)
+
+- [](#VUID-VkTraceRaysIndirectCommand2KHR-raygenShaderRecordAddress-parameter)VUID-VkTraceRaysIndirectCommand2KHR-raygenShaderRecordAddress-parameter  
+  `raygenShaderRecordAddress` **must** be a valid [VkDeviceAddress](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDeviceAddress.html) value
+- [](#VUID-VkTraceRaysIndirectCommand2KHR-missShaderBindingTableAddress-parameter)VUID-VkTraceRaysIndirectCommand2KHR-missShaderBindingTableAddress-parameter  
+  `missShaderBindingTableAddress` **must** be a valid [VkDeviceAddress](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDeviceAddress.html) value
+- [](#VUID-VkTraceRaysIndirectCommand2KHR-hitShaderBindingTableAddress-parameter)VUID-VkTraceRaysIndirectCommand2KHR-hitShaderBindingTableAddress-parameter  
+  `hitShaderBindingTableAddress` **must** be a valid [VkDeviceAddress](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDeviceAddress.html) value
+- [](#VUID-VkTraceRaysIndirectCommand2KHR-callableShaderBindingTableAddress-parameter)VUID-VkTraceRaysIndirectCommand2KHR-callableShaderBindingTableAddress-parameter  
+  `callableShaderBindingTableAddress` **must** be a valid [VkDeviceAddress](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDeviceAddress.html) value
 
 ## [](#_see_also)See Also
 

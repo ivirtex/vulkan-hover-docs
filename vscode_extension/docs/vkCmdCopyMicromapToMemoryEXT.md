@@ -36,7 +36,7 @@ The defined header structure for the serialized data consists of:
 Valid Usage
 
 - [](#VUID-vkCmdCopyMicromapToMemoryEXT-pInfo-07536)VUID-vkCmdCopyMicromapToMemoryEXT-pInfo-07536  
-  `pInfo->dst.deviceAddress` **must** be a valid device address for a buffer bound to device memory
+  `pInfo->dst.deviceAddress` **must** be a valid [VkDeviceAddress](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDeviceAddress.html)
 - [](#VUID-vkCmdCopyMicromapToMemoryEXT-pInfo-07537)VUID-vkCmdCopyMicromapToMemoryEXT-pInfo-07537  
   `pInfo->dst.deviceAddress` **must** be aligned to `256` bytes
 - [](#VUID-vkCmdCopyMicromapToMemoryEXT-pInfo-07538)VUID-vkCmdCopyMicromapToMemoryEXT-pInfo-07538  

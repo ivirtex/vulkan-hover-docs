@@ -41,7 +41,7 @@ typedef struct VkAccelerationStructureTrianglesOpacityMicromapEXT {
 
 ## [](#_description)Description
 
-If `VkAccelerationStructureTrianglesOpacityMicromapEXT` is included in the `pNext` chain of a [VkAccelerationStructureGeometryTrianglesDataKHR](https://registry.khronos.org/vulkan/specs/latest/man/html/VkAccelerationStructureGeometryTrianglesDataKHR.html) structure, that geometry will reference that micromap.
+If `VkAccelerationStructureTrianglesOpacityMicromapEXT` is included in the `pNext` chain of a [VkAccelerationStructureDenseGeometryFormatTrianglesDataAMDX](https://registry.khronos.org/vulkan/specs/latest/man/html/VkAccelerationStructureDenseGeometryFormatTrianglesDataAMDX.html) or [VkAccelerationStructureGeometryTrianglesDataKHR](https://registry.khronos.org/vulkan/specs/latest/man/html/VkAccelerationStructureGeometryTrianglesDataKHR.html) structure, that geometry will reference that micromap.
 
 For each triangle in the geometry, the acceleration structure build fetches an index from `indexBuffer` using `indexType` and `indexStride` if present. If `indexBuffer` is `NULL` then the index used is the index of the triangle in the geometry.
 
@@ -59,10 +59,6 @@ Valid Usage
   Only one of `pUsageCounts` or `ppUsageCounts` **can** be a valid pointer, the other **must** be `NULL`
 - [](#VUID-VkAccelerationStructureTrianglesOpacityMicromapEXT-indexType-10719)VUID-VkAccelerationStructureTrianglesOpacityMicromapEXT-indexType-10719  
   `indexType` **must** be `VK_INDEX_TYPE_UINT16`, `VK_INDEX_TYPE_UINT32`, or `VK_INDEX_TYPE_NONE_KHR`
-- [](#VUID-VkAccelerationStructureTrianglesOpacityMicromapEXT-indexType-10720)VUID-VkAccelerationStructureTrianglesOpacityMicromapEXT-indexType-10720  
-  If `indexType` is `VK_INDEX_TYPE_NONE_KHR`, then `indexBuffer` **must** be `NULL`
-- [](#VUID-VkAccelerationStructureTrianglesOpacityMicromapEXT-indexType-10721)VUID-VkAccelerationStructureTrianglesOpacityMicromapEXT-indexType-10721  
-  If `indexType` is not `VK_INDEX_TYPE_NONE_KHR`, then `indexBuffer` **must** be a valid device address obtained from [vkGetBufferDeviceAddress](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetBufferDeviceAddress.html)
 - [](#VUID-VkAccelerationStructureTrianglesOpacityMicromapEXT-indexType-10722)VUID-VkAccelerationStructureTrianglesOpacityMicromapEXT-indexType-10722  
   If `indexType` is not `VK_INDEX_TYPE_NONE_KHR`, then `indexStride` **must** be a multiple of the size in bytes of `indexType`
 - [](#VUID-VkAccelerationStructureTrianglesOpacityMicromapEXT-indexType-10723)VUID-VkAccelerationStructureTrianglesOpacityMicromapEXT-indexType-10723  

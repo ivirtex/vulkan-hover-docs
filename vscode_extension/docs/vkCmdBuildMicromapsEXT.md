@@ -64,9 +64,11 @@ Valid Usage
 - [](#VUID-vkCmdBuildMicromapsEXT-pInfos-07511)VUID-vkCmdBuildMicromapsEXT-pInfos-07511  
   For each element of `pInfos`\[i] the buffer from which the buffer device address `pInfos`\[i].`scratchData.deviceAddress` is queried **must** have been created with `VK_BUFFER_USAGE_STORAGE_BUFFER_BIT` usage flag
 - [](#VUID-vkCmdBuildMicromapsEXT-pInfos-07512)VUID-vkCmdBuildMicromapsEXT-pInfos-07512  
-  For each element of `pInfos`, its `scratchData.deviceAddress`, `data.deviceAddress`, and `triangleArray.deviceAddress` members **must** be valid device addresses obtained from [vkGetBufferDeviceAddress](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetBufferDeviceAddress.html)
-- [](#VUID-vkCmdBuildMicromapsEXT-pInfos-07513)VUID-vkCmdBuildMicromapsEXT-pInfos-07513  
-  For each element of `pInfos`, if `scratchData.deviceAddress`, `data.deviceAddress`, or `triangleArray.deviceAddress` is the address of a non-sparse buffer then it **must** be bound completely and contiguously to a single [VkDeviceMemory](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDeviceMemory.html) object
+  For each element of `pInfos`, `scratchData.deviceAddress` **must** be a valid [VkDeviceAddress](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDeviceAddress.html)
+- [](#VUID-vkCmdBuildMicromapsEXT-pInfos-10896)VUID-vkCmdBuildMicromapsEXT-pInfos-10896  
+  For each element of `pInfos`, `data.deviceAddress` **must** be a valid [VkDeviceAddress](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDeviceAddress.html)
+- [](#VUID-vkCmdBuildMicromapsEXT-pInfos-10897)VUID-vkCmdBuildMicromapsEXT-pInfos-10897  
+  For each element of `pInfos`, `triangleArray.deviceAddress` **must** be a valid [VkDeviceAddress](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDeviceAddress.html)
 - [](#VUID-vkCmdBuildMicromapsEXT-pInfos-07514)VUID-vkCmdBuildMicromapsEXT-pInfos-07514  
   For each element of `pInfos`, its `scratchData.deviceAddress` member **must** be a multiple of [VkPhysicalDeviceAccelerationStructurePropertiesKHR](https://registry.khronos.org/vulkan/specs/latest/man/html/VkPhysicalDeviceAccelerationStructurePropertiesKHR.html)::`minAccelerationStructureScratchOffsetAlignment`
 - [](#VUID-vkCmdBuildMicromapsEXT-pInfos-07515)VUID-vkCmdBuildMicromapsEXT-pInfos-07515  

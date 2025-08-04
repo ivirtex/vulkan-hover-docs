@@ -47,14 +47,6 @@ If the [`nullDescriptor`](https://registry.khronos.org/vulkan/specs/latest/html/
 
 Valid Usage
 
-- [](#VUID-VkDescriptorDataEXT-type-08030)VUID-VkDescriptorDataEXT-type-08030  
-  If [VkDescriptorGetInfoEXT](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDescriptorGetInfoEXT.html)::`type` is `VK_DESCRIPTOR_TYPE_UNIFORM_BUFFER`, and `pUniformBuffer->address` is the address of a non-sparse buffer, then that buffer **must** be bound completely and contiguously to a single `VkDeviceMemory` object
-- [](#VUID-VkDescriptorDataEXT-type-08031)VUID-VkDescriptorDataEXT-type-08031  
-  If [VkDescriptorGetInfoEXT](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDescriptorGetInfoEXT.html)::`type` is `VK_DESCRIPTOR_TYPE_STORAGE_BUFFER`, and `pStorageBuffer->address` is the address of a non-sparse buffer, then that buffer **must** be bound completely and contiguously to a single `VkDeviceMemory` object
-- [](#VUID-VkDescriptorDataEXT-type-08032)VUID-VkDescriptorDataEXT-type-08032  
-  If [VkDescriptorGetInfoEXT](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDescriptorGetInfoEXT.html)::`type` is `VK_DESCRIPTOR_TYPE_UNIFORM_TEXEL_BUFFER`, and `pUniformTexelBuffer->address` is the address of a non-sparse buffer, then that buffer **must** be bound completely and contiguously to a single `VkDeviceMemory` object
-- [](#VUID-VkDescriptorDataEXT-type-08033)VUID-VkDescriptorDataEXT-type-08033  
-  If [VkDescriptorGetInfoEXT](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDescriptorGetInfoEXT.html)::`type` is `VK_DESCRIPTOR_TYPE_STORAGE_TEXEL_BUFFER`, and `pStorageTexelBuffer->address` is the address of a non-sparse buffer, then that buffer **must** be bound completely and contiguously to a single `VkDeviceMemory` object
 - [](#VUID-VkDescriptorDataEXT-type-08034)VUID-VkDescriptorDataEXT-type-08034  
   If [VkDescriptorGetInfoEXT](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDescriptorGetInfoEXT.html)::`type` is `VK_DESCRIPTOR_TYPE_COMBINED_IMAGE_SAMPLER`, and the [`nullDescriptor`](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#features-nullDescriptor) feature is not enabled, `pCombinedImageSampler->imageView` **must** not be [VK\_NULL\_HANDLE](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_NULL_HANDLE.html)
 - [](#VUID-VkDescriptorDataEXT-type-08035)VUID-VkDescriptorDataEXT-type-08035  

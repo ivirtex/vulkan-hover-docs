@@ -31,7 +31,7 @@ This command can accept micromaps produced by either [vkCmdCopyMicromapToMemoryE
 Valid Usage
 
 - [](#VUID-vkCmdCopyMemoryToMicromapEXT-pInfo-07543)VUID-vkCmdCopyMemoryToMicromapEXT-pInfo-07543  
-  `pInfo->src.deviceAddress` **must** be a valid device address for a buffer bound to device memory
+  `pInfo->src.deviceAddress` **must** be a valid [VkDeviceAddress](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDeviceAddress.html)
 - [](#VUID-vkCmdCopyMemoryToMicromapEXT-pInfo-07544)VUID-vkCmdCopyMemoryToMicromapEXT-pInfo-07544  
   `pInfo->src.deviceAddress` **must** be aligned to `256` bytes
 - [](#VUID-vkCmdCopyMemoryToMicromapEXT-pInfo-07545)VUID-vkCmdCopyMemoryToMicromapEXT-pInfo-07545  

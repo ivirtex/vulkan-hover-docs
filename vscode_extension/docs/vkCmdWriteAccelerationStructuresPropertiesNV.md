@@ -8,7 +8,7 @@ vkCmdWriteAccelerationStructuresPropertiesNV - Write acceleration structure resu
 
 ## [](#_c_specification)C Specification
 
-To query acceleration structure size parameters call:
+To query acceleration structure size parameters for the `VK_NV_ray_tracing` extension call:
 
 ```c++
 // Provided by VK_NV_ray_tracing

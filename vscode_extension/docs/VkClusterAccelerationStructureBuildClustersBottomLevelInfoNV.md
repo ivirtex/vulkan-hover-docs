@@ -36,6 +36,11 @@ Valid Usage
 - [](#VUID-VkClusterAccelerationStructureBuildClustersBottomLevelInfoNV-clusterReferencesStride-10486)VUID-VkClusterAccelerationStructureBuildClustersBottomLevelInfoNV-clusterReferencesStride-10486  
   `clusterReferencesStride` **must** be greater than or equal to 8
 
+Valid Usage (Implicit)
+
+- [](#VUID-VkClusterAccelerationStructureBuildClustersBottomLevelInfoNV-clusterReferences-parameter)VUID-VkClusterAccelerationStructureBuildClustersBottomLevelInfoNV-clusterReferences-parameter  
+  `clusterReferences` **must** be a valid [VkDeviceAddress](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDeviceAddress.html) value
+
 ## [](#_see_also)See Also
 
 [VK\_NV\_cluster\_acceleration\_structure](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_NV_cluster_acceleration_structure.html), [VkDeviceAddress](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDeviceAddress.html)
