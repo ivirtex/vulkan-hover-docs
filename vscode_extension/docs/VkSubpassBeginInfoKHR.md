@@ -57,11 +57,11 @@ Valid Usage (Implicit)
 
 ## [](#_see_also)See Also
 
-[VK\_KHR\_create\_renderpass2](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_KHR_create_renderpass2.html), [VK\_VERSION\_1\_2](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_VERSION_1_2.html), [VkStructureType](https://registry.khronos.org/vulkan/specs/latest/man/html/VkStructureType.html), [VkSubpassContents](https://registry.khronos.org/vulkan/specs/latest/man/html/VkSubpassContents.html), [vkCmdBeginRenderPass2](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdBeginRenderPass2.html), [vkCmdBeginRenderPass2KHR](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdBeginRenderPass2KHR.html), [vkCmdNextSubpass2](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdNextSubpass2.html), [vkCmdNextSubpass2KHR](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdNextSubpass2KHR.html)
+[VK\_KHR\_create\_renderpass2](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_KHR_create_renderpass2.html), [VK\_VERSION\_1\_2](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_VERSION_1_2.html), [VkStructureType](https://registry.khronos.org/vulkan/specs/latest/man/html/VkStructureType.html), [VkSubpassContents](https://registry.khronos.org/vulkan/specs/latest/man/html/VkSubpassContents.html), [vkCmdBeginRenderPass2](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdBeginRenderPass2.html), [vkCmdBeginRenderPass2](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdBeginRenderPass2.html), [vkCmdNextSubpass2](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdNextSubpass2.html), [vkCmdNextSubpass2](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdNextSubpass2.html)
 
 ## [](#_document_notes)Document Notes
 
-For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#VkSubpassBeginInfo)
+For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#VkSubpassBeginInfo).
 
 This page is extracted from the Vulkan Specification. Fixes and changes should be made to the Specification, not directly.
 

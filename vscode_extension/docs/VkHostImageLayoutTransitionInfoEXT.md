@@ -121,11 +121,11 @@ Valid Usage (Implicit)
 
 ## [](#_see_also)See Also
 
-[VK\_EXT\_host\_image\_copy](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_EXT_host_image_copy.html), [VK\_VERSION\_1\_4](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_VERSION_1_4.html), [VkImage](https://registry.khronos.org/vulkan/specs/latest/man/html/VkImage.html), [VkImageLayout](https://registry.khronos.org/vulkan/specs/latest/man/html/VkImageLayout.html), [VkImageSubresourceRange](https://registry.khronos.org/vulkan/specs/latest/man/html/VkImageSubresourceRange.html), [VkStructureType](https://registry.khronos.org/vulkan/specs/latest/man/html/VkStructureType.html), [vkTransitionImageLayout](https://registry.khronos.org/vulkan/specs/latest/man/html/vkTransitionImageLayout.html), [vkTransitionImageLayoutEXT](https://registry.khronos.org/vulkan/specs/latest/man/html/vkTransitionImageLayoutEXT.html)
+[VK\_EXT\_host\_image\_copy](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_EXT_host_image_copy.html), [VK\_VERSION\_1\_4](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_VERSION_1_4.html), [VkImage](https://registry.khronos.org/vulkan/specs/latest/man/html/VkImage.html), [VkImageLayout](https://registry.khronos.org/vulkan/specs/latest/man/html/VkImageLayout.html), [VkImageSubresourceRange](https://registry.khronos.org/vulkan/specs/latest/man/html/VkImageSubresourceRange.html), [VkStructureType](https://registry.khronos.org/vulkan/specs/latest/man/html/VkStructureType.html), [vkTransitionImageLayout](https://registry.khronos.org/vulkan/specs/latest/man/html/vkTransitionImageLayout.html), [vkTransitionImageLayout](https://registry.khronos.org/vulkan/specs/latest/man/html/vkTransitionImageLayout.html)
 
 ## [](#_document_notes)Document Notes
 
-For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#VkHostImageLayoutTransitionInfo)
+For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#VkHostImageLayoutTransitionInfo).
 
 This page is extracted from the Vulkan Specification. Fixes and changes should be made to the Specification, not directly.
 

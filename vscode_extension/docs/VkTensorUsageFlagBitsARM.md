@@ -36,7 +36,7 @@ static const VkTensorUsageFlagBitsARM VK_TENSOR_USAGE_DATA_GRAPH_BIT_ARM = 0x000
 
 ## [](#_document_notes)Document Notes
 
-For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#VkTensorUsageFlagBitsARM)
+For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#VkTensorUsageFlagBitsARM).
 
 This page is extracted from the Vulkan Specification. Fixes and changes should be made to the Specification, not directly.
 

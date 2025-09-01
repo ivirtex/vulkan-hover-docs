@@ -67,7 +67,7 @@ vkCmdSetBlendConstants is not affected by [conditional rendering](#drawing-condi
 
 ## [](#_document_notes)Document Notes
 
-For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#vkCmdSetBlendConstants)
+For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#vkCmdSetBlendConstants).
 
 This page is extracted from the Vulkan Specification. Fixes and changes should be made to the Specification, not directly.
 

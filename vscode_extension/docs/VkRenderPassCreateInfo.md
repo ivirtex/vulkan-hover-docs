@@ -95,6 +95,8 @@ Valid Usage
   If any element of `pResolveAttachments` of any element of `pSubpasses` references an attachment description with a format of `VK_FORMAT_UNDEFINED`, `VK_TILE_SHADING_RENDER_PASS_ENABLE_BIT_QCOM` **must** not be included in [VkRenderPassTileShadingCreateInfoQCOM](https://registry.khronos.org/vulkan/specs/latest/man/html/VkRenderPassTileShadingCreateInfoQCOM.html)::`flags`
 - [](#VUID-VkRenderPassCreateInfo-fragmentDensityMapAttachment-10648)VUID-VkRenderPassCreateInfo-fragmentDensityMapAttachment-10648  
   If [VkRenderPassFragmentDensityMapCreateInfoEXT](https://registry.khronos.org/vulkan/specs/latest/man/html/VkRenderPassFragmentDensityMapCreateInfoEXT.html)::`fragmentDensityMapAttachment` is not `VK_ATTACHMENT_UNUSED`, `VK_TILE_SHADING_RENDER_PASS_ENABLE_BIT_QCOM` **must** not be included in [VkRenderPassTileShadingCreateInfoQCOM](https://registry.khronos.org/vulkan/specs/latest/man/html/VkRenderPassTileShadingCreateInfoQCOM.html)::`flags`
+- [](#VUID-VkRenderPassCreateInfo-None-10915)VUID-VkRenderPassCreateInfo-None-10915  
+  If any subpass preserves an attachment, there **must** be a subpass dependency from a prior subpass which uses or preserves that attachment
 
 Valid Usage (Implicit)
 
@@ -121,7 +123,7 @@ Valid Usage (Implicit)
 
 ## [](#_document_notes)Document Notes
 
-For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#VkRenderPassCreateInfo)
+For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#VkRenderPassCreateInfo).
 
 This page is extracted from the Vulkan Specification. Fixes and changes should be made to the Specification, not directly.
 

@@ -36,7 +36,7 @@ Valid Usage
 - [](#VUID-VkCommandPoolCreateInfo-pNext-09908)VUID-VkCommandPoolCreateInfo-pNext-09908  
   If the `pNext` chain includes a [VkDataGraphProcessingEngineCreateInfoARM](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDataGraphProcessingEngineCreateInfoARM.html) structure, then `queueFamilyIndex` **must** designate a queue family that supports `VK_QUEUE_DATA_GRAPH_BIT_ARM`
 - [](#VUID-VkCommandPoolCreateInfo-pNext-09909)VUID-VkCommandPoolCreateInfo-pNext-09909  
-  If the `pNext` chain includes a [VkDataGraphProcessingEngineCreateInfoARM](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDataGraphProcessingEngineCreateInfoARM.html) structure, then the queue family designated by `queueFamilyIndex` **must** support the data graph processing engines specified in the [VkDataGraphProcessingEngineCreateInfoARM](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDataGraphProcessingEngineCreateInfoARM.html) structure
+  If the `pNext` chain includes a [VkDataGraphProcessingEngineCreateInfoARM](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDataGraphProcessingEngineCreateInfoARM.html) structure, each member of `pProcessingEngines` **must** be identical to [VkQueueFamilyDataGraphPropertiesARM](https://registry.khronos.org/vulkan/specs/latest/man/html/VkQueueFamilyDataGraphPropertiesARM.html)::`engine` retrieved from [vkGetPhysicalDeviceQueueFamilyDataGraphPropertiesARM](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetPhysicalDeviceQueueFamilyDataGraphPropertiesARM.html) with `queueFamilyIndex` and the `physicalDevice` that was used to create `device`
 
 Valid Usage (Implicit)
 
@@ -55,7 +55,7 @@ Valid Usage (Implicit)
 
 ## [](#_document_notes)Document Notes
 
-For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#VkCommandPoolCreateInfo)
+For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#VkCommandPoolCreateInfo).
 
 This page is extracted from the Vulkan Specification. Fixes and changes should be made to the Specification, not directly.
 

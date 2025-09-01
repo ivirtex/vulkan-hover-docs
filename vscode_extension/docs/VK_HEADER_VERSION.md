@@ -13,7 +13,7 @@ VK\_HEADER\_VERSION - Vulkan header file version number
 ```c++
 // Provided by VK_VERSION_1_0
 // Version of this file
-#define VK_HEADER_VERSION 324
+#define VK_HEADER_VERSION 326
 ```
 
 ## [](#_see_also)See Also
@@ -22,7 +22,7 @@ VK\_HEADER\_VERSION - Vulkan header file version number
 
 ## [](#_document_notes)Document Notes
 
-For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#VK_HEADER_VERSION)
+For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#VK_HEADER_VERSION).
 
 This page is extracted from the Vulkan Specification. Fixes and changes should be made to the Specification, not directly.
 

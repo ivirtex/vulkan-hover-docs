@@ -20,7 +20,7 @@ The special queue family index `VK_QUEUE_FAMILY_FOREIGN_EXT` represents any queu
 
 ## [](#_document_notes)Document Notes
 
-For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#VK_QUEUE_FAMILY_FOREIGN_EXT)
+For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#VK_QUEUE_FAMILY_FOREIGN_EXT).
 
 This page is extracted from the Vulkan Specification. Fixes and changes should be made to the Specification, not directly.
 

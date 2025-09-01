@@ -47,7 +47,7 @@ This structure describes the following features:
 - []()`tileShadingPerTileDispatch` indicates that the implementation supports the recording of `vkCmdDispatch`* commands within those regions of a command buffer where the [per-tile execution model](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#renderpass-per-tile-execution-model) is enabled.
 - []()`tileShadingDispatchTile` indicates that the implementation supports the recording of [vkCmdDispatchTileQCOM](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdDispatchTileQCOM.html) commands.
 - []()`tileShadingApron` indicates that the implementation supports [VkRenderPassTileShadingCreateInfoQCOM](https://registry.khronos.org/vulkan/specs/latest/man/html/VkRenderPassTileShadingCreateInfoQCOM.html)::`apronSize` value other than (0,0). See [Tiling Aprons](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#renderpass-tile-shading-aprons) for more information.
-- []()`tileShadingAnisotropicApron` indicates that the implementation supports [VkRenderPassTileShadingCreateInfoQCOM](https://registry.khronos.org/vulkan/specs/latest/man/html/VkRenderPassTileShadingCreateInfoQCOM.html)::`apronSize` set to a value where `apronSize`::`width` differs from `apronSize`::`height`.
+- []()`tileShadingAnisotropicApron` indicates that the implementation supports [VkRenderPassTileShadingCreateInfoQCOM](https://registry.khronos.org/vulkan/specs/latest/man/html/VkRenderPassTileShadingCreateInfoQCOM.html)::`apronSize` set to a value where `apronSize.width` differs from `apronSize.height`.
 - []()`tileShadingAtomicOps` indicates that the implementation supports atomic operations on [tile attachment variables](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#interfaces-tile-attachment).
 - []()`tileShadingImageProcessing` indicates that the implementation supports [image processing operations](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#textures-weightimage) with tile attachments.
 
@@ -66,7 +66,7 @@ Valid Usage (Implicit)
 
 ## [](#_document_notes)Document Notes
 
-For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#VkPhysicalDeviceTileShadingFeaturesQCOM)
+For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#VkPhysicalDeviceTileShadingFeaturesQCOM).
 
 This page is extracted from the Vulkan Specification. Fixes and changes should be made to the Specification, not directly.
 

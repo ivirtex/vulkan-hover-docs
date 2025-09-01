@@ -15,15 +15,15 @@ typedef VkFlags VkSurfaceCreateFlagsOHOS;
 
 ## [](#_description)Description
 
-The `VkSurfaceCreateFlagsOHOS` a bitmask type for setting a mask, but is currently a reserved flag for future use.
+`VkSurfaceCreateFlagsOHOS` is a bitmask type for setting a mask, but is currently reserved for future use.
 
 ## [](#_see_also)See Also
 
-[VK\_OHOS\_surface](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_OHOS_surface.html), [VkFlags](https://registry.khronos.org/vulkan/specs/latest/man/html/VkFlags.html), [VkOHSurfaceCreateInfoOHOS](https://registry.khronos.org/vulkan/specs/latest/man/html/VkOHSurfaceCreateInfoOHOS.html)
+[VK\_OHOS\_surface](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_OHOS_surface.html), [VkFlags](https://registry.khronos.org/vulkan/specs/latest/man/html/VkFlags.html), [VkSurfaceCreateInfoOHOS](https://registry.khronos.org/vulkan/specs/latest/man/html/VkSurfaceCreateInfoOHOS.html)
 
 ## [](#_document_notes)Document Notes
 
-For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#VkSurfaceCreateFlagsOHOS)
+For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#VkSurfaceCreateFlagsOHOS).
 
 This page is extracted from the Vulkan Specification. Fixes and changes should be made to the Specification, not directly.
 

@@ -43,12 +43,12 @@ Valid values for some tensor creation parameters are limited by a numerical uppe
 
 Several limiting values are defined below. The limiting values are referenced by the relevant valid usage statements of `VkTensorCreateInfoARM`.
 
-- Let the uint64\_t tensorElements define the number of data elements in the tensor computed as the product of all `VkTensorCreateInfoARM`::`pDescription`::`pDimensions`\[i] for i between 0 and `VkTensorCreateInfoARM`::`pDescription`::`dimensionCount` - 1.
+- Let the uint64\_t tensorElements define the number of data elements in the tensor computed as the product of all `VkTensorCreateInfoARM`::`pDescription->pDimensions`\[i] for i between 0 and `VkTensorCreateInfoARM`::`pDescription->dimensionCount` - 1.
 
 Valid Usage
 
 - [](#VUID-VkTensorCreateInfoARM-pDescription-09720)VUID-VkTensorCreateInfoARM-pDescription-09720  
-  If `pDescription`::`tiling` is `VK_TENSOR_TILING_OPTIMAL_ARM`, `pDescription`::`pStrides` **must** be `NULL`
+  If `pDescription->tiling` is `VK_TENSOR_TILING_OPTIMAL_ARM`, `pDescription->pStrides` **must** be `NULL`
 - [](#VUID-VkTensorCreateInfoARM-tensorElements-09721)VUID-VkTensorCreateInfoARM-tensorElements-09721  
   `tensorElements` (as defined in [https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#resources-tensor-creation-limits](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#resources-tensor-creation-limits)) **must** not be greater than [VkPhysicalDeviceTensorPropertiesARM](https://registry.khronos.org/vulkan/specs/latest/man/html/VkPhysicalDeviceTensorPropertiesARM.html)::`maxTensorElements`
 - [](#VUID-VkTensorCreateInfoARM-sharingMode-09722)VUID-VkTensorCreateInfoARM-sharingMode-09722  
@@ -64,7 +64,7 @@ Valid Usage
 - [](#VUID-VkTensorCreateInfoARM-pNext-09727)VUID-VkTensorCreateInfoARM-pNext-09727  
   If the `pNext` chain includes a [VkOpaqueCaptureDescriptorDataCreateInfoEXT](https://registry.khronos.org/vulkan/specs/latest/man/html/VkOpaqueCaptureDescriptorDataCreateInfoEXT.html) structure, `flags` **must** contain `VK_TENSOR_CREATE_DESCRIPTOR_BUFFER_CAPTURE_REPLAY_BIT_ARM`
 - [](#VUID-VkTensorCreateInfoARM-pDescription-09728)VUID-VkTensorCreateInfoARM-pDescription-09728  
-  If `pDescription`::`usage` does not have any of the following bits set (i.e. if it is not possible to create a tensor view for this tensor), then the [format features](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#resources-tensor-view-format-features) **must** contain the format feature flags required by the `usage` flags `pDescription`::`format` as indicated in the [https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#format-feature-dependent-usage-flags](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#format-feature-dependent-usage-flags) section
+  If `pDescription->usage` does not have any of the following bits set (i.e. if it is not possible to create a tensor view for this tensor), then the [format features](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#resources-tensor-view-format-features) **must** contain the format feature flags required by the `usage` flags `pDescription->format` as indicated in the [https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#format-feature-dependent-usage-flags](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#format-feature-dependent-usage-flags) section
   
   - `VK_TENSOR_USAGE_SHADER_BIT_ARM`
   - `VK_TENSOR_USAGE_DATA_GRAPH_BIT_ARM`
@@ -92,7 +92,7 @@ Valid Usage (Implicit)
 
 ## [](#_document_notes)Document Notes
 
-For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#VkTensorCreateInfoARM)
+For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#VkTensorCreateInfoARM).
 
 This page is extracted from the Vulkan Specification. Fixes and changes should be made to the Specification, not directly.
 

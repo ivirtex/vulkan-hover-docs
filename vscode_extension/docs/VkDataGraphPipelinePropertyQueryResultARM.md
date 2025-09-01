@@ -35,8 +35,6 @@ typedef struct VkDataGraphPipelinePropertyQueryResultARM {
 
 If `pData` is `NULL`, then the size, in bytes, of the property data is returned in `dataSize`. Otherwise, `dataSize` must be the size of the buffer, in bytes, pointed to by `pData` and on return `dataSize` is overwritten with the number of bytes of data actually written to `pData` including any trailing NUL character. If `dataSize` is less than the size, in bytes, of the property data, at most `dataSize` bytes of data will be written to `pData`, and `VK_INCOMPLETE` will be returned by [vkGetDataGraphPipelinePropertiesARM](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetDataGraphPipelinePropertiesARM.html) instead of `VK_SUCCESS`, to indicate that not all the available property data was returned. If `isText` is `VK_TRUE` and `pData` is not `NULL` and `dataSize` is not zero, the last byte written to `pData` will be a NUL character.
 
-Valid Usage
-
 Valid Usage (Implicit)
 
 - [](#VUID-VkDataGraphPipelinePropertyQueryResultARM-sType-sType)VUID-VkDataGraphPipelinePropertyQueryResultARM-sType-sType  
@@ -54,7 +52,7 @@ Valid Usage (Implicit)
 
 ## [](#_document_notes)Document Notes
 
-For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#VkDataGraphPipelinePropertyQueryResultARM)
+For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#VkDataGraphPipelinePropertyQueryResultARM).
 
 This page is extracted from the Vulkan Specification. Fixes and changes should be made to the Specification, not directly.
 

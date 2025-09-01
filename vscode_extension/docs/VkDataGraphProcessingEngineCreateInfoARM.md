@@ -31,6 +31,8 @@ typedef struct VkDataGraphProcessingEngineCreateInfoARM {
 
 Valid Usage
 
+- [](#VUID-VkDataGraphProcessingEngineCreateInfoARM-dataGraph-09953)VUID-VkDataGraphProcessingEngineCreateInfoARM-dataGraph-09953  
+  The [`dataGraph`](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#features-dataGraph) feature **must** be enabled
 - [](#VUID-VkDataGraphProcessingEngineCreateInfoARM-pProcessingEngines-09918)VUID-VkDataGraphProcessingEngineCreateInfoARM-pProcessingEngines-09918  
   `pProcessingEngines` **must** not contain identical [VkPhysicalDeviceDataGraphProcessingEngineARM](https://registry.khronos.org/vulkan/specs/latest/man/html/VkPhysicalDeviceDataGraphProcessingEngineARM.html) structures
 
@@ -49,7 +51,7 @@ Valid Usage (Implicit)
 
 ## [](#_document_notes)Document Notes
 
-For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#VkDataGraphProcessingEngineCreateInfoARM)
+For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#VkDataGraphProcessingEngineCreateInfoARM).
 
 This page is extracted from the Vulkan Specification. Fixes and changes should be made to the Specification, not directly.
 

@@ -27,7 +27,7 @@ This structure describes the following features:
 - `sType` is a [VkStructureType](https://registry.khronos.org/vulkan/specs/latest/man/html/VkStructureType.html) value identifying this structure.
 - `pNext` is `NULL` or a pointer to a structure extending this structure.
 - []()`shaderFloat8` indicates whether the implementation supports shaders with the `Float8EXT` capability.
-- []()`shaderFloat8` indicates whether the implementation supports shaders with the `Float8CooperativeMatrixEXT` capability.
+- []()`shaderFloat8CooperativeMatrix` indicates whether the implementation supports shaders with the `Float8CooperativeMatrixEXT` capability.
 
 ## [](#_description)Description
 
@@ -44,7 +44,7 @@ Valid Usage (Implicit)
 
 ## [](#_document_notes)Document Notes
 
-For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#VkPhysicalDeviceShaderFloat8FeaturesEXT)
+For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#VkPhysicalDeviceShaderFloat8FeaturesEXT).
 
 This page is extracted from the Vulkan Specification. Fixes and changes should be made to the Specification, not directly.
 

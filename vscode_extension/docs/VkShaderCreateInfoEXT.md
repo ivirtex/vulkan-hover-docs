@@ -166,7 +166,7 @@ Valid Usage
 - [](#VUID-VkShaderCreateInfoEXT-pPushConstantRanges-10063)VUID-VkShaderCreateInfoEXT-pPushConstantRanges-10063  
   Any two elements of `pPushConstantRanges` **must** not include the same stage in `stageFlags`
 - [](#VUID-VkShaderCreateInfoEXT-codeType-10064)VUID-VkShaderCreateInfoEXT-codeType-10064  
-  If `codeType` is `VK_SHADER_CODE_TYPE_SPIRV_EXT`, and if a push constant block is declared in a shader, then an element of `pPushConstantRanges`::`stageFlags` **must** match `stage`
+  If `codeType` is `VK_SHADER_CODE_TYPE_SPIRV_EXT`, and if a push constant block is declared in a shader, then an element of `pPushConstantRanges->stageFlags` **must** match `stage`
 - [](#VUID-VkShaderCreateInfoEXT-codeType-10065)VUID-VkShaderCreateInfoEXT-codeType-10065  
   If `codeType` is `VK_SHADER_CODE_TYPE_SPIRV_EXT`, and if a push constant block is declared in a shader, the block must be contained inside the element of `pPushConstantRanges` that matches the stage
 - [](#VUID-VkShaderCreateInfoEXT-codeType-10383)VUID-VkShaderCreateInfoEXT-codeType-10383  
@@ -213,7 +213,7 @@ Valid Usage (Implicit)
 
 ## [](#_document_notes)Document Notes
 
-For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#VkShaderCreateInfoEXT)
+For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#VkShaderCreateInfoEXT).
 
 This page is extracted from the Vulkan Specification. Fixes and changes should be made to the Specification, not directly.
 

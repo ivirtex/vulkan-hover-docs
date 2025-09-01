@@ -52,6 +52,10 @@ It can be detrimental to performance for applications to have to define fake ver
 
 This extension allows applications to not have to specify fake vertex attribute locations, and if the vertex shader reads those attributes it will read (0,0,0,0) or (0,0,0,1).
 
+## [](#_promotion_to_vk_khr_maintenance9)Promotion to `VK_KHR_maintenance9`
+
+The same functionality is provided by [VK\_KHR\_maintenance9](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_KHR_maintenance9.html), but enabled by the [`maintenance9`](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#features-maintenance9) feature instead. The [VkPhysicalDeviceVertexAttributeRobustnessFeaturesEXT](https://registry.khronos.org/vulkan/specs/latest/man/html/VkPhysicalDeviceVertexAttributeRobustnessFeaturesEXT.html) structure was not included in the maintenance extension.
+
 ## [](#_new_structures)New Structures
 
 - Extending [VkPhysicalDeviceFeatures2](https://registry.khronos.org/vulkan/specs/latest/man/html/VkPhysicalDeviceFeatures2.html), [VkDeviceCreateInfo](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDeviceCreateInfo.html):
@@ -82,7 +86,7 @@ No cross-references are available
 
 ## [](#_document_notes)Document Notes
 
-For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#VK_EXT_vertex_attribute_robustness)
+For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#VK_EXT_vertex_attribute_robustness).
 
 This page is a generated document. Fixes and changes should be made to the generator scripts, not directly.
 

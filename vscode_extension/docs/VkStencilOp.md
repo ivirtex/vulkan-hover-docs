@@ -39,11 +39,11 @@ For purposes of increment and decrement, the stencil bits are considered as an u
 
 ## [](#_see_also)See Also
 
-[VK\_VERSION\_1\_0](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_VERSION_1_0.html), [VkStencilOpState](https://registry.khronos.org/vulkan/specs/latest/man/html/VkStencilOpState.html), [vkCmdSetStencilOp](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdSetStencilOp.html), [vkCmdSetStencilOpEXT](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdSetStencilOpEXT.html)
+[VK\_VERSION\_1\_0](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_VERSION_1_0.html), [VkStencilOpState](https://registry.khronos.org/vulkan/specs/latest/man/html/VkStencilOpState.html), [vkCmdSetStencilOp](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdSetStencilOp.html), [vkCmdSetStencilOp](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdSetStencilOp.html)
 
 ## [](#_document_notes)Document Notes
 
-For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#VkStencilOp)
+For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#VkStencilOp).
 
 This page is extracted from the Vulkan Specification. Fixes and changes should be made to the Specification, not directly.
 

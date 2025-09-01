@@ -32,8 +32,6 @@ If `pProperties` is `NULL`, then the number of properties associated with the da
 
 Valid Usage
 
-- [](#VUID-vkGetDataGraphPipelineAvailablePropertiesARM-dataGraphPipeline-09887)VUID-vkGetDataGraphPipelineAvailablePropertiesARM-dataGraphPipeline-09887  
-  The `dataGraphPipeline` member of `pPipelineInfo` **must** have been returned by a call to [vkCreateDataGraphPipelinesARM](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCreateDataGraphPipelinesARM.html)
 - [](#VUID-vkGetDataGraphPipelineAvailablePropertiesARM-dataGraphPipeline-09888)VUID-vkGetDataGraphPipelineAvailablePropertiesARM-dataGraphPipeline-09888  
   The `dataGraphPipeline` member of `pPipelineInfo` **must** have been created with `device`
 
@@ -68,7 +66,7 @@ On failure, this command returns
 
 ## [](#_document_notes)Document Notes
 
-For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#vkGetDataGraphPipelineAvailablePropertiesARM)
+For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#vkGetDataGraphPipelineAvailablePropertiesARM).
 
 This page is extracted from the Vulkan Specification. Fixes and changes should be made to the Specification, not directly.
 

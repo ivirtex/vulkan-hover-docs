@@ -75,7 +75,7 @@ No cross-references are available
 
 ## [](#_document_notes)Document Notes
 
-For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#VK_EXT_image_compression_control_swapchain)
+For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#VK_EXT_image_compression_control_swapchain).
 
 This page is a generated document. Fixes and changes should be made to the generator scripts, not directly.
 

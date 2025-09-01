@@ -29,8 +29,6 @@ typedef struct VkPipelineCacheCreateInfo {
 - `initialDataSize` is the number of bytes in `pInitialData`. If `initialDataSize` is zero, the pipeline cache will initially be empty.
 - `pInitialData` is a pointer to previously retrieved pipeline cache data. If the pipeline cache data is incompatible (as defined below) with the device, the pipeline cache will be initially empty. If `initialDataSize` is zero, `pInitialData` is ignored.
 
-## [](#_description)Description
-
 Valid Usage
 
 - [](#VUID-VkPipelineCacheCreateInfo-initialDataSize-00768)VUID-VkPipelineCacheCreateInfo-initialDataSize-00768  
@@ -61,7 +59,7 @@ Valid Usage (Implicit)
 
 ## [](#_document_notes)Document Notes
 
-For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#VkPipelineCacheCreateInfo)
+For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#VkPipelineCacheCreateInfo).
 
 This page is extracted from the Vulkan Specification. Fixes and changes should be made to the Specification, not directly.
 

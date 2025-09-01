@@ -26,7 +26,7 @@ void vkCmdDispatchTileQCOM(
 
 This command operates in the [per-tile execution model](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#renderpass-per-tile-execution-model), invoking a separate dispatch for each *covered tile*. The global workgroup count and local workgroup size of each dispatch are defined by the implementation to efficiently iterate over a uniform grid of pixel blocks within the area of its *active tile*.
 
-Each shader invocation operates on a single pixel block and its size is determined by the shader’s tiling rate, which **must** be defined by shaders executed by this command. The `TileShadingRateQCOM` execution mode operand defines the shader’s tiling rate. Its `x` and `y` **must** be a power of two and less than or equal to the [maxTileShadingRate](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#limits-maxTileShadingRate) limit. Its `z` **must** be less than or equal to the active tile’s depth as reported by [VK\_QCOM\_tile\_properties](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_QCOM_tile_properties.html), and [VkTilePropertiesQCOM](https://registry.khronos.org/vulkan/specs/latest/man/html/VkTilePropertiesQCOM.html)::`tileSize`::`z` % `TileShadingRateQCOM`::`z` **must** equal `0`.
+Each shader invocation operates on a single pixel block and its size is determined by the shader’s tiling rate, which **must** be defined by shaders executed by this command. The `TileShadingRateQCOM` execution mode operand defines the shader’s tiling rate. Its `x` and `y` **must** be a power of two and less than or equal to the [maxTileShadingRate](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#limits-maxTileShadingRate) limit. Its `z` **must** be less than or equal to the active tile’s depth as reported by [VK\_QCOM\_tile\_properties](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_QCOM_tile_properties.html), and [VkTilePropertiesQCOM](https://registry.khronos.org/vulkan/specs/latest/man/html/VkTilePropertiesQCOM.html).tileSize.z % `TileShadingRateQCOM`::`z` **must** equal `0`.
 
 The start location of the shader invocation’s pixel block is vec3(`TileOffsetQCOM`, 0) + (`GlobalInvocationId` * `TileShadingRateQCOM`)
 
@@ -246,7 +246,7 @@ vkCmdDispatchTileQCOM is affected by [conditional rendering](#drawing-conditiona
 
 ## [](#_document_notes)Document Notes
 
-For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#vkCmdDispatchTileQCOM)
+For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#vkCmdDispatchTileQCOM).
 
 This page is extracted from the Vulkan Specification. Fixes and changes should be made to the Specification, not directly.
 

@@ -34,7 +34,7 @@ typedef VkPipelineRenderingCreateInfo VkPipelineRenderingCreateInfoKHR;
 
 - `sType` is a [VkStructureType](https://registry.khronos.org/vulkan/specs/latest/man/html/VkStructureType.html) value identifying this structure.
 - `pNext` is `NULL` or a pointer to a structure extending this structure.
-- `viewMask` is the viewMask used for rendering.
+- `viewMask` is a bitfield of view indices describing which views are active during rendering. It **must** match [VkRenderingInfo](https://registry.khronos.org/vulkan/specs/latest/man/html/VkRenderingInfo.html)::`viewMask` when rendering.
 - `colorAttachmentCount` is the number of entries in `pColorAttachmentFormats`
 - `pColorAttachmentFormats` is a pointer to an array of [VkFormat](https://registry.khronos.org/vulkan/specs/latest/man/html/VkFormat.html) values defining the format of color attachments used in this pipeline.
 - `depthAttachmentFormat` is a [VkFormat](https://registry.khronos.org/vulkan/specs/latest/man/html/VkFormat.html) value defining the format of the depth attachment used in this pipeline.
@@ -64,7 +64,7 @@ Valid Usage (Implicit)
 
 ## [](#_document_notes)Document Notes
 
-For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#VkPipelineRenderingCreateInfo)
+For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#VkPipelineRenderingCreateInfo).
 
 This page is extracted from the Vulkan Specification. Fixes and changes should be made to the Specification, not directly.
 

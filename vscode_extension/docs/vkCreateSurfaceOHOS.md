@@ -22,7 +22,7 @@ VkResult vkCreateSurfaceOHOS(
 ## [](#_parameters)Parameters
 
 - `instance` is the instance to associate the surface with.
-- `pCreateInfo` is a pointer to a [VkOHSurfaceCreateInfoOHOS](https://registry.khronos.org/vulkan/specs/latest/man/html/VkOHSurfaceCreateInfoOHOS.html) structure containing parameters affecting the creation of the surface object.
+- `pCreateInfo` is a pointer to a [VkSurfaceCreateInfoOHOS](https://registry.khronos.org/vulkan/specs/latest/man/html/VkSurfaceCreateInfoOHOS.html) structure containing parameters affecting the creation of the surface object.
 - `pAllocator` is the allocator used for host memory allocated for the surface object when there is no more specific allocator available (see [Memory Allocation](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#memory-allocation)).
 - `pSurface` is a pointer to a [VkSurfaceKHR](https://registry.khronos.org/vulkan/specs/latest/man/html/VkSurfaceKHR.html) handle in which the created surface object is returned.
 
@@ -58,7 +58,7 @@ On failure, this command returns
 
 ## [](#_document_notes)Document Notes
 
-For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#vkCreateSurfaceOHOS)
+For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#vkCreateSurfaceOHOS).
 
 This page is extracted from the Vulkan Specification. Fixes and changes should be made to the Specification, not directly.
 

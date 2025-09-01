@@ -28,6 +28,8 @@ void vkGetDataGraphPipelineSessionMemoryRequirementsARM(
 
 Valid Usage
 
+- [](#VUID-vkGetDataGraphPipelineSessionMemoryRequirementsARM-session-09950)VUID-vkGetDataGraphPipelineSessionMemoryRequirementsARM-session-09950  
+  The `session` member of `pInfo` **must** have been created with `device`
 - [](#VUID-vkGetDataGraphPipelineSessionMemoryRequirementsARM-bindPoint-09784)VUID-vkGetDataGraphPipelineSessionMemoryRequirementsARM-bindPoint-09784  
   The `bindPoint` member of `pInfo` **must** have been returned as part of a [VkDataGraphPipelineSessionBindPointRequirementARM](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDataGraphPipelineSessionBindPointRequirementARM.html) whose `bindPointType` member is `VK_DATA_GRAPH_PIPELINE_SESSION_BIND_POINT_TYPE_MEMORY_ARM` by a prior call to [vkGetDataGraphPipelineSessionMemoryRequirementsARM](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetDataGraphPipelineSessionMemoryRequirementsARM.html) for the `session` member of `pInfo`
 
@@ -46,7 +48,7 @@ Valid Usage (Implicit)
 
 ## [](#_document_notes)Document Notes
 
-For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#vkGetDataGraphPipelineSessionMemoryRequirementsARM)
+For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#vkGetDataGraphPipelineSessionMemoryRequirementsARM).
 
 This page is extracted from the Vulkan Specification. Fixes and changes should be made to the Specification, not directly.
 

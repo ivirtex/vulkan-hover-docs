@@ -35,7 +35,7 @@ typedef enum VkVideoEncodeIntraRefreshModeFlagBitsKHR {
 
 ## [](#_document_notes)Document Notes
 
-For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#VkVideoEncodeIntraRefreshModeFlagBitsKHR)
+For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#VkVideoEncodeIntraRefreshModeFlagBitsKHR).
 
 This page is extracted from the Vulkan Specification. Fixes and changes should be made to the Specification, not directly.
 

@@ -65,6 +65,8 @@ Valid Usage
   If `pPoolSizes` contains a `descriptorType` of `VK_DESCRIPTOR_TYPE_MUTABLE_EXT`, any other `VK_DESCRIPTOR_TYPE_MUTABLE_EXT` element in `pPoolSizes` **must** not have sets of supported descriptor types which partially overlap
 - [](#VUID-VkDescriptorPoolCreateInfo-pPoolSizes-09424)VUID-VkDescriptorPoolCreateInfo-pPoolSizes-09424  
   If `pPoolSizes` contains a `descriptorType` of `VK_DESCRIPTOR_TYPE_INLINE_UNIFORM_BLOCK`, the `pNext` chain **must** include a [VkDescriptorPoolInlineUniformBlockCreateInfo](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDescriptorPoolInlineUniformBlockCreateInfo.html) structure whose `maxInlineUniformBlockBindings` member is not zero
+- [](#VUID-VkDescriptorPoolCreateInfo-pNext-09946)VUID-VkDescriptorPoolCreateInfo-pNext-09946  
+  If a [VkDataGraphProcessingEngineCreateInfoARM](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDataGraphProcessingEngineCreateInfoARM.html) structure is included in the `pNext` chain, each member of `pProcessingEngines` **must** be identical to an [VkQueueFamilyDataGraphPropertiesARM](https://registry.khronos.org/vulkan/specs/latest/man/html/VkQueueFamilyDataGraphPropertiesARM.html)::`engine` retrieved from [vkGetPhysicalDeviceQueueFamilyDataGraphPropertiesARM](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetPhysicalDeviceQueueFamilyDataGraphPropertiesARM.html) with the `physicalDevice` that was used to create `device`
 
 Valid Usage (Implicit)
 
@@ -85,7 +87,7 @@ Valid Usage (Implicit)
 
 ## [](#_document_notes)Document Notes
 
-For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#VkDescriptorPoolCreateInfo)
+For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#VkDescriptorPoolCreateInfo).
 
 This page is extracted from the Vulkan Specification. Fixes and changes should be made to the Specification, not directly.
 

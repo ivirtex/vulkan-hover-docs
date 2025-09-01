@@ -79,6 +79,8 @@ Valid Usage
   The `commandBuffer` member of any element of the `pCommandBufferInfos` member of any element of `pSubmits` **must** have been allocated from a `VkCommandPool` that was created for the same queue family `queue` belongs to
 - [](#VUID-vkQueueSubmit2-commandBuffer-03879)VUID-vkQueueSubmit2-commandBuffer-03879  
   If a command recorded into the `commandBuffer` member of any element of the `pCommandBufferInfos` member of any element of `pSubmits` includes a [Queue Family Ownership Transfer Acquire Operation](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#synchronization-queue-transfers-acquire), there **must** exist a previously submitted [Queue Family Ownership Transfer Release Operation](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#synchronization-queue-transfers-release) on a queue in the queue family identified by the acquire operation, with parameters matching the acquire operation as defined in the definition of such [acquire operations](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#synchronization-queue-transfers-acquire), and which happens before the acquire operation
+- [](#VUID-vkQueueSubmit2-commandBuffer-10910)VUID-vkQueueSubmit2-commandBuffer-10910  
+  If a command recorded into the `commandBuffer` member of any element of the `pCommandBufferInfos` member of any element of `pSubmits` includes a [Queue Family Ownership Transfer Acquire Operation](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#synchronization-queue-transfers-acquire), the affected resource **must** not be modified in any way between the last matching release operation and the acquire operation
 - [](#VUID-vkQueueSubmit2-commandBuffer-03880)VUID-vkQueueSubmit2-commandBuffer-03880  
   If a command recorded into the `commandBuffer` member of any element of the `pCommandBufferInfos` member of any element of `pSubmits` was a [vkCmdBeginQuery](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdBeginQuery.html) whose `queryPool` was created with a `queryType` of `VK_QUERY_TYPE_PERFORMANCE_QUERY_KHR`, the [profiling lock](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#profiling-lock) **must** have been held continuously on the `VkDevice` that `queue` was retrieved from, throughout recording of those command buffers
 - [](#VUID-vkQueueSubmit2-queue-06447)VUID-vkQueueSubmit2-queue-06447  
@@ -134,7 +136,7 @@ On failure, this command returns
 
 ## [](#_document_notes)Document Notes
 
-For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#vkQueueSubmit2)
+For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#vkQueueSubmit2).
 
 This page is extracted from the Vulkan Specification. Fixes and changes should be made to the Specification, not directly.
 

@@ -12,7 +12,7 @@ VK\_QCOM\_tile\_shading - device extension
 
 ## [](#_revision)Revision
 
-1
+2
 
 ## [](#_ratification_status)Ratification Status
 
@@ -40,7 +40,7 @@ or
 
 **Last Modified Date**
 
-2025-5-12
+2025-8-13
 
 **IP Status**
 
@@ -146,10 +146,13 @@ This extension enables applications to leverage the power and performance of til
 
 ## [](#_issues)Issues
 
-- none
+1\) Some early Adreno drivers advertised support for version 1 of this extension without supporting the required [`tileShadingApron`](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#features-tileShadingApron) feature. To cover all Adreno devices on the market, applications should not assume any version of this extension supports the `tileShadingApron` feature without performing a feature query.
 
 ## [](#_version_history)Version History
 
+- Revision 2, 2025-08-13 (Matthew Netsch)
+  
+  - Make the `tileShadingApron` feature optional
 - Revision 1, 2023-10-12 (Jeff Leger)
 
 ## [](#_see_also)See Also
@@ -158,7 +161,7 @@ No cross-references are available
 
 ## [](#_document_notes)Document Notes
 
-For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#VK_QCOM_tile_shading)
+For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#VK_QCOM_tile_shading).
 
 This page is a generated document. Fixes and changes should be made to the generator scripts, not directly.
 

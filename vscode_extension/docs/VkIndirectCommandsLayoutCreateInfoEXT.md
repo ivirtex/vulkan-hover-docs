@@ -64,7 +64,7 @@ Valid Usage
 - [](#VUID-VkIndirectCommandsLayoutCreateInfoEXT-shaderStages-11091)VUID-VkIndirectCommandsLayoutCreateInfoEXT-shaderStages-11091  
   `shaderStages` **must** only contain stages supported by [](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#limits-supportedIndirectCommandsShaderStages)[VkPhysicalDeviceDeviceGeneratedCommandsPropertiesEXT](https://registry.khronos.org/vulkan/specs/latest/man/html/VkPhysicalDeviceDeviceGeneratedCommandsPropertiesEXT.html)::`supportedIndirectCommandsShaderStages`
 - [](#VUID-VkIndirectCommandsLayoutCreateInfoEXT-tokenCount-11092)VUID-VkIndirectCommandsLayoutCreateInfoEXT-tokenCount-11092  
-  `tokenCount` **must** less than or equal to [VkPhysicalDeviceDeviceGeneratedCommandsPropertiesEXT](https://registry.khronos.org/vulkan/specs/latest/man/html/VkPhysicalDeviceDeviceGeneratedCommandsPropertiesEXT.html)::`maxIndirectCommandsTokenCount`
+  `tokenCount` **must** be less than or equal to [VkPhysicalDeviceDeviceGeneratedCommandsPropertiesEXT](https://registry.khronos.org/vulkan/specs/latest/man/html/VkPhysicalDeviceDeviceGeneratedCommandsPropertiesEXT.html)::`maxIndirectCommandsTokenCount`
 - [](#VUID-VkIndirectCommandsLayoutCreateInfoEXT-pTokens-11093)VUID-VkIndirectCommandsLayoutCreateInfoEXT-pTokens-11093  
   The number of tokens in the `pTokens` array with `type` equal to `VK_INDIRECT_COMMANDS_TOKEN_TYPE_EXECUTION_SET_EXT` **must** be less than or equal to `1`
 - [](#VUID-VkIndirectCommandsLayoutCreateInfoEXT-pTokens-11145)VUID-VkIndirectCommandsLayoutCreateInfoEXT-pTokens-11145  
@@ -142,7 +142,7 @@ Valid Usage (Implicit)
 
 ## [](#_document_notes)Document Notes
 
-For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#VkIndirectCommandsLayoutCreateInfoEXT)
+For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#VkIndirectCommandsLayoutCreateInfoEXT).
 
 This page is extracted from the Vulkan Specification. Fixes and changes should be made to the Specification, not directly.
 

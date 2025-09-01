@@ -19,11 +19,11 @@ VK_DEFINE_NON_DISPATCHABLE_HANDLE(VkCommandPool)
 
 ## [](#_see_also)See Also
 
-[VK\_DEFINE\_NON\_DISPATCHABLE\_HANDLE](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_DEFINE_NON_DISPATCHABLE_HANDLE.html), [VK\_VERSION\_1\_0](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_VERSION_1_0.html), [VkCommandBufferAllocateInfo](https://registry.khronos.org/vulkan/specs/latest/man/html/VkCommandBufferAllocateInfo.html), [vkCreateCommandPool](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCreateCommandPool.html), [vkDestroyCommandPool](https://registry.khronos.org/vulkan/specs/latest/man/html/vkDestroyCommandPool.html), [vkFreeCommandBuffers](https://registry.khronos.org/vulkan/specs/latest/man/html/vkFreeCommandBuffers.html), [vkResetCommandPool](https://registry.khronos.org/vulkan/specs/latest/man/html/vkResetCommandPool.html), [vkTrimCommandPool](https://registry.khronos.org/vulkan/specs/latest/man/html/vkTrimCommandPool.html), [vkTrimCommandPoolKHR](https://registry.khronos.org/vulkan/specs/latest/man/html/vkTrimCommandPoolKHR.html)
+[VK\_DEFINE\_NON\_DISPATCHABLE\_HANDLE](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_DEFINE_NON_DISPATCHABLE_HANDLE.html), [VK\_VERSION\_1\_0](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_VERSION_1_0.html), [VkCommandBufferAllocateInfo](https://registry.khronos.org/vulkan/specs/latest/man/html/VkCommandBufferAllocateInfo.html), [vkCreateCommandPool](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCreateCommandPool.html), [vkDestroyCommandPool](https://registry.khronos.org/vulkan/specs/latest/man/html/vkDestroyCommandPool.html), [vkFreeCommandBuffers](https://registry.khronos.org/vulkan/specs/latest/man/html/vkFreeCommandBuffers.html), [vkResetCommandPool](https://registry.khronos.org/vulkan/specs/latest/man/html/vkResetCommandPool.html), [vkTrimCommandPool](https://registry.khronos.org/vulkan/specs/latest/man/html/vkTrimCommandPool.html), [vkTrimCommandPool](https://registry.khronos.org/vulkan/specs/latest/man/html/vkTrimCommandPool.html)
 
 ## [](#_document_notes)Document Notes
 
-For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#VkCommandPool)
+For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#VkCommandPool).
 
 This page is extracted from the Vulkan Specification. Fixes and changes should be made to the Specification, not directly.
 

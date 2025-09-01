@@ -8,7 +8,7 @@ VK\_WHOLE\_SIZE - Sentinel value to use entire remaining array length
 
 ## [](#_c_specification)C Specification
 
-`VK_WHOLE_SIZE` is a special value indicating that the entire remaining length of a buffer following a given `offset` should be used. It **can** be specified for [VkBufferMemoryBarrier](https://registry.khronos.org/vulkan/specs/latest/man/html/VkBufferMemoryBarrier.html)::`size` and other structures.
+`VK_WHOLE_SIZE` is a special value indicating that the entire remaining length of a buffer or allocation following a given `offset` should be used. It **can** be specified for [VkBufferMemoryBarrier](https://registry.khronos.org/vulkan/specs/latest/man/html/VkBufferMemoryBarrier.html)::`size`, [vkMapMemory](https://registry.khronos.org/vulkan/specs/latest/man/html/vkMapMemory.html)::`size`, and other similar structures.
 
 ```c++
 #define VK_WHOLE_SIZE                     (~0ULL)
@@ -20,7 +20,7 @@ VK\_WHOLE\_SIZE - Sentinel value to use entire remaining array length
 
 ## [](#_document_notes)Document Notes
 
-For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#VK_WHOLE_SIZE)
+For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#VK_WHOLE_SIZE).
 
 This page is extracted from the Vulkan Specification. Fixes and changes should be made to the Specification, not directly.
 

@@ -55,7 +55,7 @@ Implementations **must** not report `VK_EXTERNAL_MEMORY_FEATURE_DEDICATED_ONLY_B
 
 ## [](#_document_notes)Document Notes
 
-For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#VkExternalMemoryFeatureFlagBits)
+For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#VkExternalMemoryFeatureFlagBits).
 
 This page is extracted from the Vulkan Specification. Fixes and changes should be made to the Specification, not directly.
 

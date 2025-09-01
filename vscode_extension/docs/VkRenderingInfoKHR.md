@@ -40,7 +40,7 @@ typedef VkRenderingInfo VkRenderingInfoKHR;
 - `flags` is a bitmask of [VkRenderingFlagBits](https://registry.khronos.org/vulkan/specs/latest/man/html/VkRenderingFlagBits.html).
 - `renderArea` is the render area that is affected by the render pass instance.
 - `layerCount` is the number of layers rendered to in each attachment when `viewMask` is `0`.
-- `viewMask` is the view mask indicating the indices of attachment layers that will be rendered when it is not `0`.
+- `viewMask` is a bitfield of view indices describing which views are active during rendering, when it is not `0`.
 - `colorAttachmentCount` is the number of elements in `pColorAttachments`.
 - `pColorAttachments` is a pointer to an array of `colorAttachmentCount` [VkRenderingAttachmentInfo](https://registry.khronos.org/vulkan/specs/latest/man/html/VkRenderingAttachmentInfo.html) structures describing any color attachments used.
 - `pDepthAttachment` is a pointer to a [VkRenderingAttachmentInfo](https://registry.khronos.org/vulkan/specs/latest/man/html/VkRenderingAttachmentInfo.html) structure describing a depth attachment.
@@ -55,6 +55,8 @@ If there is an instance of [VkDeviceGroupRenderPassBeginInfo](https://registry.k
 If multiview is enabled, and the [`multiviewPerViewRenderAreas`](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#features-multiviewPerViewRenderAreas) feature is enabled, and there is an instance of [VkMultiviewPerViewRenderAreasRenderPassBeginInfoQCOM](https://registry.khronos.org/vulkan/specs/latest/man/html/VkMultiviewPerViewRenderAreasRenderPassBeginInfoQCOM.html) included in the `pNext` chain with `perViewRenderAreaCount` not equal to `0`, then the elements of [VkMultiviewPerViewRenderAreasRenderPassBeginInfoQCOM](https://registry.khronos.org/vulkan/specs/latest/man/html/VkMultiviewPerViewRenderAreasRenderPassBeginInfoQCOM.html)::`pPerViewRenderAreas` override `renderArea` and define a render area for each view. In this case, `renderArea` **must** be an area at least as large as the union of all the per-view render areas.
 
 Each element of the `pColorAttachments` array corresponds to an output location in the shader, i.e. if the shader declares an output variable decorated with a `Location` value of **X**, then it uses the attachment provided in `pColorAttachments`\[**X**]. If the `imageView` member of any element of `pColorAttachments` is [VK\_NULL\_HANDLE](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_NULL_HANDLE.html), and `resolveMode` is not `VK_RESOLVE_MODE_EXTERNAL_FORMAT_DOWNSAMPLE_BIT_ANDROID`, writes to the corresponding location by a fragment are discarded.
+
+The `aspectMask` of any image view specified for `pDepthAttachment` or `pStencilAttachment` is ignored. Instead, depth attachments are automatically treated as if `VK_IMAGE_ASPECT_DEPTH_BIT` was specified for their aspect masks, and stencil attachments are automatically treated as if `VK_IMAGE_ASPECT_STENCIL_BIT` was specified for their aspect masks.
 
 Valid Usage
 
@@ -265,11 +267,11 @@ Valid Usage (Implicit)
 
 ## [](#_see_also)See Also
 
-[VK\_KHR\_dynamic\_rendering](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_KHR_dynamic_rendering.html), [VK\_QCOM\_tile\_properties](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_QCOM_tile_properties.html), [VK\_VERSION\_1\_3](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_VERSION_1_3.html), [VkRect2D](https://registry.khronos.org/vulkan/specs/latest/man/html/VkRect2D.html), [VkRenderingAttachmentInfo](https://registry.khronos.org/vulkan/specs/latest/man/html/VkRenderingAttachmentInfo.html), [VkRenderingFlags](https://registry.khronos.org/vulkan/specs/latest/man/html/VkRenderingFlags.html), [VkStructureType](https://registry.khronos.org/vulkan/specs/latest/man/html/VkStructureType.html), [vkCmdBeginRendering](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdBeginRendering.html), [vkCmdBeginRenderingKHR](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdBeginRenderingKHR.html), [vkGetDynamicRenderingTilePropertiesQCOM](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetDynamicRenderingTilePropertiesQCOM.html)
+[VK\_KHR\_dynamic\_rendering](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_KHR_dynamic_rendering.html), [VK\_QCOM\_tile\_properties](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_QCOM_tile_properties.html), [VK\_VERSION\_1\_3](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_VERSION_1_3.html), [VkRect2D](https://registry.khronos.org/vulkan/specs/latest/man/html/VkRect2D.html), [VkRenderingAttachmentInfo](https://registry.khronos.org/vulkan/specs/latest/man/html/VkRenderingAttachmentInfo.html), [VkRenderingFlags](https://registry.khronos.org/vulkan/specs/latest/man/html/VkRenderingFlags.html), [VkStructureType](https://registry.khronos.org/vulkan/specs/latest/man/html/VkStructureType.html), [vkCmdBeginRendering](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdBeginRendering.html), [vkCmdBeginRendering](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdBeginRendering.html), [vkGetDynamicRenderingTilePropertiesQCOM](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetDynamicRenderingTilePropertiesQCOM.html)
 
 ## [](#_document_notes)Document Notes
 
-For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#VkRenderingInfo)
+For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#VkRenderingInfo).
 
 This page is extracted from the Vulkan Specification. Fixes and changes should be made to the Specification, not directly.
 

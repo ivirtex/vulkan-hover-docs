@@ -58,7 +58,6 @@ The `VK_OHOS_surface` extension is an instance extension. It provides a mechanis
 
 ## [](#_new_structures)New Structures
 
-- [VkOHSurfaceCreateInfoOHOS](https://registry.khronos.org/vulkan/specs/latest/man/html/VkOHSurfaceCreateInfoOHOS.html)
 - [VkSurfaceCreateInfoOHOS](https://registry.khronos.org/vulkan/specs/latest/man/html/VkSurfaceCreateInfoOHOS.html)
 
 ## [](#_new_bitmasks)New Bitmasks
@@ -71,7 +70,7 @@ The `VK_OHOS_surface` extension is an instance extension. It provides a mechanis
 - `VK_OHOS_SURFACE_SPEC_VERSION`
 - Extending [VkStructureType](https://registry.khronos.org/vulkan/specs/latest/man/html/VkStructureType.html):
   
-  - `VK_STRUCTURE_TYPE_OH_SURFACE_CREATE_INFO_OHOS`
+  - `VK_STRUCTURE_TYPE_SURFACE_CREATE_INFO_OHOS`
 
 ## [](#_version_history)Version History
 
@@ -85,7 +84,7 @@ No cross-references are available
 
 ## [](#_document_notes)Document Notes
 
-For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#VK_OHOS_surface)
+For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#VK_OHOS_surface).
 
 This page is a generated document. Fixes and changes should be made to the generator scripts, not directly.
 

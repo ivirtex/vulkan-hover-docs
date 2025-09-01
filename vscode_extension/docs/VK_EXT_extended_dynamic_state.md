@@ -16,7 +16,7 @@ VK\_EXT\_extended\_dynamic\_state - device extension
 
 ## [](#_ratification_status)Ratification Status
 
-Not ratified
+Ratified
 
 ## [](#_extension_and_version_dependencies)Extension and Version Dependencies
 
@@ -126,7 +126,7 @@ No cross-references are available
 
 ## [](#_document_notes)Document Notes
 
-For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#VK_EXT_extended_dynamic_state)
+For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#VK_EXT_extended_dynamic_state).
 
 This page is a generated document. Fixes and changes should be made to the generator scripts, not directly.
 

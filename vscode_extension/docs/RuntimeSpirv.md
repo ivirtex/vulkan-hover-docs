@@ -150,8 +150,6 @@ Valid Usage
   The stream number value to `Stream` **must** be less than [VkPhysicalDeviceTransformFeedbackPropertiesEXT](https://registry.khronos.org/vulkan/specs/latest/man/html/VkPhysicalDeviceTransformFeedbackPropertiesEXT.html)::`maxTransformFeedbackStreams`
 - [](#VUID-RuntimeSpirv-XfbStride-06313)VUID-RuntimeSpirv-XfbStride-06313  
   The XFB Stride value to `XfbStride` **must** be less than or equal to [VkPhysicalDeviceTransformFeedbackPropertiesEXT](https://registry.khronos.org/vulkan/specs/latest/man/html/VkPhysicalDeviceTransformFeedbackPropertiesEXT.html)::`maxTransformFeedbackBufferDataStride`
-- [](#VUID-RuntimeSpirv-PhysicalStorageBuffer64-06314)VUID-RuntimeSpirv-PhysicalStorageBuffer64-06314  
-  If the `PhysicalStorageBuffer64` addressing model is enabled any load or store through a physical pointer type **must** be aligned to a multiple of the size of the largest scalar type in the pointed-to type
 - [](#VUID-RuntimeSpirv-PhysicalStorageBuffer64-06315)VUID-RuntimeSpirv-PhysicalStorageBuffer64-06315  
   If the `PhysicalStorageBuffer64` addressing model is enabled the pointer value of a memory access instruction **must** be at least as aligned as specified by the `Aligned` memory access operand
 - [](#VUID-RuntimeSpirv-OpTypeCooperativeMatrixNV-06316)VUID-RuntimeSpirv-OpTypeCooperativeMatrixNV-06316  
@@ -334,23 +332,47 @@ Valid Usage
 - [](#VUID-RuntimeSpirv-tessellationShader-06327)VUID-RuntimeSpirv-tessellationShader-06327  
   If the [`tessellationShader`](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#features-tessellationShader) feature is enabled, and the `VK_KHR_portability_subset` extension is enabled, and [VkPhysicalDevicePortabilitySubsetFeaturesKHR](https://registry.khronos.org/vulkan/specs/latest/man/html/VkPhysicalDevicePortabilitySubsetFeaturesKHR.html)::`tessellationPointMode` is `VK_FALSE`, then `OpExecutionMode` **must** not be `PointMode`
 - [](#VUID-RuntimeSpirv-storageBuffer8BitAccess-06328)VUID-RuntimeSpirv-storageBuffer8BitAccess-06328  
-  If [`storageBuffer8BitAccess`](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#features-storageBuffer8BitAccess) is `VK_FALSE`, then objects containing an 8-bit integer element **must** not have `Storage` `Class` of `StorageBuffer`, `ShaderRecordBufferKHR`, or `PhysicalStorageBuffer`
+  If [`storageBuffer8BitAccess`](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#features-storageBuffer8BitAccess) is `VK_FALSE`, then objects containing an 8-bit integer element **must** not have `Storage` `Class` of `StorageBuffer`, `ShaderRecordBufferKHR`, or `PhysicalStorageBuffer` unless [`shaderUntypedPointers`](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#features-shaderUntypedPointers) is `VK_TRUE` and they are accessed in:
+  
+  - 32-bit multiples, or
+  - 16-bit multiples if [`storageBuffer16BitAccess`](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#features-storageBuffer16BitAccess) is `VK_TRUE`.
 - [](#VUID-RuntimeSpirv-uniformAndStorageBuffer8BitAccess-06329)VUID-RuntimeSpirv-uniformAndStorageBuffer8BitAccess-06329  
-  If [`uniformAndStorageBuffer8BitAccess`](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#features-uniformAndStorageBuffer8BitAccess) is `VK_FALSE`, then objects in the `Uniform` `Storage` `Class` with the `Block` decoration **must** not have an 8-bit integer member
+  If [`uniformAndStorageBuffer8BitAccess`](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#features-uniformAndStorageBuffer8BitAccess) is `VK_FALSE`, then objects in the `Uniform` `Storage` `Class` with the `Block` decoration **must** not have an 8-bit integer member unless [`shaderUntypedPointers`](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#features-shaderUntypedPointers) is `VK_TRUE` and they are accessed in:
+  
+  - 32-bit multiples, or
+  - 16-bit multiples if [`uniformAndStorageBuffer16BitAccess`](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#features-uniformAndStorageBuffer16BitAccess) is `VK_TRUE`.
 - [](#VUID-RuntimeSpirv-storagePushConstant8-06330)VUID-RuntimeSpirv-storagePushConstant8-06330  
-  If [`storagePushConstant8`](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#features-storagePushConstant8) is `VK_FALSE`, then objects containing an 8-bit integer element **must** not have `Storage` `Class` of `PushConstant`
+  If [`storagePushConstant8`](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#features-storagePushConstant8) is `VK_FALSE`, then objects containing an 8-bit integer element **must** not have `Storage` `Class` of `PushConstant` unless [`shaderUntypedPointers`](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#features-shaderUntypedPointers) is `VK_TRUE` and they are accessed in:
+  
+  - 32-bit multiples, or
+  - 16-bit multiples if &lt;features-storagePushConstant16, `storagePushConstant16`&gt;&gt; is `VK_TRUE`.
 - [](#VUID-RuntimeSpirv-workgroupMemoryExplicitLayout8BitAccess-10756)VUID-RuntimeSpirv-workgroupMemoryExplicitLayout8BitAccess-10756  
-  If [`workgroupMemoryExplicitLayout8BitAccess`](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#features-workgroupMemoryExplicitLayout8BitAccess) is `VK_FALSE`, then objects in the `Workgroup` `Storage` `Class` with the `Block` decoration **must** not have an 8-bit integer element.
-- [](#VUID-RuntimeSpirv-storageBuffer16BitAccess-06331)VUID-RuntimeSpirv-storageBuffer16BitAccess-06331  
-  If [`storageBuffer16BitAccess`](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#features-storageBuffer16BitAccess) is `VK_FALSE`, then objects containing 16-bit integer or 16-bit floating-point elements **must** not have `Storage` `Class` of `StorageBuffer`, `ShaderRecordBufferKHR`, or `PhysicalStorageBuffer`
+  If [`workgroupMemoryExplicitLayout8BitAccess`](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#features-workgroupMemoryExplicitLayout8BitAccess) is `VK_FALSE`, then objects in the `Workgroup` `Storage` `Class` with the `Block` decoration **must** not have an 8-bit integer element unless [`shaderUntypedPointers`](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#features-shaderUntypedPointers) is `VK_TRUE` and they are accessed in:
+  
+  - 32-bit multiples, or
+  - 16-bit multiples if [`workgroupMemoryExplicitLayout16BitAccess`](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#features-workgroupMemoryExplicitLayout16BitAccess) is `VK_TRUE`
+- [](#VUID-RuntimeSpirv-storageBuffer16BitAccess-11161)VUID-RuntimeSpirv-storageBuffer16BitAccess-11161  
+  If [`storageBuffer16BitAccess`](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#features-storageBuffer16BitAccess) is `VK_FALSE`, then objects containing 16-bit integer or 16-bit floating-point elements **must** not have `Storage` `Class` of `StorageBuffer`, `ShaderRecordBufferKHR`, or `PhysicalStorageBuffer` unless:
+  
+  - [`storageBuffer8BitAccess`](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#features-storageBuffer8BitAccess) is `VK_TRUE`, or
+  - the elements are accessed in 32-bit multiples if [`shaderUntypedPointers`](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#features-shaderUntypedPointers) is `VK_TRUE`.
 - [](#VUID-RuntimeSpirv-uniformAndStorageBuffer16BitAccess-06332)VUID-RuntimeSpirv-uniformAndStorageBuffer16BitAccess-06332  
-  If [`uniformAndStorageBuffer16BitAccess`](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#features-uniformAndStorageBuffer16BitAccess) is `VK_FALSE`, then objects in the `Uniform` `Storage` `Class` with the `Block` decoration **must** not have 16-bit integer or 16-bit floating-point members
+  If [`uniformAndStorageBuffer16BitAccess`](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#features-uniformAndStorageBuffer16BitAccess) is `VK_FALSE`, then objects in the `Uniform` `Storage` `Class` with the `Block` decoration **must** not have 16-bit integer or 16-bit floating-point members unless:
+  
+  - [`uniformAndStorageBuffer8BitAccess`](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#features-uniformAndStorageBuffer8BitAccess) is `VK_TRUE`, or
+  - members are accessed in 32-bit multiples and [`shaderUntypedPointers`](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#features-shaderUntypedPointers) is `VK_TRUE`.
 - [](#VUID-RuntimeSpirv-storagePushConstant16-06333)VUID-RuntimeSpirv-storagePushConstant16-06333  
-  If [`storagePushConstant16`](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#features-storagePushConstant16) is `VK_FALSE`, then objects containing 16-bit integer or 16-bit floating-point elements **must** not have `Storage` `Class` of `PushConstant`
-- [](#VUID-RuntimeSpirv-storageInputOutput16-06334)VUID-RuntimeSpirv-storageInputOutput16-06334  
-  If [`storageInputOutput16`](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#features-storageInputOutput16) is `VK_FALSE`, then objects containing 16-bit integer or 16-bit floating-point elements **must** not have `Storage` `Class` of `Input` or `Output`
+  If [`storagePushConstant16`](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#features-storagePushConstant16) is `VK_FALSE`, then objects containing 16-bit integer or 16-bit floating-point elements **must** not have `Storage` `Class` of `PushConstant` unless:
+  
+  - [`StoragePushConstant8`](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#features-storagePushConstant8) is `VK_TRUE`, or
+  - elements are accessed in 32-bit multiples if [`shaderUntypedPointers`](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#features-shaderUntypedPointers) is `VK_TRUE`.
+- [](#VUID-RuntimeSpirv-storageInputOutput16-11162)VUID-RuntimeSpirv-storageInputOutput16-11162  
+  If [`storageInputOutput16`](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#features-storageInputOutput16) is `VK_FALSE`, then objects containing 16-bit integer or 16-bit floating-point elements **must** not have storage class of **Input** or **Output**.
 - [](#VUID-RuntimeSpirv-workgroupMemoryExplicitLayout16BitAccess-10757)VUID-RuntimeSpirv-workgroupMemoryExplicitLayout16BitAccess-10757  
-  If [`workgroupMemoryExplicitLayout16BitAccess`](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#features-workgroupMemoryExplicitLayout16BitAccess) is `VK_FALSE`, then objects in the `Workgroup` `Storage` `Class` with the `Block` decoration **must** not have an 16-bit integer or 16-bit floating-point elements.
+  If [`workgroupMemoryExplicitLayout16BitAccess`](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#features-workgroupMemoryExplicitLayout16BitAccess) is `VK_FALSE`, then objects in the `Workgroup` `Storage` `Class` with the `Block` decoration **must** not have an 16-bit integer or 16-bit floating-point elements unless:
+  
+  - [`workgroupMemoryExplicitLayout8BitAccess`](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#features-workgroupMemoryExplicitLayout8BitAccess) is `VK_TRUE`, or
+  - elements are accessed in 32-bit multiples if [`shaderUntypedPointers`](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#features-shaderUntypedPointers) is `VK_TRUE`
 - [](#VUID-RuntimeSpirv-None-06337)VUID-RuntimeSpirv-None-06337  
   [`shaderBufferFloat16Atomics`](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#features-shaderBufferFloat16Atomics), or [`shaderBufferFloat16AtomicAdd`](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#features-shaderBufferFloat16AtomicAdd), or [`shaderBufferFloat16AtomicMinMax`](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#features-shaderBufferFloat16AtomicMinMax), or [`shaderSharedFloat16Atomics`](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#features-shaderSharedFloat16Atomics), or [`shaderSharedFloat16AtomicAdd`](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#features-shaderSharedFloat16AtomicAdd), or [`shaderSharedFloat16AtomicMinMax`](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#features-shaderSharedFloat16AtomicMinMax) **must** be enabled for 16-bit floating-point atomic operations
 - [](#VUID-RuntimeSpirv-None-06338)VUID-RuntimeSpirv-None-06338  
@@ -486,13 +508,20 @@ Valid Usage
 - [](#VUID-RuntimeSpirv-OpEntryPoint-07754)VUID-RuntimeSpirv-OpEntryPoint-07754  
   Any [user-defined variables](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#interfaces-iointerfaces-user) between the `OpEntryPoint` of two shader stages **must** have the same type and width for each `Component`
 - [](#VUID-RuntimeSpirv-OpVariable-08746)VUID-RuntimeSpirv-OpVariable-08746  
-  Any `OpVariable`, `Block`-decorated `OpTypeStruct`, or `Block`-decorated `OpTypeStruct` members shared between the `OpEntryPoint` of two shader stages **must** have matching decorations as defined in [interface matching](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#interfaces-iointerfaces-matching)
+  Any variable, `Block`-decorated `OpTypeStruct`, or `Block`-decorated `OpTypeStruct` members shared between the `OpEntryPoint` of two shader stages **must** have matching decorations as defined in [interface matching](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#interfaces-iointerfaces-matching)
 - [](#VUID-RuntimeSpirv-Workgroup-06530)VUID-RuntimeSpirv-Workgroup-06530  
   The sum of size in bytes for variables and [padding](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#workgroup-padding) in the `Workgroup` `Storage` `Class` in the `GLCompute` `Execution` `Model` **must** be less than or equal to [`maxComputeSharedMemorySize`](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#limits-maxComputeSharedMemorySize)
 - [](#VUID-RuntimeSpirv-shaderZeroInitializeWorkgroupMemory-06372)VUID-RuntimeSpirv-shaderZeroInitializeWorkgroupMemory-06372  
-  If the [`shaderZeroInitializeWorkgroupMemory`](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#features-shaderZeroInitializeWorkgroupMemory) feature is not enabled, any `OpVariable` with `Workgroup` as its `Storage` `Class` **must** not have an `Initializer` operand
+  If the [`shaderZeroInitializeWorkgroupMemory`](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#features-shaderZeroInitializeWorkgroupMemory) feature is not enabled, any variable with `Workgroup` as its `Storage` `Class` **must** not have an `Initializer` operand
 - [](#VUID-RuntimeSpirv-Offset-10213)VUID-RuntimeSpirv-Offset-10213  
   If the [`maintenance8`](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#features-maintenance8) feature is not enabled, image operand `Offset` **must** only be used with `OpImage*Gather` instructions
+- [](#VUID-RuntimeSpirv-Size-11165)VUID-RuntimeSpirv-Size-11165  
+  The `Size` operand of `OpCopyMemorySized` **must** be a multiple of 4
+  
+  - If 16-bit storage is enabled for the storage classes of both the `Target` and `Source` operands the `Size` operand may instead be a multiple of 2
+  - If 8-bit storage is enabled for the storage classes of both the `Target` and `Source` operands the `Size` operand may instead be any value
+- [](#VUID-RuntimeSpirv-OpTypeUntypedPointerKHR-11166)VUID-RuntimeSpirv-OpTypeUntypedPointerKHR-11166  
+  Any memory access made using an `OpTypeUntypedPointerKHR` must have an alignment that satisfies [Offset and Stride Assignment](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#interfaces-resources-layout)
 - [](#VUID-RuntimeSpirv-OpImage-06376)VUID-RuntimeSpirv-OpImage-06376  
   If an `OpImage*Gather` operation has an image operand of `Offset`, `ConstOffset`, or `ConstOffsets` the offset value **must** be greater than or equal to [`minTexelGatherOffset`](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#limits-minTexelGatherOffset)
 - [](#VUID-RuntimeSpirv-OpImage-06377)VUID-RuntimeSpirv-OpImage-06377  
@@ -604,13 +633,13 @@ Valid Usage
 - [](#VUID-RuntimeSpirv-TileShadingQCOM-10701)VUID-RuntimeSpirv-TileShadingQCOM-10701  
   A compute shader that enables SPIR-V capability `TileShadingQCOM` **must** only be invoked inside those portions of a command buffer where [per-tile execution model](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#renderpass-per-tile-execution-model) is enabled
 - [](#VUID-RuntimeSpirv-x-10702)VUID-RuntimeSpirv-x-10702  
-  In compute shaders that enables SPIR-V capability `TileShadingQCOM`, the `x` size in `TileShadingRateQCOM` **must** be less than or equal to [VkPhysicalDeviceTileShadingPropertiesQCOM](https://registry.khronos.org/vulkan/specs/latest/man/html/VkPhysicalDeviceTileShadingPropertiesQCOM.html)::`maxTileShadingRate`::`x`
+  In compute shaders that enables SPIR-V capability `TileShadingQCOM`, the `x` size in `TileShadingRateQCOM` **must** be less than or equal to [VkPhysicalDeviceTileShadingPropertiesQCOM](https://registry.khronos.org/vulkan/specs/latest/man/html/VkPhysicalDeviceTileShadingPropertiesQCOM.html).maxTileShadingRate.x
 - [](#VUID-RuntimeSpirv-y-10703)VUID-RuntimeSpirv-y-10703  
-  In compute shaders that enables SPIR-V capability `TileShadingQCOM`, the `y` size in `TileShadingRateQCOM` **must** be less than or equal to [VkPhysicalDeviceTileShadingPropertiesQCOM](https://registry.khronos.org/vulkan/specs/latest/man/html/VkPhysicalDeviceTileShadingPropertiesQCOM.html)::`maxTileShadingRate`::`y`
+  In compute shaders that enables SPIR-V capability `TileShadingQCOM`, the `y` size in `TileShadingRateQCOM` **must** be less than or equal to [VkPhysicalDeviceTileShadingPropertiesQCOM](https://registry.khronos.org/vulkan/specs/latest/man/html/VkPhysicalDeviceTileShadingPropertiesQCOM.html).maxTileShadingRate.y
 - [](#VUID-RuntimeSpirv-z-10704)VUID-RuntimeSpirv-z-10704  
-  In compute shaders that enables SPIR-V capability `TileShadingQCOM`, the `z` size in `TileShadingRateQCOM` **must** be less than or equal to [VkTilePropertiesQCOM](https://registry.khronos.org/vulkan/specs/latest/man/html/VkTilePropertiesQCOM.html)::`tileSize`::`z`
+  In compute shaders that enables SPIR-V capability `TileShadingQCOM`, the `z` size in `TileShadingRateQCOM` **must** be less than or equal to [VkTilePropertiesQCOM](https://registry.khronos.org/vulkan/specs/latest/man/html/VkTilePropertiesQCOM.html).tileSize.z
 - [](#VUID-RuntimeSpirv-tileSize-10705)VUID-RuntimeSpirv-tileSize-10705  
-  In compute shaders that enables SPIR-V capability `TileShadingQCOM`, [VkTilePropertiesQCOM](https://registry.khronos.org/vulkan/specs/latest/man/html/VkTilePropertiesQCOM.html)::`tileSize`::`z` % `TileShadingRateQCOM`::`z` **must** equal `0`
+  In compute shaders that enables SPIR-V capability `TileShadingQCOM`, [VkTilePropertiesQCOM](https://registry.khronos.org/vulkan/specs/latest/man/html/VkTilePropertiesQCOM.html).tileSize.z % `TileShadingRateQCOM`::`z` **must** equal `0`
 - [](#VUID-RuntimeSpirv-OpImage-10706)VUID-RuntimeSpirv-OpImage-10706  
   An `OpImage` with `Storage` `Class` `TileAttachmentQCOM` **must** not be consumed by `OpImageTexelPointer` unless the [tileShadingAtomicOps](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#features-tileShadingFragmentStage) feature is enabled
 - [](#VUID-RuntimeSpirv-OpTypeImage-10707)VUID-RuntimeSpirv-OpTypeImage-10707  
@@ -698,7 +727,7 @@ No cross-references are available
 
 ## [](#_document_notes)Document Notes
 
-For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#RuntimeSpirv)
+For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#RuntimeSpirv).
 
 This page is extracted from the Vulkan Specification. Fixes and changes should be made to the Specification, not directly.
 

@@ -35,13 +35,13 @@ Valid Usage
 - [](#VUID-vkCmdBuildPartitionedAccelerationStructuresNV-partitionedAccelerationStructure-10536)VUID-vkCmdBuildPartitionedAccelerationStructuresNV-partitionedAccelerationStructure-10536  
   The [`VkPhysicalDevicePartitionedAccelerationStructureFeaturesNV`::`partitionedAccelerationStructure`](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#features-partitionedAccelerationStructure) feature **must** be enabled
 - [](#VUID-vkCmdBuildPartitionedAccelerationStructuresNV-pBuildInfo-10537)VUID-vkCmdBuildPartitionedAccelerationStructuresNV-pBuildInfo-10537  
-  The count specified in `pBuildInfo->input`::`instanceCount` for the build operation **must** not exceed the value provided in `pInfo->instanceCount` when calling [vkGetPartitionedAccelerationStructuresBuildSizesNV](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetPartitionedAccelerationStructuresBuildSizesNV.html) to determine the memory size
+  The count specified in `pBuildInfo->input.instanceCount` for the build operation **must** not exceed the value provided in `pInfo->instanceCount` when calling [vkGetPartitionedAccelerationStructuresBuildSizesNV](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetPartitionedAccelerationStructuresBuildSizesNV.html) to determine the memory size
 - [](#VUID-vkCmdBuildPartitionedAccelerationStructuresNV-pBuildInfo-10538)VUID-vkCmdBuildPartitionedAccelerationStructuresNV-pBuildInfo-10538  
-  The count specified in `pBuildInfo->input`::`maxInstancePerPartitionCount` for the build operation **must** not exceed the value provided in `pInfo->maxInstancePerPartitionCount` when calling [vkGetPartitionedAccelerationStructuresBuildSizesNV](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetPartitionedAccelerationStructuresBuildSizesNV.html) to determine the memory size
+  The count specified in `pBuildInfo->input.maxInstancePerPartitionCount` for the build operation **must** not exceed the value provided in `pInfo->maxInstancePerPartitionCount` when calling [vkGetPartitionedAccelerationStructuresBuildSizesNV](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetPartitionedAccelerationStructuresBuildSizesNV.html) to determine the memory size
 - [](#VUID-vkCmdBuildPartitionedAccelerationStructuresNV-pBuildInfo-10539)VUID-vkCmdBuildPartitionedAccelerationStructuresNV-pBuildInfo-10539  
-  The count specified in `pBuildInfo->input`::`partitionCount` for the build operation **must** not exceed the value provided in `pInfo->partitionCount` when calling [vkGetPartitionedAccelerationStructuresBuildSizesNV](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetPartitionedAccelerationStructuresBuildSizesNV.html) to determine the memory size
+  The count specified in `pBuildInfo->input.partitionCount` for the build operation **must** not exceed the value provided in `pInfo->partitionCount` when calling [vkGetPartitionedAccelerationStructuresBuildSizesNV](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetPartitionedAccelerationStructuresBuildSizesNV.html) to determine the memory size
 - [](#VUID-vkCmdBuildPartitionedAccelerationStructuresNV-pBuildInfo-10540)VUID-vkCmdBuildPartitionedAccelerationStructuresNV-pBuildInfo-10540  
-  The count specified in `pBuildInfo->input`::`maxInstanceInGlobalPartitionCount` for the build operation **must** not exceed the value provided in `pInfo->maxInstanceInGlobalPartitionCount` when calling [vkGetPartitionedAccelerationStructuresBuildSizesNV](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetPartitionedAccelerationStructuresBuildSizesNV.html) to determine the memory size
+  The count specified in `pBuildInfo->input.maxInstanceInGlobalPartitionCount` for the build operation **must** not exceed the value provided in `pInfo->maxInstanceInGlobalPartitionCount` when calling [vkGetPartitionedAccelerationStructuresBuildSizesNV](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetPartitionedAccelerationStructuresBuildSizesNV.html) to determine the memory size
 - [](#VUID-vkCmdBuildPartitionedAccelerationStructuresNV-pBuildInfo-10541)VUID-vkCmdBuildPartitionedAccelerationStructuresNV-pBuildInfo-10541  
   The scratch memory for the partitioned acceleration structure build specified in `pBuildInfo->scratchData` **must** be larger than or equal to the scratch size queried with [vkGetPartitionedAccelerationStructuresBuildSizesNV](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetPartitionedAccelerationStructuresBuildSizesNV.html)
 - [](#VUID-vkCmdBuildPartitionedAccelerationStructuresNV-pBuildInfo-10542)VUID-vkCmdBuildPartitionedAccelerationStructuresNV-pBuildInfo-10542  
@@ -112,7 +112,7 @@ vkCmdBuildPartitionedAccelerationStructuresNV is not affected by [conditional re
 
 ## [](#_document_notes)Document Notes
 
-For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#vkCmdBuildPartitionedAccelerationStructuresNV)
+For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#vkCmdBuildPartitionedAccelerationStructuresNV).
 
 This page is extracted from the Vulkan Specification. Fixes and changes should be made to the Specification, not directly.
 
