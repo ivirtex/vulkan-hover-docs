@@ -71,6 +71,7 @@ No known IP claims.
 - Derek Lamberti, Arm Ltd.
 - Chetan Mistry, Arm Ltd.
 - Georgios Teneketzis, Arm Ltd.
+- Matthew Netsch, Qualcomm Technologies, Inc
 
 ## [](#_description)Description
 
@@ -233,7 +234,7 @@ No cross-references are available
 
 ## [](#_document_notes)Document Notes
 
-For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#VK_ARM_data_graph)
+For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#VK_ARM_data_graph).
 
 This page is a generated document. Fixes and changes should be made to the generator scripts, not directly.
 

@@ -75,13 +75,17 @@ Valid Usage (Implicit)
 - [](#VUID-VkBindTensorMemoryInfoARM-commonparent)VUID-VkBindTensorMemoryInfoARM-commonparent  
   Both of `memory`, and `tensor` **must** have been created, allocated, or retrieved from the same [VkDevice](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDevice.html)
 
+Host Synchronization
+
+- Host access to `tensor` **must** be externally synchronized
+
 ## [](#_see_also)See Also
 
 [VK\_ARM\_tensors](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_ARM_tensors.html), [VkDeviceMemory](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDeviceMemory.html), [VkDeviceSize](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDeviceSize.html), [VkStructureType](https://registry.khronos.org/vulkan/specs/latest/man/html/VkStructureType.html), [VkTensorARM](https://registry.khronos.org/vulkan/specs/latest/man/html/VkTensorARM.html), [vkBindTensorMemoryARM](https://registry.khronos.org/vulkan/specs/latest/man/html/vkBindTensorMemoryARM.html)
 
 ## [](#_document_notes)Document Notes
 
-For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#VkBindTensorMemoryInfoARM)
+For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#VkBindTensorMemoryInfoARM).
 
 This page is extracted from the Vulkan Specification. Fixes and changes should be made to the Specification, not directly.
 

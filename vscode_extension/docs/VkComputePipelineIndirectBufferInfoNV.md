@@ -61,7 +61,7 @@ Valid Usage (Implicit)
 - [](#VUID-VkComputePipelineIndirectBufferInfoNV-deviceAddress-parameter)VUID-VkComputePipelineIndirectBufferInfoNV-deviceAddress-parameter  
   `deviceAddress` **must** be a valid [VkDeviceAddress](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDeviceAddress.html) value
 - [](#VUID-VkComputePipelineIndirectBufferInfoNV-pipelineDeviceAddressCaptureReplay-parameter)VUID-VkComputePipelineIndirectBufferInfoNV-pipelineDeviceAddressCaptureReplay-parameter  
-  `pipelineDeviceAddressCaptureReplay` **must** be a valid [VkDeviceAddress](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDeviceAddress.html) value
+  If `pipelineDeviceAddressCaptureReplay` is not `0`, `pipelineDeviceAddressCaptureReplay` **must** be a valid [VkDeviceAddress](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDeviceAddress.html) value
 
 ## [](#_see_also)See Also
 
@@ -69,7 +69,7 @@ Valid Usage (Implicit)
 
 ## [](#_document_notes)Document Notes
 
-For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#VkComputePipelineIndirectBufferInfoNV)
+For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#VkComputePipelineIndirectBufferInfoNV).
 
 This page is extracted from the Vulkan Specification. Fixes and changes should be made to the Specification, not directly.
 

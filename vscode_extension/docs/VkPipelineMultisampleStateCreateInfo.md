@@ -66,8 +66,6 @@ Valid Usage (Implicit)
   `flags` **must** be `0`
 - [](#VUID-VkPipelineMultisampleStateCreateInfo-rasterizationSamples-parameter)VUID-VkPipelineMultisampleStateCreateInfo-rasterizationSamples-parameter  
   `rasterizationSamples` **must** be a valid [VkSampleCountFlagBits](https://registry.khronos.org/vulkan/specs/latest/man/html/VkSampleCountFlagBits.html) value
-- [](#VUID-VkPipelineMultisampleStateCreateInfo-pSampleMask-parameter)VUID-VkPipelineMultisampleStateCreateInfo-pSampleMask-parameter  
-  If `pSampleMask` is not `NULL`, `pSampleMask` **must** be a valid pointer to an array of ⌈32rasterizationSamples​⌉ [VkSampleMask](https://registry.khronos.org/vulkan/specs/latest/man/html/VkSampleMask.html) values
 
 ## [](#_see_also)See Also
 
@@ -75,7 +73,7 @@ Valid Usage (Implicit)
 
 ## [](#_document_notes)Document Notes
 
-For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#VkPipelineMultisampleStateCreateInfo)
+For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#VkPipelineMultisampleStateCreateInfo).
 
 This page is extracted from the Vulkan Specification. Fixes and changes should be made to the Specification, not directly.
 

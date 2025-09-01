@@ -104,7 +104,7 @@ No cross-references are available
 
 ## [](#_document_notes)Document Notes
 
-For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#VK_KHR_vulkan_memory_model)
+For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#VK_KHR_vulkan_memory_model).
 
 This page is a generated document. Fixes and changes should be made to the generator scripts, not directly.
 

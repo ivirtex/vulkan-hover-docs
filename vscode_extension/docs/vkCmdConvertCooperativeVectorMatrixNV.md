@@ -33,13 +33,13 @@ This command’s execution is synchronized using `VK_PIPELINE_STAGE_2_CONVERT_CO
 Valid Usage
 
 - [](#VUID-vkCmdConvertCooperativeVectorMatrixNV-pInfo-10083)VUID-vkCmdConvertCooperativeVectorMatrixNV-pInfo-10083  
-  For each element of `pInfo`, `srcData`::`deviceAddress` **must** be a valid [VkDeviceAddress](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDeviceAddress.html)
+  For each element of `pInfo`, `srcData.deviceAddress` **must** be a valid [VkDeviceAddress](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDeviceAddress.html)
 - [](#VUID-vkCmdConvertCooperativeVectorMatrixNV-pInfo-10895)VUID-vkCmdConvertCooperativeVectorMatrixNV-pInfo-10895  
-  For each element of `pInfo`, `dstData`::`deviceAddress` **must** be a valid [VkDeviceAddress](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDeviceAddress.html)
+  For each element of `pInfo`, `dstData.deviceAddress` **must** be a valid [VkDeviceAddress](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDeviceAddress.html)
 - [](#VUID-vkCmdConvertCooperativeVectorMatrixNV-pInfo-10084)VUID-vkCmdConvertCooperativeVectorMatrixNV-pInfo-10084  
-  For each element of `pInfo`, `srcData`::`deviceAddress` **must** be 64 byte aligned
+  For each element of `pInfo`, `srcData.deviceAddress` **must** be 64 byte aligned
 - [](#VUID-vkCmdConvertCooperativeVectorMatrixNV-pInfo-10085)VUID-vkCmdConvertCooperativeVectorMatrixNV-pInfo-10085  
-  For each element of `pInfo`, `dstData`::`deviceAddress` **must** be 64 byte aligned
+  For each element of `pInfo`, `dstData.deviceAddress` **must** be 64 byte aligned
 - [](#VUID-vkCmdConvertCooperativeVectorMatrixNV-pInfo-10086)VUID-vkCmdConvertCooperativeVectorMatrixNV-pInfo-10086  
   For each element of `pInfo`, `srcSize` **must** be large enough to contain the source matrix, based either on the standard matrix layout or based on the size filled out by [vkConvertCooperativeVectorMatrixNV](https://registry.khronos.org/vulkan/specs/latest/man/html/vkConvertCooperativeVectorMatrixNV.html)
 - [](#VUID-vkCmdConvertCooperativeVectorMatrixNV-pInfo-10087)VUID-vkCmdConvertCooperativeVectorMatrixNV-pInfo-10087  
@@ -95,7 +95,7 @@ vkCmdConvertCooperativeVectorMatrixNV is not affected by [conditional rendering]
 
 ## [](#_document_notes)Document Notes
 
-For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#vkCmdConvertCooperativeVectorMatrixNV)
+For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#vkCmdConvertCooperativeVectorMatrixNV).
 
 This page is extracted from the Vulkan Specification. Fixes and changes should be made to the Specification, not directly.
 

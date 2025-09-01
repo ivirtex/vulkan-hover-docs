@@ -33,11 +33,11 @@ Any triangle which is not front-facing is back-facing, including zero-area trian
 
 ## [](#_see_also)See Also
 
-[VK\_VERSION\_1\_0](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_VERSION_1_0.html), [VkPipelineRasterizationStateCreateInfo](https://registry.khronos.org/vulkan/specs/latest/man/html/VkPipelineRasterizationStateCreateInfo.html), [vkCmdSetFrontFace](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdSetFrontFace.html), [vkCmdSetFrontFaceEXT](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdSetFrontFaceEXT.html)
+[VK\_VERSION\_1\_0](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_VERSION_1_0.html), [VkPipelineRasterizationStateCreateInfo](https://registry.khronos.org/vulkan/specs/latest/man/html/VkPipelineRasterizationStateCreateInfo.html), [vkCmdSetFrontFace](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdSetFrontFace.html), [vkCmdSetFrontFace](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdSetFrontFace.html)
 
 ## [](#_document_notes)Document Notes
 
-For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#VkFrontFace)
+For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#VkFrontFace).
 
 This page is extracted from the Vulkan Specification. Fixes and changes should be made to the Specification, not directly.
 

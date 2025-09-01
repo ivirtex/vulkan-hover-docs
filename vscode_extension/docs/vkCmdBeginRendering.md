@@ -45,6 +45,8 @@ Valid Usage
   The [`dynamicRendering`](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#features-dynamicRendering) feature **must** be enabled
 - [](#VUID-vkCmdBeginRendering-commandBuffer-06068)VUID-vkCmdBeginRendering-commandBuffer-06068  
   If `commandBuffer` is a secondary command buffer, and the [`nestedCommandBuffer`](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#features-nestedCommandBuffer) feature is not enabled, `pRenderingInfo->flags` **must** not include `VK_RENDERING_CONTENTS_SECONDARY_COMMAND_BUFFERS_BIT`
+- [](#VUID-vkCmdBeginRendering-commandBuffer-10914)VUID-vkCmdBeginRendering-commandBuffer-10914  
+  If `commandBuffer` is a secondary command buffer, `VK_COMMAND_BUFFER_USAGE_RENDER_PASS_CONTINUE_BIT` **must** not have been set in [VkCommandBufferBeginInfo](https://registry.khronos.org/vulkan/specs/latest/man/html/VkCommandBufferBeginInfo.html)::`flags` when `commandBuffer` began
 - [](#VUID-vkCmdBeginRendering-pRenderingInfo-09588)VUID-vkCmdBeginRendering-pRenderingInfo-09588  
   If `pRenderingInfo->pDepthAttachment` is not `NULL` and `pRenderingInfo->pDepthAttachment->imageView` is not [VK\_NULL\_HANDLE](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_NULL_HANDLE.html), `pRenderingInfo->pDepthAttachment->imageView` **must** be in the layout specified by `pRenderingInfo->pDepthAttachment->imageLayout`
 - [](#VUID-vkCmdBeginRendering-pRenderingInfo-09589)VUID-vkCmdBeginRendering-pRenderingInfo-09589  
@@ -108,7 +110,7 @@ vkCmdBeginRendering is not affected by [conditional rendering](#drawing-conditio
 
 ## [](#_document_notes)Document Notes
 
-For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#vkCmdBeginRendering)
+For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#vkCmdBeginRendering).
 
 This page is extracted from the Vulkan Specification. Fixes and changes should be made to the Specification, not directly.
 

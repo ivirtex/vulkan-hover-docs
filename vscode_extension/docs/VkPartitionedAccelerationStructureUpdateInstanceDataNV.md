@@ -38,7 +38,7 @@ Valid Usage
 - [](#VUID-VkPartitionedAccelerationStructureUpdateInstanceDataNV-None-10572)VUID-VkPartitionedAccelerationStructureUpdateInstanceDataNV-None-10572  
   The instance **must** have either been created with flag `VK_PARTITIONED_ACCELERATION_STRUCTURE_INSTANCE_FLAG_ENABLE_EXPLICIT_BOUNDING_BOX_NV` or did not have an acceleration structure assigned with [VkPartitionedAccelerationStructureWriteInstanceDataNV](https://registry.khronos.org/vulkan/specs/latest/man/html/VkPartitionedAccelerationStructureWriteInstanceDataNV.html)
 - [](#VUID-VkPartitionedAccelerationStructureUpdateInstanceDataNV-instanceIndex-10573)VUID-VkPartitionedAccelerationStructureUpdateInstanceDataNV-instanceIndex-10573  
-  `instanceIndex` **must** be less than [VkBuildPartitionedAccelerationStructureInfoNV](https://registry.khronos.org/vulkan/specs/latest/man/html/VkBuildPartitionedAccelerationStructureInfoNV.html)::`input`::`instanceCount`
+  `instanceIndex` **must** be less than [VkBuildPartitionedAccelerationStructureInfoNV](https://registry.khronos.org/vulkan/specs/latest/man/html/VkBuildPartitionedAccelerationStructureInfoNV.html)::`input.instanceCount`
 
 Valid Usage (Implicit)
 
@@ -51,7 +51,7 @@ Valid Usage (Implicit)
 
 ## [](#_document_notes)Document Notes
 
-For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#VkPartitionedAccelerationStructureUpdateInstanceDataNV)
+For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#VkPartitionedAccelerationStructureUpdateInstanceDataNV).
 
 This page is extracted from the Vulkan Specification. Fixes and changes should be made to the Specification, not directly.
 

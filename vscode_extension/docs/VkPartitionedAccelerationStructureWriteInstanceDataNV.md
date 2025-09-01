@@ -46,9 +46,9 @@ Valid Usage
 - [](#VUID-VkPartitionedAccelerationStructureWriteInstanceDataNV-instanceContributionToHitGroupIndex-10567)VUID-VkPartitionedAccelerationStructureWriteInstanceDataNV-instanceContributionToHitGroupIndex-10567  
   The most significant 8 bits of `instanceContributionToHitGroupIndex` **must** be `0`
 - [](#VUID-VkPartitionedAccelerationStructureWriteInstanceDataNV-instanceIndex-10568)VUID-VkPartitionedAccelerationStructureWriteInstanceDataNV-instanceIndex-10568  
-  `instanceIndex` **must** be less than [VkBuildPartitionedAccelerationStructureInfoNV](https://registry.khronos.org/vulkan/specs/latest/man/html/VkBuildPartitionedAccelerationStructureInfoNV.html)::`input`::`instanceCount`
+  `instanceIndex` **must** be less than [VkBuildPartitionedAccelerationStructureInfoNV](https://registry.khronos.org/vulkan/specs/latest/man/html/VkBuildPartitionedAccelerationStructureInfoNV.html)::`input.instanceCount`
 - [](#VUID-VkPartitionedAccelerationStructureWriteInstanceDataNV-partitionIndex-10569)VUID-VkPartitionedAccelerationStructureWriteInstanceDataNV-partitionIndex-10569  
-  `partitionIndex` **must** be less than [VkBuildPartitionedAccelerationStructureInfoNV](https://registry.khronos.org/vulkan/specs/latest/man/html/VkBuildPartitionedAccelerationStructureInfoNV.html)::`input`::`partitionCount`
+  `partitionIndex` **must** be less than [VkBuildPartitionedAccelerationStructureInfoNV](https://registry.khronos.org/vulkan/specs/latest/man/html/VkBuildPartitionedAccelerationStructureInfoNV.html)::`input.partitionCount`
 - [](#VUID-VkPartitionedAccelerationStructureWriteInstanceDataNV-explicitAABB-10570)VUID-VkPartitionedAccelerationStructureWriteInstanceDataNV-explicitAABB-10570  
   `explicitAABB` **must** be a valid bounding box if instance was created with flag `VK_PARTITIONED_ACCELERATION_STRUCTURE_INSTANCE_FLAG_ENABLE_EXPLICIT_BOUNDING_BOX_NV` set
 
@@ -65,7 +65,7 @@ Valid Usage (Implicit)
 
 ## [](#_document_notes)Document Notes
 
-For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#VkPartitionedAccelerationStructureWriteInstanceDataNV)
+For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#VkPartitionedAccelerationStructureWriteInstanceDataNV).
 
 This page is extracted from the Vulkan Specification. Fixes and changes should be made to the Specification, not directly.
 

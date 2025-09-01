@@ -20,7 +20,7 @@ VK\_SUBPASS\_EXTERNAL - Subpass index sentinel expanding synchronization scope o
 
 ## [](#_document_notes)Document Notes
 
-For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#VK_SUBPASS_EXTERNAL)
+For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#VK_SUBPASS_EXTERNAL).
 
 This page is extracted from the Vulkan Specification. Fixes and changes should be made to the Specification, not directly.
 

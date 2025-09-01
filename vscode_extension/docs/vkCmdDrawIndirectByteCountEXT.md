@@ -618,7 +618,7 @@ Valid Usage
 - [](#VUID-vkCmdDrawIndirectByteCountEXT-maxFragmentDualSrcAttachments-09239)VUID-vkCmdDrawIndirectByteCountEXT-maxFragmentDualSrcAttachments-09239  
   If [blending](#framebuffer-blending) is enabled for any attachment where either the source or destination blend factors for that attachment [use the secondary color input](#framebuffer-dsb), the maximum value of `Location` for any output attachment [statically used](#shaders-staticuse) in the `Fragment` `Execution` `Model` executed by this command **must** be less than [`maxFragmentDualSrcAttachments`](#limits-maxFragmentDualSrcAttachments)
 - [](#VUID-vkCmdDrawIndirectByteCountEXT-None-09548)VUID-vkCmdDrawIndirectByteCountEXT-None-09548  
-  If the current render pass was begun with [vkCmdBeginRendering](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdBeginRendering.html), and there is no shader object bound to any graphics stage, the value of each element of [VkRenderingAttachmentLocationInfo](https://registry.khronos.org/vulkan/specs/latest/man/html/VkRenderingAttachmentLocationInfo.html)::`pColorAttachmentLocations` set by [vkCmdSetRenderingAttachmentLocations](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdSetRenderingAttachmentLocations.html) **must** match the value set for the corresponding element in the bound pipeline
+  If the current render pass was begun with [vkCmdBeginRendering](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdBeginRendering.html), there is no shader object bound to any graphics stage, and [vkCmdSetRenderingAttachmentLocations](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdSetRenderingAttachmentLocations.html) has been called inside the render pass instance, the value of each element of [VkRenderingAttachmentLocationInfo](https://registry.khronos.org/vulkan/specs/latest/man/html/VkRenderingAttachmentLocationInfo.html)::`pColorAttachmentLocations` set by [vkCmdSetRenderingAttachmentLocations](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdSetRenderingAttachmentLocations.html) **must** match the value set for the corresponding element in the bound pipeline
 - [](#VUID-vkCmdDrawIndirectByteCountEXT-None-09549)VUID-vkCmdDrawIndirectByteCountEXT-None-09549  
   If the current render pass was begun with [vkCmdBeginRendering](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdBeginRendering.html), and there is no shader object bound to any graphics stage, input attachment index mappings in the bound pipeline **must** match those set for the current render pass instance via [VkRenderingInputAttachmentIndexInfo](https://registry.khronos.org/vulkan/specs/latest/man/html/VkRenderingInputAttachmentIndexInfo.html)
 - [](#VUID-vkCmdDrawIndirectByteCountEXT-None-09642)VUID-vkCmdDrawIndirectByteCountEXT-None-09642  
@@ -756,7 +756,7 @@ vkCmdDrawIndirectByteCountEXT is affected by [conditional rendering](#drawing-co
 
 ## [](#_document_notes)Document Notes
 
-For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#vkCmdDrawIndirectByteCountEXT)
+For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#vkCmdDrawIndirectByteCountEXT).
 
 This page is extracted from the Vulkan Specification. Fixes and changes should be made to the Specification, not directly.
 

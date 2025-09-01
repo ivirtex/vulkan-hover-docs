@@ -42,7 +42,7 @@ Valid Usage
 - [](#VUID-vkGetBufferOpaqueCaptureAddress-None-03326)VUID-vkGetBufferOpaqueCaptureAddress-None-03326  
   The [`bufferDeviceAddress`](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#features-bufferDeviceAddress) and [`bufferDeviceAddressCaptureReplay`](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#features-bufferDeviceAddressCaptureReplay) features **must** be enabled
 - [](#VUID-vkGetBufferOpaqueCaptureAddress-pInfo-10725)VUID-vkGetBufferOpaqueCaptureAddress-pInfo-10725  
-  `pInfo`::`buffer` **must** have been created with the `VK_BUFFER_CREATE_DEVICE_ADDRESS_CAPTURE_REPLAY_BIT` flag
+  `pInfo->buffer` **must** have been created with the `VK_BUFFER_CREATE_DEVICE_ADDRESS_CAPTURE_REPLAY_BIT` flag
 - [](#VUID-vkGetBufferOpaqueCaptureAddress-device-03327)VUID-vkGetBufferOpaqueCaptureAddress-device-03327  
   If `device` was created with multiple physical devices, then the [`bufferDeviceAddressMultiDevice`](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#features-bufferDeviceAddressMultiDevice) feature **must** be enabled
 
@@ -59,7 +59,7 @@ Valid Usage (Implicit)
 
 ## [](#_document_notes)Document Notes
 
-For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#vkGetBufferOpaqueCaptureAddress)
+For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#vkGetBufferOpaqueCaptureAddress).
 
 This page is extracted from the Vulkan Specification. Fixes and changes should be made to the Specification, not directly.
 

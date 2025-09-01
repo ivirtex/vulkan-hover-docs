@@ -80,7 +80,7 @@ Valid Usage
 - [](#VUID-VkGeneratedCommandsInfoNV-preprocessBuffer-02971)VUID-VkGeneratedCommandsInfoNV-preprocessBuffer-02971  
   If `preprocessBuffer` is non-sparse then it **must** be bound completely and contiguously to a single `VkDeviceMemory` object
 - [](#VUID-VkGeneratedCommandsInfoNV-preprocessSize-02920)VUID-VkGeneratedCommandsInfoNV-preprocessSize-02920  
-  `preprocessSize` **must** be at least equal to the memory requirement\`s size returned by [vkGetGeneratedCommandsMemoryRequirementsNV](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetGeneratedCommandsMemoryRequirementsNV.html) using the matching inputs (`indirectCommandsLayout`, …​) as within this structure
+  `preprocessSize` **must** be at least equal to the memory requirement’s size returned by [vkGetGeneratedCommandsMemoryRequirementsNV](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetGeneratedCommandsMemoryRequirementsNV.html) using the matching inputs (`indirectCommandsLayout`, …​) as within this structure
 - [](#VUID-VkGeneratedCommandsInfoNV-sequencesCountBuffer-02921)VUID-VkGeneratedCommandsInfoNV-sequencesCountBuffer-02921  
   `sequencesCountBuffer` **can** be set if the actual used count of sequences is sourced from the provided buffer. In that case the `sequencesCount` serves as upper bound
 - [](#VUID-VkGeneratedCommandsInfoNV-sequencesCountBuffer-02922)VUID-VkGeneratedCommandsInfoNV-sequencesCountBuffer-02922  
@@ -133,7 +133,7 @@ Valid Usage (Implicit)
 
 ## [](#_document_notes)Document Notes
 
-For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#VkGeneratedCommandsInfoNV)
+For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#VkGeneratedCommandsInfoNV).
 
 This page is extracted from the Vulkan Specification. Fixes and changes should be made to the Specification, not directly.
 

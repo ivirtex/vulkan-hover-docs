@@ -20,7 +20,7 @@ VK\_REMAINING\_3D\_SLICES\_EXT - Sentinel for all remaining 3D slices
 
 ## [](#_document_notes)Document Notes
 
-For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#VK_REMAINING_3D_SLICES_EXT)
+For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#VK_REMAINING_3D_SLICES_EXT).
 
 This page is extracted from the Vulkan Specification. Fixes and changes should be made to the Specification, not directly.
 

@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.6.0 - 2025-09-01
+
+- Updated documentation to version 1.4.326
+
 ## 1.5.0 - 2025-08-03
 
 - Updated documentation to version 1.4.324

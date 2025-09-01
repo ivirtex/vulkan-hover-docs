@@ -68,7 +68,13 @@ In addition, the contents of an attachment within the render area become undefin
 - `VK_SUBPASS_DESCRIPTION_SHADER_RESOLVE_BIT_QCOM` is set.
 - The attachment is used as a color or depth/stencil in the subpass.
 
-Once the contents of an attachment become undefined in subpass **S**, they remain undefined for subpasses in subpass dependency chains starting with subpass **S** until they are written again. However, they remain valid for subpasses in other subpass dependency chains starting with subpass **S1** if those subpasses use or preserve the attachment.
+For color attachments, this operation will be performed in the `VK_PIPELINE_STAGE_COLOR_ATTACHMENT_OUTPUT_BIT` pipeline stage, with any image accesses performed via `VK_ACCESS_INPUT_ATTACHMENT_READ_BIT`, `VK_ACCESS_COLOR_ATTACHMENT_READ_BIT`, and `VK_ACCESS_COLOR_ATTACHMENT_WRITE_BIT`. For depth/stencil attachments, this operation **may** be performed in either the `VK_PIPELINE_STAGE_EARLY_FRAGMENT_TESTS_BIT` or `VK_PIPELINE_STAGE_LATE_FRAGMENT_TESTS_BIT` pipeline stage, with any image accesses performed via `VK_ACCESS_INPUT_ATTACHMENT_READ_BIT`, `VK_ACCESS_DEPTH_STENCIL_ATTACHMENT_READ_BIT`, and `VK_ACCESS_DEPTH_STENCIL_ATTACHMENT_WRITE_BIT`.
+
+Once the contents of an attachment become undefined in subpass **S**, they remain undefined for subpasses in subpass dependency chains starting with subpass **S** until they are written again. However, they remain valid for subpasses in other subpass dependency chains starting with subpass **S1** if all subpasses in each chain use or preserve the attachment.
+
+Note
+
+If a subpass has multiple dependency chains where some of the chains preserve the attachment, and others do not, the contents of the attachment are undefined for that subpass.
 
 Valid Usage
 
@@ -182,7 +188,7 @@ Valid Usage (Implicit)
 
 ## [](#_document_notes)Document Notes
 
-For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#VkSubpassDescription)
+For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#VkSubpassDescription).
 
 This page is extracted from the Vulkan Specification. Fixes and changes should be made to the Specification, not directly.
 

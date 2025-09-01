@@ -41,8 +41,6 @@ Valid Usage
   If `address` is zero, `range` **must** be `VK_WHOLE_SIZE`
 - [](#VUID-VkDescriptorAddressInfoEXT-nullDescriptor-08939)VUID-VkDescriptorAddressInfoEXT-nullDescriptor-08939  
   If `address` is not zero, `range` **must** not be `VK_WHOLE_SIZE`
-- [](#VUID-VkDescriptorAddressInfoEXT-None-08044)VUID-VkDescriptorAddressInfoEXT-None-08044  
-  If `address` is not zero, `address` **must** be a valid [VkDeviceAddress](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDeviceAddress.html)
 - [](#VUID-VkDescriptorAddressInfoEXT-range-08045)VUID-VkDescriptorAddressInfoEXT-range-08045  
   `range` **must** be less than or equal to the size of the buffer containing `address` minus the offset of `address` from the base address of the buffer
 - [](#VUID-VkDescriptorAddressInfoEXT-range-08940)VUID-VkDescriptorAddressInfoEXT-range-08940  
@@ -55,7 +53,7 @@ Valid Usage (Implicit)
 - [](#VUID-VkDescriptorAddressInfoEXT-pNext-pNext)VUID-VkDescriptorAddressInfoEXT-pNext-pNext  
   `pNext` **must** be `NULL`
 - [](#VUID-VkDescriptorAddressInfoEXT-address-parameter)VUID-VkDescriptorAddressInfoEXT-address-parameter  
-  `address` **must** be a valid [VkDeviceAddress](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDeviceAddress.html) value
+  If `address` is not `0`, `address` **must** be a valid [VkDeviceAddress](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDeviceAddress.html) value
 - [](#VUID-VkDescriptorAddressInfoEXT-format-parameter)VUID-VkDescriptorAddressInfoEXT-format-parameter  
   `format` **must** be a valid [VkFormat](https://registry.khronos.org/vulkan/specs/latest/man/html/VkFormat.html) value
 
@@ -67,7 +65,7 @@ If the [`nullDescriptor`](https://registry.khronos.org/vulkan/specs/latest/html/
 
 ## [](#_document_notes)Document Notes
 
-For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#VkDescriptorAddressInfoEXT)
+For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#VkDescriptorAddressInfoEXT).
 
 This page is extracted from the Vulkan Specification. Fixes and changes should be made to the Specification, not directly.
 

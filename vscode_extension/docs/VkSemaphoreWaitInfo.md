@@ -62,11 +62,11 @@ Valid Usage (Implicit)
 
 ## [](#_see_also)See Also
 
-[VK\_KHR\_timeline\_semaphore](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_KHR_timeline_semaphore.html), [VK\_VERSION\_1\_2](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_VERSION_1_2.html), [VkSemaphore](https://registry.khronos.org/vulkan/specs/latest/man/html/VkSemaphore.html), [VkSemaphoreWaitFlags](https://registry.khronos.org/vulkan/specs/latest/man/html/VkSemaphoreWaitFlags.html), [VkStructureType](https://registry.khronos.org/vulkan/specs/latest/man/html/VkStructureType.html), [vkWaitSemaphores](https://registry.khronos.org/vulkan/specs/latest/man/html/vkWaitSemaphores.html), [vkWaitSemaphoresKHR](https://registry.khronos.org/vulkan/specs/latest/man/html/vkWaitSemaphoresKHR.html)
+[VK\_KHR\_timeline\_semaphore](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_KHR_timeline_semaphore.html), [VK\_VERSION\_1\_2](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_VERSION_1_2.html), [VkSemaphore](https://registry.khronos.org/vulkan/specs/latest/man/html/VkSemaphore.html), [VkSemaphoreWaitFlags](https://registry.khronos.org/vulkan/specs/latest/man/html/VkSemaphoreWaitFlags.html), [VkStructureType](https://registry.khronos.org/vulkan/specs/latest/man/html/VkStructureType.html), [vkWaitSemaphores](https://registry.khronos.org/vulkan/specs/latest/man/html/vkWaitSemaphores.html), [vkWaitSemaphores](https://registry.khronos.org/vulkan/specs/latest/man/html/vkWaitSemaphores.html)
 
 ## [](#_document_notes)Document Notes
 
-For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#VkSemaphoreWaitInfo)
+For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#VkSemaphoreWaitInfo).
 
 This page is extracted from the Vulkan Specification. Fixes and changes should be made to the Specification, not directly.
 

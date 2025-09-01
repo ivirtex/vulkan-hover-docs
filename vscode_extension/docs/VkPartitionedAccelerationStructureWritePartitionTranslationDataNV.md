@@ -28,7 +28,7 @@ typedef struct VkPartitionedAccelerationStructureWritePartitionTranslationDataNV
 Valid Usage
 
 - [](#VUID-VkPartitionedAccelerationStructureWritePartitionTranslationDataNV-partitionIndex-10574)VUID-VkPartitionedAccelerationStructureWritePartitionTranslationDataNV-partitionIndex-10574  
-  `partitionIndex` **must** be less than [VkBuildPartitionedAccelerationStructureInfoNV](https://registry.khronos.org/vulkan/specs/latest/man/html/VkBuildPartitionedAccelerationStructureInfoNV.html)::`input`::`partitionCount`
+  `partitionIndex` **must** be less than [VkBuildPartitionedAccelerationStructureInfoNV](https://registry.khronos.org/vulkan/specs/latest/man/html/VkBuildPartitionedAccelerationStructureInfoNV.html)::`input.partitionCount`
 - [](#VUID-VkPartitionedAccelerationStructureWritePartitionTranslationDataNV-enablePartitionTranslation-10575)VUID-VkPartitionedAccelerationStructureWritePartitionTranslationDataNV-enablePartitionTranslation-10575  
   The partitioned acceleration structure **must** have the [VkPartitionedAccelerationStructureFlagsNV](https://registry.khronos.org/vulkan/specs/latest/man/html/VkPartitionedAccelerationStructureFlagsNV.html)::`enablePartitionTranslation` flag set
 
@@ -38,7 +38,7 @@ Valid Usage
 
 ## [](#_document_notes)Document Notes
 
-For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#VkPartitionedAccelerationStructureWritePartitionTranslationDataNV)
+For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#VkPartitionedAccelerationStructureWritePartitionTranslationDataNV).
 
 This page is extracted from the Vulkan Specification. Fixes and changes should be made to the Specification, not directly.
 

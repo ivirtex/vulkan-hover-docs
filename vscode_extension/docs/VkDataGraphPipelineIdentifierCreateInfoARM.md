@@ -29,10 +29,7 @@ typedef struct VkDataGraphPipelineIdentifierCreateInfoARM {
 
 ## [](#_description)Description
 
-Valid Usage
-
-- [](#VUID-VkDataGraphPipelineIdentifierCreateInfoARM-pIdentifer-09877)VUID-VkDataGraphPipelineIdentifierCreateInfoARM-pIdentifer-09877  
-  The data provided via `pIdentifer` **must** have been obtained by calling [vkGetDataGraphPipelinePropertiesARM](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetDataGraphPipelinePropertiesARM.html) to query the value of the `VK_DATA_GRAPH_PIPELINE_PROPERTY_IDENTIFIER_ARM` property
+The `pIdentifier` **can** be retrieved from the device by calling [vkGetDataGraphPipelinePropertiesARM](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetDataGraphPipelinePropertiesARM.html) and searching the results for a [VkDataGraphPipelinePropertyQueryResultARM](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDataGraphPipelinePropertyQueryResultARM.html) structure with `property` set to `VK_DATA_GRAPH_PIPELINE_PROPERTY_IDENTIFIER_ARM`.
 
 Valid Usage (Implicit)
 
@@ -49,7 +46,7 @@ Valid Usage (Implicit)
 
 ## [](#_document_notes)Document Notes
 
-For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#VkDataGraphPipelineIdentifierCreateInfoARM)
+For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#VkDataGraphPipelineIdentifierCreateInfoARM).
 
 This page is extracted from the Vulkan Specification. Fixes and changes should be made to the Specification, not directly.
 

@@ -68,6 +68,8 @@ Valid Usage
   Each element of the `pCommandBuffers` member of each element of `pSubmits` **must** have been allocated from a `VkCommandPool` that was created for the same queue family `queue` belongs to
 - [](#VUID-vkQueueSubmit-pSubmits-02207)VUID-vkQueueSubmit-pSubmits-02207  
   If any element of `pSubmits->pCommandBuffers` includes a [Queue Family Ownership Transfer Acquire Operation](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#synchronization-queue-transfers-acquire), there **must** exist a previously submitted [Queue Family Ownership Transfer Release Operation](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#synchronization-queue-transfers-release) on a queue in the queue family identified by the acquire operation, with parameters matching the acquire operation as defined in the definition of such [acquire operations](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#synchronization-queue-transfers-acquire), and which happens-before the acquire operation
+- [](#VUID-vkQueueSubmit-pSubmits-10911)VUID-vkQueueSubmit-pSubmits-10911  
+  If any element of `pSubmits->pCommandBuffers` includes a [Queue Family Ownership Transfer Acquire Operation](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#synchronization-queue-transfers-acquire), the affected resource **must** not be modified in any way between the last matching release operation and the acquire operation
 - [](#VUID-vkQueueSubmit-pCommandBuffers-03220)VUID-vkQueueSubmit-pCommandBuffers-03220  
   If a command recorded into any element of `pCommandBuffers` was a [vkCmdBeginQuery](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdBeginQuery.html) whose `queryPool` was created with a `queryType` of `VK_QUERY_TYPE_PERFORMANCE_QUERY_KHR`, the [profiling lock](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#profiling-lock) **must** have been held continuously on the `VkDevice` that `queue` was retrieved from, throughout recording of those command buffers
 - [](#VUID-vkQueueSubmit-pSubmits-02808)VUID-vkQueueSubmit-pSubmits-02808  
@@ -127,7 +129,7 @@ On failure, this command returns
 
 ## [](#_document_notes)Document Notes
 
-For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#vkQueueSubmit)
+For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#vkQueueSubmit).
 
 This page is extracted from the Vulkan Specification. Fixes and changes should be made to the Specification, not directly.
 

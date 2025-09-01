@@ -168,7 +168,7 @@ Using `VK_PIPELINE_CREATE_2_LINK_TIME_OPTIMIZATION_BIT_EXT` (or not) when linkin
 
 ## [](#_document_notes)Document Notes
 
-For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#VkPipelineCreateFlagBits2)
+For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#VkPipelineCreateFlagBits2).
 
 This page is extracted from the Vulkan Specification. Fixes and changes should be made to the Specification, not directly.
 

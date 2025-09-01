@@ -330,11 +330,11 @@ Unknown/Undefined Handle
 
 ## [](#_see_also)See Also
 
-[VK\_VERSION\_1\_0](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_VERSION_1_0.html), [VkDebugUtilsObjectNameInfoEXT](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDebugUtilsObjectNameInfoEXT.html), [VkDebugUtilsObjectTagInfoEXT](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDebugUtilsObjectTagInfoEXT.html), [VkDeviceMemoryReportCallbackDataEXT](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDeviceMemoryReportCallbackDataEXT.html), [vkGetPrivateData](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetPrivateData.html), [vkGetPrivateDataEXT](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetPrivateDataEXT.html), [vkSetPrivateData](https://registry.khronos.org/vulkan/specs/latest/man/html/vkSetPrivateData.html), [vkSetPrivateDataEXT](https://registry.khronos.org/vulkan/specs/latest/man/html/vkSetPrivateDataEXT.html)
+[VK\_VERSION\_1\_0](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_VERSION_1_0.html), [VkDebugUtilsObjectNameInfoEXT](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDebugUtilsObjectNameInfoEXT.html), [VkDebugUtilsObjectTagInfoEXT](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDebugUtilsObjectTagInfoEXT.html), [VkDeviceMemoryReportCallbackDataEXT](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDeviceMemoryReportCallbackDataEXT.html), [vkGetPrivateData](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetPrivateData.html), [vkGetPrivateData](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetPrivateData.html), [vkSetPrivateData](https://registry.khronos.org/vulkan/specs/latest/man/html/vkSetPrivateData.html), [vkSetPrivateData](https://registry.khronos.org/vulkan/specs/latest/man/html/vkSetPrivateData.html)
 
 ## [](#_document_notes)Document Notes
 
-For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#VkObjectType)
+For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#VkObjectType).
 
 This page is extracted from the Vulkan Specification. Fixes and changes should be made to the Specification, not directly.
 

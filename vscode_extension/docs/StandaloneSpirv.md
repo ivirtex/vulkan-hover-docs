@@ -75,9 +75,9 @@ Valid Usage
 - [](#VUID-StandaloneSpirv-UnequalMemorySemantics-10879)VUID-StandaloneSpirv-UnequalMemorySemantics-10879  
   `UnequalMemorySemantics` of `OpAtomicCompareExchange` **must** have `Volatile` bit set if and only if this bit is also set in the corresponding `EqualMemorySemantics`
 - [](#VUID-StandaloneSpirv-OpVariable-04651)VUID-StandaloneSpirv-OpVariable-04651  
-  Any `OpVariable` with an `Initializer` operand **must** have `Output`, `Private`, `Function`, or `Workgroup` as its `Storage` `Class` operand
+  Any variable with an `Initializer` operand **must** have `Output`, `Private`, `Function`, or `Workgroup` as its `Storage` `Class` operand
 - [](#VUID-StandaloneSpirv-OpVariable-04734)VUID-StandaloneSpirv-OpVariable-04734  
-  Any `OpVariable` with an `Initializer` operand and `Workgroup` as its `Storage` `Class` operand **must** use `OpConstantNull` as the initializer
+  Any variable with an `Initializer` operand and `Workgroup` as its `Storage` `Class` operand **must** use `OpConstantNull` as the initializer
 - [](#VUID-StandaloneSpirv-OpReadClockKHR-04652)VUID-StandaloneSpirv-OpReadClockKHR-04652  
   `Scope` for `OpReadClockKHR` **must** be limited to `Subgroup` or `Device`
 - [](#VUID-StandaloneSpirv-OriginLowerLeft-04653)VUID-StandaloneSpirv-OriginLowerLeft-04653  
@@ -133,7 +133,7 @@ Valid Usage
 - [](#VUID-StandaloneSpirv-Location-04916)VUID-StandaloneSpirv-Location-04916  
   The `Location` decorations **must** be used on [user-defined variables](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#interfaces-iointerfaces-user)
 - [](#VUID-StandaloneSpirv-Location-04917)VUID-StandaloneSpirv-Location-04917  
-  If a [user-defined variable](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#interfaces-iointerfaces-user) is not a pointer to a `Block` decorated `OpTypeStruct`, then the `OpVariable` **must** have a `Location` decoration
+  If a [user-defined variable](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#interfaces-iointerfaces-user) is not a pointer to a `Block` decorated `OpTypeStruct`, then the variable **must** have a `Location` decoration
 - [](#VUID-StandaloneSpirv-Location-04918)VUID-StandaloneSpirv-Location-04918  
   If a [user-defined variable](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#interfaces-iointerfaces-user) has a `Location` decoration, and the variable is a pointer to a `OpTypeStruct`, then the members of that structure **must** not have `Location` decorations
 - [](#VUID-StandaloneSpirv-Location-04919)VUID-StandaloneSpirv-Location-04919  
@@ -141,9 +141,9 @@ Valid Usage
 - [](#VUID-StandaloneSpirv-Component-04920)VUID-StandaloneSpirv-Component-04920  
   The `Component` decoration value **must** not be greater than 3
 - [](#VUID-StandaloneSpirv-Component-04921)VUID-StandaloneSpirv-Component-04921  
-  If the `Component` decoration is used on an `OpVariable` that has a `OpTypeVector` type with a `Component` `Type` with a `Width` that is less than or equal to 32, the sum of its `Component` `Count` and the `Component` decoration value **must** be less than or equal to 4
+  If the `Component` decoration is used on a variable that has a `OpTypeVector` type with a `Component` `Type` with a `Width` that is less than or equal to 32, the sum of its `Component` `Count` and the `Component` decoration value **must** be less than or equal to 4
 - [](#VUID-StandaloneSpirv-Component-04922)VUID-StandaloneSpirv-Component-04922  
-  If the `Component` decoration is used on an `OpVariable` that has a `OpTypeVector` type with a `Component` `Type` with a `Width` that is equal to 64, the sum of two times its `Component` `Count` and the `Component` decoration value **must** be less than or equal to 4
+  If the `Component` decoration is used on a variable that has a `OpTypeVector` type with a `Component` `Type` with a `Width` that is equal to 64, the sum of two times its `Component` `Count` and the `Component` decoration value **must** be less than or equal to 4
 - [](#VUID-StandaloneSpirv-Component-04923)VUID-StandaloneSpirv-Component-04923  
   The `Component` decorations value **must** not be 1 or 3 for scalar or two-component 64-bit data types
 - [](#VUID-StandaloneSpirv-Component-07703)VUID-StandaloneSpirv-Component-07703  
@@ -195,12 +195,12 @@ Valid Usage
 - [](#VUID-StandaloneSpirv-VulkanMemoryModel-04679)VUID-StandaloneSpirv-VulkanMemoryModel-04679  
   If the `VulkanMemoryModel` capability is declared, the `OpLoad` instruction **must** use `MemorySemantics` with the `Volatile` flag when it accesses into any variable that includes one of the `SMIDNV`, `WarpIDNV`, `SubgroupSize`, `SubgroupLocalInvocationId`, `SubgroupEqMask`, `SubgroupGeMask`, `SubgroupGtMask`, `SubgroupLeMask`, or `SubgroupLtMask` `BuiltIn` decorations when used in the ray generation, closest hit, miss, intersection, or callable shaders, or with the `RayTmaxKHR` `Builtin` decoration when used in an intersection shader
 - [](#VUID-StandaloneSpirv-OpTypeRuntimeArray-04680)VUID-StandaloneSpirv-OpTypeRuntimeArray-04680  
-  `OpTypeRuntimeArray` **must** only be used for:
+  `OpTypeRuntimeArray` **must** only be instantiated by a variable as:
   
   - the last member of a `Block`-decorated `OpTypeStruct` in `StorageBuffer` or `PhysicalStorageBuffer` storage `Storage` `Class`
   - `BufferBlock`-decorated `OpTypeStruct` in the `Uniform` storage `Storage` `Class`
   - the outermost dimension of an arrayed variable in the `StorageBuffer`, `Uniform`, or `UniformConstant` storage `Storage` `Class`
-  - variables in the `NodePayloadAMDX` storage `Storage` `Class` when the `CoalescingAMDX` `Execution` `Mode` is specified
+  - the `NodePayloadAMDX` storage `Storage` `Class` when the `CoalescingAMDX` `Execution` `Mode` is specified
 - [](#VUID-StandaloneSpirv-Function-04681)VUID-StandaloneSpirv-Function-04681  
   A type *T* that is an array sized with a specialization constant **must** neither be, nor be contained in, the type *T2* of a variable *V*, unless either: a) *T* is equal to *T2*, b) *V* is declared in the `Function`, or `Private` `Storage` `Class`, c) *V* is a non-Block variable in the `Workgroup` `Storage` `Class`, or d) *V* is an interface variable with an additional level of arrayness, [as described in interface matching](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#interfaces-iointerfaces-matching), and *T* is the member type of the array type *T2*
 - [](#VUID-StandaloneSpirv-OpControlBarrier-04682)VUID-StandaloneSpirv-OpControlBarrier-04682  
@@ -260,25 +260,29 @@ Valid Usage
 - [](#VUID-StandaloneSpirv-ShaderRecordBufferKHR-07119)VUID-StandaloneSpirv-ShaderRecordBufferKHR-07119  
   `ShaderRecordBufferKHR` `Storage` `Class` **must** only be used in ray generation, intersection, any-hit, closest hit, callable, or miss shaders
 - [](#VUID-StandaloneSpirv-Base-07650)VUID-StandaloneSpirv-Base-07650  
-  The `Base` operand of `OpPtrAccessChain` **must** have a storage class of `Workgroup`, `StorageBuffer`, or `PhysicalStorageBuffer`
+  The `Base` operand of `OpPtrAccessChain` or `OpUntypedPtrAccessChainKHR` **must** have a storage class of `Workgroup`, `StorageBuffer`, or `PhysicalStorageBuffer`
 - [](#VUID-StandaloneSpirv-Base-07651)VUID-StandaloneSpirv-Base-07651  
-  If the `Base` operand of `OpPtrAccessChain` has a `Workgroup` `Storage` `Class`, then the `VariablePointers` capability **must** be declared
+  If the `Base` operand of `OpPtrAccessChain` or `OpUntypedPtrAccessChainKHR` has a `Workgroup` `Storage` `Class`, then the `VariablePointers` capability **must** be declared
 - [](#VUID-StandaloneSpirv-Base-07652)VUID-StandaloneSpirv-Base-07652  
-  If the `Base` operand of `OpPtrAccessChain` has a `StorageBuffer` `Storage` `Class`, then the `VariablePointers` or `VariablePointersStorageBuffer` capability **must** be declared
+  If the `Base` operand of `OpPtrAccessChain` or `OpUntypedPtrAccessChainKHR` has a `StorageBuffer` `Storage` `Class`, then the `VariablePointers` or `VariablePointersStorageBuffer` capability **must** be declared
+- [](#VUID-StandaloneSpirv-OpUntypedVariableKHR-11167)VUID-StandaloneSpirv-OpUntypedVariableKHR-11167  
+  Any `OpUntypedVariableKHR` **must** have a `Data` `Type` operand specified
 - [](#VUID-StandaloneSpirv-PhysicalStorageBuffer64-04708)VUID-StandaloneSpirv-PhysicalStorageBuffer64-04708  
   If the `PhysicalStorageBuffer64` addressing model is enabled, all instructions that support memory access operands and that use a physical pointer **must** include the `Aligned` operand
 - [](#VUID-StandaloneSpirv-PhysicalStorageBuffer64-04709)VUID-StandaloneSpirv-PhysicalStorageBuffer64-04709  
   If the `PhysicalStorageBuffer64` addressing model is enabled, any access chain instruction that accesses into a `RowMajor` matrix **must** only be used as the `Pointer` operand to `OpLoad` or `OpStore`
 - [](#VUID-StandaloneSpirv-PhysicalStorageBuffer64-04710)VUID-StandaloneSpirv-PhysicalStorageBuffer64-04710  
   If the `PhysicalStorageBuffer64` addressing model is enabled, `OpConvertUToPtr` and `OpConvertPtrToU` **must** use an integer type whose `Width` is 64
+- [](#VUID-StandaloneSpirv-PhysicalStorageBuffer64-06314)VUID-StandaloneSpirv-PhysicalStorageBuffer64-06314  
+  If the `PhysicalStorageBuffer64` addressing model is enabled any load or store through a physical pointer type **must** have an `Aligned` operand which is a multiple of the size of the largest scalar type in the pointed-to type
 - [](#VUID-StandaloneSpirv-OpTypeForwardPointer-04711)VUID-StandaloneSpirv-OpTypeForwardPointer-04711  
   `OpTypeForwardPointer` **must** have a `Storage` `Class` of `PhysicalStorageBuffer`
 - [](#VUID-StandaloneSpirv-None-04745)VUID-StandaloneSpirv-None-04745  
   All block members in a variable with a `Storage` `Class` of `PushConstant` declared as an array **must** only be accessed by dynamically uniform indices
 - [](#VUID-StandaloneSpirv-OpVariable-06673)VUID-StandaloneSpirv-OpVariable-06673  
-  There **must** not be more than one `OpVariable` in the `PushConstant` `Storage` `Class` listed in the `Interface` for each `OpEntryPoint`
+  There **must** not be more than one variable in the `PushConstant` `Storage` `Class` listed in the `Interface` for each `OpEntryPoint`
 - [](#VUID-StandaloneSpirv-OpEntryPoint-06674)VUID-StandaloneSpirv-OpEntryPoint-06674  
-  Each `OpEntryPoint` **must** not statically use more than one `OpVariable` in the `PushConstant` `Storage` `Class`
+  Each `OpEntryPoint` **must** not statically use more than one variable in the `PushConstant` `Storage` `Class`
 - [](#VUID-StandaloneSpirv-OpEntryPoint-08721)VUID-StandaloneSpirv-OpEntryPoint-08721  
   Each `OpEntryPoint` **must** not have more than one `Input` variable assigned the same `Component` word inside a `Location` slot, either explicitly or implicitly
 - [](#VUID-StandaloneSpirv-OpEntryPoint-08722)VUID-StandaloneSpirv-OpEntryPoint-08722  
@@ -376,7 +380,7 @@ No cross-references are available
 
 ## [](#_document_notes)Document Notes
 
-For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#StandaloneSpirv)
+For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#StandaloneSpirv).
 
 This page is extracted from the Vulkan Specification. Fixes and changes should be made to the Specification, not directly.
 

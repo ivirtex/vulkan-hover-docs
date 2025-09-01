@@ -46,6 +46,8 @@ Valid Usage
   For any element of `pBindingInfos`, the buffer from which `address` was queried **must** have been created with the `VK_BUFFER_USAGE_RESOURCE_DESCRIPTOR_BUFFER_BIT_EXT` bit set if it contains resource descriptor data
 - [](#VUID-vkCmdBindDescriptorBuffersEXT-pBindingInfos-08055)VUID-vkCmdBindDescriptorBuffersEXT-pBindingInfos-08055  
   For any element of `pBindingInfos`, `usage` **must** match the buffer from which `address` was queried
+- [](#VUID-vkCmdBindDescriptorBuffersEXT-pBindingInfos-09947)VUID-vkCmdBindDescriptorBuffersEXT-pBindingInfos-09947  
+  For all elements of `pBindingInfos`, the buffer from which `address` was queried **must** have been created with the `VK_BUFFER_USAGE_2_DATA_GRAPH_FOREIGN_DESCRIPTOR_BIT_ARM` bit set if the command pool from which `commandBuffer` was allocated from was created with any element of [VkDataGraphProcessingEngineCreateInfoARM](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDataGraphProcessingEngineCreateInfoARM.html)::pProcessingEngines with `isForeign` set to `VK_TRUE`
 
 Valid Usage (Implicit)
 
@@ -94,7 +96,7 @@ vkCmdBindDescriptorBuffersEXT is not affected by [conditional rendering](#drawin
 
 ## [](#_document_notes)Document Notes
 
-For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#vkCmdBindDescriptorBuffersEXT)
+For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#vkCmdBindDescriptorBuffersEXT).
 
 This page is extracted from the Vulkan Specification. Fixes and changes should be made to the Specification, not directly.
 

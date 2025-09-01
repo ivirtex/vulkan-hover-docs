@@ -41,6 +41,8 @@ typedef struct VkFramebufferCreateInfo {
 
 ## [](#_description)Description
 
+For any depth/stencil attachments used by this framebuffer in `pAttachments`, or set later through [VkRenderPassAttachmentBeginInfoKHR](https://registry.khronos.org/vulkan/specs/latest/man/html/VkRenderPassAttachmentBeginInfoKHR.html)::`pAttachments`, the `aspectMask` is ignored.
+
 It is legal for a subpass to use no color or depth/stencil attachments, either because it has no attachment references or because all of them are `VK_ATTACHMENT_UNUSED`. This kind of subpass **can** use shader side effects such as image stores and atomics to produce an output. In this case, the subpass continues to use the `width`, `height`, and `layers` of the framebuffer to define the dimensions of the rendering area, and the `rasterizationSamples` from each pipeline’s [VkPipelineMultisampleStateCreateInfo](https://registry.khronos.org/vulkan/specs/latest/man/html/VkPipelineMultisampleStateCreateInfo.html) to define the number of samples used in rasterization; however, if [VkPhysicalDeviceFeatures](https://registry.khronos.org/vulkan/specs/latest/man/html/VkPhysicalDeviceFeatures.html)::`variableMultisampleRate` is `VK_FALSE`, then all pipelines to be bound with the subpass **must** have the same value for [VkPipelineMultisampleStateCreateInfo](https://registry.khronos.org/vulkan/specs/latest/man/html/VkPipelineMultisampleStateCreateInfo.html)::`rasterizationSamples`. In all such cases, `rasterizationSamples` **must** be a valid [VkSampleCountFlagBits](https://registry.khronos.org/vulkan/specs/latest/man/html/VkSampleCountFlagBits.html) value that is set in [VkPhysicalDeviceLimits](https://registry.khronos.org/vulkan/specs/latest/man/html/VkPhysicalDeviceLimits.html)::`framebufferNoAttachmentsSampleCounts`.
 
 Valid Usage
@@ -57,6 +59,8 @@ Valid Usage
   If `flags` does not include `VK_FRAMEBUFFER_CREATE_IMAGELESS_BIT`, each element of `pAttachments` that is used as a depth/stencil resolve attachment by `renderPass` **must** have been created with a `usage` value including `VK_IMAGE_USAGE_DEPTH_STENCIL_ATTACHMENT_BIT`
 - [](#VUID-VkFramebufferCreateInfo-pAttachments-00879)VUID-VkFramebufferCreateInfo-pAttachments-00879  
   If `renderpass` is not [VK\_NULL\_HANDLE](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_NULL_HANDLE.html), `flags` does not include `VK_FRAMEBUFFER_CREATE_IMAGELESS_BIT`, each element of `pAttachments` that is used as an input attachment by `renderPass` **must** have been created with a `usage` value including `VK_IMAGE_USAGE_INPUT_ATTACHMENT_BIT`
+- [](#VUID-VkFramebufferCreateInfo-flags-10917)VUID-VkFramebufferCreateInfo-flags-10917  
+  If `flags` does not include `VK_FRAMEBUFFER_CREATE_IMAGELESS_BIT`, each element of `pAttachments` that is used as a color attachment or resolve attachment by `renderPass` **must** have been created with a [VkImageSubresourceRange](https://registry.khronos.org/vulkan/specs/latest/man/html/VkImageSubresourceRange.html)::`aspectMask` including `VK_IMAGE_ASPECT_PLANE_0_BIT`, `VK_IMAGE_ASPECT_PLANE_1_BIT`, `VK_IMAGE_ASPECT_PLANE_2_BIT`, or `VK_IMAGE_ASPECT_COLOR_BIT`
 - [](#VUID-VkFramebufferCreateInfo-pAttachments-02552)VUID-VkFramebufferCreateInfo-pAttachments-02552  
   Each element of `pAttachments` that is used as a fragment density map attachment by `renderPass` **must** not have been created with a `flags` value including `VK_IMAGE_CREATE_SUBSAMPLED_BIT_EXT`
 - [](#VUID-VkFramebufferCreateInfo-renderPass-02553)VUID-VkFramebufferCreateInfo-renderPass-02553  
@@ -181,7 +185,7 @@ Valid Usage (Implicit)
 
 ## [](#_document_notes)Document Notes
 
-For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#VkFramebufferCreateInfo)
+For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#VkFramebufferCreateInfo).
 
 This page is extracted from the Vulkan Specification. Fixes and changes should be made to the Specification, not directly.
 

@@ -34,6 +34,8 @@ Valid Usage
   If the `VK_EXT_depth_range_unrestricted` extension is not enabled `minDepthBounds` **must** be between `0.0` and `1.0`, inclusive
 - [](#VUID-vkCmdSetDepthBounds-maxDepthBounds-00601)VUID-vkCmdSetDepthBounds-maxDepthBounds-00601  
   If the `VK_EXT_depth_range_unrestricted` extension is not enabled `maxDepthBounds` **must** be between `0.0` and `1.0`, inclusive
+- [](#VUID-vkCmdSetDepthBounds-minDepthBounds-10912)VUID-vkCmdSetDepthBounds-minDepthBounds-10912  
+  `minDepthBounds` **must** be less than or equal to `maxDepthBounds`
 
 Valid Usage (Implicit)
 
@@ -76,7 +78,7 @@ vkCmdSetDepthBounds is not affected by [conditional rendering](#drawing-conditio
 
 ## [](#_document_notes)Document Notes
 
-For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#vkCmdSetDepthBounds)
+For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#vkCmdSetDepthBounds).
 
 This page is extracted from the Vulkan Specification. Fixes and changes should be made to the Specification, not directly.
 

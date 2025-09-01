@@ -46,7 +46,7 @@ Valid Usage
 - [](#VUID-vkGetDeviceMemoryOpaqueCaptureAddress-None-03334)VUID-vkGetDeviceMemoryOpaqueCaptureAddress-None-03334  
   The [`bufferDeviceAddress`](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#features-bufferDeviceAddress) and [`bufferDeviceAddressCaptureReplay`](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#features-bufferDeviceAddressCaptureReplay) features **must** be enabled
 - [](#VUID-vkGetDeviceMemoryOpaqueCaptureAddress-pInfo-10727)VUID-vkGetDeviceMemoryOpaqueCaptureAddress-pInfo-10727  
-  `pInfo`::`memory` **must** have been allocated using the `VK_MEMORY_ALLOCATE_DEVICE_ADDRESS_CAPTURE_REPLAY_BIT` flag
+  `pInfo->memory` **must** have been allocated using the `VK_MEMORY_ALLOCATE_DEVICE_ADDRESS_CAPTURE_REPLAY_BIT` flag
 - [](#VUID-vkGetDeviceMemoryOpaqueCaptureAddress-device-03335)VUID-vkGetDeviceMemoryOpaqueCaptureAddress-device-03335  
   If `device` was created with multiple physical devices, then the [`bufferDeviceAddressMultiDevice`](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#features-bufferDeviceAddressMultiDevice) feature **must** be enabled
 
@@ -63,7 +63,7 @@ Valid Usage (Implicit)
 
 ## [](#_document_notes)Document Notes
 
-For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#vkGetDeviceMemoryOpaqueCaptureAddress)
+For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#vkGetDeviceMemoryOpaqueCaptureAddress).
 
 This page is extracted from the Vulkan Specification. Fixes and changes should be made to the Specification, not directly.
 

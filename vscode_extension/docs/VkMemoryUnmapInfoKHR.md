@@ -62,11 +62,11 @@ Host Synchronization
 
 ## [](#_see_also)See Also
 
-[VK\_KHR\_map\_memory2](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_KHR_map_memory2.html), [VK\_VERSION\_1\_4](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_VERSION_1_4.html), [VkDeviceMemory](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDeviceMemory.html), [VkMemoryUnmapFlags](https://registry.khronos.org/vulkan/specs/latest/man/html/VkMemoryUnmapFlags.html), [VkStructureType](https://registry.khronos.org/vulkan/specs/latest/man/html/VkStructureType.html), [vkUnmapMemory2](https://registry.khronos.org/vulkan/specs/latest/man/html/vkUnmapMemory2.html), [vkUnmapMemory2KHR](https://registry.khronos.org/vulkan/specs/latest/man/html/vkUnmapMemory2KHR.html)
+[VK\_KHR\_map\_memory2](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_KHR_map_memory2.html), [VK\_VERSION\_1\_4](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_VERSION_1_4.html), [VkDeviceMemory](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDeviceMemory.html), [VkMemoryUnmapFlags](https://registry.khronos.org/vulkan/specs/latest/man/html/VkMemoryUnmapFlags.html), [VkStructureType](https://registry.khronos.org/vulkan/specs/latest/man/html/VkStructureType.html), [vkUnmapMemory2](https://registry.khronos.org/vulkan/specs/latest/man/html/vkUnmapMemory2.html), [vkUnmapMemory2](https://registry.khronos.org/vulkan/specs/latest/man/html/vkUnmapMemory2.html)
 
 ## [](#_document_notes)Document Notes
 
-For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#VkMemoryUnmapInfo)
+For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#VkMemoryUnmapInfo).
 
 This page is extracted from the Vulkan Specification. Fixes and changes should be made to the Specification, not directly.
 

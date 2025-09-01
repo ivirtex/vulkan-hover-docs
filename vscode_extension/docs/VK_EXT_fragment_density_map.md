@@ -219,8 +219,8 @@ VkRenderPassCreateInfo2 renderPassCreateInfo =
 vkCreateRenderPass2(device, &renderPassCreateInfo, nullptr, &renderPass);
 
 // Add fdmImage to framebuffer
-// Color attachments can be created with VK_IMAGE_CREATE_SUBSAMPLED_BIT_EXT
-// All attachments must be created with VK_IMAGE_CREATE_FRAGMENT_DENSITY_MAP_OFFSETS_BIT_EXT
+// Color and depth attachments can be created with
+// VK_IMAGE_CREATE_SUBSAMPLED_BIT_EXT
 VkFramebufferCreateInfo framebufferCreateInfo =
 {
    .sType = VK_STRUCTURE_TYPE_FRAME_BUFFER_CREATE_INFO,
@@ -265,7 +265,7 @@ No cross-references are available
 
 ## [](#_document_notes)Document Notes
 
-For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#VK_EXT_fragment_density_map)
+For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#VK_EXT_fragment_density_map).
 
 This page is a generated document. Fixes and changes should be made to the generator scripts, not directly.
 

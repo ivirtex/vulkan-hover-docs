@@ -58,11 +58,11 @@ On failure, this command returns
 
 ## [](#_see_also)See Also
 
-[VK\_EXT\_pipeline\_properties](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_EXT_pipeline_properties.html), [VkBaseOutStructure](https://registry.khronos.org/vulkan/specs/latest/man/html/VkBaseOutStructure.html), [VkDevice](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDevice.html), [VkPipelineInfoEXT](https://registry.khronos.org/vulkan/specs/latest/man/html/VkPipelineInfoEXT.html)
+[VK\_EXT\_pipeline\_properties](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_EXT_pipeline_properties.html), [VkBaseOutStructure](https://registry.khronos.org/vulkan/specs/latest/man/html/VkBaseOutStructure.html), [VkDevice](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDevice.html), [VkPipelineInfoKHR](https://registry.khronos.org/vulkan/specs/latest/man/html/VkPipelineInfoKHR.html)
 
 ## [](#_document_notes)Document Notes
 
-For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#vkGetPipelinePropertiesEXT)
+For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#vkGetPipelinePropertiesEXT).
 
 This page is extracted from the Vulkan Specification. Fixes and changes should be made to the Specification, not directly.
 

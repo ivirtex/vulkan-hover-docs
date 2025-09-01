@@ -104,13 +104,17 @@ Valid Usage (Implicit)
 - [](#VUID-VkBindBufferMemoryInfo-commonparent)VUID-VkBindBufferMemoryInfo-commonparent  
   Both of `buffer`, and `memory` **must** have been created, allocated, or retrieved from the same [VkDevice](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDevice.html)
 
+Host Synchronization
+
+- Host access to `buffer` **must** be externally synchronized
+
 ## [](#_see_also)See Also
 
-[VK\_VERSION\_1\_1](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_VERSION_1_1.html), [VkBuffer](https://registry.khronos.org/vulkan/specs/latest/man/html/VkBuffer.html), [VkDeviceMemory](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDeviceMemory.html), [VkDeviceSize](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDeviceSize.html), [VkStructureType](https://registry.khronos.org/vulkan/specs/latest/man/html/VkStructureType.html), [vkBindBufferMemory2](https://registry.khronos.org/vulkan/specs/latest/man/html/vkBindBufferMemory2.html), [vkBindBufferMemory2KHR](https://registry.khronos.org/vulkan/specs/latest/man/html/vkBindBufferMemory2KHR.html)
+[VK\_VERSION\_1\_1](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_VERSION_1_1.html), [VkBuffer](https://registry.khronos.org/vulkan/specs/latest/man/html/VkBuffer.html), [VkDeviceMemory](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDeviceMemory.html), [VkDeviceSize](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDeviceSize.html), [VkStructureType](https://registry.khronos.org/vulkan/specs/latest/man/html/VkStructureType.html), [vkBindBufferMemory2](https://registry.khronos.org/vulkan/specs/latest/man/html/vkBindBufferMemory2.html), [vkBindBufferMemory2](https://registry.khronos.org/vulkan/specs/latest/man/html/vkBindBufferMemory2.html)
 
 ## [](#_document_notes)Document Notes
 
-For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#VkBindBufferMemoryInfo)
+For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#VkBindBufferMemoryInfo).
 
 This page is extracted from the Vulkan Specification. Fixes and changes should be made to the Specification, not directly.
 

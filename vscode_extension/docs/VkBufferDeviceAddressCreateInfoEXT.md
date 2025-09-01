@@ -40,7 +40,7 @@ Valid Usage (Implicit)
 - [](#VUID-VkBufferDeviceAddressCreateInfoEXT-sType-sType)VUID-VkBufferDeviceAddressCreateInfoEXT-sType-sType  
   `sType` **must** be `VK_STRUCTURE_TYPE_BUFFER_DEVICE_ADDRESS_CREATE_INFO_EXT`
 - [](#VUID-VkBufferDeviceAddressCreateInfoEXT-deviceAddress-parameter)VUID-VkBufferDeviceAddressCreateInfoEXT-deviceAddress-parameter  
-  `deviceAddress` **must** be a valid [VkDeviceAddress](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDeviceAddress.html) value
+  If `deviceAddress` is not `0`, `deviceAddress` **must** be a valid [VkDeviceAddress](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDeviceAddress.html) value
 
 ## [](#_see_also)See Also
 
@@ -48,7 +48,7 @@ Valid Usage (Implicit)
 
 ## [](#_document_notes)Document Notes
 
-For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#VkBufferDeviceAddressCreateInfoEXT)
+For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#VkBufferDeviceAddressCreateInfoEXT).
 
 This page is extracted from the Vulkan Specification. Fixes and changes should be made to the Specification, not directly.
 

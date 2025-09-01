@@ -52,7 +52,7 @@ Valid Usage
 - [](#VUID-VkDescriptorSetLayoutBinding-flags-08005)VUID-VkDescriptorSetLayoutBinding-flags-08005  
   If [VkDescriptorSetLayoutCreateInfo](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDescriptorSetLayoutCreateInfo.html)::`flags` contains `VK_DESCRIPTOR_SET_LAYOUT_CREATE_EMBEDDED_IMMUTABLE_SAMPLERS_BIT_EXT`, `descriptorType` **must** be `VK_DESCRIPTOR_TYPE_SAMPLER`
 - [](#VUID-VkDescriptorSetLayoutBinding-flags-08006)VUID-VkDescriptorSetLayoutBinding-flags-08006  
-  If [VkDescriptorSetLayoutCreateInfo](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDescriptorSetLayoutCreateInfo.html)::`flags` contains `VK_DESCRIPTOR_SET_LAYOUT_CREATE_EMBEDDED_IMMUTABLE_SAMPLERS_BIT_EXT`, `descriptorCount` **must** less than or equal to `1`
+  If [VkDescriptorSetLayoutCreateInfo](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDescriptorSetLayoutCreateInfo.html)::`flags` contains `VK_DESCRIPTOR_SET_LAYOUT_CREATE_EMBEDDED_IMMUTABLE_SAMPLERS_BIT_EXT`, `descriptorCount` **must** be less than or equal to `1`
 - [](#VUID-VkDescriptorSetLayoutBinding-flags-08007)VUID-VkDescriptorSetLayoutBinding-flags-08007  
   If [VkDescriptorSetLayoutCreateInfo](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDescriptorSetLayoutCreateInfo.html)::`flags` contains `VK_DESCRIPTOR_SET_LAYOUT_CREATE_EMBEDDED_IMMUTABLE_SAMPLERS_BIT_EXT`, and `descriptorCount` is equal to `1`, `pImmutableSamplers` **must** not be `NULL`
 - [](#VUID-VkDescriptorSetLayoutBinding-descriptorCount-09465)VUID-VkDescriptorSetLayoutBinding-descriptorCount-09465  
@@ -77,7 +77,7 @@ Valid Usage (Implicit)
 
 ## [](#_document_notes)Document Notes
 
-For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#VkDescriptorSetLayoutBinding)
+For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#VkDescriptorSetLayoutBinding).
 
 This page is extracted from the Vulkan Specification. Fixes and changes should be made to the Specification, not directly.
 

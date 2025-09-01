@@ -108,7 +108,7 @@ No cross-references are available
 
 ## [](#_document_notes)Document Notes
 
-For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#VK_KHR_sampler_mirror_clamp_to_edge)
+For more information, see the [Vulkan Specification](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#VK_KHR_sampler_mirror_clamp_to_edge).
 
 This page is a generated document. Fixes and changes should be made to the generator scripts, not directly.
 
