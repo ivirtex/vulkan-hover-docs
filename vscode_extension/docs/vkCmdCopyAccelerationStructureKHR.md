@@ -46,7 +46,7 @@ Valid Usage (Implicit)
 - [](#VUID-vkCmdCopyAccelerationStructureKHR-commandBuffer-recording)VUID-vkCmdCopyAccelerationStructureKHR-commandBuffer-recording  
   `commandBuffer` **must** be in the [recording state](#commandbuffers-lifecycle)
 - [](#VUID-vkCmdCopyAccelerationStructureKHR-commandBuffer-cmdpool)VUID-vkCmdCopyAccelerationStructureKHR-commandBuffer-cmdpool  
-  The `VkCommandPool` that `commandBuffer` was allocated from **must** support compute operations
+  The `VkCommandPool` that `commandBuffer` was allocated from **must** support VK\_QUEUE\_COMPUTE\_BIT operations
 - [](#VUID-vkCmdCopyAccelerationStructureKHR-renderpass)VUID-vkCmdCopyAccelerationStructureKHR-renderpass  
   This command **must** only be called outside of a render pass instance
 - [](#VUID-vkCmdCopyAccelerationStructureKHR-videocoding)VUID-vkCmdCopyAccelerationStructureKHR-videocoding  
@@ -68,7 +68,7 @@ Outside
 
 Outside
 
-Compute
+VK\_QUEUE\_COMPUTE\_BIT
 
 Action
 

@@ -41,18 +41,20 @@ The formats of `srcTensor` and `dstTensor` **must** be compatible. Formats are c
 
 Valid Usage
 
-- [](#VUID-VkCopyTensorInfoARM-srcTensor-09684)VUID-VkCopyTensorInfoARM-srcTensor-09684  
+- [](#VUID-VkCopyTensorInfoARM-dimensionCount-09684)VUID-VkCopyTensorInfoARM-dimensionCount-09684  
   `srcTensor` and `dstTensor` **must** have been created with equal values for [VkTensorDescriptionARM](https://registry.khronos.org/vulkan/specs/latest/man/html/VkTensorDescriptionARM.html)::`dimensionCount`
 - [](#VUID-VkCopyTensorInfoARM-pDimensions-09685)VUID-VkCopyTensorInfoARM-pDimensions-09685  
   For each of the elements of [VkTensorDescriptionARM](https://registry.khronos.org/vulkan/specs/latest/man/html/VkTensorDescriptionARM.html)::`pDimensions`, `srcTensor` and `dstTensor` **must** be the same size
 - [](#VUID-VkCopyTensorInfoARM-regionCount-09686)VUID-VkCopyTensorInfoARM-regionCount-09686  
   `regionCount` must be equal to 1
-- [](#VUID-VkCopyTensorInfoARM-pSrcOffset-09687)VUID-VkCopyTensorInfoARM-pSrcOffset-09687  
-  pRegions must point to a [VkTensorCopyARM](https://registry.khronos.org/vulkan/specs/latest/man/html/VkTensorCopyARM.html) structure whose `pSrcOffset` is `NULL` or whose elements are all `0`
-- [](#VUID-VkCopyTensorInfoARM-pDstOffset-09688)VUID-VkCopyTensorInfoARM-pDstOffset-09688  
-  pRegions must point to a [VkTensorCopyARM](https://registry.khronos.org/vulkan/specs/latest/man/html/VkTensorCopyARM.html) structure whose `pDstOffset`, is `NULL` or whose elements are all `0`
-- [](#VUID-VkCopyTensorInfoARM-pExtent-09689)VUID-VkCopyTensorInfoARM-pExtent-09689  
-  pRegions must point to a [VkTensorCopyARM](https://registry.khronos.org/vulkan/specs/latest/man/html/VkTensorCopyARM.html) structure whose `pExtent` is `NULL` or equal to the [VkTensorDescriptionARM](https://registry.khronos.org/vulkan/specs/latest/man/html/VkTensorDescriptionARM.html)::`pDimensions` array specified when `srcTensor` and `dstTensor` were created
+- [](#VUID-VkCopyTensorInfoARM-pRegions-09687)VUID-VkCopyTensorInfoARM-pRegions-09687  
+  Each element of `pRegions` **must** be a [VkTensorCopyARM](https://registry.khronos.org/vulkan/specs/latest/man/html/VkTensorCopyARM.html) structure whose `pSrcOffset` is `NULL` or has all its elements equal to `0`
+- [](#VUID-VkCopyTensorInfoARM-pRegions-09688)VUID-VkCopyTensorInfoARM-pRegions-09688  
+  Each element of `pRegions` **must** be a [VkTensorCopyARM](https://registry.khronos.org/vulkan/specs/latest/man/html/VkTensorCopyARM.html) structure whose `pDstOffset` is `NULL` or has all its elements equal to `0`
+- [](#VUID-VkCopyTensorInfoARM-pRegions-09689)VUID-VkCopyTensorInfoARM-pRegions-09689  
+  Each element of `pRegions` **must** be a [VkTensorCopyARM](https://registry.khronos.org/vulkan/specs/latest/man/html/VkTensorCopyARM.html) structure whose `pExtent` is `NULL` or equal to the [VkTensorDescriptionARM](https://registry.khronos.org/vulkan/specs/latest/man/html/VkTensorDescriptionARM.html)::`pDimensions` array specified when `srcTensor` and `dstTensor` were created
+- [](#VUID-VkCopyTensorInfoARM-pRegions-09954)VUID-VkCopyTensorInfoARM-pRegions-09954  
+  Each element of `pRegions` **must** be a [VkTensorCopyARM](https://registry.khronos.org/vulkan/specs/latest/man/html/VkTensorCopyARM.html) structure whose `dimensionCount`, if it is not equal to 0, is equal to the largest of the [VkTensorDescriptionARM](https://registry.khronos.org/vulkan/specs/latest/man/html/VkTensorDescriptionARM.html)::`dimensionCount` of `srcTensor` or `dstTensor`
 - [](#VUID-VkCopyTensorInfoARM-srcTensor-09690)VUID-VkCopyTensorInfoARM-srcTensor-09690  
   The [format features](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#resources-tensor-view-format-features) of `srcTensor` **must** contain `VK_FORMAT_FEATURE_2_TRANSFER_SRC_BIT`
 - [](#VUID-VkCopyTensorInfoARM-srcTensor-09691)VUID-VkCopyTensorInfoARM-srcTensor-09691  

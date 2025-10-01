@@ -209,7 +209,7 @@ Valid Usage (Implicit)
 - [](#VUID-vkCmdDispatch-commandBuffer-recording)VUID-vkCmdDispatch-commandBuffer-recording  
   `commandBuffer` **must** be in the [recording state](#commandbuffers-lifecycle)
 - [](#VUID-vkCmdDispatch-commandBuffer-cmdpool)VUID-vkCmdDispatch-commandBuffer-cmdpool  
-  The `VkCommandPool` that `commandBuffer` was allocated from **must** support compute operations
+  The `VkCommandPool` that `commandBuffer` was allocated from **must** support VK\_QUEUE\_COMPUTE\_BIT operations
 - [](#VUID-vkCmdDispatch-videocoding)VUID-vkCmdDispatch-videocoding  
   This command **must** only be called outside of a video coding scope
 
@@ -229,7 +229,7 @@ Both
 
 Outside
 
-Compute
+VK\_QUEUE\_COMPUTE\_BIT
 
 Action
 

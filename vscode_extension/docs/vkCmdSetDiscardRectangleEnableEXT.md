@@ -38,7 +38,7 @@ Valid Usage (Implicit)
 - [](#VUID-vkCmdSetDiscardRectangleEnableEXT-commandBuffer-recording)VUID-vkCmdSetDiscardRectangleEnableEXT-commandBuffer-recording  
   `commandBuffer` **must** be in the [recording state](#commandbuffers-lifecycle)
 - [](#VUID-vkCmdSetDiscardRectangleEnableEXT-commandBuffer-cmdpool)VUID-vkCmdSetDiscardRectangleEnableEXT-commandBuffer-cmdpool  
-  The `VkCommandPool` that `commandBuffer` was allocated from **must** support graphics operations
+  The `VkCommandPool` that `commandBuffer` was allocated from **must** support VK\_QUEUE\_GRAPHICS\_BIT operations
 - [](#VUID-vkCmdSetDiscardRectangleEnableEXT-videocoding)VUID-vkCmdSetDiscardRectangleEnableEXT-videocoding  
   This command **must** only be called outside of a video coding scope
 
@@ -58,7 +58,7 @@ Both
 
 Outside
 
-Graphics
+VK\_QUEUE\_GRAPHICS\_BIT
 
 State
 

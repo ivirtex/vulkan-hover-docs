@@ -52,7 +52,7 @@ Valid Usage (Implicit)
 - [](#VUID-vkCmdBindShadingRateImageNV-commandBuffer-recording)VUID-vkCmdBindShadingRateImageNV-commandBuffer-recording  
   `commandBuffer` **must** be in the [recording state](#commandbuffers-lifecycle)
 - [](#VUID-vkCmdBindShadingRateImageNV-commandBuffer-cmdpool)VUID-vkCmdBindShadingRateImageNV-commandBuffer-cmdpool  
-  The `VkCommandPool` that `commandBuffer` was allocated from **must** support graphics operations
+  The `VkCommandPool` that `commandBuffer` was allocated from **must** support VK\_QUEUE\_GRAPHICS\_BIT operations
 - [](#VUID-vkCmdBindShadingRateImageNV-videocoding)VUID-vkCmdBindShadingRateImageNV-videocoding  
   This command **must** only be called outside of a video coding scope
 - [](#VUID-vkCmdBindShadingRateImageNV-commonparent)VUID-vkCmdBindShadingRateImageNV-commonparent  
@@ -74,7 +74,7 @@ Both
 
 Outside
 
-Graphics
+VK\_QUEUE\_GRAPHICS\_BIT
 
 State
 

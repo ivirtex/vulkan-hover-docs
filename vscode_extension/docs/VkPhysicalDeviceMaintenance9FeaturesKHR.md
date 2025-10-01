@@ -33,7 +33,7 @@ This structure describes the following feature:
   - [vkCmdSetEvent2](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdSetEvent2.html) **may** not provide a dependency other than the event src stage mask.
   - The effects of image memory barriers and image layout transitions on 3D images created with `VK_IMAGE_CREATE_2D_ARRAY_COMPATIBLE_BIT` are limited to only those slices specified in `VkImageSubresourceRange`
   - A device **can** be created with no queues. This can be used for compiling pipelines or shaders for the purpose of filling pipeline caches.
-  - Queue family ownership transfers are no longer required when transitioning resources created with `VK_SHARING_MODE_EXCLUSIVE` between queue families that support `VK_QUEUE_GRAPHICS_BIT` and those that support only `VK_QUEUE_TRANSFER_BIT`.
+  - Queue family ownership transfers are no longer required for buffers and linear images. For optimally tiled images, a new physical device query is added to check if resources created with `VK_SHARING_MODE_EXCLUSIVE` **can** automatically transfer ownership between two queue families.
   - [`image2DViewOf3DSparse`](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#limits-image2DViewOf3DSparse) enables 2D views of 3D sparse images.
 
 ## [](#_description)Description

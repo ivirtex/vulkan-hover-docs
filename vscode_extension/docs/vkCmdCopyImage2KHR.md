@@ -57,7 +57,7 @@ Valid Usage (Implicit)
 - [](#VUID-vkCmdCopyImage2-commandBuffer-recording)VUID-vkCmdCopyImage2-commandBuffer-recording  
   `commandBuffer` **must** be in the [recording state](#commandbuffers-lifecycle)
 - [](#VUID-vkCmdCopyImage2-commandBuffer-cmdpool)VUID-vkCmdCopyImage2-commandBuffer-cmdpool  
-  The `VkCommandPool` that `commandBuffer` was allocated from **must** support transfer, graphics, or compute operations
+  The `VkCommandPool` that `commandBuffer` was allocated from **must** support VK\_QUEUE\_COMPUTE\_BIT, VK\_QUEUE\_GRAPHICS\_BIT, or VK\_QUEUE\_TRANSFER\_BIT operations
 - [](#VUID-vkCmdCopyImage2-renderpass)VUID-vkCmdCopyImage2-renderpass  
   This command **must** only be called outside of a render pass instance
 - [](#VUID-vkCmdCopyImage2-videocoding)VUID-vkCmdCopyImage2-videocoding  
@@ -79,9 +79,9 @@ Outside
 
 Outside
 
-Transfer  
-Graphics  
-Compute
+VK\_QUEUE\_COMPUTE\_BIT  
+VK\_QUEUE\_GRAPHICS\_BIT  
+VK\_QUEUE\_TRANSFER\_BIT
 
 Action
 

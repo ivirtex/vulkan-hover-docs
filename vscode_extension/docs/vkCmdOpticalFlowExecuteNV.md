@@ -39,7 +39,7 @@ Valid Usage (Implicit)
 - [](#VUID-vkCmdOpticalFlowExecuteNV-commandBuffer-recording)VUID-vkCmdOpticalFlowExecuteNV-commandBuffer-recording  
   `commandBuffer` **must** be in the [recording state](#commandbuffers-lifecycle)
 - [](#VUID-vkCmdOpticalFlowExecuteNV-commandBuffer-cmdpool)VUID-vkCmdOpticalFlowExecuteNV-commandBuffer-cmdpool  
-  The `VkCommandPool` that `commandBuffer` was allocated from **must** support optical flow operations
+  The `VkCommandPool` that `commandBuffer` was allocated from **must** support VK\_QUEUE\_OPTICAL\_FLOW\_BIT\_NV operations
 - [](#VUID-vkCmdOpticalFlowExecuteNV-renderpass)VUID-vkCmdOpticalFlowExecuteNV-renderpass  
   This command **must** only be called outside of a render pass instance
 - [](#VUID-vkCmdOpticalFlowExecuteNV-videocoding)VUID-vkCmdOpticalFlowExecuteNV-videocoding  
@@ -62,7 +62,7 @@ Outside
 
 Outside
 
-Opticalflow
+VK\_QUEUE\_OPTICAL\_FLOW\_BIT\_NV
 
 Action
 

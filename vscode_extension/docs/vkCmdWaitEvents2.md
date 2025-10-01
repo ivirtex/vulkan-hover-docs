@@ -90,7 +90,7 @@ Valid Usage
 - [](#VUID-vkCmdWaitEvents2-maintenance8-10205)VUID-vkCmdWaitEvents2-maintenance8-10205  
   If the [`maintenance8`](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#features-maintenance8) feature is not enabled, the `dependencyFlags` members of any element of `pDependencyInfos` **must** not include `VK_DEPENDENCY_QUEUE_FAMILY_OWNERSHIP_TRANSFER_USE_ALL_STAGES_BIT_KHR`
 - [](#VUID-vkCmdWaitEvents2-dependencyFlags-03844)VUID-vkCmdWaitEvents2-dependencyFlags-03844  
-  If `vkCmdWaitEvents2` is being called inside a render pass instance, the `srcStageMask` member of any element of the `pMemoryBarriers`, `pBufferMemoryBarriers`, or `pImageMemoryBarriers` members of `pDependencyInfos` **must** not include `VK_PIPELINE_STAGE_2_HOST_BIT`
+  If this command is called inside a render pass instance, the `srcStageMask` member of any element of the `pMemoryBarriers`, `pBufferMemoryBarriers`, or `pImageMemoryBarriers` members of `pDependencyInfos` **must** not include `VK_PIPELINE_STAGE_2_HOST_BIT`
 - [](#VUID-vkCmdWaitEvents2-commandBuffer-03846)VUID-vkCmdWaitEvents2-commandBuffer-03846  
   `commandBuffer`’s current device mask **must** include exactly one physical device
 - [](#VUID-vkCmdWaitEvents2-None-10654)VUID-vkCmdWaitEvents2-None-10654  
@@ -107,7 +107,7 @@ Valid Usage (Implicit)
 - [](#VUID-vkCmdWaitEvents2-commandBuffer-recording)VUID-vkCmdWaitEvents2-commandBuffer-recording  
   `commandBuffer` **must** be in the [recording state](#commandbuffers-lifecycle)
 - [](#VUID-vkCmdWaitEvents2-commandBuffer-cmdpool)VUID-vkCmdWaitEvents2-commandBuffer-cmdpool  
-  The `VkCommandPool` that `commandBuffer` was allocated from **must** support graphics, compute, decode, or encode operations
+  The `VkCommandPool` that `commandBuffer` was allocated from **must** support VK\_QUEUE\_COMPUTE\_BIT, VK\_QUEUE\_GRAPHICS\_BIT, VK\_QUEUE\_VIDEO\_DECODE\_BIT\_KHR, or VK\_QUEUE\_VIDEO\_ENCODE\_BIT\_KHR operations
 - [](#VUID-vkCmdWaitEvents2-eventCount-arraylength)VUID-vkCmdWaitEvents2-eventCount-arraylength  
   `eventCount` **must** be greater than `0`
 - [](#VUID-vkCmdWaitEvents2-commonparent)VUID-vkCmdWaitEvents2-commonparent  
@@ -129,10 +129,10 @@ Both
 
 Both
 
-Graphics  
-Compute  
-Decode  
-Encode
+VK\_QUEUE\_COMPUTE\_BIT  
+VK\_QUEUE\_GRAPHICS\_BIT  
+VK\_QUEUE\_VIDEO\_DECODE\_BIT\_KHR  
+VK\_QUEUE\_VIDEO\_ENCODE\_BIT\_KHR
 
 Synchronization
 

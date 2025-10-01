@@ -30,7 +30,7 @@ typedef struct VkIndirectExecutionSetShaderInfoEXT {
 - `pNext` is `NULL` or a pointer to a structure extending this structure.
 - `shaderCount` is the number of members in the `pInitialShaders` and `pSetLayoutInfos` arrays.
 - `pInitialShaders` is a pointer to an array containing a [VkShaderEXT](https://registry.khronos.org/vulkan/specs/latest/man/html/VkShaderEXT.html) object for each shader stage that will be used in the set. These shaders will be automatically added to the set beginning at index `0`.
-- `pSetLayoutInfos` is a pointer to an array containing a [VkIndirectExecutionSetShaderLayoutInfoEXT](https://registry.khronos.org/vulkan/specs/latest/man/html/VkIndirectExecutionSetShaderLayoutInfoEXT.html) used by each corresponding `pInitialShaders` shader stage in the set.
+- `pSetLayoutInfos` is NULL or a pointer to an array containing a [VkIndirectExecutionSetShaderLayoutInfoEXT](https://registry.khronos.org/vulkan/specs/latest/man/html/VkIndirectExecutionSetShaderLayoutInfoEXT.html) used by each corresponding `pInitialShaders` shader stage in the set.
 - `maxShaderCount` is the maximum number of shader objects stored in the set.
 - `pushConstantRangeCount` is the number of members in the `pPushConstantRanges` array.
 - `pPushConstantRanges` is a pointer to the array of [VkPushConstantRange](https://registry.khronos.org/vulkan/specs/latest/man/html/VkPushConstantRange.html) ranges used by all shaders in the set.
@@ -40,6 +40,8 @@ typedef struct VkIndirectExecutionSetShaderInfoEXT {
 The characteristics of `pInitialShaders` will be used to validate all shaders added to the set even if they are removed from the set or destroyed.
 
 When an Indirect Execution Set created with shader objects is used, `pInitialShaders` constitutes the initial shader state.
+
+If `pSetLayoutInfos` is `NULL`, the descriptor layout parameters are inherited from the shader object.
 
 Valid Usage
 
@@ -55,6 +57,8 @@ Valid Usage
   The `stage` of each element in the `pInitialShaders` array **must** be unique
 - [](#VUID-VkIndirectExecutionSetShaderInfoEXT-pInitialShaders-11154)VUID-VkIndirectExecutionSetShaderInfoEXT-pInitialShaders-11154  
   Each member of `pInitialShaders` **must** have been created with `VK_SHADER_CREATE_INDIRECT_BINDABLE_BIT_EXT`
+- [](#VUID-VkIndirectExecutionSetShaderInfoEXT-pSetLayoutInfos-10929)VUID-VkIndirectExecutionSetShaderInfoEXT-pSetLayoutInfos-10929  
+  If `pSetLayoutInfos` is not `NULL`, the descriptor layout values specified **must** be compatible with the descriptor set layouts defined at the creation of the shader object
 
 Valid Usage (Implicit)
 

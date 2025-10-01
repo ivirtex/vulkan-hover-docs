@@ -96,7 +96,7 @@ Valid Usage (Implicit)
 - [](#VUID-vkCmdResetEvent2-commandBuffer-recording)VUID-vkCmdResetEvent2-commandBuffer-recording  
   `commandBuffer` **must** be in the [recording state](#commandbuffers-lifecycle)
 - [](#VUID-vkCmdResetEvent2-commandBuffer-cmdpool)VUID-vkCmdResetEvent2-commandBuffer-cmdpool  
-  The `VkCommandPool` that `commandBuffer` was allocated from **must** support graphics, compute, decode, or encode operations
+  The `VkCommandPool` that `commandBuffer` was allocated from **must** support VK\_QUEUE\_COMPUTE\_BIT, VK\_QUEUE\_GRAPHICS\_BIT, VK\_QUEUE\_VIDEO\_DECODE\_BIT\_KHR, or VK\_QUEUE\_VIDEO\_ENCODE\_BIT\_KHR operations
 - [](#VUID-vkCmdResetEvent2-renderpass)VUID-vkCmdResetEvent2-renderpass  
   This command **must** only be called outside of a render pass instance
 - [](#VUID-vkCmdResetEvent2-commonparent)VUID-vkCmdResetEvent2-commonparent  
@@ -118,10 +118,10 @@ Outside
 
 Both
 
-Graphics  
-Compute  
-Decode  
-Encode
+VK\_QUEUE\_COMPUTE\_BIT  
+VK\_QUEUE\_GRAPHICS\_BIT  
+VK\_QUEUE\_VIDEO\_DECODE\_BIT\_KHR  
+VK\_QUEUE\_VIDEO\_ENCODE\_BIT\_KHR
 
 Synchronization
 

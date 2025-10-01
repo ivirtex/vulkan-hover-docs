@@ -8,7 +8,9 @@ VkTensorARM - Opaque handle to a tensor object
 
 ## [](#_c_specification)C Specification
 
-Tensors represent multidimensional arrays of data. Tensors **can** be used by binding them to pipelines via descriptor sets, or by directly specifying them as parameters to certain commands.
+Tensors are similar to [images](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#images), in that they have multi-dimensional access as documented in the [https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#tensors](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#tensors) chapter, but a tensor’s dimensions are not predefined. A tensor can have an arbitrary number of dimensions, up to [`maxTensorDimensionCount`](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#limits-maxTensorDimensionCount), with one index per dimension used to access the tensor.
+
+Tensors **can** be used by binding them to pipelines via descriptor sets, or by directly specifying them as parameters to certain commands.
 
 Tensors are represented by `VkTensorARM` handles:
 

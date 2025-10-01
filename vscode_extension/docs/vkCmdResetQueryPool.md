@@ -67,7 +67,7 @@ Valid Usage (Implicit)
 - [](#VUID-vkCmdResetQueryPool-commandBuffer-recording)VUID-vkCmdResetQueryPool-commandBuffer-recording  
   `commandBuffer` **must** be in the [recording state](#commandbuffers-lifecycle)
 - [](#VUID-vkCmdResetQueryPool-commandBuffer-cmdpool)VUID-vkCmdResetQueryPool-commandBuffer-cmdpool  
-  The `VkCommandPool` that `commandBuffer` was allocated from **must** support graphics, compute, decode, encode, or optical flow operations
+  The `VkCommandPool` that `commandBuffer` was allocated from **must** support VK\_QUEUE\_COMPUTE\_BIT, VK\_QUEUE\_GRAPHICS\_BIT, VK\_QUEUE\_OPTICAL\_FLOW\_BIT\_NV, VK\_QUEUE\_VIDEO\_DECODE\_BIT\_KHR, or VK\_QUEUE\_VIDEO\_ENCODE\_BIT\_KHR operations
 - [](#VUID-vkCmdResetQueryPool-renderpass)VUID-vkCmdResetQueryPool-renderpass  
   This command **must** only be called outside of a render pass instance
 - [](#VUID-vkCmdResetQueryPool-videocoding)VUID-vkCmdResetQueryPool-videocoding  
@@ -91,11 +91,11 @@ Outside
 
 Outside
 
-Graphics  
-Compute  
-Decode  
-Encode  
-Opticalflow
+VK\_QUEUE\_COMPUTE\_BIT  
+VK\_QUEUE\_GRAPHICS\_BIT  
+VK\_QUEUE\_OPTICAL\_FLOW\_BIT\_NV  
+VK\_QUEUE\_VIDEO\_DECODE\_BIT\_KHR  
+VK\_QUEUE\_VIDEO\_ENCODE\_BIT\_KHR
 
 Action
 

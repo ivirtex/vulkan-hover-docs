@@ -30,9 +30,17 @@ void vkCmdWriteBufferMarkerAMD(
 
 ## [](#_description)Description
 
-The command will write the 32-bit marker value into the buffer only after all preceding commands have finished executing up to at least the specified pipeline stage. This includes the completion of other preceding `vkCmdWriteBufferMarkerAMD` commands so long as their specified pipeline stages occur either at the same time or earlier than this command’s specified `pipelineStage`.
+When `vkCmdWriteBufferMarkerAMD` is submitted to a queue, it defines an execution dependency between prior operations and writing the marker value, as well as a memory dependency from earlier [buffer marker write commands](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#copies-buffer-markers).
 
-While consecutive buffer marker writes with the same `pipelineStage` parameter are implicitly complete in submission order, memory and execution dependencies between buffer marker writes and other operations **must** still be explicitly ordered using synchronization commands. The access scope for buffer marker writes falls under the `VK_ACCESS_TRANSFER_WRITE_BIT`, and the pipeline stages for identifying the synchronization scope **must** include both `pipelineStage` and `VK_PIPELINE_STAGE_TRANSFER_BIT`.
+The first [synchronization scope](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#synchronization-dependencies-scopes) includes operations performed by operations that occur earlier in [submission order](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#synchronization-submission-order) in the pipeline stage identified by `pipelineStage`. It additionally includes other [buffer marker write commands](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#copies-buffer-markers) that occur earlier in [submission order](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#synchronization-submission-order) that specified either the same `pipelineStage` or a stage that is [logically earlier](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#synchronization-pipeline-stages-order).
+
+The second [synchronization scope](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#synchronization-dependencies-scopes) includes only the buffer marker write.
+
+The first [access scope](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#synchronization-dependencies-access-scopes) includes only accesses performed by other [buffer marker write commands](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#copies-buffer-markers).
+
+The second [access scope](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#synchronization-dependencies-access-scopes) is empty.
+
+The access scope for buffer marker writes falls under the `VK_ACCESS_TRANSFER_WRITE_BIT` flag, and is performed by either `pipelineStage` or `VK_PIPELINE_STAGE_TRANSFER_BIT`. [Synchronization commands](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#synchronization) should specify this access flag and both pipeline stages when defining dependencies with this command.
 
 Note
 
@@ -86,7 +94,7 @@ Valid Usage (Implicit)
 - [](#VUID-vkCmdWriteBufferMarkerAMD-commandBuffer-recording)VUID-vkCmdWriteBufferMarkerAMD-commandBuffer-recording  
   `commandBuffer` **must** be in the [recording state](#commandbuffers-lifecycle)
 - [](#VUID-vkCmdWriteBufferMarkerAMD-commandBuffer-cmdpool)VUID-vkCmdWriteBufferMarkerAMD-commandBuffer-cmdpool  
-  The `VkCommandPool` that `commandBuffer` was allocated from **must** support transfer, graphics, or compute operations
+  The `VkCommandPool` that `commandBuffer` was allocated from **must** support VK\_QUEUE\_COMPUTE\_BIT, VK\_QUEUE\_GRAPHICS\_BIT, or VK\_QUEUE\_TRANSFER\_BIT operations
 - [](#VUID-vkCmdWriteBufferMarkerAMD-videocoding)VUID-vkCmdWriteBufferMarkerAMD-videocoding  
   This command **must** only be called outside of a video coding scope
 - [](#VUID-vkCmdWriteBufferMarkerAMD-commonparent)VUID-vkCmdWriteBufferMarkerAMD-commonparent  
@@ -108,9 +116,9 @@ Both
 
 Outside
 
-Transfer  
-Graphics  
-Compute
+VK\_QUEUE\_COMPUTE\_BIT  
+VK\_QUEUE\_GRAPHICS\_BIT  
+VK\_QUEUE\_TRANSFER\_BIT
 
 Action
 

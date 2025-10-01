@@ -201,7 +201,7 @@ Valid Usage (Implicit)
 - [](#VUID-vkCmdPipelineBarrier-commandBuffer-recording)VUID-vkCmdPipelineBarrier-commandBuffer-recording  
   `commandBuffer` **must** be in the [recording state](#commandbuffers-lifecycle)
 - [](#VUID-vkCmdPipelineBarrier-commandBuffer-cmdpool)VUID-vkCmdPipelineBarrier-commandBuffer-cmdpool  
-  The `VkCommandPool` that `commandBuffer` was allocated from **must** support transfer, graphics, compute, decode, or encode operations
+  The `VkCommandPool` that `commandBuffer` was allocated from **must** support VK\_QUEUE\_COMPUTE\_BIT, VK\_QUEUE\_GRAPHICS\_BIT, VK\_QUEUE\_TRANSFER\_BIT, VK\_QUEUE\_VIDEO\_DECODE\_BIT\_KHR, or VK\_QUEUE\_VIDEO\_ENCODE\_BIT\_KHR operations
 
 Host Synchronization
 
@@ -219,11 +219,11 @@ Both
 
 Both
 
-Transfer  
-Graphics  
-Compute  
-Decode  
-Encode
+VK\_QUEUE\_COMPUTE\_BIT  
+VK\_QUEUE\_GRAPHICS\_BIT  
+VK\_QUEUE\_TRANSFER\_BIT  
+VK\_QUEUE\_VIDEO\_DECODE\_BIT\_KHR  
+VK\_QUEUE\_VIDEO\_ENCODE\_BIT\_KHR
 
 Synchronization
 

@@ -37,7 +37,7 @@ typedef enum VkBorderColor {
 - `VK_BORDER_COLOR_FLOAT_CUSTOM_EXT` specifies that a [VkSamplerCustomBorderColorCreateInfoEXT](https://registry.khronos.org/vulkan/specs/latest/man/html/VkSamplerCustomBorderColorCreateInfoEXT.html) structure is included in the [VkSamplerCreateInfo](https://registry.khronos.org/vulkan/specs/latest/man/html/VkSamplerCreateInfo.html)::`pNext` chain containing the color data in floating-point format.
 - `VK_BORDER_COLOR_INT_CUSTOM_EXT` specifies that a [VkSamplerCustomBorderColorCreateInfoEXT](https://registry.khronos.org/vulkan/specs/latest/man/html/VkSamplerCustomBorderColorCreateInfoEXT.html) structure is included in the [VkSamplerCreateInfo](https://registry.khronos.org/vulkan/specs/latest/man/html/VkSamplerCreateInfo.html)::`pNext` chain containing the color data in integer format.
 
-These colors are described in detail in [Texel Replacement](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#textures-texel-replacement).
+These colors are described in detail in [Border Replacement](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#textures-border-replacement).
 
 ## [](#_see_also)See Also
 

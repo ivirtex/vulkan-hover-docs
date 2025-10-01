@@ -58,7 +58,7 @@ Valid Usage (Implicit)
 - [](#VUID-vkCmdBeginPerTileExecutionQCOM-commandBuffer-recording)VUID-vkCmdBeginPerTileExecutionQCOM-commandBuffer-recording  
   `commandBuffer` **must** be in the [recording state](#commandbuffers-lifecycle)
 - [](#VUID-vkCmdBeginPerTileExecutionQCOM-commandBuffer-cmdpool)VUID-vkCmdBeginPerTileExecutionQCOM-commandBuffer-cmdpool  
-  The `VkCommandPool` that `commandBuffer` was allocated from **must** support graphics, or compute operations
+  The `VkCommandPool` that `commandBuffer` was allocated from **must** support VK\_QUEUE\_COMPUTE\_BIT, or VK\_QUEUE\_GRAPHICS\_BIT operations
 - [](#VUID-vkCmdBeginPerTileExecutionQCOM-renderpass)VUID-vkCmdBeginPerTileExecutionQCOM-renderpass  
   This command **must** only be called inside of a render pass instance
 - [](#VUID-vkCmdBeginPerTileExecutionQCOM-videocoding)VUID-vkCmdBeginPerTileExecutionQCOM-videocoding  
@@ -79,8 +79,8 @@ Inside
 
 Outside
 
-Graphics  
-Compute
+VK\_QUEUE\_COMPUTE\_BIT  
+VK\_QUEUE\_GRAPHICS\_BIT
 
 State
 

@@ -88,7 +88,7 @@ Valid Usage (Implicit)
 - [](#VUID-vkCmdClearAttachments-commandBuffer-recording)VUID-vkCmdClearAttachments-commandBuffer-recording  
   `commandBuffer` **must** be in the [recording state](#commandbuffers-lifecycle)
 - [](#VUID-vkCmdClearAttachments-commandBuffer-cmdpool)VUID-vkCmdClearAttachments-commandBuffer-cmdpool  
-  The `VkCommandPool` that `commandBuffer` was allocated from **must** support graphics operations
+  The `VkCommandPool` that `commandBuffer` was allocated from **must** support VK\_QUEUE\_GRAPHICS\_BIT operations
 - [](#VUID-vkCmdClearAttachments-renderpass)VUID-vkCmdClearAttachments-renderpass  
   This command **must** only be called inside of a render pass instance
 - [](#VUID-vkCmdClearAttachments-videocoding)VUID-vkCmdClearAttachments-videocoding  
@@ -114,7 +114,7 @@ Inside
 
 Outside
 
-Graphics
+VK\_QUEUE\_GRAPHICS\_BIT
 
 Action
 

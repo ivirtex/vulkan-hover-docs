@@ -53,7 +53,7 @@ Valid Usage (Implicit)
 - [](#VUID-vkCmdSetDeviceMask-commandBuffer-recording)VUID-vkCmdSetDeviceMask-commandBuffer-recording  
   `commandBuffer` **must** be in the [recording state](#commandbuffers-lifecycle)
 - [](#VUID-vkCmdSetDeviceMask-commandBuffer-cmdpool)VUID-vkCmdSetDeviceMask-commandBuffer-cmdpool  
-  The `VkCommandPool` that `commandBuffer` was allocated from **must** support graphics, compute, or transfer operations
+  The `VkCommandPool` that `commandBuffer` was allocated from **must** support VK\_QUEUE\_COMPUTE\_BIT, VK\_QUEUE\_GRAPHICS\_BIT, or VK\_QUEUE\_TRANSFER\_BIT operations
 
 Host Synchronization
 
@@ -71,9 +71,9 @@ Both
 
 Both
 
-Graphics  
-Compute  
-Transfer
+VK\_QUEUE\_COMPUTE\_BIT  
+VK\_QUEUE\_GRAPHICS\_BIT  
+VK\_QUEUE\_TRANSFER\_BIT
 
 State
 

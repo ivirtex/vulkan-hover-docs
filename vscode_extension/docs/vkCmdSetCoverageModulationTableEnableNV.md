@@ -41,7 +41,7 @@ Valid Usage (Implicit)
 - [](#VUID-vkCmdSetCoverageModulationTableEnableNV-commandBuffer-recording)VUID-vkCmdSetCoverageModulationTableEnableNV-commandBuffer-recording  
   `commandBuffer` **must** be in the [recording state](#commandbuffers-lifecycle)
 - [](#VUID-vkCmdSetCoverageModulationTableEnableNV-commandBuffer-cmdpool)VUID-vkCmdSetCoverageModulationTableEnableNV-commandBuffer-cmdpool  
-  The `VkCommandPool` that `commandBuffer` was allocated from **must** support graphics operations
+  The `VkCommandPool` that `commandBuffer` was allocated from **must** support VK\_QUEUE\_GRAPHICS\_BIT operations
 - [](#VUID-vkCmdSetCoverageModulationTableEnableNV-videocoding)VUID-vkCmdSetCoverageModulationTableEnableNV-videocoding  
   This command **must** only be called outside of a video coding scope
 
@@ -61,7 +61,7 @@ Both
 
 Outside
 
-Graphics
+VK\_QUEUE\_GRAPHICS\_BIT
 
 State
 

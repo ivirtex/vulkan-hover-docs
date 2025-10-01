@@ -272,7 +272,7 @@ Valid Usage (Implicit)
 - [](#VUID-vkCmdTraceRaysIndirectKHR-commandBuffer-recording)VUID-vkCmdTraceRaysIndirectKHR-commandBuffer-recording  
   `commandBuffer` **must** be in the [recording state](#commandbuffers-lifecycle)
 - [](#VUID-vkCmdTraceRaysIndirectKHR-commandBuffer-cmdpool)VUID-vkCmdTraceRaysIndirectKHR-commandBuffer-cmdpool  
-  The `VkCommandPool` that `commandBuffer` was allocated from **must** support compute operations
+  The `VkCommandPool` that `commandBuffer` was allocated from **must** support VK\_QUEUE\_COMPUTE\_BIT operations
 - [](#VUID-vkCmdTraceRaysIndirectKHR-renderpass)VUID-vkCmdTraceRaysIndirectKHR-renderpass  
   This command **must** only be called outside of a render pass instance
 - [](#VUID-vkCmdTraceRaysIndirectKHR-videocoding)VUID-vkCmdTraceRaysIndirectKHR-videocoding  
@@ -294,7 +294,7 @@ Outside
 
 Outside
 
-Compute
+VK\_QUEUE\_COMPUTE\_BIT
 
 Action
 

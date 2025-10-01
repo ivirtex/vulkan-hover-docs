@@ -79,7 +79,7 @@ Valid Usage
 - [](#VUID-VkCopyImageInfo2-srcSubresource-10214)VUID-VkCopyImageInfo2-srcSubresource-10214  
   If `srcSubresource.aspectMask` is `VK_IMAGE_ASPECT_COLOR_BIT`, then `dstSubresource.aspectMask` **must** not contain both `VK_IMAGE_ASPECT_DEPTH_BIT` and `VK_IMAGE_ASPECT_STENCIL_BIT`
 - [](#VUID-VkCopyImageInfo2-dstSubresource-10215)VUID-VkCopyImageInfo2-dstSubresource-10215  
-  If `dstSubresource.aspectMask` is `VK_IMAGE_ASPECT_COLOR_BIT`, then `srSubresource.aspectMask` **must** not contain both `VK_IMAGE_ASPECT_DEPTH_BIT` and `VK_IMAGE_ASPECT_STENCIL_BIT`
+  If `dstSubresource.aspectMask` is `VK_IMAGE_ASPECT_COLOR_BIT`, then `srcSubresource.aspectMask` **must** not contain both `VK_IMAGE_ASPECT_DEPTH_BIT` and `VK_IMAGE_ASPECT_STENCIL_BIT`
 - [](#VUID-VkCopyImageInfo2-srcImage-08713)VUID-VkCopyImageInfo2-srcImage-08713  
   If `srcImage` has a [multi-planar format](#formats-multiplanar), then for each element of `pRegions`, `srcSubresource.aspectMask` **must** be a single valid [multi-planar aspect mask](#formats-multiplanar-image-aspect) bit
 - [](#VUID-VkCopyImageInfo2-dstImage-08714)VUID-VkCopyImageInfo2-dstImage-08714  

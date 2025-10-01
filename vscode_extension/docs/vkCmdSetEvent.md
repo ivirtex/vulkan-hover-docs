@@ -70,7 +70,7 @@ Valid Usage (Implicit)
 - [](#VUID-vkCmdSetEvent-commandBuffer-recording)VUID-vkCmdSetEvent-commandBuffer-recording  
   `commandBuffer` **must** be in the [recording state](#commandbuffers-lifecycle)
 - [](#VUID-vkCmdSetEvent-commandBuffer-cmdpool)VUID-vkCmdSetEvent-commandBuffer-cmdpool  
-  The `VkCommandPool` that `commandBuffer` was allocated from **must** support graphics, compute, decode, or encode operations
+  The `VkCommandPool` that `commandBuffer` was allocated from **must** support VK\_QUEUE\_COMPUTE\_BIT, VK\_QUEUE\_GRAPHICS\_BIT, VK\_QUEUE\_VIDEO\_DECODE\_BIT\_KHR, or VK\_QUEUE\_VIDEO\_ENCODE\_BIT\_KHR operations
 - [](#VUID-vkCmdSetEvent-renderpass)VUID-vkCmdSetEvent-renderpass  
   This command **must** only be called outside of a render pass instance
 - [](#VUID-vkCmdSetEvent-commonparent)VUID-vkCmdSetEvent-commonparent  
@@ -92,10 +92,10 @@ Outside
 
 Both
 
-Graphics  
-Compute  
-Decode  
-Encode
+VK\_QUEUE\_COMPUTE\_BIT  
+VK\_QUEUE\_GRAPHICS\_BIT  
+VK\_QUEUE\_VIDEO\_DECODE\_BIT\_KHR  
+VK\_QUEUE\_VIDEO\_ENCODE\_BIT\_KHR
 
 Synchronization
 

@@ -88,9 +88,9 @@ Outside
 
 Outside
 
-Transfer  
-Graphics  
-Compute
+VK\_QUEUE\_COMPUTE\_BIT  
+VK\_QUEUE\_GRAPHICS\_BIT  
+VK\_QUEUE\_TRANSFER\_BIT
 
 Action
 

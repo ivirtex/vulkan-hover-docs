@@ -222,7 +222,7 @@ Valid Usage (Implicit)
 - [](#VUID-vkCmdBlitImage-commandBuffer-recording)VUID-vkCmdBlitImage-commandBuffer-recording  
   `commandBuffer` **must** be in the [recording state](#commandbuffers-lifecycle)
 - [](#VUID-vkCmdBlitImage-commandBuffer-cmdpool)VUID-vkCmdBlitImage-commandBuffer-cmdpool  
-  The `VkCommandPool` that `commandBuffer` was allocated from **must** support graphics operations
+  The `VkCommandPool` that `commandBuffer` was allocated from **must** support VK\_QUEUE\_GRAPHICS\_BIT operations
 - [](#VUID-vkCmdBlitImage-renderpass)VUID-vkCmdBlitImage-renderpass  
   This command **must** only be called outside of a render pass instance
 - [](#VUID-vkCmdBlitImage-videocoding)VUID-vkCmdBlitImage-videocoding  
@@ -248,7 +248,7 @@ Outside
 
 Outside
 
-Graphics
+VK\_QUEUE\_GRAPHICS\_BIT
 
 Action
 

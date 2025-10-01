@@ -58,7 +58,7 @@ Valid Usage (Implicit)
 - [](#VUID-vkQueueBindSparse-fence-parameter)VUID-vkQueueBindSparse-fence-parameter  
   If `fence` is not [VK\_NULL\_HANDLE](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_NULL_HANDLE.html), `fence` **must** be a valid [VkFence](https://registry.khronos.org/vulkan/specs/latest/man/html/VkFence.html) handle
 - [](#VUID-vkQueueBindSparse-queuetype)VUID-vkQueueBindSparse-queuetype  
-  The `queue` **must** support sparse binding operations
+  The `queue` **must** support VK\_QUEUE\_SPARSE\_BINDING\_BIT operations
 - [](#VUID-vkQueueBindSparse-commonparent)VUID-vkQueueBindSparse-commonparent  
   Both of `fence`, and `queue` that are valid handles of non-ignored parameters **must** have been created, allocated, or retrieved from the same [VkDevice](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDevice.html)
 
@@ -77,7 +77,7 @@ Command Properties
 
 \-
 
-SPARSE\_BINDING
+VK\_QUEUE\_SPARSE\_BINDING\_BIT
 
 \-
 

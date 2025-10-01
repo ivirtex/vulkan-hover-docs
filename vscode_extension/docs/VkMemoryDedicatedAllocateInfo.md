@@ -43,11 +43,11 @@ Valid Usage
 - [](#VUID-VkMemoryDedicatedAllocateInfo-image-01432)VUID-VkMemoryDedicatedAllocateInfo-image-01432  
   At least one of `image` and `buffer` **must** be [VK\_NULL\_HANDLE](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_NULL_HANDLE.html)
 - [](#VUID-VkMemoryDedicatedAllocateInfo-image-02964)VUID-VkMemoryDedicatedAllocateInfo-image-02964  
-  If `image` is not [VK\_NULL\_HANDLE](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_NULL_HANDLE.html) and the memory is not an imported Android Hardware Buffer or an imported QNX Screen buffer , `VkMemoryAllocateInfo`::`allocationSize` **must** equal the `VkMemoryRequirements`::`size` of the image
+  If `image` is not [VK\_NULL\_HANDLE](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_NULL_HANDLE.html) and the memory is not an imported Android Hardware Buffer or an imported QNX Screen buffer , `VkMemoryAllocateInfo`::`allocationSize` **must** be greater than or equal to the `VkMemoryRequirements`::`size` of the image
 - [](#VUID-VkMemoryDedicatedAllocateInfo-image-01434)VUID-VkMemoryDedicatedAllocateInfo-image-01434  
   If `image` is not [VK\_NULL\_HANDLE](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_NULL_HANDLE.html), `image` **must** have been created without `VK_IMAGE_CREATE_SPARSE_BINDING_BIT` set in [VkImageCreateInfo](https://registry.khronos.org/vulkan/specs/latest/man/html/VkImageCreateInfo.html)::`flags`
 - [](#VUID-VkMemoryDedicatedAllocateInfo-buffer-02965)VUID-VkMemoryDedicatedAllocateInfo-buffer-02965  
-  If `buffer` is not [VK\_NULL\_HANDLE](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_NULL_HANDLE.html) and the memory is not an imported Android Hardware Buffer or an imported QNX Screen buffer , `VkMemoryAllocateInfo`::`allocationSize` **must** equal the `VkMemoryRequirements`::`size` of the buffer
+  If `buffer` is not [VK\_NULL\_HANDLE](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_NULL_HANDLE.html) and the memory is not an imported Android Hardware Buffer or an imported QNX Screen buffer , `VkMemoryAllocateInfo`::`allocationSize` **must** be greater than or equal to the `VkMemoryRequirements`::`size` of the buffer
 - [](#VUID-VkMemoryDedicatedAllocateInfo-buffer-01436)VUID-VkMemoryDedicatedAllocateInfo-buffer-01436  
   If `buffer` is not [VK\_NULL\_HANDLE](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_NULL_HANDLE.html), `buffer` **must** have been created without `VK_BUFFER_CREATE_SPARSE_BINDING_BIT` set in [VkBufferCreateInfo](https://registry.khronos.org/vulkan/specs/latest/man/html/VkBufferCreateInfo.html)::`flags`
 - [](#VUID-VkMemoryDedicatedAllocateInfo-image-01876)VUID-VkMemoryDedicatedAllocateInfo-image-01876  

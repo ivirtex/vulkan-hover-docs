@@ -43,7 +43,7 @@ Valid Usage (Implicit)
 - [](#VUID-vkCmdSetConservativeRasterizationModeEXT-commandBuffer-recording)VUID-vkCmdSetConservativeRasterizationModeEXT-commandBuffer-recording  
   `commandBuffer` **must** be in the [recording state](#commandbuffers-lifecycle)
 - [](#VUID-vkCmdSetConservativeRasterizationModeEXT-commandBuffer-cmdpool)VUID-vkCmdSetConservativeRasterizationModeEXT-commandBuffer-cmdpool  
-  The `VkCommandPool` that `commandBuffer` was allocated from **must** support graphics operations
+  The `VkCommandPool` that `commandBuffer` was allocated from **must** support VK\_QUEUE\_GRAPHICS\_BIT operations
 - [](#VUID-vkCmdSetConservativeRasterizationModeEXT-videocoding)VUID-vkCmdSetConservativeRasterizationModeEXT-videocoding  
   This command **must** only be called outside of a video coding scope
 
@@ -63,7 +63,7 @@ Both
 
 Outside
 
-Graphics
+VK\_QUEUE\_GRAPHICS\_BIT
 
 State
 

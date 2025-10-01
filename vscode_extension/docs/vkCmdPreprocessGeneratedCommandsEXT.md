@@ -56,7 +56,7 @@ Valid Usage (Implicit)
 - [](#VUID-vkCmdPreprocessGeneratedCommandsEXT-commandBuffer-recording)VUID-vkCmdPreprocessGeneratedCommandsEXT-commandBuffer-recording  
   `commandBuffer` **must** be in the [recording state](#commandbuffers-lifecycle)
 - [](#VUID-vkCmdPreprocessGeneratedCommandsEXT-commandBuffer-cmdpool)VUID-vkCmdPreprocessGeneratedCommandsEXT-commandBuffer-cmdpool  
-  The `VkCommandPool` that `commandBuffer` was allocated from **must** support graphics, or compute operations
+  The `VkCommandPool` that `commandBuffer` was allocated from **must** support VK\_QUEUE\_COMPUTE\_BIT, or VK\_QUEUE\_GRAPHICS\_BIT operations
 - [](#VUID-vkCmdPreprocessGeneratedCommandsEXT-renderpass)VUID-vkCmdPreprocessGeneratedCommandsEXT-renderpass  
   This command **must** only be called outside of a render pass instance
 - [](#VUID-vkCmdPreprocessGeneratedCommandsEXT-videocoding)VUID-vkCmdPreprocessGeneratedCommandsEXT-videocoding  
@@ -82,8 +82,8 @@ Outside
 
 Outside
 
-Graphics  
-Compute
+VK\_QUEUE\_COMPUTE\_BIT  
+VK\_QUEUE\_GRAPHICS\_BIT
 
 Action
 

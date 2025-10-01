@@ -70,7 +70,7 @@ Valid Usage (Implicit)
 - [](#VUID-vkCmdDispatchDataGraphARM-commandBuffer-recording)VUID-vkCmdDispatchDataGraphARM-commandBuffer-recording  
   `commandBuffer` **must** be in the [recording state](#commandbuffers-lifecycle)
 - [](#VUID-vkCmdDispatchDataGraphARM-commandBuffer-cmdpool)VUID-vkCmdDispatchDataGraphARM-commandBuffer-cmdpool  
-  The `VkCommandPool` that `commandBuffer` was allocated from **must** support data\_graph operations
+  The `VkCommandPool` that `commandBuffer` was allocated from **must** support VK\_QUEUE\_DATA\_GRAPH\_BIT\_ARM operations
 - [](#VUID-vkCmdDispatchDataGraphARM-renderpass)VUID-vkCmdDispatchDataGraphARM-renderpass  
   This command **must** only be called outside of a render pass instance
 - [](#VUID-vkCmdDispatchDataGraphARM-videocoding)VUID-vkCmdDispatchDataGraphARM-videocoding  
@@ -94,7 +94,7 @@ Outside
 
 Outside
 
-Data\_Graph
+VK\_QUEUE\_DATA\_GRAPH\_BIT\_ARM
 
 Action
 

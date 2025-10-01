@@ -55,7 +55,7 @@ Valid Usage (Implicit)
 - [](#VUID-vkCmdSetRenderingInputAttachmentIndices-commandBuffer-recording)VUID-vkCmdSetRenderingInputAttachmentIndices-commandBuffer-recording  
   `commandBuffer` **must** be in the [recording state](#commandbuffers-lifecycle)
 - [](#VUID-vkCmdSetRenderingInputAttachmentIndices-commandBuffer-cmdpool)VUID-vkCmdSetRenderingInputAttachmentIndices-commandBuffer-cmdpool  
-  The `VkCommandPool` that `commandBuffer` was allocated from **must** support graphics operations
+  The `VkCommandPool` that `commandBuffer` was allocated from **must** support VK\_QUEUE\_GRAPHICS\_BIT operations
 - [](#VUID-vkCmdSetRenderingInputAttachmentIndices-renderpass)VUID-vkCmdSetRenderingInputAttachmentIndices-renderpass  
   This command **must** only be called inside of a render pass instance
 - [](#VUID-vkCmdSetRenderingInputAttachmentIndices-videocoding)VUID-vkCmdSetRenderingInputAttachmentIndices-videocoding  
@@ -77,7 +77,7 @@ Inside
 
 Outside
 
-Graphics
+VK\_QUEUE\_GRAPHICS\_BIT
 
 State
 

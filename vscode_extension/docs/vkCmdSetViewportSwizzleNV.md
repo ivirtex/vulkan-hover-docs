@@ -47,7 +47,7 @@ Valid Usage (Implicit)
 - [](#VUID-vkCmdSetViewportSwizzleNV-commandBuffer-recording)VUID-vkCmdSetViewportSwizzleNV-commandBuffer-recording  
   `commandBuffer` **must** be in the [recording state](#commandbuffers-lifecycle)
 - [](#VUID-vkCmdSetViewportSwizzleNV-commandBuffer-cmdpool)VUID-vkCmdSetViewportSwizzleNV-commandBuffer-cmdpool  
-  The `VkCommandPool` that `commandBuffer` was allocated from **must** support graphics operations
+  The `VkCommandPool` that `commandBuffer` was allocated from **must** support VK\_QUEUE\_GRAPHICS\_BIT operations
 - [](#VUID-vkCmdSetViewportSwizzleNV-videocoding)VUID-vkCmdSetViewportSwizzleNV-videocoding  
   This command **must** only be called outside of a video coding scope
 - [](#VUID-vkCmdSetViewportSwizzleNV-viewportCount-arraylength)VUID-vkCmdSetViewportSwizzleNV-viewportCount-arraylength  
@@ -69,7 +69,7 @@ Both
 
 Outside
 
-Graphics
+VK\_QUEUE\_GRAPHICS\_BIT
 
 State
 

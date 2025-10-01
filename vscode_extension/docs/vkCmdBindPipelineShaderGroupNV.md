@@ -50,7 +50,7 @@ Valid Usage (Implicit)
 - [](#VUID-vkCmdBindPipelineShaderGroupNV-commandBuffer-recording)VUID-vkCmdBindPipelineShaderGroupNV-commandBuffer-recording  
   `commandBuffer` **must** be in the [recording state](#commandbuffers-lifecycle)
 - [](#VUID-vkCmdBindPipelineShaderGroupNV-commandBuffer-cmdpool)VUID-vkCmdBindPipelineShaderGroupNV-commandBuffer-cmdpool  
-  The `VkCommandPool` that `commandBuffer` was allocated from **must** support graphics, or compute operations
+  The `VkCommandPool` that `commandBuffer` was allocated from **must** support VK\_QUEUE\_COMPUTE\_BIT, or VK\_QUEUE\_GRAPHICS\_BIT operations
 - [](#VUID-vkCmdBindPipelineShaderGroupNV-videocoding)VUID-vkCmdBindPipelineShaderGroupNV-videocoding  
   This command **must** only be called outside of a video coding scope
 - [](#VUID-vkCmdBindPipelineShaderGroupNV-commonparent)VUID-vkCmdBindPipelineShaderGroupNV-commonparent  
@@ -72,8 +72,8 @@ Both
 
 Outside
 
-Graphics  
-Compute
+VK\_QUEUE\_COMPUTE\_BIT  
+VK\_QUEUE\_GRAPHICS\_BIT
 
 State
 

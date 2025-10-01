@@ -53,7 +53,7 @@ Valid Usage (Implicit)
 - [](#VUID-vkCmdSetFrontFace-commandBuffer-recording)VUID-vkCmdSetFrontFace-commandBuffer-recording  
   `commandBuffer` **must** be in the [recording state](#commandbuffers-lifecycle)
 - [](#VUID-vkCmdSetFrontFace-commandBuffer-cmdpool)VUID-vkCmdSetFrontFace-commandBuffer-cmdpool  
-  The `VkCommandPool` that `commandBuffer` was allocated from **must** support graphics operations
+  The `VkCommandPool` that `commandBuffer` was allocated from **must** support VK\_QUEUE\_GRAPHICS\_BIT operations
 - [](#VUID-vkCmdSetFrontFace-videocoding)VUID-vkCmdSetFrontFace-videocoding  
   This command **must** only be called outside of a video coding scope
 
@@ -73,7 +73,7 @@ Both
 
 Outside
 
-Graphics
+VK\_QUEUE\_GRAPHICS\_BIT
 
 State
 

@@ -33,7 +33,7 @@ Valid Usage (Implicit)
 - [](#VUID-vkCmdSetPerformanceStreamMarkerINTEL-commandBuffer-recording)VUID-vkCmdSetPerformanceStreamMarkerINTEL-commandBuffer-recording  
   `commandBuffer` **must** be in the [recording state](#commandbuffers-lifecycle)
 - [](#VUID-vkCmdSetPerformanceStreamMarkerINTEL-commandBuffer-cmdpool)VUID-vkCmdSetPerformanceStreamMarkerINTEL-commandBuffer-cmdpool  
-  The `VkCommandPool` that `commandBuffer` was allocated from **must** support graphics, compute, or transfer operations
+  The `VkCommandPool` that `commandBuffer` was allocated from **must** support VK\_QUEUE\_COMPUTE\_BIT, VK\_QUEUE\_GRAPHICS\_BIT, or VK\_QUEUE\_TRANSFER\_BIT operations
 - [](#VUID-vkCmdSetPerformanceStreamMarkerINTEL-videocoding)VUID-vkCmdSetPerformanceStreamMarkerINTEL-videocoding  
   This command **must** only be called outside of a video coding scope
 
@@ -53,9 +53,9 @@ Both
 
 Outside
 
-Graphics  
-Compute  
-Transfer
+VK\_QUEUE\_COMPUTE\_BIT  
+VK\_QUEUE\_GRAPHICS\_BIT  
+VK\_QUEUE\_TRANSFER\_BIT
 
 Action  
 State

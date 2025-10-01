@@ -2,13 +2,13 @@
 
 ## Name
 
-vkCmdCopyMemoryToImageIndirectNV - Copy data from a memory region into an image
+vkCmdCopyMemoryToImageIndirectNV - Copy data from a memory region to an image object
 
 
 
 ## [](#_c_specification)C Specification
 
-To copy data from a memory region to an image object by specifying copy parameters in a buffer, call:
+To copy data from a memory region to an image object by specifying copy parameters in memory, call:
 
 ```c++
 // Provided by VK_NV_copy_memory_indirect
@@ -25,21 +25,30 @@ void vkCmdCopyMemoryToImageIndirectNV(
 ## [](#_parameters)Parameters
 
 - `commandBuffer` is the command buffer into which the command will be recorded.
-- `copyBufferAddress` is the buffer address specifying the copy parameters. This buffer is laid out in memory as an array of [VkCopyMemoryToImageIndirectCommandNV](https://registry.khronos.org/vulkan/specs/latest/man/html/VkCopyMemoryToImageIndirectCommandNV.html) structures.
-- `copyCount` is the number of copies to execute, and can be zero.
+- `copyBufferAddress` is the address specifying the copy parameters which are laid out in memory as an array of [VkCopyMemoryToImageIndirectCommandNV](https://registry.khronos.org/vulkan/specs/latest/man/html/VkCopyMemoryToImageIndirectCommandNV.html) structures.
+- `copyCount` is the number of copies to execute, and **can** be zero.
 - `stride` is the byte stride between successive sets of copy parameters.
 - `dstImage` is the destination image.
 - `dstImageLayout` is the layout of the destination image subresources for the copy.
-- `pImageSubresources` is a pointer to an array of size `copyCount` of [VkImageSubresourceLayers](https://registry.khronos.org/vulkan/specs/latest/man/html/VkImageSubresourceLayers.html) used to specify the specific image subresource of the destination image data for that copy.
+- `pImageSubresources` is a pointer to an array of `copyCount` [VkImageSubresourceLayers](https://registry.khronos.org/vulkan/specs/latest/man/html/VkImageSubresourceLayers.html) structures, specifying the image subresources of the destination image data for the copy operation.
 
 ## [](#_description)Description
 
-Each region in `copyBufferAddress` is copied from the source memory region to an image region in the destination image. If the destination image is of type `VK_IMAGE_TYPE_3D`, the starting slice and number of slices to copy are specified in `pImageSubresources->baseArrayLayer` and `pImageSubresources->layerCount` respectively. The copy **must** be performed on a queue that supports indirect copy operations, see [VkPhysicalDeviceCopyMemoryIndirectPropertiesNV](https://registry.khronos.org/vulkan/specs/latest/man/html/VkPhysicalDeviceCopyMemoryIndirectPropertiesNV.html).
+Each region in `copyBufferAddress` is copied from the source memory region to an image region in the destination image. If the destination image is of type `VK_IMAGE_TYPE_3D`, the starting slice and number of slices to copy are specified in `pImageSubresources->baseArrayLayer` and `pImageSubresources->layerCount` respectively.
 
 Valid Usage
 
 - [](#VUID-vkCmdCopyMemoryToImageIndirectNV-None-07660)VUID-vkCmdCopyMemoryToImageIndirectNV-None-07660  
   The [`indirectCopy`](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#features-indirectCopy) feature **must** be enabled
+- [](#VUID-vkCmdCopyMemoryToImageIndirectNV-offset-07676)VUID-vkCmdCopyMemoryToImageIndirectNV-offset-07676  
+  `copyBufferAddress` **must** be 4 byte aligned
+- [](#VUID-vkCmdCopyMemoryToImageIndirectNV-stride-07677)VUID-vkCmdCopyMemoryToImageIndirectNV-stride-07677  
+  `stride` **must** be a multiple of `4` and **must** be greater than or equal to sizeof([VkCopyMemoryToImageIndirectCommandNV](https://registry.khronos.org/vulkan/specs/latest/man/html/VkCopyMemoryToImageIndirectCommandNV.html))
+- [](#VUID-vkCmdCopyMemoryToImageIndirectNV-commandBuffer-10956)VUID-vkCmdCopyMemoryToImageIndirectNV-commandBuffer-10956  
+  The [VkCommandPool](https://registry.khronos.org/vulkan/specs/latest/man/html/VkCommandPool.html) that `commandBuffer` was allocated from **must** support at least one of the queue types specified in [VkPhysicalDeviceCopyMemoryIndirectPropertiesKHR](https://registry.khronos.org/vulkan/specs/latest/man/html/VkPhysicalDeviceCopyMemoryIndirectPropertiesKHR.html)::`supportedQueues`
+
+<!--THE END-->
+
 - [](#VUID-vkCmdCopyMemoryToImageIndirectNV-dstImage-07661)VUID-vkCmdCopyMemoryToImageIndirectNV-dstImage-07661  
   `dstImage` **must** not be a protected image
 - [](#VUID-vkCmdCopyMemoryToImageIndirectNV-aspectMask-07662)VUID-vkCmdCopyMemoryToImageIndirectNV-aspectMask-07662  
@@ -60,21 +69,17 @@ Valid Usage
 - [](#VUID-vkCmdCopyMemoryToImageIndirectNV-dstImageLayout-07669)VUID-vkCmdCopyMemoryToImageIndirectNV-dstImageLayout-07669  
   `dstImageLayout` **must** be `VK_IMAGE_LAYOUT_TRANSFER_DST_OPTIMAL`, `VK_IMAGE_LAYOUT_SHARED_PRESENT_KHR`, or `VK_IMAGE_LAYOUT_GENERAL`
 - [](#VUID-vkCmdCopyMemoryToImageIndirectNV-mipLevel-07670)VUID-vkCmdCopyMemoryToImageIndirectNV-mipLevel-07670  
-  The specified `mipLevel` of each region **must** be less than the `mipLevels` specified in [VkImageCreateInfo](https://registry.khronos.org/vulkan/specs/latest/man/html/VkImageCreateInfo.html) when `dstImage` was created
+  The specified `mipLevel` of each region in `pImageSubresources` **must** be less than the `mipLevels` specified in [VkImageCreateInfo](https://registry.khronos.org/vulkan/specs/latest/man/html/VkImageCreateInfo.html) when `dstImage` was created
 - [](#VUID-vkCmdCopyMemoryToImageIndirectNV-layerCount-08764)VUID-vkCmdCopyMemoryToImageIndirectNV-layerCount-08764  
-  If `layerCount` is not `VK_REMAINING_ARRAY_LAYERS`, the specified `baseArrayLayer` + `layerCount` of each region **must** be less than or equal to the `arrayLayers` specified in [VkImageCreateInfo](https://registry.khronos.org/vulkan/specs/latest/man/html/VkImageCreateInfo.html) when `dstImage` was created
-- [](#VUID-vkCmdCopyMemoryToImageIndirectNV-imageOffset-07672)VUID-vkCmdCopyMemoryToImageIndirectNV-imageOffset-07672  
-  The `imageOffset` and `imageExtent` members of each region **must** respect the image transfer granularity requirements of `commandBuffer`’s command pool’s queue family, as described in [VkQueueFamilyProperties](https://registry.khronos.org/vulkan/specs/latest/man/html/VkQueueFamilyProperties.html)
+  If the specified `layerCount` of each region in `pImageSubresources` is not `VK_REMAINING_ARRAY_LAYERS`, the specified `baseArrayLayer` + `layerCount` of each region in `pImageSubresources` **must** be less than or equal to the `arrayLayers` specified in [VkImageCreateInfo](https://registry.khronos.org/vulkan/specs/latest/man/html/VkImageCreateInfo.html) when `dstImage` was created
 - [](#VUID-vkCmdCopyMemoryToImageIndirectNV-dstImage-07673)VUID-vkCmdCopyMemoryToImageIndirectNV-dstImage-07673  
   `dstImage` **must** not have been created with `flags` containing `VK_IMAGE_CREATE_SUBSAMPLED_BIT_EXT`
 - [](#VUID-vkCmdCopyMemoryToImageIndirectNV-commandBuffer-07674)VUID-vkCmdCopyMemoryToImageIndirectNV-commandBuffer-07674  
   If the queue family used to create the [VkCommandPool](https://registry.khronos.org/vulkan/specs/latest/man/html/VkCommandPool.html) which `commandBuffer` was allocated from does not support `VK_QUEUE_GRAPHICS_BIT`, for each region, the `aspectMask` member of `pImageSubresources` **must** not be `VK_IMAGE_ASPECT_DEPTH_BIT` or `VK_IMAGE_ASPECT_STENCIL_BIT`
-- [](#VUID-vkCmdCopyMemoryToImageIndirectNV-imageOffset-07675)VUID-vkCmdCopyMemoryToImageIndirectNV-imageOffset-07675  
-  For each region in `copyBufferAddress`, `imageOffset.y` and (`imageExtent.height` + `imageOffset.y`) **must** both be greater than or equal to `0` and less than or equal to the height of the specified subresource
-- [](#VUID-vkCmdCopyMemoryToImageIndirectNV-offset-07676)VUID-vkCmdCopyMemoryToImageIndirectNV-offset-07676  
-  `offset` **must** be 4 byte aligned
-- [](#VUID-vkCmdCopyMemoryToImageIndirectNV-stride-07677)VUID-vkCmdCopyMemoryToImageIndirectNV-stride-07677  
-  `stride` **must** be a multiple of `4` and **must** be greater than or equal to sizeof(`VkCopyMemoryToImageIndirectCommandNV`)
+- [](#VUID-vkCmdCopyMemoryToImageIndirectNV-dstImage-10974)VUID-vkCmdCopyMemoryToImageIndirectNV-dstImage-10974  
+  The format features of `dstImage` **must** contain `VK_FORMAT_FEATURE_TRANSFER_DST_BIT`
+- [](#VUID-vkCmdCopyMemoryToImageIndirectNV-copyBufferAddress-10975)VUID-vkCmdCopyMemoryToImageIndirectNV-copyBufferAddress-10975  
+  Any of the source or destination memory regions specified in `copyBufferAddress` **must** not overlap with any of the specified destination memory regions
 
 Valid Usage (Implicit)
 
@@ -91,7 +96,7 @@ Valid Usage (Implicit)
 - [](#VUID-vkCmdCopyMemoryToImageIndirectNV-commandBuffer-recording)VUID-vkCmdCopyMemoryToImageIndirectNV-commandBuffer-recording  
   `commandBuffer` **must** be in the [recording state](#commandbuffers-lifecycle)
 - [](#VUID-vkCmdCopyMemoryToImageIndirectNV-commandBuffer-cmdpool)VUID-vkCmdCopyMemoryToImageIndirectNV-commandBuffer-cmdpool  
-  The `VkCommandPool` that `commandBuffer` was allocated from **must** support transfer, graphics, or compute operations
+  The `VkCommandPool` that `commandBuffer` was allocated from **must** support VK\_QUEUE\_COMPUTE\_BIT, VK\_QUEUE\_GRAPHICS\_BIT, or VK\_QUEUE\_TRANSFER\_BIT operations
 - [](#VUID-vkCmdCopyMemoryToImageIndirectNV-renderpass)VUID-vkCmdCopyMemoryToImageIndirectNV-renderpass  
   This command **must** only be called outside of a render pass instance
 - [](#VUID-vkCmdCopyMemoryToImageIndirectNV-videocoding)VUID-vkCmdCopyMemoryToImageIndirectNV-videocoding  
@@ -117,9 +122,9 @@ Outside
 
 Outside
 
-Transfer  
-Graphics  
-Compute
+VK\_QUEUE\_COMPUTE\_BIT  
+VK\_QUEUE\_GRAPHICS\_BIT  
+VK\_QUEUE\_TRANSFER\_BIT
 
 Action
 

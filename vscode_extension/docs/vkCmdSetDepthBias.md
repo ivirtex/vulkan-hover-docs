@@ -44,7 +44,7 @@ Valid Usage (Implicit)
 - [](#VUID-vkCmdSetDepthBias-commandBuffer-recording)VUID-vkCmdSetDepthBias-commandBuffer-recording  
   `commandBuffer` **must** be in the [recording state](#commandbuffers-lifecycle)
 - [](#VUID-vkCmdSetDepthBias-commandBuffer-cmdpool)VUID-vkCmdSetDepthBias-commandBuffer-cmdpool  
-  The `VkCommandPool` that `commandBuffer` was allocated from **must** support graphics operations
+  The `VkCommandPool` that `commandBuffer` was allocated from **must** support VK\_QUEUE\_GRAPHICS\_BIT operations
 - [](#VUID-vkCmdSetDepthBias-videocoding)VUID-vkCmdSetDepthBias-videocoding  
   This command **must** only be called outside of a video coding scope
 
@@ -64,7 +64,7 @@ Both
 
 Outside
 
-Graphics
+VK\_QUEUE\_GRAPHICS\_BIT
 
 State
 

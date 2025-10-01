@@ -90,7 +90,7 @@ Valid Usage
 - [](#VUID-vkCmdCopyImage-srcSubresource-10214)VUID-vkCmdCopyImage-srcSubresource-10214  
   If `srcSubresource.aspectMask` is `VK_IMAGE_ASPECT_COLOR_BIT`, then `dstSubresource.aspectMask` **must** not contain both `VK_IMAGE_ASPECT_DEPTH_BIT` and `VK_IMAGE_ASPECT_STENCIL_BIT`
 - [](#VUID-vkCmdCopyImage-dstSubresource-10215)VUID-vkCmdCopyImage-dstSubresource-10215  
-  If `dstSubresource.aspectMask` is `VK_IMAGE_ASPECT_COLOR_BIT`, then `srSubresource.aspectMask` **must** not contain both `VK_IMAGE_ASPECT_DEPTH_BIT` and `VK_IMAGE_ASPECT_STENCIL_BIT`
+  If `dstSubresource.aspectMask` is `VK_IMAGE_ASPECT_COLOR_BIT`, then `srcSubresource.aspectMask` **must** not contain both `VK_IMAGE_ASPECT_DEPTH_BIT` and `VK_IMAGE_ASPECT_STENCIL_BIT`
 - [](#VUID-vkCmdCopyImage-srcImage-08713)VUID-vkCmdCopyImage-srcImage-08713  
   If `srcImage` has a [multi-planar format](#formats-multiplanar), then for each element of `pRegions`, `srcSubresource.aspectMask` **must** be a single valid [multi-planar aspect mask](#formats-multiplanar-image-aspect) bit
 - [](#VUID-vkCmdCopyImage-dstImage-08714)VUID-vkCmdCopyImage-dstImage-08714  
@@ -223,7 +223,7 @@ Valid Usage (Implicit)
 - [](#VUID-vkCmdCopyImage-commandBuffer-recording)VUID-vkCmdCopyImage-commandBuffer-recording  
   `commandBuffer` **must** be in the [recording state](#commandbuffers-lifecycle)
 - [](#VUID-vkCmdCopyImage-commandBuffer-cmdpool)VUID-vkCmdCopyImage-commandBuffer-cmdpool  
-  The `VkCommandPool` that `commandBuffer` was allocated from **must** support transfer, graphics, or compute operations
+  The `VkCommandPool` that `commandBuffer` was allocated from **must** support VK\_QUEUE\_COMPUTE\_BIT, VK\_QUEUE\_GRAPHICS\_BIT, or VK\_QUEUE\_TRANSFER\_BIT operations
 - [](#VUID-vkCmdCopyImage-renderpass)VUID-vkCmdCopyImage-renderpass  
   This command **must** only be called outside of a render pass instance
 - [](#VUID-vkCmdCopyImage-videocoding)VUID-vkCmdCopyImage-videocoding  
@@ -249,9 +249,9 @@ Outside
 
 Outside
 
-Transfer  
-Graphics  
-Compute
+VK\_QUEUE\_COMPUTE\_BIT  
+VK\_QUEUE\_GRAPHICS\_BIT  
+VK\_QUEUE\_TRANSFER\_BIT
 
 Action
 

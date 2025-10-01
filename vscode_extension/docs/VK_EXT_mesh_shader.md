@@ -27,6 +27,7 @@ or
 ## [](#_api_interactions)API Interactions
 
 - Interacts with VK\_VERSION\_1\_2
+- Interacts with VK\_AMD\_draw\_indirect\_count
 - Interacts with VK\_EXT\_device\_generated\_commands
 - Interacts with VK\_KHR\_draw\_indirect\_count
 - Interacts with VK\_KHR\_fragment\_shading\_rate
@@ -97,7 +98,7 @@ This extension also adds support for the following SPIR-V extension in Vulkan:
 - [vkCmdDrawMeshTasksEXT](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdDrawMeshTasksEXT.html)
 - [vkCmdDrawMeshTasksIndirectEXT](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdDrawMeshTasksIndirectEXT.html)
 
-If [VK\_KHR\_draw\_indirect\_count](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_KHR_draw_indirect_count.html) or [Vulkan Version 1.2](#versions-1.2) is supported:
+If [Vulkan Version 1.2](#versions-1.2) or [VK\_KHR\_draw\_indirect\_count](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_KHR_draw_indirect_count.html) or [VK\_AMD\_draw\_indirect\_count](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_AMD_draw_indirect_count.html) is supported:
 
 - [vkCmdDrawMeshTasksIndirectCountEXT](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdDrawMeshTasksIndirectCountEXT.html)
 

@@ -286,7 +286,7 @@ Valid Usage (Implicit)
 - [](#VUID-vkCmdDecodeVideoKHR-commandBuffer-recording)VUID-vkCmdDecodeVideoKHR-commandBuffer-recording  
   `commandBuffer` **must** be in the [recording state](#commandbuffers-lifecycle)
 - [](#VUID-vkCmdDecodeVideoKHR-commandBuffer-cmdpool)VUID-vkCmdDecodeVideoKHR-commandBuffer-cmdpool  
-  The `VkCommandPool` that `commandBuffer` was allocated from **must** support decode operations
+  The `VkCommandPool` that `commandBuffer` was allocated from **must** support VK\_QUEUE\_VIDEO\_DECODE\_BIT\_KHR operations
 - [](#VUID-vkCmdDecodeVideoKHR-renderpass)VUID-vkCmdDecodeVideoKHR-renderpass  
   This command **must** only be called outside of a render pass instance
 - [](#VUID-vkCmdDecodeVideoKHR-videocoding)VUID-vkCmdDecodeVideoKHR-videocoding  
@@ -309,7 +309,7 @@ Outside
 
 Inside
 
-Decode
+VK\_QUEUE\_VIDEO\_DECODE\_BIT\_KHR
 
 Action
 

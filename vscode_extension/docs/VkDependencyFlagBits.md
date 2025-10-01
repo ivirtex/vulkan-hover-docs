@@ -38,6 +38,7 @@ typedef enum VkDependencyFlagBits {
 - `VK_DEPENDENCY_DEVICE_GROUP_BIT` specifies that dependencies are [non-device-local](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#synchronization-device-local-dependencies).
 - `VK_DEPENDENCY_FEEDBACK_LOOP_BIT_EXT` specifies that the render pass will write to and read from the same image with [feedback loop enabled](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#renderpass-feedbackloop).
 - `VK_DEPENDENCY_QUEUE_FAMILY_OWNERSHIP_TRANSFER_USE_ALL_STAGES_BIT_KHR` specifies that source and destination stages are not ignored when performing a [queue family ownership transfer](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#synchronization-queue-transfers).
+- `VK_DEPENDENCY_ASYMMETRIC_EVENT_BIT_KHR` specifies that [vkCmdSetEvent2](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdSetEvent2.html) **must** only include the [source stage mask](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#synchronization-pipeline-stages-masks) of the first synchronization scope, and that [vkCmdWaitEvents2](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdWaitEvents2.html) **must** specify the complete barrier.
 
 ## [](#_see_also)See Also
 

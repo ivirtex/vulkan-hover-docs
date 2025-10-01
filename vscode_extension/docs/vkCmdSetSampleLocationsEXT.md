@@ -40,7 +40,7 @@ Valid Usage (Implicit)
 - [](#VUID-vkCmdSetSampleLocationsEXT-commandBuffer-recording)VUID-vkCmdSetSampleLocationsEXT-commandBuffer-recording  
   `commandBuffer` **must** be in the [recording state](#commandbuffers-lifecycle)
 - [](#VUID-vkCmdSetSampleLocationsEXT-commandBuffer-cmdpool)VUID-vkCmdSetSampleLocationsEXT-commandBuffer-cmdpool  
-  The `VkCommandPool` that `commandBuffer` was allocated from **must** support graphics operations
+  The `VkCommandPool` that `commandBuffer` was allocated from **must** support VK\_QUEUE\_GRAPHICS\_BIT operations
 - [](#VUID-vkCmdSetSampleLocationsEXT-videocoding)VUID-vkCmdSetSampleLocationsEXT-videocoding  
   This command **must** only be called outside of a video coding scope
 
@@ -60,7 +60,7 @@ Both
 
 Outside
 
-Graphics
+VK\_QUEUE\_GRAPHICS\_BIT
 
 State
 

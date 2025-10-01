@@ -45,7 +45,7 @@ No known IP claims.
 
 ## [](#_description)Description
 
-This extension is based on the `VK_EXT_robustness2` extension. This extension adds stricter requirements for how out of bounds reads and writes are handled. Most accesses **must** be tightly bounds-checked, out of bounds writes **must** be discarded, out of bound reads **must** return zero. Rather than allowing multiple possible (0,0,0,x) vectors, the out of bounds values are treated as zero, and then missing components are inserted based on the format as described in [Conversion to RGBA](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#textures-conversion-to-rgba) and [vertex input attribute extraction](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#fxvertex-input-extraction).
+This extension is based on the `VK_EXT_robustness2` extension. This extension adds stricter requirements for how out of bounds reads and writes are handled. Most accesses **must** be tightly bounds-checked, out of bounds writes **must** be discarded, out of bound reads **must** return zero. Rather than allowing multiple possible (0,0,0,x) vectors, the out of bounds values are treated as zero, and then missing components are inserted based on the format as described in [https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#images-component-substitution](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#images-component-substitution) and [vertex input attribute extraction](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#fxvertex-input-extraction).
 
 These additional requirements **may** be expensive on some implementations, and should only be enabled when truly necessary.
 

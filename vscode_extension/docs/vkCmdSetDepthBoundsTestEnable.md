@@ -53,7 +53,7 @@ Valid Usage (Implicit)
 - [](#VUID-vkCmdSetDepthBoundsTestEnable-commandBuffer-recording)VUID-vkCmdSetDepthBoundsTestEnable-commandBuffer-recording  
   `commandBuffer` **must** be in the [recording state](#commandbuffers-lifecycle)
 - [](#VUID-vkCmdSetDepthBoundsTestEnable-commandBuffer-cmdpool)VUID-vkCmdSetDepthBoundsTestEnable-commandBuffer-cmdpool  
-  The `VkCommandPool` that `commandBuffer` was allocated from **must** support graphics operations
+  The `VkCommandPool` that `commandBuffer` was allocated from **must** support VK\_QUEUE\_GRAPHICS\_BIT operations
 - [](#VUID-vkCmdSetDepthBoundsTestEnable-videocoding)VUID-vkCmdSetDepthBoundsTestEnable-videocoding  
   This command **must** only be called outside of a video coding scope
 
@@ -73,7 +73,7 @@ Both
 
 Outside
 
-Graphics
+VK\_QUEUE\_GRAPHICS\_BIT
 
 State
 

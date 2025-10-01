@@ -77,7 +77,7 @@ HLSL does not provide this functionality natively yet.
 
 However, it is possible to use this functionality via [SPIR-V Intrinsics](https://github.com/microsoft/DirectXShaderCompiler/wiki/GL_EXT_spirv_intrinsics-for-SPIR-V-code-gen).
 
-The codes for shader invocation reorder are obtained from [this page](https://htmlpreview.github.io/?https%3A%2F%2Fgithub.com%2FKhronosGroup%2FSPIRV-Registry%2Fblob%2Fmain%2Fextensions%2FNV%2FSPV_NV_shader_invocation_reorder.html):
+The codes for shader invocation reorder are obtained from [this page](https://github.khronos.org/SPIRV-Registry/extensions/NV/SPV_NV_shader_invocation_reorder.html):
 
 ```c
 #define ShaderInvocationReorderNV 5383

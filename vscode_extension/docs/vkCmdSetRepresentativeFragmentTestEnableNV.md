@@ -41,7 +41,7 @@ Valid Usage (Implicit)
 - [](#VUID-vkCmdSetRepresentativeFragmentTestEnableNV-commandBuffer-recording)VUID-vkCmdSetRepresentativeFragmentTestEnableNV-commandBuffer-recording  
   `commandBuffer` **must** be in the [recording state](#commandbuffers-lifecycle)
 - [](#VUID-vkCmdSetRepresentativeFragmentTestEnableNV-commandBuffer-cmdpool)VUID-vkCmdSetRepresentativeFragmentTestEnableNV-commandBuffer-cmdpool  
-  The `VkCommandPool` that `commandBuffer` was allocated from **must** support graphics operations
+  The `VkCommandPool` that `commandBuffer` was allocated from **must** support VK\_QUEUE\_GRAPHICS\_BIT operations
 - [](#VUID-vkCmdSetRepresentativeFragmentTestEnableNV-videocoding)VUID-vkCmdSetRepresentativeFragmentTestEnableNV-videocoding  
   This command **must** only be called outside of a video coding scope
 
@@ -61,7 +61,7 @@ Both
 
 Outside
 
-Graphics
+VK\_QUEUE\_GRAPHICS\_BIT
 
 State
 

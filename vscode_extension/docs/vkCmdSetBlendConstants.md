@@ -33,7 +33,7 @@ Valid Usage (Implicit)
 - [](#VUID-vkCmdSetBlendConstants-commandBuffer-recording)VUID-vkCmdSetBlendConstants-commandBuffer-recording  
   `commandBuffer` **must** be in the [recording state](#commandbuffers-lifecycle)
 - [](#VUID-vkCmdSetBlendConstants-commandBuffer-cmdpool)VUID-vkCmdSetBlendConstants-commandBuffer-cmdpool  
-  The `VkCommandPool` that `commandBuffer` was allocated from **must** support graphics operations
+  The `VkCommandPool` that `commandBuffer` was allocated from **must** support VK\_QUEUE\_GRAPHICS\_BIT operations
 - [](#VUID-vkCmdSetBlendConstants-videocoding)VUID-vkCmdSetBlendConstants-videocoding  
   This command **must** only be called outside of a video coding scope
 
@@ -53,7 +53,7 @@ Both
 
 Outside
 
-Graphics
+VK\_QUEUE\_GRAPHICS\_BIT
 
 State
 

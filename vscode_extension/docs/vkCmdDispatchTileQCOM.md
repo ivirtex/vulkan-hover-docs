@@ -211,7 +211,7 @@ Valid Usage (Implicit)
 - [](#VUID-vkCmdDispatchTileQCOM-commandBuffer-recording)VUID-vkCmdDispatchTileQCOM-commandBuffer-recording  
   `commandBuffer` **must** be in the [recording state](#commandbuffers-lifecycle)
 - [](#VUID-vkCmdDispatchTileQCOM-commandBuffer-cmdpool)VUID-vkCmdDispatchTileQCOM-commandBuffer-cmdpool  
-  The `VkCommandPool` that `commandBuffer` was allocated from **must** support compute operations
+  The `VkCommandPool` that `commandBuffer` was allocated from **must** support VK\_QUEUE\_COMPUTE\_BIT operations
 - [](#VUID-vkCmdDispatchTileQCOM-renderpass)VUID-vkCmdDispatchTileQCOM-renderpass  
   This command **must** only be called inside of a render pass instance
 - [](#VUID-vkCmdDispatchTileQCOM-videocoding)VUID-vkCmdDispatchTileQCOM-videocoding  
@@ -232,7 +232,7 @@ Inside
 
 Outside
 
-Compute
+VK\_QUEUE\_COMPUTE\_BIT
 
 Action
 

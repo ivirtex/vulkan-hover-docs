@@ -138,6 +138,8 @@ static const VkFormatFeatureFlagBits2 VK_FORMAT_FEATURE_2_OPTICAL_FLOW_VECTOR_BI
 static const VkFormatFeatureFlagBits2 VK_FORMAT_FEATURE_2_OPTICAL_FLOW_COST_BIT_NV = 0x40000000000ULL;
 // Provided by VK_ARM_data_graph
 static const VkFormatFeatureFlagBits2 VK_FORMAT_FEATURE_2_TENSOR_DATA_GRAPH_BIT_ARM = 0x1000000000000ULL;
+// Provided by VK_KHR_copy_memory_indirect
+static const VkFormatFeatureFlagBits2 VK_FORMAT_FEATURE_2_COPY_IMAGE_INDIRECT_DST_BIT_KHR = 0x800000000000000ULL;
 // Provided by VK_KHR_video_encode_quantization_map
 static const VkFormatFeatureFlagBits2 VK_FORMAT_FEATURE_2_VIDEO_ENCODE_QUANTIZATION_DELTA_MAP_BIT_KHR = 0x2000000000000ULL;
 // Provided by VK_KHR_video_encode_quantization_map
@@ -196,6 +198,7 @@ The following bits **may** be set in `linearTilingFeatures` and `optimalTilingFe
 - `VK_FORMAT_FEATURE_2_BLOCK_MATCHING_BIT_QCOM` specifies that image views created with this format **can** be used in [block matching](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#textures-blockmatch) operations.
 - `VK_FORMAT_FEATURE_2_BOX_FILTER_SAMPLED_BIT_QCOM` specifies that image views created with this format **can** be sampled in [box filter sampling](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#textures-boxfilter) operations.
 - `VK_FORMAT_FEATURE_2_HOST_IMAGE_TRANSFER_BIT` specifies that an image **can** be created with `VK_IMAGE_USAGE_HOST_TRANSFER_BIT`.
+- `VK_FORMAT_FEATURE_2_COPY_IMAGE_INDIRECT_DST_BIT_KHR` specifies that a [VkImage](https://registry.khronos.org/vulkan/specs/latest/man/html/VkImage.html) **can** be used as destination for [indirect copies](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#indirect-copies).
 - `VK_FORMAT_FEATURE_2_VIDEO_ENCODE_QUANTIZATION_DELTA_MAP_BIT_KHR` specifies that an image view with this format **can** be used as a [quantization delta map](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#encode-quantization-delta-map) in [video encode operations](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#video-encode-operations).
 - `VK_FORMAT_FEATURE_2_VIDEO_ENCODE_EMPHASIS_MAP_BIT_KHR` specifies that an image view with this format **can** be used as an [emphasis map](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#encode-emphasis-map) in [video encode operations](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#video-encode-operations).
   

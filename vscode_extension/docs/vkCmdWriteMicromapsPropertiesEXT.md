@@ -70,7 +70,7 @@ Valid Usage (Implicit)
 - [](#VUID-vkCmdWriteMicromapsPropertiesEXT-commandBuffer-recording)VUID-vkCmdWriteMicromapsPropertiesEXT-commandBuffer-recording  
   `commandBuffer` **must** be in the [recording state](#commandbuffers-lifecycle)
 - [](#VUID-vkCmdWriteMicromapsPropertiesEXT-commandBuffer-cmdpool)VUID-vkCmdWriteMicromapsPropertiesEXT-commandBuffer-cmdpool  
-  The `VkCommandPool` that `commandBuffer` was allocated from **must** support compute operations
+  The `VkCommandPool` that `commandBuffer` was allocated from **must** support VK\_QUEUE\_COMPUTE\_BIT operations
 - [](#VUID-vkCmdWriteMicromapsPropertiesEXT-renderpass)VUID-vkCmdWriteMicromapsPropertiesEXT-renderpass  
   This command **must** only be called outside of a render pass instance
 - [](#VUID-vkCmdWriteMicromapsPropertiesEXT-videocoding)VUID-vkCmdWriteMicromapsPropertiesEXT-videocoding  
@@ -96,7 +96,7 @@ Outside
 
 Outside
 
-Compute
+VK\_QUEUE\_COMPUTE\_BIT
 
 Action
 

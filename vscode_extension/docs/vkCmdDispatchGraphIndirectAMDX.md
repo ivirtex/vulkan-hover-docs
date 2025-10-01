@@ -231,7 +231,7 @@ Valid Usage (Implicit)
 - [](#VUID-vkCmdDispatchGraphIndirectAMDX-commandBuffer-recording)VUID-vkCmdDispatchGraphIndirectAMDX-commandBuffer-recording  
   `commandBuffer` **must** be in the [recording state](#commandbuffers-lifecycle)
 - [](#VUID-vkCmdDispatchGraphIndirectAMDX-commandBuffer-cmdpool)VUID-vkCmdDispatchGraphIndirectAMDX-commandBuffer-cmdpool  
-  The `VkCommandPool` that `commandBuffer` was allocated from **must** support graphics, or compute operations
+  The `VkCommandPool` that `commandBuffer` was allocated from **must** support VK\_QUEUE\_COMPUTE\_BIT, or VK\_QUEUE\_GRAPHICS\_BIT operations
 - [](#VUID-vkCmdDispatchGraphIndirectAMDX-videocoding)VUID-vkCmdDispatchGraphIndirectAMDX-videocoding  
   This command **must** only be called outside of a video coding scope
 - [](#VUID-vkCmdDispatchGraphIndirectAMDX-bufferlevel)VUID-vkCmdDispatchGraphIndirectAMDX-bufferlevel  
@@ -251,8 +251,8 @@ Both
 
 Outside
 
-Graphics  
-Compute
+VK\_QUEUE\_COMPUTE\_BIT  
+VK\_QUEUE\_GRAPHICS\_BIT
 
 Action
 

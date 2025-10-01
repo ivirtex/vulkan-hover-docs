@@ -8,7 +8,7 @@ VkSamplerYcbcrConversionYcbcrDegammaCreateInfoQCOM - Structure specifying Y′CB
 
 ## [](#_c_specification)C Specification
 
-Applications **can** enable sRGB to linear conversion for the R, G, and B components of a Y′CBCR image during [format conversion](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#textures-ycbcr-degamma) by including `VkSamplerYcbcrConversionYcbcrDegammaCreateInfoQCOM` structure in the `pNext` chain of [VkSamplerYcbcrConversionCreateInfo](https://registry.khronos.org/vulkan/specs/latest/man/html/VkSamplerYcbcrConversionCreateInfo.html).
+Applications **can** enable sRGB to linear conversion for the R, G, and B components of a Y′CBCR image during [sampling](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#textures-YCbCr-degamma) by including `VkSamplerYcbcrConversionYcbcrDegammaCreateInfoQCOM` structure in the `pNext` chain of [VkSamplerYcbcrConversionCreateInfo](https://registry.khronos.org/vulkan/specs/latest/man/html/VkSamplerYcbcrConversionCreateInfo.html).
 
 The `VkSamplerYcbcrConversionYcbcrDegammaCreateInfoQCOM` structure is defined as:
 
@@ -26,8 +26,8 @@ typedef struct VkSamplerYcbcrConversionYcbcrDegammaCreateInfoQCOM {
 
 - `sType` is a [VkStructureType](https://registry.khronos.org/vulkan/specs/latest/man/html/VkStructureType.html) value identifying this structure.
 - `pNext` is `NULL` or a pointer to a structure extending this structure.
-- `enableYDegamma` indicates [sRGB to linear](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#textures-ycbcr-degamma) conversion is enabled for the G component.
-- `enableCbCrDegamma` indicates [sRGB to linear](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#textures-ycbcr-degamma) conversion is enabled for the R and B components.
+- `enableYDegamma` indicates [sRGB to linear](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#textures-YCbCr-degamma) conversion is enabled for the G component.
+- `enableCbCrDegamma` indicates [sRGB to linear](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#textures-YCbCr-degamma) conversion is enabled for the R and B components.
 
 ## [](#_description)Description
 
