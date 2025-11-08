@@ -70,7 +70,7 @@ Valid Usage (Implicit)
 - [](#VUID-vkCmdPushConstants-commandBuffer-recording)VUID-vkCmdPushConstants-commandBuffer-recording  
   `commandBuffer` **must** be in the [recording state](#commandbuffers-lifecycle)
 - [](#VUID-vkCmdPushConstants-commandBuffer-cmdpool)VUID-vkCmdPushConstants-commandBuffer-cmdpool  
-  The `VkCommandPool` that `commandBuffer` was allocated from **must** support graphics, or compute operations
+  The `VkCommandPool` that `commandBuffer` was allocated from **must** support VK\_QUEUE\_COMPUTE\_BIT, or VK\_QUEUE\_GRAPHICS\_BIT operations
 - [](#VUID-vkCmdPushConstants-videocoding)VUID-vkCmdPushConstants-videocoding  
   This command **must** only be called outside of a video coding scope
 - [](#VUID-vkCmdPushConstants-size-arraylength)VUID-vkCmdPushConstants-size-arraylength  
@@ -94,8 +94,8 @@ Both
 
 Outside
 
-Graphics  
-Compute
+VK\_QUEUE\_COMPUTE\_BIT  
+VK\_QUEUE\_GRAPHICS\_BIT
 
 State
 

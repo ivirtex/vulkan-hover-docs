@@ -56,7 +56,7 @@ Valid Usage (Implicit)
 - [](#VUID-vkCmdBindInvocationMaskHUAWEI-commandBuffer-recording)VUID-vkCmdBindInvocationMaskHUAWEI-commandBuffer-recording  
   `commandBuffer` **must** be in the [recording state](#commandbuffers-lifecycle)
 - [](#VUID-vkCmdBindInvocationMaskHUAWEI-commandBuffer-cmdpool)VUID-vkCmdBindInvocationMaskHUAWEI-commandBuffer-cmdpool  
-  The `VkCommandPool` that `commandBuffer` was allocated from **must** support compute operations
+  The `VkCommandPool` that `commandBuffer` was allocated from **must** support VK\_QUEUE\_COMPUTE\_BIT operations
 - [](#VUID-vkCmdBindInvocationMaskHUAWEI-renderpass)VUID-vkCmdBindInvocationMaskHUAWEI-renderpass  
   This command **must** only be called outside of a render pass instance
 - [](#VUID-vkCmdBindInvocationMaskHUAWEI-videocoding)VUID-vkCmdBindInvocationMaskHUAWEI-videocoding  
@@ -80,7 +80,7 @@ Outside
 
 Outside
 
-Compute
+VK\_QUEUE\_COMPUTE\_BIT
 
 State
 

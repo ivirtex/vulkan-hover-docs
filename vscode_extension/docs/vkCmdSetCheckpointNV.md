@@ -31,7 +31,7 @@ Valid Usage (Implicit)
 - [](#VUID-vkCmdSetCheckpointNV-commandBuffer-recording)VUID-vkCmdSetCheckpointNV-commandBuffer-recording  
   `commandBuffer` **must** be in the [recording state](#commandbuffers-lifecycle)
 - [](#VUID-vkCmdSetCheckpointNV-commandBuffer-cmdpool)VUID-vkCmdSetCheckpointNV-commandBuffer-cmdpool  
-  The `VkCommandPool` that `commandBuffer` was allocated from **must** support graphics, compute, or transfer operations
+  The `VkCommandPool` that `commandBuffer` was allocated from **must** support VK\_QUEUE\_COMPUTE\_BIT, VK\_QUEUE\_GRAPHICS\_BIT, or VK\_QUEUE\_TRANSFER\_BIT operations
 - [](#VUID-vkCmdSetCheckpointNV-videocoding)VUID-vkCmdSetCheckpointNV-videocoding  
   This command **must** only be called outside of a video coding scope
 
@@ -51,9 +51,9 @@ Both
 
 Outside
 
-Graphics  
-Compute  
-Transfer
+VK\_QUEUE\_COMPUTE\_BIT  
+VK\_QUEUE\_GRAPHICS\_BIT  
+VK\_QUEUE\_TRANSFER\_BIT
 
 Action
 

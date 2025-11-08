@@ -33,6 +33,11 @@ typedef struct VkTensorCopyARM {
 
 ## [](#_description)Description
 
+Valid Usage
+
+- [](#VUID-VkTensorCopyARM-dimensionCount-09955)VUID-VkTensorCopyARM-dimensionCount-09955  
+  `dimensionCount` **must** be greater than 0 if `pSrcOffset`, `pDstOffset`, or `pExtent` is not `NULL`
+
 Valid Usage (Implicit)
 
 - [](#VUID-VkTensorCopyARM-sType-sType)VUID-VkTensorCopyARM-sType-sType  
@@ -40,13 +45,11 @@ Valid Usage (Implicit)
 - [](#VUID-VkTensorCopyARM-pNext-pNext)VUID-VkTensorCopyARM-pNext-pNext  
   `pNext` **must** be `NULL`
 - [](#VUID-VkTensorCopyARM-pSrcOffset-parameter)VUID-VkTensorCopyARM-pSrcOffset-parameter  
-  If `pSrcOffset` is not `NULL`, `pSrcOffset` **must** be a valid pointer to an array of `dimensionCount` `uint64_t` values
+  If `dimensionCount` is not `0`, and `pSrcOffset` is not `NULL`, `pSrcOffset` **must** be a valid pointer to an array of `dimensionCount` `uint64_t` values
 - [](#VUID-VkTensorCopyARM-pDstOffset-parameter)VUID-VkTensorCopyARM-pDstOffset-parameter  
-  If `pDstOffset` is not `NULL`, `pDstOffset` **must** be a valid pointer to an array of `dimensionCount` `uint64_t` values
+  If `dimensionCount` is not `0`, and `pDstOffset` is not `NULL`, `pDstOffset` **must** be a valid pointer to an array of `dimensionCount` `uint64_t` values
 - [](#VUID-VkTensorCopyARM-pExtent-parameter)VUID-VkTensorCopyARM-pExtent-parameter  
-  If `pExtent` is not `NULL`, `pExtent` **must** be a valid pointer to an array of `dimensionCount` `uint64_t` values
-- [](#VUID-VkTensorCopyARM-dimensionCount-arraylength)VUID-VkTensorCopyARM-dimensionCount-arraylength  
-  `dimensionCount` **must** be greater than `0`
+  If `dimensionCount` is not `0`, and `pExtent` is not `NULL`, `pExtent` **must** be a valid pointer to an array of `dimensionCount` `uint64_t` values
 
 ## [](#_see_also)See Also
 

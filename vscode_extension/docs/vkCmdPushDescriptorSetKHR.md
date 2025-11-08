@@ -85,7 +85,7 @@ Valid Usage (Implicit)
 - [](#VUID-vkCmdPushDescriptorSet-commandBuffer-recording)VUID-vkCmdPushDescriptorSet-commandBuffer-recording  
   `commandBuffer` **must** be in the [recording state](#commandbuffers-lifecycle)
 - [](#VUID-vkCmdPushDescriptorSet-commandBuffer-cmdpool)VUID-vkCmdPushDescriptorSet-commandBuffer-cmdpool  
-  The `VkCommandPool` that `commandBuffer` was allocated from **must** support graphics, or compute operations
+  The `VkCommandPool` that `commandBuffer` was allocated from **must** support VK\_QUEUE\_COMPUTE\_BIT, or VK\_QUEUE\_GRAPHICS\_BIT operations
 - [](#VUID-vkCmdPushDescriptorSet-videocoding)VUID-vkCmdPushDescriptorSet-videocoding  
   This command **must** only be called outside of a video coding scope
 - [](#VUID-vkCmdPushDescriptorSet-descriptorWriteCount-arraylength)VUID-vkCmdPushDescriptorSet-descriptorWriteCount-arraylength  
@@ -109,8 +109,8 @@ Both
 
 Outside
 
-Graphics  
-Compute
+VK\_QUEUE\_COMPUTE\_BIT  
+VK\_QUEUE\_GRAPHICS\_BIT
 
 State
 

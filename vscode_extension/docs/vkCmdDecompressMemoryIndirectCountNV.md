@@ -62,7 +62,7 @@ Valid Usage (Implicit)
 - [](#VUID-vkCmdDecompressMemoryIndirectCountNV-commandBuffer-recording)VUID-vkCmdDecompressMemoryIndirectCountNV-commandBuffer-recording  
   `commandBuffer` **must** be in the [recording state](#commandbuffers-lifecycle)
 - [](#VUID-vkCmdDecompressMemoryIndirectCountNV-commandBuffer-cmdpool)VUID-vkCmdDecompressMemoryIndirectCountNV-commandBuffer-cmdpool  
-  The `VkCommandPool` that `commandBuffer` was allocated from **must** support graphics, or compute operations
+  The `VkCommandPool` that `commandBuffer` was allocated from **must** support VK\_QUEUE\_COMPUTE\_BIT, or VK\_QUEUE\_GRAPHICS\_BIT operations
 - [](#VUID-vkCmdDecompressMemoryIndirectCountNV-renderpass)VUID-vkCmdDecompressMemoryIndirectCountNV-renderpass  
   This command **must** only be called outside of a render pass instance
 - [](#VUID-vkCmdDecompressMemoryIndirectCountNV-videocoding)VUID-vkCmdDecompressMemoryIndirectCountNV-videocoding  
@@ -84,8 +84,8 @@ Outside
 
 Outside
 
-Graphics  
-Compute
+VK\_QUEUE\_COMPUTE\_BIT  
+VK\_QUEUE\_GRAPHICS\_BIT
 
 Action
 

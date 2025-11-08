@@ -8,7 +8,7 @@ vkCmdCopyMemoryIndirectNV - Copy data between memory regions
 
 ## [](#_c_specification)C Specification
 
-To copy data between two memory regions by specifying copy parameters indirectly in a buffer, call:
+To copy data between two memory regions by specifying copy parameters indirectly in memory, call:
 
 ```c++
 // Provided by VK_NV_copy_memory_indirect
@@ -22,8 +22,8 @@ void vkCmdCopyMemoryIndirectNV(
 ## [](#_parameters)Parameters
 
 - `commandBuffer` is the command buffer into which the command will be recorded.
-- `copyBufferAddress` is the buffer address specifying the copy parameters. This buffer is laid out in memory as an array of [VkCopyMemoryIndirectCommandNV](https://registry.khronos.org/vulkan/specs/latest/man/html/VkCopyMemoryIndirectCommandNV.html) structures.
-- `copyCount` is the number of copies to execute, and can be zero.
+- `copyBufferAddress` is the memory address specifying the copy parameters. It is laid out as an array of [VkCopyMemoryIndirectCommandNV](https://registry.khronos.org/vulkan/specs/latest/man/html/VkCopyMemoryIndirectCommandNV.html) structures.
+- `copyCount` is the number of copies to execute, and **can** be zero.
 - `stride` is the stride in bytes between successive sets of copy parameters.
 
 ## [](#_description)Description
@@ -37,9 +37,11 @@ Valid Usage
 - [](#VUID-vkCmdCopyMemoryIndirectNV-copyBufferAddress-07654)VUID-vkCmdCopyMemoryIndirectNV-copyBufferAddress-07654  
   `copyBufferAddress` **must** be 4 byte aligned
 - [](#VUID-vkCmdCopyMemoryIndirectNV-stride-07655)VUID-vkCmdCopyMemoryIndirectNV-stride-07655  
-  `stride` **must** be a multiple of `4` and **must** be greater than or equal to sizeof(`VkCopyMemoryIndirectCommandNV`)
+  `stride` **must** be a multiple of `4` and **must** be greater than or equal to sizeof([VkCopyMemoryIndirectCommandNV](https://registry.khronos.org/vulkan/specs/latest/man/html/VkCopyMemoryIndirectCommandNV.html))
 - [](#VUID-vkCmdCopyMemoryIndirectNV-commandBuffer-07656)VUID-vkCmdCopyMemoryIndirectNV-commandBuffer-07656  
-  The [VkCommandPool](https://registry.khronos.org/vulkan/specs/latest/man/html/VkCommandPool.html) that `commandBuffer` was allocated from **must** support at least one of the [VkPhysicalDeviceCopyMemoryIndirectPropertiesNV](https://registry.khronos.org/vulkan/specs/latest/man/html/VkPhysicalDeviceCopyMemoryIndirectPropertiesNV.html)::`supportedQueues`
+  The [VkCommandPool](https://registry.khronos.org/vulkan/specs/latest/man/html/VkCommandPool.html) that `commandBuffer` was allocated from **must** support at least one of the queue types specified in [VkPhysicalDeviceCopyMemoryIndirectPropertiesKHR](https://registry.khronos.org/vulkan/specs/latest/man/html/VkPhysicalDeviceCopyMemoryIndirectPropertiesKHR.html)::`supportedQueues`
+- [](#VUID-vkCmdCopyMemoryIndirectNV-copyBufferAddress-10946)VUID-vkCmdCopyMemoryIndirectNV-copyBufferAddress-10946  
+  Any of the source or destination memory regions specified in `copyBufferAddress` **must** not overlap with any of the specified destination memory regions
 
 Valid Usage (Implicit)
 
@@ -50,7 +52,7 @@ Valid Usage (Implicit)
 - [](#VUID-vkCmdCopyMemoryIndirectNV-commandBuffer-recording)VUID-vkCmdCopyMemoryIndirectNV-commandBuffer-recording  
   `commandBuffer` **must** be in the [recording state](#commandbuffers-lifecycle)
 - [](#VUID-vkCmdCopyMemoryIndirectNV-commandBuffer-cmdpool)VUID-vkCmdCopyMemoryIndirectNV-commandBuffer-cmdpool  
-  The `VkCommandPool` that `commandBuffer` was allocated from **must** support transfer, graphics, or compute operations
+  The `VkCommandPool` that `commandBuffer` was allocated from **must** support VK\_QUEUE\_COMPUTE\_BIT, VK\_QUEUE\_GRAPHICS\_BIT, or VK\_QUEUE\_TRANSFER\_BIT operations
 - [](#VUID-vkCmdCopyMemoryIndirectNV-renderpass)VUID-vkCmdCopyMemoryIndirectNV-renderpass  
   This command **must** only be called outside of a render pass instance
 - [](#VUID-vkCmdCopyMemoryIndirectNV-videocoding)VUID-vkCmdCopyMemoryIndirectNV-videocoding  
@@ -72,9 +74,9 @@ Outside
 
 Outside
 
-Transfer  
-Graphics  
-Compute
+VK\_QUEUE\_COMPUTE\_BIT  
+VK\_QUEUE\_GRAPHICS\_BIT  
+VK\_QUEUE\_TRANSFER\_BIT
 
 Action
 

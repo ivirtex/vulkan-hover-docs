@@ -55,7 +55,7 @@ Valid Usage (Implicit)
 - [](#VUID-vkCmdSetRenderingAttachmentLocations-commandBuffer-recording)VUID-vkCmdSetRenderingAttachmentLocations-commandBuffer-recording  
   `commandBuffer` **must** be in the [recording state](#commandbuffers-lifecycle)
 - [](#VUID-vkCmdSetRenderingAttachmentLocations-commandBuffer-cmdpool)VUID-vkCmdSetRenderingAttachmentLocations-commandBuffer-cmdpool  
-  The `VkCommandPool` that `commandBuffer` was allocated from **must** support graphics operations
+  The `VkCommandPool` that `commandBuffer` was allocated from **must** support VK\_QUEUE\_GRAPHICS\_BIT operations
 - [](#VUID-vkCmdSetRenderingAttachmentLocations-renderpass)VUID-vkCmdSetRenderingAttachmentLocations-renderpass  
   This command **must** only be called inside of a render pass instance
 - [](#VUID-vkCmdSetRenderingAttachmentLocations-videocoding)VUID-vkCmdSetRenderingAttachmentLocations-videocoding  
@@ -77,7 +77,7 @@ Inside
 
 Outside
 
-Graphics
+VK\_QUEUE\_GRAPHICS\_BIT
 
 State
 

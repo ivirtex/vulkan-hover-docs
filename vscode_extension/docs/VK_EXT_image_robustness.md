@@ -53,7 +53,7 @@ No known IP claims.
 
 ## [](#_description)Description
 
-This extension adds stricter requirements for how out of bounds reads from images are handled. Rather than returning undefined values, most out of bounds reads return R, G, and B values of zero and alpha values of either zero or one. Components not present in the image format may be set to zero or to values based on the format as described in [Conversion to RGBA](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#textures-conversion-to-rgba).
+This extension adds stricter requirements for how out of bounds reads from images are handled. Rather than returning undefined values, most out of bounds reads return R, G, and B values of zero and alpha values of either zero or one. Components not present in the image format may be set to zero or to values based on the format as described in [https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#images-component-substitution](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#images-component-substitution).
 
 ## [](#_new_structures)New Structures
 

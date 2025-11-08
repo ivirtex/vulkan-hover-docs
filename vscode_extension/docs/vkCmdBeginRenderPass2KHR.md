@@ -77,7 +77,7 @@ Valid Usage
 - [](#VUID-vkCmdBeginRenderPass2-initialLayout-09538)VUID-vkCmdBeginRenderPass2-initialLayout-09538  
   If any of the `initialLayout` or `finalLayout` member of the `VkAttachmentDescription` structures or the `layout` member of the `VkAttachmentReference` structures specified when creating the render pass specified in the `renderPass` member of `pRenderPassBegin` is `VK_IMAGE_LAYOUT_RENDERING_LOCAL_READ` then the corresponding attachment image view of the framebuffer specified in the `framebuffer` member of `pRenderPassBegin` **must** have been created with a `usage` value including either `VK_IMAGE_USAGE_STORAGE_BIT`, or both `VK_IMAGE_USAGE_INPUT_ATTACHMENT_BIT` and either of `VK_IMAGE_USAGE_COLOR_ATTACHMENT_BIT` or `VK_IMAGE_USAGE_DEPTH_STENCIL_ATTACHMENT_BIT`
 - [](#VUID-vkCmdBeginRenderPass2-flags-10652)VUID-vkCmdBeginRenderPass2-flags-10652  
-  If `VK_TILE_SHADING_RENDER_PASS_ENABLE_BIT_QCOM` was included in the [VkRenderPassTileShadingCreateInfoQCOM](https://registry.khronos.org/vulkan/specs/latest/man/html/VkRenderPassTileShadingCreateInfoQCOM.html)::`flags` used to create the `renderPass`, `commandBuffer` **must** not have been created with `VK_COMMAND_BUFFER_USAGE_SIMULTANEOUS_USE_BIT`
+  If `VK_TILE_SHADING_RENDER_PASS_ENABLE_BIT_QCOM` was included in the [VkRenderPassTileShadingCreateInfoQCOM](https://registry.khronos.org/vulkan/specs/latest/man/html/VkRenderPassTileShadingCreateInfoQCOM.html)::`flags` used to create the `renderPass`, `commandBuffer` **must** not have been recorded with `VK_COMMAND_BUFFER_USAGE_SIMULTANEOUS_USE_BIT`
 
 Valid Usage (Implicit)
 
@@ -90,7 +90,7 @@ Valid Usage (Implicit)
 - [](#VUID-vkCmdBeginRenderPass2-commandBuffer-recording)VUID-vkCmdBeginRenderPass2-commandBuffer-recording  
   `commandBuffer` **must** be in the [recording state](#commandbuffers-lifecycle)
 - [](#VUID-vkCmdBeginRenderPass2-commandBuffer-cmdpool)VUID-vkCmdBeginRenderPass2-commandBuffer-cmdpool  
-  The `VkCommandPool` that `commandBuffer` was allocated from **must** support graphics operations
+  The `VkCommandPool` that `commandBuffer` was allocated from **must** support VK\_QUEUE\_GRAPHICS\_BIT operations
 - [](#VUID-vkCmdBeginRenderPass2-renderpass)VUID-vkCmdBeginRenderPass2-renderpass  
   This command **must** only be called outside of a render pass instance
 - [](#VUID-vkCmdBeginRenderPass2-videocoding)VUID-vkCmdBeginRenderPass2-videocoding  
@@ -113,7 +113,7 @@ Outside
 
 Outside
 
-Graphics
+VK\_QUEUE\_GRAPHICS\_BIT
 
 Action  
 State  

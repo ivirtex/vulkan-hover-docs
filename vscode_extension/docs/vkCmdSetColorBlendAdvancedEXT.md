@@ -47,7 +47,7 @@ Valid Usage (Implicit)
 - [](#VUID-vkCmdSetColorBlendAdvancedEXT-commandBuffer-recording)VUID-vkCmdSetColorBlendAdvancedEXT-commandBuffer-recording  
   `commandBuffer` **must** be in the [recording state](#commandbuffers-lifecycle)
 - [](#VUID-vkCmdSetColorBlendAdvancedEXT-commandBuffer-cmdpool)VUID-vkCmdSetColorBlendAdvancedEXT-commandBuffer-cmdpool  
-  The `VkCommandPool` that `commandBuffer` was allocated from **must** support graphics operations
+  The `VkCommandPool` that `commandBuffer` was allocated from **must** support VK\_QUEUE\_GRAPHICS\_BIT operations
 - [](#VUID-vkCmdSetColorBlendAdvancedEXT-videocoding)VUID-vkCmdSetColorBlendAdvancedEXT-videocoding  
   This command **must** only be called outside of a video coding scope
 - [](#VUID-vkCmdSetColorBlendAdvancedEXT-attachmentCount-arraylength)VUID-vkCmdSetColorBlendAdvancedEXT-attachmentCount-arraylength  
@@ -69,7 +69,7 @@ Both
 
 Outside
 
-Graphics
+VK\_QUEUE\_GRAPHICS\_BIT
 
 State
 

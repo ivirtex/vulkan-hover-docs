@@ -28,11 +28,13 @@ void vkCmdBindTransformFeedbackBuffersEXT(
 - `bindingCount` is the number of transform feedback bindings whose state is updated by the command.
 - `pBuffers` is a pointer to an array of buffer handles.
 - `pOffsets` is a pointer to an array of buffer offsets.
-- `pSizes` is `NULL` or a pointer to an array of [VkDeviceSize](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDeviceSize.html) buffer sizes, specifying the maximum number of bytes to capture to the corresponding transform feedback buffer. If `pSizes` is `NULL`, or the value of the `pSizes` array element is `VK_WHOLE_SIZE`, then the maximum number of bytes captured will be the size of the corresponding buffer minus the buffer offset.
+- `pSizes` is `NULL` or a pointer to an array of [VkDeviceSize](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDeviceSize.html) buffer sizes, specifying the maximum number of bytes to capture to the corresponding transform feedback buffer. If `pSizes` is `NULL`, it is equivalent to setting a `pSizes` array where every element is `VK_WHOLE_SIZE`.
 
 ## [](#_description)Description
 
 The values taken from elements i of `pBuffers`, `pOffsets` and `pSizes` replace the current state for the transform feedback binding `firstBinding` + i, for i in \[0, `bindingCount`). The transform feedback binding is updated to start at the offset indicated by `pOffsets`\[i] from the start of the buffer `pBuffers`\[i].
+
+When an element of `pSizes`\[i] is `VK_WHOLE_SIZE`, or `pSizes` is `NULL`, the effective range is calculated by taking the size of `pBuffers`\[i] minus `pOffsets`\[i]. Otherwise, the effective range is equal to the element in `pSizes`\[i].
 
 Valid Usage
 
@@ -48,12 +50,8 @@ Valid Usage
   All elements of `pOffsets` **must** be a multiple of 4
 - [](#VUID-vkCmdBindTransformFeedbackBuffersEXT-pBuffers-02360)VUID-vkCmdBindTransformFeedbackBuffersEXT-pBuffers-02360  
   All elements of `pBuffers` **must** have been created with the `VK_BUFFER_USAGE_TRANSFORM_FEEDBACK_BUFFER_BIT_EXT` flag
-- [](#VUID-vkCmdBindTransformFeedbackBuffersEXT-pSize-02361)VUID-vkCmdBindTransformFeedbackBuffersEXT-pSize-02361  
-  If the optional `pSize` array is specified, each element of `pSizes` **must** either be `VK_WHOLE_SIZE`, or be less than or equal to `VkPhysicalDeviceTransformFeedbackPropertiesEXT`::`maxTransformFeedbackBufferSize`
-- [](#VUID-vkCmdBindTransformFeedbackBuffersEXT-pSizes-02362)VUID-vkCmdBindTransformFeedbackBuffersEXT-pSizes-02362  
-  All elements of `pSizes` **must** be either `VK_WHOLE_SIZE`, or less than or equal to the size of the corresponding buffer in `pBuffers`
 - [](#VUID-vkCmdBindTransformFeedbackBuffersEXT-pOffsets-02363)VUID-vkCmdBindTransformFeedbackBuffersEXT-pOffsets-02363  
-  All elements of `pOffsets` plus `pSizes`, where the `pSizes`, element is not `VK_WHOLE_SIZE`, **must** be less than or equal to the size of the corresponding buffer in `pBuffers`
+  All elements of `pOffsets` plus the [effective size](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#transform-feedback-effective-size) of the element, **must** be less than or equal to the size of the corresponding buffer in `pBuffers`
 - [](#VUID-vkCmdBindTransformFeedbackBuffersEXT-pBuffers-02364)VUID-vkCmdBindTransformFeedbackBuffersEXT-pBuffers-02364  
   Each element of `pBuffers` that is non-sparse **must** be bound completely and contiguously to a single `VkDeviceMemory` object
 - [](#VUID-vkCmdBindTransformFeedbackBuffersEXT-None-02365)VUID-vkCmdBindTransformFeedbackBuffersEXT-None-02365  
@@ -70,7 +68,7 @@ Valid Usage (Implicit)
 - [](#VUID-vkCmdBindTransformFeedbackBuffersEXT-commandBuffer-recording)VUID-vkCmdBindTransformFeedbackBuffersEXT-commandBuffer-recording  
   `commandBuffer` **must** be in the [recording state](#commandbuffers-lifecycle)
 - [](#VUID-vkCmdBindTransformFeedbackBuffersEXT-commandBuffer-cmdpool)VUID-vkCmdBindTransformFeedbackBuffersEXT-commandBuffer-cmdpool  
-  The `VkCommandPool` that `commandBuffer` was allocated from **must** support graphics operations
+  The `VkCommandPool` that `commandBuffer` was allocated from **must** support VK\_QUEUE\_GRAPHICS\_BIT operations
 - [](#VUID-vkCmdBindTransformFeedbackBuffersEXT-videocoding)VUID-vkCmdBindTransformFeedbackBuffersEXT-videocoding  
   This command **must** only be called outside of a video coding scope
 - [](#VUID-vkCmdBindTransformFeedbackBuffersEXT-bindingCount-arraylength)VUID-vkCmdBindTransformFeedbackBuffersEXT-bindingCount-arraylength  
@@ -94,7 +92,7 @@ Both
 
 Outside
 
-Graphics
+VK\_QUEUE\_GRAPHICS\_BIT
 
 State
 

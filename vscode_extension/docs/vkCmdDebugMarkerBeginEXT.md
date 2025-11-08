@@ -38,7 +38,7 @@ Valid Usage (Implicit)
 - [](#VUID-vkCmdDebugMarkerBeginEXT-commandBuffer-recording)VUID-vkCmdDebugMarkerBeginEXT-commandBuffer-recording  
   `commandBuffer` **must** be in the [recording state](#commandbuffers-lifecycle)
 - [](#VUID-vkCmdDebugMarkerBeginEXT-commandBuffer-cmdpool)VUID-vkCmdDebugMarkerBeginEXT-commandBuffer-cmdpool  
-  The `VkCommandPool` that `commandBuffer` was allocated from **must** support transfer, graphics, compute, decode, encode, or optical flow operations
+  The `VkCommandPool` that `commandBuffer` was allocated from **must** support VK\_QUEUE\_COMPUTE\_BIT, VK\_QUEUE\_GRAPHICS\_BIT, VK\_QUEUE\_OPTICAL\_FLOW\_BIT\_NV, VK\_QUEUE\_TRANSFER\_BIT, VK\_QUEUE\_VIDEO\_DECODE\_BIT\_KHR, or VK\_QUEUE\_VIDEO\_ENCODE\_BIT\_KHR operations
 
 Host Synchronization
 
@@ -56,12 +56,12 @@ Both
 
 Both
 
-Transfer  
-Graphics  
-Compute  
-Decode  
-Encode  
-Opticalflow
+VK\_QUEUE\_COMPUTE\_BIT  
+VK\_QUEUE\_GRAPHICS\_BIT  
+VK\_QUEUE\_OPTICAL\_FLOW\_BIT\_NV  
+VK\_QUEUE\_TRANSFER\_BIT  
+VK\_QUEUE\_VIDEO\_DECODE\_BIT\_KHR  
+VK\_QUEUE\_VIDEO\_ENCODE\_BIT\_KHR
 
 Action
 

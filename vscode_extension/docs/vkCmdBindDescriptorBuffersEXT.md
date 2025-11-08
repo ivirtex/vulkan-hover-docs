@@ -58,7 +58,7 @@ Valid Usage (Implicit)
 - [](#VUID-vkCmdBindDescriptorBuffersEXT-commandBuffer-recording)VUID-vkCmdBindDescriptorBuffersEXT-commandBuffer-recording  
   `commandBuffer` **must** be in the [recording state](#commandbuffers-lifecycle)
 - [](#VUID-vkCmdBindDescriptorBuffersEXT-commandBuffer-cmdpool)VUID-vkCmdBindDescriptorBuffersEXT-commandBuffer-cmdpool  
-  The `VkCommandPool` that `commandBuffer` was allocated from **must** support graphics, compute, or data\_graph operations
+  The `VkCommandPool` that `commandBuffer` was allocated from **must** support VK\_QUEUE\_COMPUTE\_BIT, VK\_QUEUE\_DATA\_GRAPH\_BIT\_ARM, or VK\_QUEUE\_GRAPHICS\_BIT operations
 - [](#VUID-vkCmdBindDescriptorBuffersEXT-videocoding)VUID-vkCmdBindDescriptorBuffersEXT-videocoding  
   This command **must** only be called outside of a video coding scope
 - [](#VUID-vkCmdBindDescriptorBuffersEXT-bufferCount-arraylength)VUID-vkCmdBindDescriptorBuffersEXT-bufferCount-arraylength  
@@ -80,9 +80,9 @@ Both
 
 Outside
 
-Graphics  
-Compute  
-Data\_Graph
+VK\_QUEUE\_COMPUTE\_BIT  
+VK\_QUEUE\_DATA\_GRAPH\_BIT\_ARM  
+VK\_QUEUE\_GRAPHICS\_BIT
 
 State
 

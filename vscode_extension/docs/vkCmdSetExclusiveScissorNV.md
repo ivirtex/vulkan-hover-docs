@@ -58,7 +58,7 @@ Valid Usage (Implicit)
 - [](#VUID-vkCmdSetExclusiveScissorNV-commandBuffer-recording)VUID-vkCmdSetExclusiveScissorNV-commandBuffer-recording  
   `commandBuffer` **must** be in the [recording state](#commandbuffers-lifecycle)
 - [](#VUID-vkCmdSetExclusiveScissorNV-commandBuffer-cmdpool)VUID-vkCmdSetExclusiveScissorNV-commandBuffer-cmdpool  
-  The `VkCommandPool` that `commandBuffer` was allocated from **must** support graphics operations
+  The `VkCommandPool` that `commandBuffer` was allocated from **must** support VK\_QUEUE\_GRAPHICS\_BIT operations
 - [](#VUID-vkCmdSetExclusiveScissorNV-videocoding)VUID-vkCmdSetExclusiveScissorNV-videocoding  
   This command **must** only be called outside of a video coding scope
 - [](#VUID-vkCmdSetExclusiveScissorNV-exclusiveScissorCount-arraylength)VUID-vkCmdSetExclusiveScissorNV-exclusiveScissorCount-arraylength  
@@ -80,7 +80,7 @@ Both
 
 Outside
 
-Graphics
+VK\_QUEUE\_GRAPHICS\_BIT
 
 State
 

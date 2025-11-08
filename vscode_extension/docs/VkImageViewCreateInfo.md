@@ -124,17 +124,17 @@ Valid Usage
 - [](#VUID-VkImageViewCreateInfo-usage-02277)VUID-VkImageViewCreateInfo-usage-02277  
   If `usage` contains `VK_IMAGE_USAGE_DEPTH_STENCIL_ATTACHMENT_BIT`, then the image view’s [format features](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#resources-image-view-format-features) **must** contain `VK_FORMAT_FEATURE_DEPTH_STENCIL_ATTACHMENT_BIT`
 - [](#VUID-VkImageViewCreateInfo-image-08333)VUID-VkImageViewCreateInfo-image-08333  
-  If `image` was created with `VK_IMAGE_CREATE_VIDEO_PROFILE_INDEPENDENT_BIT_KHR` and `usage` contains `VK_IMAGE_USAGE_VIDEO_DECODE_DST_BIT_KHR`, then the image view’s [format features](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#resources-image-view-format-features) **must** contain `VK_FORMAT_FEATURE_VIDEO_DECODE_OUTPUT_BIT_KHR`
+  If `usage` contains `VK_IMAGE_USAGE_VIDEO_DECODE_DST_BIT_KHR`, then the image view’s [format features](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#resources-image-view-format-features) **must** contain `VK_FORMAT_FEATURE_VIDEO_DECODE_OUTPUT_BIT_KHR`
 - [](#VUID-VkImageViewCreateInfo-image-08334)VUID-VkImageViewCreateInfo-image-08334  
-  If `image` was created with `VK_IMAGE_CREATE_VIDEO_PROFILE_INDEPENDENT_BIT_KHR` and `usage` contains `VK_IMAGE_USAGE_VIDEO_DECODE_DPB_BIT_KHR`, then the image view’s [format features](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#resources-image-view-format-features) **must** contain `VK_FORMAT_FEATURE_VIDEO_DECODE_DPB_BIT_KHR`
+  If `usage` contains `VK_IMAGE_USAGE_VIDEO_DECODE_DPB_BIT_KHR`, then the image view’s [format features](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#resources-image-view-format-features) **must** contain `VK_FORMAT_FEATURE_VIDEO_DECODE_DPB_BIT_KHR`
 - [](#VUID-VkImageViewCreateInfo-image-08335)VUID-VkImageViewCreateInfo-image-08335  
-  If `image` was created with `VK_IMAGE_CREATE_VIDEO_PROFILE_INDEPENDENT_BIT_KHR`, then `usage` **must** not include `VK_IMAGE_USAGE_VIDEO_DECODE_SRC_BIT_KHR`
+  `usage` **must** not include `VK_IMAGE_USAGE_VIDEO_DECODE_SRC_BIT_KHR`
 - [](#VUID-VkImageViewCreateInfo-image-08336)VUID-VkImageViewCreateInfo-image-08336  
-  If `image` was created with `VK_IMAGE_CREATE_VIDEO_PROFILE_INDEPENDENT_BIT_KHR` and `usage` contains `VK_IMAGE_USAGE_VIDEO_ENCODE_SRC_BIT_KHR`, then the image view’s [format features](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#resources-image-view-format-features) **must** contain `VK_FORMAT_FEATURE_VIDEO_ENCODE_INPUT_BIT_KHR`
+  If `usage` contains `VK_IMAGE_USAGE_VIDEO_ENCODE_SRC_BIT_KHR`, then the image view’s [format features](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#resources-image-view-format-features) **must** contain `VK_FORMAT_FEATURE_VIDEO_ENCODE_INPUT_BIT_KHR`
 - [](#VUID-VkImageViewCreateInfo-image-08337)VUID-VkImageViewCreateInfo-image-08337  
-  If `image` was created with `VK_IMAGE_CREATE_VIDEO_PROFILE_INDEPENDENT_BIT_KHR` and `usage` contains `VK_IMAGE_USAGE_VIDEO_ENCODE_DPB_BIT_KHR`, then the image view’s [format features](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#resources-image-view-format-features) **must** contain `VK_FORMAT_FEATURE_VIDEO_ENCODE_DPB_BIT_KHR`
+  If `usage` contains `VK_IMAGE_USAGE_VIDEO_ENCODE_DPB_BIT_KHR`, then the image view’s [format features](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#resources-image-view-format-features) **must** contain `VK_FORMAT_FEATURE_VIDEO_ENCODE_DPB_BIT_KHR`
 - [](#VUID-VkImageViewCreateInfo-image-08338)VUID-VkImageViewCreateInfo-image-08338  
-  If `image` was created with `VK_IMAGE_CREATE_VIDEO_PROFILE_INDEPENDENT_BIT_KHR`, then `usage` **must** not include `VK_IMAGE_USAGE_VIDEO_ENCODE_DST_BIT_KHR`
+  `usage` **must** not include `VK_IMAGE_USAGE_VIDEO_ENCODE_DST_BIT_KHR`
 - [](#VUID-VkImageViewCreateInfo-usage-10259)VUID-VkImageViewCreateInfo-usage-10259  
   If `usage` contains `VK_IMAGE_USAGE_VIDEO_ENCODE_QUANTIZATION_DELTA_MAP_BIT_KHR`, then the image view’s [format features](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#resources-image-view-format-features) **must** contain `VK_FORMAT_FEATURE_2_VIDEO_ENCODE_QUANTIZATION_DELTA_MAP_BIT_KHR`
 - [](#VUID-VkImageViewCreateInfo-usage-10260)VUID-VkImageViewCreateInfo-usage-10260  

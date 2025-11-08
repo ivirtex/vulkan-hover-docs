@@ -28,7 +28,7 @@ Similar to [vkCmdBuildAccelerationStructuresKHR](https://registry.khronos.org/vu
 
 Accesses to each [VkClusterAccelerationStructureCommandsInfoNV](https://registry.khronos.org/vulkan/specs/latest/man/html/VkClusterAccelerationStructureCommandsInfoNV.html)::`dstImplicitData`, [VkClusterAccelerationStructureCommandsInfoNV](https://registry.khronos.org/vulkan/specs/latest/man/html/VkClusterAccelerationStructureCommandsInfoNV.html)::`dstAddressesArray` and [VkClusterAccelerationStructureCommandsInfoNV](https://registry.khronos.org/vulkan/specs/latest/man/html/VkClusterAccelerationStructureCommandsInfoNV.html)::`dstSizesArray` **must** be [synchronized](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#synchronization-dependencies) with the `VK_PIPELINE_STAGE_ACCELERATION_STRUCTURE_BUILD_BIT_KHR` [pipeline stage](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#synchronization-pipeline-stages) and an [access type](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#synchronization-access-types) of `VK_ACCESS_ACCELERATION_STRUCTURE_WRITE_BIT_KHR`.
 
-Accesses to memory with input data as identified by any used values of [VkClusterAccelerationStructureCommandsInfoNV](https://registry.khronos.org/vulkan/specs/latest/man/html/VkClusterAccelerationStructureCommandsInfoNV.html)::`srcInfosArray`, [VkClusterAccelerationStructureCommandsInfoNV](https://registry.khronos.org/vulkan/specs/latest/man/html/VkClusterAccelerationStructureCommandsInfoNV.html)::`srcInfosCount` and [VkClusterAccelerationStructureCommandsInfoNV](https://registry.khronos.org/vulkan/specs/latest/man/html/VkClusterAccelerationStructureCommandsInfoNV.html)::`addressResolutionFlags` **must** be [synchronized](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#synchronization-dependencies) with the `VK_PIPELINE_STAGE_ACCELERATION_STRUCTURE_BUILD_BIT_KHR` [pipeline stage](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#synchronization-pipeline-stages) and an [access type](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#synchronization-access-types) of `VK_ACCESS_INDIRECT_COMMAND_READ_BIT`.
+Accesses to memory with input data as identified by any used values of [VkClusterAccelerationStructureCommandsInfoNV](https://registry.khronos.org/vulkan/specs/latest/man/html/VkClusterAccelerationStructureCommandsInfoNV.html)::`srcInfosArray` and [VkClusterAccelerationStructureCommandsInfoNV](https://registry.khronos.org/vulkan/specs/latest/man/html/VkClusterAccelerationStructureCommandsInfoNV.html)::`srcInfosCount` **must** be [synchronized](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#synchronization-dependencies) with the `VK_PIPELINE_STAGE_ACCELERATION_STRUCTURE_BUILD_BIT_KHR` [pipeline stage](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#synchronization-pipeline-stages) and an [access type](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#synchronization-access-types) of `VK_ACCESS_INDIRECT_COMMAND_READ_BIT`.
 
 Valid Usage
 
@@ -65,7 +65,7 @@ Valid Usage
 - [](#VUID-vkCmdBuildClusterAccelerationStructureIndirectNV-pCommandInfos-10457)VUID-vkCmdBuildClusterAccelerationStructureIndirectNV-pCommandInfos-10457  
   The buffer from which the buffer device address for `pCommandInfos->scratchData` is queried **must** have been created with the `VK_BUFFER_USAGE_STORAGE_BUFFER_BIT` usage flag
 - [](#VUID-vkCmdBuildClusterAccelerationStructureIndirectNV-pCommandInfos-10458)VUID-vkCmdBuildClusterAccelerationStructureIndirectNV-pCommandInfos-10458  
-  The buffers from which the buffer device addresses for `pCommandInfos->srcInfosArray`, `pCommandInfos->srcInfosCount` and `pCommandInfos->addressResolutionFlags` are queried **must** have been created with the `VK_BUFFER_USAGE_ACCELERATION_STRUCTURE_BUILD_INPUT_READ_ONLY_BIT_KHR` usage flag
+  The buffers from which the buffer device addresses for `pCommandInfos->srcInfosArray` and `pCommandInfos->srcInfosCount` are queried **must** have been created with the `VK_BUFFER_USAGE_ACCELERATION_STRUCTURE_BUILD_INPUT_READ_ONLY_BIT_KHR` usage flag
 - [](#VUID-vkCmdBuildClusterAccelerationStructureIndirectNV-pCommandInfos-10459)VUID-vkCmdBuildClusterAccelerationStructureIndirectNV-pCommandInfos-10459  
   The buffers from which the buffer device addresses for `pCommandInfos->dstImplicitData` and `pCommandInfos->dstAddressesArray` are queried **must** have been created with the `VK_BUFFER_USAGE_ACCELERATION_STRUCTURE_STORAGE_BIT_KHR` usage flag
 
@@ -78,7 +78,7 @@ Valid Usage (Implicit)
 - [](#VUID-vkCmdBuildClusterAccelerationStructureIndirectNV-commandBuffer-recording)VUID-vkCmdBuildClusterAccelerationStructureIndirectNV-commandBuffer-recording  
   `commandBuffer` **must** be in the [recording state](#commandbuffers-lifecycle)
 - [](#VUID-vkCmdBuildClusterAccelerationStructureIndirectNV-commandBuffer-cmdpool)VUID-vkCmdBuildClusterAccelerationStructureIndirectNV-commandBuffer-cmdpool  
-  The `VkCommandPool` that `commandBuffer` was allocated from **must** support compute operations
+  The `VkCommandPool` that `commandBuffer` was allocated from **must** support VK\_QUEUE\_COMPUTE\_BIT operations
 - [](#VUID-vkCmdBuildClusterAccelerationStructureIndirectNV-renderpass)VUID-vkCmdBuildClusterAccelerationStructureIndirectNV-renderpass  
   This command **must** only be called outside of a render pass instance
 - [](#VUID-vkCmdBuildClusterAccelerationStructureIndirectNV-videocoding)VUID-vkCmdBuildClusterAccelerationStructureIndirectNV-videocoding  
@@ -100,7 +100,7 @@ Outside
 
 Outside
 
-Compute
+VK\_QUEUE\_COMPUTE\_BIT
 
 Action
 

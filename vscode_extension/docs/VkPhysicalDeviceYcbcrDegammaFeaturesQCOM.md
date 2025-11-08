@@ -25,7 +25,7 @@ This structure describes the following features:
 
 - `sType` is a [VkStructureType](https://registry.khronos.org/vulkan/specs/latest/man/html/VkStructureType.html) value identifying this structure.
 - `pNext` is `NULL` or a pointer to a structure extending this structure.
-- []()`ycbcrDegamma` indicates whether the implementation supports [Y′CBCR degamma](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#textures-ycbcr-degamma).
+- []()`ycbcrDegamma` indicates whether the implementation supports [Y′CBCR degamma](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#textures-YCbCr-degamma).
 
 ## [](#_description)Description
 

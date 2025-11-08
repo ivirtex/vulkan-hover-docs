@@ -28,6 +28,10 @@ Not ratified
 or  
 [Vulkan Version 1.2](#versions-1.2)
 
+## [](#_deprecation_state)Deprecation State
+
+- *Promoted* to [VK\_KHR\_copy\_memory\_indirect](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_KHR_copy_memory_indirect.html) extension
+
 ## [](#_contact)Contact
 
 - Vikram Kushwaha [\[GitHub\]vkushwaha-nv](https://github.com/KhronosGroup/Vulkan-Docs/issues/new?body=%5BVK_NV_copy_memory_indirect%5D%20%40vkushwaha-nv%0A%2AHere%20describe%20the%20issue%20or%20question%20you%20have%20about%20the%20VK_NV_copy_memory_indirect%20extension%2A)

@@ -139,7 +139,7 @@ Valid Usage
 - [](#VUID-vkCmdWaitEvents-srcStageMask-01158)VUID-vkCmdWaitEvents-srcStageMask-01158  
   `srcStageMask` **must** be the bitwise OR of the `stageMask` parameter used in previous calls to `vkCmdSetEvent` with any of the elements of `pEvents` and `VK_PIPELINE_STAGE_HOST_BIT` if any of the elements of `pEvents` was set using `vkSetEvent`
 - [](#VUID-vkCmdWaitEvents-srcStageMask-07308)VUID-vkCmdWaitEvents-srcStageMask-07308  
-  If `vkCmdWaitEvents` is being called inside a render pass instance, `srcStageMask` **must** not include `VK_PIPELINE_STAGE_HOST_BIT`
+  If this command is called inside a render pass instance, `srcStageMask` **must** not include `VK_PIPELINE_STAGE_HOST_BIT`
 - [](#VUID-vkCmdWaitEvents-srcQueueFamilyIndex-02803)VUID-vkCmdWaitEvents-srcQueueFamilyIndex-02803  
   The `srcQueueFamilyIndex` and `dstQueueFamilyIndex` members of any element of `pBufferMemoryBarriers` or `pImageMemoryBarriers` **must** be equal
 - [](#VUID-vkCmdWaitEvents-commandBuffer-01167)VUID-vkCmdWaitEvents-commandBuffer-01167  
@@ -168,7 +168,7 @@ Valid Usage (Implicit)
 - [](#VUID-vkCmdWaitEvents-commandBuffer-recording)VUID-vkCmdWaitEvents-commandBuffer-recording  
   `commandBuffer` **must** be in the [recording state](#commandbuffers-lifecycle)
 - [](#VUID-vkCmdWaitEvents-commandBuffer-cmdpool)VUID-vkCmdWaitEvents-commandBuffer-cmdpool  
-  The `VkCommandPool` that `commandBuffer` was allocated from **must** support graphics, compute, decode, or encode operations
+  The `VkCommandPool` that `commandBuffer` was allocated from **must** support VK\_QUEUE\_COMPUTE\_BIT, VK\_QUEUE\_GRAPHICS\_BIT, VK\_QUEUE\_VIDEO\_DECODE\_BIT\_KHR, or VK\_QUEUE\_VIDEO\_ENCODE\_BIT\_KHR operations
 - [](#VUID-vkCmdWaitEvents-eventCount-arraylength)VUID-vkCmdWaitEvents-eventCount-arraylength  
   `eventCount` **must** be greater than `0`
 - [](#VUID-vkCmdWaitEvents-commonparent)VUID-vkCmdWaitEvents-commonparent  
@@ -190,10 +190,10 @@ Both
 
 Both
 
-Graphics  
-Compute  
-Decode  
-Encode
+VK\_QUEUE\_COMPUTE\_BIT  
+VK\_QUEUE\_GRAPHICS\_BIT  
+VK\_QUEUE\_VIDEO\_DECODE\_BIT\_KHR  
+VK\_QUEUE\_VIDEO\_ENCODE\_BIT\_KHR
 
 Synchronization
 

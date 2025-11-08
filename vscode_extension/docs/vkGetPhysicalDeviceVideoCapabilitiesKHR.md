@@ -48,6 +48,8 @@ Valid Usage
   If `pVideoProfile->videoCodecOperation` is `VK_VIDEO_CODEC_OPERATION_ENCODE_H265_BIT_KHR`, then the `pNext` chain of `pCapabilities` **must** include a [VkVideoEncodeH265CapabilitiesKHR](https://registry.khronos.org/vulkan/specs/latest/man/html/VkVideoEncodeH265CapabilitiesKHR.html) structure
 - [](#VUID-vkGetPhysicalDeviceVideoCapabilitiesKHR-pVideoProfile-10263)VUID-vkGetPhysicalDeviceVideoCapabilitiesKHR-pVideoProfile-10263  
   If `pVideoProfile->videoCodecOperation` is `VK_VIDEO_CODEC_OPERATION_ENCODE_AV1_BIT_KHR`, then the `pNext` chain of `pCapabilities` **must** include a [VkVideoEncodeAV1CapabilitiesKHR](https://registry.khronos.org/vulkan/specs/latest/man/html/VkVideoEncodeAV1CapabilitiesKHR.html) structure
+- [](#VUID-vkGetPhysicalDeviceVideoCapabilitiesKHR-pNext-10921)VUID-vkGetPhysicalDeviceVideoCapabilitiesKHR-pNext-10921  
+  If the `pNext` chain of `pVideoProfile` includes a [VkVideoEncodeProfileRgbConversionInfoVALVE](https://registry.khronos.org/vulkan/specs/latest/man/html/VkVideoEncodeProfileRgbConversionInfoVALVE.html) structure, then the [`videoEncodeRgbConversion`](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#features-videoEncodeRgbConversion) feature **must** be supported
 
 Valid Usage (Implicit)
 

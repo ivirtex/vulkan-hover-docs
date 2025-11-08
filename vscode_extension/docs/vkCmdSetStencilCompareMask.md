@@ -39,7 +39,7 @@ Valid Usage (Implicit)
 - [](#VUID-vkCmdSetStencilCompareMask-commandBuffer-recording)VUID-vkCmdSetStencilCompareMask-commandBuffer-recording  
   `commandBuffer` **must** be in the [recording state](#commandbuffers-lifecycle)
 - [](#VUID-vkCmdSetStencilCompareMask-commandBuffer-cmdpool)VUID-vkCmdSetStencilCompareMask-commandBuffer-cmdpool  
-  The `VkCommandPool` that `commandBuffer` was allocated from **must** support graphics operations
+  The `VkCommandPool` that `commandBuffer` was allocated from **must** support VK\_QUEUE\_GRAPHICS\_BIT operations
 - [](#VUID-vkCmdSetStencilCompareMask-videocoding)VUID-vkCmdSetStencilCompareMask-videocoding  
   This command **must** only be called outside of a video coding scope
 
@@ -59,7 +59,7 @@ Both
 
 Outside
 
-Graphics
+VK\_QUEUE\_GRAPHICS\_BIT
 
 State
 

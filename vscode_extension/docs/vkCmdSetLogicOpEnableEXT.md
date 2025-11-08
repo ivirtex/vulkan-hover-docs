@@ -43,7 +43,7 @@ Valid Usage (Implicit)
 - [](#VUID-vkCmdSetLogicOpEnableEXT-commandBuffer-recording)VUID-vkCmdSetLogicOpEnableEXT-commandBuffer-recording  
   `commandBuffer` **must** be in the [recording state](#commandbuffers-lifecycle)
 - [](#VUID-vkCmdSetLogicOpEnableEXT-commandBuffer-cmdpool)VUID-vkCmdSetLogicOpEnableEXT-commandBuffer-cmdpool  
-  The `VkCommandPool` that `commandBuffer` was allocated from **must** support graphics operations
+  The `VkCommandPool` that `commandBuffer` was allocated from **must** support VK\_QUEUE\_GRAPHICS\_BIT operations
 - [](#VUID-vkCmdSetLogicOpEnableEXT-videocoding)VUID-vkCmdSetLogicOpEnableEXT-videocoding  
   This command **must** only be called outside of a video coding scope
 
@@ -63,7 +63,7 @@ Both
 
 Outside
 
-Graphics
+VK\_QUEUE\_GRAPHICS\_BIT
 
 State
 

@@ -85,6 +85,8 @@ Valid Usage
   If the `pNext` chain includes a [VkVideoProfileListInfoKHR](https://registry.khronos.org/vulkan/specs/latest/man/html/VkVideoProfileListInfoKHR.html) structure and for any element of its `pProfiles` member `videoCodecOperation` is `VK_VIDEO_CODEC_OPERATION_DECODE_VP9_BIT_KHR`, then the [`videoDecodeVP9`](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#features-videoDecodeVP9) feature **must** be enabled
 - [](#VUID-VkBufferCreateInfo-pNext-10249)VUID-VkBufferCreateInfo-pNext-10249  
   If the `pNext` chain includes a [VkVideoProfileListInfoKHR](https://registry.khronos.org/vulkan/specs/latest/man/html/VkVideoProfileListInfoKHR.html) structure and for any element of its `pProfiles` member `videoCodecOperation` is `VK_VIDEO_CODEC_OPERATION_ENCODE_AV1_BIT_KHR`, then the [`videoEncodeAV1`](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#features-videoEncodeAV1) feature **must** be enabled
+- [](#VUID-VkBufferCreateInfo-pNext-10919)VUID-VkBufferCreateInfo-pNext-10919  
+  If the `pNext` chain includes a [VkVideoEncodeProfileRgbConversionInfoVALVE](https://registry.khronos.org/vulkan/specs/latest/man/html/VkVideoEncodeProfileRgbConversionInfoVALVE.html) structure, then the [`videoEncodeRgbConversion`](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#features-videoEncodeRgbConversion) feature **must** be enabled
 - [](#VUID-VkBufferCreateInfo-size-06409)VUID-VkBufferCreateInfo-size-06409  
   `size` **must** be less than or equal to [VkPhysicalDeviceMaintenance4Properties](https://registry.khronos.org/vulkan/specs/latest/man/html/VkPhysicalDeviceMaintenance4Properties.html)::`maxBufferSize`
 - [](#VUID-VkBufferCreateInfo-usage-08097)VUID-VkBufferCreateInfo-usage-08097  

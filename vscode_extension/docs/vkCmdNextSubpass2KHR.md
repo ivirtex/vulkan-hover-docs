@@ -60,7 +60,7 @@ Valid Usage (Implicit)
 - [](#VUID-vkCmdNextSubpass2-commandBuffer-recording)VUID-vkCmdNextSubpass2-commandBuffer-recording  
   `commandBuffer` **must** be in the [recording state](#commandbuffers-lifecycle)
 - [](#VUID-vkCmdNextSubpass2-commandBuffer-cmdpool)VUID-vkCmdNextSubpass2-commandBuffer-cmdpool  
-  The `VkCommandPool` that `commandBuffer` was allocated from **must** support graphics operations
+  The `VkCommandPool` that `commandBuffer` was allocated from **must** support VK\_QUEUE\_GRAPHICS\_BIT operations
 - [](#VUID-vkCmdNextSubpass2-renderpass)VUID-vkCmdNextSubpass2-renderpass  
   This command **must** only be called inside of a render pass instance
 - [](#VUID-vkCmdNextSubpass2-videocoding)VUID-vkCmdNextSubpass2-videocoding  
@@ -83,7 +83,7 @@ Inside
 
 Outside
 
-Graphics
+VK\_QUEUE\_GRAPHICS\_BIT
 
 Action  
 State  

@@ -42,8 +42,6 @@ Valid Usage (Implicit)
   `sType` **must** be `VK_STRUCTURE_TYPE_PIPELINE_CREATE_FLAGS_2_CREATE_INFO`
 - [](#VUID-VkPipelineCreateFlags2CreateInfo-flags-parameter)VUID-VkPipelineCreateFlags2CreateInfo-flags-parameter  
   `flags` **must** be a valid combination of [VkPipelineCreateFlagBits2](https://registry.khronos.org/vulkan/specs/latest/man/html/VkPipelineCreateFlagBits2.html) values
-- [](#VUID-VkPipelineCreateFlags2CreateInfo-flags-requiredbitmask)VUID-VkPipelineCreateFlags2CreateInfo-flags-requiredbitmask  
-  `flags` **must** not be `0`
 
 ## [](#_see_also)See Also
 

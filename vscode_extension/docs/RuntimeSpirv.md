@@ -345,7 +345,7 @@ Valid Usage
   If [`storagePushConstant8`](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#features-storagePushConstant8) is `VK_FALSE`, then objects containing an 8-bit integer element **must** not have `Storage` `Class` of `PushConstant` unless [`shaderUntypedPointers`](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#features-shaderUntypedPointers) is `VK_TRUE` and they are accessed in:
   
   - 32-bit multiples, or
-  - 16-bit multiples if &lt;features-storagePushConstant16, `storagePushConstant16`&gt;&gt; is `VK_TRUE`.
+  - 16-bit multiples if [`storagePushConstant16`](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#features-storagePushConstant16) is `VK_TRUE`.
 - [](#VUID-RuntimeSpirv-workgroupMemoryExplicitLayout8BitAccess-10756)VUID-RuntimeSpirv-workgroupMemoryExplicitLayout8BitAccess-10756  
   If [`workgroupMemoryExplicitLayout8BitAccess`](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#features-workgroupMemoryExplicitLayout8BitAccess) is `VK_FALSE`, then objects in the `Workgroup` `Storage` `Class` with the `Block` decoration **must** not have an 8-bit integer element unless [`shaderUntypedPointers`](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#features-shaderUntypedPointers) is `VK_TRUE` and they are accessed in:
   
@@ -586,6 +586,8 @@ Valid Usage
   In mesh shaders using the `MeshEXT` or `MeshNV` `Execution` `Model` and the `OutputPoints` `Execution` `Mode`, if the [`maintenance5`](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#features-maintenance5) feature is not enabled, and if the number of output points is greater than 0, a `PointSize` decorated variable **must** be written to for each output point
 - [](#VUID-RuntimeSpirv-maintenance5-09190)VUID-RuntimeSpirv-maintenance5-09190  
   If the [`maintenance5`](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#features-maintenance5) feature is enabled and a `PointSize` decorated variable is written to, all execution paths **must** write to a `PointSize` decorated variable
+- [](#VUID-RuntimeSpirv-maintenance5-10934)VUID-RuntimeSpirv-maintenance5-10934  
+  If the [`maintenance5`](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#features-maintenance5) feature is enabled and a `PointSize` decorated variable is written to for any output vertex in the `Geometry` `Execution` `Model`, all execution paths for all output vertices **must** write to a `PointSize` decorated variable
 - [](#VUID-RuntimeSpirv-ShaderEnqueueAMDX-09191)VUID-RuntimeSpirv-ShaderEnqueueAMDX-09191  
   The `ShaderEnqueueAMDX` capability **must** only be used in shaders with the `GLCompute` or `MeshEXT` execution model
 - [](#VUID-RuntimeSpirv-NodePayloadAMDX-09192)VUID-RuntimeSpirv-NodePayloadAMDX-09192  

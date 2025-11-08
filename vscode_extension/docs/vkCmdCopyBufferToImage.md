@@ -171,7 +171,7 @@ Valid Usage (Implicit)
 - [](#VUID-vkCmdCopyBufferToImage-commandBuffer-recording)VUID-vkCmdCopyBufferToImage-commandBuffer-recording  
   `commandBuffer` **must** be in the [recording state](#commandbuffers-lifecycle)
 - [](#VUID-vkCmdCopyBufferToImage-commandBuffer-cmdpool)VUID-vkCmdCopyBufferToImage-commandBuffer-cmdpool  
-  The `VkCommandPool` that `commandBuffer` was allocated from **must** support transfer, graphics, or compute operations
+  The `VkCommandPool` that `commandBuffer` was allocated from **must** support VK\_QUEUE\_COMPUTE\_BIT, VK\_QUEUE\_GRAPHICS\_BIT, or VK\_QUEUE\_TRANSFER\_BIT operations
 - [](#VUID-vkCmdCopyBufferToImage-renderpass)VUID-vkCmdCopyBufferToImage-renderpass  
   This command **must** only be called outside of a render pass instance
 - [](#VUID-vkCmdCopyBufferToImage-videocoding)VUID-vkCmdCopyBufferToImage-videocoding  
@@ -197,9 +197,9 @@ Outside
 
 Outside
 
-Transfer  
-Graphics  
-Compute
+VK\_QUEUE\_COMPUTE\_BIT  
+VK\_QUEUE\_GRAPHICS\_BIT  
+VK\_QUEUE\_TRANSFER\_BIT
 
 Action
 

@@ -50,7 +50,7 @@ Valid Usage (Implicit)
 - [](#VUID-vkCmdUpdatePipelineIndirectBufferNV-commandBuffer-recording)VUID-vkCmdUpdatePipelineIndirectBufferNV-commandBuffer-recording  
   `commandBuffer` **must** be in the [recording state](#commandbuffers-lifecycle)
 - [](#VUID-vkCmdUpdatePipelineIndirectBufferNV-commandBuffer-cmdpool)VUID-vkCmdUpdatePipelineIndirectBufferNV-commandBuffer-cmdpool  
-  The `VkCommandPool` that `commandBuffer` was allocated from **must** support transfer, graphics, or compute operations
+  The `VkCommandPool` that `commandBuffer` was allocated from **must** support VK\_QUEUE\_COMPUTE\_BIT, VK\_QUEUE\_GRAPHICS\_BIT, or VK\_QUEUE\_TRANSFER\_BIT operations
 - [](#VUID-vkCmdUpdatePipelineIndirectBufferNV-renderpass)VUID-vkCmdUpdatePipelineIndirectBufferNV-renderpass  
   This command **must** only be called outside of a render pass instance
 - [](#VUID-vkCmdUpdatePipelineIndirectBufferNV-videocoding)VUID-vkCmdUpdatePipelineIndirectBufferNV-videocoding  
@@ -74,9 +74,9 @@ Outside
 
 Outside
 
-Transfer  
-Graphics  
-Compute
+VK\_QUEUE\_COMPUTE\_BIT  
+VK\_QUEUE\_GRAPHICS\_BIT  
+VK\_QUEUE\_TRANSFER\_BIT
 
 Action
 

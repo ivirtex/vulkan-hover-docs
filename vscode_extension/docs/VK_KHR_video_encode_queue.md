@@ -228,7 +228,7 @@ If [VK\_KHR\_format\_feature\_flags2](https://registry.khronos.org/vulkan/specs/
   - Replace `VK_QUERY_TYPE_VIDEO_ENCODE_BITSTREAM_BUFFER_RANGE_KHR` queries with more generic `VK_QUERY_TYPE_VIDEO_ENCODE_FEEDBACK_KHR` queries that can be extended in the future with more feedback values
   - Rename `dstBitstreamBuffer`, `dstBitstreamBufferOffset`, and `dstBitstreamBufferMaxRange` in `VkVideoEncodeInfoKHR` to `dstBuffer`, `dstBufferOffset`, and `dstBufferRange`, respectively, for consistency with the naming convention in the video decode extensions
   - Change the type of `rateControlLayerCount` and `qualityLevelCount` in `VkVideoEncodeCapabilitiesKHR` from `uint8_t` to `uint32_t` and rename them to `maxRateControlLayers` and `maxQualityLevels`, respectively
-  - Change the type of `averageBitrate` and `maxBitrate` in ``VkVideoEncodeRateControlLayerInfoKHR` `` from `uint32_t` to `uint64_t`
+  - Change the type of `averageBitrate` and `maxBitrate` in `VkVideoEncodeRateControlLayerInfoKHR` from `uint32_t` to `uint64_t`
   - Fixed the definition of rate control flag bits and added the new `VK_VIDEO_ENCODE_RATE_CONTROL_MODE_DEFAULT_KHR` constant to indicate implementation-specific automatic rate control
   - Change the type of `VkVideoEncodeRateControlInfoKHR::layerCount` from `uint8_t` to `uint32_t`
   - Rename `pLayerConfigs` to `pLayers` in `VkVideoEncodeRateControlInfoKHR`

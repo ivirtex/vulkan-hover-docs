@@ -2,7 +2,7 @@
   "name": "vulkan-hover-docs",
   "displayName": "Vulkan Hover Docs",
   "description": "Vulkan API documentation on hover",
-  "version": "1.6.0",
+  "version": "1.7.0",
   "repository": {
     "url": "https://github.com/ivirtex/vulkan-hover-docs"
   },

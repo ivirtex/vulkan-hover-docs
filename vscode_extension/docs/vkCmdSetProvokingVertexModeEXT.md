@@ -45,7 +45,7 @@ Valid Usage (Implicit)
 - [](#VUID-vkCmdSetProvokingVertexModeEXT-commandBuffer-recording)VUID-vkCmdSetProvokingVertexModeEXT-commandBuffer-recording  
   `commandBuffer` **must** be in the [recording state](#commandbuffers-lifecycle)
 - [](#VUID-vkCmdSetProvokingVertexModeEXT-commandBuffer-cmdpool)VUID-vkCmdSetProvokingVertexModeEXT-commandBuffer-cmdpool  
-  The `VkCommandPool` that `commandBuffer` was allocated from **must** support graphics operations
+  The `VkCommandPool` that `commandBuffer` was allocated from **must** support VK\_QUEUE\_GRAPHICS\_BIT operations
 - [](#VUID-vkCmdSetProvokingVertexModeEXT-videocoding)VUID-vkCmdSetProvokingVertexModeEXT-videocoding  
   This command **must** only be called outside of a video coding scope
 
@@ -65,7 +65,7 @@ Both
 
 Outside
 
-Graphics
+VK\_QUEUE\_GRAPHICS\_BIT
 
 State
 

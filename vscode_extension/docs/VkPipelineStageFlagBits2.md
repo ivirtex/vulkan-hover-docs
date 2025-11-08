@@ -145,6 +145,8 @@ static const VkPipelineStageFlagBits2 VK_PIPELINE_STAGE_2_OPTICAL_FLOW_BIT_NV = 
 static const VkPipelineStageFlagBits2 VK_PIPELINE_STAGE_2_CONVERT_COOPERATIVE_VECTOR_MATRIX_BIT_NV = 0x100000000000ULL;
 // Provided by VK_ARM_data_graph
 static const VkPipelineStageFlagBits2 VK_PIPELINE_STAGE_2_DATA_GRAPH_BIT_ARM = 0x40000000000ULL;
+// Provided by VK_KHR_copy_memory_indirect
+static const VkPipelineStageFlagBits2 VK_PIPELINE_STAGE_2_COPY_INDIRECT_BIT_KHR = 0x400000000000ULL;
 ```
 
 or the equivalent
@@ -202,6 +204,7 @@ typedef VkPipelineStageFlagBits2 VkPipelineStageFlagBits2KHR;
 - `VK_PIPELINE_STAGE_2_ALL_GRAPHICS_BIT` specifies the execution of all graphics pipeline stages, and is equivalent to the logical OR of:
   
   - `VK_PIPELINE_STAGE_2_DRAW_INDIRECT_BIT`
+  - `VK_PIPELINE_STAGE_2_COPY_INDIRECT_BIT_KHR`
   - `VK_PIPELINE_STAGE_2_TASK_SHADER_BIT_EXT`
   - `VK_PIPELINE_STAGE_2_MESH_SHADER_BIT_EXT`
   - `VK_PIPELINE_STAGE_2_VERTEX_INPUT_BIT`
@@ -235,6 +238,7 @@ typedef VkPipelineStageFlagBits2 VkPipelineStageFlagBits2KHR;
 - `VK_PIPELINE_STAGE_2_MICROMAP_BUILD_BIT_EXT` specifies the execution of [micromap commands](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#micromap).
 - `VK_PIPELINE_STAGE_2_CLUSTER_CULLING_SHADER_BIT_HUAWEI` specifies the cluster culling shader stage.
 - `VK_PIPELINE_STAGE_2_CONVERT_COOPERATIVE_VECTOR_MATRIX_BIT_NV` specifies the execution of [vkCmdConvertCooperativeVectorMatrixNV](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdConvertCooperativeVectorMatrixNV.html).
+- `VK_PIPELINE_STAGE_2_COPY_INDIRECT_BIT_KHR` specifies the stage of the pipeline where indirect copy commands (vkCmdCopyMemoryIndirect* and vkCmdCopyMemoryToImageIndirect\*) parameters are consumed.
 - `VK_PIPELINE_STAGE_2_TOP_OF_PIPE_BIT` is equivalent to `VK_PIPELINE_STAGE_2_ALL_COMMANDS_BIT` with [VkAccessFlags2](https://registry.khronos.org/vulkan/specs/latest/man/html/VkAccessFlags2.html) set to `0` when specified in the second synchronization scope, but equivalent to `VK_PIPELINE_STAGE_2_NONE` in the first scope.
 - `VK_PIPELINE_STAGE_2_BOTTOM_OF_PIPE_BIT` is equivalent to `VK_PIPELINE_STAGE_2_ALL_COMMANDS_BIT` with [VkAccessFlags2](https://registry.khronos.org/vulkan/specs/latest/man/html/VkAccessFlags2.html) set to `0` when specified in the first synchronization scope, but equivalent to `VK_PIPELINE_STAGE_2_NONE` in the second scope.
 

@@ -35,7 +35,7 @@ Valid Usage (Implicit)
 - [](#VUID-vkCmdCudaLaunchKernelNV-commandBuffer-recording)VUID-vkCmdCudaLaunchKernelNV-commandBuffer-recording  
   `commandBuffer` **must** be in the [recording state](#commandbuffers-lifecycle)
 - [](#VUID-vkCmdCudaLaunchKernelNV-commandBuffer-cmdpool)VUID-vkCmdCudaLaunchKernelNV-commandBuffer-cmdpool  
-  The `VkCommandPool` that `commandBuffer` was allocated from **must** support graphics, or compute operations
+  The `VkCommandPool` that `commandBuffer` was allocated from **must** support VK\_QUEUE\_COMPUTE\_BIT, or VK\_QUEUE\_GRAPHICS\_BIT operations
 - [](#VUID-vkCmdCudaLaunchKernelNV-videocoding)VUID-vkCmdCudaLaunchKernelNV-videocoding  
   This command **must** only be called outside of a video coding scope
 
@@ -54,8 +54,8 @@ Both
 
 Outside
 
-Graphics  
-Compute
+VK\_QUEUE\_COMPUTE\_BIT  
+VK\_QUEUE\_GRAPHICS\_BIT
 
 Action
 

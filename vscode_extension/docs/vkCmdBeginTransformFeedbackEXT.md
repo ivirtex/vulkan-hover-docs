@@ -70,7 +70,7 @@ Valid Usage (Implicit)
 - [](#VUID-vkCmdBeginTransformFeedbackEXT-commandBuffer-recording)VUID-vkCmdBeginTransformFeedbackEXT-commandBuffer-recording  
   `commandBuffer` **must** be in the [recording state](#commandbuffers-lifecycle)
 - [](#VUID-vkCmdBeginTransformFeedbackEXT-commandBuffer-cmdpool)VUID-vkCmdBeginTransformFeedbackEXT-commandBuffer-cmdpool  
-  The `VkCommandPool` that `commandBuffer` was allocated from **must** support graphics operations
+  The `VkCommandPool` that `commandBuffer` was allocated from **must** support VK\_QUEUE\_GRAPHICS\_BIT operations
 - [](#VUID-vkCmdBeginTransformFeedbackEXT-renderpass)VUID-vkCmdBeginTransformFeedbackEXT-renderpass  
   This command **must** only be called inside of a render pass instance
 - [](#VUID-vkCmdBeginTransformFeedbackEXT-videocoding)VUID-vkCmdBeginTransformFeedbackEXT-videocoding  
@@ -94,7 +94,7 @@ Inside
 
 Outside
 
-Graphics
+VK\_QUEUE\_GRAPHICS\_BIT
 
 State
 

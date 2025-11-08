@@ -87,6 +87,8 @@ Valid Usage
 
 - [](#VUID-vkGetPhysicalDeviceVideoFormatPropertiesKHR-pNext-06812)VUID-vkGetPhysicalDeviceVideoFormatPropertiesKHR-pNext-06812  
   The `pNext` chain of `pVideoFormatInfo` **must** include a [VkVideoProfileListInfoKHR](https://registry.khronos.org/vulkan/specs/latest/man/html/VkVideoProfileListInfoKHR.html) structure with `profileCount` greater than `0`
+- [](#VUID-vkGetPhysicalDeviceVideoFormatPropertiesKHR-pNext-10922)VUID-vkGetPhysicalDeviceVideoFormatPropertiesKHR-pNext-10922  
+  If the `pNext` chain of `pVideoFormatInfo` includes a [VkVideoEncodeProfileRgbConversionInfoVALVE](https://registry.khronos.org/vulkan/specs/latest/man/html/VkVideoEncodeProfileRgbConversionInfoVALVE.html) structure, then the [`videoEncodeRgbConversion`](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#features-videoEncodeRgbConversion) feature **must** be supported
 
 Valid Usage (Implicit)
 

@@ -60,7 +60,7 @@ Valid Usage (Implicit)
 - [](#VUID-vkCmdSetLineStipple-commandBuffer-recording)VUID-vkCmdSetLineStipple-commandBuffer-recording  
   `commandBuffer` **must** be in the [recording state](#commandbuffers-lifecycle)
 - [](#VUID-vkCmdSetLineStipple-commandBuffer-cmdpool)VUID-vkCmdSetLineStipple-commandBuffer-cmdpool  
-  The `VkCommandPool` that `commandBuffer` was allocated from **must** support graphics operations
+  The `VkCommandPool` that `commandBuffer` was allocated from **must** support VK\_QUEUE\_GRAPHICS\_BIT operations
 - [](#VUID-vkCmdSetLineStipple-videocoding)VUID-vkCmdSetLineStipple-videocoding  
   This command **must** only be called outside of a video coding scope
 
@@ -80,7 +80,7 @@ Both
 
 Outside
 
-Graphics
+VK\_QUEUE\_GRAPHICS\_BIT
 
 State
 

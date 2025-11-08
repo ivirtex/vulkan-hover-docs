@@ -53,7 +53,7 @@ Valid Usage (Implicit)
 - [](#VUID-vkCmdResolveImage2-commandBuffer-recording)VUID-vkCmdResolveImage2-commandBuffer-recording  
   `commandBuffer` **must** be in the [recording state](#commandbuffers-lifecycle)
 - [](#VUID-vkCmdResolveImage2-commandBuffer-cmdpool)VUID-vkCmdResolveImage2-commandBuffer-cmdpool  
-  The `VkCommandPool` that `commandBuffer` was allocated from **must** support graphics operations
+  The `VkCommandPool` that `commandBuffer` was allocated from **must** support VK\_QUEUE\_GRAPHICS\_BIT operations
 - [](#VUID-vkCmdResolveImage2-renderpass)VUID-vkCmdResolveImage2-renderpass  
   This command **must** only be called outside of a render pass instance
 - [](#VUID-vkCmdResolveImage2-videocoding)VUID-vkCmdResolveImage2-videocoding  
@@ -75,7 +75,7 @@ Outside
 
 Outside
 
-Graphics
+VK\_QUEUE\_GRAPHICS\_BIT
 
 Action
 
